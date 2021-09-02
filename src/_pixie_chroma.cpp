@@ -253,7 +253,7 @@ void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
 }
 
 void PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos){
-	//Serial.print(" X POS: ");
+	//Serial.print(" X POS: ");  // KILL?
 	//Serial.print(x_pos);
 	//Serial.print(" CHAR: ");
 	//Serial.print(chr);
@@ -601,7 +601,7 @@ uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
 }
 
 void PixieChroma::color(CRGB col){
-	/*
+	/*  // KILL?
 	float sum = 0;
 	sum += col.r;
 	sum += col.g;
@@ -823,7 +823,7 @@ void PixieChroma::show(){
 					leds_out[i+6].g = gamma8[leds_out[i+6].g];
 					leds_out[i+6].b = gamma8[leds_out[i+6].b];
 					
-					/*
+					/*  // KILL?
 					leds_out[i+0] = applyGamma_video(leds_out[i+0], 2.5); // LUT for gamma is faster than runtime math
 					leds_out[i+1] = applyGamma_video(leds_out[i+1], 2.5);
 					leds_out[i+2] = applyGamma_video(leds_out[i+2], 2.5);
@@ -857,7 +857,7 @@ void PixieChroma::build_controller(const uint8_t pin){
 	// define non-existent pins either.
 	
 	#ifdef ESP8266
-		//*((volatile uint32_t*) 0x60000900) &= ~(1); // Hardware WDT OFF, causes flicker on first LED. (Temporary fix)
+		//*((volatile uint32_t*) 0x60000900) &= ~(1); // Hardware WDT OFF, causes flicker on first LED. (Temporary fix)  // KILL?
 		//ESP.wdtDisable();                           // Software too. Sorry.
 		if (pin == 0){FastLED.addLeds<WS2812B, 0, GRB>(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}
 		if (pin == 1){FastLED.addLeds<WS2812B, 1, GRB>(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}
@@ -922,7 +922,7 @@ void PixieChroma::start_animation(){
 }
 
 void PixieChroma::calc_xy(){
-  // Initialize table
+  // Initialize XY table
 	for(uint16_t yi = 0; yi < chars_y; yi++){
 		for(uint16_t y = 0; y < 11; y++){
 			for(uint16_t xi = 0; xi < chars_x; xi++){
