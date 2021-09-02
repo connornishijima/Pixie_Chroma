@@ -90,36 +90,4 @@ const uint8_t GRADIENT_BLACK_BLUE_BLACK[] = {
 	255,	0,		0,		0,
 };
 
-/*
-0xFF0000,
-0xD52A00,
-0xAB5500,
-0xAB7F00,
-0xABAB00,
-0x56D500,
-0x00FF00,
-0x00D52A,
-0x00AB55,
-0x0056AA,
-0x0000FF,
-0x2A00D5,
-0x5500AB,
-0x7F0081,
-0xAB0055,
-0xD5002B
-*/
-
-/*
-const uint8_t GRADIENT_PURPLE[] = {
-	0,		32,		0,		64,
-	255,	127,	0,		255,
-};
-
-const uint8_t GRADIENT_BLACK_PURPLE_BLACK[] = {
-	0,		0,		0,		0,
-	127,	127,	0,		255,
-	255,	0,		0,		0,
-};
-*/
-
 #endif
