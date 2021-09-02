@@ -20,7 +20,7 @@
                              ██      ██   ██ ██   ██ ██    ██ ██  ██  ██ ██   ██ 
                               ██████ ██   ██ ██   ██  ██████  ██      ██ ██   ██
    
-                                              by @LixieLabs
+                                                by @LixieLabs
 
     ----------------------------------------------------------------------------------------------------
 
@@ -39,12 +39,12 @@
 	// when used with networking, so we fix that here.
 	#include <Ticker.h>// ESP ONLY
 	#define FASTLED_ESP8266_RAW_PIN_ORDER
-	//#define FASTLED_ALLOW_INTERRUPTS 0
-	//#define FASTLED_INTERRUPT_RETRY_COUNT0
+	//#define FASTLED_ALLOW_INTERRUPTS 0 // KILL?
+	//#define FASTLED_INTERRUPT_RETRY_COUNT 0 // KILL?
 #endif
 
 #define FASTLED_INTERNAL // As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.
-#include "FastLED.h"     // Apart from some issues, it's my tool of choice for WS2812B/compatibles
+#include "FastLED.h"     // Apart from some issues, it's my tool of choice for WS2812B/compatibles because it's actually amazingly useful
 
 #include "utility/_pixie_palettes.h" // ----- Color Palettes
 #include "utility/_pixie_font.h" // --------- ASCII font
