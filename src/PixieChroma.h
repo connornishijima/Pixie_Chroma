@@ -1,3 +1,37 @@
+/*
+
+     ██  ██  ██  ██        ██  ██  ██  	  ██              ██	    ██  ██  ██  	██  ██  ██  ██  ██	
+  
+     ██              ██        ██     	  ██              ██	        ██      	██  	
+  
+     ██              ██        ██     	      ██      ██    	        ██      	██  	
+  
+     ██  ██  ██  ██  	       ██     	          ██        	        ██      	██  ██  ██  ██  ██	
+  
+     ██              	       ██     	      ██      ██    	        ██      	██  	
+  
+     ██              	       ██      	  ██              ██	        ██      	██  
+  
+     ██              	   ██  ██  ██  	  ██              ██	    ██  ██  ██    	██  ██  ██  ██  ██	
+  
+                       ██████ ██   ██ ██████   ██████  ███    ███  █████  
+                      ██      ██   ██ ██   ██ ██    ██ ████  ████ ██   ██ 
+                      ██      ███████ ██████  ██    ██ ██ ████ ██ ███████ 
+                      ██      ██   ██ ██   ██ ██    ██ ██  ██  ██ ██   ██ 
+                       ██████ ██   ██ ██   ██  ██████  ██      ██ ██   ██
+					   
+					                     by @LixieLabs
+
+	--------------------------------------------------------------------------------------------------
+
+	Welcome to the source code of the Pixie Chroma library!
+
+	"PixieChroma.h" is the main file, which loads all others, including
+	the _pixie_chroma.h/.cpp that contain the PixieChroma class definitions.
+
+	--------------------------------------------------------------------------------------------------
+*/
+
 #include "Arduino.h" // Needed for things like uint8_t typedefs
 
 #if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
