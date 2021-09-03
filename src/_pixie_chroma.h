@@ -13,93 +13,103 @@ class PixieChroma{
 		// Constructor
 		PixieChroma();
 		
-		// Functions - Setup
-		void begin(const uint8_t data_pin, uint8_t size_x,  uint8_t size_y);
-		void set_brightness(uint8_t level);
-		void set_update_mode(update_type t);
-		void set_palette(const uint8_t* pal);
-		void set_palette(CRGBPalette16 pal);
-		void set_animation(void (*action)());
-		void set_animation_speed(float speed);
-		void set_gamma_correction(bool enabled);
-		void set_cursor(uint8_t x, uint8_t y = 0);
-		void set_max_power(float V, uint16_t mA);
+		/*+-- Functions - Setup ------------------------------------------------------------*/ 
+		/*|*/ void begin(const uint8_t data_pin, uint8_t size_x,  uint8_t size_y);
+		/*|*/ void set_brightness(uint8_t level);
+		/*|*/ void set_update_mode(update_type t);
+		/*|*/ void set_palette(const uint8_t* pal);
+		/*|*/ void set_palette(CRGBPalette16 pal);
+		/*|*/ void set_animation(void (*action)());
+		/*|*/ void set_animation_speed(float speed);
+		/*|*/ void set_gamma_correction(bool enabled);
+		/*|*/ void set_cursor(uint8_t x, uint8_t y = 0);
+		/*|*/ void set_max_power(float V, uint16_t mA);
+		/*+---------------------------------------------------------------------------------*/ 
 		
-		// Functions - write()
-		void write(const uint8_t* icon, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		void write(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		void write(char* message, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		void write(int16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		void write(uint16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		void write(int32_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		void write(uint32_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		#if defined(ESP8266) || defined(ESP32)
-		void write(long unsigned int input, uint8_t x_pos = 0, uint8_t y_pos = 0); // pretty much the same as uint32_t, but Arduino is stupid
-		#endif
-		void write(float input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		void write(double input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		void write_pix(char* message, int16_t x_pos = 0, int16_t y_pos = 0);
-		void write_pix(const uint8_t* icon, int16_t x_pos = 0, int16_t y_pos = 0);
-		void add_char(char c, int16_t x_pos, int16_t y_pos);
-		void add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos);
+		/*+-- Functions - write() ----------------------------------------------------------*/ 
+		/*|*/ void write(const uint8_t* icon, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ void write(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ void write(char* message, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ void write(int16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ void write(uint16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ void write(int32_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ void write(uint32_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ #if defined(ESP8266) || defined(ESP32)
+		/*|*/     void write(long unsigned int input, uint8_t x_pos = 0, uint8_t y_pos = 0); // pretty much the same as uint32_t, but Arduino is stupid
+		/*|*/ #endif
+		/*|*/ void write(float input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ void write(double input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0);
+		/*|*/ 
+		/*|*/ void write_pix(char* message, int16_t x_pos = 0, int16_t y_pos = 0);
+		/*|*/ void write_pix(const uint8_t* icon, int16_t x_pos = 0, int16_t y_pos = 0);
+		/*|*/ 
+		/*|*/ void add_char(char c, int16_t x_pos, int16_t y_pos);
+		/*|*/ void add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos);
+		/*+---------------------------------------------------------------------------------*/ 
 
-		// Functions - print()
-		void print(const uint8_t* icon);
-		void print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5);
-		void print(char* message);
-		void print(int16_t input);
-		void print(uint16_t input);
-		void print(int32_t input);
-		void print(uint32_t input);
-		#if defined(ESP8266) || defined(ESP32)
-		void print(long unsigned int input); // pretty much the same as uint32_t, but Arduino is stupid
-		#endif
-		void print(float input, uint8_t places = 2);
-		void print(double input, uint8_t places = 2);
+		/*+-- Functions - print() ----------------------------------------------------------*/ 
+		/*|*/ void print(const uint8_t* icon);
+		/*|*/ void print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5);
+		/*|*/ void print(char* message);
+		/*|*/ void print(int16_t input);
+		/*|*/ void print(uint16_t input);
+		/*|*/ void print(int32_t input);
+		/*|*/ void print(uint32_t input);
+		/*|*/ #if defined(ESP8266) || defined(ESP32)
+		/*|*/     void print(long unsigned int input); // pretty much the same as uint32_t, but Arduino is stupid
+		/*|*/ #endif
+		/*|*/ void print(float input, uint8_t places = 2);
+		/*|*/ void print(double input, uint8_t places = 2);
+		/*+---------------------------------------------------------------------------------*/ 
 
-		// Functions - println()		
-		void println(const uint8_t* icon);
-		void println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5);
-		void println(char* message);
-		void println(int16_t input);
-		void println(uint16_t input);
-		void println(int32_t input);
-		void println(uint32_t input);
-		#if defined(ESP8266) || defined(ESP32)
-		void println(long unsigned int input); // pretty much the same as uint32_t, but Arduino is stupid
-		#endif
-		void println(float input, uint8_t places = 2);
-		void println(double input, uint8_t places = 2);
+		/*+-- Functions - println() --------------------------------------------------------*/ 	
+		/*|*/ void println(const uint8_t* icon);
+		/*|*/ void println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5);
+		/*|*/ void println(char* message);
+		/*|*/ void println(int16_t input);
+		/*|*/ void println(uint16_t input);
+		/*|*/ void println(int32_t input);
+		/*|*/ void println(uint32_t input);
+		/*|*/ #if defined(ESP8266) || defined(ESP32)
+		/*|*/     void println(long unsigned int input); // pretty much the same as uint32_t, but Arduino is stupid
+		/*|*/ #endif
+		/*|*/ void println(float input, uint8_t places = 2);
+		/*|*/ void println(double input, uint8_t places = 2);
+		/*+---------------------------------------------------------------------------------*/
 		
-		// Functions - Updating the LEDs
-		void clear();
-		void update();
+		/*+-- Functions - Updating the mask/LEDS -------------------------------------------*/ 
+		/*|*/ void clear();
+		/*|*/ void update();
+		/*+---------------------------------------------------------------------------------*/
 		
-		// Functions - Color
-		void color(CRGB col); // Set all displays
-		void color(CRGB col, uint8_t x, uint8_t y); // Set one display
-		void color(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2); // Set a 2D rectangle
-		CRGB kelvin_to_rgb(uint16_t temperature); // Get an approximate CRGB (not yet gamma corrected) of a blackbody radiation temperature
+		/*+-- Functions - Color ------------------------------------------------------------*/ 
+		/*|*/ void color(CRGB col); // Set all displays
+		/*|*/ void color(CRGB col, uint8_t x, uint8_t y); // Set one display
+		/*|*/ void color(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2); // Set a 2D rectangle
+		/*|*/ CRGB kelvin_to_rgb(uint16_t temperature); // Get an approximate CRGB (not yet gamma corrected) of a blackbody radiation temperature
+		/*+---------------------------------------------------------------------------------*/
 
-		// Functions - Mask Effects
-		void dim(uint8_t amount, bool reset_cursor = false); // Fade towards black by amount
-		void blur(fract8 blur_amount);
-		void blur_x(fract8 blur_amount);
-		void blur_y(fract8 blur_amount);
+		/*+-- Functions - Mask Effects -----------------------------------------------------*/ 
+		/*|*/ void dim(uint8_t amount, bool reset_cursor = false); // Fade towards black by amount
+		/*|*/ void blur(fract8 blur_amount);
+		/*|*/ void blur_x(fract8 blur_amount);
+		/*|*/ void blur_y(fract8 blur_amount);
+		/*+---------------------------------------------------------------------------------*/
 		
-		// Functions - Color Effects
-		void color_dim(uint8_t amount); // Fade towards black by amount
-		void color_blur(fract8 blur_amount);
-		void color_blur_x(fract8 blur_amount);
-		void color_blur_y(fract8 blur_amount);
+		/*+-- Functions - Color Effects ----------------------------------------------------*/ 
+		/*|*/ void color_dim(uint8_t amount); // Fade towards black by amount
+		/*|*/ void color_blur(fract8 blur_amount);
+		/*|*/ void color_blur_x(fract8 blur_amount);
+		/*|*/ void color_blur_y(fract8 blur_amount);
+		/*+---------------------------------------------------------------------------------*/
 
-		// Functions - 2D tools
-		uint16_t xy(int16_t x, int16_t y, bool wrap = false);
-		void draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2);
+		/*+-- Functions - 2D Tools ---------------------------------------------------------*/ 
+		/*|*/ uint16_t xy(int16_t x, int16_t y, bool wrap = false);
+		/*|*/ void draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2);
+		/*+---------------------------------------------------------------------------------*/
 
 		// Functions - Extra
 		void show(); // Only used internally, but not private so that we can access it in an ISR
-
 
 		// Variables -----------------------------------------
 
