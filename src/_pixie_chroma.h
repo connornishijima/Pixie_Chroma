@@ -22,8 +22,8 @@ class PixieChroma{
 		/*|*/ void set_animation(void (*action)());
 		/*|*/ void set_animation_speed(float speed);
 		/*|*/ void set_gamma_correction(bool enabled);
-		/*|*/ void set_cursor(uint8_t x, uint8_t y = 0);
-		/*|*/ void set_max_power(float V, uint16_t mA);
+		/*|*/ void set_cursor(uint8_t x_position, uint8_t y_position = 0);
+		/*|*/ void set_max_power(float volts, uint16_t milliamps);
 		/*+---------------------------------------------------------------------------------*/ 
 		
 		/*+-- Functions - write() ----------------------------------------------------------*/ 
