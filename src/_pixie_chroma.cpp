@@ -52,9 +52,35 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 // -- PUBLIC FUNCTIONS -------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------
 
-PixieChroma::PixieChroma(){} // Class constructor
+/**************************************************************************/
+/*!
+	Used to initialize the PixieChroma library. Example usage before setup() would be:
+	<pre>
+	PixieChroma pix;
+	</pre>
+	NOTE: Due to current limitations with the library, your class instance MUST be named "pix".
+	Mutiple instances are not yet possible. Because each of these functions are wrapped in
+	the PixieChroma class, you'll use them like this:
+	<pre>
+	pix.write(num);
+	</pre>
+*/
+/**************************************************************************/
+PixieChroma::PixieChroma(){}
 
-void PixieChroma::begin(const uint8_t data_pin, uint8_t size_x, uint8_t size_y){
+/**************************************************************************/
+/*!
+    @brief	Initializes the display buffer, populates the XY coordinate table,
+            defaults the display colors to green, loads the default CRGBPalette,
+			initializes FastLED, sets the default power budget, and kicks off the
+			animation ISR.
+	
+    @param	data_pin GPIO pin to use for FastLED output
+	@param	pixies_x Number of Pixie PCBs in the X axis of your display
+	@param	pixies_y Number of Pixie PCBs in the Y axis of your display
+*/
+/**************************************************************************/
+void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y){
 	pixie_pin = pin;
 
 	chars_x = size_x*2; // Pixies have two chars each
