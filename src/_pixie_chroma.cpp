@@ -203,43 +203,43 @@ void PixieChroma::set_gamma_correction(bool enabled){
 /**************************************************************************/
 /*!
     @brief  Sets the cursor position in a 2D context, in whole displays.
-			Wherever the cursor is, is where the next call to print() or
-			write() will originate. Position is counted from zero. Remember,
-			each Pixie Chroma has two "displays" on it.
-			
-			+-----------------+   +-----------------+   +-----------------+
-			|      + + +      |   |      + + +      |   |      + + +      |
-			|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-			|| 0,0 |   | 1,0 ||   || 2,0 |   | 3,0 ||   || 4,0 |   | 5,0 ||
-			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-			|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-			|      + + +      |   |      + + +      |   |      + + +      |
+            Wherever the cursor is, is where the next call to print() or
+            write() will originate. Position is counted from zero. Remember,
+            each Pixie Chroma has two "displays" on it.
+
             +-----------------+   +-----------------+   +-----------------+
-			
-			+-----------------+   +-----------------+   +-----------------+
-			|      + + +      |   |      + + +      |   |      + + +      |
-			|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-			|| 0,1 |   | 1,1 ||   || 2,1 |   | 3,1 ||   || 4,0 |   | 5,1 ||
-			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-			|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-			|      + + +      |   |      + + +      |   |      + + +      |
+            |      + + +      |   |      + + +      |   |      + + +      |
+            |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+            || 0,0 |   | 1,0 ||   || 2,0 |   | 3,0 ||   || 4,0 |   | 5,0 ||
+            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+            |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+            |      + + +      |   |      + + +      |   |      + + +      |
             +-----------------+   +-----------------+   +-----------------+
-			
-	        For example:
-			
-			    set_cursor(1,0)
-				
-					Sets the cursor to the second display in the first row
-				
-				set_cursor(3,1)
-				
-					Sets the cursor to the fourth display in the second row
+
+            +-----------------+   +-----------------+   +-----------------+
+            |      + + +      |   |      + + +      |   |      + + +      |
+            |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+            || 0,1 |   | 1,1 ||   || 2,1 |   | 3,1 ||   || 4,0 |   | 5,1 ||
+            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+            |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+            |      + + +      |   |      + + +      |   |      + + +      |
+            +-----------------+   +-----------------+   +-----------------+
+
+For example:
+
+	set_cursor(1,0)
+	
+		Sets the cursor to the second display in the first row
+	
+	set_cursor(3,1)
+	
+		Sets the cursor to the fourth display in the second row
 
     @param  x_position New cursor position on the X-axis, in whole displays
     @param  y_position New cursor position on the Y-axis, in whole displays
