@@ -12,7 +12,7 @@ enum update_type {
 class PixieChroma{
 	public:
 		PixieChroma();
-		void begin(const uint8_t pin, uint8_t size_x,  uint8_t size_y);
+		void begin(const uint8_t data_pin, uint8_t size_x,  uint8_t size_y);
 		void set_brightness(uint8_t level);
 		void set_update_mode(update_type t);
 		void set_palette(const uint8_t* pal);
