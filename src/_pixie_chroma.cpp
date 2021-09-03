@@ -231,15 +231,15 @@ void PixieChroma::set_gamma_correction(bool enabled){
             |      + + +      |   |      + + +      |   |      + + +      |
             +-----------------+   +-----------------+   +-----------------+
 
-For example:
+            For example:
 
-	set_cursor(1,0)
-	
-		Sets the cursor to the second display in the first row
-	
-	set_cursor(3,1)
-	
-		Sets the cursor to the fourth display in the second row
+                set_cursor(1,0)
+
+                    Sets the cursor to the second display in the first row
+
+                set_cursor(3,1)
+
+                    Sets the cursor to the fourth display in the second row
 
     @param  x_position New cursor position on the X-axis, in whole displays
     @param  y_position New cursor position on the Y-axis, in whole displays
