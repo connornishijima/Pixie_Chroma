@@ -38,8 +38,8 @@
 	// FastLED has issues with the ESP8266, especially
 	// when used with networking, so we fix that here.
 	#define FASTLED_ESP8266_RAW_PIN_ORDER
-	#define FASTLED_ALLOW_INTERRUPTS 0
-	#define FASTLED_INTERRUPT_RETRY_COUNT 0
+	//#define FASTLED_ALLOW_INTERRUPTS 0
+	//#define FASTLED_INTERRUPT_RETRY_COUNT 0
 #endif
 
 #define FASTLED_INTERNAL // As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.
