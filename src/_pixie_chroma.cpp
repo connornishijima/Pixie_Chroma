@@ -17,52 +17,25 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 	-2, -2, -2, -2, -2, -2, -2,
 	-2, -2, -2, -2, -2, -2, -2
 };
-	
-#if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
-	void ICACHE_RAM_ATTR ANIMATE(){
-		static const uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration)
-		timer1_write(frame_cycles); // Come back here in 1/60th second
-		
-		extern PixieChroma pix;
-		// This is an imperfect solution, but extern-ing the class instance defined in the
-		// user sketch, this ISR routine (which can't be in a class) can still access it.
-		// _pixie_animations.cpp does this trick as well. This is why you cannot currently
-		// name your PixieChroma class instance anything but "pix". :/
-		//
-		// The solution to this would be the ISR setting a flag that a pix.process() function would read, but
-		// That would mean users can't ever delay() or use other blocking code for more than a split
-		// second without having to call the "pix.process()" again to avoid choppy output.
-		//
-		// At the cost of some non-standard methods of accessing the class in here, beginners to Arduino
-		// can just use simple print() and clear() methods to update the displays, while our
-		// tricky ISR keeps animation running nicely, even with blocking code in the main loop.
-		
-		if(!pix.freeze){ // If not currently rendering to color or mask
-			uint32_t t_now = micros(); // Get current time
-			pix.frame_time = (t_now - pix.t_last);
-			pix.t_last = t_now;
-			
-			anim_func(); // Call custom animation function
-			pix.show();  // Update Pixie Chromas
-		}
-	}
-#endif
 
-// ---------------------------------------------------------------------------------------------------------
-// -- PUBLIC FUNCTIONS -------------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------|
+// -- PUBLIC FUNCTIONS -------------------------------------------------------------------------------------|
+// ---------------------------------------------------------------------------------------------------------|
 
 /**************************************************************************/
 /*!
-    Used to initialize the PixieChroma library. Example usage before setup() would be:
+    @brief  Used to initialize the PixieChroma library. Example usage before
+            setup() would be:
 	
-    PixieChroma pix;
+				#include "PixieChroma.h"
+                PixieChroma pix;
 	
-    NOTE: Due to current limitations with the library, your class instance MUST be named "pix".
-    Mutiple instances are not yet possible. Because each of these functions are wrapped in
-    the PixieChroma class, you'll use them like this:
+            NOTE: Due to current limitations with the library, your class
+            instance MUST be named "pix". Mutiple instances are not yet
+            possible. Because each of these functions are wrapped in the
+            PixieChroma class, you'll use them like this:
 	
-    pix.write(num);
+                pix.print("Hello!");
 	
 */
 /**************************************************************************/
@@ -70,10 +43,10 @@ PixieChroma::PixieChroma(){}
 
 /**************************************************************************/
 /*!
-    @brief  Initializes the display buffer, populates the XY coordinate table,
-            defaults the display colors to green, loads the default CRGBPalette,
-            initializes FastLED, sets the default power budget, and kicks off the
-            animation ISR.
+    @brief  Initializes the display buffer, populates the XY coordinate
+            table, defaults the display colors to green, loads the default
+            CRGBPalette, initializes FastLED, sets the default power budget,
+            and kicks off the animation ISR.
 	
     @param  data_pin GPIO pin to use for FastLED output
     @param  pixies_x Number of Pixie PCBs in the X axis of your display
@@ -135,11 +108,11 @@ void PixieChroma::set_brightness(uint8_t level){
 /*!
     @brief  Configures the update mode Pixie Chroma will use:
 	
-                set_update_mode(AUTOMATIC)
+                set_update_mode(AUTOMATIC);
 
                     Refresh LEDs with new mask data on every ISR call (60FPS) 
 				
-                set_update_mode(HOLD_FOR_UPDATE)
+                set_update_mode(HOLD_FOR_UPDATE);
 
                     Only refresh LEDs with new mask_data when pix.update() is
                     called, useful for preventing updates to the image before
@@ -172,7 +145,7 @@ void PixieChroma::set_update_mode(update_type t){
             example, it is a gradient from red at 0, to green at 127, to
             blue at 255.
 				
-    @param  pal FastLED Gradient Palette array
+    @param  pal FastLED "Gradient Palette" array
 */
 /**************************************************************************/
 void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
@@ -184,7 +157,7 @@ void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
     @brief  Accepts a FastLED CRGBPalette16 object to set the current color
             palette for animation
 	
-    @param  pal FastLED CRGBPalette16
+    @param  pal FastLED CRGBPalette16 object to use
 */
 /**************************************************************************/
 void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
@@ -1167,3 +1140,33 @@ void PixieChroma::print_xy_map(){
 		Serial.println();
 	}
 }
+
+#if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
+	void ICACHE_RAM_ATTR ANIMATE(){
+		static const uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration)
+		timer1_write(frame_cycles); // Come back here in 1/60th second
+		
+		extern PixieChroma pix;
+		// This is an imperfect solution, but extern-ing the class instance defined in the
+		// user sketch, this ISR routine (which can't be in a class) can still access it.
+		// _pixie_animations.cpp does this trick as well. This is why you cannot currently
+		// name your PixieChroma class instance anything but "pix". :/
+		//
+		// The solution to this would be the ISR setting a flag that a pix.process() function would read, but
+		// That would mean users can't ever delay() or use other blocking code for more than a split
+		// second without having to call the "pix.process()" again to avoid choppy output.
+		//
+		// At the cost of some non-standard methods of accessing the class in here, beginners to Arduino
+		// can just use simple print() and clear() methods to update the displays, while our
+		// tricky ISR keeps animation running nicely, even with blocking code in the main loop.
+		
+		if(!pix.freeze){ // If not currently rendering to color or mask
+			uint32_t t_now = micros(); // Get current time
+			pix.frame_time = (t_now - pix.t_last);
+			pix.t_last = t_now;
+			
+			anim_func(); // Call custom animation function
+			pix.show();  // Update Pixie Chromas
+		}
+	}
+#endif
