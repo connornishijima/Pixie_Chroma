@@ -37,10 +37,9 @@
 #if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
 	// FastLED has issues with the ESP8266, especially
 	// when used with networking, so we fix that here.
-	#include <Ticker.h>// ESP ONLY
 	#define FASTLED_ESP8266_RAW_PIN_ORDER
-	//#define FASTLED_ALLOW_INTERRUPTS 0 // KILL?
-	//#define FASTLED_INTERRUPT_RETRY_COUNT 0 // KILL?
+	#define FASTLED_ALLOW_INTERRUPTS 0
+	#define FASTLED_INTERRUPT_RETRY_COUNT 0
 #endif
 
 #define FASTLED_INTERNAL // As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.
