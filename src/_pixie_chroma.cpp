@@ -54,30 +54,30 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 
 /**************************************************************************/
 /*!
-	Used to initialize the PixieChroma library. Example usage before setup() would be:
-	<pre>
-	PixieChroma pix;
-	</pre>
-	NOTE: Due to current limitations with the library, your class instance MUST be named "pix".
-	Mutiple instances are not yet possible. Because each of these functions are wrapped in
-	the PixieChroma class, you'll use them like this:
-	<pre>
-	pix.write(num);
-	</pre>
+    Used to initialize the PixieChroma library. Example usage before setup() would be:
+	
+    PixieChroma pix;
+	
+    NOTE: Due to current limitations with the library, your class instance MUST be named "pix".
+    Mutiple instances are not yet possible. Because each of these functions are wrapped in
+    the PixieChroma class, you'll use them like this:
+	
+    pix.write(num);
+	
 */
 /**************************************************************************/
 PixieChroma::PixieChroma(){}
 
 /**************************************************************************/
 /*!
-    @brief	Initializes the display buffer, populates the XY coordinate table,
+    @brief  Initializes the display buffer, populates the XY coordinate table,
             defaults the display colors to green, loads the default CRGBPalette,
-			initializes FastLED, sets the default power budget, and kicks off the
-			animation ISR.
+            initializes FastLED, sets the default power budget, and kicks off the
+            animation ISR.
 	
-    @param	data_pin GPIO pin to use for FastLED output
-	@param	pixies_x Number of Pixie PCBs in the X axis of your display
-	@param	pixies_y Number of Pixie PCBs in the Y axis of your display
+    @param  data_pin GPIO pin to use for FastLED output
+    @param  pixies_x Number of Pixie PCBs in the X axis of your display
+    @param  pixies_y Number of Pixie PCBs in the Y axis of your display
 */
 /**************************************************************************/
 void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y){
@@ -120,11 +120,11 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 
 /**************************************************************************/
 /*!
-    @brief	Takes an 8-bit brightness value and passes it to FastLED
-			internally, to provide global brightness control with temporal
-			dithering
+    @brief  Takes an 8-bit brightness value and passes it to FastLED
+            internally, to provide global brightness control with temporal
+            dithering
 	
-    @param	level 8-bit global brightness value (0-255)
+    @param  level 8-bit global brightness value (0-255)
 */
 /**************************************************************************/
 void PixieChroma::set_brightness(uint8_t level){
@@ -133,21 +133,21 @@ void PixieChroma::set_brightness(uint8_t level){
 
 /**************************************************************************/
 /*!
-    @brief	Configures the update mode Pixie Chroma will use:
-				
-				set_update_mode(AUTOMATIC)
+    @brief  Configures the update mode Pixie Chroma will use:
+	
+                set_update_mode(AUTOMATIC)
 
-					Refresh LEDs with new mask data on every ISR call (60FPS) 
+                    Refresh LEDs with new mask data on every ISR call (60FPS) 
 				
-				set_update_mode(HOLD_FOR_UPDATE)
+                set_update_mode(HOLD_FOR_UPDATE)
 
-					Only refresh LEDs with new mask_data when pix.update() is
-					called, useful for preventing updates to the image before
-					its text is fully constructed. The animation ISR driving 
-					the color map will still update at 60FPS, regardless of
-					how often pix.update is called.
+                    Only refresh LEDs with new mask_data when pix.update() is
+                    called, useful for preventing updates to the image before
+                    its text is fully constructed. The animation ISR driving 
+                    the color map will still update at 60FPS, regardless of
+                    how often pix.update is called.
 				
-    @param	update_type (AUTOMATIC or HOLD_FOR_UPDATE)
+    @param  update_type (AUTOMATIC or HOLD_FOR_UPDATE)
 */
 /**************************************************************************/
 void PixieChroma::set_update_mode(update_type t){
@@ -156,23 +156,23 @@ void PixieChroma::set_update_mode(update_type t){
 
 /**************************************************************************/
 /*!
-    @brief	Accepts a const uint8_t (8-bit) array with the following format
-			to generate a FastLED Gradient Palette at runtime:
-			
-			const uint8_t* my_gradient_palette[] = {
-			//  INDEX,	R_VAL,	G_VAL,	B_VAL,
-			
-				0,		255,	0,		0, 
-				127,	0,		255,	0, 
-				255,	0,		0,		255, 
-			};
-			
-			On each line, is the index of the color (0-255) to express the
-			position in the gradient this color occurs. So in the given
-			example, it is a gradient from red at 0, to green at 127, to
-			blue at 255.
+    @brief  Accepts a const uint8_t (8-bit) array with the following format
+            to generate a FastLED Gradient Palette at runtime:
+
+            const uint8_t* my_gradient_palette[] = {
+            //  INDEX,	R_VAL,	G_VAL,	B_VAL,
+
+			    0,      255,    0,      0, 
+                127,    0,      255,    0, 
+                255,    0,      0,      255, 
+            };
+
+            On each line is the index of the color (0-255) to express the
+            position in the gradient this color occurs. So in the given
+            example, it is a gradient from red at 0, to green at 127, to
+            blue at 255.
 				
-    @param	pal FastLED Gradient Palette array
+    @param  pal FastLED Gradient Palette array
 */
 /**************************************************************************/
 void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
@@ -181,10 +181,10 @@ void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
 
 /**************************************************************************/
 /*!
-    @brief	Accepts a FastLED CRGBPalette16 object to set the current color
-			palette for animation
-				
-    @param	pal FastLED CRGBPalette16
+    @brief  Accepts a FastLED CRGBPalette16 object to set the current color
+            palette for animation
+	
+    @param  pal FastLED CRGBPalette16
 */
 /**************************************************************************/
 void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
@@ -194,9 +194,9 @@ void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
 /**************************************************************************/
 /*!
     @brief	Accepts a preset or custom function to use for the animation ISR.
-			For a list of predefined animations, see _pixie_animations.h
-				
-    @param	action Function to set as an animation ISR
+            For a list of predefined animations, see _pixie_animations.h
+
+    @param  action Function to set as an animation ISR
 */
 /**************************************************************************/
 void PixieChroma::set_animation(void (*action)()) {
@@ -205,10 +205,10 @@ void PixieChroma::set_animation(void (*action)()) {
 
 /**************************************************************************/
 /*!
-    @brief	Used to scale the animation speed of animation ISRs that can use
-			pix.animation_speed to scale their speeds or for other effects
+    @brief  Used to scale the animation speed of animation ISRs that can use
+            pix.animation_speed to scale their speeds or for other effects
 				
-    @param	speed Floating point value: 1.0 = 100%, 3.2 = 320%, 0.5 = 50%
+    @param  speed Floating point value: 1.0 = 100%, 3.2 = 320%, 0.5 = 50%
 */
 /**************************************************************************/
 void PixieChroma::set_animation_speed(float speed){
@@ -217,10 +217,10 @@ void PixieChroma::set_animation_speed(float speed){
 
 /**************************************************************************/
 /*!
-    @brief	Allows you to enable built-in automatic gamma correction, using
-			a fast LUT in _pixie_utility.h. (Not enabled by default)
-				
-    @param	enabled Whether or not to apply gamma correction
+    @brief  Allows you to enable built-in automatic gamma correction, using
+            a fast LUT in _pixie_utility.h. (Not enabled by default)
+
+    @param  enabled Whether or not to apply gamma correction
 */
 /**************************************************************************/
 void PixieChroma::set_gamma_correction(bool enabled){
