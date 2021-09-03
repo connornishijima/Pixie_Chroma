@@ -145,7 +145,7 @@ void PixieChroma::set_brightness(uint8_t level){
                     called, useful for preventing updates to the image before
                     its text is fully constructed. The animation ISR driving 
                     the color map will still update at 60FPS, regardless of
-                    how often pix.update is called.
+                    how often pix.update() is called.
 				
     @param  update_type (AUTOMATIC or HOLD_FOR_UPDATE)
 */
