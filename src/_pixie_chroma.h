@@ -118,6 +118,8 @@ class PixieChroma{
 		
 		uint8_t *mask;
 		uint8_t *mask_out;		
+		
+		int16_t *xy_table;
 
 		uint16_t matrix_width = 0;
 		uint16_t matrix_height = 0;
@@ -130,9 +132,7 @@ class PixieChroma{
 		
 		volatile bool freeze = false;
 		
-		CRGBPalette16 current_palette;
-		
-		int16_t *xy_table;
+		CRGBPalette16 current_palette;		
 
 		volatile uint32_t frame_time = 0;
 		volatile float frame_rate = 0;
@@ -161,7 +161,7 @@ class PixieChroma{
 		bool correct_gamma = false;
 		uint8_t brightness_level = 255;
 		
-		uint8_t pixie_pin = 0;
+		uint8_t  pixie_pin = 0;
 		float    max_V  = 5;
 		uint16_t max_mA = 800;
 
