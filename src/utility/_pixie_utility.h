@@ -4,6 +4,9 @@
 // Extra utilities for PixieChroma code, such as the gamma LUT
 
 void (*anim_func)();
+void (*anim_func_quarter_second)();
+void (*anim_func_half_second)();
+void (*anim_func_whole_second)();
 
 const uint8_t gamma8[] = {
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
