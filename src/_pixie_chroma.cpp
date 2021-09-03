@@ -18,6 +18,49 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 	-2, -2, -2, -2, -2, -2, -2
 };
 
+#if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
+	void ICACHE_RAM_ATTR ANIMATE(){
+		static const uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration)
+		timer1_write(frame_cycles); // Come back here in 1/60th second
+		
+		extern PixieChroma pix;
+		// This is an imperfect solution, but extern-ing the class instance defined in the
+		// user sketch, this ISR routine (which can't be in a class) can still access it.
+		// _pixie_animations.cpp does this trick as well. This is why you cannot currently
+		// name your PixieChroma class instance anything but "pix". :/
+		//
+		// The solution to this would be the ISR setting a flag that a pix.process() function would read, but
+		// That would mean users can't ever delay() or use other blocking code for more than a split
+		// second without having to call the "pix.process()" again to avoid choppy output.
+		//
+		// At the cost of some non-standard methods of accessing the class in here, beginners to Arduino
+		// can just use simple print() and clear() methods to update the displays, while our
+		// tricky ISR keeps animation running nicely, even with blocking code in the main loop.
+		
+		if(!pix.freeze){ // If not currently rendering to color or mask
+			uint32_t t_now = micros(); // Get current time
+			pix.frame_time = (t_now - pix.t_last);
+			pix.t_last = t_now;
+			
+			anim_func(); // Call custom animation function
+
+			if(pix.frame_iter % 15 == 0){
+				anim_func_quarter_second();
+			}
+			if(pix.frame_iter % 30 == 0){
+				anim_func_half_second();
+			}
+			if(pix.frame_iter % 60 == 0){
+				anim_func_whole_second();
+			}
+			
+			pix.show();  // Update Pixie Chromas
+		}
+		
+		pix.frame_iter += 1;
+	}
+#endif
+
 // ---------------------------------------------------------------------------------------------------------|
 // -- PUBLIC FUNCTIONS -------------------------------------------------------------------------------------|
 // ---------------------------------------------------------------------------------------------------------|
@@ -78,17 +121,16 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 	}
 
 	current_palette.loadDynamicGradientPalette(GREEN_SOLID);
+	
+	anim_func_quarter_second = ANIMATION_NULL;
+	anim_func_half_second    = ANIMATION_NULL;
+	anim_func_whole_second   = ANIMATION_NULL;
 
 	build_controller(pixie_pin); // ------ Initialize FastLED
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
 	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
-	set_max_power(5, 500); // ------------ Set default power budget in V and mA
+	set_max_power(5.0, 500); // ---------- Set default power budget in volts and milliamps
 	start_animation(); // ---------------- Kick off animation ISR
-	
-	
-	Serial.println(NUM_LEDS);
-	Serial.println(NUM_VISIBLE_LEDS);
-	Serial.println(data_pin);
 }
 
 /**************************************************************************/
@@ -249,8 +291,8 @@ void PixieChroma::set_gamma_correction(bool enabled){
 */
 /**************************************************************************/
 void PixieChroma::set_cursor(uint8_t x_position, uint8_t y_position){
-	cursor_x = (display_width*x)+1;
-	cursor_y = (display_height*y)+2;
+	cursor_x = (display_width*x_position)+1;
+	cursor_y = (display_height*y_position)+2;
 }
 
 /**************************************************************************/
@@ -259,17 +301,17 @@ void PixieChroma::set_cursor(uint8_t x_position, uint8_t y_position){
             the average power consumption of these LEDs at any given color,
             FastLED will automatically globally scale down the output values
             with temporal dithering to lower power usage until it is within
-            the budget defined here. Defaults to 5V / 500mA to protect PC
+            the budget defined here. Defaults to 5.0V / 500mA to protect PC
 			USB ports if the LEDs are not independently powered.
 			(2000mA = 2A, 500mA = 0.5A, etc.)
 
-    @param  volts Total LED power budget in volts. (default: 5)
+    @param  volts Total LED power budget in volts. (default: 5.0)
     @param  milliamps Total LED power budget in milliamps (default 500)
 */
 /**************************************************************************/
 void PixieChroma::set_max_power(float volts, uint16_t milliamps){
-	max_V = V;
-	max_mA = mA;
+	max_V = volts;
+	max_mA = milliamps;
 }
 
 void PixieChroma::write(const uint8_t* icon, uint8_t x_pos, uint8_t y_pos){
@@ -685,6 +727,22 @@ void PixieChroma::color_dim(uint8_t amount){
 	CRGBSet leds_temp(leds, NUM_LEDS);
 	leds_temp.fadeToBlackBy(amount);
 	freeze = false;
+}
+
+uint8_t PixieChroma::get_cursor_x(){
+	return cursor_x / chars_x;
+}
+
+uint8_t PixieChroma::get_cursor_y(){
+	return cursor_y / chars_y;
+}
+
+int16_t PixieChroma::get_cursor_x_exact(){
+	return cursor_x;
+}
+
+int16_t PixieChroma::get_cursor_y_exact(){
+	return cursor_y;
 }
 
 void PixieChroma::clear(){
@@ -1143,33 +1201,3 @@ void PixieChroma::print_xy_map(){
 		Serial.println();
 	}
 }
-
-#if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
-	void ICACHE_RAM_ATTR ANIMATE(){
-		static const uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration)
-		timer1_write(frame_cycles); // Come back here in 1/60th second
-		
-		extern PixieChroma pix;
-		// This is an imperfect solution, but extern-ing the class instance defined in the
-		// user sketch, this ISR routine (which can't be in a class) can still access it.
-		// _pixie_animations.cpp does this trick as well. This is why you cannot currently
-		// name your PixieChroma class instance anything but "pix". :/
-		//
-		// The solution to this would be the ISR setting a flag that a pix.process() function would read, but
-		// That would mean users can't ever delay() or use other blocking code for more than a split
-		// second without having to call the "pix.process()" again to avoid choppy output.
-		//
-		// At the cost of some non-standard methods of accessing the class in here, beginners to Arduino
-		// can just use simple print() and clear() methods to update the displays, while our
-		// tricky ISR keeps animation running nicely, even with blocking code in the main loop.
-		
-		if(!pix.freeze){ // If not currently rendering to color or mask
-			uint32_t t_now = micros(); // Get current time
-			pix.frame_time = (t_now - pix.t_last);
-			pix.t_last = t_now;
-			
-			anim_func(); // Call custom animation function
-			pix.show();  // Update Pixie Chromas
-		}
-	}
-#endif
