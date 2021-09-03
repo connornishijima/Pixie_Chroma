@@ -227,12 +227,71 @@ void PixieChroma::set_gamma_correction(bool enabled){
 	correct_gamma = enabled;
 }
 
-void PixieChroma::set_cursor(uint8_t x, uint8_t y){
+/**************************************************************************/
+/*!
+    @brief  Sets the cursor position in a 2D context, in whole displays.
+			Wherever the cursor is, is where the next call to print() or
+			write() will originate. Position is counted from zero. Remember,
+			each Pixie Chroma has two "displays" on it.
+			
+			+-----------------+   +-----------------+   +-----------------+
+			|      + + +      |   |      + + +      |   |      + + +      |
+			|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+			|| 0,0 |   | 1,0 ||   || 2,0 |   | 3,0 ||   || 4,0 |   | 5,0 ||
+			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+			|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+			|      + + +      |   |      + + +      |   |      + + +      |
+            +-----------------+   +-----------------+   +-----------------+
+			
+			+-----------------+   +-----------------+   +-----------------+
+			|      + + +      |   |      + + +      |   |      + + +      |
+			|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+			|| 0,1 |   | 1,1 ||   || 2,1 |   | 3,1 ||   || 4,0 |   | 5,1 ||
+			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+			||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+			|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+			|      + + +      |   |      + + +      |   |      + + +      |
+            +-----------------+   +-----------------+   +-----------------+
+			
+	        For example:
+			
+			    set_cursor(1,0)
+				
+					Sets the cursor to the second display in the first row
+				
+				set_cursor(3,1)
+				
+					Sets the cursor to the fourth display in the second row
+
+    @param  x_position New cursor position on the X-axis, in whole displays
+    @param  y_position New cursor position on the Y-axis, in whole displays
+*/
+/**************************************************************************/
+void PixieChroma::set_cursor(uint8_t x_position, uint8_t y_position){
 	cursor_x = (display_width*x)+1;
 	cursor_y = (display_height*y)+2;
 }
 
-void PixieChroma::set_max_power(float V, uint16_t mA){
+/**************************************************************************/
+/*!
+    @brief  Sets the maximum power budget in volts and milliamps. Knowing
+            the average power consumption of these LEDs at any given color,
+            FastLED will automatically globally scale down the output values
+            with temporal dithering to lower power usage until it is within
+            the budget defined here. Defaults to 5V / 500mA to protect PC
+			USB ports if the LEDs are not independently powered.
+			(2000mA = 2A, 500mA = 0.5A, etc.)
+
+    @param  volts Total LED power budget in volts. (default: 5)
+    @param  milliamps Total LED power budget in milliamps (default 500)
+*/
+/**************************************************************************/
+void PixieChroma::set_max_power(float volts, uint16_t milliamps){
 	max_V = V;
 	max_mA = mA;
 }
