@@ -3,9 +3,8 @@
 
 // -- GLOBALS -------------------------------------------------------------------------------------
 
-volatile bool updated_too_soon = false;
-
-const int16_t xy_template[77] PROGMEM = {
+volatile bool updated_too_soon = false;   // Used to prevent calling show() in the ISR before a previous show() finishes
+const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context
 	-2, -2, -2, -2, -2, -2, -2,
 	-2, -2, -2, -2, -2, -2, -2,
 	-2, -1, -1, -1, -1, -1, -2,  
@@ -21,50 +20,48 @@ const int16_t xy_template[77] PROGMEM = {
 	
 #if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
 	void ICACHE_RAM_ATTR ANIMATE(){
+		static const uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration
+		timer1_write(frame_cycles); // Come back here in 1/60th second
+
 		extern PixieChroma pix;
-		static uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of CPU frequency
-		timer1_write(frame_cycles);
+		// This is an imperfect solution, but extern-ing the class instance defined in the
+		// user sketch, this ISR routine (which can't be in a class) can still access it.
+		// _pixie_animations.cpp does this trick as well. This is why you cannot currently
+		// name your PixieChroma class instance anything but "pix". :/
+		//
+		// The solution to this would be the ISR setting a flag that a pix.process() function would read, but
+		// That would mean users can't ever delay() or use other blocking code for more than a split
+		// second without having to call the "pix.process()" again to avoid choppy output.
+		//
+		// At the cost of some non-standard methods of accessing the class in here, beginners to Arduino
+		// can just use simple print() and clear() methods to update the displays, while our
+		// tricky ISR keeps animation running nicely, even with blocking code in the main loop.
 		
-		if(!pix.freeze){
-			uint32_t t_now = micros();
-			pix.t_in = t_now;
-			pix.frame_time_out = pix.t_in - pix.t_out;
-			
+		if(!pix.freeze){ // If not currently rendering to color or mask
+			uint32_t t_now = micros(); // Get current time
 			pix.frame_time = (t_now - pix.t_last);
 			pix.t_last = t_now;
 			
-			pix.frame_rate = 1000000/float(pix.frame_time);
-			
-			anim_func();
-			pix.show();
-			
-			pix.t_out = micros();
-			pix.frame_time_in = pix.t_out - pix.t_in;
+			anim_func(); // Call custom animation function
+			pix.show();  // Update Pixie Chromas
 		}
 	}
 #endif
 
+// ---------------------------------------------------------------------------------------------------------
 // -- PUBLIC FUNCTIONS -------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------
 
-PixieChroma::PixieChroma(){}
+PixieChroma::PixieChroma(){} // Class constructor
 
-void PixieChroma::begin(const uint8_t pin, uint8_t size_x, uint8_t size_y){
+void PixieChroma::begin(const uint8_t data_pin, uint8_t size_x, uint8_t size_y){
 	pixie_pin = pin;
+
 	chars_x = size_x*2; // Pixies have two chars each
 	chars_y = size_y;
 
-	if(chars_x % 2 != 0){
-		chars_x+=1; // Make sure chars_x is even, odd x chars is impossible
-	}
-
-	Serial.print("CHARS_X: "); Serial.println(chars_x);
-	Serial.print("CHARS_Y: "); Serial.println(chars_y);
-
 	matrix_width  = display_width*chars_x;
 	matrix_height = display_height*chars_y;
-
-	Serial.print("matrix_width: "); Serial.println(matrix_width);
-	Serial.print("matrix_height: "); Serial.println(matrix_height);
 
 	NUM_LEDS = (matrix_width*matrix_height);
 
@@ -72,24 +69,22 @@ void PixieChroma::begin(const uint8_t pin, uint8_t size_x, uint8_t size_y){
 	mask = new uint8_t[NUM_LEDS+1];
 	xy_table = new int16_t[NUM_LEDS];
 
-	Serial.print("NUM_LEDS: "); Serial.println(NUM_LEDS);
 	calc_xy();
 
 	mask_out = new uint8_t[NUM_VISIBLE_LEDS];
 	leds_out = new CRGB[NUM_VISIBLE_LEDS];
+
 	for(uint16_t i = 0; i < NUM_VISIBLE_LEDS; i++){
 		leds[i] = CRGB(0,255,0);
 	}
 
 	palette.loadDynamicGradientPalette(GREEN_SOLID);
 
-	Serial.println("NUM VIS ------");
-	Serial.println(NUM_VISIBLE_LEDS);
-	build_controller(pixie_pin);
-	set_animation(ANIMATION_NULL);
-	clear();
-	start_animation();
-	set_max_power(5,500);
+	build_controller(pixie_pin); // ------ Initialize FastLED
+	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
+	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
+	set_max_power(3.3, 500); // ---------- Set default power budget in V and mA
+	start_animation(); // ---------------- Kick off animation ISR
 }
 
 void PixieChroma::set_brightness(uint8_t level){
@@ -241,8 +236,6 @@ void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
 			return;
 		}
 		else{
-			//Serial.print("INDEX: ");
-			//Serial.print(i);
 			add_char(message[i], cursor_x, cursor_y);
 			x_offset += display_width;
 			cursor_x += display_width;
@@ -253,12 +246,6 @@ void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
 }
 
 void PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos){
-	//Serial.print(" X POS: ");  // KILL?
-	//Serial.print(x_pos);
-	//Serial.print(" CHAR: ");
-	//Serial.print(chr);
-	//Serial.print(" UINT8_T: ");
-	//Serial.println(uint8_t(chr));
 	if (chr >= 32) {
 		chr -= 32;
 	}
@@ -601,17 +588,6 @@ uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
 }
 
 void PixieChroma::color(CRGB col){
-	/*  // KILL?
-	float sum = 0;
-	sum += col.r;
-	sum += col.g;
-	sum += col.b;
-	float scale = 255 / sum;
-	col.r *= scale;
-	col.g *= scale;
-	col.b *= scale;
-	*/
-	
 	fill_solid(leds, NUM_LEDS, col);
 }
 
@@ -822,16 +798,6 @@ void PixieChroma::show(){
 					leds_out[i+6].r = gamma8[leds_out[i+6].r];
 					leds_out[i+6].g = gamma8[leds_out[i+6].g];
 					leds_out[i+6].b = gamma8[leds_out[i+6].b];
-					
-					/*  // KILL?
-					leds_out[i+0] = applyGamma_video(leds_out[i+0], 2.5); // LUT for gamma is faster than runtime math
-					leds_out[i+1] = applyGamma_video(leds_out[i+1], 2.5);
-					leds_out[i+2] = applyGamma_video(leds_out[i+2], 2.5);
-					leds_out[i+3] = applyGamma_video(leds_out[i+3], 2.5);
-					leds_out[i+4] = applyGamma_video(leds_out[i+4], 2.5);
-					leds_out[i+5] = applyGamma_video(leds_out[i+5], 2.5);
-					leds_out[i+6] = applyGamma_video(leds_out[i+6], 2.5);
-					*/
 				}
 			}
 			
@@ -857,8 +823,6 @@ void PixieChroma::build_controller(const uint8_t pin){
 	// define non-existent pins either.
 	
 	#ifdef ESP8266
-		//*((volatile uint32_t*) 0x60000900) &= ~(1); // Hardware WDT OFF, causes flicker on first LED. (Temporary fix)  // KILL?
-		//ESP.wdtDisable();                           // Software too. Sorry.
 		if (pin == 0){FastLED.addLeds<WS2812B, 0, GRB>(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}
 		if (pin == 1){FastLED.addLeds<WS2812B, 1, GRB>(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}
 		if (pin == 2){FastLED.addLeds<WS2812B, 2, GRB>(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}
@@ -911,14 +875,12 @@ void PixieChroma::build_controller(const uint8_t pin){
 		if (pin == 9){FastLED.addLeds<WS2812B, 9, GRB>(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}
 		if (pin == 10){FastLED.addLeds<WS2812B, 10, GRB>(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}
 	#endif
-	
-	//FastLED.setDither(0);
 }
 
 void PixieChroma::start_animation(){
 	timer1_attachInterrupt(ANIMATE);
 	timer1_enable(TIM_DIV1, TIM_EDGE, TIM_SINGLE);
-	timer1_write(1000000); //1,000,000 CPU cycles from now
+	timer1_write(1000000); // First frame 1,000,000 CPU cycles from now
 }
 
 void PixieChroma::calc_xy(){
@@ -936,7 +898,7 @@ void PixieChroma::calc_xy(){
 					uint16_t i_table = (y_pos * matrix_width) + x_pos;
 					uint16_t i_template = (y_pos_mod * display_width) + x_pos_mod;
 
-					xy_table[i_table] = pgm_read_word(xy_template + i_template);
+					xy_table[i_table] = pgm_read_byte(xy_template + i_template);
 				}
 			}
 		}
@@ -996,7 +958,6 @@ void PixieChroma::calc_xy(){
 		}
 	}
 
-	//NUM_VISIBLE_LEDS+=1;
 	uint16_t index = NUM_VISIBLE_LEDS;
 	Serial.println(NUM_VISIBLE_LEDS);
 	Serial.println(NUM_LEDS);
