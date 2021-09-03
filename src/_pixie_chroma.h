@@ -8,6 +8,12 @@ enum update_type {
 	HOLD_FOR_UPDATE
 };
 
+enum frame_multiple {
+	WHOLE_SECOND,
+	HALF_SECOND,
+	QUARTER_SECOND
+};
+
 class PixieChroma{
 	public:
 		// Constructor
@@ -22,7 +28,6 @@ class PixieChroma{
 		/*|*/ void set_animation(void (*action)());
 		/*|*/ void set_animation_speed(float speed);
 		/*|*/ void set_gamma_correction(bool enabled);
-		/*|*/ void set_cursor(uint8_t x_position, uint8_t y_position = 0);
 		/*|*/ void set_max_power(float volts, uint16_t milliamps);
 		/*+---------------------------------------------------------------------------------*/ 
 		
@@ -76,6 +81,14 @@ class PixieChroma{
 		/*|*/ void println(float input, uint8_t places = 2);
 		/*|*/ void println(double input, uint8_t places = 2);
 		/*+---------------------------------------------------------------------------------*/
+
+		/*+-- Functions - Cursor -----------------------------------------------------------*/ 
+		/*|*/ void    set_cursor(uint8_t x_position, uint8_t y_position = 0);
+		/*|*/ uint8_t get_cursor_x();
+		/*|*/ uint8_t get_cursor_y();
+		/*|*/ int16_t get_cursor_x_exact();
+		/*|*/ int16_t get_cursor_y_exact();
+		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Updating the mask/LEDS -------------------------------------------*/ 
 		/*|*/ void clear();
@@ -105,13 +118,13 @@ class PixieChroma{
 
 		/*+-- Functions - 2D Tools ---------------------------------------------------------*/ 
 		/*|*/ uint16_t xy(int16_t x, int16_t y, bool wrap = false);
-		/*|*/ void draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2);
+		/*|*/ void     draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2);
 		/*+---------------------------------------------------------------------------------*/
 
 		// Functions - Extra
 		void show(); // Only used internally, but not private so that we can access it in an ISR
 
-		// Variables -----------------------------------------
+		// Variables -------------------------------------------------------------------------
 
 		CRGB *leds;
 		CRGB *leds_out;
@@ -135,16 +148,11 @@ class PixieChroma{
 		CRGBPalette16 current_palette;		
 
 		volatile uint32_t frame_time = 0;
-		volatile float frame_rate = 0;
 		volatile uint32_t t_last = 0;
-		volatile uint32_t t_in = 0;
-		volatile uint32_t t_out = 0;
-		
-		volatile uint32_t frame_time_in = 0;
-		volatile uint32_t frame_time_out = 0;
 
 		volatile float delta = 1.0;
 		volatile float animation_speed = 1.0;
+		uint32_t frame_iter = 0;
 		
 	private:
 		// Functions ----------------------------------
