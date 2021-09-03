@@ -20,9 +20,9 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 	
 #if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
 	void ICACHE_RAM_ATTR ANIMATE(){
-		static const uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration
+		static const uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration)
 		timer1_write(frame_cycles); // Come back here in 1/60th second
-
+		
 		extern PixieChroma pix;
 		// This is an imperfect solution, but extern-ing the class instance defined in the
 		// user sketch, this ISR routine (which can't be in a class) can still access it.
@@ -81,10 +81,10 @@ PixieChroma::PixieChroma(){}
 */
 /**************************************************************************/
 void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y){
-	pixie_pin = pin;
+	pixie_pin = data_pin;
 
-	chars_x = size_x*2; // Pixies have two chars each
-	chars_y = size_y;
+	chars_x = pixies_x*2; // Pixies have two chars each
+	chars_y = pixies_y;
 
 	matrix_width  = display_width*chars_x;
 	matrix_height = display_height*chars_y;
@@ -104,39 +104,125 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 		leds[i] = CRGB(0,255,0);
 	}
 
-	palette.loadDynamicGradientPalette(GREEN_SOLID);
+	current_palette.loadDynamicGradientPalette(GREEN_SOLID);
 
 	build_controller(pixie_pin); // ------ Initialize FastLED
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
 	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
-	set_max_power(3.3, 500); // ---------- Set default power budget in V and mA
+	set_max_power(5, 500); // ------------ Set default power budget in V and mA
 	start_animation(); // ---------------- Kick off animation ISR
+	
+	
+	Serial.println(NUM_LEDS);
+	Serial.println(NUM_VISIBLE_LEDS);
+	Serial.println(data_pin);
 }
 
+/**************************************************************************/
+/*!
+    @brief	Takes an 8-bit brightness value and passes it to FastLED
+			internally, to provide global brightness control with temporal
+			dithering
+	
+    @param	level 8-bit global brightness value (0-255)
+*/
+/**************************************************************************/
 void PixieChroma::set_brightness(uint8_t level){
 	brightness_level = level;
 }
 
+/**************************************************************************/
+/*!
+    @brief	Configures the update mode Pixie Chroma will use:
+				
+				set_update_mode(AUTOMATIC)
+
+					Refresh LEDs with new mask data on every ISR call (60FPS) 
+				
+				set_update_mode(HOLD_FOR_UPDATE)
+
+					Only refresh LEDs with new mask_data when pix.update() is
+					called, useful for preventing updates to the image before
+					its text is fully constructed. The animation ISR driving 
+					the color map will still update at 60FPS, regardless of
+					how often pix.update is called.
+				
+    @param	update_type (AUTOMATIC or HOLD_FOR_UPDATE)
+*/
+/**************************************************************************/
 void PixieChroma::set_update_mode(update_type t){
 	_update_mode = t;
 }
 
+/**************************************************************************/
+/*!
+    @brief	Accepts a const uint8_t (8-bit) array with the following format
+			to generate a FastLED Gradient Palette at runtime:
+			
+			const uint8_t* my_gradient_palette[] = {
+			//  INDEX,	R_VAL,	G_VAL,	B_VAL,
+			
+				0,		255,	0,		0, 
+				127,	0,		255,	0, 
+				255,	0,		0,		255, 
+			};
+			
+			On each line, is the index of the color (0-255) to express the
+			position in the gradient this color occurs. So in the given
+			example, it is a gradient from red at 0, to green at 127, to
+			blue at 255.
+				
+    @param	pal FastLED Gradient Palette array
+*/
+/**************************************************************************/
 void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
-	palette.loadDynamicGradientPalette(pal);
+	current_palette.loadDynamicGradientPalette(pal);
 }
 
+/**************************************************************************/
+/*!
+    @brief	Accepts a FastLED CRGBPalette16 object to set the current color
+			palette for animation
+				
+    @param	pal FastLED CRGBPalette16
+*/
+/**************************************************************************/
 void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
-	palette = pal;
+	current_palette = pal;
 }
 
+/**************************************************************************/
+/*!
+    @brief	Accepts a preset or custom function to use for the animation ISR.
+			For a list of predefined animations, see _pixie_animations.h
+				
+    @param	action Function to set as an animation ISR
+*/
+/**************************************************************************/
 void PixieChroma::set_animation(void (*action)()) {
 	anim_func = action;
 }
 
+/**************************************************************************/
+/*!
+    @brief	Used to scale the animation speed of animation ISRs that can use
+			pix.animation_speed to scale their speeds or for other effects
+				
+    @param	speed Floating point value: 1.0 = 100%, 3.2 = 320%, 0.5 = 50%
+*/
+/**************************************************************************/
 void PixieChroma::set_animation_speed(float speed){
 	animation_speed = speed;
 }
 
+/**************************************************************************/
+/*!
+    @brief	Allows you to enable built-in automatic gamma correction, using
+			a fast LUT in _pixie_utility.h. (Not enabled by default)
+				
+    @param	enabled Whether or not to apply gamma correction
+*/
+/**************************************************************************/
 void PixieChroma::set_gamma_correction(bool enabled){
 	correct_gamma = enabled;
 }
@@ -924,7 +1010,7 @@ void PixieChroma::calc_xy(){
 					uint16_t i_table = (y_pos * matrix_width) + x_pos;
 					uint16_t i_template = (y_pos_mod * display_width) + x_pos_mod;
 
-					xy_table[i_table] = pgm_read_byte(xy_template + i_template);
+					xy_table[i_table] = int8_t(pgm_read_byte(xy_template + i_template));
 				}
 			}
 		}
