@@ -13,7 +13,7 @@ void ANIMATION_SOLID(){
 		float progress = float(x / float(pix.matrix_width+4));
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
 			uint16_t index = pix.xy(x,y);
-			CRGB col = ColorFromPalette(pix.palette, progress*255);
+			CRGB col = ColorFromPalette(pix.current_palette, progress*255);
 			pix.leds[index] = col;
 		}
 	}
@@ -30,7 +30,7 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount){
 		float progress = float(x / float(pix.matrix_width+4));
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
 			uint16_t index = pix.xy(x,y);
-			CRGB col = ColorFromPalette(pix.palette, progress*255+iter);
+			CRGB col = ColorFromPalette(pix.current_palette, progress*255+iter);
 			pix.leds[index] = col;
 		}
 	}
@@ -57,7 +57,7 @@ void ANIMATION_GLITTER(){
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
 			if(random8() <= 32){ // 12.5% chance
 				uint16_t index = pix.xy(x,y);
-				CRGB col = ColorFromPalette(pix.palette, progress*255);
+				CRGB col = ColorFromPalette(pix.current_palette, progress*255);
 				pix.leds[index] = col;
 			}
 		}
@@ -75,11 +75,11 @@ void _PENDULUM(float iter, float width){
 		if(palette_index < 0){
 			palette_index = 0;
 		}
-		else if(palette_index > 255){ // Weird. >230 wraps the gradient wrong. Should be 255 in a perfect world.
+		else if(palette_index > 255){ 
 			palette_index = 255;
 		}
 		
-		CRGB col = ColorFromPalette(pix.palette, uint8_t(palette_index));		
+		CRGB col = ColorFromPalette(pix.current_palette, uint8_t(palette_index));		
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
 			uint16_t index = pix.xy(x,y);			
 			pix.leds[index] = col;
