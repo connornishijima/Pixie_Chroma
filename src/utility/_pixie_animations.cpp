@@ -7,7 +7,6 @@ void ANIMATION_NULL(){
 
 void ANIMATION_SOLID(){
 	extern PixieChroma pix;
-	pix.freeze = true;
 
 	for(uint16_t x = 0; x < pix.matrix_width; x++){
 		float progress = float(x / float(pix.matrix_width+4));
@@ -17,14 +16,11 @@ void ANIMATION_SOLID(){
 			pix.leds[index] = col;
 		}
 	}
-
-	pix.freeze = false;
 }
 
 void ANIMATION_PALETTE_SHIFT(int8_t amount){
 	extern PixieChroma pix;
 	static float iter = 0;
-	pix.freeze = true;
 
 	for(uint16_t x = 0; x < pix.matrix_width; x++){
 		float progress = float(x / float(pix.matrix_width+4));
@@ -36,8 +32,6 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount){
 	}
 
 	iter+=amount*pix.animation_speed;
-
-	pix.freeze = false;
 }
 
 void ANIMATION_PALETTE_SHIFT_LEFT(){
