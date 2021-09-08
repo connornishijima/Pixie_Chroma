@@ -20,9 +20,6 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 
 #if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
 	void ICACHE_RAM_ATTR ANIMATE(){
-		static const uint32_t frame_cycles = F_CPU / (F_CPU / 2666666); // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration)
-		timer1_write(frame_cycles); // Come back here in 1/60th second
-		
 		extern PixieChroma pix;
 		// This is an imperfect solution, but extern-ing the class instance defined in the
 		// user sketch, this ISR routine (which can't be in a class) can still access it.
@@ -37,27 +34,20 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 		// can just use simple print() and clear() methods to update the displays, while our
 		// tricky ISR keeps animation running nicely, even with blocking code in the main loop.
 		
-		if(!pix.freeze){ // If not currently rendering to color or mask
-			uint32_t t_now = micros(); // Get current time
-			pix.frame_time = (t_now - pix.t_last);
-			pix.t_last = t_now;
-			
-			anim_func(); // Call custom animation function
-
-			if(pix.frame_iter % 15 == 0){
-				anim_func_quarter_second();
-			}
-			if(pix.frame_iter % 30 == 0){
-				anim_func_half_second();
-			}
-			if(pix.frame_iter % 60 == 0){
-				anim_func_whole_second();
-			}
-			
-			pix.show();  // Update Pixie Chromas
-		}
+		uint32_t t_now = micros(); // Get current time
+		pix.frame_time = (t_now - pix.t_last);
+		pix.t_last = t_now;
+		
+		anim_func(); // Call custom animation function
+		
+		pix.show();  // Update Pixie Chromas
 		
 		pix.frame_iter += 1;
+		
+		static const uint32_t frame_cycles = F_CPU / 60; // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration)
+		timer1_write(frame_cycles); // Come back here in 1/60th second
+		
+		
 	}
 #endif
 
@@ -121,10 +111,6 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 	}
 
 	current_palette.loadDynamicGradientPalette(GREEN_SOLID);
-	
-	anim_func_quarter_second = ANIMATION_NULL;
-	anim_func_half_second    = ANIMATION_NULL;
-	anim_func_whole_second   = ANIMATION_NULL;
 
 	build_controller(pixie_pin); // ------ Initialize FastLED
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
@@ -399,16 +385,13 @@ void PixieChroma::write(float input, uint8_t places, uint8_t x_pos, uint8_t y_po
 }
 
 void PixieChroma::write_pix(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
-	freeze = true;
 	int16_t x_offset = x_pos;
 	int16_t y_offset = y_pos;
 	add_char(icon, cursor_x, cursor_y);
 	cursor_x += display_width;
-	freeze = false;
 }
 
 void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
-	freeze = true;
 	uint8_t len = strlen(message);
 	Serial.println(len);
 	int16_t x_offset = x_pos;
@@ -421,7 +404,6 @@ void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
 			cursor_y += display_height;
 		}
 		else if(message[i] == 0 || message[i] == '\0'){ // early end of string
-			freeze = false;
 			return;
 		}
 		else{
@@ -430,8 +412,6 @@ void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
 			cursor_x += display_width;
 		}		
 	}
-
-	freeze = false;
 }
 
 void PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos){
@@ -662,7 +642,6 @@ void PixieChroma::dim(uint8_t amount, bool reset_cursor){
 	if(reset_cursor){
 		set_cursor(0,0);
 	}
-	freeze = true;
 	
 	for(uint16_t i = 0; i < NUM_LEDS; i+=11){
 		mask[i+0]  = scale8(mask[i+0],  255-amount);
@@ -677,7 +656,6 @@ void PixieChroma::dim(uint8_t amount, bool reset_cursor){
 		mask[i+9]  = scale8(mask[i+9],  255-amount);
 		mask[i+10] = scale8(mask[i+10], 255-amount);
 	}
-	freeze = false;
 }
 
 void PixieChroma::color_blur(fract8 blur_amount){
@@ -723,10 +701,8 @@ void PixieChroma::color_blur_y(fract8 blur_amount){
 }
 
 void PixieChroma::color_dim(uint8_t amount){
-	freeze = true;
 	CRGBSet leds_temp(leds, NUM_LEDS);
 	leds_temp.fadeToBlackBy(amount);
-	freeze = false;
 }
 
 uint8_t PixieChroma::get_cursor_x(){
@@ -745,16 +721,16 @@ int16_t PixieChroma::get_cursor_y_exact(){
 	return cursor_y;
 }
 
-void PixieChroma::clear(){
+void PixieChroma::hold(){
 	freeze = true;
+}
+
+void PixieChroma::clear(){
 	memset(mask, 0, NUM_LEDS);
 	set_cursor(0,0);
-	freeze = false;
 }
 
 void PixieChroma::update(){
-	freeze = true;
-	memcpy(mask_out, mask, NUM_VISIBLE_LEDS);
 	freeze = false;
 }
 
@@ -954,64 +930,62 @@ CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){
 void PixieChroma::show(){
 	if(!updated_too_soon){ // Prevents show() if called before last one finished
 		updated_too_soon = true;
-		if(!freeze){ // Prevents show() if called while text or animation is still being rendered
-			
-			noInterrupts();
-			if(_update_mode == AUTOMATIC){ // If we're not holding out for a pix.update() call, show with the current mask
-				memcpy(mask_out, mask, NUM_VISIBLE_LEDS);
-			}
-			
-			memcpy(leds_out, leds, sizeof(CRGB)*NUM_VISIBLE_LEDS);
 
-			for(uint16_t i = 0; i < NUM_VISIBLE_LEDS; i+=7){ // NUM VISIBLE always a multiple of 7, this is a slight unrolling of the for loop to save on speed
-				// MASKING
-				leds_out[i+0].fadeLightBy( 255-mask_out[i+0] ); // Apply mask "over" LED color layer
-				leds_out[i+1].fadeLightBy( 255-mask_out[i+1] );
-				leds_out[i+2].fadeLightBy( 255-mask_out[i+2] );
-				leds_out[i+3].fadeLightBy( 255-mask_out[i+3] );
-				leds_out[i+4].fadeLightBy( 255-mask_out[i+4] );
-				leds_out[i+5].fadeLightBy( 255-mask_out[i+5] );
-				leds_out[i+6].fadeLightBy( 255-mask_out[i+6] );
-
-
-				// GAMMA CORRECTION
-				if(correct_gamma){					
-					leds_out[i+0].r = gamma8[leds_out[i+0].r]; // Apply gamma correction LUT
-					leds_out[i+0].g = gamma8[leds_out[i+0].g];
-					leds_out[i+0].b = gamma8[leds_out[i+0].b];
-
-					leds_out[i+1].r = gamma8[leds_out[i+1].r];
-					leds_out[i+1].g = gamma8[leds_out[i+1].g];
-					leds_out[i+1].b = gamma8[leds_out[i+1].b];
-
-					leds_out[i+2].r = gamma8[leds_out[i+2].r];
-					leds_out[i+2].g = gamma8[leds_out[i+2].g];
-					leds_out[i+2].b = gamma8[leds_out[i+2].b];
-
-					leds_out[i+3].r = gamma8[leds_out[i+3].r];
-					leds_out[i+3].g = gamma8[leds_out[i+3].g];
-					leds_out[i+3].b = gamma8[leds_out[i+3].b];
-
-					leds_out[i+4].r = gamma8[leds_out[i+4].r];
-					leds_out[i+4].g = gamma8[leds_out[i+4].g];
-					leds_out[i+4].b = gamma8[leds_out[i+4].b];
-
-					leds_out[i+5].r = gamma8[leds_out[i+5].r];
-					leds_out[i+5].g = gamma8[leds_out[i+5].g];
-					leds_out[i+5].b = gamma8[leds_out[i+5].b];
-
-					leds_out[i+6].r = gamma8[leds_out[i+6].r];
-					leds_out[i+6].g = gamma8[leds_out[i+6].g];
-					leds_out[i+6].b = gamma8[leds_out[i+6].b];
-				}
-			}
-			
-			// Regulate brightness to keep power within budget set with pix.set_max_power(V, mA);
-			FastLED.setBrightness(calculate_max_brightness_for_power_vmA(leds_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA));
-			FastLED.show();
-
-			interrupts();
+		noInterrupts();
+		if(!freeze){ // If we're not holding out for a pix.update() call, show with the current mask
+			memcpy(mask_out, mask, NUM_VISIBLE_LEDS);
 		}
+		
+		memcpy(leds_out, leds, sizeof(CRGB)*NUM_VISIBLE_LEDS);
+
+		for(uint16_t i = 0; i < NUM_VISIBLE_LEDS; i+=7){ // NUM VISIBLE always a multiple of 7, this is a slight unrolling of the for loop to save on speed
+			// MASKING
+			leds_out[i+0].fadeLightBy( 255-mask_out[i+0] ); // Apply mask "over" LED color layer
+			leds_out[i+1].fadeLightBy( 255-mask_out[i+1] );
+			leds_out[i+2].fadeLightBy( 255-mask_out[i+2] );
+			leds_out[i+3].fadeLightBy( 255-mask_out[i+3] );
+			leds_out[i+4].fadeLightBy( 255-mask_out[i+4] );
+			leds_out[i+5].fadeLightBy( 255-mask_out[i+5] );
+			leds_out[i+6].fadeLightBy( 255-mask_out[i+6] );
+
+
+			// GAMMA CORRECTION
+			if(correct_gamma){					
+				leds_out[i+0].r = gamma8[leds_out[i+0].r]; // Apply gamma correction LUT
+				leds_out[i+0].g = gamma8[leds_out[i+0].g];
+				leds_out[i+0].b = gamma8[leds_out[i+0].b];
+
+				leds_out[i+1].r = gamma8[leds_out[i+1].r];
+				leds_out[i+1].g = gamma8[leds_out[i+1].g];
+				leds_out[i+1].b = gamma8[leds_out[i+1].b];
+
+				leds_out[i+2].r = gamma8[leds_out[i+2].r];
+				leds_out[i+2].g = gamma8[leds_out[i+2].g];
+				leds_out[i+2].b = gamma8[leds_out[i+2].b];
+
+				leds_out[i+3].r = gamma8[leds_out[i+3].r];
+				leds_out[i+3].g = gamma8[leds_out[i+3].g];
+				leds_out[i+3].b = gamma8[leds_out[i+3].b];
+
+				leds_out[i+4].r = gamma8[leds_out[i+4].r];
+				leds_out[i+4].g = gamma8[leds_out[i+4].g];
+				leds_out[i+4].b = gamma8[leds_out[i+4].b];
+
+				leds_out[i+5].r = gamma8[leds_out[i+5].r];
+				leds_out[i+5].g = gamma8[leds_out[i+5].g];
+				leds_out[i+5].b = gamma8[leds_out[i+5].b];
+
+				leds_out[i+6].r = gamma8[leds_out[i+6].r];
+				leds_out[i+6].g = gamma8[leds_out[i+6].g];
+				leds_out[i+6].b = gamma8[leds_out[i+6].b];
+			}
+		}
+		
+		// Regulate brightness to keep power within budget set with pix.set_max_power(V, mA);
+		FastLED.setBrightness(calculate_max_brightness_for_power_vmA(leds_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA));
+		FastLED.show();
+
+		interrupts();
 		updated_too_soon = false;
 	}
 	else{
