@@ -1057,9 +1057,11 @@ void PixieChroma::build_controller(const uint8_t pin){
 }
 
 void PixieChroma::start_animation(){
-	timer1_attachInterrupt(ANIMATE);
-	timer1_enable(TIM_DIV1, TIM_EDGE, TIM_SINGLE);
-	timer1_write(1000000); // First frame 1,000,000 CPU cycles from now
+	#if defined(ESP8266)
+		timer1_attachInterrupt(ANIMATE);
+		timer1_enable(TIM_DIV1, TIM_EDGE, TIM_SINGLE);
+		timer1_write(1000000); // First frame 1,000,000 CPU cycles from now
+	#endif
 }
 
 void PixieChroma::calc_xy(){
