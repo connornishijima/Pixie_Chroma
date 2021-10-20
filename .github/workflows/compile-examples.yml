@@ -9,8 +9,34 @@ jobs:
 
     strategy:
       matrix:
-        fqbn:
-          - esp8266:esp8266:d1_mini:xtal=160,vt=flash,exception=disabled,stacksmash=disabled,ssl=all,mmu=3232,non32xfer=fast,eesz=4M2M,ip=lm2f,dbg=Disabled,lvl=None____,wipe=none,baud=921600
+        board:
+          - fqbn: esp8266:esp8266:huzzah
+            type: esp8266
+          - fqbn: esp32:esp32:esp32
+            type: esp32
+        
+        # make board type-specific customizations to the matrix jobs
+        include:
+          # ESP8266 boards
+          - board:
+              type: esp8266
+            platforms: |
+              # Install ESP8266 platform via Boards Manager
+              - name: esp8266:esp8266
+                source-url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
+                version: 2.5.0
+            libraries:
+            sketch-paths:
+          # ESP32 boards
+          - board:
+              type: esp32
+            platforms: |
+              # Install ESP32 platform via Boards Manager
+              - name: esp32:esp32
+                source-url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+            libraries:
+            sketch-paths:
+          
     steps:
       - uses: actions/checkout@v2
       - uses: arduino/compile-sketches@v1
