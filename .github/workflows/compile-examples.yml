@@ -1,41 +1,40 @@
-name: Compile Examples
+name: LibraryBuild with parameter matrix
 on:
-  - push
-  - pull_request
-
+  push: # see: https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
+    paths:
+    - '**.ino'
+    - '**.cpp'
+    - '**.h'
+    - '**compile-examples.yml'
+  pull_request:
 jobs:
   build:
+    name: ${{ matrix.arduino-boards-fqbn }} ${{ matrix.log-options }} ${{ matrix.other-options }}
     runs-on: ubuntu-latest
-
+    
+    env:
+      REQUIRED_LIBRARIES: FastLED
     strategy:
       matrix:
-        board:
-          - fqbn: esp8266:esp8266:huzzah
-            type: esp8266
-          - fqbn: esp32:esp32:esp32
-            type: esp32
-        
-        # make board type-specific customizations to the matrix jobs
-        include:
-          # ESP8266 boards
-          - board:
-              type: esp8266
-            platforms: |
-              # Install ESP8266 platform via Boards Manager
-              - name: esp8266:esp8266
-                source-url: https://arduino.esp8266.com/stable/package_esp8266com_index.json
-                version: 2.5.0
-          # ESP32 boards
-          - board:
-              type: esp32
-            platforms: |
-              # Install ESP32 platform via Boards Manager
-              - name: esp32:esp32
-                source-url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+        arduino-boards-fqbn:
+          - esp8266:esp8266:huzzah
+        platform-url:
+          - https://arduino.esp8266.com/stable/package_esp8266com_index.json
           
+        log-options: [-DDEBUG, -DINFO]
+
+        other-options: [-DTEST, -DDUMMY]
+
+      fail-fast: false
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: arduino/compile-sketches@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Compile all examples
+        uses: ArminJo/arduino-test-compile@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          fqbn: ${{ matrix.fqbn }}
+          arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
+          platform-url: ${{ matrix.platform-url }}
+          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
+          build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
