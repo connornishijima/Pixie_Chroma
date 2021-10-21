@@ -126,8 +126,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abaf733f35d310b1896989babf21d27b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">set_max_power</a> (float volts, uint16_t milliamps)</td></tr>
 <tr class="memdesc:abaf733f35d310b1896989babf21d27b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum power budget in volts and milliamps. Knowing the average power consumption of these LEDs at any given color, FastLED will automatically globally scale down the output values with temporal dithering to lower power usage until it is within the budget defined here. Defaults to 5.0V / 500mA to protect PC USB ports if the LEDs are not independently powered. (2000mA = 2A, 500mA = 0.5A, etc.)  <a href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">More...</a><br /></td></tr>
 <tr class="separator:abaf733f35d310b1896989babf21d27b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="memItemLeft" align="right" valign="top"><a id="a89ff2c569d6161c9b0ee6df04d2959b7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const uint8_t *icon, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
+<tr class="memitem:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7">write</a> (const uint8_t *icon, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
+<tr class="memdesc:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an icon* to a specified X and Y cursor position.  <a href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7">More...</a><br /></td></tr>
 <tr class="separator:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa60dcec78788028f019b20eaea86591f"><td class="memItemLeft" align="right" valign="top"><a id="aa60dcec78788028f019b20eaea86591f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
@@ -229,7 +229,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>println</b> (float in
 void&#160;</td><td class="memItemRight" valign="bottom"><b>println</b> (double input, uint8_t places=2)</td></tr>
 <tr class="separator:ab27af21db66261416baeb7dce24ef871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae250a6769121e2949f39d4f7d5369942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">set_cursor</a> (uint8_t x_position, uint8_t y_position=0)</td></tr>
-<tr class="memdesc:ae250a6769121e2949f39d4f7d5369942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or write() will originate. Position is counted from zero. Remember, each Pixie Chroma has two "displays" on it.  <a href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">More...</a><br /></td></tr>
+<tr class="memdesc:ae250a6769121e2949f39d4f7d5369942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember, each Pixie Chroma has two "displays" on it.  <a href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">More...</a><br /></td></tr>
 <tr class="separator:ae250a6769121e2949f39d4f7d5369942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5524f6da87f57c23750ef8067d1f243"><td class="memItemLeft" align="right" valign="top"><a id="af5524f6da87f57c23750ef8067d1f243"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_cursor_x</b> ()</td></tr>
@@ -663,6 +663,50 @@ PixieChroma pix;
 
 </div>
 </div>
+<a id="a89ff2c569d6161c9b0ee6df04d2959b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89ff2c569d6161c9b0ee6df04d2959b7">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::write </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>icon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>x_pos</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>y_pos</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes an icon* to a specified X and Y cursor position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">icon</td><td>The icon to write </td></tr>
+    <tr><td class="paramname">x_pos</td><td>X cursor position of write </td></tr>
+    <tr><td class="paramname">y_pos</td><td>Y cursor position of write </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae250a6769121e2949f39d4f7d5369942"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae250a6769121e2949f39d4f7d5369942">&#9670;&nbsp;</a></span>set_cursor()</h2>
 
@@ -689,7 +733,7 @@ PixieChroma pix;
       </table>
 </div><div class="memdoc">
 
-<p>Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or write() will originate. Position is counted from zero. Remember, each Pixie Chroma has two "displays" on it. </p>
+<p>Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember, each Pixie Chroma has two "displays" on it. </p>
 <p>+--------------&mdash;+ +--------------&mdash;+ +--------------&mdash;+ | + + + | | + + + | | + + + | |+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| </p><table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th></tr>
