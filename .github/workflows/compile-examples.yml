@@ -47,5 +47,5 @@ jobs:
         with:
           doxygenconf: './docs/Doxyfile'
           htmloutput: './docs/'
-          ghpagesbranch: 'master'
+          ghpagesbranch: 'main'
           ghpagesdir: './docs/'
