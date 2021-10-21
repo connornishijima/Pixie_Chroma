@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test Compilation 
-      - uses: arduino/compile-sketches@v1
+        uses: arduino/compile-sketches@v1
         with:
           fqbn: ${{ matrix.arduino-boards-fqbn }}
           libraries: ${{ env.REQUIRED_LIBRARIES }}
