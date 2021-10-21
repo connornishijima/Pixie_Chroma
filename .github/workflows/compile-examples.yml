@@ -35,13 +35,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Compile all examples
-        uses: ArminJo/arduino-test-compile@v3
-        with:
-          arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
-          platform-url: ${{ matrix.platform-url }}
-          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
-          build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
+#      - name: Compile all examples
+#        uses: ArminJo/arduino-test-compile@v3
+#        with:
+#          arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
+#          platform-url: ${{ matrix.platform-url }}
+#          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
+#          build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
 
       - name: Doxygen Build
         uses: langroodi/doxygenize@v1.3
