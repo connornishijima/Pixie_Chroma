@@ -7,6 +7,11 @@ on:
     - '**.h'
     - '**compile-examples.yml'
   pull_request:
+    paths:
+    - '**.ino'
+    - '**.cpp'
+    - '**.h'
+    - '**compile-examples.yml'
 jobs:
   build:
     name: ${{ matrix.arduino-boards-fqbn }} ${{ matrix.log-options }} ${{ matrix.other-options }}
