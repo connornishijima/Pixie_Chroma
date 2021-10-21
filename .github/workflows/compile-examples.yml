@@ -23,8 +23,6 @@ jobs:
       # libraries to install for all boards
       UNIVERSAL_LIBRARIES: |
         - name: FastLED
-		# Install the FastLED library from the repository
-		
       # sketch paths to compile (recursive) for all boards
       UNIVERSAL_SKETCH_PATHS: |
         - examples
