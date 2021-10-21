@@ -43,12 +43,9 @@ jobs:
           build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
 
       - name: Doxygen Build
-        uses: mattnotmitt/doxygen-action@v1
+        uses: langroodi/doxygenize@[version/tag/commit hash (e.g., v1.3)]
         with:
-          doxyfile-path: 'docs/Doxyfile'
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./doxygen
+          doxygenconf: './docs/Doxyfile'
+          htmloutput: './docs/'
+          ghpagesbranch: 'gh-pages'
+          ghpagesdir: './docs/'
