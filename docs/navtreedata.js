@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Pixie Chroma || Arduino Documentation", "index.html", ]
+  [ "Pixie Chroma", "index.html", ]
 ];
 
 var NAVTREEINDEX =
