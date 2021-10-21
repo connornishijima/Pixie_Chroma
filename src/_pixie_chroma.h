@@ -1,3 +1,12 @@
+/*!
+ * @file _pixie_chroma.h
+ *
+ * Designed specifically to work with Pixie Chroma:
+ * ----> https://connornishijima.github.io/PixieChroma
+ *
+ * Last Updated by Connor Nishijima on 10/20/21
+ */
+
 #ifndef _pixie_chroma_h
 #define _pixie_chroma_h
 
@@ -14,9 +23,10 @@ enum frame_multiple {
 	QUARTER_SECOND
 };
 
+/** Pixie Chroma Class Definition */
 class PixieChroma{
 	public:
-		// Constructor
+		/** @brief Create a Pixie Chroma class object */
 		PixieChroma();
 		
 		/*+-- Functions - Setup ------------------------------------------------------------*/ 
