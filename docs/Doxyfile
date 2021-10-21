@@ -51,7 +51,7 @@ PROJECT_BRIEF          = Documentation for the easiest 5x7 displays for Arduino!
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = docs/logo.png
+PROJECT_LOGO           = extras/img/lixielabs.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
