@@ -48,4 +48,4 @@ jobs:
           doxygenconf: './docs/Doxyfile'
           htmloutput: './docs/'
           ghpagesbranch: 'gh-pages'
-          ghpagesdir: './docs/'
+          ghpagesdir: '.'
