@@ -6,6 +6,7 @@ on:
     - '**.cpp'
     - '**.h'
     - '**compile-examples.yml'
+    - '**Doxyfile'
   pull_request:
     paths:
     - '**.ino'
