@@ -469,17 +469,12 @@ PixieChroma pix;
 </div><div class="memdoc">
 
 <p>Configures the update mode Pixie Chroma will use: </p>
-<pre class="fragment">        set_update_mode(AUTOMATIC);
-
-            Refresh LEDs with new mask data on every ISR call (60FPS) 
-
-        set_update_mode(HOLD_FOR_UPDATE);
-
-            Only refresh LEDs with new mask_data when pix.update() is
-            called, useful for preventing updates to the image before
-            its text is fully constructed. The animation ISR driving 
-            the color map will still update at 60FPS, regardless of
-            how often pix.update() is called.
+<p>set_update_mode(AUTOMATIC); </p><pre class="fragment">Refresh LEDs with new mask data on every ISR call (60FPS) 
+</pre><p> set_update_mode(HOLD_FOR_UPDATE); </p><pre class="fragment">Only refresh LEDs with new mask_data when pix.update() is
+called, useful for preventing updates to the image before
+its text is fully constructed. The animation ISR driving 
+the color map will still update at 60FPS, regardless of
+how often pix.update() is called.
 </pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">update_type</td><td>(AUTOMATIC or HOLD_FOR_UPDATE) </td></tr>
@@ -734,34 +729,35 @@ PixieChroma pix;
 </div><div class="memdoc">
 
 <p>Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember, each Pixie Chroma has two "displays" on it. </p>
-<p>+--------------&mdash;+ +--------------&mdash;+ +--------------&mdash;+ | + + + | | + + + | | + + + | |+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| </p><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">0,0   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">1,0   </td><td class="markdownTableBodyNone" colspan="2">--&gt;   </td><td class="markdownTableBodyNone">2,0   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">3,0   </td><td class="markdownTableBodyNone" colspan="2">--&gt;   </td><td class="markdownTableBodyNone">4,0   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">5,0    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td></tr>
-</table>
-<p>|+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| | + + + | | + + + | | + + + | +--------------&mdash;+ +--------------&mdash;+ +--------------&mdash;+ | +----------------------------------------&mdash;+ | V +--------------&mdash;+ +--------------&mdash;+ +--------------&mdash;+ | + + + | | + + + | | + + + | |+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| </p><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone" colspan="2"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone" colspan="2"></th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">0,1   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">1,1   </td><td class="markdownTableBodyNone" colspan="2">--&gt;   </td><td class="markdownTableBodyNone">2,1   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">3,1   </td><td class="markdownTableBodyNone" colspan="2">--&gt;   </td><td class="markdownTableBodyNone">4,0   </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2">5,1    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone" colspan="2"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone" colspan="2"></td></tr>
-</table>
-<p>|+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| |+--&mdash;+ +--&mdash;+| | + + + | | + + + | | + + + | +--------------&mdash;+ +--------------&mdash;+ +--------------&mdash;+</p>
-<p>For example: </p><pre class="fragment">set_cursor(1,0)
+<pre class="fragment">+-----------------+   +-----------------+   +-----------------+
+|      + + +      |   |      + + +      |   |      + + +      |
+|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+|| 0,0 |   | 1,0 ||--&gt;|| 2,0 |   | 3,0 ||--&gt;|| 4,0 |   | 5,0 ||
+||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+|      + + +      |   |      + + +      |   |      + + +      |
++-----------------+   +-----------------+   +-----------------+
+                                                     |
+         +-------------------------------------------+
+         |
+         V
++-----------------+   +-----------------+   +-----------------+
+|      + + +      |   |      + + +      |   |      + + +      |
+|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+|| 0,1 |   | 1,1 ||--&gt;|| 2,1 |   | 3,1 ||--&gt;|| 4,0 |   | 5,1 ||
+||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+|+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+|      + + +      |   |      + + +      |   |      + + +      |
++-----------------+   +-----------------+   +-----------------+
+</pre><p> For example: </p><pre class="fragment">set_cursor(1,0) // Sets the cursor to the second display in the first row
 
-    Sets the cursor to the second display in the first row
-
-set_cursor(3,1)
-
-    Sets the cursor to the fourth display in the second row
+set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x_position</td><td>New cursor position on the X-axis, in whole displays </td></tr>
