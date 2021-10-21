@@ -19,7 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      REQUIRED_LIBRARIES: FastLED
+      REQUIRED_LIBRARIES: |
+        - FastLED
     strategy:
       matrix:
         arduino-boards-fqbn:
@@ -35,13 +36,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Compile all examples
-        uses: ArminJo/arduino-test-compile@v3
+      - name: Test Compilation 
+      - uses: arduino/compile-sketches@v1
         with:
-          arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
-          platform-url: ${{ matrix.platform-url }}
-          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
-          build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
+          fqbn: ${{ matrix.arduino-boards-fqbn }}
+          libraries: ${{ env.REQUIRED_LIBRARIES }}
+          platforms: |
+            - name: ${{ matrix.arduino-boards-fqbn }}
+            - source-url: ${{ matrix.platform-url }}
+
+#      - name: Compile all examples
+##        uses: ArminJo/arduino-test-compile@v3
+ #       with:
+#          arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
+#          platform-url: ${{ matrix.platform-url }}
+#          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
+#          build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
 
       - name: Doxygen Build
         uses: langroodi/doxygenize@v1.3
