@@ -136,17 +136,17 @@ void PixieChroma::set_brightness(uint8_t level){
 /*!
     @brief  Configures the update mode Pixie Chroma will use:
 	
-                set_update_mode(AUTOMATIC);
+    set_update_mode(AUTOMATIC);
 
-                    Refresh LEDs with new mask data on every ISR call (60FPS) 
+        Refresh LEDs with new mask data on every ISR call (60FPS) 
 				
-                set_update_mode(HOLD_FOR_UPDATE);
+    set_update_mode(HOLD_FOR_UPDATE);
 
-                    Only refresh LEDs with new mask_data when pix.update() is
-                    called, useful for preventing updates to the image before
-                    its text is fully constructed. The animation ISR driving 
-                    the color map will still update at 60FPS, regardless of
-                    how often pix.update() is called.
+        Only refresh LEDs with new mask_data when pix.update() is
+        called, useful for preventing updates to the image before
+        its text is fully constructed. The animation ISR driving 
+        the color map will still update at 60FPS, regardless of
+        how often pix.update() is called.
 				
     @param  update_type (AUTOMATIC or HOLD_FOR_UPDATE)
 */
@@ -235,42 +235,38 @@ void PixieChroma::set_gamma_correction(bool enabled){
             write() will originate. Position is counted from zero. Remember,
             each Pixie Chroma has two "displays" on it.
 
-            +-----------------+   +-----------------+   +-----------------+
-            |      + + +      |   |      + + +      |   |      + + +      |
-            |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-            || 0,0 |   | 1,0 ||-->|| 2,0 |   | 3,0 ||-->|| 4,0 |   | 5,0 ||
-            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-            |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-            |      + + +      |   |      + + +      |   |      + + +      |
-            +-----------------+   +-----------------+   +-----------------+
-                                                                 |
-                     +-------------------------------------------+
-                     |
-                     V
-            +-----------------+   +-----------------+   +-----------------+
-            |      + + +      |   |      + + +      |   |      + + +      |
-            |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-            || 0,1 |   | 1,1 ||-->|| 2,1 |   | 3,1 ||-->|| 4,0 |   | 5,1 ||
-            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-            ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-            |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-            |      + + +      |   |      + + +      |   |      + + +      |
-            +-----------------+   +-----------------+   +-----------------+
+                +-----------------+   +-----------------+   +-----------------+
+                |      + + +      |   |      + + +      |   |      + + +      |
+                |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                || 0,0 |   | 1,0 ||-->|| 2,0 |   | 3,0 ||-->|| 4,0 |   | 5,0 ||
+                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+                |      + + +      |   |      + + +      |   |      + + +      |
+                +-----------------+   +-----------------+   +-----------------+
+                                                                     |
+                         +-------------------------------------------+
+                         |
+                         V
+                +-----------------+   +-----------------+   +-----------------+
+                |      + + +      |   |      + + +      |   |      + + +      |
+                |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                || 0,1 |   | 1,1 ||-->|| 2,1 |   | 3,1 ||-->|| 4,0 |   | 5,1 ||
+                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+                |      + + +      |   |      + + +      |   |      + + +      |
+                +-----------------+   +-----------------+   +-----------------+
 
             For example:
 
-                set_cursor(1,0)
+                set_cursor(1,0) // Sets the cursor to the second display in the first row
 
-                    Sets the cursor to the second display in the first row
-
-                set_cursor(3,1)
-
-                    Sets the cursor to the fourth display in the second row
+                set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 
     @param  x_position New cursor position on the X-axis, in whole displays
     @param  y_position New cursor position on the Y-axis, in whole displays
