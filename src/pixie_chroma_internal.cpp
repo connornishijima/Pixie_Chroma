@@ -807,12 +807,35 @@ void PixieChroma::print(float input, uint8_t places){
 	print(double(input), places);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints an Icon to the displays at the current cursor position,
+            then jumps to the next row in the Pixie display, similar to a
+            newline '\n' character.
+    
+    @param  icon     Icon column data to print
+*/
+/**************************************************************************/
 void PixieChroma::println(const uint8_t* icon){
 	write_pix(icon, cursor_x, cursor_y); // ........ Output
 	cursor_x = 1;
 	cursor_y += display_height;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints an Icon to the displays at the current cursor position,
+            (taking five uint8_t as input for the column data) then jumps
+            to the next row in the Pixie display, similar to a newline
+            '\n' character.
+    
+    @param  icon_col_1  Column 1 data of this icon
+    @param  icon_col_2  Column 2 data of this icon
+    @param  icon_col_3  Column 3 data of this icon
+    @param  icon_col_4  Column 4 data of this icon
+    @param  icon_col_5  Column 5 data of this icon
+*/
+/**************************************************************************/
 void PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5){
 	const uint8_t icon[5] = {
 		icon_col_1,
@@ -826,30 +849,75 @@ void PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_c
 	cursor_y += display_height;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints a char* string to the displays at the current cursor
+            position, then jumps to the next row in the Pixie display,
+            similar to a newline '\n' character.
+	
+    @param  message  char* string to print
+*/
+/**************************************************************************/
 void PixieChroma::println(char* message){
 	write_pix(message, cursor_x, cursor_y); // ........ Output
 	cursor_x = 1;
 	cursor_y += display_height;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints a signed 16-bit integer to the displays at the current
+            cursor position, then jumps to the next row in the Pixie display,
+            similar to a newline '\n' character.
+	
+    @param  input  Signed 16-bit integer to print
+*/
+/**************************************************************************/
 void PixieChroma::println(int16_t input){
 	char char_buf[32];
 	itoa(input,char_buf,10);
 	println(char_buf);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints an unsigned 16-bit integer to the displays at the current
+            cursor position, then jumps to the next row in the Pixie display,
+            similar to a newline '\n' character.
+	
+    @param  input  Unsigned 16-bit integer to print
+*/
+/**************************************************************************/
 void PixieChroma::println(uint16_t input){
 	char char_buf[32];
 	utoa(input,char_buf,10);
 	println(char_buf);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints a signed 32-bit integer to the displays at the current
+            cursor position, then jumps to the next row in the Pixie display,
+            similar to a newline '\n' character.
+	
+    @param  input  Signed 32-bit integer to print
+*/
+/**************************************************************************/
 void PixieChroma::println(int32_t input){
 	char char_buf[32];
 	ltoa(input,char_buf,10);
 	println(char_buf);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints an unsigned 32-bit integer to the displays at the current
+            cursor position, then jumps to the next row in the Pixie display,
+            similar to a newline '\n' character.
+	
+    @param  input  Unsigned 32-bit integer to print
+*/
+/**************************************************************************/
 void PixieChroma::println(uint32_t input){
 	char char_buf[32];
 	ultoa(input,char_buf,10);
@@ -857,19 +925,50 @@ void PixieChroma::println(uint32_t input){
 }
 
 #if defined(ESP8266) || defined(ESP32)
-	void PixieChroma::println(long unsigned int input){
-		char char_buf[32];
-		ultoa(input,char_buf,10);
-		println(char_buf);
-	}
+/**************************************************************************/
+/*!
+    @brief  Prints an unsigned 32-bit integer to the displays at the current
+            cursor position, then jumps to the next row in the Pixie display,
+            similar to a newline '\n' character. (Stupid ESP-specific type)
+	
+    @param  input  Unsigned 32-bit integer to print
+*/
+/**************************************************************************/
+void PixieChroma::println(long unsigned int input){
+	char char_buf[32];
+	ultoa(input,char_buf,10);
+	println(char_buf);
+}
 #endif
 
+/**************************************************************************/
+/*!
+    @brief  Prints a double-precision floating point integer to the displays
+            at the current cursor position (to a specified number of decimal
+            places), then jumps to the next row in the Pixie display,
+            similar to a newline '\n' character.
+            
+    @param  input   double to print
+    @param  places  Number of decimal places to print **[optional]**
+*/
+/**************************************************************************/
 void PixieChroma::println(double input, uint8_t places){
 	char char_buf[32];
 	dtoa(input,char_buf,places);
 	println(char_buf);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints a single-precision floating point integer to the displays
+            at the current cursor position (to a specified number of decimal
+            places), then jumps to the next row in the Pixie display,
+            similar to a newline '\n' character.
+            
+    @param  input   float to print
+    @param  places  Number of decimal places to print **[optional]**
+*/
+/**************************************************************************/
 void PixieChroma::println(float input, uint8_t places){
 	println(double(input), places);
 }
