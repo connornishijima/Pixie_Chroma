@@ -29,13 +29,13 @@ jobs:
       REQUIRED_LIBRARIES: FastLED
     strategy:
       matrix:
-        arduino-boards-fqbn:
-          - esp8266:esp8266:huzzah
-          - esp32:esp32:esp32
-        platform-url:
-          - https://arduino.esp8266.com/stable/package_esp8266com_index.json
-          - https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
-          
+        fqbn: ["esp8266:esp8266:huzzah", "esp32:esp32:esp32"]
+        include:
+          - fqbn: "esp8266:esp8266:huzzah"
+            platform-url: "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
+          - fqbn: "arduino:avr"
+            platform-url: "https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json"
+                
         log-options: [-DDEBUG]
 
       fail-fast: false
@@ -53,7 +53,7 @@ jobs:
       - name: Compile all examples
         uses: ArminJo/arduino-test-compile@v3
         with:
-          arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
+          arduino-board-fqbn: ${{ matrix.fqbn }}
           platform-url: ${{ matrix.platform-url }}
           required-libraries: ${{ env.REQUIRED_LIBRARIES }}
           build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
