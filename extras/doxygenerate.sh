@@ -10,7 +10,8 @@ else
 fi
 
 # Install Doxygen, GIT, and OpenSSH packages
-apk add doxygen git openssh graphviz ttf-freefont
+apt-get update
+apt-get install doxygen git openssh graphviz ttf-freefont
 
 # Try to generate code documentation
 # Exit with error if the document generation failed
