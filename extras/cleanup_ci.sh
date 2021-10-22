@@ -1,7 +1,7 @@
 #!/bin/bash
 # This is just for GitHub, and is used to clean up leftover files after automatic testing has completed! ;)
 
-echo "TOK $1"
+echo "TOK 0$10"
 
 echo "Cleaning up CI junk..."
 git add *
@@ -20,7 +20,9 @@ sudo apt update
 sudo apt install dirmngr
 sudo apt install gh
 
+echo "Authenticating"
 gh auth login --with-token $1
+echo "Creating issue"
 gh issue create --title "(TESTING) Does this script automatically open an issue?" --body "If it does, this baby is working."
 
 echo "Done!" 
