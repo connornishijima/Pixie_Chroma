@@ -142,5 +142,9 @@ var NAVTREEINDEX1 =
 "pixie__palettes_8h.html#ae50e3ff9d4c5e063b9f8b4f0f682e5fb":[1,0,0,0,4,9],
 "pixie__palettes_8h.html#aeffb8b3c4762fa41237652509c8b951d":[1,0,0,0,4,1],
 "pixie__palettes_8h_source.html":[1,0,0,0,4],
+"pixie__utility_8h.html":[1,0,0,0,5],
+"pixie__utility_8h.html#a24480bb0ea05122af15b53664bb10fd0":[1,0,0,0,5,0],
+"pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4":[1,0,0,0,5,2],
+"pixie__utility_8h.html#a533031e96910bfae07d3eda30cc6f4d3":[1,0,0,0,5,1],
 "pixie__utility_8h_source.html":[1,0,0,0,5]
 };
