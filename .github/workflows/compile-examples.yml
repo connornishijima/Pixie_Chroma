@@ -54,7 +54,10 @@ jobs:
 #          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
       
       - name: Doxygen Build
-        run: "sudo chmod +x ./extras/doxygenerate.sh && sudo ./extras/doxygenerate.sh"
+        run: |
+          "sudo chmod +x ./extras/doxygenerate.sh"
+          "sudo chmod 777 ./extras/doxygenerate.sh"
+          "sudo ./extras/doxygenerate.sh"
         shell: bash
         
 #        uses: connornishijima/doxygenize@v1.3 
@@ -65,5 +68,5 @@ jobs:
 #          ghpagesdir: './docs/'
           
       - name: Clean Up Extras
-        run: "sudo chmod +x ./extras/cleanup_ci.sh && sudo ./extras/cleanup_ci.sh"
+        run: "sudo chmod +x ./extras/cleanup_ci.sh && sudo chmod 777 ./extras/cleanup_ci.sh && sudo ./extras/cleanup_ci.sh"
         shell: bash
