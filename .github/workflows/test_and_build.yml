@@ -1,4 +1,4 @@
-name: Linting, Compilation Testing, Documentation Build
+name: Linting, Compilation Testing, Documentation Build 
 on:
   push: # see: https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
     paths:
