@@ -54,13 +54,15 @@ jobs:
 #          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
       
       - name: Doxygen Build
-        id: doxycheck
-        uses: connornishijima/doxygenize@v1.3 
-        with:
-          doxygenconf: './docs/Doxyfile'
-          htmloutput: './docs/'
-          ghpagesbranch: 'main'
-          ghpagesdir: './docs/'
+        run: "sudo chmod +x ./extras/doxygenerate.sh && sudo ./extras/doxygenerate.sh"
+        shell: bash
+        
+#        uses: connornishijima/doxygenize@v1.3 
+#        with:
+#          doxygenconf: './docs/Doxyfile'
+#          htmloutput: './docs/'
+#          ghpagesbranch: 'main'
+#          ghpagesdir: './docs/'
           
       - name: Clean Up Extras
         run: "sudo chmod +x ./extras/cleanup_ci.sh && sudo ./extras/cleanup_ci.sh"
