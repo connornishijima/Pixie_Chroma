@@ -1,0 +1,858 @@
+{
+  "configuration": {
+    "paths": [
+      "/home/runner/work/Pixie_Chroma/Pixie_Chroma"
+    ],
+    "projectType": "all",
+    "recursive": true
+  },
+  "projects": [
+    {
+      "path": "/home/runner/work/Pixie_Chroma/Pixie_Chroma",
+      "projectType": "library",
+      "configuration": {
+        "compliance": "strict",
+        "libraryManager": "submit",
+        "official": false
+      },
+      "rules": [
+        {
+          "category": "structure",
+          "subcategory": "general",
+          "ID": "LS001",
+          "brief": "invalid library",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "root folder",
+          "ID": "LS002",
+          "brief": "folder name too long",
+          "description": "This will be problematic for people doing manual installation of the library.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "root folder",
+          "ID": "LS003",
+          "brief": "prohibited character in folder name",
+          "description": "This will be problematic for people doing manual installation of the library.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "miscellaneous",
+          "ID": "LS004",
+          "brief": "submodule",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "miscellaneous",
+          "ID": "LS005",
+          "brief": "symlink",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "miscellaneous",
+          "ID": "LS006",
+          "brief": ".development file",
+          "description": "See: https://arduino.github.io/arduino-cli/latest/library-specification/#development-flag-file",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "miscellaneous",
+          "ID": "LS007",
+          "brief": ".exe file",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "source code",
+          "ID": "LS008",
+          "brief": "name-header mismatch",
+          "description": "The name value determines the installation folder name and the folder match to the filename in the #include directive influences \"folder name priority\".",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "source code",
+          "ID": "LS009",
+          "brief": "src folder case",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "source code",
+          "ID": "LS010",
+          "brief": "recursive with utility folder",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "extras folder",
+          "ID": "LS011",
+          "brief": "incorrect extras folder name",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "extras folder",
+          "ID": "LS012",
+          "brief": "extras folder name case",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "general",
+          "ID": "LP001",
+          "brief": "missing library.properties",
+          "description": "Although not required for 1.0 format libraries (AKA \"legacy\") not in Library Manager, metadata is useful, hence recommended.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "general",
+          "ID": "LP002",
+          "brief": "incorrect library.properties file name",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "general",
+          "ID": "LP003",
+          "brief": "library.properties file name case",
+          "description": "This causes \"1.5\" format (AKA \"recursive layout\") libraries to not be recognized on case-sensitive file systems.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "general",
+          "ID": "LP004",
+          "brief": "redundant library.properties",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "general",
+          "ID": "LP005",
+          "brief": "library.properties format",
+          "description": "See: https://arduino.github.io/arduino-cli/latest/library-specification/#libraryproperties-file-format",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "general",
+          "ID": "LP006",
+          "brief": "misspelled library.properties field",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP007",
+          "brief": "missing name",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP008",
+          "brief": "name < min length",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP009",
+          "brief": "name > max length",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP010",
+          "brief": "name > recommended length",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP011",
+          "brief": "prohibited character in name",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP012",
+          "brief": "name starts with \"Arduino\"",
+          "description": "Case insensitive. Only 3rd party libraries added to the Library Manager index prior to the enactment of this rule are allowed to have this name prefix.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP014",
+          "brief": "name contains \"Arduino\"",
+          "description": "Case insensitive",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP015",
+          "brief": "name contains spaces",
+          "description": "Best practices is for the name value, installation folder, and primary header filename to all match, but this is not possible with names containing spaces.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP016",
+          "brief": "name contains \"library\"",
+          "description": "Case insensitive",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "name field",
+          "ID": "LP017",
+          "brief": "duplicate name",
+          "description": "This requirement only applies to the library.properties name value. There is no requirement to change the repository or header file names.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "version field",
+          "ID": "LP019",
+          "brief": "missing version field",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "version field",
+          "ID": "LP020",
+          "brief": "invalid version",
+          "description": "Must be compliant with \"relaxed semver\".",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "version field",
+          "ID": "LP021",
+          "brief": "non-semver version",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "author field",
+          "ID": "LP023",
+          "brief": "missing author field",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "author field",
+          "ID": "LP024",
+          "brief": "author < min length",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "maintainer field",
+          "ID": "LP025",
+          "brief": "missing maintainer field",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "maintainer field",
+          "ID": "LP026",
+          "brief": "maintainer < min length",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "maintainer field",
+          "ID": "LP027",
+          "brief": "maintainer starts with \"Arduino\"",
+          "description": "Case insensitive.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "maintainer field",
+          "ID": "LP057",
+          "brief": "maintainer contains \"Arduino\"",
+          "description": "Case insensitive.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "email field",
+          "ID": "LP028",
+          "brief": "\"email\" used as alias for \"maintainer\"",
+          "description": "This was only in an early draft of the beta 1.5 library specification.",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "email field",
+          "ID": "LP029",
+          "brief": "email < min length",
+          "description": "",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "email field",
+          "ID": "LP030",
+          "brief": "email starts with \"Arduino\"",
+          "description": "Case insensitive.",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "No email alias field"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "sentence field",
+          "ID": "LP031",
+          "brief": "missing sentence field",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "sentence field",
+          "ID": "LP032",
+          "brief": "sentence < min length",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "sentence field",
+          "ID": "LP033",
+          "brief": "sentence spell check",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "paragraph field",
+          "ID": "LP034",
+          "brief": "missing paragraph field",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "paragraph field",
+          "ID": "LP035",
+          "brief": "paragraph spell check",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "paragraph field",
+          "ID": "LP036",
+          "brief": "paragraph repeats sentence",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "category field",
+          "ID": "LP037",
+          "brief": "missing category field",
+          "description": "This can cause a warning and results in the default \"Uncategorized\" category being used.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "category field",
+          "ID": "LP038",
+          "brief": "invalid category value",
+          "description": "This can cause a warning and results in the default \"Uncategorized\" category being used.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "category field",
+          "ID": "LP039",
+          "brief": "\"Uncategorized\" category value",
+          "description": "There is no good reason for using this non-specification compliant category value.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "url field",
+          "ID": "LP040",
+          "brief": "missing url field",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "url field",
+          "ID": "LP056",
+          "brief": "url < min length",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "url field",
+          "ID": "LP041",
+          "brief": "invalid url format",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "url field",
+          "ID": "LP042",
+          "brief": "dead URL",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "architectures field",
+          "ID": "LP043",
+          "brief": "missing architectures field",
+          "description": "Defaults to *, but it's better to explicitly define architectures.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "architectures field",
+          "ID": "LP044",
+          "brief": "architectures blank",
+          "description": "Causes library to be considered incompatible with all architectures.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "architectures field",
+          "ID": "LP045",
+          "brief": "architecture alias",
+          "description": "Alternative development frameworks diverged on architecture naming.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "architectures field",
+          "ID": "LP046",
+          "brief": "architecture case",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "depends field",
+          "ID": "LP047",
+          "brief": "invalid depends format",
+          "description": "",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "depends field",
+          "ID": "LP048",
+          "brief": "depends not in index",
+          "description": "This field should be used to define the dependencies available from Library Manager. Library names are case-sensitive.",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "dot_a_linkage field",
+          "ID": "LP049",
+          "brief": "invalid dot_a_linkage value",
+          "description": "",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "dot_a_linkage field",
+          "ID": "LP050",
+          "brief": "dot_a_linkage=true with \"1.0\" library format",
+          "description": "dot_a_linkage feature is only supported for the \"1.5\" or \"recursive\" library format.",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "includes field",
+          "ID": "LP051",
+          "brief": "includes blank",
+          "description": "Caused the \"Sketch > Include library\" feature of previous IDE versions to add an empty #include directive to the sketch.",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "includes field",
+          "ID": "LP052",
+          "brief": "includes not in library",
+          "description": "People often think this is the way to define their library's dependencies, which breaks the \"Sketch > Include Library\" feature for that library.",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "precompiled field",
+          "ID": "LP053",
+          "brief": "invalid precompiled value",
+          "description": "",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "precompiled field",
+          "ID": "LP054",
+          "brief": "precompiled with \"1.0\" format",
+          "description": "precompiled feature is only supported for the \"1.5\" or \"recursive\" library format.",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "library.properties",
+          "subcategory": "ldflags field",
+          "ID": "LP055",
+          "brief": "ldflags < min length",
+          "description": "",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "Field not present"
+        },
+        {
+          "category": "code",
+          "subcategory": "miscellaneous",
+          "ID": "LC001",
+          "brief": "Arduino.h case",
+          "description": "This causes compilation failure on case-sensitive file systems.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "documentation",
+          "subcategory": "miscellaneous",
+          "ID": "LD001",
+          "brief": "no readme",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "documentation",
+          "subcategory": "miscellaneous",
+          "ID": "LD002",
+          "brief": "no license file",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "documentation",
+          "subcategory": "examples",
+          "ID": "LD003",
+          "brief": "stray sketch",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "documentation",
+          "subcategory": "examples",
+          "ID": "LD004",
+          "brief": "no examples",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "documentation",
+          "subcategory": "examples",
+          "ID": "LD005",
+          "brief": "incorrect examples folder name",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "documentation",
+          "subcategory": "examples",
+          "ID": "LD006",
+          "brief": "examples folder name case",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        }
+      ],
+      "summary": {
+        "pass": true,
+        "warningCount": 0,
+        "errorCount": 0
+      }
+    },
+    {
+      "path": "/home/runner/work/Pixie_Chroma/Pixie_Chroma/examples/01_Basic",
+      "projectType": "sketch",
+      "configuration": {
+        "compliance": "strict",
+        "libraryManager": "submit",
+        "official": false
+      },
+      "rules": [
+        {
+          "category": "structure",
+          "subcategory": "root folder",
+          "ID": "SS001",
+          "brief": "name mismatch",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "file name",
+          "ID": "SS002",
+          "brief": "prohibited character in filename",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "file name",
+          "ID": "SS003",
+          "brief": "file name too long",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "file name",
+          "ID": "SS004",
+          "brief": ".pde extension",
+          "description": "The .pde extension is used by both Processing sketches and Arduino sketches. Processing sketches should either be in the \"data\" subfolder of the sketch or in the \"extras\" folder of the library. Arduino sketches should use the modern .ino extension.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "structure",
+          "subcategory": "miscellaneous",
+          "ID": "SS005",
+          "brief": "src folder case",
+          "description": "",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "code",
+          "subcategory": "miscellaneous",
+          "ID": "SC001",
+          "brief": "Arduino.h case",
+          "description": "This causes compilation failure on filename case-sensitive file systems.",
+          "result": "pass",
+          "level": "NOTICE",
+          "message": ""
+        },
+        {
+          "category": "sketch.json",
+          "subcategory": "general",
+          "ID": "SM001",
+          "brief": "sketch.json JSON format",
+          "description": "",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "No metadata file"
+        },
+        {
+          "category": "sketch.json",
+          "subcategory": "general",
+          "ID": "SM002",
+          "brief": "sketch.json data format",
+          "description": "",
+          "result": "skipped",
+          "level": "NOTICE",
+          "message": "No metadata file"
+        }
+      ],
+      "summary": {
+        "pass": true,
+        "warningCount": 0,
+        "errorCount": 0
+      }
+    }
+  ],
+  "summary": {
+    "pass": true,
+    "warningCount": 0,
+    "errorCount": 0
+  }
+}
