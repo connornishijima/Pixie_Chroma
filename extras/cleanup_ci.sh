@@ -1,3 +1,3 @@
 echo "Cleaning up CI junk..."
-sudo rm arduino-cli_latest*
+sudo rm -r ./*arduino-cli_latest*
 echo "Done."
