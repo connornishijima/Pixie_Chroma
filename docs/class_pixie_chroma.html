@@ -265,14 +265,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a1eb2b77e894233ae098b6bf71dc63d38">update</a> ()</td></tr>
 <tr class="memdesc:a1eb2b77e894233ae098b6bf71dc63d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unfreezes the current mask buffer in memory to allow showing updated text the next time the animation ISR fires. <br /></td></tr>
 <tr class="separator:a1eb2b77e894233ae098b6bf71dc63d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d2f01d594a77c139365eb34053464b1"><td class="memItemLeft" align="right" valign="top"><a id="a1d2f01d594a77c139365eb34053464b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> (CRGB col)</td></tr>
+<tr class="memitem:a1d2f01d594a77c139365eb34053464b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">color</a> (CRGB col)</td></tr>
+<tr class="memdesc:a1d2f01d594a77c139365eb34053464b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the entire color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255)); This would set all displays to cyan, a mix of green and blue.  <a href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">More...</a><br /></td></tr>
 <tr class="separator:a1d2f01d594a77c139365eb34053464b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16dabdffbb39358645cd687a98c352b9"><td class="memItemLeft" align="right" valign="top"><a id="a16dabdffbb39358645cd687a98c352b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> (CRGB col, uint8_t x, uint8_t y)</td></tr>
+<tr class="memitem:a16dabdffbb39358645cd687a98c352b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a16dabdffbb39358645cd687a98c352b9">color</a> (CRGB col, uint8_t x, uint8_t y)</td></tr>
+<tr class="memdesc:a16dabdffbb39358645cd687a98c352b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a specific display in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 1, 0); This would set the <b>second display of the first row</b> to cyan, a mix of green and blue.  <a href="class_pixie_chroma.html#a16dabdffbb39358645cd687a98c352b9">More...</a><br /></td></tr>
 <tr class="separator:a16dabdffbb39358645cd687a98c352b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53e052b9e02cebcd81ff73bf687e3754"><td class="memItemLeft" align="right" valign="top"><a id="a53e052b9e02cebcd81ff73bf687e3754"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> (CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2)</td></tr>
+<tr class="memitem:a53e052b9e02cebcd81ff73bf687e3754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754">color</a> (CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2)</td></tr>
+<tr class="memdesc:a53e052b9e02cebcd81ff73bf687e3754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a rectangular area in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 0, 0, 5, 5); This would set <b>the first five columns and rows</b> of the color buffer to cyan, a mix of green and blue.  <a href="class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754">More...</a><br /></td></tr>
 <tr class="separator:a53e052b9e02cebcd81ff73bf687e3754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec59fe7c26010adfc68efa8b7f23fa20"><td class="memItemLeft" align="right" valign="top"><a id="aec59fe7c26010adfc68efa8b7f23fa20"></a>
 CRGB&#160;</td><td class="memItemRight" valign="bottom"><b>kelvin_to_rgb</b> (uint16_t temperature)</td></tr>
@@ -2048,6 +2048,140 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 
 </div>
 </div>
+<a id="a1d2f01d594a77c139365eb34053464b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d2f01d594a77c139365eb34053464b1">&#9670;&nbsp;</a></span>color() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::color </td>
+          <td>(</td>
+          <td class="paramtype">CRGB&#160;</td>
+          <td class="paramname"><em>col</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the entire color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255)); This would set all displays to cyan, a mix of green and blue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col</td><td>FastLED CRGB color </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01277">1277</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a16dabdffbb39358645cd687a98c352b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16dabdffbb39358645cd687a98c352b9">&#9670;&nbsp;</a></span>color() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::color </td>
+          <td>(</td>
+          <td class="paramtype">CRGB&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a specific display in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 1, 0); This would set the <b>second display of the first row</b> to cyan, a mix of green and blue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col</td><td>FastLED CRGB color </td></tr>
+    <tr><td class="paramname">x</td><td>X coordinate of display </td></tr>
+    <tr><td class="paramname">y</td><td>y coordinate of display </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01294">1294</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a53e052b9e02cebcd81ff73bf687e3754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e052b9e02cebcd81ff73bf687e3754">&#9670;&nbsp;</a></span>color() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::color </td>
+          <td>(</td>
+          <td class="paramtype">CRGB&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>y2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a rectangular area in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 0, 0, 5, 5); This would set <b>the first five columns and rows</b> of the color buffer to cyan, a mix of green and blue. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col</td><td>FastLED CRGB color </td></tr>
+    <tr><td class="paramname">x1</td><td>Starting X coordinate of the rectangle </td></tr>
+    <tr><td class="paramname">y1</td><td>Starting Y coordinate of the rectangle </td></tr>
+    <tr><td class="paramname">x2</td><td>Ending X coordinate of the rectangle (inclusive) </td></tr>
+    <tr><td class="paramname">y2</td><td>Ending Y coordinate of the rectangle (inclusive) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01324">1324</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
 <a id="add7fe811bfb5a0c5cf19aff32ed916a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add7fe811bfb5a0c5cf19aff32ed916a8">&#9670;&nbsp;</a></span>dim()</h2>
 
@@ -2341,7 +2475,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 14:51:05 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 15:02:52 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

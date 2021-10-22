@@ -809,418 +809,425 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01265"></a><span class="lineno"> 1265</span>&#160;    <span class="keywordflow">return</span> xy_table[ (y * matrix_width) + x ];</div>
 <div class="line"><a name="l01266"></a><span class="lineno"> 1266</span>&#160;}</div>
 <div class="line"><a name="l01267"></a><span class="lineno"> 1267</span>&#160; </div>
-<div class="line"><a name="l01268"></a><span class="lineno"> 1268</span>&#160;<span class="keywordtype">void</span> PixieChroma::color(CRGB col){</div>
-<div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;    fill_solid(leds, NUM_LEDS, col);</div>
-<div class="line"><a name="l01270"></a><span class="lineno"> 1270</span>&#160;}</div>
-<div class="line"><a name="l01271"></a><span class="lineno"> 1271</span>&#160; </div>
-<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;<span class="keywordtype">void</span> PixieChroma::color(CRGB col, uint8_t x, uint8_t y){</div>
-<div class="line"><a name="l01273"></a><span class="lineno"> 1273</span>&#160;    int16_t x_pos = x*display_width+1;</div>
-<div class="line"><a name="l01274"></a><span class="lineno"> 1274</span>&#160;    int16_t y_pos = y*display_height+2;</div>
-<div class="line"><a name="l01275"></a><span class="lineno"> 1275</span>&#160;    </div>
-<div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;    <span class="keywordflow">for</span>(uint8_t xi = 0; xi &lt; 5; xi++){</div>
-<div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+0)] = col;</div>
-<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+1)] = col;</div>
-<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+2)] = col;</div>
-<div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+3)] = col;</div>
-<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+4)] = col;</div>
-<div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+5)] = col;</div>
-<div class="line"><a name="l01283"></a><span class="lineno"> 1283</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+6)] = col;</div>
-<div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;    }</div>
-<div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160;}</div>
-<div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160; </div>
-<div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;<span class="keywordtype">void</span> PixieChroma::color(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2){</div>
-<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;    <span class="keywordflow">if</span>(x2 &lt; x1 || y2 &lt; y1){</div>
-<div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;    }</div>
-<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160; </div>
-<div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;    <span class="comment">// Make rectangle selection inclusive</span></div>
-<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;    x2+=1;</div>
-<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;    y2+=1;</div>
-<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;    </div>
-<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;    int16_t x1_pos = x1*display_width+1;</div>
-<div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;    int16_t y1_pos = y1*display_height+2;</div>
-<div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;    </div>
-<div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;    int16_t x2_pos = x2*display_width+1;</div>
-<div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;    int16_t y2_pos = y2*display_height+2;</div>
-<div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160; </div>
-<div class="line"><a name="l01302"></a><span class="lineno"> 1302</span>&#160;    uint16_t x_delta = x2_pos-x1_pos;</div>
-<div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;    uint16_t y_delta = y2_pos-y1_pos;</div>
-<div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;    </div>
-<div class="line"><a name="l01305"></a><span class="lineno"> 1305</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; y_delta; y++){</div>
-<div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; x_delta; x++){</div>
-<div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;            int16_t x2_pos = x1_pos+x;</div>
-<div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160;            int16_t y2_pos = y1_pos+y;</div>
-<div class="line"><a name="l01309"></a><span class="lineno"> 1309</span>&#160;            leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x2_pos, y2_pos)] = col;</div>
-<div class="line"><a name="l01310"></a><span class="lineno"> 1310</span>&#160;        }</div>
-<div class="line"><a name="l01311"></a><span class="lineno"> 1311</span>&#160;    }</div>
-<div class="line"><a name="l01312"></a><span class="lineno"> 1312</span>&#160;}</div>
-<div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160; </div>
-<div class="line"><a name="l01314"></a><span class="lineno"> 1314</span>&#160;<span class="keywordtype">void</span> PixieChroma::draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2){</div>
-<div class="line"><a name="l01315"></a><span class="lineno"> 1315</span>&#160;    <span class="comment">//Bresenham&#39;s line algorithm</span></div>
-<div class="line"><a name="l01316"></a><span class="lineno"> 1316</span>&#160;    uint16_t index;</div>
-<div class="line"><a name="l01317"></a><span class="lineno"> 1317</span>&#160;    </div>
-<div class="line"><a name="l01318"></a><span class="lineno"> 1318</span>&#160;    int16_t x,y,dx,dy,dx1,dy1,px,py,xe,ye,i;</div>
-<div class="line"><a name="l01319"></a><span class="lineno"> 1319</span>&#160;    dx=x2-x1;</div>
-<div class="line"><a name="l01320"></a><span class="lineno"> 1320</span>&#160;    dy=y2-y1;</div>
-<div class="line"><a name="l01321"></a><span class="lineno"> 1321</span>&#160;    dx1=fabs(dx);</div>
-<div class="line"><a name="l01322"></a><span class="lineno"> 1322</span>&#160;    dy1=fabs(dy);</div>
-<div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;    px=2*dy1-dx1;</div>
-<div class="line"><a name="l01324"></a><span class="lineno"> 1324</span>&#160;    py=2*dx1-dy1;</div>
-<div class="line"><a name="l01325"></a><span class="lineno"> 1325</span>&#160;    <span class="keywordflow">if</span>(dy1&lt;=dx1){</div>
-<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;        <span class="keywordflow">if</span>(dx&gt;=0){</div>
-<div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;            x=x1;</div>
-<div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;            y=y1;</div>
-<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;            xe=x2;</div>
-<div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;        }</div>
-<div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;            x=x2;</div>
-<div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;            y=y2;</div>
-<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;            xe=x1;</div>
-<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;        }</div>
-<div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;        index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x,y);</div>
-<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;        mask[index] = qadd8( 255, mask[index] );</div>
-<div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;        <span class="keywordflow">for</span>(i=0;x&lt;xe;i++){</div>
-<div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;            x=x+1;</div>
-<div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;            <span class="keywordflow">if</span>(px&lt;0){</div>
-<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;                px=px+2*dy1;</div>
-<div class="line"><a name="l01342"></a><span class="lineno"> 1342</span>&#160;            }</div>
-<div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;                <span class="keywordflow">if</span>((dx&lt;0 &amp;&amp; dy&lt;0) || (dx&gt;0 &amp;&amp; dy&gt;0)){</div>
-<div class="line"><a name="l01345"></a><span class="lineno"> 1345</span>&#160;                    y=y+1;</div>
-<div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;                }</div>
-<div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;                    y=y-1;</div>
-<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;                }</div>
-<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;                px=px+2*(dy1-dx1);</div>
-<div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;            }</div>
-<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;            delay(0);</div>
-<div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;            index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x,y);</div>
-<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;            mask[index] = qadd8( 255, mask[index] );</div>
-<div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;        }</div>
-<div class="line"><a name="l01356"></a><span class="lineno"> 1356</span>&#160;    }</div>
-<div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01358"></a><span class="lineno"> 1358</span>&#160;        <span class="keywordflow">if</span>(dy&gt;=0){</div>
-<div class="line"><a name="l01359"></a><span class="lineno"> 1359</span>&#160;            x=x1;</div>
-<div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160;            y=y1;</div>
-<div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;            ye=y2;</div>
-<div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;        }</div>
-<div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;            x=x2;</div>
-<div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;            y=y2;</div>
-<div class="line"><a name="l01366"></a><span class="lineno"> 1366</span>&#160;            ye=y1;</div>
+<div class="line"><a name="l01268"></a><span class="lineno"> 1268</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l01277"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1"> 1277</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">PixieChroma::color</a>(CRGB col){</div>
+<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;    fill_solid(leds, NUM_LEDS, col);</div>
+<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;}</div>
+<div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160; </div>
+<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l01294"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a16dabdffbb39358645cd687a98c352b9"> 1294</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">PixieChroma::color</a>(CRGB col, uint8_t x, uint8_t y){</div>
+<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;    int16_t x_pos = x*display_width+1;</div>
+<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;    int16_t y_pos = y*display_height+2;</div>
+<div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;    </div>
+<div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;    <span class="keywordflow">for</span>(uint8_t xi = 0; xi &lt; 5; xi++){</div>
+<div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+0)] = col;</div>
+<div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+1)] = col;</div>
+<div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+2)] = col;</div>
+<div class="line"><a name="l01302"></a><span class="lineno"> 1302</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+3)] = col;</div>
+<div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+4)] = col;</div>
+<div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+5)] = col;</div>
+<div class="line"><a name="l01305"></a><span class="lineno"> 1305</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x_pos+xi, y_pos+6)] = col;</div>
+<div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;    }</div>
+<div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;}</div>
+<div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160; </div>
+<div class="line"><a name="l01309"></a><span class="lineno"> 1309</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l01324"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754"> 1324</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">PixieChroma::color</a>(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2){</div>
+<div class="line"><a name="l01325"></a><span class="lineno"> 1325</span>&#160;    <span class="keywordflow">if</span>(x2 &lt; x1 || y2 &lt; y1){</div>
+<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;    }</div>
+<div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160; </div>
+<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;    <span class="comment">// Make rectangle selection inclusive</span></div>
+<div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;    x2+=1;</div>
+<div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;    y2+=1;</div>
+<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;    </div>
+<div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;    int16_t x1_pos = x1*display_width+1;</div>
+<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;    int16_t y1_pos = y1*display_height+2;</div>
+<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;    </div>
+<div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;    int16_t x2_pos = x2*display_width+1;</div>
+<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;    int16_t y2_pos = y2*display_height+2;</div>
+<div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160; </div>
+<div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;    uint16_t x_delta = x2_pos-x1_pos;</div>
+<div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;    uint16_t y_delta = y2_pos-y1_pos;</div>
+<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;    </div>
+<div class="line"><a name="l01342"></a><span class="lineno"> 1342</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; y_delta; y++){</div>
+<div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; x_delta; x++){</div>
+<div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;            int16_t x2_pos = x1_pos+x;</div>
+<div class="line"><a name="l01345"></a><span class="lineno"> 1345</span>&#160;            int16_t y2_pos = y1_pos+y;</div>
+<div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;            leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x2_pos, y2_pos)] = col;</div>
+<div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;        }</div>
+<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;    }</div>
+<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;}</div>
+<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160; </div>
+<div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;<span class="keywordtype">void</span> PixieChroma::draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2){</div>
+<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;    <span class="comment">//Bresenham&#39;s line algorithm</span></div>
+<div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;    uint16_t index;</div>
+<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;    </div>
+<div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;    int16_t x,y,dx,dy,dx1,dy1,px,py,xe,ye,i;</div>
+<div class="line"><a name="l01356"></a><span class="lineno"> 1356</span>&#160;    dx=x2-x1;</div>
+<div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;    dy=y2-y1;</div>
+<div class="line"><a name="l01358"></a><span class="lineno"> 1358</span>&#160;    dx1=fabs(dx);</div>
+<div class="line"><a name="l01359"></a><span class="lineno"> 1359</span>&#160;    dy1=fabs(dy);</div>
+<div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160;    px=2*dy1-dx1;</div>
+<div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;    py=2*dx1-dy1;</div>
+<div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;    <span class="keywordflow">if</span>(dy1&lt;=dx1){</div>
+<div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;        <span class="keywordflow">if</span>(dx&gt;=0){</div>
+<div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;            x=x1;</div>
+<div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;            y=y1;</div>
+<div class="line"><a name="l01366"></a><span class="lineno"> 1366</span>&#160;            xe=x2;</div>
 <div class="line"><a name="l01367"></a><span class="lineno"> 1367</span>&#160;        }</div>
-<div class="line"><a name="l01368"></a><span class="lineno"> 1368</span>&#160;        index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x,y);</div>
-<div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;        mask[index] = qadd8( 255, mask[index] );</div>
-<div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;        <span class="keywordflow">for</span>(i=0;y&lt;ye;i++){</div>
-<div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;            y=y+1;</div>
-<div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;            <span class="keywordflow">if</span>(py&lt;=0){</div>
-<div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;                py=py+2*dx1;</div>
-<div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;            }</div>
-<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;                <span class="keywordflow">if</span>((dx&lt;0 &amp;&amp; dy&lt;0) || (dx&gt;0 &amp;&amp; dy&gt;0)){</div>
-<div class="line"><a name="l01377"></a><span class="lineno"> 1377</span>&#160;                    x=x+1;</div>
-<div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160;                }</div>
-<div class="line"><a name="l01379"></a><span class="lineno"> 1379</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01380"></a><span class="lineno"> 1380</span>&#160;                    x=x-1;</div>
-<div class="line"><a name="l01381"></a><span class="lineno"> 1381</span>&#160;                }</div>
-<div class="line"><a name="l01382"></a><span class="lineno"> 1382</span>&#160;                py=py+2*(dx1-dy1);</div>
-<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;            }</div>
-<div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;            index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x,y);</div>
-<div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;            mask[index] = qadd8( 255, mask[index] );</div>
-<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;        }</div>
-<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;    }</div>
-<div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;}</div>
-<div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160; </div>
-<div class="line"><a name="l01390"></a><span class="lineno"> 1390</span>&#160;<span class="comment">// Tanner Helland formula</span></div>
-<div class="line"><a name="l01391"></a><span class="lineno"> 1391</span>&#160;CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){</div>
-<div class="line"><a name="l01392"></a><span class="lineno"> 1392</span>&#160;    <span class="keywordtype">float</span>    _temperature;</div>
-<div class="line"><a name="l01393"></a><span class="lineno"> 1393</span>&#160;    <span class="keywordtype">float</span>    _red;</div>
-<div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;    <span class="keywordtype">float</span>    _green;</div>
-<div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160;    <span class="keywordtype">float</span>    _blue;</div>
-<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160; </div>
-<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;    _temperature = constrain(temperature, 0, 65500);</div>
-<div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160; </div>
-<div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;    _red = _green = _blue = 0;  </div>
-<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;    <span class="keywordtype">float</span> t = _temperature * 0.01;</div>
-<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160; </div>
-<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;    <span class="keywordflow">if</span> (t &lt;= 66){</div>
-<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;        _red = 255;</div>
-<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;        _green = (99.4708025861 * log(t)) - 161.1195681661;</div>
-<div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;        <span class="keywordflow">if</span> (t &gt; 19){</div>
-<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;            _blue = (138.5177312231 * log(t - 10)) - 305.0447927307;</div>
-<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;        }</div>
-<div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;            _blue = 0;</div>
-<div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;        }</div>
-<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;    }</div>
-<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;        _red   = 329.698727466  * pow(t - 60, -0.1332047592);</div>
-<div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;        _green = 288.1221695283 * pow(t - 60, -0.0755148492);</div>
-<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;        _blue  = 255;</div>
-<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;    }</div>
-<div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160; </div>
-<div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;    <span class="keywordtype">float</span> f = 0.01 * 100;</div>
-<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160; </div>
-<div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;    _red   = constrain(f * _red,   0, 255);</div>
-<div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;    _green = constrain(f * _green, 0, 255);</div>
-<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;    _blue  = constrain(f * _blue,  0, 255);</div>
-<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160; </div>
-<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;    <span class="keywordflow">return</span> CRGB(_red, _green, _blue);</div>
+<div class="line"><a name="l01368"></a><span class="lineno"> 1368</span>&#160;        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;            x=x2;</div>
+<div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;            y=y2;</div>
+<div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;            xe=x1;</div>
+<div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;        }</div>
+<div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;        index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x,y);</div>
+<div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;        mask[index] = qadd8( 255, mask[index] );</div>
+<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;        <span class="keywordflow">for</span>(i=0;x&lt;xe;i++){</div>
+<div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;            x=x+1;</div>
+<div class="line"><a name="l01377"></a><span class="lineno"> 1377</span>&#160;            <span class="keywordflow">if</span>(px&lt;0){</div>
+<div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160;                px=px+2*dy1;</div>
+<div class="line"><a name="l01379"></a><span class="lineno"> 1379</span>&#160;            }</div>
+<div class="line"><a name="l01380"></a><span class="lineno"> 1380</span>&#160;            <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01381"></a><span class="lineno"> 1381</span>&#160;                <span class="keywordflow">if</span>((dx&lt;0 &amp;&amp; dy&lt;0) || (dx&gt;0 &amp;&amp; dy&gt;0)){</div>
+<div class="line"><a name="l01382"></a><span class="lineno"> 1382</span>&#160;                    y=y+1;</div>
+<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;                }</div>
+<div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;                    y=y-1;</div>
+<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;                }</div>
+<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;                px=px+2*(dy1-dx1);</div>
+<div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;            }</div>
+<div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;            delay(0);</div>
+<div class="line"><a name="l01390"></a><span class="lineno"> 1390</span>&#160;            index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x,y);</div>
+<div class="line"><a name="l01391"></a><span class="lineno"> 1391</span>&#160;            mask[index] = qadd8( 255, mask[index] );</div>
+<div class="line"><a name="l01392"></a><span class="lineno"> 1392</span>&#160;        }</div>
+<div class="line"><a name="l01393"></a><span class="lineno"> 1393</span>&#160;    }</div>
+<div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160;        <span class="keywordflow">if</span>(dy&gt;=0){</div>
+<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;            x=x1;</div>
+<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;            y=y1;</div>
+<div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;            ye=y2;</div>
+<div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;        }</div>
+<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;            x=x2;</div>
+<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;            y=y2;</div>
+<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;            ye=y1;</div>
+<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;        }</div>
+<div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;        index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x,y);</div>
+<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;        mask[index] = qadd8( 255, mask[index] );</div>
+<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;        <span class="keywordflow">for</span>(i=0;y&lt;ye;i++){</div>
+<div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;            y=y+1;</div>
+<div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;            <span class="keywordflow">if</span>(py&lt;=0){</div>
+<div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;                py=py+2*dx1;</div>
+<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;            }</div>
+<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;            <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;                <span class="keywordflow">if</span>((dx&lt;0 &amp;&amp; dy&lt;0) || (dx&gt;0 &amp;&amp; dy&gt;0)){</div>
+<div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;                    x=x+1;</div>
+<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;                }</div>
+<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;                    x=x-1;</div>
+<div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;                }</div>
+<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;                py=py+2*(dx1-dy1);</div>
+<div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;            }</div>
+<div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;            index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>(x,y);</div>
+<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;            mask[index] = qadd8( 255, mask[index] );</div>
+<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;        }</div>
+<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;    }</div>
 <div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;}</div>
 <div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160; </div>
-<div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;<span class="keywordtype">void</span> PixieChroma::show(){</div>
-<div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;    <span class="keywordflow">if</span>(!updated_too_soon){ <span class="comment">// Prevents show() if called before last one finished</span></div>
-<div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;        updated_too_soon = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160; </div>
-<div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;        noInterrupts();</div>
-<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;        <span class="keywordflow">if</span>(!freeze){ <span class="comment">// If we&#39;re not holding out for a pix.update() call, show with the current mask</span></div>
-<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;            memcpy(mask_out, mask, NUM_VISIBLE_LEDS);</div>
-<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;        }</div>
-<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;        </div>
-<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;        memcpy(leds_out, leds, <span class="keyword">sizeof</span>(CRGB)*NUM_VISIBLE_LEDS);</div>
-<div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160; </div>
-<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;        <span class="keywordflow">for</span>(uint16_t i = 0; i &lt; NUM_VISIBLE_LEDS; i+=7){ <span class="comment">// NUM VISIBLE always a multiple of 7, this is a slight unrolling of the for loop to save on speed</span></div>
-<div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160;            <span class="comment">// MASKING</span></div>
-<div class="line"><a name="l01440"></a><span class="lineno"> 1440</span>&#160;            leds_out[i+0].fadeLightBy( 255-mask_out[i+0] ); <span class="comment">// Apply mask &quot;over&quot; LED color layer</span></div>
-<div class="line"><a name="l01441"></a><span class="lineno"> 1441</span>&#160;            leds_out[i+1].fadeLightBy( 255-mask_out[i+1] );</div>
-<div class="line"><a name="l01442"></a><span class="lineno"> 1442</span>&#160;            leds_out[i+2].fadeLightBy( 255-mask_out[i+2] );</div>
-<div class="line"><a name="l01443"></a><span class="lineno"> 1443</span>&#160;            leds_out[i+3].fadeLightBy( 255-mask_out[i+3] );</div>
-<div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160;            leds_out[i+4].fadeLightBy( 255-mask_out[i+4] );</div>
-<div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;            leds_out[i+5].fadeLightBy( 255-mask_out[i+5] );</div>
-<div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;            leds_out[i+6].fadeLightBy( 255-mask_out[i+6] );</div>
-<div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160; </div>
-<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160; </div>
-<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;            <span class="comment">// GAMMA CORRECTION</span></div>
-<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;            <span class="keywordflow">if</span>(correct_gamma){                  </div>
-<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;                leds_out[i+0].r = gamma8[leds_out[i+0].r]; <span class="comment">// Apply gamma correction LUT</span></div>
-<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;                leds_out[i+0].g = gamma8[leds_out[i+0].g];</div>
-<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;                leds_out[i+0].b = gamma8[leds_out[i+0].b];</div>
+<div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;<span class="comment">// Tanner Helland formula</span></div>
+<div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){</div>
+<div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;    <span class="keywordtype">float</span>    _temperature;</div>
+<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;    <span class="keywordtype">float</span>    _red;</div>
+<div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;    <span class="keywordtype">float</span>    _green;</div>
+<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;    <span class="keywordtype">float</span>    _blue;</div>
+<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160; </div>
+<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;    _temperature = constrain(temperature, 0, 65500);</div>
+<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160; </div>
+<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;    _red = _green = _blue = 0;  </div>
+<div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;    <span class="keywordtype">float</span> t = _temperature * 0.01;</div>
+<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160; </div>
+<div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160;    <span class="keywordflow">if</span> (t &lt;= 66){</div>
+<div class="line"><a name="l01440"></a><span class="lineno"> 1440</span>&#160;        _red = 255;</div>
+<div class="line"><a name="l01441"></a><span class="lineno"> 1441</span>&#160;        _green = (99.4708025861 * log(t)) - 161.1195681661;</div>
+<div class="line"><a name="l01442"></a><span class="lineno"> 1442</span>&#160;        <span class="keywordflow">if</span> (t &gt; 19){</div>
+<div class="line"><a name="l01443"></a><span class="lineno"> 1443</span>&#160;            _blue = (138.5177312231 * log(t - 10)) - 305.0447927307;</div>
+<div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160;        }</div>
+<div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;            _blue = 0;</div>
+<div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;        }</div>
+<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;    }</div>
+<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;        _red   = 329.698727466  * pow(t - 60, -0.1332047592);</div>
+<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;        _green = 288.1221695283 * pow(t - 60, -0.0755148492);</div>
+<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;        _blue  = 255;</div>
+<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;    }</div>
 <div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160; </div>
-<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;                leds_out[i+1].r = gamma8[leds_out[i+1].r];</div>
-<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;                leds_out[i+1].g = gamma8[leds_out[i+1].g];</div>
-<div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;                leds_out[i+1].b = gamma8[leds_out[i+1].b];</div>
-<div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160; </div>
-<div class="line"><a name="l01459"></a><span class="lineno"> 1459</span>&#160;                leds_out[i+2].r = gamma8[leds_out[i+2].r];</div>
-<div class="line"><a name="l01460"></a><span class="lineno"> 1460</span>&#160;                leds_out[i+2].g = gamma8[leds_out[i+2].g];</div>
-<div class="line"><a name="l01461"></a><span class="lineno"> 1461</span>&#160;                leds_out[i+2].b = gamma8[leds_out[i+2].b];</div>
-<div class="line"><a name="l01462"></a><span class="lineno"> 1462</span>&#160; </div>
-<div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160;                leds_out[i+3].r = gamma8[leds_out[i+3].r];</div>
-<div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;                leds_out[i+3].g = gamma8[leds_out[i+3].g];</div>
-<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;                leds_out[i+3].b = gamma8[leds_out[i+3].b];</div>
-<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160; </div>
-<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;                leds_out[i+4].r = gamma8[leds_out[i+4].r];</div>
-<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;                leds_out[i+4].g = gamma8[leds_out[i+4].g];</div>
-<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;                leds_out[i+4].b = gamma8[leds_out[i+4].b];</div>
-<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160; </div>
-<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;                leds_out[i+5].r = gamma8[leds_out[i+5].r];</div>
-<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;                leds_out[i+5].g = gamma8[leds_out[i+5].g];</div>
-<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;                leds_out[i+5].b = gamma8[leds_out[i+5].b];</div>
+<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;    <span class="keywordtype">float</span> f = 0.01 * 100;</div>
+<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160; </div>
+<div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;    _red   = constrain(f * _red,   0, 255);</div>
+<div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160;    _green = constrain(f * _green, 0, 255);</div>
+<div class="line"><a name="l01459"></a><span class="lineno"> 1459</span>&#160;    _blue  = constrain(f * _blue,  0, 255);</div>
+<div class="line"><a name="l01460"></a><span class="lineno"> 1460</span>&#160; </div>
+<div class="line"><a name="l01461"></a><span class="lineno"> 1461</span>&#160;    <span class="keywordflow">return</span> CRGB(_red, _green, _blue);</div>
+<div class="line"><a name="l01462"></a><span class="lineno"> 1462</span>&#160;}</div>
+<div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160; </div>
+<div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;<span class="keywordtype">void</span> PixieChroma::show(){</div>
+<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;    <span class="keywordflow">if</span>(!updated_too_soon){ <span class="comment">// Prevents show() if called before last one finished</span></div>
+<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;        updated_too_soon = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160; </div>
+<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;        noInterrupts();</div>
+<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;        <span class="keywordflow">if</span>(!freeze){ <span class="comment">// If we&#39;re not holding out for a pix.update() call, show with the current mask</span></div>
+<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;            memcpy(mask_out, mask, NUM_VISIBLE_LEDS);</div>
+<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;        }</div>
+<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;        </div>
+<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;        memcpy(leds_out, leds, <span class="keyword">sizeof</span>(CRGB)*NUM_VISIBLE_LEDS);</div>
 <div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160; </div>
-<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;                leds_out[i+6].r = gamma8[leds_out[i+6].r];</div>
-<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;                leds_out[i+6].g = gamma8[leds_out[i+6].g];</div>
-<div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;                leds_out[i+6].b = gamma8[leds_out[i+6].b];</div>
-<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;            }</div>
-<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;        }</div>
-<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;        </div>
-<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;        <span class="comment">// Regulate brightness to keep power within budget set with pix.set_max_power(V, mA);</span></div>
-<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;        FastLED.setBrightness(calculate_max_brightness_for_power_vmA(leds_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA));</div>
-<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;        FastLED.show();</div>
+<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;        <span class="keywordflow">for</span>(uint16_t i = 0; i &lt; NUM_VISIBLE_LEDS; i+=7){ <span class="comment">// NUM VISIBLE always a multiple of 7, this is a slight unrolling of the for loop to save on speed</span></div>
+<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;            <span class="comment">// MASKING</span></div>
+<div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;            leds_out[i+0].fadeLightBy( 255-mask_out[i+0] ); <span class="comment">// Apply mask &quot;over&quot; LED color layer</span></div>
+<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;            leds_out[i+1].fadeLightBy( 255-mask_out[i+1] );</div>
+<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;            leds_out[i+2].fadeLightBy( 255-mask_out[i+2] );</div>
+<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;            leds_out[i+3].fadeLightBy( 255-mask_out[i+3] );</div>
+<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;            leds_out[i+4].fadeLightBy( 255-mask_out[i+4] );</div>
+<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;            leds_out[i+5].fadeLightBy( 255-mask_out[i+5] );</div>
+<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;            leds_out[i+6].fadeLightBy( 255-mask_out[i+6] );</div>
 <div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160; </div>
-<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;        interrupts();</div>
-<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;        updated_too_soon = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;    }</div>
-<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;    }</div>
-<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;}</div>
-<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160; </div>
-<div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;<span class="comment">// -- PRIVATE FUNCTIONS -------------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l01494"></a><span class="lineno"> 1494</span>&#160; </div>
-<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;<span class="keywordtype">void</span> PixieChroma::build_controller(<span class="keyword">const</span> uint8_t pin){</div>
-<div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;    <span class="comment">// FastLED control pin has to be defined as a constant, (not just declared const, it&#39;s weirdly different) so</span></div>
-<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;    <span class="comment">// this is a hacky workaround. Since we have to hardwire the damn pin number variable, we also have</span></div>
-<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;    <span class="comment">// to be careful of the current architecture we&#39;re compiling to, since FastLED doesn&#39;t let you </span></div>
-<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;    <span class="comment">// define non-existent pins either.</span></div>
-<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;    </div>
-<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;<span class="preprocessor">    #ifdef ESP8266</span></div>
-<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;        <span class="keywordflow">if</span> (pin == 0){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;        <span class="keywordflow">if</span> (pin == 1){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;        <span class="keywordflow">if</span> (pin == 2){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;        <span class="keywordflow">if</span> (pin == 3){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;        <span class="keywordflow">if</span> (pin == 4){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;        <span class="keywordflow">if</span> (pin == 5){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;            <span class="comment">// annnnd a bunch of missing pins that are tied to external flash...</span></div>
-<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;        <span class="keywordflow">if</span> (pin == 12){FastLED.addLeds&lt;WS2812B, 12, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;        <span class="keywordflow">if</span> (pin == 13){FastLED.addLeds&lt;WS2812B, 13, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;        <span class="keywordflow">if</span> (pin == 14){FastLED.addLeds&lt;WS2812B, 14, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;        <span class="keywordflow">if</span> (pin == 15){FastLED.addLeds&lt;WS2812B, 15, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;        <span class="keywordflow">if</span> (pin == 16){FastLED.addLeds&lt;WS2812B, 16, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;    </div>
-<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;<span class="preprocessor">    #ifdef ESP32</span></div>
-<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;        <span class="keywordflow">if</span> (pin == 0){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;        <span class="keywordflow">if</span> (pin == 1){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;        <span class="keywordflow">if</span> (pin == 2){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;        <span class="keywordflow">if</span> (pin == 3){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;        <span class="keywordflow">if</span> (pin == 4){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;        <span class="keywordflow">if</span> (pin == 5){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;        <span class="keywordflow">if</span> (pin == 12){FastLED.addLeds&lt;WS2812B, 12, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;        <span class="keywordflow">if</span> (pin == 13){FastLED.addLeds&lt;WS2812B, 13, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;        <span class="keywordflow">if</span> (pin == 14){FastLED.addLeds&lt;WS2812B, 14, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;        <span class="keywordflow">if</span> (pin == 15){FastLED.addLeds&lt;WS2812B, 15, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;        <span class="keywordflow">if</span> (pin == 16){FastLED.addLeds&lt;WS2812B, 16, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;        <span class="keywordflow">if</span> (pin == 17){FastLED.addLeds&lt;WS2812B, 17, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;        <span class="keywordflow">if</span> (pin == 18){FastLED.addLeds&lt;WS2812B, 18, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;        <span class="keywordflow">if</span> (pin == 19){FastLED.addLeds&lt;WS2812B, 19, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;        <span class="keywordflow">if</span> (pin == 21){FastLED.addLeds&lt;WS2812B, 21, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;        <span class="keywordflow">if</span> (pin == 22){FastLED.addLeds&lt;WS2812B, 22, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;        <span class="keywordflow">if</span> (pin == 23){FastLED.addLeds&lt;WS2812B, 23, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;        <span class="keywordflow">if</span> (pin == 25){FastLED.addLeds&lt;WS2812B, 25, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;        <span class="keywordflow">if</span> (pin == 26){FastLED.addLeds&lt;WS2812B, 26, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;        <span class="keywordflow">if</span> (pin == 27){FastLED.addLeds&lt;WS2812B, 27, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;        <span class="keywordflow">if</span> (pin == 32){FastLED.addLeds&lt;WS2812B, 32, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;        <span class="keywordflow">if</span> (pin == 33){FastLED.addLeds&lt;WS2812B, 33, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;    </div>
-<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;<span class="preprocessor">    #ifdef SAMD_SERIES</span></div>
-<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;        <span class="keywordflow">if</span> (pin == 0){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;        <span class="keywordflow">if</span> (pin == 1){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;        <span class="keywordflow">if</span> (pin == 2){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01545"></a><span class="lineno"> 1545</span>&#160;        <span class="keywordflow">if</span> (pin == 3){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01546"></a><span class="lineno"> 1546</span>&#160;        <span class="keywordflow">if</span> (pin == 4){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01547"></a><span class="lineno"> 1547</span>&#160;        <span class="keywordflow">if</span> (pin == 5){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;        <span class="keywordflow">if</span> (pin == 6){FastLED.addLeds&lt;WS2812B, 6, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;        <span class="keywordflow">if</span> (pin == 7){FastLED.addLeds&lt;WS2812B, 7, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;        <span class="keywordflow">if</span> (pin == 8){FastLED.addLeds&lt;WS2812B, 8, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;        <span class="keywordflow">if</span> (pin == 9){FastLED.addLeds&lt;WS2812B, 9, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;        <span class="keywordflow">if</span> (pin == 10){FastLED.addLeds&lt;WS2812B, 10, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
-<div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;}</div>
-<div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160; </div>
-<div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;<span class="keywordtype">void</span> PixieChroma::start_animation(){</div>
-<div class="line"><a name="l01557"></a><span class="lineno"> 1557</span>&#160;<span class="preprocessor">    #if defined(ESP8266)</span></div>
-<div class="line"><a name="l01558"></a><span class="lineno"> 1558</span>&#160;        timer1_attachInterrupt(ANIMATE);</div>
-<div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160;        timer1_enable(TIM_DIV1, TIM_EDGE, TIM_SINGLE);</div>
-<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;        timer1_write(1000000); <span class="comment">// First frame 1,000,000 CPU cycles from now</span></div>
-<div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;}</div>
-<div class="line"><a name="l01563"></a><span class="lineno"> 1563</span>&#160; </div>
-<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;<span class="keywordtype">void</span> PixieChroma::calc_xy(){</div>
-<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;  <span class="comment">// Initialize XY table</span></div>
-<div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;    <span class="keywordflow">for</span>(uint16_t yi = 0; yi &lt; chars_y; yi++){</div>
-<div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;        <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; 11; y++){</div>
-<div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;            <span class="keywordflow">for</span>(uint16_t xi = 0; xi &lt; chars_x; xi++){</div>
-<div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;                <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; 7; x++){</div>
-<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;                    int16_t x_pos = (xi*display_width)+x;</div>
-<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;                    int16_t y_pos = (yi*display_height)+y;</div>
-<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160; </div>
-<div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;                    int16_t x_pos_mod = x_pos % display_width;</div>
-<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;                    int16_t y_pos_mod = y_pos % display_height;</div>
-<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160; </div>
-<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;                    uint16_t i_table = (y_pos * matrix_width) + x_pos;</div>
-<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;                    uint16_t i_template = (y_pos_mod * display_width) + x_pos_mod;</div>
-<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160; </div>
-<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;                    xy_table[i_table] = int8_t(pgm_read_byte(xy_template + i_template));</div>
-<div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;                }</div>
-<div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;            }</div>
-<div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;        }</div>
-<div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;    }</div>
-<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160; </div>
-<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;    Serial.println(<span class="stringliteral">&quot;SOLVING VISIBLE&quot;</span>);</div>
-<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160; </div>
-<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;    <span class="comment">// Initialize first row of displays</span></div>
-<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;    uint8_t visible_rows = 0;</div>
-<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;    <span class="keywordflow">for</span>(uint16_t row = 0; row &lt; display_height; row++){</div>
-<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;        uint16_t index = (5*visible_rows);</div>
-<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;        <span class="keywordtype">bool</span> found_visible = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;        int16_t last_data = 0;</div>
-<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;        <span class="keywordflow">for</span>(uint16_t col = 0; col &lt; matrix_width; col++){</div>
-<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;            uint16_t i = (row*matrix_width)+col;</div>
-<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;            int16_t map_data = xy_table[i];</div>
-<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160; </div>
-<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;            <span class="keywordflow">if</span>(map_data == -1){</div>
-<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;                xy_table[i] = index;</div>
-<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;                index++;</div>
-<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;                found_visible = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;            }</div>
-<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160; </div>
-<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(map_data == -2){</div>
-<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;                <span class="keywordflow">if</span>(last_data == -1){</div>
-<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;                    index+=30;</div>
-<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;                }</div>
-<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;            }</div>
-<div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160; </div>
-<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;            last_data = map_data;</div>
-<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;        }</div>
-<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160; </div>
-<div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;        <span class="keywordflow">if</span>(found_visible){</div>
-<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;            visible_rows++;</div>
-<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;        }</div>
-<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;    }</div>
-<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160; </div>
-<div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;    NUM_VISIBLE_LEDS = 35*chars_x; <span class="comment">// account for first row</span></div>
-<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160; </div>
-<div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160;    <span class="comment">// Solve additional rows</span></div>
-<div class="line"><a name="l01620"></a><span class="lineno"> 1620</span>&#160;    <span class="keywordflow">if</span>(chars_y &gt; 1){</div>
-<div class="line"><a name="l01621"></a><span class="lineno"> 1621</span>&#160;        uint8_t rows_left = chars_y-1;</div>
-<div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;        uint16_t row_length = (display_width*display_height)*chars_x;</div>
-<div class="line"><a name="l01623"></a><span class="lineno"> 1623</span>&#160;        <span class="keywordflow">for</span>(uint8_t ii = 0; ii &lt; rows_left; ii++){</div>
-<div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160;            <span class="keywordflow">for</span>(uint16_t r = 0; r &lt; row_length; r++){</div>
-<div class="line"><a name="l01625"></a><span class="lineno"> 1625</span>&#160;                uint16_t final_src_index = (ii*row_length)+r;</div>
-<div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;                int16_t src_data = xy_table[final_src_index];</div>
-<div class="line"><a name="l01627"></a><span class="lineno"> 1627</span>&#160;                <span class="keywordflow">if</span>(src_data &gt;= 0){</div>
-<div class="line"><a name="l01628"></a><span class="lineno"> 1628</span>&#160;                    src_data += (35*chars_x);</div>
-<div class="line"><a name="l01629"></a><span class="lineno"> 1629</span>&#160; </div>
-<div class="line"><a name="l01630"></a><span class="lineno"> 1630</span>&#160;                    <span class="keywordflow">if</span>(src_data &gt; NUM_VISIBLE_LEDS){</div>
-<div class="line"><a name="l01631"></a><span class="lineno"> 1631</span>&#160;                        NUM_VISIBLE_LEDS = src_data;</div>
-<div class="line"><a name="l01632"></a><span class="lineno"> 1632</span>&#160;                    }</div>
-<div class="line"><a name="l01633"></a><span class="lineno"> 1633</span>&#160;                    xy_table[final_src_index+row_length] = src_data;</div>
-<div class="line"><a name="l01634"></a><span class="lineno"> 1634</span>&#160;                }</div>
-<div class="line"><a name="l01635"></a><span class="lineno"> 1635</span>&#160;            }</div>
-<div class="line"><a name="l01636"></a><span class="lineno"> 1636</span>&#160;        }</div>
-<div class="line"><a name="l01637"></a><span class="lineno"> 1637</span>&#160;    }</div>
-<div class="line"><a name="l01638"></a><span class="lineno"> 1638</span>&#160; </div>
-<div class="line"><a name="l01639"></a><span class="lineno"> 1639</span>&#160;    uint16_t index = NUM_VISIBLE_LEDS;</div>
-<div class="line"><a name="l01640"></a><span class="lineno"> 1640</span>&#160;    Serial.println(NUM_VISIBLE_LEDS);</div>
-<div class="line"><a name="l01641"></a><span class="lineno"> 1641</span>&#160;    Serial.println(NUM_LEDS);</div>
-<div class="line"><a name="l01642"></a><span class="lineno"> 1642</span>&#160; </div>
-<div class="line"><a name="l01643"></a><span class="lineno"> 1643</span>&#160;    Serial.println(<span class="stringliteral">&quot;SOLVING INVISIBLE&quot;</span>);</div>
-<div class="line"><a name="l01644"></a><span class="lineno"> 1644</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; matrix_height; y++){</div>
-<div class="line"><a name="l01645"></a><span class="lineno"> 1645</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; matrix_width; x++){</div>
-<div class="line"><a name="l01646"></a><span class="lineno"> 1646</span>&#160;            uint16_t i = (y * matrix_width) + x;</div>
-<div class="line"><a name="l01647"></a><span class="lineno"> 1647</span>&#160;            uint16_t j = xy_table[i];</div>
+<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160; </div>
+<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;            <span class="comment">// GAMMA CORRECTION</span></div>
+<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;            <span class="keywordflow">if</span>(correct_gamma){                  </div>
+<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;                leds_out[i+0].r = gamma8[leds_out[i+0].r]; <span class="comment">// Apply gamma correction LUT</span></div>
+<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;                leds_out[i+0].g = gamma8[leds_out[i+0].g];</div>
+<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;                leds_out[i+0].b = gamma8[leds_out[i+0].b];</div>
+<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160; </div>
+<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;                leds_out[i+1].r = gamma8[leds_out[i+1].r];</div>
+<div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;                leds_out[i+1].g = gamma8[leds_out[i+1].g];</div>
+<div class="line"><a name="l01494"></a><span class="lineno"> 1494</span>&#160;                leds_out[i+1].b = gamma8[leds_out[i+1].b];</div>
+<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160; </div>
+<div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;                leds_out[i+2].r = gamma8[leds_out[i+2].r];</div>
+<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;                leds_out[i+2].g = gamma8[leds_out[i+2].g];</div>
+<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;                leds_out[i+2].b = gamma8[leds_out[i+2].b];</div>
+<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160; </div>
+<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;                leds_out[i+3].r = gamma8[leds_out[i+3].r];</div>
+<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;                leds_out[i+3].g = gamma8[leds_out[i+3].g];</div>
+<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;                leds_out[i+3].b = gamma8[leds_out[i+3].b];</div>
+<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160; </div>
+<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;                leds_out[i+4].r = gamma8[leds_out[i+4].r];</div>
+<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;                leds_out[i+4].g = gamma8[leds_out[i+4].g];</div>
+<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;                leds_out[i+4].b = gamma8[leds_out[i+4].b];</div>
+<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160; </div>
+<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;                leds_out[i+5].r = gamma8[leds_out[i+5].r];</div>
+<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;                leds_out[i+5].g = gamma8[leds_out[i+5].g];</div>
+<div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;                leds_out[i+5].b = gamma8[leds_out[i+5].b];</div>
+<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160; </div>
+<div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;                leds_out[i+6].r = gamma8[leds_out[i+6].r];</div>
+<div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;                leds_out[i+6].g = gamma8[leds_out[i+6].g];</div>
+<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;                leds_out[i+6].b = gamma8[leds_out[i+6].b];</div>
+<div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;            }</div>
+<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;        }</div>
+<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;        </div>
+<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;        <span class="comment">// Regulate brightness to keep power within budget set with pix.set_max_power(V, mA);</span></div>
+<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;        FastLED.setBrightness(calculate_max_brightness_for_power_vmA(leds_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA));</div>
+<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;        FastLED.show();</div>
+<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160; </div>
+<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;        interrupts();</div>
+<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;        updated_too_soon = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;    }</div>
+<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;    }</div>
+<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;}</div>
+<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160; </div>
+<div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;<span class="comment">// -- PRIVATE FUNCTIONS -------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160; </div>
+<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;<span class="keywordtype">void</span> PixieChroma::build_controller(<span class="keyword">const</span> uint8_t pin){</div>
+<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;    <span class="comment">// FastLED control pin has to be defined as a constant, (not just declared const, it&#39;s weirdly different) so</span></div>
+<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;    <span class="comment">// this is a hacky workaround. Since we have to hardwire the damn pin number variable, we also have</span></div>
+<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;    <span class="comment">// to be careful of the current architecture we&#39;re compiling to, since FastLED doesn&#39;t let you </span></div>
+<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;    <span class="comment">// define non-existent pins either.</span></div>
+<div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;    </div>
+<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;<span class="preprocessor">    #ifdef ESP8266</span></div>
+<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;        <span class="keywordflow">if</span> (pin == 0){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;        <span class="keywordflow">if</span> (pin == 1){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;        <span class="keywordflow">if</span> (pin == 2){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;        <span class="keywordflow">if</span> (pin == 3){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;        <span class="keywordflow">if</span> (pin == 4){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;        <span class="keywordflow">if</span> (pin == 5){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01545"></a><span class="lineno"> 1545</span>&#160;            <span class="comment">// annnnd a bunch of missing pins that are tied to external flash...</span></div>
+<div class="line"><a name="l01546"></a><span class="lineno"> 1546</span>&#160;        <span class="keywordflow">if</span> (pin == 12){FastLED.addLeds&lt;WS2812B, 12, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01547"></a><span class="lineno"> 1547</span>&#160;        <span class="keywordflow">if</span> (pin == 13){FastLED.addLeds&lt;WS2812B, 13, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;        <span class="keywordflow">if</span> (pin == 14){FastLED.addLeds&lt;WS2812B, 14, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;        <span class="keywordflow">if</span> (pin == 15){FastLED.addLeds&lt;WS2812B, 15, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;        <span class="keywordflow">if</span> (pin == 16){FastLED.addLeds&lt;WS2812B, 16, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;    </div>
+<div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;<span class="preprocessor">    #ifdef ESP32</span></div>
+<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;        <span class="keywordflow">if</span> (pin == 0){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160;        <span class="keywordflow">if</span> (pin == 1){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;        <span class="keywordflow">if</span> (pin == 2){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01557"></a><span class="lineno"> 1557</span>&#160;        <span class="keywordflow">if</span> (pin == 3){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01558"></a><span class="lineno"> 1558</span>&#160;        <span class="keywordflow">if</span> (pin == 4){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160;        <span class="keywordflow">if</span> (pin == 5){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;        <span class="keywordflow">if</span> (pin == 12){FastLED.addLeds&lt;WS2812B, 12, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160;        <span class="keywordflow">if</span> (pin == 13){FastLED.addLeds&lt;WS2812B, 13, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;        <span class="keywordflow">if</span> (pin == 14){FastLED.addLeds&lt;WS2812B, 14, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01563"></a><span class="lineno"> 1563</span>&#160;        <span class="keywordflow">if</span> (pin == 15){FastLED.addLeds&lt;WS2812B, 15, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;        <span class="keywordflow">if</span> (pin == 16){FastLED.addLeds&lt;WS2812B, 16, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;        <span class="keywordflow">if</span> (pin == 17){FastLED.addLeds&lt;WS2812B, 17, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;        <span class="keywordflow">if</span> (pin == 18){FastLED.addLeds&lt;WS2812B, 18, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;        <span class="keywordflow">if</span> (pin == 19){FastLED.addLeds&lt;WS2812B, 19, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;        <span class="keywordflow">if</span> (pin == 21){FastLED.addLeds&lt;WS2812B, 21, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;        <span class="keywordflow">if</span> (pin == 22){FastLED.addLeds&lt;WS2812B, 22, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;        <span class="keywordflow">if</span> (pin == 23){FastLED.addLeds&lt;WS2812B, 23, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;        <span class="keywordflow">if</span> (pin == 25){FastLED.addLeds&lt;WS2812B, 25, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;        <span class="keywordflow">if</span> (pin == 26){FastLED.addLeds&lt;WS2812B, 26, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;        <span class="keywordflow">if</span> (pin == 27){FastLED.addLeds&lt;WS2812B, 27, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;        <span class="keywordflow">if</span> (pin == 32){FastLED.addLeds&lt;WS2812B, 32, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;        <span class="keywordflow">if</span> (pin == 33){FastLED.addLeds&lt;WS2812B, 33, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;    </div>
+<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;<span class="preprocessor">    #ifdef SAMD_SERIES</span></div>
+<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;        <span class="keywordflow">if</span> (pin == 0){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;        <span class="keywordflow">if</span> (pin == 1){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;        <span class="keywordflow">if</span> (pin == 2){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;        <span class="keywordflow">if</span> (pin == 3){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;        <span class="keywordflow">if</span> (pin == 4){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160;        <span class="keywordflow">if</span> (pin == 5){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;        <span class="keywordflow">if</span> (pin == 6){FastLED.addLeds&lt;WS2812B, 6, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;        <span class="keywordflow">if</span> (pin == 7){FastLED.addLeds&lt;WS2812B, 7, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;        <span class="keywordflow">if</span> (pin == 8){FastLED.addLeds&lt;WS2812B, 8, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;        <span class="keywordflow">if</span> (pin == 9){FastLED.addLeds&lt;WS2812B, 9, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;        <span class="keywordflow">if</span> (pin == 10){FastLED.addLeds&lt;WS2812B, 10, GRB&gt;(leds_out, NUM_VISIBLE_LEDS).setCorrection(TypicalLEDStrip);}</div>
+<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;}</div>
+<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160; </div>
+<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;<span class="keywordtype">void</span> PixieChroma::start_animation(){</div>
+<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;<span class="preprocessor">    #if defined(ESP8266)</span></div>
+<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;        timer1_attachInterrupt(ANIMATE);</div>
+<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;        timer1_enable(TIM_DIV1, TIM_EDGE, TIM_SINGLE);</div>
+<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;        timer1_write(1000000); <span class="comment">// First frame 1,000,000 CPU cycles from now</span></div>
+<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;}</div>
+<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160; </div>
+<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;<span class="keywordtype">void</span> PixieChroma::calc_xy(){</div>
+<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;  <span class="comment">// Initialize XY table</span></div>
+<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;    <span class="keywordflow">for</span>(uint16_t yi = 0; yi &lt; chars_y; yi++){</div>
+<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;        <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; 11; y++){</div>
+<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;            <span class="keywordflow">for</span>(uint16_t xi = 0; xi &lt; chars_x; xi++){</div>
+<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;                <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; 7; x++){</div>
+<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;                    int16_t x_pos = (xi*display_width)+x;</div>
+<div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;                    int16_t y_pos = (yi*display_height)+y;</div>
+<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160; </div>
+<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;                    int16_t x_pos_mod = x_pos % display_width;</div>
+<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;                    int16_t y_pos_mod = y_pos % display_height;</div>
+<div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160; </div>
+<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;                    uint16_t i_table = (y_pos * matrix_width) + x_pos;</div>
+<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;                    uint16_t i_template = (y_pos_mod * display_width) + x_pos_mod;</div>
+<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160; </div>
+<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;                    xy_table[i_table] = int8_t(pgm_read_byte(xy_template + i_template));</div>
+<div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;                }</div>
+<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160;            }</div>
+<div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160;        }</div>
+<div class="line"><a name="l01620"></a><span class="lineno"> 1620</span>&#160;    }</div>
+<div class="line"><a name="l01621"></a><span class="lineno"> 1621</span>&#160; </div>
+<div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;    Serial.println(<span class="stringliteral">&quot;SOLVING VISIBLE&quot;</span>);</div>
+<div class="line"><a name="l01623"></a><span class="lineno"> 1623</span>&#160; </div>
+<div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160;    <span class="comment">// Initialize first row of displays</span></div>
+<div class="line"><a name="l01625"></a><span class="lineno"> 1625</span>&#160;    uint8_t visible_rows = 0;</div>
+<div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;    <span class="keywordflow">for</span>(uint16_t row = 0; row &lt; display_height; row++){</div>
+<div class="line"><a name="l01627"></a><span class="lineno"> 1627</span>&#160;        uint16_t index = (5*visible_rows);</div>
+<div class="line"><a name="l01628"></a><span class="lineno"> 1628</span>&#160;        <span class="keywordtype">bool</span> found_visible = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01629"></a><span class="lineno"> 1629</span>&#160;        int16_t last_data = 0;</div>
+<div class="line"><a name="l01630"></a><span class="lineno"> 1630</span>&#160;        <span class="keywordflow">for</span>(uint16_t col = 0; col &lt; matrix_width; col++){</div>
+<div class="line"><a name="l01631"></a><span class="lineno"> 1631</span>&#160;            uint16_t i = (row*matrix_width)+col;</div>
+<div class="line"><a name="l01632"></a><span class="lineno"> 1632</span>&#160;            int16_t map_data = xy_table[i];</div>
+<div class="line"><a name="l01633"></a><span class="lineno"> 1633</span>&#160; </div>
+<div class="line"><a name="l01634"></a><span class="lineno"> 1634</span>&#160;            <span class="keywordflow">if</span>(map_data == -1){</div>
+<div class="line"><a name="l01635"></a><span class="lineno"> 1635</span>&#160;                xy_table[i] = index;</div>
+<div class="line"><a name="l01636"></a><span class="lineno"> 1636</span>&#160;                index++;</div>
+<div class="line"><a name="l01637"></a><span class="lineno"> 1637</span>&#160;                found_visible = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l01638"></a><span class="lineno"> 1638</span>&#160;            }</div>
+<div class="line"><a name="l01639"></a><span class="lineno"> 1639</span>&#160; </div>
+<div class="line"><a name="l01640"></a><span class="lineno"> 1640</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(map_data == -2){</div>
+<div class="line"><a name="l01641"></a><span class="lineno"> 1641</span>&#160;                <span class="keywordflow">if</span>(last_data == -1){</div>
+<div class="line"><a name="l01642"></a><span class="lineno"> 1642</span>&#160;                    index+=30;</div>
+<div class="line"><a name="l01643"></a><span class="lineno"> 1643</span>&#160;                }</div>
+<div class="line"><a name="l01644"></a><span class="lineno"> 1644</span>&#160;            }</div>
+<div class="line"><a name="l01645"></a><span class="lineno"> 1645</span>&#160; </div>
+<div class="line"><a name="l01646"></a><span class="lineno"> 1646</span>&#160;            last_data = map_data;</div>
+<div class="line"><a name="l01647"></a><span class="lineno"> 1647</span>&#160;        }</div>
 <div class="line"><a name="l01648"></a><span class="lineno"> 1648</span>&#160; </div>
-<div class="line"><a name="l01649"></a><span class="lineno"> 1649</span>&#160;            <span class="keywordflow">if</span>(xy_table[i] == -2){</div>
-<div class="line"><a name="l01650"></a><span class="lineno"> 1650</span>&#160;                xy_table[i] = index;</div>
-<div class="line"><a name="l01651"></a><span class="lineno"> 1651</span>&#160;                index++;</div>
-<div class="line"><a name="l01652"></a><span class="lineno"> 1652</span>&#160;            }</div>
-<div class="line"><a name="l01653"></a><span class="lineno"> 1653</span>&#160;        }</div>
-<div class="line"><a name="l01654"></a><span class="lineno"> 1654</span>&#160;    }</div>
-<div class="line"><a name="l01655"></a><span class="lineno"> 1655</span>&#160;    Serial.println(<span class="stringliteral">&quot;DONE&quot;</span>);</div>
-<div class="line"><a name="l01656"></a><span class="lineno"> 1656</span>&#160; </div>
-<div class="line"><a name="l01657"></a><span class="lineno"> 1657</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; matrix_height; y++){</div>
-<div class="line"><a name="l01658"></a><span class="lineno"> 1658</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; matrix_width; x++){</div>
-<div class="line"><a name="l01659"></a><span class="lineno"> 1659</span>&#160;            uint16_t i = (y * matrix_width) + x;</div>
-<div class="line"><a name="l01660"></a><span class="lineno"> 1660</span>&#160;            Serial.print(xy_table[i]);</div>
-<div class="line"><a name="l01661"></a><span class="lineno"> 1661</span>&#160;            Serial.print(<span class="charliteral">&#39;\t&#39;</span>);</div>
-<div class="line"><a name="l01662"></a><span class="lineno"> 1662</span>&#160;        }</div>
-<div class="line"><a name="l01663"></a><span class="lineno"> 1663</span>&#160;        Serial.println();</div>
-<div class="line"><a name="l01664"></a><span class="lineno"> 1664</span>&#160;    }</div>
-<div class="line"><a name="l01665"></a><span class="lineno"> 1665</span>&#160;}</div>
+<div class="line"><a name="l01649"></a><span class="lineno"> 1649</span>&#160;        <span class="keywordflow">if</span>(found_visible){</div>
+<div class="line"><a name="l01650"></a><span class="lineno"> 1650</span>&#160;            visible_rows++;</div>
+<div class="line"><a name="l01651"></a><span class="lineno"> 1651</span>&#160;        }</div>
+<div class="line"><a name="l01652"></a><span class="lineno"> 1652</span>&#160;    }</div>
+<div class="line"><a name="l01653"></a><span class="lineno"> 1653</span>&#160; </div>
+<div class="line"><a name="l01654"></a><span class="lineno"> 1654</span>&#160;    NUM_VISIBLE_LEDS = 35*chars_x; <span class="comment">// account for first row</span></div>
+<div class="line"><a name="l01655"></a><span class="lineno"> 1655</span>&#160; </div>
+<div class="line"><a name="l01656"></a><span class="lineno"> 1656</span>&#160;    <span class="comment">// Solve additional rows</span></div>
+<div class="line"><a name="l01657"></a><span class="lineno"> 1657</span>&#160;    <span class="keywordflow">if</span>(chars_y &gt; 1){</div>
+<div class="line"><a name="l01658"></a><span class="lineno"> 1658</span>&#160;        uint8_t rows_left = chars_y-1;</div>
+<div class="line"><a name="l01659"></a><span class="lineno"> 1659</span>&#160;        uint16_t row_length = (display_width*display_height)*chars_x;</div>
+<div class="line"><a name="l01660"></a><span class="lineno"> 1660</span>&#160;        <span class="keywordflow">for</span>(uint8_t ii = 0; ii &lt; rows_left; ii++){</div>
+<div class="line"><a name="l01661"></a><span class="lineno"> 1661</span>&#160;            <span class="keywordflow">for</span>(uint16_t r = 0; r &lt; row_length; r++){</div>
+<div class="line"><a name="l01662"></a><span class="lineno"> 1662</span>&#160;                uint16_t final_src_index = (ii*row_length)+r;</div>
+<div class="line"><a name="l01663"></a><span class="lineno"> 1663</span>&#160;                int16_t src_data = xy_table[final_src_index];</div>
+<div class="line"><a name="l01664"></a><span class="lineno"> 1664</span>&#160;                <span class="keywordflow">if</span>(src_data &gt;= 0){</div>
+<div class="line"><a name="l01665"></a><span class="lineno"> 1665</span>&#160;                    src_data += (35*chars_x);</div>
 <div class="line"><a name="l01666"></a><span class="lineno"> 1666</span>&#160; </div>
-<div class="line"><a name="l01667"></a><span class="lineno"> 1667</span>&#160;<span class="keywordtype">void</span> PixieChroma::print_xy_map(){</div>
-<div class="line"><a name="l01668"></a><span class="lineno"> 1668</span>&#160;    <span class="keywordflow">for</span>(uint8_t y = 0; y &lt; matrix_height; y++){</div>
-<div class="line"><a name="l01669"></a><span class="lineno"> 1669</span>&#160;        <span class="keywordflow">for</span>(uint8_t x = 0; x &lt; matrix_width; x++){</div>
-<div class="line"><a name="l01670"></a><span class="lineno"> 1670</span>&#160;            uint16_t index = (matrix_width*y)+x;</div>
-<div class="line"><a name="l01671"></a><span class="lineno"> 1671</span>&#160;            Serial.print(xy_table[index]);</div>
-<div class="line"><a name="l01672"></a><span class="lineno"> 1672</span>&#160;            Serial.print(<span class="charliteral">&#39;\t&#39;</span>);</div>
+<div class="line"><a name="l01667"></a><span class="lineno"> 1667</span>&#160;                    <span class="keywordflow">if</span>(src_data &gt; NUM_VISIBLE_LEDS){</div>
+<div class="line"><a name="l01668"></a><span class="lineno"> 1668</span>&#160;                        NUM_VISIBLE_LEDS = src_data;</div>
+<div class="line"><a name="l01669"></a><span class="lineno"> 1669</span>&#160;                    }</div>
+<div class="line"><a name="l01670"></a><span class="lineno"> 1670</span>&#160;                    xy_table[final_src_index+row_length] = src_data;</div>
+<div class="line"><a name="l01671"></a><span class="lineno"> 1671</span>&#160;                }</div>
+<div class="line"><a name="l01672"></a><span class="lineno"> 1672</span>&#160;            }</div>
 <div class="line"><a name="l01673"></a><span class="lineno"> 1673</span>&#160;        }</div>
-<div class="line"><a name="l01674"></a><span class="lineno"> 1674</span>&#160;        Serial.println();</div>
-<div class="line"><a name="l01675"></a><span class="lineno"> 1675</span>&#160;    }</div>
-<div class="line"><a name="l01676"></a><span class="lineno"> 1676</span>&#160;}</div>
+<div class="line"><a name="l01674"></a><span class="lineno"> 1674</span>&#160;    }</div>
+<div class="line"><a name="l01675"></a><span class="lineno"> 1675</span>&#160; </div>
+<div class="line"><a name="l01676"></a><span class="lineno"> 1676</span>&#160;    uint16_t index = NUM_VISIBLE_LEDS;</div>
+<div class="line"><a name="l01677"></a><span class="lineno"> 1677</span>&#160;    Serial.println(NUM_VISIBLE_LEDS);</div>
+<div class="line"><a name="l01678"></a><span class="lineno"> 1678</span>&#160;    Serial.println(NUM_LEDS);</div>
+<div class="line"><a name="l01679"></a><span class="lineno"> 1679</span>&#160; </div>
+<div class="line"><a name="l01680"></a><span class="lineno"> 1680</span>&#160;    Serial.println(<span class="stringliteral">&quot;SOLVING INVISIBLE&quot;</span>);</div>
+<div class="line"><a name="l01681"></a><span class="lineno"> 1681</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; matrix_height; y++){</div>
+<div class="line"><a name="l01682"></a><span class="lineno"> 1682</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; matrix_width; x++){</div>
+<div class="line"><a name="l01683"></a><span class="lineno"> 1683</span>&#160;            uint16_t i = (y * matrix_width) + x;</div>
+<div class="line"><a name="l01684"></a><span class="lineno"> 1684</span>&#160;            uint16_t j = xy_table[i];</div>
+<div class="line"><a name="l01685"></a><span class="lineno"> 1685</span>&#160; </div>
+<div class="line"><a name="l01686"></a><span class="lineno"> 1686</span>&#160;            <span class="keywordflow">if</span>(xy_table[i] == -2){</div>
+<div class="line"><a name="l01687"></a><span class="lineno"> 1687</span>&#160;                xy_table[i] = index;</div>
+<div class="line"><a name="l01688"></a><span class="lineno"> 1688</span>&#160;                index++;</div>
+<div class="line"><a name="l01689"></a><span class="lineno"> 1689</span>&#160;            }</div>
+<div class="line"><a name="l01690"></a><span class="lineno"> 1690</span>&#160;        }</div>
+<div class="line"><a name="l01691"></a><span class="lineno"> 1691</span>&#160;    }</div>
+<div class="line"><a name="l01692"></a><span class="lineno"> 1692</span>&#160;    Serial.println(<span class="stringliteral">&quot;DONE&quot;</span>);</div>
+<div class="line"><a name="l01693"></a><span class="lineno"> 1693</span>&#160; </div>
+<div class="line"><a name="l01694"></a><span class="lineno"> 1694</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; matrix_height; y++){</div>
+<div class="line"><a name="l01695"></a><span class="lineno"> 1695</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; matrix_width; x++){</div>
+<div class="line"><a name="l01696"></a><span class="lineno"> 1696</span>&#160;            uint16_t i = (y * matrix_width) + x;</div>
+<div class="line"><a name="l01697"></a><span class="lineno"> 1697</span>&#160;            Serial.print(xy_table[i]);</div>
+<div class="line"><a name="l01698"></a><span class="lineno"> 1698</span>&#160;            Serial.print(<span class="charliteral">&#39;\t&#39;</span>);</div>
+<div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;        }</div>
+<div class="line"><a name="l01700"></a><span class="lineno"> 1700</span>&#160;        Serial.println();</div>
+<div class="line"><a name="l01701"></a><span class="lineno"> 1701</span>&#160;    }</div>
+<div class="line"><a name="l01702"></a><span class="lineno"> 1702</span>&#160;}</div>
+<div class="line"><a name="l01703"></a><span class="lineno"> 1703</span>&#160; </div>
+<div class="line"><a name="l01704"></a><span class="lineno"> 1704</span>&#160;<span class="keywordtype">void</span> PixieChroma::print_xy_map(){</div>
+<div class="line"><a name="l01705"></a><span class="lineno"> 1705</span>&#160;    <span class="keywordflow">for</span>(uint8_t y = 0; y &lt; matrix_height; y++){</div>
+<div class="line"><a name="l01706"></a><span class="lineno"> 1706</span>&#160;        <span class="keywordflow">for</span>(uint8_t x = 0; x &lt; matrix_width; x++){</div>
+<div class="line"><a name="l01707"></a><span class="lineno"> 1707</span>&#160;            uint16_t index = (matrix_width*y)+x;</div>
+<div class="line"><a name="l01708"></a><span class="lineno"> 1708</span>&#160;            Serial.print(xy_table[index]);</div>
+<div class="line"><a name="l01709"></a><span class="lineno"> 1709</span>&#160;            Serial.print(<span class="charliteral">&#39;\t&#39;</span>);</div>
+<div class="line"><a name="l01710"></a><span class="lineno"> 1710</span>&#160;        }</div>
+<div class="line"><a name="l01711"></a><span class="lineno"> 1711</span>&#160;        Serial.println();</div>
+<div class="line"><a name="l01712"></a><span class="lineno"> 1712</span>&#160;    }</div>
+<div class="line"><a name="l01713"></a><span class="lineno"> 1713</span>&#160;}</div>
 <div class="ttc" id="a_pixie___chroma_8h_html"><div class="ttname"><a href="_pixie___chroma_8h.html">Pixie_Chroma.h</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html"><div class="ttname"><a href="class_pixie_chroma.html">PixieChroma</a></div><div class="ttdoc">Class that stores functions for interacting with Pixie Chroma displays.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00030">pixie_chroma_internal.h:30</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a0ca20cd8276fd7cad33e3c7724be5ac6"><div class="ttname"><a href="class_pixie_chroma.html#a0ca20cd8276fd7cad33e3c7724be5ac6">PixieChroma::color_blur</a></div><div class="ttdeci">void color_blur(fract8 blur_amount)</div><div class="ttdoc">Blurs the color buffer in both axes by blur_amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01079">pixie_chroma_internal.cpp:1079</a></div></div>
+<div class="ttc" id="aclass_pixie_chroma_html_a1d2f01d594a77c139365eb34053464b1"><div class="ttname"><a href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">PixieChroma::color</a></div><div class="ttdeci">void color(CRGB col)</div><div class="ttdoc">Sets the entire color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255)); This would set...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01277">pixie_chroma_internal.cpp:1277</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a1eb2b77e894233ae098b6bf71dc63d38"><div class="ttname"><a href="class_pixie_chroma.html#a1eb2b77e894233ae098b6bf71dc63d38">PixieChroma::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Unfreezes the current mask buffer in memory to allow showing updated text the next time the animation...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01211">pixie_chroma_internal.cpp:1211</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a203dbbe34e3185372be5c72173cad23e"><div class="ttname"><a href="class_pixie_chroma.html#a203dbbe34e3185372be5c72173cad23e">PixieChroma::println</a></div><div class="ttdeci">void println(const uint8_t *icon)</div><div class="ttdoc">Prints an Icon to the displays at the current cursor position, then jumps to the next row in the Pixi...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00819">pixie_chroma_internal.cpp:819</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a2e3f715755758bc6dc82ada938165c44"><div class="ttname"><a href="class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44">PixieChroma::set_brightness</a></div><div class="ttdeci">void set_brightness(uint8_t level)</div><div class="ttdoc">Takes an 8-bit brightness value and passes it to FastLED internally, to provide global brightness con...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00140">pixie_chroma_internal.cpp:140</a></div></div>
@@ -1258,7 +1265,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 14:51:05 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 15:02:52 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

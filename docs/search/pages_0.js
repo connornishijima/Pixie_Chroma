@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pixie_20chroma_82',['Pixie Chroma',['../index.html',1,'']]]
+  ['pixie_20chroma_84',['Pixie Chroma',['../index.html',1,'']]]
 ];

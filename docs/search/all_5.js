@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hold_15',['hold',['../class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b',1,'PixieChroma']]]
+  ['hold_16',['hold',['../class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b',1,'PixieChroma']]]
 ];
