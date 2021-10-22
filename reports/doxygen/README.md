@@ -72,4 +72,3 @@
 - The **following** parameter of PixieChroma::set_update_mode(update_type t) is not documented:
   't'
 - return type of member **PixieChroma::kelvin_to_rgb** is not documented
-- return type of member **PixieChroma::xy** is not documented
