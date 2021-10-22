@@ -44,12 +44,13 @@ jobs:
           verbose: true
           report-file: ./docs/lint_report.json
 
-#      - name: Compile all examples (ESP8266)
-#        uses: ArminJo/arduino-test-compile@v3
-#        with:
-#          arduino-board-fqbn: "esp8266:esp8266:d1_mini"
-#          platform-url: "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
-#          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
+      - name: Compile all examples (ESP8266)
+        uses: ArminJo/arduino-test-compile@v3
+        with:
+          arduino-board-fqbn: "esp8266:esp8266:d1_mini"
+          platform-url: "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
+          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
+          extra-arduino-cli-args: "--log-file './logs/esp8266/d1_mini.log'"
 #      
 #      - name: Compile all examples (ESP32)
 #        uses: ArminJo/arduino-test-compile@v3
