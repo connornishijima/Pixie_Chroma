@@ -319,6 +319,40 @@ void PixieChroma::write(const uint8_t* icon, uint8_t x_pos, uint8_t y_pos){
 	write_pix(icon, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+/**************************************************************************/
+/*!
+    @brief  Writes an icon to a specified X and Y cursor position, taking
+            five uint8_t as input for the column data.
+	   
+            For example:
+            
+                pix.write(B00101111, B01001001, B01001001, B01001001, B00110001);
+                
+                    OR, WRITTEN VERTICALLY:
+                
+                pix.write(   ,   ,   ,   ,   );
+                           1   1   1   1   1  LSB
+		                   1   0   0   0   0
+		                   1   0   0   0   0
+		                   1   1   1   1   0
+		                   0   0   0   0   1
+		                   1   0   0   0   1
+		                   0   1   1   1   0  
+                           0   0   0   0   0  MSB (unused)
+                           B   B   B   B   B
+
+            This writes a "5" to the display, seen above in the "1" bits of
+            each column. The MSB (highest bit) is not used in icons.
+	
+    @param  icon_col_1  Column 1 data of this icon
+    @param  icon_col_2  Column 2 data of this icon
+    @param  icon_col_3  Column 3 data of this icon
+    @param  icon_col_4  Column 4 data of this icon
+    @param  icon_col_5  Column 5 data of this icon
+    @param  x_pos       X cursor position of write
+    @param  y_pos       Y cursor position of write
+*/
+/**************************************************************************/
 void PixieChroma::write(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos, uint8_t y_pos){
 	uint8_t icon[5] = {icon_col_1,icon_col_2,icon_col_3,icon_col_4,icon_col_5};
 	write(icon, x_pos, y_pos);
