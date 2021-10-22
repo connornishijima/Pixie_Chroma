@@ -43,7 +43,6 @@
 - :x: *Member ***GRADIENT_BLACK_BLUE_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
 - :x: *Member ***dtoa(double*** d, char *buffer, int precision) (function) of file pixie_utility.h is not documented.*
 - :x: *Member ***anim_func)()*** (variable) of file pixie_utility.h is not documented.*
-- :x: *Member ***gamma8[]*** (variable) of file pixie_utility.h is not documented.*
 - :x: *Member ***write(long*** unsigned int input, uint8_t x_pos=0, uint8_t y_pos=0) (function) of class PixieChroma is not documented.*
 - :x: *Member ***print(long*** unsigned int input) (function) of class PixieChroma is not documented.*
 - :x: *Member ***println(long*** unsigned int input) (function) of class PixieChroma is not documented.*
