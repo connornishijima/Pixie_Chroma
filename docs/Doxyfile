@@ -2458,4 +2458,4 @@ GENERATE_TREEVIEW      = YES # required!
 # list). For an example see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES. 
 
-HTML_EXTRA_STYLESHEET  = docs/doxygen-awesome-css/doxygen-awesome.css docs/custom.css
+HTML_EXTRA_STYLESHEET  = docs/doxygen-awesome-css/doxygen-awesome.css docs/doxygen-awesome-css/doxygen-awesome-sidebar-only.css docs/custom.css
