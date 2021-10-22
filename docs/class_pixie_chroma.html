@@ -115,6 +115,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9ab7d062b70565814e448c0fe5fa22a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the update mode Pixie Chroma will use:  <a href="class_pixie_chroma.html#a9ab7d062b70565814e448c0fe5fa22a3">More...</a><br /></td></tr>
 <tr class="separator:a9ab7d062b70565814e448c0fe5fa22a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add33ec96b6f6591790db5ed0d42cb117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117">set_palette</a> (const uint8_t *pal)</td></tr>
+<tr class="memdesc:add33ec96b6f6591790db5ed0d42cb117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a const uint8_t (8-bit) array with the following format to generate a FastLED Gradient Palette at runtime:  <a href="class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117">More...</a><br /></td></tr>
 <tr class="separator:add33ec96b6f6591790db5ed0d42cb117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73b485321858edb0900e35a56a77fa8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a73b485321858edb0900e35a56a77fa8f">set_palette</a> (CRGBPalette16 pal)</td></tr>
 <tr class="memdesc:a73b485321858edb0900e35a56a77fa8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a FastLED CRGBPalette16 object to set the current color palette for animation.  <a href="class_pixie_chroma.html#a73b485321858edb0900e35a56a77fa8f">More...</a><br /></td></tr>
@@ -482,17 +483,17 @@ PixieChroma pix;
 </div><div class="memdoc">
 
 <p>Configures the update mode Pixie Chroma will use: </p>
-<pre class="fragment">        set_update_mode(AUTOMATIC);
+<pre class="fragment">set_update_mode(AUTOMATIC);
 
-            Refresh LEDs with new mask data on every ISR call (60FPS) 
+    Refresh LEDs with new mask data on every ISR call (60FPS) 
 
-        set_update_mode(HOLD_FOR_UPDATE);
+set_update_mode(HOLD_FOR_UPDATE);
 
-            Only refresh LEDs with new mask_data when pix.update() is
-            called, useful for preventing updates to the image before
-            its text is fully constructed. The animation ISR driving 
-            the color map will still update at 60FPS, regardless of
-            how often pix.update() is called.
+    Only refresh LEDs with new mask_data when pix.update() is
+    called, useful for preventing updates to the image before
+    its text is fully constructed. The animation ISR driving 
+    the color map will still update at 60FPS, regardless of
+    how often pix.update() is called.
 </pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">update_type</td><td>(AUTOMATIC or HOLD_FOR_UPDATE) </td></tr>
@@ -519,11 +520,11 @@ PixieChroma pix;
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">@brief  Accepts a const uint8_t (8-bit) array with the following format
-        to generate a FastLED Gradient Palette at runtime:
 
-            const uint8_t* my_gradient_palette[] = {
-</pre><p> INDEX, R_VAL, G_VAL, B_VAL, 0, 255, 0, 0, 127, 0, 255, 0, 255, 0, 0, 255, };</p>
+<p>Accepts a const uint8_t (8-bit) array with the following format to generate a FastLED Gradient Palette at runtime: </p>
+<pre class="fragment">const uint8_t* my_gradient_palette[] = {
+    [INDEX],  [R_VAL],  [G_VAL],  [B_VAL],
+</pre><p> 0, 255, 0, 0, 127, 0, 255, 0, 255, 0, 0, 255, };</p>
 <p>On each line is the index of the color (0-255) to express the position in the gradient this color occurs. So in the given example, it is a gradient from red at 0, to green at 127, to blue at 255.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -532,7 +533,7 @@ PixieChroma pix;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00187">187</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00188">188</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -560,7 +561,7 @@ PixieChroma pix;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00199">199</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00200">200</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -588,7 +589,7 @@ PixieChroma pix;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00211">211</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00212">212</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -616,7 +617,7 @@ PixieChroma pix;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00223">223</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00224">224</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -644,7 +645,7 @@ PixieChroma pix;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00235">235</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00236">236</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -683,7 +684,7 @@ PixieChroma pix;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00302">302</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00303">303</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -729,7 +730,7 @@ PixieChroma pix;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00316">316</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00317">317</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -797,7 +798,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00283">283</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00284">284</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -811,7 +812,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 06:03:29 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 06:08:31 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
