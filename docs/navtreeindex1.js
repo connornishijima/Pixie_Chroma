@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"pixie__icons_8h.html#a6eb5dbaa50ffad8d2172907d6d01219c":[1,0,0,0,3,118],
 "pixie__icons_8h.html#a6fe198546ff75898d05c3bfff499125f":[1,0,0,0,3,78],
 "pixie__icons_8h.html#a71786fd037a25c106032e82fbb02de47":[1,0,0,0,3,104],
 "pixie__icons_8h.html#a749ec4c8f54e8aecbd4473c935ba0659":[1,0,0,0,3,103],
