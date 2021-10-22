@@ -12,7 +12,20 @@
 
 #include "../Pixie_Chroma.h"
 
+/**************************************************************************/
+/*!
+    @brief  It does nothing, but it does nothing REALLY WELL! You can enable
+            this empty function with pix.set_animation(ANIMATION_NULL) to
+            fully manually control LEDs when you want using pix.show().
+*/
+/**************************************************************************/
 void ANIMATION_NULL(); // Prototype definition needed so _pixie_chroma.cpp can reach these functions as well as the sketch
+
+/**************************************************************************/
+/*!
+    @brief  Shows a solid green color, in classic Pixie style!
+*/
+/**************************************************************************/
 void ANIMATION_SOLID();
 
 void ANIMATION_PALETTE_SHIFT_LEFT();
