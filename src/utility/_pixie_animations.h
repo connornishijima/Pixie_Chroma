@@ -1,3 +1,12 @@
+/*!
+ * @file _pixie_animations.h
+ *
+ * Designed specifically to work with Pixie Chroma:
+ * ----> https://connornishijima.github.io/PixieChroma
+ *
+ * Last Updated by Connor Nishijima on 10/21/21
+ */
+
 #ifndef _pixie_animations_h
 #define _pixie_animations_h
 
