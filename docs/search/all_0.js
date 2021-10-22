@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_5fpixie_5fanimations_2eh_0',['_pixie_animations.h',['../__pixie__animations_8h.html',1,'']]],
-  ['_5fpixie_5fchroma_2eh_1',['_pixie_chroma.h',['../__pixie__chroma_8h.html',1,'']]]
+  ['begin_0',['begin',['../class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9',1,'PixieChroma']]]
 ];

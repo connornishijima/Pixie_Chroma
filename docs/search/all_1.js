@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['begin_2',['begin',['../class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9',1,'PixieChroma']]]
+  ['pixiechroma_1',['PixieChroma',['../class_pixie_chroma.html',1,'PixieChroma'],['../class_pixie_chroma.html#a2fc65dd9269568f34968c4af09f627ec',1,'PixieChroma::PixieChroma()']]],
+  ['pixiechroma_2eh_2',['PixieChroma.h',['../_pixie_chroma_8h.html',1,'']]]
 ];
