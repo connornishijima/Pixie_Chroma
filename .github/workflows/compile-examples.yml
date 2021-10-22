@@ -38,6 +38,9 @@ jobs:
         with:
           library-manager: submit
           compliance: strict
+          recursive: true
+          verbose: true
+          report-file: .extras/lint_report.json
 
 #      - name: Compile all examples (ESP8266)
 #        uses: ArminJo/arduino-test-compile@v3
