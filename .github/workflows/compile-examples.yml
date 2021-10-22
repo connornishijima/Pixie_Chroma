@@ -7,12 +7,16 @@ on:
     - '**.h'
     - '**compile-examples.yml'
     - '**Doxyfile'
+    - 'library.properties'
+    - 'library.json'
   pull_request:
     paths:
     - '**.ino'
     - '**.cpp'
     - '**.h'
     - '**compile-examples.yml'
+    - 'library.properties'
+    - 'library.json'
 jobs:
   build:
     name: ${{ matrix.arduino-boards-fqbn }} ${{ matrix.log-options }} ${{ matrix.other-options }}
