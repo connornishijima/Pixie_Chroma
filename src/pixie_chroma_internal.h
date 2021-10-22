@@ -23,10 +23,13 @@ enum frame_multiple {
 	QUARTER_SECOND
 };
 
-/** Pixie Chroma Class Definition */
+/*!
+    @brief  Class that stores functions for interacting with
+            Pixie Chroma displays.
+*/
 class PixieChroma{
 	public:
-		/** @brief Create a Pixie Chroma class object */
+		/** @brief Construct a Pixie Chroma class object */
 		PixieChroma();
 		
 		/*+-- Functions - Setup ------------------------------------------------------------*/ 
