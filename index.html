@@ -20,17 +20,50 @@
 			}
 			#logo{
 				height:75px;
+				padding-left:10px;
 			}
 			#content_frame{
 				width:100%;
-				height:calc(100% - 50px);
+				height:calc(100% - 75px);
+				border:none;
+			}
+			#header{
+				max-height:75px;
+			}
+			.menu_link{
+				display: inline-block;
+				height: 20px;
+				position: relative;
+				top: -32px;
+				padding-top: 25px;
+				padding-bottom: 25px;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			.menu_link:hover{
+				color:#000;
+				background-color:#ff5c93;
+				cursor:pointer;
+			}
+			#logo_container{
+			    display: inline-block;
+				max-width: 430px;
+				overflow-x: hidden;
 			}
 		</style>
 	</head>
 	<body>
-		<img src="extras/img/logo_single_line.png" id="logo"/>
-		<br>
-		<a href="docs/index.html">Library Documentation</a>
-		<iframe id="content_frame" src="https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html"></iframe>
+		<div id="header">
+			<span id="logospan">
+				<div id="logo_container">
+					<img src="extras/img/logo_single_line.png" id="logo"/>
+				</div>
+			</span>
+			<span>
+				<a href="https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html" target="content_frame" class="menu_link">Library Documentation</a>
+				<a href="https://connornishijima.github.io/Pixie/extras/datasheet.html" target="content_frame" class="menu_link">Datasheet</a>
+			</span>
+		</div>
+		<iframe id="content_frame" name="content_frame" src="https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html"></iframe>
 	</body>
 </html>
