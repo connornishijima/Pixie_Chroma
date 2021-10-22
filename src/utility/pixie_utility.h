@@ -13,6 +13,9 @@
 
 void (*anim_func)();
 
+/*!
+ * @brief  Used as a fast lookup table for gamma correction
+ */
 const uint8_t gamma8[] = {
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,
