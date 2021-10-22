@@ -41,7 +41,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_pixie_chroma_8h.html",
+"_pixie___chroma_8h.html",
 "pixie__icons_8h.html#a75b6d36d7cc1f8588e15be22880e9280"
 ];
 
