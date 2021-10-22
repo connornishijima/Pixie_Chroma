@@ -10,7 +10,7 @@
 #ifndef pixie_animations_h
 #define pixie_animations_h
 
-#include "../PixieChroma.h"
+#include "../Pixie_Chroma.h"
 
 void ANIMATION_NULL(); // Prototype definition needed so _pixie_chroma.cpp can reach these functions as well as the sketch
 void ANIMATION_SOLID();
