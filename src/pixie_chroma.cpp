@@ -195,7 +195,7 @@ void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
 /**************************************************************************/
 /*!
     @brief	Accepts a preset or custom function to use for the animation ISR.
-            For a list of predefined animations, see _pixie_animations.h
+            For a list of predefined animations, see pixie_animations.h
 
     @param  action Function to set as an animation ISR
 */
@@ -219,7 +219,7 @@ void PixieChroma::set_animation_speed(float speed){
 /**************************************************************************/
 /*!
     @brief  Allows you to enable built-in automatic gamma correction, using
-            a fast LUT in _pixie_utility.h. (Not enabled by default)
+            a fast LUT in pixie_utility.h. (Not enabled by default)
 
     @param  enabled Whether or not to apply gamma correction
 */
