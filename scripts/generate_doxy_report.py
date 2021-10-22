@@ -28,10 +28,10 @@ for item in doxy_data:
                     log_string = ' '.join([str(x) for x in log_string])
                     
                 elif not "ICON_" in item:
-                    log_string = item.split("warning: ")[1]
+                    log_string = "*"+item.split("warning: ")[1]+"*"
 
                     log_string = log_string.split(" ")
-                    log_string[1] = "**"+log_string[1]+"**"
+                    log_string[1] = "***"+log_string[1]+"***"
                     log_string = ' '.join([str(x) for x in log_string])
                     
                 log_string.replace("is not documented", "**is not documented**")
