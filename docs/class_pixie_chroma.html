@@ -274,8 +274,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a53e052b9e02cebcd81ff73bf687e3754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754">color</a> (CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2)</td></tr>
 <tr class="memdesc:a53e052b9e02cebcd81ff73bf687e3754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a rectangular area in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 0, 0, 5, 5); This would set <b>the first five columns and rows</b> of the color buffer to cyan, a mix of green and blue.  <a href="class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754">More...</a><br /></td></tr>
 <tr class="separator:a53e052b9e02cebcd81ff73bf687e3754"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec59fe7c26010adfc68efa8b7f23fa20"><td class="memItemLeft" align="right" valign="top"><a id="aec59fe7c26010adfc68efa8b7f23fa20"></a>
-CRGB&#160;</td><td class="memItemRight" valign="bottom"><b>kelvin_to_rgb</b> (uint16_t temperature)</td></tr>
+<tr class="memitem:aec59fe7c26010adfc68efa8b7f23fa20"><td class="memItemLeft" align="right" valign="top">CRGB&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aec59fe7c26010adfc68efa8b7f23fa20">kelvin_to_rgb</a> (uint16_t temperature)</td></tr>
+<tr class="memdesc:aec59fe7c26010adfc68efa8b7f23fa20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximates the conversion of a blackbody radiation temperature (e.g. 3500K) to a CRGB color object. This can be used within other Pixie color functions like so:  <a href="class_pixie_chroma.html#aec59fe7c26010adfc68efa8b7f23fa20">More...</a><br /></td></tr>
 <tr class="separator:aec59fe7c26010adfc68efa8b7f23fa20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add7fe811bfb5a0c5cf19aff32ed916a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#add7fe811bfb5a0c5cf19aff32ed916a8">dim</a> (uint8_t amount, bool reset_cursor=false)</td></tr>
 <tr class="memdesc:add7fe811bfb5a0c5cf19aff32ed916a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Darkens the mask buffer by an 8-bit amount. Optionally resets the cursor position.  <a href="class_pixie_chroma.html#add7fe811bfb5a0c5cf19aff32ed916a8">More...</a><br /></td></tr>
@@ -304,11 +304,12 @@ CRGB&#160;</td><td class="memItemRight" valign="bottom"><b>kelvin_to_rgb</b> (ui
 <tr class="memitem:aa5c6c704a93478b92e334abeeeebd2af"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a> (int16_t x, int16_t y, bool wrap=false)</td></tr>
 <tr class="memdesc:aa5c6c704a93478b92e334abeeeebd2af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix.  <a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">More...</a><br /></td></tr>
 <tr class="separator:aa5c6c704a93478b92e334abeeeebd2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memItemLeft" align="right" valign="top"><a id="a0f57ff826763f4d8ccd8ffa0e260d87a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw_line</b> (int16_t x1, int16_t y1, int16_t x2, int16_t y2)</td></tr>
+<tr class="memitem:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">draw_line</a> (int16_t x1, int16_t y1, int16_t x2, int16_t y2)</td></tr>
+<tr class="memdesc:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a line in the mask buffer using Bresenham's line algorithm.  <a href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">More...</a><br /></td></tr>
 <tr class="separator:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a836b7172ea635c0d5cad04a71d7ad332"><td class="memItemLeft" align="right" valign="top"><a id="a836b7172ea635c0d5cad04a71d7ad332"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>show</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332">show</a> ()</td></tr>
+<tr class="memdesc:a836b7172ea635c0d5cad04a71d7ad332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated versions sent to the Pixie Chroma displays. <em><b>FastLED.show() is called here.</b></em> <br /></td></tr>
 <tr class="separator:a836b7172ea635c0d5cad04a71d7ad332"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -2182,6 +2183,42 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 
 </div>
 </div>
+<a id="aec59fe7c26010adfc68efa8b7f23fa20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec59fe7c26010adfc68efa8b7f23fa20">&#9670;&nbsp;</a></span>kelvin_to_rgb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CRGB PixieChroma::kelvin_to_rgb </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>temperature</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Approximates the conversion of a blackbody radiation temperature (e.g. 3500K) to a CRGB color object. This can be used within other Pixie color functions like so: </p>
+<pre class="fragment">pix.color( kelvin_to_rgb( 3000 ) );
+</pre><p> This would render a warm-white color. This measurement system is often used in household LED bulbs, with colors like:</p>
+<ul>
+<li>2700K - <b>Very Warm White</b></li>
+<li>3500K - <b>Warm White</b></li>
+<li>5000K - <b>White</b></li>
+<li>7000K - <b>Cool White</b></li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">temperature</td><td>Blackbody radiation temperature in Kelvin </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01456">1456</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
 <a id="add7fe811bfb5a0c5cf19aff32ed916a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add7fe811bfb5a0c5cf19aff32ed916a8">&#9670;&nbsp;</a></span>dim()</h2>
 
@@ -2465,6 +2502,59 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 
 </div>
 </div>
+<a id="a0f57ff826763f4d8ccd8ffa0e260d87a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f57ff826763f4d8ccd8ffa0e260d87a">&#9670;&nbsp;</a></span>draw_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::draw_line </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>y2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws a line in the mask buffer using Bresenham's line algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x1</td><td>Starting X coordinate of the line </td></tr>
+    <tr><td class="paramname">y1</td><td>Starting Y coordinate of the line </td></tr>
+    <tr><td class="paramname">x2</td><td>Ending X coordinate of the line (inclusive) </td></tr>
+    <tr><td class="paramname">y2</td><td>Ending Y coordinate of the line (inclusive) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01361">1361</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a></li>
 <li>src/<a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a></li>
@@ -2475,7 +2565,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 15:02:52 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 15:12:57 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
