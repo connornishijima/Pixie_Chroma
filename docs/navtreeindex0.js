@@ -147,6 +147,8 @@ var NAVTREEINDEX0 =
 "pixie__chroma__internal_8h.html#abedfeeacda954f661b51a8c5681cfde9a2ce83c53e574071b477a5b3057e8b8de":[1,0,0,2,2,2],
 "pixie__chroma__internal_8h.html#abedfeeacda954f661b51a8c5681cfde9a65672bdfd461671904ef656c4e007174":[1,0,0,2,2,0],
 "pixie__chroma__internal_8h_source.html":[1,0,0,2],
+"pixie__font_8h.html":[1,0,0,0,2],
+"pixie__font_8h.html#a726ed429818a8cdf56df6867093a8ac4":[1,0,0,0,2,0],
 "pixie__font_8h_source.html":[1,0,0,0,2],
 "pixie__icons_8h_source.html":[1,0,0,0,3],
 "pixie__palettes_8h_source.html":[1,0,0,0,4],
