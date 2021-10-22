@@ -44,7 +44,13 @@ jobs:
           arduino-board-fqbn: "esp8266:esp8266:huzzah"
           platform-url: "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
           required-libraries: ${{ env.REQUIRED_LIBRARIES }}
-          #build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
+      
+      - name: Compile all examples (ESP32)
+        uses: ArminJo/arduino-test-compile@v3
+        with:
+          arduino-board-fqbn: "esp32:esp32:esp32"
+          platform-url: "https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json"
+          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
 
       - name: Doxygen Build
         uses: langroodi/doxygenize@v1.3
