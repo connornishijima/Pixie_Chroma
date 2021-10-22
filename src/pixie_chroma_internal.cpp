@@ -145,17 +145,17 @@ void PixieChroma::set_brightness(uint8_t level){
 /*!
     @brief  Configures the update mode Pixie Chroma will use:
 	
-    set_update_mode(AUTOMATIC);
+        set_update_mode(AUTOMATIC);
 
-        Refresh LEDs with new mask data on every ISR call (60FPS) 
+            Refresh LEDs with new mask data on every ISR call (60FPS) 
 				
-    set_update_mode(HOLD_FOR_UPDATE);
+        set_update_mode(HOLD_FOR_UPDATE);
 
-        Only refresh LEDs with new mask_data when pix.update() is
-        called, useful for preventing updates to the image before
-        its text is fully constructed. The animation ISR driving 
-        the color map will still update at 60FPS, regardless of
-        how often pix.update() is called.
+            Only refresh LEDs with new mask_data when pix.update() is
+            called, useful for preventing updates to the image before
+            its text is fully constructed. The animation ISR driving 
+            the color map will still update at 60FPS, regardless of
+            how often pix.update() is called.
 				
     @param  update_type (AUTOMATIC or HOLD_FOR_UPDATE)
 */
