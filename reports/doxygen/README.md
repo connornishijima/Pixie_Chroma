@@ -1,1 +1,3 @@
-:heavy_check_mark: **All checks passed, nothing to document!**
+### Doxygen coverage report: 
+#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
+---------------------------------------------------------
