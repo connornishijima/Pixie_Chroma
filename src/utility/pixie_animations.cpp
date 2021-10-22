@@ -19,9 +19,9 @@ void ANIMATION_SOLID(){
 
 	for(uint16_t x = 0; x < pix.matrix_width; x++){
 		float progress = float(x / float(pix.matrix_width+4));
+		CRGB col = ColorFromPalette(pix.current_palette, progress*255);
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
-			uint16_t index = pix.xy(x,y);
-			CRGB col = ColorFromPalette(pix.current_palette, progress*255);
+			uint16_t index = pix.xy(x,y);			
 			pix.leds[index] = col;
 		}
 	}
