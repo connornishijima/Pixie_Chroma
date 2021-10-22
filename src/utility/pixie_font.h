@@ -1,3 +1,11 @@
+/*!
+ * @file pixie_font.h
+ *
+ * Contains the ASCII font for Pixie Chroma
+ *
+ * Last Updated by Connor Nishijima on 10/21/21
+ */
+
 #ifndef pixie_font_h
 #define pixie_font_h
 
