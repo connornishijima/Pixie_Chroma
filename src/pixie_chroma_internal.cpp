@@ -1265,10 +1265,32 @@ uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
 	return xy_table[ (y * matrix_width) + x ];
 }
 
+/**************************************************************************/
+/*!
+    @brief  Sets the entire color buffer to a CRGB value. For example:
+                pix.color(CRGB(0,255,255));
+	    This would set all displays to cyan, a mix of green and blue.
+	    
+    @param  col FastLED CRGB color
+*/
+/**************************************************************************/
 void PixieChroma::color(CRGB col){
 	fill_solid(leds, NUM_LEDS, col);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Sets a specific display in the color buffer to a CRGB value.
+            For example:
+                pix.color(CRGB(0,255,255), 1, 0);
+	    This would set the **second display of the first row** to cyan, a
+	    mix of green and blue.
+	    
+    @param  col FastLED CRGB color
+    @param  x   X coordinate of display
+    @param  y   y coordinate of display
+*/
+/**************************************************************************/
 void PixieChroma::color(CRGB col, uint8_t x, uint8_t y){
 	int16_t x_pos = x*display_width+1;
 	int16_t y_pos = y*display_height+2;
@@ -1284,6 +1306,21 @@ void PixieChroma::color(CRGB col, uint8_t x, uint8_t y){
 	}
 }
 
+/**************************************************************************/
+/*!
+    @brief  Sets a rectangular area in the color buffer to a CRGB value.
+            For example:
+                pix.color(CRGB(0,255,255), 0, 0, 5, 5);
+	    This would set **the first five columns and rows** of the color
+	    buffer to cyan, a mix of green and blue.
+	    
+    @param  col FastLED CRGB color
+    @param  x1  Starting X coordinate of the rectangle
+    @param  y1  Starting Y coordinate of the rectangle
+    @param  x2  Ending X coordinate of the rectangle (inclusive)
+    @param  y2  Ending Y coordinate of the rectangle (inclusive)
+*/
+/**************************************************************************/
 void PixieChroma::color(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2){
 	if(x2 < x1 || y2 < y1){
 		return;
