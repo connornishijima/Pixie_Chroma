@@ -7,9 +7,10 @@ doxy_data = ""
 with open("docs/doxy.log","r+") as f:
     doxy_data = f.read().split("\n")
 
-output = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n\n"
+output = ""
 
 for item in doxy_data:
+    print(item)
     if "parameter '" in item:
         log_string = item.split("parameter ")[1]
         output += "  "
@@ -18,13 +19,42 @@ for item in doxy_data:
         
     elif "warning" in item:
         if "is not documented" in item:
-            if not "ICON_" in item:
-                log_string = item.split("warning: ")[1]
+            if not "PROGMEM" in item:
+                if "return type" in item:
+                    log_string = item.split("warning: ")[1]
+
+                    log_string = log_string.split(" ")
+                    log_string[4] = "**"+log_string[4]+"**"
+                    log_string = ' '.join([str(x) for x in log_string])
+                    
+                elif not "ICON_" in item:
+                    log_string = item.split("warning: ")[1]
+
+                    log_string = log_string.split(" ")
+                    log_string[1] = "**"+log_string[1]+"**"
+                    log_string = ' '.join([str(x) for x in log_string])
+                    
+                log_string.replace("is not documented", "**is not documented**")
+
                 output += "- "
                 output += log_string
                 output += "\n"
 
+final_output = []
+output = output.split("\n")
+
+for item in output:
+    skip = False
+    for reference in final_output:
+        if item == reference:
+            skip = True
+
+    if not skip:
+        final_output.append(item)
+
+output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n\n" + ("\n".join(final_output))
+
 with open("reports/doxygen/README.md","w+") as f:
-    f.write(output)
+    f.write(output_string)
    
 print("--- Report saved in reports/doxygen/README.md")
