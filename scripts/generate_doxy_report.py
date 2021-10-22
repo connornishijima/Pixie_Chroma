@@ -52,7 +52,7 @@ for item in output:
     if not skip:
         final_output.append(item)
 
-output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n\n" + ("\n".join(final_output))
+output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n---------------------------------------------------------\n" + ("\n".join(final_output))
 
 with open("reports/doxygen/README.md","w+") as f:
     f.write(output_string)
