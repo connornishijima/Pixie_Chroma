@@ -349,8 +349,8 @@ void PixieChroma::write(const uint8_t* icon, uint8_t x_pos, uint8_t y_pos){
     @param  icon_col_3  Column 3 data of this icon
     @param  icon_col_4  Column 4 data of this icon
     @param  icon_col_5  Column 5 data of this icon
-    @param  x_pos       X cursor position of write
-    @param  y_pos       Y cursor position of write
+    @param  x_pos       X cursor position of write **[optional]**
+    @param  y_pos       Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos, uint8_t y_pos){
@@ -363,8 +363,8 @@ void PixieChroma::write(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
     @brief  Writes a char* string to a specified X and Y cursor position
 	
     @param  message  char* string to write
-    @param  x_pos    X cursor position of write
-    @param  y_pos    Y cursor position of write
+    @param  x_pos    X cursor position of write **[optional]**
+    @param  y_pos    Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(char* message, uint8_t x_pos, uint8_t y_pos){
@@ -379,8 +379,8 @@ void PixieChroma::write(char* message, uint8_t x_pos, uint8_t y_pos){
             cursor position
 	
     @param  input    Signed integer to write
-    @param  x_pos    X cursor position of write
-    @param  y_pos    Y cursor position of write
+    @param  x_pos    X cursor position of write **[optional]**
+    @param  y_pos    Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(int16_t input, uint8_t x_pos, uint8_t y_pos){
@@ -399,8 +399,8 @@ void PixieChroma::write(int16_t input, uint8_t x_pos, uint8_t y_pos){
             cursor position
 	
     @param  input    Unsigned integer to write
-    @param  x_pos    X cursor position of write
-    @param  y_pos    Y cursor position of write
+    @param  x_pos    X cursor position of write **[optional]**
+    @param  y_pos    Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(uint16_t input, uint8_t x_pos, uint8_t y_pos){
@@ -419,8 +419,8 @@ void PixieChroma::write(uint16_t input, uint8_t x_pos, uint8_t y_pos){
             cursor position
 	
     @param  input    Signed integer to write
-    @param  x_pos    X cursor position of write
-    @param  y_pos    Y cursor position of write
+    @param  x_pos    X cursor position of write **[optional]**
+    @param  y_pos    Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(int32_t input, uint8_t x_pos, uint8_t y_pos){
@@ -439,8 +439,8 @@ void PixieChroma::write(int32_t input, uint8_t x_pos, uint8_t y_pos){
             cursor position
 	
     @param  input    Unsigned integer to write
-    @param  x_pos    X cursor position of write
-    @param  y_pos    Y cursor position of write
+    @param  x_pos    X cursor position of write **[optional]**
+    @param  y_pos    Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(uint32_t input, uint8_t x_pos, uint8_t y_pos){
@@ -460,8 +460,8 @@ void PixieChroma::write(uint32_t input, uint8_t x_pos, uint8_t y_pos){
             cursor position (Stupid ESP-specific type)
 	
     @param  input    Unsigned integer to write
-    @param  x_pos    X cursor position of write
-    @param  y_pos    Y cursor position of write
+    @param  x_pos    X cursor position of write **[optional]**
+    @param  y_pos    Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(long unsigned int input, uint8_t x_pos, uint8_t y_pos){
@@ -481,9 +481,9 @@ void PixieChroma::write(long unsigned int input, uint8_t x_pos, uint8_t y_pos){
             X and Y cursor position, to a specified number of decimal places
 	
     @param  input    Double-precision float to write
-    @param  places   Number of decimal places to show
-    @param  x_pos    X cursor position of write
-    @param  y_pos    Y cursor position of write
+    @param  places   Number of decimal places to show **[optional]**
+    @param  x_pos    X cursor position of write **[optional]**
+    @param  y_pos    Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(double input, uint8_t places, uint8_t x_pos, uint8_t y_pos){
@@ -502,9 +502,9 @@ void PixieChroma::write(double input, uint8_t places, uint8_t x_pos, uint8_t y_p
             X and Y cursor position, to a specified number of decimal places
 	
     @param  input    Single-precision float to write
-    @param  places   Number of decimal places to show
-    @param  x_pos    X cursor position of write
-    @param  y_pos    Y cursor position of write
+    @param  places   Number of decimal places to show **[optional]**
+    @param  x_pos    X cursor position of write **[optional]**
+    @param  y_pos    Y cursor position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write(float input, uint8_t places, uint8_t x_pos, uint8_t y_pos){
@@ -519,8 +519,8 @@ void PixieChroma::write(float input, uint8_t places, uint8_t x_pos, uint8_t y_po
             whole display positions, such as during smooth scrolling.
 	
     @param  icon     Icon to render
-    @param  x_pos    X pixel position of write
-    @param  y_pos    Y pixel position of write
+    @param  x_pos    X pixel position of write **[optional]**
+    @param  y_pos    Y pixel position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write_pix(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
@@ -538,8 +538,8 @@ void PixieChroma::write_pix(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
             smooth scrolling.
 	
     @param  message  char* string to render
-    @param  x_pos    X pixel position of write
-    @param  y_pos    Y pixel position of write
+    @param  x_pos    X pixel position of write **[optional]**
+    @param  y_pos    Y pixel position of write **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
@@ -783,7 +783,7 @@ void PixieChroma::print(long unsigned int input){
             places.
 	
     @param  input   double to print
-    @param  places  Number of decimal places to print
+    @param  places  Number of decimal places to print **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::print(double input, uint8_t places){
@@ -800,7 +800,7 @@ void PixieChroma::print(double input, uint8_t places){
             places.
 	
     @param  input   float to print
-    @param  places  Number of decimal places to print
+    @param  places  Number of decimal places to print **[optional]**
 */
 /**************************************************************************/
 void PixieChroma::print(float input, uint8_t places){
