@@ -54,7 +54,7 @@ jobs:
 #          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
       
       - name: Doxygen Build
-        run: "ls -l && sudo chmod +x ./extras/doxygenerate.sh && sudo chmod 777 ./extras/doxygenerate.sh && sudo ./extras/doxygenerate.sh"
+        run: "ls -l && sudo chmod +x ./extras/doxygenerate.sh && sudo ./extras/doxygenerate.sh"
         shell: bash
         
 #        uses: connornishijima/doxygenize@v1.3 
