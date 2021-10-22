@@ -41,7 +41,7 @@ jobs:
       - name: Compile all examples (ESP8266)
         uses: ArminJo/arduino-test-compile@v3
         with:
-          arduino-board-fqbn: "esp8266:esp8266:huzzah"
+          arduino-board-fqbn: "esp8266:esp8266:d1_mini"
           platform-url: "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
           required-libraries: ${{ env.REQUIRED_LIBRARIES }}
       
@@ -52,12 +52,6 @@ jobs:
           platform-url: "https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json"
           required-libraries: ${{ env.REQUIRED_LIBRARIES }}
       
-      - name: Compile all examples (Arduino Uno)
-        uses: ArminJo/arduino-test-compile@v3
-        with:
-          arduino-board-fqbn: "arduino:avr:uno"
-          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
-
       - name: Doxygen Build
         uses: langroodi/doxygenize@v1.3
         with:
