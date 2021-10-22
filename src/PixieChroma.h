@@ -54,8 +54,8 @@
 #define FASTLED_INTERNAL // As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.
 #include "FastLED.h"     // Apart from some issues, it's my tool of choice for WS2812B/compatibles because it's actually amazingly useful
 
-#include "utility/_pixie_palettes.h" // ----- Color Palettes
-#include "utility/_pixie_font.h" // --------- ASCII font
-#include "utility/_pixie_icons.h" // -------- Bitmap icon pack
-#include "utility/_pixie_animations.h" // --- Preset animation routines
-#include "_pixie_chroma.h" // --------------- Main library code
+#include "utility/pixie_palettes.h" // ----- Color Palettes
+#include "utility/pixie_font.h" // --------- ASCII font
+#include "utility/pixie_icons.h" // -------- Bitmap icon pack
+#include "utility/pixie_animations.h" // --- Preset animation routines
+#include "pixie_chroma.h" // --------------- Main library code

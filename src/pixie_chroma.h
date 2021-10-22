@@ -7,8 +7,8 @@
  * Last Updated by Connor Nishijima on 10/20/21
  */
 
-#ifndef _pixie_chroma_h
-#define _pixie_chroma_h
+#ifndef pixie_chroma_h
+#define pixie_chroma_h
 
 #include "Arduino.h"
 

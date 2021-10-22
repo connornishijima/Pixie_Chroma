@@ -1,5 +1,5 @@
 #include "PixieChroma.h"
-#include "utility/_pixie_utility.h"
+#include "utility/pixie_utility.h"
 
 // -- GLOBALS -------------------------------------------------------------------------------------
 

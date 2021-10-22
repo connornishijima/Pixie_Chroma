@@ -1,5 +1,5 @@
-#ifndef _pixie_palettes_h
-#define _pixie_palettes_h
+#ifndef pixie_palettes_h
+#define pixie_palettes_h
 
 #include "Arduino.h"
 

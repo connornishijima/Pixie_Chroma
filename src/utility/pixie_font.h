@@ -1,5 +1,5 @@
-#ifndef _pixie_font_h
-#define _pixie_font_h
+#ifndef pixie_font_h
+#define pixie_font_h
 
 const uint8_t font[480] PROGMEM = {
 	  0x00, 0x00, 0x00, 0x00, 0x00, // (space)  00

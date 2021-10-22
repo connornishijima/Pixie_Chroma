@@ -1,5 +1,5 @@
-#ifndef _pixie_utility_h
-#define _pixie_utility_h
+#ifndef pixie_utility_h
+#define pixie_utility_h
 
 // Extra utilities for PixieChroma code, such as the gamma LUT
 

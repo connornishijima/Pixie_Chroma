@@ -1,5 +1,5 @@
-#ifndef _pixie_icons_h
-#define _pixie_icons_h
+#ifndef pixie_icons_h
+#define pixie_icons_h
 
 /* PIXIE BITMAP ICONS */ 
 

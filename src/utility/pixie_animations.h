@@ -7,8 +7,8 @@
  * Last Updated by Connor Nishijima on 10/21/21
  */
 
-#ifndef _pixie_animations_h
-#define _pixie_animations_h
+#ifndef pixie_animations_h
+#define pixie_animations_h
 
 #include "../PixieChroma.h"
 
