@@ -1,3 +1,11 @@
+/*!
+ * @file pixie_utility.h
+ *
+ * Contains utility arrays/functions for internal use, such as the gamma correction LUT.
+ *
+ * Last Updated by Connor Nishijima on 10/21/21
+ */
+
 #ifndef pixie_utility_h
 #define pixie_utility_h
 
