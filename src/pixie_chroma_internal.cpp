@@ -69,7 +69,7 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
     @brief  Used to initialize the PixieChroma library. Example usage before
             setup() would be:
 	
-				#include "PixieChroma.h"
+                #include "Pixie_Chroma.h"
                 PixieChroma pix;
 	
             NOTE: Due to current limitations with the library, your class
