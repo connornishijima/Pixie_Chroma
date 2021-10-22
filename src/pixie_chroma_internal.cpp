@@ -1348,6 +1348,16 @@ void PixieChroma::color(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2
 	}
 }
 
+/**************************************************************************/
+/*!
+    @brief  Draws a line in the mask buffer using Bresenham's line algorithm
+	    
+    @param  x1  Starting X coordinate of the line
+    @param  y1  Starting Y coordinate of the line
+    @param  x2  Ending X coordinate of the line (inclusive)
+    @param  y2  Ending Y coordinate of the line (inclusive)
+*/
+/**************************************************************************/
 void PixieChroma::draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2){
 	//Bresenham's line algorithm
 	uint16_t index;
@@ -1424,8 +1434,27 @@ void PixieChroma::draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2){
 	}
 }
 
-// Tanner Helland formula
+/**************************************************************************/
+/*!
+    @brief  Approximates the conversion of a blackbody radiation temperature
+            (e.g. 3500K) to a CRGB color object. This can be used within
+	    other Pixie color functions like so:
+	    
+	        pix.color( kelvin_to_rgb( 3000 ) );
+		
+	    This would render a warm-white color. This measurement system
+	    is often used in household LED bulbs, with colors like:
+	    
+	    - 2700K - **Very Warm White**
+	    - 3500K - **Warm White**
+	    - 5000K - **White**
+	    - 7000K - **Cool White**
+	    
+    @param  temperature  Blackbody radiation temperature in Kelvin
+*/
+/**************************************************************************/
 CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){
+	// Tanner Helland formula
 	float    _temperature;
 	float    _red;
 	float    _green;
@@ -1461,6 +1490,13 @@ CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){
 	return CRGB(_red, _green, _blue);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Internal function called by the ANIMATE() ISR, responsible for
+            parsing 1D image data into truncated versions sent to the Pixie
+	    Chroma displays. ***FastLED.show() is called here.***
+*/
+/**************************************************************************/
 void PixieChroma::show(){
 	if(!updated_too_soon){ // Prevents show() if called before last one finished
 		updated_too_soon = true;
