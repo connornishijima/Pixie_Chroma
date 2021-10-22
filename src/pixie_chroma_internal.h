@@ -12,6 +12,12 @@
 
 #include "Arduino.h"
 
+/*!
+ * @brief  AUTOMATIC: Always show updated mask on animation call
+           
+	   HOLD_FOR_UPDATE: Wait until pix.update() is called
+	   before showing mask updates
+ */
 enum update_type {
 	AUTOMATIC,
 	HOLD_FOR_UPDATE
