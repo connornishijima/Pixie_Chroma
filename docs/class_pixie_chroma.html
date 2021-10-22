@@ -482,12 +482,17 @@ PixieChroma pix;
 </div><div class="memdoc">
 
 <p>Configures the update mode Pixie Chroma will use: </p>
-<p>set_update_mode(AUTOMATIC); </p><pre class="fragment">Refresh LEDs with new mask data on every ISR call (60FPS) 
-</pre><p> set_update_mode(HOLD_FOR_UPDATE); </p><pre class="fragment">Only refresh LEDs with new mask_data when pix.update() is
-called, useful for preventing updates to the image before
-its text is fully constructed. The animation ISR driving 
-the color map will still update at 60FPS, regardless of
-how often pix.update() is called.
+<pre class="fragment">set_update_mode(AUTOMATIC);
+
+    Refresh LEDs with new mask data on every ISR call (60FPS) 
+
+set_update_mode(HOLD_FOR_UPDATE);
+
+    Only refresh LEDs with new mask_data when pix.update() is
+    called, useful for preventing updates to the image before
+    its text is fully constructed. The animation ISR driving 
+    the color map will still update at 60FPS, regardless of
+    how often pix.update() is called.
 </pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">update_type</td><td>(AUTOMATIC or HOLD_FOR_UPDATE) </td></tr>
@@ -809,7 +814,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 05:36:34 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 06:00:21 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
