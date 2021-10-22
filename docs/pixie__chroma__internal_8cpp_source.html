@@ -183,7 +183,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    current_palette.loadDynamicGradientPalette(GREEN_SOLID);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    build_controller(pixie_pin); <span class="comment">// ------ Initialize FastLED</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="class_pixie_chroma.html#a73cd3ceabefba70ac35cd6292c7b19d3">set_animation</a>(ANIMATION_NULL); <span class="comment">// ---- Set animation function to an empty one</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="class_pixie_chroma.html#a73cd3ceabefba70ac35cd6292c7b19d3">set_animation</a>(<a class="code" href="pixie__animations_8cpp.html#a593cb4d7e47508ce5210584a7afdb2ee">ANIMATION_NULL</a>); <span class="comment">// ---- Set animation function to an empty one</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">clear</a>(); <span class="comment">// -------------------------- Clear anything in mask (should be empty anyways), reset cursor</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">set_max_power</a>(5.0, 500); <span class="comment">// ---------- Set default power budget in volts and milliamps</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    start_animation(); <span class="comment">// ---------------- Kick off animation ISR</span></div>
@@ -1269,6 +1269,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="ttc" id="aclass_pixie_chroma_html_af5524f6da87f57c23750ef8067d1f243"><div class="ttname"><a href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243">PixieChroma::get_cursor_x</a></div><div class="ttdeci">uint8_t get_cursor_x()</div><div class="ttdoc">Returns the cursor's X position.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01159">pixie_chroma_internal.cpp:1159</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_afaa2e00fa43bf4a8603919fa1238ddc4"><div class="ttname"><a href="class_pixie_chroma.html#afaa2e00fa43bf4a8603919fa1238ddc4">PixieChroma::blur_y</a></div><div class="ttdeci">void blur_y(fract8 blur_amount)</div><div class="ttdoc">Blurs the mask buffer in the Y axis by blur_amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01029">pixie_chroma_internal.cpp:1029</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_affe6627f15ce6af997b761136dc8bd8b"><div class="ttname"><a href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b">PixieChroma::hold</a></div><div class="ttdeci">void hold()</div><div class="ttdoc">Freezes the current mask buffer in memory to prevent showing unfinished text if the animation ISR fir...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01197">pixie_chroma_internal.cpp:1197</a></div></div>
+<div class="ttc" id="apixie__animations_8cpp_html_a593cb4d7e47508ce5210584a7afdb2ee"><div class="ttname"><a href="pixie__animations_8cpp.html#a593cb4d7e47508ce5210584a7afdb2ee">ANIMATION_NULL</a></div><div class="ttdeci">void ANIMATION_NULL()</div><div class="ttdoc">It does nothing, but it does nothing REALLY WELL! You can enable this empty function with pix....</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00012">pixie_animations.cpp:12</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html"><div class="ttname"><a href="pixie__utility_8h.html">pixie_utility.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -1276,7 +1277,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 15:18:16 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 15:27:39 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
