@@ -254,13 +254,16 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memdesc:ac11ef6fa698e0d19ae892c4395adeb77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's Y position in exact pixel coordinates. <br /></td></tr>
 <tr class="separator:ac11ef6fa698e0d19ae892c4395adeb77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affe6627f15ce6af997b761136dc8bd8b"><td class="memItemLeft" align="right" valign="top"><a id="affe6627f15ce6af997b761136dc8bd8b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>hold</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b">hold</a> ()</td></tr>
+<tr class="memdesc:affe6627f15ce6af997b761136dc8bd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Freezes the current mask buffer in memory to prevent showing unfinished text if the animation ISR fires during construction of the current display data. Use <a class="el" href="class_pixie_chroma.html#a1eb2b77e894233ae098b6bf71dc63d38" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time the animation...">update()</a> to unfreeze. <br /></td></tr>
 <tr class="separator:affe6627f15ce6af997b761136dc8bd8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75c1bab0aff30181ed7bc34273d881db"><td class="memItemLeft" align="right" valign="top"><a id="a75c1bab0aff30181ed7bc34273d881db"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">clear</a> ()</td></tr>
+<tr class="memdesc:a75c1bab0aff30181ed7bc34273d881db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears (blackens) the current mask buffer and resets the cursor to 0,0. <br /></td></tr>
 <tr class="separator:a75c1bab0aff30181ed7bc34273d881db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eb2b77e894233ae098b6bf71dc63d38"><td class="memItemLeft" align="right" valign="top"><a id="a1eb2b77e894233ae098b6bf71dc63d38"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a1eb2b77e894233ae098b6bf71dc63d38">update</a> ()</td></tr>
+<tr class="memdesc:a1eb2b77e894233ae098b6bf71dc63d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unfreezes the current mask buffer in memory to allow showing updated text the next time the animation ISR fires. <br /></td></tr>
 <tr class="separator:a1eb2b77e894233ae098b6bf71dc63d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d2f01d594a77c139365eb34053464b1"><td class="memItemLeft" align="right" valign="top"><a id="a1d2f01d594a77c139365eb34053464b1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> (CRGB col)</td></tr>
@@ -298,8 +301,8 @@ CRGB&#160;</td><td class="memItemRight" valign="bottom"><b>kelvin_to_rgb</b> (ui
 <tr class="memitem:aa1334e020afb7346fbf54a872e8ab14a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aa1334e020afb7346fbf54a872e8ab14a">color_blur_y</a> (fract8 blur_amount)</td></tr>
 <tr class="memdesc:aa1334e020afb7346fbf54a872e8ab14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blurs the color buffer in the Y axis by blur_amount.  <a href="class_pixie_chroma.html#aa1334e020afb7346fbf54a872e8ab14a">More...</a><br /></td></tr>
 <tr class="separator:aa1334e020afb7346fbf54a872e8ab14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5c6c704a93478b92e334abeeeebd2af"><td class="memItemLeft" align="right" valign="top"><a id="aa5c6c704a93478b92e334abeeeebd2af"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>xy</b> (int16_t x, int16_t y, bool wrap=false)</td></tr>
+<tr class="memitem:aa5c6c704a93478b92e334abeeeebd2af"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a> (int16_t x, int16_t y, bool wrap=false)</td></tr>
+<tr class="memdesc:aa5c6c704a93478b92e334abeeeebd2af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix. Optionally, the result can be run through a wrapping function that allows coordinates out of range to wrap around the the opposite side of the 2D matrix.  <a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">More...</a><br /></td></tr>
 <tr class="separator:aa5c6c704a93478b92e334abeeeebd2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memItemLeft" align="right" valign="top"><a id="a0f57ff826763f4d8ccd8ffa0e260d87a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>draw_line</b> (int16_t x1, int16_t y1, int16_t x2, int16_t y2)</td></tr>
@@ -2280,6 +2283,52 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 
 </div>
 </div>
+<a id="aa5c6c704a93478b92e334abeeeebd2af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5c6c704a93478b92e334abeeeebd2af">&#9670;&nbsp;</a></span>xy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t PixieChroma::xy </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>wrap</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix. Optionally, the result can be run through a wrapping function that allows coordinates out of range to wrap around the the opposite side of the 2D matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Signed 2D X coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Signed 2D Y coordinate </td></tr>
+    <tr><td class="paramname">wrap</td><td>Enable wrapping function <b>[optional]</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01228">1228</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a></li>
 <li>src/<a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a></li>
@@ -2290,7 +2339,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 14:39:43 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 14:49:18 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
