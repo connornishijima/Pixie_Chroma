@@ -1216,9 +1216,15 @@ void PixieChroma::update(){
 /*!
     @brief  PixieChroma operates in a 2D context, but is run using 1D
             arrays. This function returns the 1D index of a given 2D
-	    coordinate in the display matrix. Optionally, the result can
-	    be run through a wrapping function that allows coordinates out
-	    of range to wrap around the the opposite side of the 2D matrix.
+	    coordinate in the display matrix.
+	    
+	    Optionally, the result can be run through a wrapping function
+	    that allows coordinates out of range to wrap around the the 
+	    opposite side of the 2D matrix.
+	    
+	    If wrap is not enabled, any coordinates outside of the
+	    display matrix will be parsed to a 1D index that is unused
+	    and unseen.
 	    
     @param  x     Signed 2D X coordinate
     @param  y     Signed 2D Y coordinate
