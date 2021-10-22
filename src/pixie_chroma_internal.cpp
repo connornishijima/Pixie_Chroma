@@ -811,7 +811,7 @@ void PixieChroma::print(float input, uint8_t places){
 /*!
     @brief  Prints an Icon to the displays at the current cursor position,
             then jumps to the next row in the Pixie display, similar to a
-            newline '\n' character.
+            newline '\\n' character.
     
     @param  icon     Icon column data to print
 */
@@ -827,7 +827,7 @@ void PixieChroma::println(const uint8_t* icon){
     @brief  Prints an Icon to the displays at the current cursor position,
             (taking five uint8_t as input for the column data) then jumps
             to the next row in the Pixie display, similar to a newline
-            '\n' character.
+            '\\n' character.
     
     @param  icon_col_1  Column 1 data of this icon
     @param  icon_col_2  Column 2 data of this icon
@@ -853,7 +853,7 @@ void PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_c
 /*!
     @brief  Prints a char* string to the displays at the current cursor
             position, then jumps to the next row in the Pixie display,
-            similar to a newline '\n' character.
+            similar to a newline '\\n' character.
 	
     @param  message  char* string to print
 */
@@ -868,7 +868,7 @@ void PixieChroma::println(char* message){
 /*!
     @brief  Prints a signed 16-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
-            similar to a newline '\n' character.
+            similar to a newline '\\n' character.
 	
     @param  input  Signed 16-bit integer to print
 */
@@ -883,7 +883,7 @@ void PixieChroma::println(int16_t input){
 /*!
     @brief  Prints an unsigned 16-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
-            similar to a newline '\n' character.
+            similar to a newline '\\n' character.
 	
     @param  input  Unsigned 16-bit integer to print
 */
@@ -898,7 +898,7 @@ void PixieChroma::println(uint16_t input){
 /*!
     @brief  Prints a signed 32-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
-            similar to a newline '\n' character.
+            similar to a newline '\\n' character.
 	
     @param  input  Signed 32-bit integer to print
 */
@@ -913,7 +913,7 @@ void PixieChroma::println(int32_t input){
 /*!
     @brief  Prints an unsigned 32-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
-            similar to a newline '\n' character.
+            similar to a newline '\\n' character.
 	
     @param  input  Unsigned 32-bit integer to print
 */
@@ -929,7 +929,7 @@ void PixieChroma::println(uint32_t input){
 /*!
     @brief  Prints an unsigned 32-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
-            similar to a newline '\n' character. (Stupid ESP-specific type)
+            similar to a newline '\\n' character. (Stupid ESP-specific type)
 	
     @param  input  Unsigned 32-bit integer to print
 */
@@ -946,7 +946,7 @@ void PixieChroma::println(long unsigned int input){
     @brief  Prints a double-precision floating point integer to the displays
             at the current cursor position (to a specified number of decimal
             places), then jumps to the next row in the Pixie display,
-            similar to a newline '\n' character.
+            similar to a newline '\\n' character.
             
     @param  input   double to print
     @param  places  Number of decimal places to print **[optional]**
@@ -963,7 +963,7 @@ void PixieChroma::println(double input, uint8_t places){
     @brief  Prints a single-precision floating point integer to the displays
             at the current cursor position (to a specified number of decimal
             places), then jumps to the next row in the Pixie display,
-            similar to a newline '\n' character.
+            similar to a newline '\\n' character.
             
     @param  input   float to print
     @param  places  Number of decimal places to print **[optional]**
