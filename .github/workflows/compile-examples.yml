@@ -27,6 +27,7 @@ jobs:
     
     env:
       REQUIRED_LIBRARIES: FastLED
+      GITHUB_TOKEN: ${{ github.token }}
 
     steps:
       - name: Checkout
@@ -61,5 +62,5 @@ jobs:
           ghpagesdir: './docs/'
           
       - name: Clean Up Extras
-        run: "sudo chmod +x ./extras/cleanup_ci.sh && sudo ./extras/cleanup_ci.sh ${{ secrets.GITHUB_TOKEN }}"
+        run: "echo ${{ env.GITHUB_TOKEN }} && sudo chmod +x ./extras/cleanup_ci.sh && sudo ./extras/cleanup_ci.sh ${{ env.GITHUB_TOKEN }}"
         shell: bash
