@@ -55,7 +55,8 @@ jobs:
       
       - name: Doxygen Build
         run: |
-          "sudo chmod +x ./extras/doxygenerate.sh"
+          "ls -l"
+          "sudo chmod +x  ./extras/doxygenerate.sh"
           "sudo chmod 777 ./extras/doxygenerate.sh"
           "sudo ./extras/doxygenerate.sh"
         shell: bash
