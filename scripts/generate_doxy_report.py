@@ -10,7 +10,6 @@ with open("docs/doxy.log","r+") as f:
 output = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n\n"
 
 for item in doxy_data:
-    print(item)
     if "parameter '" in item:
         log_string = item.split("parameter ")[1]
         output += "  "
