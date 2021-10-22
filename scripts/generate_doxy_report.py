@@ -52,18 +52,20 @@ if len(doxy_data) >= 3:
 
         if not skip:
             final_output.append(item)
+    
+    output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n---------------------------------------------------------\n"
 
-    output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n---------------------------------------------------------\n" + ("\n".join(final_output))
+    if len(final_output) == 0:
+        output_string += ":heavy_check_mark: **All checks passed, nothing left undocumented!**"
+    else:
+        output_string += ("\n".join(final_output))
 
     with open("reports/doxygen/README.md","w+") as f:
         f.write(output_string)
+
 
 else:
-    output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n---------------------------------------------------------\n"
-    output_string = ":heavy_check_mark: **All checks passed, nothing to document!**"
-
-    with open("reports/doxygen/README.md","w+") as f:
-        f.write(output_string)
+    
 
 
    
