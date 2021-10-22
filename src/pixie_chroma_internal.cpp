@@ -1294,9 +1294,10 @@ void PixieChroma::update(){
 	    display matrix will be parsed to a 1D index that is unused
 	    and unseen.
 	    
-    @param  x     Signed 2D X coordinate
-    @param  y     Signed 2D Y coordinate
-    @param  wrap  Enable wrapping function **[optional]**
+    @param   x     Signed 2D X coordinate
+    @param   y     Signed 2D Y coordinate
+    @param   wrap  Enable wrapping function **[optional]**
+    @return  The 1D index of your 2D coordinate
 */
 /**************************************************************************/
 uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
