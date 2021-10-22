@@ -302,7 +302,7 @@ CRGB&#160;</td><td class="memItemRight" valign="bottom"><b>kelvin_to_rgb</b> (ui
 <tr class="memdesc:aa1334e020afb7346fbf54a872e8ab14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blurs the color buffer in the Y axis by blur_amount.  <a href="class_pixie_chroma.html#aa1334e020afb7346fbf54a872e8ab14a">More...</a><br /></td></tr>
 <tr class="separator:aa1334e020afb7346fbf54a872e8ab14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c6c704a93478b92e334abeeeebd2af"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a> (int16_t x, int16_t y, bool wrap=false)</td></tr>
-<tr class="memdesc:aa5c6c704a93478b92e334abeeeebd2af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix. Optionally, the result can be run through a wrapping function that allows coordinates out of range to wrap around the the opposite side of the 2D matrix.  <a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">More...</a><br /></td></tr>
+<tr class="memdesc:aa5c6c704a93478b92e334abeeeebd2af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix.  <a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">More...</a><br /></td></tr>
 <tr class="separator:aa5c6c704a93478b92e334abeeeebd2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memItemLeft" align="right" valign="top"><a id="a0f57ff826763f4d8ccd8ffa0e260d87a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>draw_line</b> (int16_t x1, int16_t y1, int16_t x2, int16_t y2)</td></tr>
@@ -2315,7 +2315,9 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix. Optionally, the result can be run through a wrapping function that allows coordinates out of range to wrap around the the opposite side of the 2D matrix. </p>
+<p><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix. </p>
+<p>Optionally, the result can be run through a wrapping function that allows coordinates out of range to wrap around the the opposite side of the 2D matrix.</p>
+<p>If wrap is not enabled, any coordinates outside of the display matrix will be parsed to a 1D index that is unused and unseen.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Signed 2D X coordinate </td></tr>
@@ -2325,7 +2327,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01228">1228</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01234">1234</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2339,7 +2341,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 14:49:18 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 14:51:05 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
