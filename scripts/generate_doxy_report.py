@@ -4,8 +4,8 @@ import os
 print("Generating report from Doxygen log contents...")
 
 doxy_data = ""
-#with open("docs/doxy.log","r+") as f:
-#    doxy_data = f.read().split("\n")
+with open("docs/doxy.log","r+") as f:
+    doxy_data = f.read().split("\n")
 
 output = ""
 
