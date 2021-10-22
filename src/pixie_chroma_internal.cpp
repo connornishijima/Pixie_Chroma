@@ -145,17 +145,17 @@ void PixieChroma::set_brightness(uint8_t level){
 /*!
     @brief  Configures the update mode Pixie Chroma will use:
 	
-        set_update_mode(AUTOMATIC);
+                set_update_mode(AUTOMATIC);
 
-            Refresh LEDs with new mask data on every ISR call (60FPS) 
+                    Refresh LEDs with new mask data on every ISR call (60FPS) 
 				
-        set_update_mode(HOLD_FOR_UPDATE);
+                set_update_mode(HOLD_FOR_UPDATE);
 
-            Only refresh LEDs with new mask_data when pix.update() is
-            called, useful for preventing updates to the image before
-            its text is fully constructed. The animation ISR driving 
-            the color map will still update at 60FPS, regardless of
-            how often pix.update() is called.
+                    Only refresh LEDs with new mask_data when pix.update() is
+                    called, useful for preventing updates to the image before
+                    its text is fully constructed. The animation ISR driving 
+                    the color map will still update at 60FPS, regardless of
+                    how often pix.update() is called.
 				
     @param  update_type (AUTOMATIC or HOLD_FOR_UPDATE)
 */
@@ -169,13 +169,12 @@ void PixieChroma::set_update_mode(update_type t){
     @brief  Accepts a const uint8_t (8-bit) array with the following format
             to generate a FastLED Gradient Palette at runtime:
 
-            const uint8_t* my_gradient_palette[] = {
-            //  INDEX,	R_VAL,	G_VAL,	B_VAL,
-
-			    0,      255,    0,      0, 
-                127,    0,      255,    0, 
-                255,    0,      0,      255, 
-            };
+                const uint8_t* my_gradient_palette[] = {
+                    //  INDEX,	R_VAL,	G_VAL,	B_VAL,
+                    0,      255,    0,      0, 
+                    127,    0,      255,    0, 
+                    255,    0,      0,      255, 
+                };
 
             On each line is the index of the color (0-255) to express the
             position in the gradient this color occurs. So in the given
