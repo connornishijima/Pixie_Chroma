@@ -23,12 +23,25 @@ void ANIMATION_NULL(); // Prototype definition needed so _pixie_chroma.cpp can r
 
 /**************************************************************************/
 /*!
-    @brief  Shows a solid green color, in classic Pixie style!
+    @brief  Shows the current color palette without animation.
 */
 /**************************************************************************/
 void ANIMATION_SOLID();
 
+/**************************************************************************/
+/*!
+    @brief  Shows the current color palette, while constantly shifting it
+            to the left.
+*/
+/**************************************************************************/
 void ANIMATION_PALETTE_SHIFT_LEFT();
+
+/**************************************************************************/
+/*!
+    @brief  Shows the current color palette, while constantly shifting it
+            to the right.
+*/
+/**************************************************************************/
 void ANIMATION_PALETTE_SHIFT_RIGHT();
 
 void ANIMATION_GLITTER();
@@ -39,6 +52,12 @@ void ANIMATION_PENDULUM_WIDE();
 void _PALETTE_SHIFT(int8_t amount);
 void _PENDULUM(float iter, float width);
 
+/**************************************************************************/
+/*!
+    @brief  Converts a set of CRGB colors to a gradient, and creates a color
+            palette from that gradient.
+*/
+/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2);
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3);
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4);
