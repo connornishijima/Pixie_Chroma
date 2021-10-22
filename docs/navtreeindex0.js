@@ -31,6 +31,8 @@ var NAVTREEINDEX0 =
 "__pixie__icons_8h_source.html":[1,0,0,0,2],
 "__pixie__palettes_8h_source.html":[1,0,0,0,3],
 "__pixie__utility_8h_source.html":[1,0,0,0,4],
+"_pixie_chroma_8h.html":[1,0,0,2],
+"_pixie_chroma_8h.html#a2d8dda85477a00deab830effc5159d33":[1,0,0,2,0],
 "_pixie_chroma_8h_source.html":[1,0,0,2],
 "annotated.html":[0,0],
 "class_pixie_chroma.html":[0,0,0],
