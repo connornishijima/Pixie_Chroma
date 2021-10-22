@@ -1,4 +1,4 @@
-#include "PixieChroma.h"
+#include "Pixie_Chroma.h"
 PixieChroma pix;
 
 #define DATA_PIN 5
