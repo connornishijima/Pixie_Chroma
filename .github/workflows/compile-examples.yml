@@ -22,7 +22,7 @@ on:
     - 'library.json'
 jobs:
   build:
-    name: ${{ matrix.arduino-boards-fqbn }} ${{ matrix.log-options }} ${{ matrix.other-options }}
+    name: "Linting, Compilation Testing, Documentation Build"
     runs-on: ubuntu-latest
     
     env:
