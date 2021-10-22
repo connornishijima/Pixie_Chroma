@@ -973,11 +973,25 @@ void PixieChroma::println(float input, uint8_t places){
 	println(double(input), places);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Blurs the mask buffer in both axes by blur_amount.
+            
+    @param  blur_amount   Amount to blur
+*/
+/**************************************************************************/
 void PixieChroma::blur(fract8 blur_amount){
 	blur_x(blur_amount);
 	blur_y(blur_amount);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Blurs the mask buffer in the X axis by blur_amount.
+            
+    @param  blur_amount   Amount to blur
+*/
+/**************************************************************************/
 void PixieChroma::blur_x(fract8 blur_amount){
 	uint8_t keep = 255 - blur_amount;
     uint8_t seep = blur_amount >> 1;
@@ -998,6 +1012,13 @@ void PixieChroma::blur_x(fract8 blur_amount){
     }
 }
 
+/**************************************************************************/
+/*!
+    @brief  Blurs the mask buffer in the Y axis by blur_amount.
+            
+    @param  blur_amount   Amount to blur
+*/
+/**************************************************************************/
 void PixieChroma::blur_y(fract8 blur_amount){
 	// blur columns
     uint8_t keep = 255 - blur_amount;
@@ -1019,6 +1040,15 @@ void PixieChroma::blur_y(fract8 blur_amount){
     }
 }
 
+/**************************************************************************/
+/*!
+    @brief  Darkens the mask buffer by an 8-bit amount. Optionally resets
+            the cursor position.
+            
+    @param  amount        8-bit amount to darken the mask
+    @param  reset_cursor  Reset the cursor to 0,0 **[optional]**
+*/
+/**************************************************************************/
 void PixieChroma::dim(uint8_t amount, bool reset_cursor){
 	if(reset_cursor){
 		set_cursor(0,0);
@@ -1039,11 +1069,25 @@ void PixieChroma::dim(uint8_t amount, bool reset_cursor){
 	}
 }
 
+/**************************************************************************/
+/*!
+    @brief  Blurs the color buffer in both axes by blur_amount.
+            
+    @param  blur_amount   Amount to blur
+*/
+/**************************************************************************/
 void PixieChroma::color_blur(fract8 blur_amount){
 	color_blur_x(blur_amount);
 	color_blur_y(blur_amount);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Blurs the color buffer in the X axis by blur_amount.
+            
+    @param  blur_amount   Amount to blur
+*/
+/**************************************************************************/
 void PixieChroma::color_blur_x(fract8 blur_amount){
 	uint8_t keep = 255 - blur_amount;
     uint8_t seep = blur_amount >> 1;
@@ -1062,6 +1106,13 @@ void PixieChroma::color_blur_x(fract8 blur_amount){
     }
 }
 
+/**************************************************************************/
+/*!
+    @brief  Blurs the color buffer in the Y axis by blur_amount.
+            
+    @param  blur_amount   Amount to blur
+*/
+/**************************************************************************/
 void PixieChroma::color_blur_y(fract8 blur_amount){
 	// blur rows same as columns, for irregular matrix
     uint8_t keep = 255 - blur_amount;
@@ -1081,23 +1132,50 @@ void PixieChroma::color_blur_y(fract8 blur_amount){
     }
 }
 
+/**************************************************************************/
+/*!
+    @brief  Darkens the color buffer by an 8-bit amount.
+            
+    @param  amount        8-bit amount to darken the mask
+*/
+/**************************************************************************/
 void PixieChroma::color_dim(uint8_t amount){
 	CRGBSet leds_temp(leds, NUM_LEDS);
 	leds_temp.fadeToBlackBy(amount);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Returns the cursor's X position
+*/
+/**************************************************************************/
 uint8_t PixieChroma::get_cursor_x(){
 	return cursor_x / chars_x;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Returns the cursor's Y position
+*/
+/**************************************************************************/
 uint8_t PixieChroma::get_cursor_y(){
 	return cursor_y / chars_y;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Returns the cursor's X position in exact pixel coordinates
+*/
+/**************************************************************************/
 int16_t PixieChroma::get_cursor_x_exact(){
 	return cursor_x;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Returns the cursor's Y position in exact pixel coordinates
+*/
+/**************************************************************************/
 int16_t PixieChroma::get_cursor_y_exact(){
 	return cursor_y;
 }
