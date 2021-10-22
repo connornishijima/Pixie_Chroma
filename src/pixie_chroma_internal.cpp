@@ -309,8 +309,8 @@ void PixieChroma::set_max_power(float volts, uint16_t milliamps){
     @brief  Writes an icon* to a specified X and Y cursor position
 	
     @param  icon   The icon to write
-    @param  x_pos  X cursor position of write
-    @param  y_pos  Y cursor position of write
+    @param  x_pos  *[optional]* X cursor position of write
+    @param  y_pos  *[optional]* Y cursor position of write
 */
 /**************************************************************************/
 void PixieChroma::write(const uint8_t* icon, uint8_t x_pos, uint8_t y_pos){
