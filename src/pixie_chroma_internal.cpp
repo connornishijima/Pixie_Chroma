@@ -27,6 +27,13 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 	-2, -2, -2, -2, -2, -2, -2
 };
 
+/**************************************************************************/
+/*!
+    @brief  Animation ISR that calls anim_func() (set using
+            pix.set_animation(void (*action)())), calls pix.show(), then
+	    rearms the ISR to fire again in 1/60th of a second.	
+*/
+/**************************************************************************/
 #if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
 	void ICACHE_RAM_ATTR ANIMATE(){
 		extern PixieChroma pix;
