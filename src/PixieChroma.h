@@ -36,7 +36,7 @@
     Welcome to the source code of the Pixie Chroma library!
 
     "PixieChroma.h" is the main file, which loads all others, including
-    the _pixie_chroma.h/.cpp that contain the PixieChroma class definitions.
+    the pixie_chroma_internal.h/.cpp that contain the PixieChroma class definitions.
 
     ----------------------------------------------------------------------------------------------------
 */
@@ -58,4 +58,4 @@
 #include "utility/pixie_font.h" // --------- ASCII font
 #include "utility/pixie_icons.h" // -------- Bitmap icon pack
 #include "utility/pixie_animations.h" // --- Preset animation routines
-#include "pixie_chroma.h" // --------------- Main library code
+#include "pixie_chroma_internal.h" // ------ Main library code
