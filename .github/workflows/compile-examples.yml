@@ -58,7 +58,7 @@ jobs:
         #shell: bash
 
       - name: Doxygen Build        
-        uses: connornishijima/doxygenize@v1.3
+        uses: connornishijima/doxygenize@v1.3 
         with:
           doxygenconf: './docs/Doxyfile'
           htmloutput: './docs/'
