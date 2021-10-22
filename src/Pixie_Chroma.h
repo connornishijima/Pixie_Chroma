@@ -1,5 +1,5 @@
 /*!
- * @file PixieChroma.h
+ * @file Pixie_Chroma.h
  *
  * Designed specifically to work with Pixie Chroma:
  * ----> https://connornishijima.github.io/PixieChroma
