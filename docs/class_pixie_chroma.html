@@ -230,7 +230,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>println</b> (float in
 void&#160;</td><td class="memItemRight" valign="bottom"><b>println</b> (double input, uint8_t places=2)</td></tr>
 <tr class="separator:ab27af21db66261416baeb7dce24ef871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae250a6769121e2949f39d4f7d5369942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">set_cursor</a> (uint8_t x_position, uint8_t y_position=0)</td></tr>
-<tr class="memdesc:ae250a6769121e2949f39d4f7d5369942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember, each Pixie Chroma has two "displays" on it.  <a href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">More...</a><br /></td></tr>
+<tr class="memdesc:ae250a6769121e2949f39d4f7d5369942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember: each Pixie Chroma has two "displays" on it.  <a href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">More...</a><br /></td></tr>
 <tr class="separator:ae250a6769121e2949f39d4f7d5369942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5524f6da87f57c23750ef8067d1f243"><td class="memItemLeft" align="right" valign="top"><a id="af5524f6da87f57c23750ef8067d1f243"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_cursor_x</b> ()</td></tr>
@@ -729,7 +729,7 @@ how often pix.update() is called.
       </table>
 </div><div class="memdoc">
 
-<p>Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember, each Pixie Chroma has two "displays" on it. </p>
+<p>Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to print() or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember: each Pixie Chroma has two "displays" on it. </p>
 <pre class="fragment">+-----------------+   +-----------------+   +-----------------+
 |      + + +      |   |      + + +      |   |      + + +      |
 |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
@@ -741,10 +741,10 @@ how often pix.update() is called.
 |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
 |      + + +      |   |      + + +      |   |      + + +      |
 +-----------------+   +-----------------+   +-----------------+
-                                                     |
-         +-------------------------------------------+
-         |
-         V
+                                                   |
+       +-------------------------------------------+
+       |
+       V
 +-----------------+   +-----------------+   +-----------------+
 |      + + +      |   |      + + +      |   |      + + +      |
 |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
