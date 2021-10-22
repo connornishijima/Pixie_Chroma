@@ -63,5 +63,5 @@ jobs:
 #          ghpagesdir: './docs/'
           
       - name: Clean Up Extras
-        run: "echo hello"
+        run: "./extras/cleanup_ci.sh"
         shell: bash
