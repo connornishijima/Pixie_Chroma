@@ -171,7 +171,7 @@ void PixieChroma::set_update_mode(update_type t){
 
                 const uint8_t* my_gradient_palette[] = {
                     [INDEX],  [R_VAL],  [G_VAL],  [B_VAL],
-                    
+                                        
 		    0,      255,    0,      0, 
                     127,    0,      255,    0, 
                     255,    0,      0,      255, 
