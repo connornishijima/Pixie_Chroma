@@ -1,3 +1,12 @@
+/*!
+ * @file pixie_animations.cpp
+ *
+ * Designed specifically to work with Pixie Chroma:
+ * ----> https://connornishijima.github.io/PixieChroma
+ *
+ * Last Updated by Connor Nishijima on 10/21/21
+ */
+
 #include "pixie_animations.h"
 
 void ANIMATION_NULL(){
