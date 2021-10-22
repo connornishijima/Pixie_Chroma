@@ -358,13 +358,31 @@ void PixieChroma::write(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
 	write(icon, x_pos, y_pos);
 }
 
-
+/**************************************************************************/
+/*!
+    @brief  Writes a char* string to a specified X and Y cursor position
+	
+    @param  message  char* string to write
+    @param  x_pos    X cursor position of write
+    @param  y_pos    Y cursor position of write
+*/
+/**************************************************************************/
 void PixieChroma::write(char* message, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
 	write_pix(message, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+/**************************************************************************/
+/*!
+    @brief  Writes a signed 16-bit integer to a specified X and Y
+            cursor position
+	
+    @param  input    Signed integer to write
+    @param  x_pos    X cursor position of write
+    @param  y_pos    Y cursor position of write
+*/
+/**************************************************************************/
 void PixieChroma::write(int16_t input, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -375,6 +393,16 @@ void PixieChroma::write(int16_t input, uint8_t x_pos, uint8_t y_pos){
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+/**************************************************************************/
+/*!
+    @brief  Writes an unsigned 16-bit integer to a specified X and Y
+            cursor position
+	
+    @param  input    Unsigned integer to write
+    @param  x_pos    X cursor position of write
+    @param  y_pos    Y cursor position of write
+*/
+/**************************************************************************/
 void PixieChroma::write(uint16_t input, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -385,6 +413,16 @@ void PixieChroma::write(uint16_t input, uint8_t x_pos, uint8_t y_pos){
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+/**************************************************************************/
+/*!
+    @brief  Writes a signed 32-bit integer to a specified X and Y
+            cursor position
+	
+    @param  input    Signed integer to write
+    @param  x_pos    X cursor position of write
+    @param  y_pos    Y cursor position of write
+*/
+/**************************************************************************/
 void PixieChroma::write(int32_t input, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -395,6 +433,16 @@ void PixieChroma::write(int32_t input, uint8_t x_pos, uint8_t y_pos){
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+/**************************************************************************/
+/*!
+    @brief  Writes an unsigned 32-bit integer to a specified X and Y
+            cursor position
+	
+    @param  input    Unsigned integer to write
+    @param  x_pos    X cursor position of write
+    @param  y_pos    Y cursor position of write
+*/
+/**************************************************************************/
 void PixieChroma::write(uint32_t input, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -406,17 +454,38 @@ void PixieChroma::write(uint32_t input, uint8_t x_pos, uint8_t y_pos){
 }
 
 #if defined(ESP8266) || defined(ESP32)
-	void PixieChroma::write(long unsigned int input, uint8_t x_pos, uint8_t y_pos){
-		uint16_t x_start = 1;
-		uint16_t y_start = 2;
+/**************************************************************************/
+/*!
+    @brief  Writes an unsigned 32-bit integer to a specified X and Y
+            cursor position (Stupid ESP-specific type)
+	
+    @param  input    Unsigned integer to write
+    @param  x_pos    X cursor position of write
+    @param  y_pos    Y cursor position of write
+*/
+/**************************************************************************/
+void PixieChroma::write(long unsigned int input, uint8_t x_pos, uint8_t y_pos){
+    uint16_t x_start = 1;
+	uint16_t y_start = 2;
 
-		char char_buf[32];
-		ultoa(input,char_buf,10);
+	char char_buf[32];
+	ultoa(input,char_buf,10);
 
-		write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
-	}
+	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
+}
 #endif
 
+/**************************************************************************/
+/*!
+    @brief  Writes a double-precision floating point value to a specified
+            X and Y cursor position, to a specified number of decimal places
+	
+    @param  input    Double-precision float to write
+    @param  places   Number of decimal places to show
+    @param  x_pos    X cursor position of write
+    @param  y_pos    Y cursor position of write
+*/
+/**************************************************************************/
 void PixieChroma::write(double input, uint8_t places, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -427,20 +496,54 @@ void PixieChroma::write(double input, uint8_t places, uint8_t x_pos, uint8_t y_p
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+/**************************************************************************/
+/*!
+    @brief  Writes a single-precision floating point value to a specified
+            X and Y cursor position, to a specified number of decimal places
+	
+    @param  input    Single-precision float to write
+    @param  places   Number of decimal places to show
+    @param  x_pos    X cursor position of write
+    @param  y_pos    Y cursor position of write
+*/
+/**************************************************************************/
 void PixieChroma::write(float input, uint8_t places, uint8_t x_pos, uint8_t y_pos){
 	write(double(input), places, x_pos, y_pos);
 }
 
+
+/**************************************************************************/
+/*!
+    @brief  Internal function for rendering icons to the mask buffer.
+            This can also be used to write Icons that are not aligned to
+            whole display positions, such as during smooth scrolling.
+	
+    @param  icon     Icon to render
+    @param  x_pos    X pixel position of write
+    @param  y_pos    Y pixel position of write
+*/
+/**************************************************************************/
 void PixieChroma::write_pix(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
-	int16_t x_offset = x_pos;
-	int16_t y_offset = y_pos;
 	add_char(icon, cursor_x, cursor_y);
 	cursor_x += display_width;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Internal function for rendering char* strings to the mask
+            buffer. All other write() function overloads eventually end up
+            casted to char* strings and passed to this function for
+            rendering. This can also be used to write char* strings that
+            are not aligned to whole display positions, such as during
+            smooth scrolling.
+	
+    @param  message  char* string to render
+    @param  x_pos    X pixel position of write
+    @param  y_pos    Y pixel position of write
+*/
+/**************************************************************************/
 void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
 	uint8_t len = strlen(message);
-	Serial.println(len);
 	int16_t x_offset = x_pos;
 	int16_t y_offset = y_pos;
 	for(uint8_t i = 0; i < len; i++){
@@ -461,6 +564,18 @@ void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
 	}
 }
 
+/**************************************************************************/
+/*!
+    @brief  Internal function for rendering a single char to the mask
+            buffer. All other write() function overloads eventually end up
+            casted to char* strings and passed to this function one
+            character at a time for rendering.
+	
+    @param  chr      char to render
+    @param  x_pos    X pixel position of write
+    @param  y_pos    Y pixel position of write
+*/
+/**************************************************************************/
 void PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos){
 	if (chr >= 32) {
 		chr -= 32;
@@ -488,6 +603,18 @@ void PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos){
 	}
 }
 
+/**************************************************************************/
+/*!
+    @brief  Internal function for rendering a single icon to the mask
+            buffer. All other write() function overloads eventually end up
+            casted to char* strings and passed to this function one
+            character at a time for rendering.
+	
+    @param  icon     Icon column data to render
+    @param  x_pos    X pixel position of write
+    @param  y_pos    Y pixel position of write
+*/
+/**************************************************************************/
 void PixieChroma::add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
 	for(uint8_t x = 0; x < 5; x++){
 		uint8_t column = pgm_read_byte_far(icon+x);
