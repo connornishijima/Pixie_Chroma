@@ -1,6 +1,6 @@
 echo "Cleaning up CI junk..."
 cd ..
-ls .
+ls -l
 pwd
-sudo rm -r *arduino-cli_latest*
+sudo rm -r *tar*
 echo "Done." 
