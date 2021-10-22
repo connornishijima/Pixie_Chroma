@@ -268,9 +268,8 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_palettes.h:84: warning: Member GRADIENT_BLACK_GREEN_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:90: warning: Member GRADIENT_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:95: warning: Member GRADIENT_BLACK_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
-/github/workspace/src/utility/pixie_utility.h:35: warning: Member dtoa(double d, char *buffer, int precision) (function) of file pixie_utility.h is not documented.
+/github/workspace/src/utility/pixie_utility.h:38: warning: Member dtoa(double d, char *buffer, int precision) (function) of file pixie_utility.h is not documented.
 /github/workspace/src/utility/pixie_utility.h:14: warning: Member anim_func)() (variable) of file pixie_utility.h is not documented.
-/github/workspace/src/utility/pixie_utility.h:16: warning: Member gamma8[] (variable) of file pixie_utility.h is not documented.
 /github/workspace/src/pixie_chroma_internal.h:56: warning: Member write(long unsigned int input, uint8_t x_pos=0, uint8_t y_pos=0) (function) of class PixieChroma is not documented.
 /github/workspace/src/pixie_chroma_internal.h:77: warning: Member print(long unsigned int input) (function) of class PixieChroma is not documented.
 /github/workspace/src/pixie_chroma_internal.h:92: warning: Member println(long unsigned int input) (function) of class PixieChroma is not documented.
