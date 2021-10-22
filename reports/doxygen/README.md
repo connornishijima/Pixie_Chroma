@@ -2,7 +2,6 @@
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
 - :x: *Member ***updated_too_soon*** (variable) of file pixie_chroma_internal.cpp is not documented.*
-- :x: *Member ***update_type*** (enumeration) of file pixie_chroma_internal.h is not documented.*
 - :x: *Member ***frame_multiple*** (enumeration) of file pixie_chroma_internal.h is not documented.*
 - :x: *Member ***ANIMATION_PALETTE_SHIFT(int8_t*** amount) (function) of file pixie_animations.cpp is not documented.*
 - :x: *Member ***ANIMATION_GLITTER()*** (function) of file pixie_animations.cpp is not documented.*
