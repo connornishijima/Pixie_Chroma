@@ -135,8 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7">write</a> (const uint8_t *icon, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
 <tr class="memdesc:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an icon* to a specified X and Y cursor position.  <a href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7">More...</a><br /></td></tr>
 <tr class="separator:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa60dcec78788028f019b20eaea86591f"><td class="memItemLeft" align="right" valign="top"><a id="aa60dcec78788028f019b20eaea86591f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
+<tr class="memitem:aa60dcec78788028f019b20eaea86591f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aa60dcec78788028f019b20eaea86591f">write</a> (uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
+<tr class="memdesc:aa60dcec78788028f019b20eaea86591f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an icon to a specified X and Y cursor position, taking five uint8_t as input for the column data.  <a href="class_pixie_chroma.html#aa60dcec78788028f019b20eaea86591f">More...</a><br /></td></tr>
 <tr class="separator:aa60dcec78788028f019b20eaea86591f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f02edabb02306d07a9ed0f314779021"><td class="memItemLeft" align="right" valign="top"><a id="a7f02edabb02306d07a9ed0f314779021"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (char *message, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
@@ -692,7 +692,7 @@ set_update_mode(HOLD_FOR_UPDATE);
 </div>
 </div>
 <a id="a89ff2c569d6161c9b0ee6df04d2959b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89ff2c569d6161c9b0ee6df04d2959b7">&#9670;&nbsp;</a></span>write()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a89ff2c569d6161c9b0ee6df04d2959b7">&#9670;&nbsp;</a></span>write() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -734,6 +734,95 @@ set_update_mode(HOLD_FOR_UPDATE);
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00316">316</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa60dcec78788028f019b20eaea86591f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa60dcec78788028f019b20eaea86591f">&#9670;&nbsp;</a></span>write() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>icon_col_1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>icon_col_2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>icon_col_3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>icon_col_4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>icon_col_5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>x_pos</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>y_pos</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes an icon to a specified X and Y cursor position, taking five uint8_t as input for the column data. </p>
+<p>For example: </p><pre class="fragment">pix.write(B00101111, B01001001, B01001001, B01001001, B00110001);
+
+    OR, WRITTEN VERTICALLY:
+
+pix.write(   ,   ,   ,   ,   );
+           1   1   1   1   1  LSB
+           1   0   0   0   0
+           1   0   0   0   0
+           1   1   1   1   0
+           0   0   0   0   1
+           1   0   0   0   1
+           0   1   1   1   0  
+           0   0   0   0   0  MSB (unused)
+           B   B   B   B   B
+</pre><p> This writes a "5" to the display, seen above in the "1" bits of each column. The MSB (highest bit) is not used in icons.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">icon_col_1</td><td>Column 1 data of this icon </td></tr>
+    <tr><td class="paramname">icon_col_2</td><td>Column 2 data of this icon </td></tr>
+    <tr><td class="paramname">icon_col_3</td><td>Column 3 data of this icon </td></tr>
+    <tr><td class="paramname">icon_col_4</td><td>Column 4 data of this icon </td></tr>
+    <tr><td class="paramname">icon_col_5</td><td>Column 5 data of this icon </td></tr>
+    <tr><td class="paramname">x_pos</td><td>X cursor position of write </td></tr>
+    <tr><td class="paramname">y_pos</td><td>Y cursor position of write </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00356">356</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -815,7 +904,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Fri Oct 22 2021 06:11:41 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Oct 22 2021 13:30:13 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
