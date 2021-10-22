@@ -1502,3 +1502,7 @@ doxygen-awesome-dark-mode-toggle:hover {
 doxygen-awesome-dark-mode-toggle:after {
     content: var(--darkmode-toggle-button-icon)
 }
+
+#nav-tree-contents {
+    margin: 16px 0px 0px 0px !important;
+}
