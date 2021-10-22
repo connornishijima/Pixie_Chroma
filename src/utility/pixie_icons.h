@@ -1,3 +1,11 @@
+/*!
+ * @file pixie_icons.h
+ *
+ * Contains all Pixie "icon" types
+ *
+ * Last Updated by Connor Nishijima on 10/21/21
+ */
+
 #ifndef pixie_icons_h
 #define pixie_icons_h
 
