@@ -1,7 +1,7 @@
 #!/bin/bash
 # This is just for GitHub, and is used to clean up leftover files after automatic testing has completed! ;)
 
-echo $1
+echo "TOK $1"
 
 echo "Cleaning up CI junk..."
 git add *
