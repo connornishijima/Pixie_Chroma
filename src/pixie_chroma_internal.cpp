@@ -1180,19 +1180,51 @@ int16_t PixieChroma::get_cursor_y_exact(){
 	return cursor_y;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Freezes the current mask buffer in memory to prevent showing
+            unfinished text if the animation ISR fires during construction
+	    of the current display data. Use update() to unfreeze.
+*/
+/**************************************************************************/
 void PixieChroma::hold(){
 	freeze = true;
 }
 
+/**************************************************************************/
+/*!
+    @brief  Clears (blackens) the current mask buffer and resets the cursor
+            to 0,0
+*/
+/**************************************************************************/
 void PixieChroma::clear(){
 	memset(mask, 0, NUM_LEDS);
 	set_cursor(0,0);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Unfreezes the current mask buffer in memory to allow showing
+            updated text the next time the animation ISR fires.
+*/
+/**************************************************************************/
 void PixieChroma::update(){
 	freeze = false;
 }
 
+/**************************************************************************/
+/*!
+    @brief  PixieChroma operates in a 2D context, but is run using 1D
+            arrays. This function returns the 1D index of a given 2D
+	    coordinate in the display matrix. Optionally, the result can
+	    be run through a wrapping function that allows coordinates out
+	    of range to wrap around the the opposite side of the 2D matrix.
+	    
+    @param  x     Signed 2D X coordinate
+    @param  y     Signed 2D Y coordinate
+    @param  wrap  Enable wrapping function **[optional]**
+*/
+/**************************************************************************/
 uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
 	if(wrap){
 		while(x < 0){
