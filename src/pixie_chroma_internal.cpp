@@ -27,6 +27,7 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 	-2, -2, -2, -2, -2, -2, -2
 };
 
+
 /**************************************************************************/
 /*!
     @brief  Animation ISR that calls anim_func() (set using
@@ -68,8 +69,9 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 #endif
 
 // ---------------------------------------------------------------------------------------------------------|
-// -- PUBLIC FUNCTIONS -------------------------------------------------------------------------------------|
+// -- PUBLIC CLASS FUNCTIONS -------------------------------------------------------------------------------|
 // ---------------------------------------------------------------------------------------------------------|
+
 
 /**************************************************************************/
 /*!
@@ -89,6 +91,7 @@ const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to 
 */
 /**************************************************************************/
 PixieChroma::PixieChroma(){}
+
 
 /**************************************************************************/
 /*!
@@ -135,6 +138,7 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 	start_animation(); // ---------------- Kick off animation ISR
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Takes an 8-bit brightness value and passes it to FastLED
@@ -147,6 +151,7 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 void PixieChroma::set_brightness(uint8_t level){
 	brightness_level = level;
 }
+
 
 /**************************************************************************/
 /*!
@@ -170,6 +175,7 @@ void PixieChroma::set_brightness(uint8_t level){
 void PixieChroma::set_update_mode(update_type t){
 	_update_mode = t;
 }
+
 
 /**************************************************************************/
 /*!
@@ -195,6 +201,7 @@ void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
 	current_palette.loadDynamicGradientPalette(pal);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Accepts a FastLED CRGBPalette16 object to set the current color
@@ -206,6 +213,7 @@ void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
 void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
 	current_palette = pal;
 }
+
 
 /**************************************************************************/
 /*!
@@ -219,6 +227,7 @@ void PixieChroma::set_animation(void (*action)()) {
 	anim_func = action;
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Used to scale the animation speed of animation ISRs that can use
@@ -231,6 +240,7 @@ void PixieChroma::set_animation_speed(float speed){
 	animation_speed = speed;
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Allows you to enable built-in automatic gamma correction, using
@@ -242,6 +252,7 @@ void PixieChroma::set_animation_speed(float speed){
 void PixieChroma::set_gamma_correction(bool enabled){
 	correct_gamma = enabled;
 }
+
 
 /**************************************************************************/
 /*!
@@ -292,6 +303,7 @@ void PixieChroma::set_cursor(uint8_t x_position, uint8_t y_position){
 	cursor_y = (display_height*y_position)+2;
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Sets the maximum power budget in volts and milliamps. Knowing
@@ -311,6 +323,7 @@ void PixieChroma::set_max_power(float volts, uint16_t milliamps){
 	max_mA = milliamps;
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Writes an icon* to a specified X and Y cursor position
@@ -325,6 +338,7 @@ void PixieChroma::write(const uint8_t* icon, uint8_t x_pos, uint8_t y_pos){
 	uint16_t y_start = 2;
 	write_pix(icon, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
+
 
 /**************************************************************************/
 /*!
@@ -365,6 +379,7 @@ void PixieChroma::write(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
 	write(icon, x_pos, y_pos);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Writes a char* string to a specified X and Y cursor position
@@ -379,6 +394,7 @@ void PixieChroma::write(char* message, uint8_t x_pos, uint8_t y_pos){
 	uint16_t y_start = 2;
 	write_pix(message, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
+
 
 /**************************************************************************/
 /*!
@@ -400,6 +416,7 @@ void PixieChroma::write(int16_t input, uint8_t x_pos, uint8_t y_pos){
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Writes an unsigned 16-bit integer to a specified X and Y
@@ -419,6 +436,7 @@ void PixieChroma::write(uint16_t input, uint8_t x_pos, uint8_t y_pos){
 
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
+
 
 /**************************************************************************/
 /*!
@@ -440,6 +458,7 @@ void PixieChroma::write(int32_t input, uint8_t x_pos, uint8_t y_pos){
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Writes an unsigned 32-bit integer to a specified X and Y
@@ -459,6 +478,7 @@ void PixieChroma::write(uint32_t input, uint8_t x_pos, uint8_t y_pos){
 
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
+
 
 #if defined(ESP8266) || defined(ESP32)
 /**************************************************************************/
@@ -482,6 +502,7 @@ void PixieChroma::write(long unsigned int input, uint8_t x_pos, uint8_t y_pos){
 }
 #endif
 
+
 /**************************************************************************/
 /*!
     @brief  Writes a double-precision floating point value to a specified
@@ -503,6 +524,7 @@ void PixieChroma::write(double input, uint8_t places, uint8_t x_pos, uint8_t y_p
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Writes a single-precision floating point value to a specified
@@ -517,6 +539,7 @@ void PixieChroma::write(double input, uint8_t places, uint8_t x_pos, uint8_t y_p
 void PixieChroma::write(float input, uint8_t places, uint8_t x_pos, uint8_t y_pos){
 	write(double(input), places, x_pos, y_pos);
 }
+
 
 
 /**************************************************************************/
@@ -534,6 +557,7 @@ void PixieChroma::write_pix(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
 	add_char(icon, cursor_x, cursor_y);
 	cursor_x += display_width;
 }
+
 
 /**************************************************************************/
 /*!
@@ -570,6 +594,7 @@ void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
 		}		
 	}
 }
+
 
 /**************************************************************************/
 /*!
@@ -610,6 +635,7 @@ void PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos){
 	}
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Internal function for rendering a single icon to the mask
@@ -645,6 +671,7 @@ void PixieChroma::add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
 	}
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints an Icon to the displays, at the current cursor position.
@@ -655,6 +682,7 @@ void PixieChroma::add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
 void PixieChroma::print(const uint8_t* icon){
 	write_pix(icon, cursor_x, cursor_y);
 }
+
 
 /**************************************************************************/
 /*!
@@ -699,6 +727,7 @@ void PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
 	write_pix(icon, cursor_x, cursor_y);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints a char* string to the displays at the current cursor
@@ -710,6 +739,7 @@ void PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
 void PixieChroma::print(char* message){
 	write_pix(message, cursor_x, cursor_y);
 }
+
 
 /**************************************************************************/
 /*!
@@ -725,6 +755,7 @@ void PixieChroma::print(int16_t input){
 	write_pix(char_buf, cursor_x, cursor_y);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints an unsigned 16-bit integer to the displays at the current
@@ -738,6 +769,7 @@ void PixieChroma::print(uint16_t input){
 	utoa(input,char_buf,10);
 	write_pix(char_buf, cursor_x, cursor_y);
 }
+
 
 /**************************************************************************/
 /*!
@@ -753,6 +785,7 @@ void PixieChroma::print(int32_t input){
 	write_pix(char_buf, cursor_x, cursor_y);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints an unsigned 32-bit integer to the displays at the current
@@ -766,6 +799,7 @@ void PixieChroma::print(uint32_t input){
 	ultoa(input,char_buf,10);
 	write_pix(char_buf, cursor_x, cursor_y);
 }
+
 
 #if defined(ESP8266) || defined(ESP32)
 /**************************************************************************/
@@ -782,6 +816,7 @@ void PixieChroma::print(long unsigned int input){
 	write_pix(char_buf, cursor_x, cursor_y);
 }
 #endif
+
 
 /**************************************************************************/
 /*!
@@ -814,6 +849,7 @@ void PixieChroma::print(float input, uint8_t places){
 	print(double(input), places);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints an Icon to the displays at the current cursor position,
@@ -828,6 +864,7 @@ void PixieChroma::println(const uint8_t* icon){
 	cursor_x = 1;
 	cursor_y += display_height;
 }
+
 
 /**************************************************************************/
 /*!
@@ -856,6 +893,7 @@ void PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_c
 	cursor_y += display_height;
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints a char* string to the displays at the current cursor
@@ -870,6 +908,7 @@ void PixieChroma::println(char* message){
 	cursor_x = 1;
 	cursor_y += display_height;
 }
+
 
 /**************************************************************************/
 /*!
@@ -886,6 +925,7 @@ void PixieChroma::println(int16_t input){
 	println(char_buf);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints an unsigned 16-bit integer to the displays at the current
@@ -900,6 +940,7 @@ void PixieChroma::println(uint16_t input){
 	utoa(input,char_buf,10);
 	println(char_buf);
 }
+
 
 /**************************************************************************/
 /*!
@@ -916,6 +957,7 @@ void PixieChroma::println(int32_t input){
 	println(char_buf);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints an unsigned 32-bit integer to the displays at the current
@@ -930,6 +972,7 @@ void PixieChroma::println(uint32_t input){
 	ultoa(input,char_buf,10);
 	println(char_buf);
 }
+
 
 #if defined(ESP8266) || defined(ESP32)
 /**************************************************************************/
@@ -948,6 +991,7 @@ void PixieChroma::println(long unsigned int input){
 }
 #endif
 
+
 /**************************************************************************/
 /*!
     @brief  Prints a double-precision floating point integer to the displays
@@ -965,6 +1009,7 @@ void PixieChroma::println(double input, uint8_t places){
 	println(char_buf);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Prints a single-precision floating point integer to the displays
@@ -980,6 +1025,7 @@ void PixieChroma::println(float input, uint8_t places){
 	println(double(input), places);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Blurs the mask buffer in both axes by blur_amount.
@@ -991,6 +1037,7 @@ void PixieChroma::blur(fract8 blur_amount){
 	blur_x(blur_amount);
 	blur_y(blur_amount);
 }
+
 
 /**************************************************************************/
 /*!
@@ -1019,6 +1066,7 @@ void PixieChroma::blur_x(fract8 blur_amount){
     }
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Blurs the mask buffer in the Y axis by blur_amount.
@@ -1046,6 +1094,7 @@ void PixieChroma::blur_y(fract8 blur_amount){
         }
     }
 }
+
 
 /**************************************************************************/
 /*!
@@ -1076,6 +1125,7 @@ void PixieChroma::dim(uint8_t amount, bool reset_cursor){
 	}
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Blurs the color buffer in both axes by blur_amount.
@@ -1087,6 +1137,7 @@ void PixieChroma::color_blur(fract8 blur_amount){
 	color_blur_x(blur_amount);
 	color_blur_y(blur_amount);
 }
+
 
 /**************************************************************************/
 /*!
@@ -1112,6 +1163,7 @@ void PixieChroma::color_blur_x(fract8 blur_amount){
         }
     }
 }
+
 
 /**************************************************************************/
 /*!
@@ -1139,6 +1191,7 @@ void PixieChroma::color_blur_y(fract8 blur_amount){
     }
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Darkens the color buffer by an 8-bit amount.
@@ -1151,6 +1204,7 @@ void PixieChroma::color_dim(uint8_t amount){
 	leds_temp.fadeToBlackBy(amount);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Returns the cursor's X position
@@ -1159,6 +1213,7 @@ void PixieChroma::color_dim(uint8_t amount){
 uint8_t PixieChroma::get_cursor_x(){
 	return cursor_x / chars_x;
 }
+
 
 /**************************************************************************/
 /*!
@@ -1169,6 +1224,7 @@ uint8_t PixieChroma::get_cursor_y(){
 	return cursor_y / chars_y;
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Returns the cursor's X position in exact pixel coordinates
@@ -1178,6 +1234,7 @@ int16_t PixieChroma::get_cursor_x_exact(){
 	return cursor_x;
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Returns the cursor's Y position in exact pixel coordinates
@@ -1186,6 +1243,7 @@ int16_t PixieChroma::get_cursor_x_exact(){
 int16_t PixieChroma::get_cursor_y_exact(){
 	return cursor_y;
 }
+
 
 /**************************************************************************/
 /*!
@@ -1198,6 +1256,7 @@ void PixieChroma::hold(){
 	freeze = true;
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Clears (blackens) the current mask buffer and resets the cursor
@@ -1209,6 +1268,7 @@ void PixieChroma::clear(){
 	set_cursor(0,0);
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Unfreezes the current mask buffer in memory to allow showing
@@ -1218,6 +1278,7 @@ void PixieChroma::clear(){
 void PixieChroma::update(){
 	freeze = false;
 }
+
 
 /**************************************************************************/
 /*!
@@ -1272,6 +1333,7 @@ uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
 	return xy_table[ (y * matrix_width) + x ];
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Sets the entire color buffer to a CRGB value. For example:
@@ -1284,6 +1346,7 @@ uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
 void PixieChroma::color(CRGB col){
 	fill_solid(leds, NUM_LEDS, col);
 }
+
 
 /**************************************************************************/
 /*!
@@ -1312,6 +1375,7 @@ void PixieChroma::color(CRGB col, uint8_t x, uint8_t y){
 		leds[xy(x_pos+xi, y_pos+6)] = col;
 	}
 }
+
 
 /**************************************************************************/
 /*!
@@ -1354,6 +1418,7 @@ void PixieChroma::color(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2
 		}
 	}
 }
+
 
 /**************************************************************************/
 /*!
@@ -1441,6 +1506,7 @@ void PixieChroma::draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2){
 	}
 }
 
+
 /**************************************************************************/
 /*!
     @brief  Approximates the conversion of a blackbody radiation temperature
@@ -1496,6 +1562,7 @@ CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){
 
 	return CRGB(_red, _green, _blue);
 }
+
 
 /**************************************************************************/
 /*!
