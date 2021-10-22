@@ -10,7 +10,6 @@ doxy_data = ""
 output = ""
 
 for item in doxy_data:
-    print(item)
     if "parameter '" in item:
         log_string = item.split("parameter ")[1]
         output += "  "
@@ -50,7 +49,8 @@ for item in output:
             skip = True
 
     if not skip:
-        final_output.append(item)
+        if len(item) >= 3:
+            final_output.append(item)
 
 output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n---------------------------------------------------------\n"
 
