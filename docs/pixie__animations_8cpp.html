@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Pixie Chroma: src/utility/pixie_animations.h File Reference</title>
+<title>Pixie Chroma: src/utility/pixie_animations.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,7 +67,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('pixie__animations_8h.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('pixie__animations_8cpp.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -89,12 +89,12 @@ $(document).ready(function(){initNavTree('pixie__animations_8h.html',''); initRe
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">pixie_animations.h File Reference</div>  </div>
+<div class="title">pixie_animations.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_pixie_chroma_8h_source.html">../PixieChroma.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="pixie__animations_8h_source.html">pixie_animations.h</a>&quot;</code><br />
 </div>
-<p><a href="pixie__animations_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="pixie__animations_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -104,6 +104,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ANIMATION_NULL</b> ()
 <tr class="memitem:af1bdd87ad387172d4147ae5898adf55e"><td class="memItemLeft" align="right" valign="top"><a id="af1bdd87ad387172d4147ae5898adf55e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ANIMATION_SOLID</b> ()</td></tr>
 <tr class="separator:af1bdd87ad387172d4147ae5898adf55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fb70c2839f4a3cb90511dd8f0ab954d"><td class="memItemLeft" align="right" valign="top"><a id="a5fb70c2839f4a3cb90511dd8f0ab954d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ANIMATION_PALETTE_SHIFT</b> (int8_t amount)</td></tr>
+<tr class="separator:a5fb70c2839f4a3cb90511dd8f0ab954d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae585125ef8a73983e842ac34a1631dfd"><td class="memItemLeft" align="right" valign="top"><a id="ae585125ef8a73983e842ac34a1631dfd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ANIMATION_PALETTE_SHIFT_LEFT</b> ()</td></tr>
 <tr class="separator:ae585125ef8a73983e842ac34a1631dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,18 +116,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ANIMATION_PALETTE_SHI
 <tr class="memitem:a6b1c09753b715c18875009b4eb919574"><td class="memItemLeft" align="right" valign="top"><a id="a6b1c09753b715c18875009b4eb919574"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ANIMATION_GLITTER</b> ()</td></tr>
 <tr class="separator:a6b1c09753b715c18875009b4eb919574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07b7a03403f0fccf6cee4eef5b99653a"><td class="memItemLeft" align="right" valign="top"><a id="a07b7a03403f0fccf6cee4eef5b99653a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_PENDULUM</b> (float iter, float width)</td></tr>
+<tr class="separator:a07b7a03403f0fccf6cee4eef5b99653a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a731bf9a5daa3ebaa423efdb7d6d14323"><td class="memItemLeft" align="right" valign="top"><a id="a731bf9a5daa3ebaa423efdb7d6d14323"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ANIMATION_PENDULUM</b> ()</td></tr>
 <tr class="separator:a731bf9a5daa3ebaa423efdb7d6d14323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66d3839e62cf53137e73a261c58e4893"><td class="memItemLeft" align="right" valign="top"><a id="a66d3839e62cf53137e73a261c58e4893"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ANIMATION_PENDULUM_WIDE</b> ()</td></tr>
 <tr class="separator:a66d3839e62cf53137e73a261c58e4893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a67e3c5b92687191e09bfef86d8b5eb"><td class="memItemLeft" align="right" valign="top"><a id="a5a67e3c5b92687191e09bfef86d8b5eb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>_PALETTE_SHIFT</b> (int8_t amount)</td></tr>
-<tr class="separator:a5a67e3c5b92687191e09bfef86d8b5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07b7a03403f0fccf6cee4eef5b99653a"><td class="memItemLeft" align="right" valign="top"><a id="a07b7a03403f0fccf6cee4eef5b99653a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>_PENDULUM</b> (float iter, float width)</td></tr>
-<tr class="separator:a07b7a03403f0fccf6cee4eef5b99653a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b39ccf276d680bc3f1fb41eef9f53ea"><td class="memItemLeft" align="right" valign="top"><a id="a2b39ccf276d680bc3f1fb41eef9f53ea"></a>
 CRGBPalette16&#160;</td><td class="memItemRight" valign="bottom"><b>make_gradient</b> (CRGB col1, CRGB col2)</td></tr>
 <tr class="separator:a2b39ccf276d680bc3f1fb41eef9f53ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,13 +151,13 @@ CRGBPalette16&#160;</td><td class="memItemRight" valign="bottom"><b>make_gradien
 <div class="textblock"><p>Designed specifically to work with Pixie Chroma: -&mdash;&gt; <a href="https://connornishijima.github.io/PixieChroma">https://connornishijima.github.io/PixieChroma</a></p>
 <p>Last Updated by Connor Nishijima on 10/21/21 </p>
 
-<p class="definition">Definition in file <a class="el" href="pixie__animations_8h_source.html">pixie_animations.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="pixie__animations_8cpp_source.html">pixie_animations.cpp</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__animations_8h.html">pixie_animations.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__animations_8cpp.html">pixie_animations.cpp</a></li>
     <li class="footer">Generated on Fri Oct 22 2021 02:08:03 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
