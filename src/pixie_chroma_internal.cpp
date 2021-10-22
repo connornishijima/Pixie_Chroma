@@ -638,10 +638,49 @@ void PixieChroma::add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
 	}
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints an Icon to the displays, at the current cursor position.
+	
+    @param  icon     Icon column data to render
+*/
+/**************************************************************************/
 void PixieChroma::print(const uint8_t* icon){
 	write_pix(icon, cursor_x, cursor_y);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints an icon to the displays at the current cursor position,
+            taking five uint8_t as input for the column data.
+	   
+            For example:
+            
+                pix.print(B00101111, B01001001, B01001001, B01001001, B00110001);
+                
+                    OR, WRITTEN VERTICALLY:
+                
+                pix.print(   ,   ,   ,   ,   );
+                           1   1   1   1   1  LSB
+		                   1   0   0   0   0
+		                   1   0   0   0   0
+		                   1   1   1   1   0
+		                   0   0   0   0   1
+		                   1   0   0   0   1
+		                   0   1   1   1   0  
+                           0   0   0   0   0  MSB (unused)
+                           B   B   B   B   B
+
+            This writes a "5" to the display, seen above in the "1" bits of
+            each column. The MSB (highest bit) is not used in icons.
+	
+    @param  icon_col_1  Column 1 data of this icon
+    @param  icon_col_2  Column 2 data of this icon
+    @param  icon_col_3  Column 3 data of this icon
+    @param  icon_col_4  Column 4 data of this icon
+    @param  icon_col_5  Column 5 data of this icon
+*/
+/**************************************************************************/
 void PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5){
 	const uint8_t icon[5] = {
 		icon_col_1,
@@ -653,28 +692,68 @@ void PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
 	write_pix(icon, cursor_x, cursor_y);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints a char* string to the displays at the current cursor
+            position
+	
+    @param  message  char* string to print
+*/
+/**************************************************************************/
 void PixieChroma::print(char* message){
 	write_pix(message, cursor_x, cursor_y);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints a signed 16-bit integer to the displays at the current
+            cursor position
+	
+    @param  input  Signed integer to print
+*/
+/**************************************************************************/
 void PixieChroma::print(int16_t input){
 	char char_buf[32];
 	itoa(input,char_buf,10);
 	write_pix(char_buf, cursor_x, cursor_y);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints an unsigned 16-bit integer to the displays at the current
+            cursor position
+	
+    @param  input  Unsigned integer to print
+*/
+/**************************************************************************/
 void PixieChroma::print(uint16_t input){
 	char char_buf[32];
 	utoa(input,char_buf,10);
 	write_pix(char_buf, cursor_x, cursor_y);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints a signed 32-bit integer to the displays at the current
+            cursor position
+	
+    @param  input  Signed integer to print
+*/
+/**************************************************************************/
 void PixieChroma::print(int32_t input){
 	char char_buf[32];
 	ltoa(input,char_buf,10);
 	write_pix(char_buf, cursor_x, cursor_y);
 }
 
+/**************************************************************************/
+/*!
+    @brief  Prints an unsigned 32-bit integer to the displays at the current
+            cursor position
+	
+    @param  input  Unsigned integer to print
+*/
+/**************************************************************************/
 void PixieChroma::print(uint32_t input){
 	char char_buf[32];
 	ultoa(input,char_buf,10);
@@ -682,19 +761,48 @@ void PixieChroma::print(uint32_t input){
 }
 
 #if defined(ESP8266) || defined(ESP32)
-	void PixieChroma::print(long unsigned int input){
-		char char_buf[32];
-		ultoa(input,char_buf,10);
-		write_pix(char_buf, cursor_x, cursor_y);
-	}
+/**************************************************************************/
+/*!
+    @brief  Prints an unsigned 32-bit integer to the displays at the current
+            cursor position. (Dumb ESP-specific type)
+	
+    @param  input  Unsigned integer to print
+*/
+/**************************************************************************/
+void PixieChroma::print(long unsigned int input){
+	char char_buf[32];
+	ultoa(input,char_buf,10);
+	write_pix(char_buf, cursor_x, cursor_y);
+}
 #endif
 
+/**************************************************************************/
+/*!
+    @brief  Prints a double-precision floating point integer to the displays
+            at the current cursor position, to a specified number of decimal
+            places.
+	
+    @param  input   double to print
+    @param  places  Number of decimal places to print
+*/
+/**************************************************************************/
 void PixieChroma::print(double input, uint8_t places){
 	char char_buf[32];
 	dtoa(input,char_buf,places);
 	write_pix(char_buf, cursor_x, cursor_y);
 }
 
+
+/**************************************************************************/
+/*!
+    @brief  Prints a single-precision floating point integer to the displays
+            at the current cursor position, to a specified number of decimal
+            places.
+	
+    @param  input   float to print
+    @param  places  Number of decimal places to print
+*/
+/**************************************************************************/
 void PixieChroma::print(float input, uint8_t places){
 	print(double(input), places);
 }
