@@ -1,6 +1,6 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
-
+---------------------------------------------------------
 - Member **updated_too_soon** (variable) of file pixie_chroma_internal.cpp is not documented.
 - Member **update_type** (enumeration) of file pixie_chroma_internal.h is not documented.
 - Member **frame_multiple** (enumeration) of file pixie_chroma_internal.h is not documented.
