@@ -4,57 +4,67 @@ import os
 print("Generating report from Doxygen log contents...")
 
 doxy_data = ""
-with open("docs/doxy.log","r+") as f:
-    doxy_data = f.read().split("\n")
+#with open("docs/doxy.log","r+") as f:
+#    doxy_data = f.read().split("\n")
 
 output = ""
 
-for item in doxy_data:
-    print(item)
-    if "parameter '" in item:
-        log_string = item.split("parameter ")[1]
-        output += "  "
-        output += log_string
-        output += "\n"
-        
-    elif "warning" in item:
-        if "is not documented" in item:
-            if not "PROGMEM" in item:
-                if "return type" in item:
-                    log_string = item.split("warning: ")[1]
+if len(doxy_data) >= 3:
+    for item in doxy_data:
+        print(item)
+        if "parameter '" in item:
+            log_string = item.split("parameter ")[1]
+            output += "  "
+            output += log_string
+            output += "\n"
+            
+        elif "warning" in item:
+            if "is not documented" in item:
+                if not "PROGMEM" in item:
+                    if "return type" in item:
+                        log_string = item.split("warning: ")[1]
 
-                    log_string = log_string.split(" ")
-                    log_string[4] = "**"+log_string[4]+"**"
-                    log_string = ' '.join([str(x) for x in log_string])
+                        log_string = log_string.split(" ")
+                        log_string[4] = "**"+log_string[4]+"**"
+                        log_string = ' '.join([str(x) for x in log_string])
+                        
+                    elif not "ICON_" in item:
+                        log_string = "*"+item.split("warning: ")[1]+"*"
+
+                        log_string = log_string.split(" ")
+                        log_string[1] = "***"+log_string[1]+"***"
+                        log_string = ' '.join([str(x) for x in log_string])
+                        
+                    log_string.replace("is not documented", "**is not documented**")
+
+                    output += "- "
+                    output += log_string
+                    output += "\n"
                     
-                elif not "ICON_" in item:
-                    log_string = "*"+item.split("warning: ")[1]+"*"
+    final_output = []
+    output = output.split("\n")
 
-                    log_string = log_string.split(" ")
-                    log_string[1] = "***"+log_string[1]+"***"
-                    log_string = ' '.join([str(x) for x in log_string])
-                    
-                log_string.replace("is not documented", "**is not documented**")
+    for item in output:
+        skip = False
+        for reference in final_output:
+            if item == reference:
+                skip = True
 
-                output += "- "
-                output += log_string
-                output += "\n"
+        if not skip:
+            final_output.append(item)
 
-final_output = []
-output = output.split("\n")
+    output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n---------------------------------------------------------\n" + ("\n".join(final_output))
 
-for item in output:
-    skip = False
-    for reference in final_output:
-        if item == reference:
-            skip = True
+    with open("reports/doxygen/README.md","w+") as f:
+        f.write(output_string)
 
-    if not skip:
-        final_output.append(item)
+else:
+    output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n---------------------------------------------------------\n"
+    output_string = ":heavy_check_mark: **All checks passed, nothing to document!**"
 
-output_string = "### Doxygen coverage report: \n#### Any undocumented objects currently seen by Doxygen will appear here after every CI test!\n---------------------------------------------------------\n" + ("\n".join(final_output))
+    with open("reports/doxygen/README.md","w+") as f:
+        f.write(output_string)
 
-with open("reports/doxygen/README.md","w+") as f:
-    f.write(output_string)
+
    
 print("--- Report saved in reports/doxygen/README.md")
