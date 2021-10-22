@@ -46,18 +46,22 @@ jobs:
           library-manager: submit
           compliance: strict
 
-      - name: Compile all examples
-        uses: ArminJo/arduino-test-compile@v3
-        with:
-          arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
-          platform-url: ${{ matrix.platform-url }}
-          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
-          build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
+#      - name: Compile all examples
+#        uses: ArminJo/arduino-test-compile@v3
+#        with:
+#          arduino-board-fqbn: ${{ matrix.arduino-boards-fqbn }}
+#          platform-url: ${{ matrix.platform-url }}
+#          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
+#          build-properties: '{ "All": "${{ matrix.log-options }} ${{ matrix.other-options }}" }'
 
-      - name: Doxygen Build
-        uses: langroodi/doxygenize@v1.3
-        with:
-          doxygenconf: './docs/Doxyfile'
-          htmloutput: './docs/'
-          ghpagesbranch: 'main'
-          ghpagesdir: './docs/'
+#      - name: Doxygen Build
+#        uses: langroodi/doxygenize@v1.3
+#        with:
+#          doxygenconf: './docs/Doxyfile'
+#          htmloutput: './docs/'
+#          ghpagesbranch: 'main'
+#          ghpagesdir: './docs/'
+          
+      - name: Clean Up Extras
+        run: "echo hello"
+        shell: bash
