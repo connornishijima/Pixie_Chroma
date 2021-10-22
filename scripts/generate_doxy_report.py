@@ -35,7 +35,7 @@ for item in doxy_data:
                     
                 log_string.replace("is not documented", "**is not documented**")
 
-                output += "- "
+                output += "- :x: "
                 output += log_string
                 output += "\n"
                 
