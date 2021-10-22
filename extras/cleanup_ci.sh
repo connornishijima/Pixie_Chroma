@@ -4,6 +4,6 @@ ls -l
 pwd
 sudo rm -r *tar*
 ls -l
-git commit -m "Auto Cleanup"
+git commit -a -m "Auto Cleanup"
 git push
 echo "Done!" 
