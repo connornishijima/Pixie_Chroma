@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Fetch the first argument (Doxygen configuratuin file path)
-DOXYGENCONF= "docs/Doxyfile"
+DOXYGENCONF="docs/Doxyfile"
 if [ -f "$DOXYGENCONF" ]; then
     echo "Doxygen confiugration file path: $DOXYGENCONF"
 else
