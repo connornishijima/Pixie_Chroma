@@ -64,6 +64,6 @@ jobs:
           
       - name: Clean Up Extras
         run: |
-          "echo \"${{join(steps.doxycheck.outputs.*, '\n')}}\""
-          "echo sudo chmod +x ./extras/cleanup_ci.sh && sudo ./extras/cleanup_ci.sh"
+          echo "${{join(steps.doxycheck.*, '\n')}}"
+          sudo chmod +x ./extras/cleanup_ci.sh && sudo ./extras/cleanup_ci.sh
         shell: bash
