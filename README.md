@@ -5,4 +5,4 @@ Arduino library and documentation for Pixie Chroma displays!
 
 **[@lixielabs](https://twitter.com/lixielabs)**
 
-## Pixie Chroma is the Coolest Character Display for Arduino and you Damn Well Know It Guys
+### Pixie Chroma is the Coolest Character Display for Arduino and You Damn Well Know It, Guys
