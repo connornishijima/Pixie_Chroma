@@ -36,7 +36,7 @@ enum frame_multiple {
 class PixieChroma{
 	public:
 		/** @brief Construct a Pixie Chroma class object */
-		PixieChroma();
+		PixieChroma(); 
 		
 		/*+-- Functions - Setup ------------------------------------------------------------*/ 
 		/*|*/ void begin(const uint8_t data_pin, uint8_t pixies_x,  uint8_t pixies_y);
