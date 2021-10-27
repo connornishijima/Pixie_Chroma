@@ -54,7 +54,7 @@ final_output = output.split("\n")
             
 output_string = "### Keyword coverage report: \n#### Any undocumented keywords currently seen will appear here after every CI test!\n---------------------------------------------------------\n"
 
-if len(final_output) == 0:
+if len(output) == 0:
     output_string += ":heavy_check_mark: **All checks passed, nothing left undocumented!**"
 else:
     output_string += ("\n".join(final_output))
