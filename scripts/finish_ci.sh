@@ -5,11 +5,8 @@ python ./scripts/generate_doxy_report.py
 
 echo "Cleaning up CI junk..."
 git add *
-ls -l
-pwd
 sudo rm -r *tar*
 sudo rm -r examples/*/build
-ls -l
 git commit -a -m "Auto Cleanup"
 git push
 

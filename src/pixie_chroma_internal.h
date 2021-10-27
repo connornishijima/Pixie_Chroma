@@ -12,6 +12,12 @@
 
 #include "Arduino.h"
 
+/*!
+ * @brief  AUTOMATIC: Always show updated mask on animation call
+           
+	   HOLD_FOR_UPDATE: Wait until pix.update() is called
+	   before showing mask updates
+ */
 enum update_type {
 	AUTOMATIC,
 	HOLD_FOR_UPDATE
@@ -30,7 +36,7 @@ enum frame_multiple {
 class PixieChroma{
 	public:
 		/** @brief Construct a Pixie Chroma class object */
-		PixieChroma();
+		PixieChroma(); 
 		
 		/*+-- Functions - Setup ------------------------------------------------------------*/ 
 		/*|*/ void begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y);

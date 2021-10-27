@@ -52,18 +52,67 @@ void ANIMATION_PENDULUM_WIDE();
 void _PALETTE_SHIFT(int8_t amount);
 void _PENDULUM(float iter, float width);
 
+
 /**************************************************************************/
 /*!
-    @brief  Converts a set of CRGB colors to a gradient, and creates a color
+    @brief  Converts 2 CRGB colors to a gradient, and creates a color
             palette from that gradient.
 */
 /**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2);
+
+
+/**************************************************************************/
+/*!
+    @brief  Converts 3 CRGB colors to a gradient, and creates a color
+            palette from that gradient.
+*/
+/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3);
+
+
+/**************************************************************************/
+/*!
+    @brief  Converts 4 CRGB colors to a gradient, and creates a color
+            palette from that gradient.
+*/
+/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4);
+
+
+/**************************************************************************/
+/*!
+    @brief  Converts 5 CRGB colors to a gradient, and creates a color
+            palette from that gradient.
+*/
+/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5);
+
+
+/**************************************************************************/
+/*!
+    @brief  Converts 6 CRGB colors to a gradient, and creates a color
+            palette from that gradient.
+*/
+/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6);
+
+
+/**************************************************************************/
+/*!
+    @brief  Converts 7 CRGB colors to a gradient, and creates a color
+            palette from that gradient.
+*/
+/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7);
+
+
+/**************************************************************************/
+/*!
+    @brief  Converts 8 CRGB colors to a gradient, and creates a color
+            palette from that gradient.
+*/
+/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8);
 
 #endif

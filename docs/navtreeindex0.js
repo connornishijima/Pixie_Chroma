@@ -97,7 +97,9 @@ var NAVTREEINDEX0 =
 "functions.html":[0,2,0],
 "functions_func.html":[0,2,1],
 "globals.html":[1,1,0],
+"globals_enum.html":[1,1,3],
 "globals_func.html":[1,1,1],
+"globals_vars.html":[1,1,2],
 "index.html":[],
 "pages.html":[],
 "pixie__animations_8cpp.html":[1,0,0,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "pixie__icons_8h.html#a67d0029986892c409c365622e0b4cadf":[1,0,0,0,3,198],
 "pixie__icons_8h.html#a6b44f6926b3d873ef17de71e3c1f1419":[1,0,0,0,3,2],
 "pixie__icons_8h.html#a6d3b1d5ea749cd2784c60ea76328bcf4":[1,0,0,0,3,126],
-"pixie__icons_8h.html#a6dd5b82c661a8a727711ca03b6ee1034":[1,0,0,0,3,215],
-"pixie__icons_8h.html#a6eb5dbaa50ffad8d2172907d6d01219c":[1,0,0,0,3,118],
-"pixie__icons_8h.html#a6fe198546ff75898d05c3bfff499125f":[1,0,0,0,3,78]
+"pixie__icons_8h.html#a6dd5b82c661a8a727711ca03b6ee1034":[1,0,0,0,3,215]
 };

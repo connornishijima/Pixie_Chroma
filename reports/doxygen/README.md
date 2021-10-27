@@ -1,7 +1,60 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-<<<<<<< Updated upstream
-=======
-:heavy_check_mark: **All checks passed, nothing left undocumented!**
->>>>>>> Stashed changes
+- :x: *Member ***updated_too_soon*** (variable) of file pixie_chroma_internal.cpp is not documented.*
+- :x: *Member ***frame_multiple*** (enumeration) of file pixie_chroma_internal.h is not documented.*
+- :x: *Member ***ANIMATION_PALETTE_SHIFT(int8_t*** amount) (function) of file pixie_animations.cpp is not documented.*
+- :x: *Member ***ANIMATION_GLITTER()*** (function) of file pixie_animations.cpp is not documented.*
+- :x: *Member ***_PENDULUM(float*** iter, float width) (function) of file pixie_animations.cpp is not documented.*
+- :x: *Member ***ANIMATION_PENDULUM()*** (function) of file pixie_animations.cpp is not documented.*
+- :x: *Member ***ANIMATION_PENDULUM_WIDE()*** (function) of file pixie_animations.cpp is not documented.*
+- :x: return type of member **make_gradient** is not documented
+- :x: *Member ***ANIMATION_GLITTER()*** (function) of file pixie_animations.h is not documented.*
+- :x: *Member ***ANIMATION_PENDULUM()*** (function) of file pixie_animations.h is not documented.*
+- :x: *Member ***ANIMATION_PENDULUM_WIDE()*** (function) of file pixie_animations.h is not documented.*
+- :x: *Member ***_PALETTE_SHIFT(int8_t*** amount) (function) of file pixie_animations.h is not documented.*
+- :x: *Member ***_PENDULUM(float*** iter, float width) (function) of file pixie_animations.h is not documented.*
+- :x: *Member ***RED_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***YELLOW_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***GREEN_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***CYAN_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***BLUE_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***PURPLE_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***MAGENTA_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***RAINBOW[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***GRADIENT_RED_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***GRADIENT_BLACK_RED_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***GRADIENT_GREEN_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***GRADIENT_BLACK_GREEN_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***GRADIENT_BLUE_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***GRADIENT_BLACK_BLUE_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
+- :x: *Member ***dtoa(double*** d, char *buffer, int precision) (function) of file pixie_utility.h is not documented.*
+- :x: *Member ***anim_func)()*** (variable) of file pixie_utility.h is not documented.*
+- :x: *Member ***write(long*** unsigned int input, uint8_t x_pos=0, uint8_t y_pos=0) (function) of class PixieChroma is not documented.*
+- :x: *Member ***print(long*** unsigned int input) (function) of class PixieChroma is not documented.*
+- :x: *Member ***println(long*** unsigned int input) (function) of class PixieChroma is not documented.*
+- :x: return type of member **PixieChroma::get_cursor_x** is not documented
+- :x: return type of member **PixieChroma::get_cursor_y** is not documented
+- :x: return type of member **PixieChroma::get_cursor_x_exact** is not documented
+- :x: return type of member **PixieChroma::get_cursor_y_exact** is not documented
+- :x: *Member ***leds*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***leds_out*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***mask*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***mask_out*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***xy_table*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***matrix_width*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***matrix_height*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***NUM_LEDS*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***NUM_VISIBLE_LEDS*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***cursor_x*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***cursor_y*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***freeze*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***current_palette*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***frame_time*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***t_last*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***delta*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***animation_speed*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***frame_iter*** (variable) of class PixieChroma is not documented.*
+- :x: *The ***following*** parameter of PixieChroma::set_update_mode(update_type t) is not documented:*
+  't'
+- :x: return type of member **PixieChroma::kelvin_to_rgb** is not documented
