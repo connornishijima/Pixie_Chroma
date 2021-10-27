@@ -145,10 +145,56 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 			table, defaults the display colors to green, loads the default
 			CRGBPalette, initializes FastLED, sets the default power budget,
 			and kicks off the animation ISR.
+        
+            This version of begin() is special, in that it will send your
+            image data to the LEDs in 4 parallel streams to increase speed.
+            
+            *Unfortunately, this requires hard-coded pins on the ESP8266 to
+            function due to using the I2S hardware:*
+            
+            - DATA_OUT_1:  **GPIO 12 / D6**
+            - DATA_OUT_2:  **GPIO 13 / D7**
+            - DATA_OUT_3:  **GPIO 14 / D5**
+            - DATA_OUT_4:  **GPIO 15 / D8**
+            
+            On each data line, you'll wire `pixies_per_pin` number of Pixie
+            Chromas, with the final image being seamlessly spread across these
+            four lines.
+            
+            For example, if you have 16 Pixie Chromas and have Quad Mode enabled,
+            then each of the 4 data lines will have 4 Pixie Chromas like so:
+            
+            - DATA_OUT_1
+                - Pixie 1
+                - Pixie 2
+                - Pixie 3
+                - Pixie 4
+            - DATA_OUT_2
+                - Pixie 5
+                - Pixie 6
+                - Pixie 7
+                - Pixie 8
+            - DATA_OUT_3
+                - Pixie 9
+                - Pixie 10
+                - Pixie 11
+                - Pixie 12
+            - DATA_OUT_4
+                - Pixie 13
+                - Pixie 14
+                - Pixie 15
+                - Pixie 16
+                
+            If possible, using begin_quad() to enable the Quad Mode driver will
+            always send the 4 lines of data in parallel, saving on time per frame.
+            
+            **begin_quad() ideally should not be used with less than 4 Pixie Chromas,
+            with one on each line. Even if only two lines are used, all 4 pins are
+            occupied by Quad Mode.
 	
-	@param  data_pin GPIO pin to use for FastLED output
-	@param  pixies_x Number of Pixie PCBs in the X axis of your display
-	@param  pixies_y Number of Pixie PCBs in the Y axis of your display
+	@param  pixies_per_pin  Pixies per data pin
+	@param  pixies_x        Number of Pixie PCBs in the X axis of your display
+	@param  pixies_y        Number of Pixie PCBs in the Y axis of your display
 */
 /**************************************************************************/
 void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y){	
@@ -175,7 +221,9 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 
 	current_palette.loadDynamicGradientPalette(GREEN_SOLID);
 
+    // WS2811_PORTA on ESP8266 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 15 for Quad Mode
 	FastLED.addLeds<WS2811_PORTA,4>(leds_out, pixies_per_pin*70).setCorrection(TypicalLEDStrip); // Initialize FastLED
+    
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
 	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
 	set_max_power(5, 500); // ------------ Set default power budget in volts and milliamps
