@@ -55,6 +55,8 @@
 - :x: *Member ***delta*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***animation_speed*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***frame_iter*** (variable) of class PixieChroma is not documented.*
+- :x: *The ***following*** parameter of PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y) is not documented:*
+  'pixies_per_pin'
 - :x: *The ***following*** parameter of PixieChroma::set_update_mode(update_type t) is not documented:*
   't'
 - :x: return type of member **PixieChroma::kelvin_to_rgb** is not documented
