@@ -1,7 +1,6 @@
 ### Keyword coverage report: 
 #### Any undocumented keywords currently seen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: ***begin_quad*** not in keywords.txt!
 - :x: ***set_brightness*** not in keywords.txt!
 - :x: ***set_update_mode*** not in keywords.txt!
 - :x: ***set_palette*** not in keywords.txt!
