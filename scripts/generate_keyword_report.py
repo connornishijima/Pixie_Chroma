@@ -1,3 +1,5 @@
+# This hacky script finds functions not currently covered by keywords.txt, which will not get nice syntax highlighting.
+
 from pathlib import Path
 import json
 
