@@ -3,6 +3,8 @@
 
 python ./scripts/generate_doxy_report.py
 python ./scripts/generate_keyword_report.py
+python ./scripts/generate_icon_report.py
+python ./scripts/generate_overview_report.py
 
 echo "Cleaning up CI junk..."
 git add *
