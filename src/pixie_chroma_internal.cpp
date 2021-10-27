@@ -164,22 +164,22 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
             For example, if you have 16 Pixie Chromas and have Quad Mode enabled,
             then each of the 4 data lines will have 4 Pixie Chromas like so:
             
-            - DATA_OUT_1
+            - **DATA_OUT_1** GPIO
                 - Pixie 1
                 - Pixie 2
                 - Pixie 3
                 - Pixie 4
-            - DATA_OUT_2
+            - **DATA_OUT_2** GPIO
                 - Pixie 5
                 - Pixie 6
                 - Pixie 7
                 - Pixie 8
-            - DATA_OUT_3
+            - **DATA_OUT_3** GPIO
                 - Pixie 9
                 - Pixie 10
                 - Pixie 11
                 - Pixie 12
-            - DATA_OUT_4
+            - **DATA_OUT_4** GPIO
                 - Pixie 13
                 - Pixie 14
                 - Pixie 15
