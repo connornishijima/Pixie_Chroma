@@ -26,4 +26,4 @@ for item in report:
     output += "- "+icon+" "+item+"\n"
     
 with open("reports/README.md", "w+) as f:
-    f.write(output)
+    f.write(output) 
