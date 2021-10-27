@@ -2,6 +2,7 @@ var class_pixie_chroma =
 [
     [ "PixieChroma", "class_pixie_chroma.html#a2fc65dd9269568f34968c4af09f627ec", null ],
     [ "begin", "class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9", null ],
+    [ "begin_quad", "class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c", null ],
     [ "set_brightness", "class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44", null ],
     [ "set_update_mode", "class_pixie_chroma.html#a9ab7d062b70565814e448c0fe5fa22a3", null ],
     [ "set_palette", "class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117", null ],
