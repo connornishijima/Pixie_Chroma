@@ -25,4 +25,5 @@ for item in report:
     item = item.title()
     output += "- "+icon+" "+item+"\n"
     
-print(output)
+with open("reports/README.md", "w+) as f:
+    f.write(output)
