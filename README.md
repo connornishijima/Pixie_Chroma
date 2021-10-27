@@ -1,6 +1,6 @@
 ![PIXIE CHROMA](extras/img/logo_dot_matrix.png)
 
-####Arduino library and documentation for Pixie Chroma displays!
+#### Arduino library and documentation for Pixie Chroma displays!
 
 *This repository is still under construction, make sure to follow our Twitter for official releases!*
 
