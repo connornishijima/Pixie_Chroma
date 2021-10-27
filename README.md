@@ -1,4 +1,4 @@
-<p align="center">![PIXIE CHROMA](extras/img/logo_dot_matrix.png)</p>
+![PIXIE CHROMA](extras/img/logo_dot_matrix.png)
 
 #### Arduino library and documentation for Pixie Chroma displays!
 
