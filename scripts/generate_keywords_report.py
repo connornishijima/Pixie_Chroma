@@ -47,7 +47,7 @@ with open("keywords.txt","r+") as f:
     for item in keywords:
         if not item in kw:
             output += "- :x: "
-            output += str(item) + " not in keywords.txt!"
+            output += "***" + str(item) + "*** not in keywords.txt!"
             output += "\n"
 
 final_output = output.split("\n")
