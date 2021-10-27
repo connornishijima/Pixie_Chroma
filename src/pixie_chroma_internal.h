@@ -33,7 +33,8 @@ class PixieChroma{
 		PixieChroma();
 		
 		/*+-- Functions - Setup ------------------------------------------------------------*/ 
-		/*|*/ void begin(const uint8_t data_pin, uint8_t pixies_x,  uint8_t pixies_y);
+		/*|*/ void begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y);
+		/*|*/ void begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y);
 		/*|*/ void set_brightness(uint8_t level);
 		/*|*/ void set_update_mode(update_type t);
 		/*|*/ void set_palette(const uint8_t* pal);

@@ -43,6 +43,14 @@
 
 #include "Arduino.h" // Needed for things like uint8_t typedefs
 
+#ifdef QUAD_MODE
+	#ifndef PIXIES_PER_PIN
+		#error "Pixie length not defined"
+	#endif
+	
+	#define LEDS_PER_PIN (PIXIES_PER_PIN*70)
+#endif
+
 #if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
 	// FastLED has issues with the ESP8266, especially
 	// when used with networking, so we fix that here.
