@@ -161,8 +161,9 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
             Chromas, with the final image being seamlessly spread across these
             four lines.
             
-            For example, if you have 16 Pixie Chromas and have Quad Mode enabled,
-            then each of the 4 data lines will have 4 Pixie Chromas like so:
+            For example, if you have 16 Pixie Chromas (in two rows of eight) and
+            have Quad Mode enabled, then each of the 4 data lines will have 4
+            Pixie Chromas like so:
             
             - **DATA_OUT_1** GPIO
                 - Pixie 1
@@ -184,6 +185,36 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
                 - Pixie 14
                 - Pixie 15
                 - Pixie 16
+            
+            The corresponding setup for this display layout would be:
+            
+                #include "Pixie_Chroma.h"
+                PixieChroma pix;
+
+                #define PIXIES_PER_PIN 4
+                #define PIXIES_X       8
+                #define PIXIES_Y       2
+
+                void setup() {
+                    pix.begin_quad(PIXIES_PER_PIN, PIXIES_X, PIXIES_Y);
+                }
+                
+            Then, with the displays physically arranged in reading order (left to right,
+            top to bottom) you're ready to begin!
+            
+                PIN 2 ---------------------------------------------+
+                PIN 1 -------+                                     |
+                             |                                     |
+                          +--+-+   +----+   +----+   +----+  |  +--+-+   +----+   +----+   +----+
+                          |  1 |-->|  2 |-->|  3 |-->|  4 |  |  |  5 |-->|  6 |-->|  7 |-->|  8 | 
+                          +----+   +----+   +----+   +----+  |  +----+   +----+   +----+   +----+ 
+
+                PIN 4 ---------------------------------------------+
+                PIN 3 -------+                                     |
+                             |                                     |
+                          +--+-+   +----+   +----+   +----+  |  +--+-+   +----+   +----+   +----+
+                          |  9 |-->| 10 |-->| 11 |-->| 12 |  |  | 13 |-->| 14 |-->| 15 |-->| 16 | 
+                          +----+   +----+   +----+   +----+  |  +----+   +----+   +----+   +----+ 
                 
             Using begin_quad() to enable the Quad Mode driver will
             always send the 4 lines of data in parallel, saving on time per frame.
