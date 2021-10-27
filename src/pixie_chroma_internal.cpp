@@ -185,7 +185,7 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
                 - Pixie 15
                 - Pixie 16
                 
-            If possible, using begin_quad() to enable the Quad Mode driver will
+            Using begin_quad() to enable the Quad Mode driver will
             always send the 4 lines of data in parallel, saving on time per frame.
             
             **begin_quad() ideally should not be used with less than 4 Pixie Chromas,
