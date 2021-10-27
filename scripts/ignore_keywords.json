@@ -1,0 +1,7 @@
+{
+	"ignore":[
+		"_PALETTE_SHIFT",
+		"_PENDULUM",
+		"*dtoa"
+	]
+}
