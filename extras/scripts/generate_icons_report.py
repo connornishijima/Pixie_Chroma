@@ -33,7 +33,7 @@ else:
     for item in bad_icons:
         output_string += "    "+item + "\t" + "LITERAL1\n"
 
-with open("reports/icons/README.md","w+") as f:
+with open("extras/reports/icons/README.md","w+") as f:
     f.write(output_string)
    
-print("--- Report saved in reports/icons/README.md")
+print("--- Report saved in extras/reports/icons/README.md")

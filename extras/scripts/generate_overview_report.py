@@ -2,12 +2,12 @@ import os
 
 report = {}
 
-for item in os.listdir("scripts"):
+for item in os.listdir("extras/scripts"):
     if "generate" in item and not "overview" in item:
         report_type = item.split("_")[1]
         report[report_type] = True
         
-        with open("reports/"+report_type+"/README.md","r+") as f:
+        with open("extras/reports/"+report_type+"/README.md","r+") as f:
             if ":x:" in f.read():
                 report[report_type] = False
 
@@ -25,5 +25,5 @@ for item in report:
     item = item.title()
     output += "- "+icon+" "+item+"\n"
     
-with open("reports/README.md", "w+") as f:
+with open("extras/reports/README.md", "w+") as f:
     f.write(output) 

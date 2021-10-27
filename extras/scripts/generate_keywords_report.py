@@ -20,7 +20,7 @@ types = [
 keywords = {}
 ignore = {}
 
-with open("scripts/ignore_keywords.json","r+") as f:
+with open("extras/scripts/ignore_keywords.json","r+") as f:
     ignore = json.loads(f.read())
 
 for path in Path('src').rglob('*.h'):
@@ -59,8 +59,8 @@ if len(output) == 0:
 else:
     output_string += ("\n".join(final_output))
 
-with open("reports/keywords/README.md","w+") as f:
+with open("extras/reports/keywords/README.md","w+") as f:
     f.write(output_string)
 
    
-print("--- Report saved in reports/keywords/README.md")
+print("--- Report saved in extras/reports/keywords/README.md")

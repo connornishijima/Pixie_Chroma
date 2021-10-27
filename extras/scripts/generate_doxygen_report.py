@@ -61,8 +61,8 @@ if len(final_output) == 0:
 else:
     output_string += ("\n".join(final_output))
 
-with open("reports/doxygen/README.md","w+") as f:
+with open("extras/reports/doxygen/README.md","w+") as f:
     f.write(output_string)
 
    
-print("--- Report saved in reports/doxygen/README.md")
+print("--- Report saved in extras/reports/doxygen/README.md")

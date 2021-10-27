@@ -69,5 +69,5 @@ jobs:
           ghpagesdir: './docs/'
           
       - name: Clean Up
-        run: "sudo chmod +x ./scripts/finish_ci.sh && sudo ./scripts/finish_ci.sh"
+        run: "sudo chmod +x ./extras/scripts/finish_ci.sh && sudo ./extras/scripts/finish_ci.sh"
         shell: bash
