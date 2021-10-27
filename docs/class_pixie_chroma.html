@@ -532,19 +532,19 @@ PixieChroma pix;
 void setup() {
     pix.begin_quad(PIXIES_PER_PIN, PIXIES_X, PIXIES_Y);
 }
-</pre><p> Then, with the displays physically arranged in reading order (left to right, top to bottom) you're ready to begin! </p><pre class="fragment">PIN 2 ---------------------------------------------+
-PIN 1 -------+                                     |
-             |                                     |
-          +--+-+   +----+   +----+   +----+  |  +--+-+   +----+   +----+   +----+
-          |  1 |--&gt;|  2 |--&gt;|  3 |--&gt;|  4 |  |  |  5 |--&gt;|  6 |--&gt;|  7 |--&gt;|  8 | 
-          +----+   +----+   +----+   +----+  |  +----+   +----+   +----+   +----+ 
+</pre><p> Then, with the displays physically arranged in reading order (left to right, top to bottom) you're ready to begin! </p><pre class="fragment">PIN 2 ----------------------------------------------+
+PIN 1 -------+                                      |
+             |                                      |
+          +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
+          |  1 |--&gt;|  2 |--&gt;|  3 |--&gt;|  4 |  ||  |  5 |--&gt;|  6 |--&gt;|  7 |--&gt;|  8 | 
+          +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
 
-PIN 4 ---------------------------------------------+
-PIN 3 -------+                                     |
-             |                                     |
-          +--+-+   +----+   +----+   +----+  |  +--+-+   +----+   +----+   +----+
-          |  9 |--&gt;| 10 |--&gt;| 11 |--&gt;| 12 |  |  | 13 |--&gt;| 14 |--&gt;| 15 |--&gt;| 16 | 
-          +----+   +----+   +----+   +----+  |  +----+   +----+   +----+   +----+ 
+PIN 4 ----------------------------------------------+
+PIN 3 -------+                                      |
+             |                                      |
+          +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
+          |  9 |--&gt;| 10 |--&gt;| 11 |--&gt;| 12 |  ||  | 13 |--&gt;| 14 |--&gt;| 15 |--&gt;| 16 | 
+          +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
 </pre><p> Using <a class="el" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin_quad()</a> to enable the Quad Mode driver will always send the 4 lines of data in parallel, saving on time per frame.</p>
 <p><a class="el" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin_quad()</a> ideally <b>should not be used with less than 4 Pixie Chromas</b>, with at least one on each line. Even if only two lines are used, all 4 pins are still occupied by Quad Mode.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2680,7 +2680,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Wed Oct 27 2021 23:54:08 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Oct 27 2021 23:56:11 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
