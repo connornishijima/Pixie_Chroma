@@ -1,3 +1,5 @@
+# This hacky script finds functions not currently covered by Doxygen comments, which will not appear in the Doxygen output.
+
 import time
 import os
 

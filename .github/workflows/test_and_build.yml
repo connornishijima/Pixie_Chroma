@@ -11,6 +11,7 @@ on:
     - '**Doxyfile'
     - 'library.properties'
     - 'library.json'
+    - 'keywords.txt'
   pull_request:
     paths:
     - '**.ino'
@@ -22,6 +23,7 @@ on:
     - '**Doxyfile'
     - 'library.properties'
     - 'library.json'
+    - 'keywords.txt'
 jobs:
   build:
     name: "Linting, Compilation Testing, Documentation Build"
