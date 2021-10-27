@@ -1,13 +1,6 @@
 ### Keyword coverage report: 
 #### Any undocumented keywords currently seen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: ***set_brightness*** not in keywords.txt!
-- :x: ***set_update_mode*** not in keywords.txt!
-- :x: ***set_palette*** not in keywords.txt!
-- :x: ***set_animation*** not in keywords.txt!
-- :x: ***set_animation_speed*** not in keywords.txt!
-- :x: ***set_gamma_correction*** not in keywords.txt!
-- :x: ***set_max_power*** not in keywords.txt!
 - :x: ***write_pix*** not in keywords.txt!
 - :x: ***add_char*** not in keywords.txt!
 - :x: ***println*** not in keywords.txt!
@@ -16,7 +9,6 @@
 - :x: ***get_cursor_x_exact*** not in keywords.txt!
 - :x: ***get_cursor_y_exact*** not in keywords.txt!
 - :x: ***hold*** not in keywords.txt!
-- :x: ***update*** not in keywords.txt!
 - :x: ***color*** not in keywords.txt!
 - :x: ***dim*** not in keywords.txt!
 - :x: ***blur*** not in keywords.txt!
