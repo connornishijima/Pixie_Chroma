@@ -2,8 +2,9 @@
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
   <a href="https://connornishijima.github.io/Pixie_Chroma/#docs">LIBRARY DOCS</a> ||
-  <a href="https://connornishijima.github.io/Pixie_Chroma/#datasheet">HARDWARE DATASHEET</a> ||
+  <a href="https://connornishijima.github.io/Pixie_Chroma/#datasheet">DATASHEET</a> ||
   <a href="https://connornishijima.github.io/Pixie_Chroma/#tutorials">TUTORIALS</a>
+  <a href="https://connornishijima.github.io/Pixie_Chroma/#oshw">OSHW</a>
   <br><br>
 </p>
 
