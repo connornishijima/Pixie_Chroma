@@ -44,19 +44,14 @@
 #include "Arduino.h" // Needed for things like uint8_t typedefs
 
 #if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
-	// FastLED has issues with the ESP8266, especially
-	// when used with networking, so we fix that here.
 	#define FASTLED_ESP8266_RAW_PIN_ORDER
-	//#define FASTLED_ALLOW_INTERRUPTS 0
-	//#define FASTLED_INTERRUPT_RETRY_COUNT 0
+	#include "Ticker.h"  // Ticker for optional automated show() calls
+#else
+	#error "This library currently only supports boards with an ESP8266 or ESP32 processor."
 #endif
 
 #define FASTLED_INTERNAL // As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.
 #include "FastLED.h"     // Apart from some issues, it's my tool of choice for WS2812B/compatibles because it's actually amazingly useful
-
-#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
-	#include "Ticker.h"  // Ticker for optional automated show() calls
-#endif
 
 #include "utility/pixie_palettes.h" // ----- Color Palettes
 #include "utility/pixie_font.h" // --------- ASCII font
