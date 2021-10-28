@@ -1,10 +1,10 @@
 <img src="extras/img/logo_dot_matrix.png">
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
-  <a href="https://connornishijima.github.io/Pixie_Chroma/#docs">LIBRARY DOCS</a> ||
-  <a href="https://connornishijima.github.io/Pixie_Chroma/#datasheet">DATASHEET</a> ||
-  <a href="https://connornishijima.github.io/Pixie_Chroma/#tutorials">TUTORIALS</a> ||
-  <a href="https://connornishijima.github.io/Pixie_Chroma/#oshw">OSHW</a>
+  <a href="https://connornishijima.github.io/Pixie_Chroma/#docs"><b>LIBRARY DOCS</b></a> ||
+  <a href="https://connornishijima.github.io/Pixie_Chroma/#datasheet"><b>DATASHEET</b></a> ||
+  <a href="https://connornishijima.github.io/Pixie_Chroma/#tutorials"><b>TUTORIALS</b></a> ||
+  <a href="https://connornishijima.github.io/Pixie_Chroma/#oshw"><b>OSHW</b></a>
   <br><br>
 </p>
 
