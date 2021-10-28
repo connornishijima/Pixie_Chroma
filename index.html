@@ -49,7 +49,7 @@
 				margin-right: 10px;
 				text-transform: uppercase;
 			}
-			.menu_link:hover{
+			.menu_link:hover, .menu_link_select{
 				padding-top: 25px;
 				padding-bottom: 25px;
 				padding-left: 10px;
@@ -82,16 +82,19 @@
 			var menu_links = [
 				{
 					"name":"Library Documentation",
+					"short":"docs",
 					"link":"https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html",
 					"target":"content_frame"
 				},
 				{
 					"name":"Datasheet",
+					"short":"datasheet",
 					"link":"https://connornishijima.github.io/Pixie_Chroma/extras/datasheet.html",
 					"target":"content_frame"
 				},
 				{
 					"name":"GitHub",
+					"short":"github",
 					"link":"https://github.com/connornishijima/Pixie_Chroma/#readme",
 					"target":"window"
 				},
@@ -103,19 +106,29 @@
 				var _link = menu_links[x]["link"];
 				var _target = menu_links[x]["target"];
 				var _name = menu_links[x]["name"];
-				menu_string += '<a href="' + _link + '" target="' + _target + '" class="menu_link">' + _name + '</a>\n';
+				var _short = menu_links[x]["short"];
+				menu_string += '<a href="' + _link + '" target="' + _target + '" class="menu_link" id="' + _short + '">' + _name + '</a>\n';
 			}
 			
 			console.log(menu_string);
 			document.getElementById("menu_links").innerHTML = menu_string;
 			
 			const queryString = window.location.search;
-			
-			// ?product=shirt&color=blue&newuser&size=m
 			const urlParams = new URLSearchParams(queryString);
 			
 			if(urlParams.has('section')){
 				const section = urlParams.get('section');
+				for(x in menu_links){
+					var _link = menu_links[x]["link"];
+					var _short = menu_links[x]["short"];
+					var _target = menu_links[x]["target"];
+					var _name = menu_links[x]["name"];
+					
+					if(_short == section && _target == "content_frame"){
+						document.getElementById(short).className += " menu_link_select";
+						document.getElementById("content_frame").src = _link;
+					}
+				}
 				console.log("section: "+section);
 			}
 		</script>
