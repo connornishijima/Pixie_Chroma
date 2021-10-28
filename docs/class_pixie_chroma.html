@@ -436,6 +436,28 @@ PixieChroma pix;
 </div><div class="memdoc">
 
 <p>Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED, sets the default power budget, and kicks off the animation ISR. </p>
+<p>Pixie Chroma allows for multi-row displays, which are wired in reading order (left to right, top to bottom) and their shape is define here. For example, a 16-Pixie display with two rows of eight: </p><pre class="fragment">data_pin
+   |
++--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+|  1 |--&gt;|  2 |--&gt;|  3 |--&gt;|  4 |--&gt;|  5 |--&gt;|  6 |--&gt;|  7 |--&gt;|  8 | 
++----+   +----+   +----+   +----+   +----+   +----+   +----+   +--+-+
+                                                                  |
+   +--------------------------------------------------------------+
+   |
++--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+|  9 |--&gt;| 10 |--&gt;| 11 |--&gt;| 12 |--&gt;| 13 |--&gt;| 14 |--&gt;| 15 |--&gt;| 16 | 
++----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+</pre><p> The corresponding setup for this display layout would be: </p><pre class="fragment">#include "Pixie_Chroma.h"
+PixieChroma pix;
+
+#define DATA_PIN 5
+#define PIXIES_X 8
+#define PIXIES_Y 2
+
+void setup() {
+    pix.begin(DATA_PIN, PIXIES_X, PIXIES_Y);
+}
+</pre><p> For faster performance on large displays, see <a class="el" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin_quad()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data_pin</td><td>GPIO pin to use for FastLED output </td></tr>
@@ -445,7 +467,7 @@ PixieChroma pix;
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00108">108</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00139">139</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -532,15 +554,14 @@ PixieChroma pix;
 void setup() {
     pix.begin_quad(PIXIES_PER_PIN, PIXIES_X, PIXIES_Y);
 }
-</pre><p> Then, with the displays physically arranged in reading order (left to right, top to bottom) you're ready to begin! </p><pre class="fragment">PIN 2 ----------------------------------------------+
-PIN 1 -------+                                      |
+</pre><p> Then, with the displays physically arranged in reading order (left to right, top to bottom) you're ready to begin!</p>
+<pre class="fragment">PIN 1 -------+                       PIN 2 ---------+
              |                                      |
           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
           |  1 |--&gt;|  2 |--&gt;|  3 |--&gt;|  4 |  ||  |  5 |--&gt;|  6 |--&gt;|  7 |--&gt;|  8 | 
           +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
 
-PIN 4 ----------------------------------------------+
-PIN 3 -------+                                      |
+PIN 3 -------+                       PIN 4 ---------+
              |                                      |
           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
           |  9 |--&gt;| 10 |--&gt;| 11 |--&gt;| 12 |  ||  | 13 |--&gt;| 14 |--&gt;| 15 |--&gt;| 16 | 
@@ -556,7 +577,7 @@ PIN 3 -------+                                      |
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00231">231</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00261">261</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -584,7 +605,7 @@ PIN 3 -------+                                      |
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00274">274</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00304">304</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -623,7 +644,7 @@ set_update_mode(HOLD_FOR_UPDATE);
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00298">298</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00328">328</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -658,7 +679,7 @@ set_update_mode(HOLD_FOR_UPDATE);
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00323">323</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00353">353</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -686,7 +707,7 @@ set_update_mode(HOLD_FOR_UPDATE);
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00336">336</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00366">366</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -714,7 +735,7 @@ set_update_mode(HOLD_FOR_UPDATE);
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00349">349</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00379">379</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -742,7 +763,7 @@ set_update_mode(HOLD_FOR_UPDATE);
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00362">362</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00392">392</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -770,7 +791,7 @@ set_update_mode(HOLD_FOR_UPDATE);
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00375">375</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00405">405</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -809,7 +830,7 @@ set_update_mode(HOLD_FOR_UPDATE);
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00444">444</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00474">474</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -855,7 +876,7 @@ set_update_mode(HOLD_FOR_UPDATE);
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00459">459</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00489">489</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -944,7 +965,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00500">500</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00530">530</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -990,7 +1011,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00515">515</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00545">545</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1036,7 +1057,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00532">532</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00562">562</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1082,7 +1103,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00553">553</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00583">583</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1128,7 +1149,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00574">574</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00604">604</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1174,7 +1195,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00595">595</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00625">625</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1227,7 +1248,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00662">662</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00692">692</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1280,7 +1301,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00640">640</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00670">670</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1326,7 +1347,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00699">699</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00729">729</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1372,7 +1393,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00679">679</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00709">709</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1418,7 +1439,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00734">734</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00764">764</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1464,7 +1485,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00774">774</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00804">804</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1492,7 +1513,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00805">805</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00835">835</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1567,7 +1588,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00842">842</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00872">872</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1595,7 +1616,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00862">862</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00892">892</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1623,7 +1644,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00875">875</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00905">905</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1651,7 +1672,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00890">890</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00920">920</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1679,7 +1700,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00905">905</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00935">935</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1707,7 +1728,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00920">920</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00950">950</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1746,7 +1767,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00971">971</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01001">1001</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1785,7 +1806,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00954">954</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00984">984</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1813,7 +1834,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00985">985</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01015">1015</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1873,7 +1894,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01006">1006</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01036">1036</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1901,7 +1922,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01029">1029</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01059">1059</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1929,7 +1950,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01045">1045</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01075">1075</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1957,7 +1978,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01061">1061</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01091">1091</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1985,7 +2006,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01077">1077</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01107">1107</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2013,7 +2034,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01093">1093</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01123">1123</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2052,7 +2073,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01147">1147</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01177">1177</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2091,7 +2112,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01129">1129</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01159">1159</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2159,7 +2180,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00424">424</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00454">454</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2187,7 +2208,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01470">1470</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01500">1500</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2233,7 +2254,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01488">1488</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01518">1518</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2293,7 +2314,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01519">1519</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01549">1549</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2329,7 +2350,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01653">1653</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01683">1683</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2368,7 +2389,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01231">1231</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01261">1261</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2396,7 +2417,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01159">1159</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01189">1189</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2424,7 +2445,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01172">1172</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01202">1202</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2452,7 +2473,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01200">1200</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01230">1230</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2480,7 +2501,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01325">1325</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01355">1355</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2508,7 +2529,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01259">1259</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01289">1289</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2536,7 +2557,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01272">1272</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01302">1302</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2564,7 +2585,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01298">1298</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01328">1328</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2613,7 +2634,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The 1D index of your 2D coordinate </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01426">1426</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01456">1456</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2666,7 +2687,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01557">1557</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01587">1587</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2680,7 +2701,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Wed Oct 27 2021 23:56:11 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 28 2021 00:07:14 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
