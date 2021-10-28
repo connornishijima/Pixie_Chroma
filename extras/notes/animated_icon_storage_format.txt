@@ -1,0 +1,21 @@
+2 bits per pixel
+
+35 pixels * 2 bits   = 70 bits
+2 padding bits       = 2  bits
+frame_time (uint8_t) = 8  bits
+
+Single frame         = 80 bits / 10 bytes
+
+
+
+ANIMATION:
+
+Palette (3 cols + transp.) = 72  bits / 9 bytes
+Frame Count                = 8   bits / 1 byte
+Frame 1                    = 80  bits / 10 bytes
+Frame 2                    = 80  bits / 10 bytes
+Frame 3                    = 80  bits / 10 bytes
+Frame 4                    = 80  bits / 10 bytes
+Frame 5                    = 80  bits / 10 bytes
+
+Total animation            = 480 bits / 60 bytes
