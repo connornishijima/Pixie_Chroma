@@ -1,4 +1,4 @@
-<img src="extras/img/logo.png">
+<img src="extras/img/logo.png"> 
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a> ||
