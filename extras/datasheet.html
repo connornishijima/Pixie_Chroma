@@ -911,6 +911,10 @@
 			var page_count = 1;
 			var hue = 0;
 			
+			var canvas;
+			var image;
+			var texture;
+			
 			render_pages();
 			setInterval(render_pages,1000);
 			setInterval(monitor_page,100); 
@@ -924,23 +928,7 @@
 			*/
 			
 			function hue_cycle(){
-				// try to create a WebGL canvas (will fail if WebGL isn't supported)
-				try {
-					var canvas = fx.canvas();
-				} catch (e) {
-					return;
-				}
-
-				// convert the image to a texture
-				var image = document.getElementById('main_demo');
-				texture = canvas.texture(image);
-				
 				canvas.draw(texture).hueSaturation(hue, 0).update();
-				canvas.id = "main_demo";
-
-				// replace the image with the canvas
-				image.parentNode.insertBefore(canvas, image);
-				image.parentNode.removeChild(image);
 				
 				hue += 0.05;
 				if(hue >= 1.00){
@@ -953,15 +941,15 @@
 			function setup_animations(){
 				// try to create a WebGL canvas (will fail if WebGL isn't supported)
 				try {
-					var canvas = fx.canvas();
+					canvas = fx.canvas();
 				} catch (e) {
 					alert(e);
 					return;
 				}
 
 				// convert the image to a texture
-				var image = document.getElementById('main_demo');
-				var texture = canvas.texture(image);
+				image = document.getElementById('main_demo');
+				texture = canvas.texture(image);
 				canvas.draw(texture).update();
 				canvas.id = "main_demo";
 
