@@ -8,7 +8,9 @@
   <br><br>
 </p>
 
-![Build Status](https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg)
+![Arduino Lint Status](https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg)
+![Arduino Build Status](https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_build.yml/badge.svg)
+![DOcumentation and Reporting Status](https://github.com/connornishijima/Pixie_Chroma/actions/workflows/docs_and_reports.yml/badge.svg)
 
 *This repository is still under construction, make sure to follow our Twitter for official releases!*
 
