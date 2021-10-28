@@ -101,10 +101,10 @@
 			];
 	
 			function update_page(section){
-				var elems = document.querySelectorAll(".menu_link");
-				[].forEach.call(elems, function(el) {
-				    el.classList.remove("menu_link_select");
-				});
+				var elements = document.getElementsByClassName('menu_link menu_link_select');
+				while(elements.length > 0){
+				    elements[0].classList.remove('menu_link_select');
+				}
 				
 				for(x in menu_links){
 					var _link = menu_links[x]["link"];
