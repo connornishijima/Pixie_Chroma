@@ -1841,7 +1841,7 @@ void PixieChroma::build_controller(const uint8_t pin){
 	#endif
 }
 
-// TODO: Remove debugging Serial.print() calls from library
+
 void PixieChroma::calc_xy(){
   // Initialize XY table
 	for(uint16_t yi = 0; yi < chars_y; yi++){
@@ -1863,7 +1863,7 @@ void PixieChroma::calc_xy(){
 		}
 	}
 
-	Serial.println("SOLVING VISIBLE");
+	//Serial.println("SOLVING VISIBLE");
 
 	// Initialize first row of displays
 	uint8_t visible_rows = 0;
@@ -1918,10 +1918,8 @@ void PixieChroma::calc_xy(){
 	}
 
 	uint16_t index = NUM_VISIBLE_LEDS;
-	Serial.println(NUM_VISIBLE_LEDS);
-	Serial.println(NUM_LEDS);
 
-	Serial.println("SOLVING INVISIBLE");
+	//Serial.println("SOLVING INVISIBLE");
 	for(uint16_t y = 0; y < matrix_height; y++){
 		for(uint16_t x = 0; x < matrix_width; x++){
 			uint16_t i = (y * matrix_width) + x;
@@ -1933,16 +1931,7 @@ void PixieChroma::calc_xy(){
 			}
 		}
 	}
-	Serial.println("DONE");
-
-	for(uint16_t y = 0; y < matrix_height; y++){
-		for(uint16_t x = 0; x < matrix_width; x++){
-			uint16_t i = (y * matrix_width) + x;
-			Serial.print(xy_table[i]);
-			Serial.print('\t');
-		}
-		Serial.println();
-	}
+	//Serial.println("DONE");
 }
 
 void PixieChroma::print_xy_map(){
