@@ -257,7 +257,7 @@
 				padding-top:60px;
 			}
 			#main_demo{
-				filter: hue-rotate(180deg);
+				
 			}
 			
 		</style>
@@ -908,11 +908,34 @@
 		<script>
 			var page_num = 1;
 			var page_count = 1;
+			var canvas;
 			
 			render_pages();
 			setInterval(render_pages,1000);
 			setInterval(monitor_page,100);
 			url_jump();
+			
+			window.onload = function() {
+			    // try to create a WebGL canvas (will fail if WebGL isn't supported)
+			    try {
+				var canvas = fx.canvas();
+			    } catch (e) {
+				alert(e);
+				return;
+			    }
+
+			    // convert the image to a texture
+			    var image = document.getElementById('main_demo');
+			    var texture = canvas.texture(image);
+
+			    // apply the ink filter
+			    canvas.draw(texture).ink(0.25).update();
+
+			    // replace the image with the canvas
+			    image.parentNode.insertBefore(canvas, image);
+			    image.parentNode.removeChild(image);
+			};
+
 			
 			/*
 			document.addEventListener('click', function(){
