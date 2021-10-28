@@ -1,7 +1,7 @@
 warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/pixie_chroma_internal.cpp:15: warning: Member updated_too_soon (variable) of file pixie_chroma_internal.cpp is not documented.
 /github/workspace/src/pixie_chroma_internal.cpp:16: warning: Member PROGMEM (variable) of file pixie_chroma_internal.cpp is not documented.
-/github/workspace/src/pixie_chroma_internal.h:26: warning: Member frame_multiple (enumeration) of file pixie_chroma_internal.h is not documented.
+/github/workspace/src/pixie_chroma_internal.h:28: warning: Member frame_multiple (enumeration) of file pixie_chroma_internal.h is not documented.
 /github/workspace/src/utility/pixie_animations.cpp:30: warning: Member ANIMATION_PALETTE_SHIFT(int8_t amount) (function) of file pixie_animations.cpp is not documented.
 /github/workspace/src/utility/pixie_animations.cpp:54: warning: Member ANIMATION_GLITTER() (function) of file pixie_animations.cpp is not documented.
 /github/workspace/src/utility/pixie_animations.cpp:70: warning: Member _PENDULUM(float iter, float width) (function) of file pixie_animations.cpp is not documented.
@@ -281,34 +281,34 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_palettes.h:95: warning: Member GRADIENT_BLACK_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_utility.h:38: warning: Member dtoa(double d, char *buffer, int precision) (function) of file pixie_utility.h is not documented.
 /github/workspace/src/utility/pixie_utility.h:14: warning: Member anim_func)() (variable) of file pixie_utility.h is not documented.
-/github/workspace/src/pixie_chroma_internal.h:63: warning: Member write(long unsigned int input, uint8_t x_pos=0, uint8_t y_pos=0) (function) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:84: warning: Member print(long unsigned int input) (function) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:99: warning: Member println(long unsigned int input) (function) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:107: warning: return type of member PixieChroma::get_cursor_x is not documented
-/github/workspace/src/pixie_chroma_internal.h:108: warning: return type of member PixieChroma::get_cursor_y is not documented
-/github/workspace/src/pixie_chroma_internal.h:109: warning: return type of member PixieChroma::get_cursor_x_exact is not documented
-/github/workspace/src/pixie_chroma_internal.h:110: warning: return type of member PixieChroma::get_cursor_y_exact is not documented
-/github/workspace/src/pixie_chroma_internal.h:150: warning: Member leds (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:151: warning: Member leds_out (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:153: warning: Member mask (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:154: warning: Member mask_out (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:156: warning: Member xy_table (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:158: warning: Member matrix_width (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:159: warning: Member matrix_height (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:161: warning: Member NUM_LEDS (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:162: warning: Member NUM_VISIBLE_LEDS (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:164: warning: Member cursor_x (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:165: warning: Member cursor_y (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:167: warning: Member freeze (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:169: warning: Member current_palette (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:171: warning: Member frame_time (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:172: warning: Member t_last (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:174: warning: Member delta (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:175: warning: Member animation_speed (variable) of class PixieChroma is not documented.
-/github/workspace/src/pixie_chroma_internal.h:176: warning: Member frame_iter (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:65: warning: Member write(long unsigned int input, uint8_t x_pos=0, uint8_t y_pos=0) (function) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:86: warning: Member print(long unsigned int input) (function) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:101: warning: Member println(long unsigned int input) (function) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:109: warning: return type of member PixieChroma::get_cursor_x is not documented
+/github/workspace/src/pixie_chroma_internal.h:110: warning: return type of member PixieChroma::get_cursor_y is not documented
+/github/workspace/src/pixie_chroma_internal.h:111: warning: return type of member PixieChroma::get_cursor_x_exact is not documented
+/github/workspace/src/pixie_chroma_internal.h:112: warning: return type of member PixieChroma::get_cursor_y_exact is not documented
+/github/workspace/src/pixie_chroma_internal.h:152: warning: Member leds (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:153: warning: Member leds_out (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:155: warning: Member mask (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:156: warning: Member mask_out (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:158: warning: Member xy_table (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:160: warning: Member matrix_width (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:161: warning: Member matrix_height (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:163: warning: Member NUM_LEDS (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:164: warning: Member NUM_VISIBLE_LEDS (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:166: warning: Member cursor_x (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:167: warning: Member cursor_y (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:169: warning: Member freeze (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:171: warning: Member current_palette (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:173: warning: Member frame_time (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:174: warning: Member t_last (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:176: warning: Member delta (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:177: warning: Member animation_speed (variable) of class PixieChroma is not documented.
+/github/workspace/src/pixie_chroma_internal.h:178: warning: Member frame_iter (variable) of class PixieChroma is not documented.
 /github/workspace/src/pixie_chroma_internal.cpp:311: warning: argument 'update_type' of command @param is not found in the argument list of PixieChroma::set_update_mode(update_type t)
-/github/workspace/src/pixie_chroma_internal.h:45: warning: The following parameter of PixieChroma::set_update_mode(update_type t) is not documented:
+/github/workspace/src/pixie_chroma_internal.h:47: warning: The following parameter of PixieChroma::set_update_mode(update_type t) is not documented:
   parameter 't'
-/github/workspace/src/pixie_chroma_internal.h:123: warning: return type of member PixieChroma::kelvin_to_rgb is not documented
+/github/workspace/src/pixie_chroma_internal.h:125: warning: return type of member PixieChroma::kelvin_to_rgb is not documented
 /github/workspace/README.md:13: warning: Illegal command @lixielabs as part of a <a>..</a> block
 /github/workspace/README.md:13: warning: Illegal command @lixielabs as part of a <a>..</a> block
