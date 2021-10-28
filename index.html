@@ -110,6 +110,10 @@
 					if(_short == section && _target == "content_frame"){
 						let stateObj = { id: "100" };
 						window.history.replaceState(stateObj, _name, '/?section='+_short);
+						document.getElementById(_short).className += " menu_link_select";
+					}
+					else{
+						document.getElementById(_short).className.replace(" menu_link_select", "");
 					}
 				}
 			}
