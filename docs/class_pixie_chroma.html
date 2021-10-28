@@ -276,7 +276,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a60c3dccd46e28dac50b008a540719543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unfreezes the current mask buffer in memory to allow showing updated text the next time <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> is called. <br /></td></tr>
 <tr class="separator:a60c3dccd46e28dac50b008a540719543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a951ecfa9da789cd304305f87fc3aa31b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a951ecfa9da789cd304305f87fc3aa31b">auto_update</a> (uint16_t FPS=60)</td></tr>
-<tr class="memdesc:a951ecfa9da789cd304305f87fc3aa31b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for automatic <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls at a specified frames per second. *(Default 60, uses Ticker.attach_ms() internally.)*.  <a href="class_pixie_chroma.html#a951ecfa9da789cd304305f87fc3aa31b">More...</a><br /></td></tr>
+<tr class="memdesc:a951ecfa9da789cd304305f87fc3aa31b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for automatic <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls at a specified frames per second. (uses Ticker.attach_ms() internally)  <a href="class_pixie_chroma.html#a951ecfa9da789cd304305f87fc3aa31b">More...</a><br /></td></tr>
 <tr class="separator:a951ecfa9da789cd304305f87fc3aa31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d2f01d594a77c139365eb34053464b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">color</a> (CRGB col)</td></tr>
 <tr class="memdesc:a1d2f01d594a77c139365eb34053464b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the entire color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255)); This would set all displays to cyan, a mix of green and blue.  <a href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">More...</a><br /></td></tr>
@@ -2226,12 +2226,12 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
       </table>
 </div><div class="memdoc">
 
-<p>Allows for automatic <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls at a specified frames per second. *(Default 60, uses Ticker.attach_ms() internally.)*. </p>
+<p>Allows for automatic <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls at a specified frames per second. (uses Ticker.attach_ms() internally) </p>
 <p>This lets you use things like <a class="el" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2" title="Prints an Icon to the displays, at the current cursor position.">print()</a> as infrequently as you'd like, since <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> will automatically run in the background to keep the current animation function running smoothly.</p>
 <p>Use in conjunction with <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> and <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> to prevent <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls during text/image construction, leading to unintended partial frames being shown. Be aware, <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> does not prevent animation / palette updates (only mask updates) so animations will still run smoothly during <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> times until <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> is called and the mask is updated.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">FPS</td><td>Update <em>this</em> many times per second </td></tr>
+    <tr><td class="paramname">FPS</td><td>Update <em>this</em> many times per second (Default: 60) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2757,7 +2757,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Thu Oct 28 2021 18:10:46 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 28 2021 18:14:35 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
