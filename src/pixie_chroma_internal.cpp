@@ -99,6 +99,37 @@ PixieChroma::PixieChroma(){}
 			table, defaults the display colors to green, loads the default
 			CRGBPalette, initializes FastLED, sets the default power budget,
 			and kicks off the animation ISR.
+            
+            Pixie Chroma allows for multi-row displays, which are wired in
+            reading order (left to right, top to bottom) and their shape is
+            define here. For example, a 16-Pixie display with two rows of eight:
+            
+                data_pin
+			       |
+                +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+                |  1 |-->|  2 |-->|  3 |-->|  4 |-->|  5 |-->|  6 |-->|  7 |-->|  8 | 
+                +----+   +----+   +----+   +----+   +----+   +----+   +----+   +--+-+
+                                                                                  |
+                   +--------------------------------------------------------------+
+                   |
+                +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+                |  9 |-->| 10 |-->| 11 |-->| 12 |-->| 13 |-->| 14 |-->| 15 |-->| 16 | 
+                +----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+            
+            The corresponding setup for this display layout would be:
+            
+                #include "Pixie_Chroma.h"
+                PixieChroma pix;
+
+                #define DATA_PIN 5
+                #define PIXIES_X 8
+                #define PIXIES_Y 2
+
+                void setup() {
+                    pix.begin(DATA_PIN, PIXIES_X, PIXIES_Y);
+                }
+            
+            For faster performance on large displays, see begin_quad().
 	
 	@param  data_pin GPIO pin to use for FastLED output
 	@param  pixies_x Number of Pixie PCBs in the X axis of your display
@@ -202,15 +233,14 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
             Then, with the displays physically arranged in reading order (left to right,
             top to bottom) you're ready to begin!
             
-                PIN 2 ----------------------------------------------+
-                PIN 1 -------+                                      |
+                                         
+                PIN 1 -------+                       PIN 2 ---------+
                              |                                      |
                           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
                           |  1 |-->|  2 |-->|  3 |-->|  4 |  ||  |  5 |-->|  6 |-->|  7 |-->|  8 | 
                           +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
 
-                PIN 4 ----------------------------------------------+
-                PIN 3 -------+                                      |
+                PIN 3 -------+                       PIN 4 ---------+
                              |                                      |
                           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
                           |  9 |-->| 10 |-->| 11 |-->| 12 |  ||  | 13 |-->| 14 |-->| 15 |-->| 16 | 
