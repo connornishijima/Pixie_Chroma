@@ -311,4 +311,46 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
   parameter 't'
 /github/workspace/src/pixie_chroma_internal.h:123: warning: return type of member PixieChroma::kelvin_to_rgb is not documented
 /github/workspace/README.md:17: warning: Illegal command @lixielabs as part of a <a>..</a> block
+/github/workspace/README.md:20: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:22: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:24: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:26: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:28: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:30: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:32: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:34: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:36: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:38: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:40: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:42: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:44: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:46: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:48: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:50: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:52: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:54: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:56: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:58: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:60: warning: End of list marker found without any preceding list items
 /github/workspace/README.md:17: warning: Illegal command @lixielabs as part of a <a>..</a> block
+/github/workspace/README.md:20: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:22: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:24: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:26: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:28: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:30: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:32: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:34: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:36: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:38: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:40: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:42: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:44: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:46: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:48: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:50: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:52: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:54: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:56: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:58: warning: End of list marker found without any preceding list items
+/github/workspace/README.md:60: warning: End of list marker found without any preceding list items
