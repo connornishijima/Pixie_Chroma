@@ -1,0 +1,44 @@
+name: Arduino Build
+on:
+  push: # see: https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
+    paths:
+    - '**.ino'
+    - '**.cpp'
+    - '**.h'
+    - 'library.properties'
+    - 'library.json'
+    - 'keywords.txt'
+  pull_request:
+    paths:
+    - '**.ino'
+    - '**.cpp'
+    - '**.h'
+    - 'library.properties'
+    - 'library.json'
+    - 'keywords.txt'
+jobs:
+  build:
+    name: "Arduino_Build"
+    runs-on: ubuntu-latest
+    
+    env:
+      REQUIRED_LIBRARIES: FastLED
+      GITHUB_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+     
+      - name: Compile all examples (ESP8266)
+        uses: ArminJo/arduino-test-compile@v3
+        with:
+          arduino-board-fqbn: "esp8266:esp8266:d1_mini"
+          platform-url: "https://arduino.esp8266.com/stable/package_esp8266com_index.json" 
+          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
+      
+#      - name: Compile all examples (ESP32)
+#        uses: ArminJo/arduino-test-compile@v3
+#        with:
+#          arduino-board-fqbn: "esp32:esp32:nodemcu-32s"
+#          platform-url: "https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json"
+#          required-libraries: ${{ env.REQUIRED_LIBRARIES }}
