@@ -125,7 +125,7 @@
 					var _name = menu_links[x]["name"];
 					
 					if(_short == section && _target == "content_frame"){
-						document.getElementById(short).className += " menu_link_select";
+						document.getElementById(_short).className += " menu_link_select";
 						document.getElementById("content_frame").src = _link;
 					}
 				}
