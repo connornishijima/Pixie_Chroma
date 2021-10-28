@@ -100,6 +100,20 @@
 				},
 			];
 	
+			function update_page(section){
+				for(x in menu_links){
+					var _link = menu_links[x]["link"];
+					var _short = menu_links[x]["short"];
+					var _target = menu_links[x]["target"];
+					var _name = menu_links[x]["name"];
+					
+					if(_short == section && _target == "content_frame"){
+						window.history.pushState('null', _name, '/?section='+_short);
+					}
+				}
+				
+			}
+			
 			var menu_string = "";
 			
 			for(x in menu_links){
