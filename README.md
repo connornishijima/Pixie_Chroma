@@ -9,6 +9,7 @@
   <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg">
   <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_build.yml/badge.svg">
   <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/docs_and_reports.yml/badge.svg">
+  <img src="https://www.ardu-badge.com/badge/Pixie_Chroma.svg">
   
 </p>
 
