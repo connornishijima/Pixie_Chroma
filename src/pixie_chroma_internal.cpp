@@ -426,14 +426,14 @@ void PixieChroma::set_frame_rate_target(uint16_t target){
 /**************************************************************************/
 /*!
     @brief  Sets the line wrapping behavior:
-			
-			    set_line_wrap(true);
-				
-				Will automatically enter next line when edge of display is reached
-				
-				set_line_wrap(false);
-				
-				Will not automatically enter next line when edge of display is reached
+
+            `set_line_wrap(true);`
+
+            Will automatically enter next line when edge of display is reached
+
+            `set_line_wrap(false);`
+
+            Will not automatically enter next line when edge of display is reached
 
     @param  enabled  Enable or disable auto line-wrapping
 */
