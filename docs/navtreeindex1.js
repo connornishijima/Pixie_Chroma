@@ -1,17 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"pixie__icons_8h.html#a6dd5b82c661a8a727711ca03b6ee1034":[1,0,0,0,3,215],
-"pixie__icons_8h.html#a6eb5dbaa50ffad8d2172907d6d01219c":[1,0,0,0,3,118],
-"pixie__icons_8h.html#a6fe198546ff75898d05c3bfff499125f":[1,0,0,0,3,78],
-"pixie__icons_8h.html#a71786fd037a25c106032e82fbb02de47":[1,0,0,0,3,104],
-"pixie__icons_8h.html#a749ec4c8f54e8aecbd4473c935ba0659":[1,0,0,0,3,103],
-"pixie__icons_8h.html#a75b6d36d7cc1f8588e15be22880e9280":[1,0,0,0,3,24],
-"pixie__icons_8h.html#a7604167b3285b59743aab702b774c88c":[1,0,0,0,3,102],
-"pixie__icons_8h.html#a7842b73643a963e768d955fe764ca45e":[1,0,0,0,3,168],
-"pixie__icons_8h.html#a7e013ff1debfbafd58988beec184eae1":[1,0,0,0,3,0],
-"pixie__icons_8h.html#a7e4924bfb0e638be423f1b0077179060":[1,0,0,0,3,133],
-"pixie__icons_8h.html#a807c24e42f8d23e567299aa089bb2b9f":[1,0,0,0,3,92],
-"pixie__icons_8h.html#a80ee9181d24990bcc34199c93e131d9a":[1,0,0,0,3,163],
 "pixie__icons_8h.html#a81bd622fd2b39e8b4b348ffe9a1b9b6d":[1,0,0,0,3,108],
 "pixie__icons_8h.html#a83555685b359ef71e008b4805f66fefa":[1,0,0,0,3,179],
 "pixie__icons_8h.html#a8474664c1bb0d6b4762119b3aa9ee9cf":[1,0,0,0,3,72],
@@ -149,7 +137,8 @@ var NAVTREEINDEX1 =
 "pixie__palettes_8h_source.html":[1,0,0,0,4],
 "pixie__utility_8h.html":[1,0,0,0,5],
 "pixie__utility_8h.html#a24480bb0ea05122af15b53664bb10fd0":[1,0,0,0,5,0],
-"pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4":[1,0,0,0,5,2],
-"pixie__utility_8h.html#a533031e96910bfae07d3eda30cc6f4d3":[1,0,0,0,5,1],
+"pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4":[1,0,0,0,5,3],
+"pixie__utility_8h.html#a71c7ea7c7ea36c3cf4941124b58e1aaa":[1,0,0,0,5,1],
+"pixie__utility_8h.html#ab96bd90634bb0e6e4a0258490750a425":[1,0,0,0,5,2],
 "pixie__utility_8h_source.html":[1,0,0,0,5]
 };
