@@ -10,63 +10,6 @@
 #include "Pixie_Chroma.h" 
 #include "utility/pixie_utility.h"
 
-// -- GLOBALS -------------------------------------------------------------------------------------
-
-volatile bool updated_too_soon = false;   // Used to prevent calling show() in the ISR before a previous show() finishes
-const int8_t xy_template[77] PROGMEM = {  // Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context
-	-2, -2, -2, -2, -2, -2, -2,
-	-2, -2, -2, -2, -2, -2, -2,
-	-2, -1, -1, -1, -1, -1, -2,  
-	-2, -1, -1, -1, -1, -1, -2,  
-	-2, -1, -1, -1, -1, -1, -2,  
-	-2, -1, -1, -1, -1, -1, -2,  
-	-2, -1, -1, -1, -1, -1, -2,  
-	-2, -1, -1, -1, -1, -1, -2,  
-	-2, -1, -1, -1, -1, -1, -2,
-	-2, -2, -2, -2, -2, -2, -2,
-	-2, -2, -2, -2, -2, -2, -2
-};
-
-
-/**************************************************************************/
-/*!
-    @brief  Animation ISR that calls anim_func() (set using
-            pix.set_animation(void (*action)())), calls pix.show(), then
-	    rearms the ISR to fire again in 1/60th of a second.	
-*/
-/**************************************************************************/
-#if defined(ARDUINO_ARCH_ESP8266) // TODO: NEED ESP32 SUPPORT
-	void ICACHE_RAM_ATTR ANIMATE(){
-		extern PixieChroma pix;
-		// This is an imperfect solution, but extern-ing the class instance defined in the
-		// user sketch, this ISR routine (which can't be in a class) can still access it.
-		// _pixie_animations.cpp does this trick as well. This is why you cannot currently
-		// name your PixieChroma class instance anything but "pix". :/
-		//
-		// The solution to this would be the ISR setting a flag that a pix.process() function would read, but
-		// That would mean users can't ever delay() or use other blocking code for more than a split
-		// second without having to call the "pix.process()" again to avoid choppy output.
-		//
-		// At the cost of some non-standard methods of accessing the class in here, beginners to Arduino
-		// can just use simple print() and clear() methods to update the displays, while our
-		// tricky ISR keeps animation running nicely, even with blocking code in the main loop.
-		
-		uint32_t t_now = micros(); // Get current time
-		pix.frame_time = (t_now - pix.t_last);
-		pix.t_last = t_now;
-		
-		anim_func(); // Call custom animation function
-		
-		pix.show();  // Update Pixie Chromas
-		
-		pix.frame_iter += 1;
-		
-		static const uint32_t frame_cycles = F_CPU / 80; // 60 FPS, independent of ESP CPU frequency (this long division is only called once because of "static" declaration)
-		timer1_write(frame_cycles); // Come back here in 1/60th second
-		
-		
-	}
-#endif
 
 // ---------------------------------------------------------------------------------------------------------|
 // -- PUBLIC CLASS FUNCTIONS -------------------------------------------------------------------------------|
@@ -166,7 +109,6 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
 	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
 	set_max_power(5.0, 500); // ---------- Set default power budget in volts and milliamps
-	start_animation(); // ---------------- Kick off animation ISR
 }
 
 
@@ -288,7 +230,6 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
 	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
 	set_max_power(5, 500); // ------------ Set default power budget in volts and milliamps
-	start_animation(); // ---------------- Kick off animation ISR
 }
 
 
@@ -303,30 +244,6 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 /**************************************************************************/
 void PixieChroma::set_brightness(uint8_t level){
 	brightness_level = level;
-}
-
-
-/**************************************************************************/
-/*!
-    @brief  Configures the update mode Pixie Chroma will use:
-	
-        set_update_mode(AUTOMATIC);
-
-            Refresh LEDs with new mask data on every ISR call (60FPS) 
-				
-        set_update_mode(HOLD_FOR_UPDATE);
-
-            Only refresh LEDs with new mask_data when pix.update() is
-            called, useful for preventing updates to the image before
-            its text is fully constructed. The animation ISR driving 
-            the color map will still update at 60FPS, regardless of
-            how often pix.update() is called.
-				
-    @param  update_type (AUTOMATIC or HOLD_FOR_UPDATE)
-*/
-/**************************************************************************/
-void PixieChroma::set_update_mode(update_type t){
-	_update_mode = t;
 }
 
 
@@ -376,7 +293,7 @@ void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
     @param  action Function to set as an animation ISR
 */
 /**************************************************************************/
-void PixieChroma::set_animation(void (*action)()) {
+void PixieChroma::set_animation(void (*action)(float)) {
 	anim_func = action;
 }
 
@@ -1400,18 +1317,6 @@ int16_t PixieChroma::get_cursor_y_exact(){
 
 /**************************************************************************/
 /*!
-    @brief  Freezes the current mask buffer in memory to prevent showing
-            unfinished text if the animation ISR fires during construction
-	    of the current display data. Use update() to unfreeze.
-*/
-/**************************************************************************/
-void PixieChroma::hold(){
-	freeze = true;
-}
-
-
-/**************************************************************************/
-/*!
     @brief  Clears (blackens) the current mask buffer and resets the cursor
             to 0,0
 */
@@ -1419,17 +1324,6 @@ void PixieChroma::hold(){
 void PixieChroma::clear(){
 	memset(mask, 0, NUM_LEDS);
 	set_cursor(0,0);
-}
-
-
-/**************************************************************************/
-/*!
-    @brief  Unfreezes the current mask buffer in memory to allow showing
-            updated text the next time the animation ISR fires.
-*/
-/**************************************************************************/
-void PixieChroma::update(){
-	freeze = false;
 }
 
 
@@ -1720,75 +1614,97 @@ CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){
 
 /**************************************************************************/
 /*!
+    @brief  Freezes the current mask buffer in memory to prevent showing
+            unfinished text if show() fires during construction
+	        of the current display data. Use free() to unfreeze.
+*/
+/**************************************************************************/
+void PixieChroma::hold(){
+	freeze = true;
+}
+
+
+/**************************************************************************/
+/*!
+    @brief  Unfreezes the current mask buffer in memory to allow showing
+            updated text the next time show() is called.
+*/
+/**************************************************************************/
+void PixieChroma::free(){
+	freeze = false;
+}
+
+
+/**************************************************************************/
+/*!
     @brief  Internal function called by the ANIMATE() ISR, responsible for
             parsing 1D image data into truncated versions sent to the Pixie
 	    Chroma displays. ***FastLED.show() is called here.***
 */
 /**************************************************************************/
 void PixieChroma::show(){
-	if(!updated_too_soon){ // Prevents show() if called before last one finished
-		updated_too_soon = true;
-
-		noInterrupts();
-		if(!freeze){ // If we're not holding out for a pix.update() call, show with the current mask
-			memcpy(mask_out, mask, NUM_VISIBLE_LEDS);
-		}
-		
-		memcpy(leds_out, leds, sizeof(CRGB)*NUM_VISIBLE_LEDS);
-
-		for(uint16_t i = 0; i < NUM_VISIBLE_LEDS; i+=7){ // NUM VISIBLE always a multiple of 7, this is a slight unrolling of the for loop to save on speed
-			// MASKING
-			leds_out[i+0].fadeLightBy( 255-mask_out[i+0] ); // Apply mask "over" LED color layer
-			leds_out[i+1].fadeLightBy( 255-mask_out[i+1] );
-			leds_out[i+2].fadeLightBy( 255-mask_out[i+2] );
-			leds_out[i+3].fadeLightBy( 255-mask_out[i+3] );
-			leds_out[i+4].fadeLightBy( 255-mask_out[i+4] );
-			leds_out[i+5].fadeLightBy( 255-mask_out[i+5] );
-			leds_out[i+6].fadeLightBy( 255-mask_out[i+6] );
-
-
-			// GAMMA CORRECTION
-			if(correct_gamma){					
-				leds_out[i+0].r = gamma8[leds_out[i+0].r]; // Apply gamma correction LUT
-				leds_out[i+0].g = gamma8[leds_out[i+0].g];
-				leds_out[i+0].b = gamma8[leds_out[i+0].b];
-
-				leds_out[i+1].r = gamma8[leds_out[i+1].r];
-				leds_out[i+1].g = gamma8[leds_out[i+1].g];
-				leds_out[i+1].b = gamma8[leds_out[i+1].b];
-
-				leds_out[i+2].r = gamma8[leds_out[i+2].r];
-				leds_out[i+2].g = gamma8[leds_out[i+2].g];
-				leds_out[i+2].b = gamma8[leds_out[i+2].b];
-
-				leds_out[i+3].r = gamma8[leds_out[i+3].r];
-				leds_out[i+3].g = gamma8[leds_out[i+3].g];
-				leds_out[i+3].b = gamma8[leds_out[i+3].b];
-
-				leds_out[i+4].r = gamma8[leds_out[i+4].r];
-				leds_out[i+4].g = gamma8[leds_out[i+4].g];
-				leds_out[i+4].b = gamma8[leds_out[i+4].b];
-
-				leds_out[i+5].r = gamma8[leds_out[i+5].r];
-				leds_out[i+5].g = gamma8[leds_out[i+5].g];
-				leds_out[i+5].b = gamma8[leds_out[i+5].b];
-
-				leds_out[i+6].r = gamma8[leds_out[i+6].r];
-				leds_out[i+6].g = gamma8[leds_out[i+6].g];
-				leds_out[i+6].b = gamma8[leds_out[i+6].b];
-			}
-		}
-		
-		// Regulate brightness to keep power within budget set with pix.set_max_power(V, mA);
-		FastLED.setBrightness(calculate_max_brightness_for_power_vmA(leds_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA));
-		FastLED.show();
-
-		interrupts();
-		updated_too_soon = false;
+	uint32_t t_now = micros();
+	float frame_delta_us = t_now-t_last;
+	frame_rate = 1000000.0 / frame_delta_us;
+	delta = fps_target / frame_rate;
+	
+	anim_func(delta); // Call custom animation function
+	
+	noInterrupts();
+	if(!freeze){ // If we're not holding out for a pix.free() call, show with the current mask
+		memcpy(mask_out, mask, NUM_VISIBLE_LEDS);
 	}
-	else{
-		return;
+	memcpy(leds_out, leds, sizeof(CRGB)*NUM_VISIBLE_LEDS);
+
+	for(uint16_t i = 0; i < NUM_VISIBLE_LEDS; i+=7){ // NUM VISIBLE always a multiple of 7, this is a slight unrolling of the for loop to save on speed
+		// MASKING
+		leds_out[i+0].fadeLightBy( 255-mask_out[i+0] ); // Apply mask "over" LED color layer
+		leds_out[i+1].fadeLightBy( 255-mask_out[i+1] );
+		leds_out[i+2].fadeLightBy( 255-mask_out[i+2] );
+		leds_out[i+3].fadeLightBy( 255-mask_out[i+3] );
+		leds_out[i+4].fadeLightBy( 255-mask_out[i+4] );
+		leds_out[i+5].fadeLightBy( 255-mask_out[i+5] );
+		leds_out[i+6].fadeLightBy( 255-mask_out[i+6] );
+
+		// GAMMA CORRECTION
+		if(correct_gamma){					
+			leds_out[i+0].r = gamma8[leds_out[i+0].r]; // Apply gamma correction LUT
+			leds_out[i+0].g = gamma8[leds_out[i+0].g];
+			leds_out[i+0].b = gamma8[leds_out[i+0].b];
+
+			leds_out[i+1].r = gamma8[leds_out[i+1].r];
+			leds_out[i+1].g = gamma8[leds_out[i+1].g];
+			leds_out[i+1].b = gamma8[leds_out[i+1].b];
+
+			leds_out[i+2].r = gamma8[leds_out[i+2].r];
+			leds_out[i+2].g = gamma8[leds_out[i+2].g];
+			leds_out[i+2].b = gamma8[leds_out[i+2].b];
+
+			leds_out[i+3].r = gamma8[leds_out[i+3].r];
+			leds_out[i+3].g = gamma8[leds_out[i+3].g];
+			leds_out[i+3].b = gamma8[leds_out[i+3].b];
+
+			leds_out[i+4].r = gamma8[leds_out[i+4].r];
+			leds_out[i+4].g = gamma8[leds_out[i+4].g];
+			leds_out[i+4].b = gamma8[leds_out[i+4].b];
+
+			leds_out[i+5].r = gamma8[leds_out[i+5].r];
+			leds_out[i+5].g = gamma8[leds_out[i+5].g];
+			leds_out[i+5].b = gamma8[leds_out[i+5].b];
+
+			leds_out[i+6].r = gamma8[leds_out[i+6].r];
+			leds_out[i+6].g = gamma8[leds_out[i+6].g];
+			leds_out[i+6].b = gamma8[leds_out[i+6].b];
+		}
 	}
+		
+	// Regulate brightness to keep power within budget set with pix.set_max_power(V, mA);
+	FastLED.setBrightness(calculate_max_brightness_for_power_vmA(leds_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA));
+	FastLED.show();
+
+	interrupts();
+	
+	t_last = t_now;
 }
 
 // ---------------------------------------------------------------------------------------------------------|
@@ -1856,14 +1772,7 @@ void PixieChroma::build_controller(const uint8_t pin){
 	#endif
 }
 
-void PixieChroma::start_animation(){
-	#if defined(ESP8266)
-		timer1_attachInterrupt(ANIMATE);
-		timer1_enable(TIM_DIV1, TIM_EDGE, TIM_SINGLE);
-		timer1_write(1000000); // First frame 1,000,000 CPU cycles from now
-	#endif
-}
-
+// TODO: Remove debugging Serial.print() calls from library
 void PixieChroma::calc_xy(){
   // Initialize XY table
 	for(uint16_t yi = 0; yi < chars_y; yi++){

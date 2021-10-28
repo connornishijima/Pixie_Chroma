@@ -9,12 +9,12 @@
 
 #include "pixie_animations.h"
 
-void ANIMATION_NULL(){
+void ANIMATION_NULL(float delta){
 	// It does nothing, but it does nothing REALLY WELL! You can enable this
-	// empty function with pix.set_animation(ANIMATION_NULL) to manually control LEDs when you want
+	// empty function with pix.set_animation(ANIMATION_NULL) to manually control color when you want
 }
 
-void ANIMATION_SOLID(){
+void ANIMATION_SOLID(float delta){
 	extern PixieChroma pix;
 
 	for(uint16_t x = 0; x < pix.matrix_width; x++){
@@ -43,15 +43,15 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount){
 	iter+=amount*pix.animation_speed;
 }
 
-void ANIMATION_PALETTE_SHIFT_LEFT(){
+void ANIMATION_PALETTE_SHIFT_LEFT(float delta){
 	ANIMATION_PALETTE_SHIFT(4);
 }
 
-void ANIMATION_PALETTE_SHIFT_RIGHT(){
+void ANIMATION_PALETTE_SHIFT_RIGHT(float delta){
 	ANIMATION_PALETTE_SHIFT(-4);
 }
 
-void ANIMATION_GLITTER(){
+void ANIMATION_GLITTER(float delta){
 	extern PixieChroma pix;
 	pix.color_dim(16); // Fade to black by 6.25%;
 
@@ -90,12 +90,12 @@ void _PENDULUM(float iter, float width){
 	}
 }
 
-void ANIMATION_PENDULUM(){
+void ANIMATION_PENDULUM(float delta){
 	float iter = (beatsin8(60)-128);
 	_PENDULUM(iter,0.5);
 }
 
-void ANIMATION_PENDULUM_WIDE(){
+void ANIMATION_PENDULUM_WIDE(float delta){
 	float iter = (beatsin8(60)-128);
 	_PENDULUM(iter,1.0);
 }

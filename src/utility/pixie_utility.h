@@ -11,7 +11,24 @@
 
 // Extra utilities for PixieChroma code, such as the gamma LUT
 
-void (*anim_func)();
+void (*anim_func)(float delta);
+
+/*!
+ * @brief  Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context
+ */
+const int8_t xy_template[77] PROGMEM = {  
+	-2, -2, -2, -2, -2, -2, -2,
+	-2, -2, -2, -2, -2, -2, -2,
+	-2, -1, -1, -1, -1, -1, -2,  
+	-2, -1, -1, -1, -1, -1, -2,  
+	-2, -1, -1, -1, -1, -1, -2,  
+	-2, -1, -1, -1, -1, -1, -2,  
+	-2, -1, -1, -1, -1, -1, -2,  
+	-2, -1, -1, -1, -1, -1, -2,  
+	-2, -1, -1, -1, -1, -1, -2,
+	-2, -2, -2, -2, -2, -2, -2,
+	-2, -2, -2, -2, -2, -2, -2
+};
 
 /*!
  * @brief  Used as a fast lookup table for gamma correction

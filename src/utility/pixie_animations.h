@@ -19,14 +19,14 @@
             fully manually control LEDs when you want using pix.show().
 */
 /**************************************************************************/
-void ANIMATION_NULL(); // Prototype definition needed so _pixie_chroma.cpp can reach these functions as well as the sketch
+void ANIMATION_NULL(float delta); // Prototype definition needed so pixie_chroma_internal.cpp can reach these functions as well as the sketch
 
 /**************************************************************************/
 /*!
     @brief  Shows the current color palette without animation.
 */
 /**************************************************************************/
-void ANIMATION_SOLID();
+void ANIMATION_SOLID(float delta);
 
 /**************************************************************************/
 /*!
@@ -34,7 +34,7 @@ void ANIMATION_SOLID();
             to the left.
 */
 /**************************************************************************/
-void ANIMATION_PALETTE_SHIFT_LEFT();
+void ANIMATION_PALETTE_SHIFT_LEFT(float delta);
 
 /**************************************************************************/
 /*!
@@ -42,77 +42,28 @@ void ANIMATION_PALETTE_SHIFT_LEFT();
             to the right.
 */
 /**************************************************************************/
-void ANIMATION_PALETTE_SHIFT_RIGHT();
+void ANIMATION_PALETTE_SHIFT_RIGHT(float delta);
 
-void ANIMATION_GLITTER();
+void ANIMATION_GLITTER(float delta);
 
-void ANIMATION_PENDULUM();
-void ANIMATION_PENDULUM_WIDE();
+void ANIMATION_PENDULUM(float delta);
+void ANIMATION_PENDULUM_WIDE(float delta);
 
 void _PALETTE_SHIFT(int8_t amount);
 void _PENDULUM(float iter, float width);
 
-
 /**************************************************************************/
 /*!
-    @brief  Converts 2 CRGB colors to a gradient, and creates a color
+    @brief  Converts a set of CRGB colors to a gradient, and creates a color
             palette from that gradient.
 */
 /**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2);
-
-
-/**************************************************************************/
-/*!
-    @brief  Converts 3 CRGB colors to a gradient, and creates a color
-            palette from that gradient.
-*/
-/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3);
-
-
-/**************************************************************************/
-/*!
-    @brief  Converts 4 CRGB colors to a gradient, and creates a color
-            palette from that gradient.
-*/
-/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4);
-
-
-/**************************************************************************/
-/*!
-    @brief  Converts 5 CRGB colors to a gradient, and creates a color
-            palette from that gradient.
-*/
-/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5);
-
-
-/**************************************************************************/
-/*!
-    @brief  Converts 6 CRGB colors to a gradient, and creates a color
-            palette from that gradient.
-*/
-/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6);
-
-
-/**************************************************************************/
-/*!
-    @brief  Converts 7 CRGB colors to a gradient, and creates a color
-            palette from that gradient.
-*/
-/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7);
-
-
-/**************************************************************************/
-/*!
-    @brief  Converts 8 CRGB colors to a gradient, and creates a color
-            palette from that gradient.
-*/
-/**************************************************************************/
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8);
 
 #endif

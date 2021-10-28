@@ -13,23 +13,6 @@
 #include "Arduino.h"
 
 /*!
- * @brief  AUTOMATIC: Always show updated mask on animation call
-           
-	   HOLD_FOR_UPDATE: Wait until pix.update() is called
-	   before showing mask updates
- */
-enum update_type {
-	AUTOMATIC,
-	HOLD_FOR_UPDATE
-};
-
-enum frame_multiple {
-	WHOLE_SECOND,
-	HALF_SECOND,
-	QUARTER_SECOND
-};
-
-/*!
     @brief  Class that stores functions for interacting with
             Pixie Chroma displays.
 */
@@ -42,10 +25,9 @@ class PixieChroma{
 		/*|*/ void begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y);
 		/*|*/ void begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y);
 		/*|*/ void set_brightness(uint8_t level);
-		/*|*/ void set_update_mode(update_type t);
 		/*|*/ void set_palette(const uint8_t* pal);
 		/*|*/ void set_palette(CRGBPalette16 pal);
-		/*|*/ void set_animation(void (*action)());
+		/*|*/ void set_animation(void (*action)(float));
 		/*|*/ void set_animation_speed(float speed);
 		/*|*/ void set_gamma_correction(bool enabled);
 		/*|*/ void set_max_power(float volts, uint16_t milliamps);
@@ -111,9 +93,10 @@ class PixieChroma{
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Updating the mask/LEDS -------------------------------------------*/
-		/*|*/ void hold();
 		/*|*/ void clear();
-		/*|*/ void update();
+		/*|*/ void show();
+		/*|*/ void hold();
+		/*|*/ void free();
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Color ------------------------------------------------------------*/ 
@@ -142,9 +125,6 @@ class PixieChroma{
 		/*|*/ void     draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2);
 		/*+---------------------------------------------------------------------------------*/
 
-		// Functions - Extra
-		void show(); // Only used internally, but not private so that we can access it in an ISR
-
 		// Variables -------------------------------------------------------------------------
 
 		CRGB *leds;
@@ -164,16 +144,16 @@ class PixieChroma{
 		volatile int16_t cursor_x = 0;
 		volatile int16_t cursor_y = 0;
 		
-		volatile bool freeze = false;
-		
 		CRGBPalette16 current_palette;		
 
-		volatile uint32_t frame_time = 0;
-		volatile uint32_t t_last = 0;
-
-		volatile float delta = 1.0;
 		volatile float animation_speed = 1.0;
 		uint32_t frame_iter = 0;
+		
+		float frame_rate = 0.0;
+		uint32_t t_last = 0;
+		
+		float delta = 1.0;
+		
 		
 	private:
 		// Functions ----------------------------------
@@ -194,8 +174,6 @@ class PixieChroma{
 		float    max_V  = 5;
 		uint16_t max_mA = 800;
 
-		update_type _update_mode = AUTOMATIC;
-
 		const uint8_t display_width  = 7;
 		const uint8_t display_height = 11;
 
@@ -203,6 +181,10 @@ class PixieChroma{
 		uint8_t chars_y = 0;
 
 		const uint8_t bit_table[2] = {0,255};
+		
+		bool freeze = false;
+
+		float fps_target = 60;
 };
 
 #endif
