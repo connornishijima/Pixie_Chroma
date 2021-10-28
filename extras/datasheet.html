@@ -948,9 +948,6 @@
 				var image = document.getElementById('main_demo');
 				texture = canvas.texture(image);
 
-				// apply the ink filter
-				canvas.draw(texture).ink(0.25).update();
-
 				// replace the image with the canvas
 				image.parentNode.insertBefore(canvas, image);
 				image.parentNode.removeChild(image);
