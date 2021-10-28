@@ -68,6 +68,12 @@ jobs:
           ghpagesbranch: 'main'
           ghpagesdir: './docs/'
           
+      - name: TODO to Issue
+        uses: alstr/todo-to-issue-action@v4.3
+        id: todo
+        with:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
       - name: Clean Up
         run: "sudo chmod +x ./extras/scripts/finish_ci.sh && sudo ./extras/scripts/finish_ci.sh"
         shell: bash
