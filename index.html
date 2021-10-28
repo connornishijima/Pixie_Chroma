@@ -110,14 +110,13 @@
 			document.getElementById("menu_links").innerHTML = menu_string;
 			
 			const queryString = window.location.search;
-			console.log(queryString);
+			
 			// ?product=shirt&color=blue&newuser&size=m
 			const urlParams = new URLSearchParams(queryString);
 			
 			if(urlParams.has('section')){
 				const section = urlParams.get('section');
-
-				
+				console.log("section: "+section);
 			}
 		</script>
 	</body>
