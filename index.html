@@ -72,12 +72,52 @@
 					</a>
 				</div>
 			</span>
-			<span>
-				<a href="https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html" target="content_frame" class="menu_link">Library Documentation</a>
-				<a href="https://connornishijima.github.io/Pixie_Chroma/extras/datasheet.html" target="content_frame" class="menu_link">Datasheet</a>
-				<a href="https://github.com/connornishijima/Pixie_Chroma/#readme" class="menu_link">GitHub</a>
+			<span id="menu_links">
+				
 			</span>
 		</div>
 		<iframe id="content_frame" name="content_frame" src="https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html"></iframe>
+
+		<script>
+			var menu_links = [
+				{
+					"name":"Library Documentation",
+					"link":"https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html",
+					"target":"content_frame"
+				},
+				{
+					"name":"Datasheet",
+					"link":"https://connornishijima.github.io/Pixie_Chroma/extras/datasheet.html",
+					"target":"content_frame"
+				},
+				{
+					"name":"GitHub",
+					"link":"https://github.com/connornishijima/Pixie_Chroma/#readme",
+					"target":"window"
+				},
+			];
+	
+			var menu_string = "";
+			
+			for(x in menu_links){
+				var _link = menu_links[x]["link"];
+				var _target = menu_links[x]["target"];
+				var _name = menu_links[x]["name"];
+				menu_string += '<a href="' + _link + '" target="' + _target + '" class="menu_link">' + _name + '</a>\n';
+			}
+			
+			document.getElementById("menu_links").innerHTML = menu_string;
+			
+			const queryString = window.location.search;
+			console.log(queryString);
+			// ?product=shirt&color=blue&newuser&size=m
+			const urlParams = new URLSearchParams(queryString);
+			
+			if(urlParams.has('section')){
+				const section = urlParams.get('section');
+
+				
+			}
+		</script>
 	</body>
 </html>
