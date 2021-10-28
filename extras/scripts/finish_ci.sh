@@ -1,5 +1,6 @@
 #!/bin/bash
 # This is just for GitHub, and is used to clean up leftover files after automatic testing has completed! ;)
+# TODO: Port finish_ci.sh from Bash to Python
 
 python ./extras/scripts/generate_doxygen_report.py
 python ./extras/scripts/generate_keywords_report.py
