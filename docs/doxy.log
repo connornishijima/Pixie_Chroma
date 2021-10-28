@@ -310,5 +310,5 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/pixie_chroma_internal.h:45: warning: The following parameter of PixieChroma::set_update_mode(update_type t) is not documented:
   parameter 't'
 /github/workspace/src/pixie_chroma_internal.h:123: warning: return type of member PixieChroma::kelvin_to_rgb is not documented
-/github/workspace/README.md:7: warning: Illegal command @lixielabs as part of a <a>..</a> block
-/github/workspace/README.md:7: warning: Illegal command @lixielabs as part of a <a>..</a> block
+/github/workspace/README.md:13: warning: Illegal command @lixielabs as part of a <a>..</a> block
+/github/workspace/README.md:13: warning: Illegal command @lixielabs as part of a <a>..</a> block
