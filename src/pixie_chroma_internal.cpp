@@ -407,8 +407,12 @@ void PixieChroma::set_max_power(float volts, uint16_t milliamps){
 			(Default **60**)
 			
 			This does not change your real frame rate, or even govern it,
-			that is left up to the user with frequent show() calls or an
-			interrupt that calls show() at a similar frame rate.
+			it is left up to the user to use frequent show() calls or
+			auto_update(). The "target frame rate" here is used to calculate
+            `delta` for the animation functions, and should be set as close
+            as possible to the rate at which you are going to call show().
+
+            This function is also automatically called inside auto_update(FPS).
 
     @param  target  Target frame rate for animation.
 */
