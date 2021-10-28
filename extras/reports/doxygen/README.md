@@ -1,7 +1,8 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: *Member ***ANIMATION_PALETTE_SHIFT(int8_t*** amount) (function) of file pixie_animations.cpp is not documented.*
+- :x: *Member ***show_container()*** (function) of file pixie_chroma_internal.cpp is not documented.*
+- :x: *Member ***ANIMATION_PALETTE_SHIFT(int8_t*** amount, float delta) (function) of file pixie_animations.cpp is not documented.*
 - :x: *Member ***ANIMATION_GLITTER(float*** delta) (function) of file pixie_animations.cpp is not documented.*
 - :x: *Member ***_PENDULUM(float*** iter, float width) (function) of file pixie_animations.cpp is not documented.*
 - :x: *Member ***ANIMATION_PENDULUM(float*** delta) (function) of file pixie_animations.cpp is not documented.*
@@ -16,7 +17,7 @@
 - :x: *Member ***ANIMATION_GLITTER(float*** delta) (function) of file pixie_animations.h is not documented.*
 - :x: *Member ***ANIMATION_PENDULUM(float*** delta) (function) of file pixie_animations.h is not documented.*
 - :x: *Member ***ANIMATION_PENDULUM_WIDE(float*** delta) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***_PALETTE_SHIFT(int8_t*** amount) (function) of file pixie_animations.h is not documented.*
+- :x: *Member ***_PALETTE_SHIFT(int8_t*** amount, float delta) (function) of file pixie_animations.h is not documented.*
 - :x: *Member ***_PENDULUM(float*** iter, float width) (function) of file pixie_animations.h is not documented.*
 - :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3) (function) of file pixie_animations.h is not documented.*
 - :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4) (function) of file pixie_animations.h is not documented.*
@@ -59,9 +60,10 @@
 - :x: *Member ***cursor_x*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***cursor_y*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***current_palette*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***animation_speed*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***frame_iter*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***frame_rate*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***t_last*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***delta*** (variable) of class PixieChroma is not documented.*
+- :x: *Member ***animation_speed*** (variable) of class PixieChroma is not documented.*
+  'x_offset'
+  'y_offset'
 - :x: return type of member **PixieChroma::kelvin_to_rgb** is not documented
