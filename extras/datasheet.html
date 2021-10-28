@@ -293,37 +293,44 @@
 						<div class="section_title">General Description</div>
 						<div class="section_number">S.1</div>
 						<p>
-							PIXIE is a compact, chainable, <figurelink>(Figure 1)</figurelink> dual 5x7 LED dot-matrix display platform (compatible with Arduino) that offers full bitmap control with 7-bit global PWM and high refresh rates.<br>
+							PIXIE CHROMA is a compact, chainable, <figurelink>(Figure 1)</figurelink> dual 5x7 LED dot-matrix display platform (compatible with Arduino) that offers full RGB control with 8-bit global brightness control and high refresh rates.<br>
 							<br>
-							Using only two GPIO for <em><strong>DATA</strong></em> and <em><strong>CLOCK</strong></em>, bits can be simultaneously shifted in and out of each PIXIE at 39KHz (<strong>LEGACY_SPEED</strong>) or 67kHz (<strong>FULL_SPEED</strong>) <notelink>(Note 7)</notelink> <figurelink>(Figure 2)</figurelink>   Final frame rate depends on the number of displays in the chain. For example - assuming a 67kHz clock speed:<br>
+							Using only 1 GPIO for image transmission in Default Mode, or 4 GPIO in Quad Mode, very high refresh rates are possible with low processing overhead.<br>
 							<br>
 							<table class="table">
 								<tr class="table_labels">
-									<td>Character / Display Count</td>
-									<td>Frame Rate</td>
+									<td>Pixies</td>
+									<td>Frame Rate (Default)</td>
+									<td>Frame Rate (QUAD)</td>
 								</tr>
 								<tr>
-									<td><strong>2</strong> - (1 PIXIE)</td>
+									<td><strong>1</strong></td>
 									<td>~145</td>
+									<td><sub>N/A <em><notelink>(Note 1)</notelink></sub></em></td>
 								</tr>
 								<tr>
-									<td><strong>4</strong> - (2 PIXIES)</td>
+									<td><strong>2</strong></td>
 									<td>~113</td>
+									<td><sub>N/A <em><notelink>(Note 1)</notelink></sub></em></td>
 								</tr>
 								<tr>
-									<td><strong>6</strong> - (3 PIXIES)</td>
+									<td><strong>4</strong></td>
+									<td>~93</td>
 									<td>~93</td>
 								</tr>
 								<tr>
-									<td><strong>8</strong> - (4 PIXIES)</td>
+									<td><strong>8</strong></td>
+									<td>~79</td>
 									<td>~79</td>
 								</tr>
 								<tr>
-									<td><strong>12</strong> - (6 PIXIES)</td>
+									<td><strong>16</strong></td>
+									<td>~61</td>
 									<td>~61</td>
 								</tr>
 								<tr>
-									<td><strong>24</strong> - (12 PIXIES)</td>
+									<td><strong>24</strong></td>
+									<td>~36</td>
 									<td>~36</td>
 								</tr>
 							</table>
@@ -335,16 +342,12 @@
 						<div class="section_title">Features</div>
 						<div class="section_number">S.2</div>
 						<ul>
-							<li>Dual 5x7 LED matrices <figurelink>(Figure 4)</figurelink></li>
-							<li>2.7V to 5.5V supply</li>
+							<li>Dual 5x7 RGB LED matrices <figurelink>(Figure 4)</figurelink></li>
+							<li>3.7V to 5.5V supply</li>
 							<li>Fast bitmap control</li>
-							<li>7-bit global PWM (128 brightness levels)</li>
-							<li>Over-temperature protection</li>
-							<li>Resettable from controlling device</li>
-							<li>Reprogrammable ATTINY45 microcontroller</li>
-							<li>5.1mm * 7.6mm matrix size (19.92 ppi)</li>
-							<li>20.6mm * 34.7mm package</li>
-							<li>M2.5 mouting holes</li>
+							<li>8-bit global dimming</li>
+							<li>27.5mm * 16.5mm matrix size (10.16 ppi)</li>
+							<li>30mm * 24mm package</li>
 						</ul>
 						<div class="section_title">Applications</div>
 						<div class="section_number">S.3</div>
@@ -359,12 +362,14 @@
 						<div class="section_title">Internal Devices</div>
 						<div class="section_number">S.4</div>
 						<ul>
-							<li>ATTINY45 microcontroller</li>
-							<li>IS31FL3730 LED matrix driver</li>
-							<li>LTP-305G/HR 5x7 matrices</li>
+							<li>SK6805-EC15 (70x)</li>
 						</ul>
 					</div>
 				</div>
+				<br><br>
+				<div class="note" id="note1">
+						<strong>NOTE 1:</strong> Quad Mode is <em>only available for displays using 4 or more Pixies. (See !!PAGE HERE)</em>
+					</div><br>
 			</div>
 			<div class="footer"></div>
 			
@@ -917,7 +922,7 @@
 			
 			render_pages();
 			setInterval(monitor_page,100); 
-			//url_jump();
+			url_jump();
 			
 			/*
 			document.addEventListener('click', function(){
