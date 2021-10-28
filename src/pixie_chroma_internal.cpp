@@ -412,7 +412,8 @@ void PixieChroma::set_max_power(float volts, uint16_t milliamps){
             `delta` for the animation functions, and should be set as close
             as possible to the rate at which you are going to call show().
 
-            This function is also automatically called inside auto_update(FPS).
+            This function is automatically called with a matching FPS when
+	        you use auto_update().
 
     @param  target  Target frame rate for animation.
 */
