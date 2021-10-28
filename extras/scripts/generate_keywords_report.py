@@ -41,6 +41,7 @@ for path in Path('src').rglob('*.h'):
                                 keywords[keyword] = {}
 
 output = ""
+bad_keywords = []
 
 with open("keywords.txt","r+") as f:
     kw = f.read()
@@ -48,6 +49,7 @@ with open("keywords.txt","r+") as f:
         if not item in kw:
             output += "- :x: "
             output += "***" + str(item) + "*** not in keywords.txt!"
+            bad_keywords.append(str(item))
             output += "\n"
 
 final_output = output.split("\n")
@@ -58,6 +60,10 @@ if len(output) == 0:
     output_string += ":heavy_check_mark: **All checks passed, nothing left undocumented!**"
 else:
     output_string += ("\n".join(final_output))
+    output_string += "\n\nTo fix, append the following to the KEYWORD2 section of keywords.txt:\n\n"
+
+    for item in bad_keywords:
+        output_string += "    "+item + "\t" + "KEYWORD2\n"
 
 with open("extras/reports/keywords/README.md","w+") as f:
     f.write(output_string)
