@@ -312,3 +312,6 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/pixie_chroma_internal.h:123: warning: return type of member PixieChroma::kelvin_to_rgb is not documented
 /github/workspace/README.md:17: warning: Illegal command @lixielabs as part of a <a>..</a> block
 /github/workspace/README.md:17: warning: Illegal command @lixielabs as part of a <a>..</a> block
+error: Style sheet 'docs/doxygen-awesome-css/doxygen-awesome.css' specified by HTML_EXTRA_STYLESHEET does not exist!
+error: Style sheet 'docs/doxygen-awesome-css/doxygen-awesome-sidebar-only.css' specified by HTML_EXTRA_STYLESHEET does not exist!
+error: Style sheet 'docs/custom.css' specified by HTML_EXTRA_STYLESHEET does not exist!
