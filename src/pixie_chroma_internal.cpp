@@ -1683,7 +1683,7 @@ void PixieChroma::free(){
 /**************************************************************************/
 /*!
     @brief  Allows for automatic show() calls at a specified frames per
-	        second. *(Default 60, uses Ticker.attach_ms() internally.)*
+	        second. (uses Ticker.attach_ms() internally)
 			
 			This lets you use things like print() as infrequently as you'd
 			like, since show() will automatically run in the background
@@ -1696,7 +1696,7 @@ void PixieChroma::free(){
 			will still run smoothly during hold() times until free() is
 			called and the mask is updated.
 	
-    @param  FPS  Update *this* many times per second
+    @param  FPS  Update *this* many times per second (Default: 60)
 */
 /**************************************************************************/
 void PixieChroma::auto_update(uint16_t FPS){
