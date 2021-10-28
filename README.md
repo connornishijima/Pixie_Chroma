@@ -1,16 +1,16 @@
 <img src="extras/img/logo.png"> 
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
-  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a> ||
-  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet"><b>DATASHEET</b></a> ||
-  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=tutorials"><b>TUTORIALS</b></a> ||
-  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=oshw"><b>OSHW</b></a>
+   · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a> · · · 
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet"><b>DATASHEET</b></a> · · · 
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=tutorials"><b>TUTORIALS</b></a> · · · 
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=oshw"><b>OSHW</b></a> · · · 
   <br><br>
+  <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg">
+  <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_build.yml/badge.svg">
+  <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/docs_and_reports.yml/badge.svg">
+  
 </p>
-
-![Arduino Lint Status](https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg)
-![Arduino Build Status](https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_build.yml/badge.svg)
-![DOcumentation and Reporting Status](https://github.com/connornishijima/Pixie_Chroma/actions/workflows/docs_and_reports.yml/badge.svg)
 
 *This repository is still under construction, make sure to follow our Twitter for official releases!*
 
