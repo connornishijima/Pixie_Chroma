@@ -1700,6 +1700,7 @@ void PixieChroma::free(){
 */
 /**************************************************************************/
 void PixieChroma::auto_update(uint16_t FPS){
+	set_frame_rate_target(FPS);
 	animate.attach_ms(1000 / FPS, show_container);
 }
 
