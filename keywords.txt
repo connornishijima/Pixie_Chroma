@@ -12,7 +12,7 @@ PixieChroma	KEYWORD1
 # Methods and Functions (KEYWORD2)
 ######################################
 
-begin	KEYWORD2
+begin	KEYWORD2 
 begin_quad	KEYWORD2
 set_brightness	KEYWORD2
 set_update_mode	KEYWORD2
