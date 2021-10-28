@@ -1,0 +1,39 @@
+name: Arduino Lint
+on:
+  push: # see: https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
+    paths:
+    - '**.ino'
+    - '**.cpp'
+    - '**.h'
+    - 'library.properties'
+    - 'library.json'
+    - 'keywords.txt'
+  pull_request:
+    paths:
+    - '**.ino'
+    - '**.cpp'
+    - '**.h'
+    - 'library.properties'
+    - 'library.json'
+    - 'keywords.txt'
+jobs:
+  build:
+    name: "Arduino Lint"
+    runs-on: ubuntu-latest
+    
+    env:
+      REQUIRED_LIBRARIES: FastLED
+      GITHUB_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+     
+      - name: Lint Arduino Library
+        uses: arduino/arduino-lint-action@v1
+        with:
+          library-manager: submit
+          compliance: strict
+          recursive: true
+          verbose: true
+          report-file: ./docs/lint_report.json
