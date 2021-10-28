@@ -101,6 +101,11 @@
 			];
 	
 			function update_page(section){
+				var elems = document.querySelectorAll(".menu_link");
+				[].forEach.call(elems, function(el) {
+				    el.classList.remove("menu_link_select");
+				});
+				
 				for(x in menu_links){
 					var _link = menu_links[x]["link"];
 					var _short = menu_links[x]["short"];
@@ -109,11 +114,8 @@
 					
 					if(_short == section && _target == "content_frame"){
 						let stateObj = { id: "100" };
-						window.history.replaceState(stateObj, _name, '/?section='+_short);
+						window.history.replaceState(stateObj, _name, '/Pixie_Chroma/?section='+_short);
 						document.getElementById(_short).className += " menu_link_select";
-					}
-					else{
-						document.getElementById(_short).className.replace(" menu_link_select", "");
 					}
 				}
 			}
