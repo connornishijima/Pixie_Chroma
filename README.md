@@ -16,4 +16,46 @@
 
 **[@lixielabs](https://twitter.com/lixielabs)**
 
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
 ### (Pixie Chroma is the Coolest Character Display for Arduino)
