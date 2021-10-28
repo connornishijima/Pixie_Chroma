@@ -266,7 +266,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=yes">
 	</head>
-	<body>
+	<body onload="setup_animations();">
 		<div id="popup">
 			<img id="popup_close" src="img/close.png" width="15px" onclick="close_popup();"></img>
 			<div id="popup_title">TITLE</div>
@@ -923,6 +923,29 @@
 			});
 			*/
 			
+			function setup_animations(){
+			    // try to create a WebGL canvas (will fail if WebGL isn't supported)
+			    try {
+				var canvas = fx.canvas();
+			    } catch (e) {
+				alert(e);
+				return;
+			    }
+
+			    // convert the image to a texture
+			    var image = document.getElementById('main_demo');
+			    var texture = canvas.texture(image);
+
+			    // apply the ink filter
+			    canvas.draw(texture).ink(0.25).update();
+
+			    // replace the image with the canvas
+			    image.parentNode.insertBefore(canvas, image);
+			    image.parentNode.removeChild(image);
+				
+			    console.log("CANVAS");
+			}
+			
 			function url_jump(){
 				var info = window.location.href.split("?")[1].split("&");
 				for(var i in info){
@@ -955,28 +978,7 @@
 			}
 		
 			function render_pages(){
-				// try to create a WebGL canvas (will fail if WebGL isn't supported)
-			    try {
-					var canvas = fx.canvas();
-			    } catch (e) {
-					alert(e);
-					return;
-			    }
-
-			    // convert the image to a texture
-			    var image = document.getElementById('main_demo');
-			    var texture = canvas.texture(image);
-
-			    // apply the ink filter
-			    canvas.draw(texture).ink(0.25).update();
-
-			    // replace the image with the canvas
-			    image.parentNode.insertBefore(canvas, image);
-			    image.parentNode.removeChild(image);
-				
-			    console.log("CANVAS");
-			
-				$('.header').each(function(i, obj) {
+			   	$('.header').each(function(i, obj) {
 					var out_html = "";
 					out_html += "<img src='img/logo.png' class='logo'></img>";
 					out_html += "<img src='img/vendor.png' class='vendor'></img>";
