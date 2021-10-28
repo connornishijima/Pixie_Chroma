@@ -111,7 +111,7 @@ $(document).ready(function(){initNavTree('pixie__animations_8cpp_source.html',''
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> ANIMATION_PALETTE_SHIFT(int8_t amount){</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> ANIMATION_PALETTE_SHIFT(int8_t amount, <span class="keywordtype">float</span> delta){</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">extern</span> <a class="code" href="class_pixie_chroma.html">PixieChroma</a> pix;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">float</span> iter = 0;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
@@ -124,15 +124,15 @@ $(document).ready(function(){initNavTree('pixie__animations_8cpp_source.html',''
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    iter+=amount*pix.animation_speed;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    iter += amount * pix.animation_speed * delta;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="pixie__animations_8cpp.html#a41d5534ed4743b6767661619bb32eb8c">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8cpp.html#a41d5534ed4743b6767661619bb32eb8c">ANIMATION_PALETTE_SHIFT_LEFT</a>(<span class="keywordtype">float</span> delta){</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ANIMATION_PALETTE_SHIFT(4);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ANIMATION_PALETTE_SHIFT(4, delta);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="pixie__animations_8cpp.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8cpp.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5">ANIMATION_PALETTE_SHIFT_RIGHT</a>(<span class="keywordtype">float</span> delta){</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ANIMATION_PALETTE_SHIFT(-4);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ANIMATION_PALETTE_SHIFT(-4, delta);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> ANIMATION_GLITTER(<span class="keywordtype">float</span> delta){</div>
@@ -282,8 +282,8 @@ $(document).ready(function(){initNavTree('pixie__animations_8cpp_source.html',''
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">return</span> pal;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
 <div class="ttc" id="aclass_pixie_chroma_html"><div class="ttname"><a href="class_pixie_chroma.html">PixieChroma</a></div><div class="ttdoc">Class that stores functions for interacting with Pixie Chroma displays.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00019">pixie_chroma_internal.h:19</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_aa5c6c704a93478b92e334abeeeebd2af"><div class="ttname"><a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">PixieChroma::xy</a></div><div class="ttdeci">uint16_t xy(int16_t x, int16_t y, bool wrap=false)</div><div class="ttdoc">PixieChroma operates in a 2D context, but is run using 1D arrays. This function returns the 1D index ...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01350">pixie_chroma_internal.cpp:1350</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_ab91ce62285b7ffc368b5d613e373706b"><div class="ttname"><a href="class_pixie_chroma.html#ab91ce62285b7ffc368b5d613e373706b">PixieChroma::color_dim</a></div><div class="ttdeci">void color_dim(uint8_t amount)</div><div class="ttdoc">Darkens the color buffer by an 8-bit amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01272">pixie_chroma_internal.cpp:1272</a></div></div>
+<div class="ttc" id="aclass_pixie_chroma_html_aa5c6c704a93478b92e334abeeeebd2af"><div class="ttname"><a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">PixieChroma::xy</a></div><div class="ttdeci">uint16_t xy(int16_t x, int16_t y, bool wrap=false)</div><div class="ttdoc">PixieChroma operates in a 2D context, but is run using 1D arrays. This function returns the 1D index ...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01395">pixie_chroma_internal.cpp:1395</a></div></div>
+<div class="ttc" id="aclass_pixie_chroma_html_ab91ce62285b7ffc368b5d613e373706b"><div class="ttname"><a href="class_pixie_chroma.html#ab91ce62285b7ffc368b5d613e373706b">PixieChroma::color_dim</a></div><div class="ttdeci">void color_dim(uint8_t amount)</div><div class="ttdoc">Darkens the color buffer by an 8-bit amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01317">pixie_chroma_internal.cpp:1317</a></div></div>
 <div class="ttc" id="apixie__animations_8cpp_html_a26e7ecc10bdd314d7f8cd6e53d1da0e5"><div class="ttname"><a href="pixie__animations_8cpp.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5">ANIMATION_PALETTE_SHIFT_RIGHT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_RIGHT(float delta)</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the right.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00050">pixie_animations.cpp:50</a></div></div>
 <div class="ttc" id="apixie__animations_8cpp_html_a2b39ccf276d680bc3f1fb41eef9f53ea"><div class="ttname"><a href="pixie__animations_8cpp.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a></div><div class="ttdeci">CRGBPalette16 make_gradient(CRGB col1, CRGB col2)</div><div class="ttdoc">Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00103">pixie_animations.cpp:103</a></div></div>
 <div class="ttc" id="apixie__animations_8cpp_html_a41d5534ed4743b6767661619bb32eb8c"><div class="ttname"><a href="pixie__animations_8cpp.html#a41d5534ed4743b6767661619bb32eb8c">ANIMATION_PALETTE_SHIFT_LEFT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_LEFT(float delta)</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the left.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00046">pixie_animations.cpp:46</a></div></div>
@@ -296,7 +296,7 @@ $(document).ready(function(){initNavTree('pixie__animations_8cpp_source.html',''
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__animations_8cpp.html">pixie_animations.cpp</a></li>
-    <li class="footer">Generated on Thu Oct 28 2021 15:07:21 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 28 2021 18:01:35 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -138,11 +138,15 @@ $(document).ready(function(){initNavTree('_pixie___chroma_8h_source.html',''); i
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#define FASTLED_INTERNAL </span><span class="comment">// As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;FastLED.h&quot;</span>     <span class="comment">// Apart from some issues, it&#39;s my tool of choice for WS2812B/compatibles because it&#39;s actually amazingly useful</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__palettes_8h.html">utility/pixie_palettes.h</a>&quot;</span> <span class="comment">// ----- Color Palettes</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__font_8h.html">utility/pixie_font.h</a>&quot;</span> <span class="comment">// --------- ASCII font</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__icons_8h.html">utility/pixie_icons.h</a>&quot;</span> <span class="comment">// -------- Bitmap icon pack</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__animations_8h.html">utility/pixie_animations.h</a>&quot;</span> <span class="comment">// --- Preset animation routines</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__chroma__internal_8h.html">pixie_chroma_internal.h</a>&quot;</span> <span class="comment">// ------ Main library code</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">    #include &quot;Ticker.h&quot;</span>  <span class="comment">// Ticker for optional automated show() calls</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__palettes_8h.html">utility/pixie_palettes.h</a>&quot;</span> <span class="comment">// ----- Color Palettes</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__font_8h.html">utility/pixie_font.h</a>&quot;</span> <span class="comment">// --------- ASCII font</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__icons_8h.html">utility/pixie_icons.h</a>&quot;</span> <span class="comment">// -------- Bitmap icon pack</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__animations_8h.html">utility/pixie_animations.h</a>&quot;</span> <span class="comment">// --- Preset animation routines</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pixie__chroma__internal_8h.html">pixie_chroma_internal.h</a>&quot;</span> <span class="comment">// ------ Main library code</span></div>
 <div class="ttc" id="apixie__animations_8h_html"><div class="ttname"><a href="pixie__animations_8h.html">pixie_animations.h</a></div></div>
 <div class="ttc" id="apixie__chroma__internal_8h_html"><div class="ttname"><a href="pixie__chroma__internal_8h.html">pixie_chroma_internal.h</a></div></div>
 <div class="ttc" id="apixie__font_8h_html"><div class="ttname"><a href="pixie__font_8h.html">pixie_font.h</a></div></div>
@@ -154,7 +158,7 @@ $(document).ready(function(){initNavTree('_pixie___chroma_8h_source.html',''); i
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_pixie___chroma_8h.html">Pixie_Chroma.h</a></li>
-    <li class="footer">Generated on Thu Oct 28 2021 15:07:21 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 28 2021 18:01:34 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
