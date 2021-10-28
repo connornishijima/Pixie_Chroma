@@ -104,9 +104,12 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>dtoa</b> (double d,
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a533031e96910bfae07d3eda30cc6f4d3"><td class="memItemLeft" align="right" valign="top"><a id="a533031e96910bfae07d3eda30cc6f4d3"></a>
-void(*&#160;</td><td class="memItemRight" valign="bottom"><b>anim_func</b> )()</td></tr>
-<tr class="separator:a533031e96910bfae07d3eda30cc6f4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71c7ea7c7ea36c3cf4941124b58e1aaa"><td class="memItemLeft" align="right" valign="top"><a id="a71c7ea7c7ea36c3cf4941124b58e1aaa"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><b>anim_func</b> )(float delta)</td></tr>
+<tr class="separator:a71c7ea7c7ea36c3cf4941124b58e1aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab96bd90634bb0e6e4a0258490750a425"><td class="memItemLeft" align="right" valign="top">const int8_t xy_template[77]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pixie__utility_8h.html#ab96bd90634bb0e6e4a0258490750a425">PROGMEM</a></td></tr>
+<tr class="memdesc:ab96bd90634bb0e6e4a0258490750a425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context.  <a href="pixie__utility_8h.html#ab96bd90634bb0e6e4a0258490750a425">More...</a><br /></td></tr>
+<tr class="separator:ab96bd90634bb0e6e4a0258490750a425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a496f73fd03363df4c9a299c3108094a4"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4">gamma8</a> []</td></tr>
 <tr class="memdesc:a496f73fd03363df4c9a299c3108094a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used as a fast lookup table for gamma correction.  <a href="pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4">More...</a><br /></td></tr>
 <tr class="separator:a496f73fd03363df4c9a299c3108094a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,6 +120,37 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><b>anim_func</b> )()</
 
 <p class="definition">Definition in file <a class="el" href="pixie__utility_8h_source.html">pixie_utility.h</a>.</p>
 </div><h2 class="groupheader">Variable Documentation</h2>
+<a id="ab96bd90634bb0e6e4a0258490750a425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab96bd90634bb0e6e4a0258490750a425">&#9670;&nbsp;</a></span>PROGMEM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int8_t xy_template [77] PROGMEM</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {  </div>
+<div class="line">    -2, -2, -2, -2, -2, -2, -2,</div>
+<div class="line">    -2, -2, -2, -2, -2, -2, -2,</div>
+<div class="line">    -2, -1, -1, -1, -1, -1, -2,  </div>
+<div class="line">    -2, -1, -1, -1, -1, -1, -2,  </div>
+<div class="line">    -2, -1, -1, -1, -1, -1, -2,  </div>
+<div class="line">    -2, -1, -1, -1, -1, -1, -2,  </div>
+<div class="line">    -2, -1, -1, -1, -1, -1, -2,  </div>
+<div class="line">    -2, -1, -1, -1, -1, -1, -2,  </div>
+<div class="line">    -2, -1, -1, -1, -1, -1, -2,</div>
+<div class="line">    -2, -2, -2, -2, -2, -2, -2,</div>
+<div class="line">    -2, -2, -2, -2, -2, -2, -2</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context. </p>
+
+<p class="definition">Definition at line <a class="el" href="pixie__utility_8h_source.html#l00019">19</a> of file <a class="el" href="pixie__utility_8h_source.html">pixie_utility.h</a>.</p>
+
+</div>
+</div>
 <a id="a496f73fd03363df4c9a299c3108094a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a496f73fd03363df4c9a299c3108094a4">&#9670;&nbsp;</a></span>gamma8</h2>
 
@@ -149,7 +183,7 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><b>anim_func</b> )()</
 </div><!-- fragment -->
 <p>Used as a fast lookup table for gamma correction. </p>
 
-<p class="definition">Definition at line <a class="el" href="pixie__utility_8h_source.html#l00019">19</a> of file <a class="el" href="pixie__utility_8h_source.html">pixie_utility.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__utility_8h_source.html#l00036">36</a> of file <a class="el" href="pixie__utility_8h_source.html">pixie_utility.h</a>.</p>
 
 </div>
 </div>
@@ -159,7 +193,7 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><b>anim_func</b> )()</
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__utility_8h.html">pixie_utility.h</a></li>
-    <li class="footer">Generated on Thu Oct 28 2021 11:06:13 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 28 2021 15:07:21 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

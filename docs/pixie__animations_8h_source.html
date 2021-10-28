@@ -98,76 +98,51 @@ $(document).ready(function(){initNavTree('pixie__animations_8h_source.html','');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#a593cb4d7e47508ce5210584a7afdb2ee">ANIMATION_NULL</a>(); <span class="comment">// Prototype definition needed so _pixie_chroma.cpp can reach these functions as well as the sketch</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#a5121d4eeca2b50de7fd9af35945ecea0">ANIMATION_NULL</a>(<span class="keywordtype">float</span> delta); <span class="comment">// Prototype definition needed so pixie_chroma_internal.cpp can reach these functions as well as the sketch</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#af1bdd87ad387172d4147ae5898adf55e">ANIMATION_SOLID</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#aa437bdb1b3a0a2db1d7b991299b7f4e7">ANIMATION_SOLID</a>(<span class="keywordtype">float</span> delta);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#ae585125ef8a73983e842ac34a1631dfd">ANIMATION_PALETTE_SHIFT_LEFT</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#a41d5534ed4743b6767661619bb32eb8c">ANIMATION_PALETTE_SHIFT_LEFT</a>(<span class="keywordtype">float</span> delta);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#a1576e75014e3f831825c16ac946f7755">ANIMATION_PALETTE_SHIFT_RIGHT</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5">ANIMATION_PALETTE_SHIFT_RIGHT</a>(<span class="keywordtype">float</span> delta);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> ANIMATION_GLITTER();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> ANIMATION_GLITTER(<span class="keywordtype">float</span> delta);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> ANIMATION_PENDULUM();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> ANIMATION_PENDULUM_WIDE();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> ANIMATION_PENDULUM(<span class="keywordtype">float</span> delta);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> ANIMATION_PENDULUM_WIDE(<span class="keywordtype">float</span> delta);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> _PALETTE_SHIFT(int8_t amount);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> _PENDULUM(<span class="keywordtype">float</span> iter, <span class="keywordtype">float</span> width);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="apixie__animations_8h_html_a1576e75014e3f831825c16ac946f7755"><div class="ttname"><a href="pixie__animations_8h.html#a1576e75014e3f831825c16ac946f7755">ANIMATION_PALETTE_SHIFT_RIGHT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_RIGHT()</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the right.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00050">pixie_animations.cpp:50</a></div></div>
-<div class="ttc" id="apixie__animations_8h_html_a2b39ccf276d680bc3f1fb41eef9f53ea"><div class="ttname"><a href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a></div><div class="ttdeci">CRGBPalette16 make_gradient(CRGB col1, CRGB col2)</div><div class="ttdoc">Converts 2 CRGB colors to a gradient, and creates a color palette from that gradient.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00103">pixie_animations.cpp:103</a></div></div>
-<div class="ttc" id="apixie__animations_8h_html_a593cb4d7e47508ce5210584a7afdb2ee"><div class="ttname"><a href="pixie__animations_8h.html#a593cb4d7e47508ce5210584a7afdb2ee">ANIMATION_NULL</a></div><div class="ttdeci">void ANIMATION_NULL()</div><div class="ttdoc">It does nothing, but it does nothing REALLY WELL! You can enable this empty function with pix....</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00012">pixie_animations.cpp:12</a></div></div>
-<div class="ttc" id="apixie__animations_8h_html_ae585125ef8a73983e842ac34a1631dfd"><div class="ttname"><a href="pixie__animations_8h.html#ae585125ef8a73983e842ac34a1631dfd">ANIMATION_PALETTE_SHIFT_LEFT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_LEFT()</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the left.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00046">pixie_animations.cpp:46</a></div></div>
-<div class="ttc" id="apixie__animations_8h_html_af1bdd87ad387172d4147ae5898adf55e"><div class="ttname"><a href="pixie__animations_8h.html#af1bdd87ad387172d4147ae5898adf55e">ANIMATION_SOLID</a></div><div class="ttdeci">void ANIMATION_SOLID()</div><div class="ttdoc">Shows the current color palette without animation.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00017">pixie_animations.cpp:17</a></div></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">/**************************************************************************/</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;CRGBPalette16 <a class="code" href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="apixie__animations_8h_html_a26e7ecc10bdd314d7f8cd6e53d1da0e5"><div class="ttname"><a href="pixie__animations_8h.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5">ANIMATION_PALETTE_SHIFT_RIGHT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_RIGHT(float delta)</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the right.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00050">pixie_animations.cpp:50</a></div></div>
+<div class="ttc" id="apixie__animations_8h_html_a2b39ccf276d680bc3f1fb41eef9f53ea"><div class="ttname"><a href="pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a></div><div class="ttdeci">CRGBPalette16 make_gradient(CRGB col1, CRGB col2)</div><div class="ttdoc">Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00103">pixie_animations.cpp:103</a></div></div>
+<div class="ttc" id="apixie__animations_8h_html_a41d5534ed4743b6767661619bb32eb8c"><div class="ttname"><a href="pixie__animations_8h.html#a41d5534ed4743b6767661619bb32eb8c">ANIMATION_PALETTE_SHIFT_LEFT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_LEFT(float delta)</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the left.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00046">pixie_animations.cpp:46</a></div></div>
+<div class="ttc" id="apixie__animations_8h_html_a5121d4eeca2b50de7fd9af35945ecea0"><div class="ttname"><a href="pixie__animations_8h.html#a5121d4eeca2b50de7fd9af35945ecea0">ANIMATION_NULL</a></div><div class="ttdeci">void ANIMATION_NULL(float delta)</div><div class="ttdoc">It does nothing, but it does nothing REALLY WELL! You can enable this empty function with pix....</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00012">pixie_animations.cpp:12</a></div></div>
+<div class="ttc" id="apixie__animations_8h_html_aa437bdb1b3a0a2db1d7b991299b7f4e7"><div class="ttname"><a href="pixie__animations_8h.html#aa437bdb1b3a0a2db1d7b991299b7f4e7">ANIMATION_SOLID</a></div><div class="ttdeci">void ANIMATION_SOLID(float delta)</div><div class="ttdoc">Shows the current color palette without animation.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00017">pixie_animations.cpp:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__animations_8h.html">pixie_animations.h</a></li>
-    <li class="footer">Generated on Thu Oct 28 2021 11:06:13 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 28 2021 15:07:21 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
