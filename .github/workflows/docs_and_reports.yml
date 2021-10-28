@@ -46,5 +46,5 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Clean Up & Report Coverage
-        run: "sudo chmod +x ./extras/scripts/finish_ci.sh && sudo ./extras/scripts/finish_ci.sh"
+        run: "sudo python ./extras/scripts/finish_ci.py"
         shell: bash
