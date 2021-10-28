@@ -25,7 +25,7 @@
 				position:relative;
 				width: 225px;
 				float:right;
-				top:15px;
+				top:0px;
 			}
 			.divider{
 				width:100%;
@@ -67,7 +67,7 @@
 				text-align: justify;
 			}
 			.footer{
-				color:#b2ff68;
+				color:#ff5c93;
 				margin-left:auto;
 				margin-right:auto;
 				width:1155px;
@@ -128,7 +128,7 @@
 				width: 50%;
 			}
 			.jump_button{
-			    background-color: #b2ff68;
+			    background-color: #ff5c93;
 				color: #000;
 				font-weight: bold;
 				padding: 7px;
@@ -143,14 +143,14 @@
 			}
 			.header_num{
 				float: right;
-				color: #b2ff68;
+				color: #ff5c93;
 				font-size:24px;
 				position: relative;
 				top: 4px;
 			}
 			
 			a{
-				color:#b2ff68;
+				color:#ff5c93;
 				text-decoration:none;
 			}
 			a:hover{
@@ -158,12 +158,12 @@
 			}
 			
 			notelink, pinlink, figurelink{
-				color:#b2ff68;
+				color:#ff5c93;
 				font-style:italic;
 				font-weight:bold;
 			}
 			pinlink{
-				color:#d3ffa8;
+				color:#ff9ebf;
 				font-weight:1;
 			}
 			notelink:hover, pinlink:hover, figurelink:hover{
@@ -187,7 +187,7 @@
 				top: 0px;
 				left: 0px;
 				z-index: 100;
-				border-bottom: 5px solid #b2ff68;
+				border-bottom: 5px solid #ff5c93;
 				display: none;
 			}
 			#popup_close{
@@ -202,13 +202,13 @@
 			}
 			
 			#popup_title{
-				color: #b2ff68;
+				color: #ff5c93;
 				font-size: 22px;
 				font-weight: bold;
 				float: left;
 				display: block;
 				margin: 15px;
-				border-bottom: 2px solid #b2ff68;
+				border-bottom: 2px solid #ff5c93;
 				padding-bottom: 15px;
 			}
 			
@@ -229,7 +229,7 @@
 				top: 0px;
 				left: 0px;
 				z-index: 50;
-				border-bottom: 5px solid #b2ff68;
+				border-bottom: 5px solid #ff5c93;
 			}
 			#menu_title{
 				display:inline-block;
@@ -240,7 +240,7 @@
 				margin-right:22px;
 			}
 			#page_link, #git_link{
-				color:#b2ff68;
+				color:#ff5c93;
 				font-size:19px;
 				display:inline-block;
 				opacity:0.75;
@@ -271,7 +271,7 @@
 			</div>
 		</div>
 		<div id="menu">
-			<div id="menu_title"><strong><span style="color:#b2ff68;">PIXIE</span></strong> | <span style="color:#999">Lixie Labs <strong>Livesheet</strong></span></div>
+			<div id="menu_title"><strong><span style="color:#ff5c93;">PIXIE</span></strong> | <span style="color:#999">Lixie Labs <strong>Livesheet</strong></span></div>
 			<div id="page_num">Page 1</div>
 			<div id="page_link" onclick="get_page_link();">Link to this page</div>
 			<div id="git_link"><a href="https://github.com/connornishijima/Pixie">Visit GitHub Repository</a></div>
@@ -280,7 +280,7 @@
 			<div id="chainable_led_matrix_displays"></div>
 			<div class="page">
 				<div class="header"></div>
-				<div class="page_title">Chainable LED Matrix Displays <span class="header_num"></span></div>
+				<div class="page_title">RGB LED Matrix Displays for Arduino<span class="header_num"></span></div>
 				<img src="img/modules.png" width="100%"></img><br>
 				<br>
 				<br>
@@ -1016,7 +1016,7 @@
 				for(var i = 0; i < 100; i++){
 					$("#note"+i).css("color","#cccccc");
 				}
-				$("#"+note).css("color","#b2ff68");
+				$("#"+note).css("color","#ff5c93");
 			}
 			
 			function figure_jump(figure){
@@ -1041,7 +1041,7 @@
 				for(var i in pins){
 					$("#"+pins[i]+"_row").css("color","#cccccc");
 				}
-				$("#"+pin+"_row").css("color","#b2ff68");
+				$("#"+pin+"_row").css("color","#ff5c93");
 				//setTimeout(function(){
 				//	$("#"+pin+"_row").css("color","#cccccc");
 				//},2000);
