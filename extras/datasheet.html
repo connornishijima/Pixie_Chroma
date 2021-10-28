@@ -909,8 +909,6 @@
 		<script>
 			var page_num = 1;
 			var page_count = 1;
-			var canvas;
-			var texture;
 			var hue = 0;
 			
 			render_pages();
@@ -926,7 +924,23 @@
 			*/
 			
 			function hue_cycle(){
+				// try to create a WebGL canvas (will fail if WebGL isn't supported)
+				try {
+					var canvas = fx.canvas();
+				} catch (e) {
+					return;
+				}
+
+				// convert the image to a texture
+				var image = document.getElementById('main_demo');
+				texture = canvas.texture(image);
+				
 				canvas.draw(texture).hueSaturation(hue, 0).update();
+
+				// replace the image with the canvas
+				image.parentNode.insertBefore(canvas, image);
+				image.parentNode.removeChild(image);
+				
 				hue += 0.05;
 				if(hue >= 1.00){
 					hue = -1.00
@@ -946,7 +960,7 @@
 
 				// convert the image to a texture
 				var image = document.getElementById('main_demo');
-				texture = canvas.texture(image);
+				var texture = canvas.texture(image);
 
 				// replace the image with the canvas
 				image.parentNode.insertBefore(canvas, image);
