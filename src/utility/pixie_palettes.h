@@ -12,8 +12,8 @@
 #include "Arduino.h"
 
 const uint8_t RED_SOLID[] = {
-	0,	255,	0,	0,
-	255,	255,	0,	0,
+	0,    255,   0,   0,
+	255,  255,   0,	  0,
 };
 
 const uint8_t YELLOW_SOLID[] = {

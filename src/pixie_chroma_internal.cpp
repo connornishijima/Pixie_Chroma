@@ -10,6 +10,11 @@
 #include "Pixie_Chroma.h" 
 #include "utility/pixie_utility.h"
 
+// Used for auto_update() so that Ticker can access this specific Pixie Chroma instance.
+void show_container(){
+	extern PixieChroma pix;
+	pix.show();
+}
 
 // ---------------------------------------------------------------------------------------------------------|
 // -- PUBLIC CLASS FUNCTIONS -------------------------------------------------------------------------------|
@@ -396,6 +401,45 @@ void PixieChroma::set_max_power(float volts, uint16_t milliamps){
 
 /**************************************************************************/
 /*!
+    @brief  Sets the target frame rate for animation. This target frame rate
+	        is used to calculate `delta` in custom/preset animation functions.
+			
+			(Default **60**)
+			
+			This does not change your real frame rate, or even govern it,
+			that is left up to the user with frequent show() calls or an
+			interrupt that calls show() at a similar frame rate.
+
+    @param  target  Target frame rate for animation.
+*/
+/**************************************************************************/
+void PixieChroma::set_frame_rate_target(uint16_t target){
+	fps_target = target;
+}
+
+
+/**************************************************************************/
+/*!
+    @brief  Sets the line wrapping behavior:
+			
+			    set_line_wrap(true);
+				
+				Will automatically enter next line when edge of display is reached
+				
+				set_line_wrap(false);
+				
+				Will not automatically enter next line when edge of display is reached
+
+    @param  enabled  Enable or disable auto line-wrapping
+*/
+/**************************************************************************/
+void PixieChroma::set_line_wrap(bool enabled){
+	line_wrap = enabled;
+}
+
+
+/**************************************************************************/
+/*!
     @brief  Writes an icon* to a specified X and Y cursor position
 	
     @param  icon   The icon to write
@@ -623,8 +667,8 @@ void PixieChroma::write(float input, uint8_t places, uint8_t x_pos, uint8_t y_po
     @param  y_pos    Y pixel position of write **[optional]**
 */
 /**************************************************************************/
-void PixieChroma::write_pix(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
-	add_char(icon, cursor_x, cursor_y);
+void PixieChroma::write_pix(const uint8_t* icon, int16_t x_offset, int16_t y_offset){
+	add_char(icon, cursor_x+x_offset, cursor_y+y_offset);
 	cursor_x += display_width;
 }
 
@@ -643,23 +687,24 @@ void PixieChroma::write_pix(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
     @param  y_pos    Y pixel position of write **[optional]**
 */
 /**************************************************************************/
-void PixieChroma::write_pix(char* message, int16_t x_pos, int16_t y_pos){
+void PixieChroma::write_pix(char* message, int16_t x_offset, int16_t y_offset){
 	uint8_t len = strlen(message);
-	int16_t x_offset = x_pos;
-	int16_t y_offset = y_pos;
 	for(uint8_t i = 0; i < len; i++){
-		if(message[i] == '\n'){
-			y_offset += display_height;
-			x_offset = 1;
+		if(message[i] == '\n'){ // Newline, force line break
 			cursor_x = 1;
 			cursor_y += display_height;
 		}
-		else if(message[i] == 0 || message[i] == '\0'){ // early end of string
+		else if(line_wrap == true && cursor_x >= (display_width*chars_x)){ // End of line reached, wrap to new line if line_wrap enabled
+			cursor_x = 1;
+			cursor_y += display_height;
+			add_char(message[i], cursor_x+x_offset, cursor_y+y_offset);
+			cursor_x += display_width;
+		}
+		else if(message[i] == 0 || message[i] == '\0'){ // end of string
 			return;
 		}
-		else{
-			add_char(message[i], cursor_x, cursor_y);
-			x_offset += display_width;
+		else{ // Normal
+			add_char(message[i], cursor_x+x_offset, cursor_y+y_offset);
 			cursor_x += display_width;
 		}		
 	}
@@ -794,7 +839,7 @@ void PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
 		icon_col_4,
 		icon_col_5,
 	};
-	write_pix(icon, cursor_x, cursor_y);
+	write_pix(icon, 0, 0);
 }
 
 
@@ -807,7 +852,7 @@ void PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
 */
 /**************************************************************************/
 void PixieChroma::print(char* message){
-	write_pix(message, cursor_x, cursor_y);
+	write_pix(message, 0, 0);
 }
 
 
@@ -822,7 +867,7 @@ void PixieChroma::print(char* message){
 void PixieChroma::print(int16_t input){
 	char char_buf[32];
 	itoa(input,char_buf,10);
-	write_pix(char_buf, cursor_x, cursor_y);
+	write_pix(char_buf, 0,0);
 }
 
 
@@ -837,7 +882,7 @@ void PixieChroma::print(int16_t input){
 void PixieChroma::print(uint16_t input){
 	char char_buf[32];
 	utoa(input,char_buf,10);
-	write_pix(char_buf, cursor_x, cursor_y);
+	write_pix(char_buf, 0,0);
 }
 
 
@@ -852,7 +897,7 @@ void PixieChroma::print(uint16_t input){
 void PixieChroma::print(int32_t input){
 	char char_buf[32];
 	ltoa(input,char_buf,10);
-	write_pix(char_buf, cursor_x, cursor_y);
+	write_pix(char_buf, 0,0);
 }
 
 
@@ -867,7 +912,7 @@ void PixieChroma::print(int32_t input){
 void PixieChroma::print(uint32_t input){
 	char char_buf[32];
 	ultoa(input,char_buf,10);
-	write_pix(char_buf, cursor_x, cursor_y);
+	write_pix(char_buf, 0,0);
 }
 
 
@@ -883,7 +928,7 @@ void PixieChroma::print(uint32_t input){
 void PixieChroma::print(long unsigned int input){
 	char char_buf[32];
 	ultoa(input,char_buf,10);
-	write_pix(char_buf, cursor_x, cursor_y);
+	write_pix(char_buf, 0,0);
 }
 #endif
 
@@ -901,7 +946,7 @@ void PixieChroma::print(long unsigned int input){
 void PixieChroma::print(double input, uint8_t places){
 	char char_buf[32];
 	dtoa(input,char_buf,places);
-	write_pix(char_buf, cursor_x, cursor_y);
+	write_pix(char_buf, 0,0);
 }
 
 
@@ -930,7 +975,7 @@ void PixieChroma::print(float input, uint8_t places){
 */
 /**************************************************************************/
 void PixieChroma::println(const uint8_t* icon){
-	write_pix(icon, cursor_x, cursor_y); // ........ Output
+	write_pix(icon); // ........ Output
 	cursor_x = 1;
 	cursor_y += display_height;
 }
@@ -958,7 +1003,7 @@ void PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_c
 		icon_col_4,
 		icon_col_5,
 	};
-	write_pix(icon, cursor_x, cursor_y);
+	write_pix(icon);
 	cursor_x = 1;
 	cursor_y += display_height;
 }
@@ -974,7 +1019,7 @@ void PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_c
 */
 /**************************************************************************/
 void PixieChroma::println(char* message){
-	write_pix(message, cursor_x, cursor_y); // ........ Output
+	write_pix(message); // ........ Output
 	cursor_x = 1;
 	cursor_y += display_height;
 }
@@ -1637,6 +1682,30 @@ void PixieChroma::free(){
 
 /**************************************************************************/
 /*!
+    @brief  Allows for automatic show() calls at a specified frames per
+	        second. *(Default 60, uses Ticker.attach_ms() internally.)*
+			
+			This lets you use things like print() as infrequently as you'd
+			like, since show() will automatically run in the background
+			to keep the current animation function running smoothly.
+			
+			Use in conjunction with hold() and free() to prevent show()
+			calls during text/image construction, leading to unintended
+			partial frames being shown. Be aware, hold() does not prevent
+			animation / palette updates (only mask updates) so animations
+			will still run smoothly during hold() times until free() is
+			called and the mask is updated.
+	
+    @param  FPS  Update *this* many times per second
+*/
+/**************************************************************************/
+void PixieChroma::auto_update(uint16_t FPS){
+	animate.attach_ms(1000 / FPS, show_container);
+}
+
+
+/**************************************************************************/
+/*!
     @brief  Internal function called by the ANIMATE() ISR, responsible for
             parsing 1D image data into truncated versions sent to the Pixie
 	    Chroma displays. ***FastLED.show() is called here.***
@@ -1647,6 +1716,7 @@ void PixieChroma::show(){
 	float frame_delta_us = t_now-t_last;
 	frame_rate = 1000000.0 / frame_delta_us;
 	delta = fps_target / frame_rate;
+	t_last = t_now;
 	
 	anim_func(delta); // Call custom animation function
 	
@@ -1703,8 +1773,6 @@ void PixieChroma::show(){
 	FastLED.show();
 
 	interrupts();
-	
-	t_last = t_now;
 }
 
 // ---------------------------------------------------------------------------------------------------------|

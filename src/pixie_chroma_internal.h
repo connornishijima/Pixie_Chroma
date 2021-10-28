@@ -31,6 +31,8 @@ class PixieChroma{
 		/*|*/ void set_animation_speed(float speed);
 		/*|*/ void set_gamma_correction(bool enabled);
 		/*|*/ void set_max_power(float volts, uint16_t milliamps);
+		/*|*/ void set_frame_rate_target(uint16_t target);
+		/*|*/ void set_line_wrap(bool enabled);
 		/*+---------------------------------------------------------------------------------*/ 
 		
 		/*+-- Functions - write() ----------------------------------------------------------*/ 
@@ -47,8 +49,8 @@ class PixieChroma{
 		/*|*/ void write(float input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0);
 		/*|*/ void write(double input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0);
 		/*|*/ 
-		/*|*/ void write_pix(char* message, int16_t x_pos = 0, int16_t y_pos = 0);
-		/*|*/ void write_pix(const uint8_t* icon, int16_t x_pos = 0, int16_t y_pos = 0);
+		/*|*/ void write_pix(char* message, int16_t x_offset = 0, int16_t y_offset = 0);
+		/*|*/ void write_pix(const uint8_t* icon, int16_t x_offset = 0, int16_t y_offset = 0);
 		/*|*/ 
 		/*|*/ void add_char(char c, int16_t x_pos, int16_t y_pos);
 		/*|*/ void add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos);
@@ -97,6 +99,7 @@ class PixieChroma{
 		/*|*/ void show();
 		/*|*/ void hold();
 		/*|*/ void free();
+		/*|*/ void auto_update(uint16_t FPS = 60);
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Color ------------------------------------------------------------*/ 
@@ -146,13 +149,11 @@ class PixieChroma{
 		
 		CRGBPalette16 current_palette;		
 
-		volatile float animation_speed = 1.0;
-		uint32_t frame_iter = 0;
-		
 		float frame_rate = 0.0;
 		uint32_t t_last = 0;
-		
 		float delta = 1.0;
+
+		float animation_speed = 1.0;
 		
 		
 	private:
@@ -167,6 +168,8 @@ class PixieChroma{
 		void start_animation_old();
 		
 		// Variables ----------------------------------
+		Ticker animate;
+		
 		bool correct_gamma = false;
 		uint8_t brightness_level = 255;
 		
@@ -185,6 +188,8 @@ class PixieChroma{
 		bool freeze = false;
 
 		float fps_target = 60;
+		
+		bool line_wrap = false;
 };
 
 #endif

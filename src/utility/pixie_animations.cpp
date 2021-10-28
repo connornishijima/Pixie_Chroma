@@ -27,7 +27,7 @@ void ANIMATION_SOLID(float delta){
 	}
 }
 
-void ANIMATION_PALETTE_SHIFT(int8_t amount){
+void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta){
 	extern PixieChroma pix;
 	static float iter = 0;
 
@@ -40,15 +40,15 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount){
 		}
 	}
 
-	iter+=amount*pix.animation_speed;
+	iter += amount * pix.animation_speed * delta;
 }
 
 void ANIMATION_PALETTE_SHIFT_LEFT(float delta){
-	ANIMATION_PALETTE_SHIFT(4);
+	ANIMATION_PALETTE_SHIFT(4, delta);
 }
 
 void ANIMATION_PALETTE_SHIFT_RIGHT(float delta){
-	ANIMATION_PALETTE_SHIFT(-4);
+	ANIMATION_PALETTE_SHIFT(-4, delta);
 }
 
 void ANIMATION_GLITTER(float delta){

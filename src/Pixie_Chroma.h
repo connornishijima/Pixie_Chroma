@@ -54,6 +54,10 @@
 #define FASTLED_INTERNAL // As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.
 #include "FastLED.h"     // Apart from some issues, it's my tool of choice for WS2812B/compatibles because it's actually amazingly useful
 
+#if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
+	#include "Ticker.h"  // Ticker for optional automated show() calls
+#endif
+
 #include "utility/pixie_palettes.h" // ----- Color Palettes
 #include "utility/pixie_font.h" // --------- ASCII font
 #include "utility/pixie_icons.h" // -------- Bitmap icon pack

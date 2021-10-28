@@ -49,7 +49,7 @@ void ANIMATION_GLITTER(float delta);
 void ANIMATION_PENDULUM(float delta);
 void ANIMATION_PENDULUM_WIDE(float delta);
 
-void _PALETTE_SHIFT(int8_t amount);
+void _PALETTE_SHIFT(int8_t amount, float delta);
 void _PENDULUM(float iter, float width);
 
 /**************************************************************************/
