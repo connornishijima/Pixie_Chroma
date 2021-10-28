@@ -7,6 +7,8 @@
  * Last Updated by Connor Nishijima on 10/20/21
  */
 
+// TODO: This is a test of automated TODO issue open/close
+
 #ifndef pixie_chroma_h
 #define pixie_chroma_h
 
