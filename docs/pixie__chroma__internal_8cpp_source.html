@@ -1181,7 +1181,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160;}</div>
 <div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160; </div>
-<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;<span class="comment">// TODO: Remove debugging Serial.print() calls from library</span></div>
+<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160; </div>
 <div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;<span class="keywordtype">void</span> PixieChroma::calc_xy(){</div>
 <div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;  <span class="comment">// Initialize XY table</span></div>
 <div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;    <span class="keywordflow">for</span>(uint16_t yi = 0; yi &lt; chars_y; yi++){</div>
@@ -1203,7 +1203,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01863"></a><span class="lineno"> 1863</span>&#160;        }</div>
 <div class="line"><a name="l01864"></a><span class="lineno"> 1864</span>&#160;    }</div>
 <div class="line"><a name="l01865"></a><span class="lineno"> 1865</span>&#160; </div>
-<div class="line"><a name="l01866"></a><span class="lineno"> 1866</span>&#160;    Serial.println(<span class="stringliteral">&quot;SOLVING VISIBLE&quot;</span>);</div>
+<div class="line"><a name="l01866"></a><span class="lineno"> 1866</span>&#160;    <span class="comment">//Serial.println(&quot;SOLVING VISIBLE&quot;);</span></div>
 <div class="line"><a name="l01867"></a><span class="lineno"> 1867</span>&#160; </div>
 <div class="line"><a name="l01868"></a><span class="lineno"> 1868</span>&#160;    <span class="comment">// Initialize first row of displays</span></div>
 <div class="line"><a name="l01869"></a><span class="lineno"> 1869</span>&#160;    uint8_t visible_rows = 0;</div>
@@ -1258,43 +1258,32 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01918"></a><span class="lineno"> 1918</span>&#160;    }</div>
 <div class="line"><a name="l01919"></a><span class="lineno"> 1919</span>&#160; </div>
 <div class="line"><a name="l01920"></a><span class="lineno"> 1920</span>&#160;    uint16_t index = NUM_VISIBLE_LEDS;</div>
-<div class="line"><a name="l01921"></a><span class="lineno"> 1921</span>&#160;    Serial.println(NUM_VISIBLE_LEDS);</div>
-<div class="line"><a name="l01922"></a><span class="lineno"> 1922</span>&#160;    Serial.println(NUM_LEDS);</div>
-<div class="line"><a name="l01923"></a><span class="lineno"> 1923</span>&#160; </div>
-<div class="line"><a name="l01924"></a><span class="lineno"> 1924</span>&#160;    Serial.println(<span class="stringliteral">&quot;SOLVING INVISIBLE&quot;</span>);</div>
-<div class="line"><a name="l01925"></a><span class="lineno"> 1925</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; matrix_height; y++){</div>
-<div class="line"><a name="l01926"></a><span class="lineno"> 1926</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; matrix_width; x++){</div>
-<div class="line"><a name="l01927"></a><span class="lineno"> 1927</span>&#160;            uint16_t i = (y * matrix_width) + x;</div>
-<div class="line"><a name="l01928"></a><span class="lineno"> 1928</span>&#160;            uint16_t j = xy_table[i];</div>
-<div class="line"><a name="l01929"></a><span class="lineno"> 1929</span>&#160; </div>
-<div class="line"><a name="l01930"></a><span class="lineno"> 1930</span>&#160;            <span class="keywordflow">if</span>(xy_table[i] == -2){</div>
-<div class="line"><a name="l01931"></a><span class="lineno"> 1931</span>&#160;                xy_table[i] = index;</div>
-<div class="line"><a name="l01932"></a><span class="lineno"> 1932</span>&#160;                index++;</div>
-<div class="line"><a name="l01933"></a><span class="lineno"> 1933</span>&#160;            }</div>
-<div class="line"><a name="l01934"></a><span class="lineno"> 1934</span>&#160;        }</div>
-<div class="line"><a name="l01935"></a><span class="lineno"> 1935</span>&#160;    }</div>
-<div class="line"><a name="l01936"></a><span class="lineno"> 1936</span>&#160;    Serial.println(<span class="stringliteral">&quot;DONE&quot;</span>);</div>
-<div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160; </div>
-<div class="line"><a name="l01938"></a><span class="lineno"> 1938</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; matrix_height; y++){</div>
-<div class="line"><a name="l01939"></a><span class="lineno"> 1939</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; matrix_width; x++){</div>
-<div class="line"><a name="l01940"></a><span class="lineno"> 1940</span>&#160;            uint16_t i = (y * matrix_width) + x;</div>
-<div class="line"><a name="l01941"></a><span class="lineno"> 1941</span>&#160;            Serial.print(xy_table[i]);</div>
+<div class="line"><a name="l01921"></a><span class="lineno"> 1921</span>&#160; </div>
+<div class="line"><a name="l01922"></a><span class="lineno"> 1922</span>&#160;    <span class="comment">//Serial.println(&quot;SOLVING INVISIBLE&quot;);</span></div>
+<div class="line"><a name="l01923"></a><span class="lineno"> 1923</span>&#160;    <span class="keywordflow">for</span>(uint16_t y = 0; y &lt; matrix_height; y++){</div>
+<div class="line"><a name="l01924"></a><span class="lineno"> 1924</span>&#160;        <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; matrix_width; x++){</div>
+<div class="line"><a name="l01925"></a><span class="lineno"> 1925</span>&#160;            uint16_t i = (y * matrix_width) + x;</div>
+<div class="line"><a name="l01926"></a><span class="lineno"> 1926</span>&#160;            uint16_t j = xy_table[i];</div>
+<div class="line"><a name="l01927"></a><span class="lineno"> 1927</span>&#160; </div>
+<div class="line"><a name="l01928"></a><span class="lineno"> 1928</span>&#160;            <span class="keywordflow">if</span>(xy_table[i] == -2){</div>
+<div class="line"><a name="l01929"></a><span class="lineno"> 1929</span>&#160;                xy_table[i] = index;</div>
+<div class="line"><a name="l01930"></a><span class="lineno"> 1930</span>&#160;                index++;</div>
+<div class="line"><a name="l01931"></a><span class="lineno"> 1931</span>&#160;            }</div>
+<div class="line"><a name="l01932"></a><span class="lineno"> 1932</span>&#160;        }</div>
+<div class="line"><a name="l01933"></a><span class="lineno"> 1933</span>&#160;    }</div>
+<div class="line"><a name="l01934"></a><span class="lineno"> 1934</span>&#160;    <span class="comment">//Serial.println(&quot;DONE&quot;);</span></div>
+<div class="line"><a name="l01935"></a><span class="lineno"> 1935</span>&#160;}</div>
+<div class="line"><a name="l01936"></a><span class="lineno"> 1936</span>&#160; </div>
+<div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160;<span class="keywordtype">void</span> PixieChroma::print_xy_map(){</div>
+<div class="line"><a name="l01938"></a><span class="lineno"> 1938</span>&#160;    <span class="keywordflow">for</span>(uint8_t y = 0; y &lt; matrix_height; y++){</div>
+<div class="line"><a name="l01939"></a><span class="lineno"> 1939</span>&#160;        <span class="keywordflow">for</span>(uint8_t x = 0; x &lt; matrix_width; x++){</div>
+<div class="line"><a name="l01940"></a><span class="lineno"> 1940</span>&#160;            uint16_t index = (matrix_width*y)+x;</div>
+<div class="line"><a name="l01941"></a><span class="lineno"> 1941</span>&#160;            Serial.print(xy_table[index]);</div>
 <div class="line"><a name="l01942"></a><span class="lineno"> 1942</span>&#160;            Serial.print(<span class="charliteral">&#39;\t&#39;</span>);</div>
 <div class="line"><a name="l01943"></a><span class="lineno"> 1943</span>&#160;        }</div>
 <div class="line"><a name="l01944"></a><span class="lineno"> 1944</span>&#160;        Serial.println();</div>
 <div class="line"><a name="l01945"></a><span class="lineno"> 1945</span>&#160;    }</div>
 <div class="line"><a name="l01946"></a><span class="lineno"> 1946</span>&#160;}</div>
-<div class="line"><a name="l01947"></a><span class="lineno"> 1947</span>&#160; </div>
-<div class="line"><a name="l01948"></a><span class="lineno"> 1948</span>&#160;<span class="keywordtype">void</span> PixieChroma::print_xy_map(){</div>
-<div class="line"><a name="l01949"></a><span class="lineno"> 1949</span>&#160;    <span class="keywordflow">for</span>(uint8_t y = 0; y &lt; matrix_height; y++){</div>
-<div class="line"><a name="l01950"></a><span class="lineno"> 1950</span>&#160;        <span class="keywordflow">for</span>(uint8_t x = 0; x &lt; matrix_width; x++){</div>
-<div class="line"><a name="l01951"></a><span class="lineno"> 1951</span>&#160;            uint16_t index = (matrix_width*y)+x;</div>
-<div class="line"><a name="l01952"></a><span class="lineno"> 1952</span>&#160;            Serial.print(xy_table[index]);</div>
-<div class="line"><a name="l01953"></a><span class="lineno"> 1953</span>&#160;            Serial.print(<span class="charliteral">&#39;\t&#39;</span>);</div>
-<div class="line"><a name="l01954"></a><span class="lineno"> 1954</span>&#160;        }</div>
-<div class="line"><a name="l01955"></a><span class="lineno"> 1955</span>&#160;        Serial.println();</div>
-<div class="line"><a name="l01956"></a><span class="lineno"> 1956</span>&#160;    }</div>
-<div class="line"><a name="l01957"></a><span class="lineno"> 1957</span>&#160;}</div>
 <div class="ttc" id="a_pixie___chroma_8h_html"><div class="ttname"><a href="_pixie___chroma_8h.html">Pixie_Chroma.h</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html"><div class="ttname"><a href="class_pixie_chroma.html">PixieChroma</a></div><div class="ttdoc">Class that stores functions for interacting with Pixie Chroma displays.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00019">pixie_chroma_internal.h:19</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a0ca20cd8276fd7cad33e3c7724be5ac6"><div class="ttname"><a href="class_pixie_chroma.html#a0ca20cd8276fd7cad33e3c7724be5ac6">PixieChroma::color_blur</a></div><div class="ttdeci">void color_blur(fract8 blur_amount)</div><div class="ttdoc">Blurs the color buffer in both axes by blur_amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01251">pixie_chroma_internal.cpp:1251</a></div></div>
@@ -1344,7 +1333,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Thu Oct 28 2021 18:09:24 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 28 2021 18:10:46 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
