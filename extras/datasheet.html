@@ -936,6 +936,7 @@
 				texture = canvas.texture(image);
 				
 				canvas.draw(texture).hueSaturation(hue, 0).update();
+				canvas.id = "main_demo";
 
 				// replace the image with the canvas
 				image.parentNode.insertBefore(canvas, image);
@@ -961,6 +962,8 @@
 				// convert the image to a texture
 				var image = document.getElementById('main_demo');
 				var texture = canvas.texture(image);
+				canvas.draw(texture).update();
+				canvas.id = "main_demo";
 
 				// replace the image with the canvas
 				image.parentNode.insertBefore(canvas, image);
