@@ -2,7 +2,7 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/pixie_chroma_internal.cpp:14: warning: Member show_container() (function) of file pixie_chroma_internal.cpp is not documented.
 /github/workspace/src/pixie_chroma_internal.h:15: warning: Member t_update_mode (enumeration) of file pixie_chroma_internal.h is not documented.
 /github/workspace/src/utility/pixie_animations.cpp:12: warning: parameters of member ANIMATION_NULL are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:17: warning: parameters of member ANIMATION_SOLID are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:17: warning: parameters of member ANIMATION_STATIC are not (all) documented
 /github/workspace/src/utility/pixie_animations.cpp:30: warning: Member ANIMATION_PALETTE_SHIFT(int8_t amount, float delta) (function) of file pixie_animations.cpp is not documented.
 /github/workspace/src/utility/pixie_animations.cpp:46: warning: parameters of member ANIMATION_PALETTE_SHIFT_LEFT are not (all) documented
 /github/workspace/src/utility/pixie_animations.cpp:50: warning: parameters of member ANIMATION_PALETTE_SHIFT_RIGHT are not (all) documented
@@ -19,7 +19,7 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_animations.cpp:168: warning: Member make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7) (function) of file pixie_animations.cpp is not documented.
 /github/workspace/src/utility/pixie_animations.cpp:184: warning: Member make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8) (function) of file pixie_animations.cpp is not documented.
 /github/workspace/src/utility/pixie_animations.h:22: warning: parameters of member ANIMATION_NULL are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:29: warning: parameters of member ANIMATION_SOLID are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:29: warning: parameters of member ANIMATION_STATIC are not (all) documented
 /github/workspace/src/utility/pixie_animations.h:37: warning: parameters of member ANIMATION_PALETTE_SHIFT_LEFT are not (all) documented
 /github/workspace/src/utility/pixie_animations.h:45: warning: parameters of member ANIMATION_PALETTE_SHIFT_RIGHT are not (all) documented
 /github/workspace/src/utility/pixie_animations.h:47: warning: Member ANIMATION_GLITTER(float delta) (function) of file pixie_animations.h is not documented.
