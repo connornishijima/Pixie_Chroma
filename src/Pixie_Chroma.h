@@ -50,6 +50,12 @@
 	#error "This library currently only supports boards with an ESP8266 or ESP32 processor."
 #endif
 
+#if defined(ARDUINO_ARCH_ESP32)
+	#define FASTLED_ESP32_I2S true
+	#define FASTLED_RMT_MAX_CHANNELS 4
+	#define FASTLED_ESP32_FLASH_LOCK 1
+#endif
+
 #define FASTLED_INTERNAL // As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.
 #include "FastLED.h"     // Apart from some issues, it's my tool of choice for WS2812B/compatibles because it's actually amazingly useful
 
