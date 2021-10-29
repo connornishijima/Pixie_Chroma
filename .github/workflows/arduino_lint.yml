@@ -32,7 +32,7 @@ jobs:
       - name: Lint Arduino Library
         uses: arduino/arduino-lint-action@v1
         with:
-          library-manager: submit
+          library-manager: update
           compliance: strict
           recursive: true
           verbose: true
