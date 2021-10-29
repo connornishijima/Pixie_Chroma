@@ -229,8 +229,18 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 
 	current_palette.loadDynamicGradientPalette(GREEN_SOLID);
 
+	#if defined(ARDUINO_ARCH_ESP8266)
     // WS2811_PORTA on ESP8266 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 15 for Quad Mode
 	FastLED.addLeds<WS2811_PORTA,4>(leds_out, pixies_per_pin*70).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	#endif
+	
+	#if defined(ARDUINO_ARCH_ESP32)
+    // Quad Mode on ESP32 takes up GPIO 10, GPIO 11, GPIO 12 and GPIO 13
+	FastLED.addLeds<NEOPIXEL, 10>(leds, 0,                     (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	FastLED.addLeds<NEOPIXEL, 11>(leds, (pixies_per_pin*70),   (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	FastLED.addLeds<NEOPIXEL, 12>(leds, (pixies_per_pin*70)*2, (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	FastLED.addLeds<NEOPIXEL, 13>(leds, (pixies_per_pin*70)*4, (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	#endif
     
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
 	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
