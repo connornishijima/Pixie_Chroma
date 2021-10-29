@@ -14,7 +14,7 @@ void ANIMATION_NULL(float delta){
 	// empty function with pix.set_animation(ANIMATION_NULL) to manually control color when you want
 }
 
-void ANIMATION_SOLID(float delta){
+void ANIMATION_STATIC(float delta){
 	extern PixieChroma pix;
 
 	for(uint16_t x = 0; x < pix.matrix_width; x++){
@@ -32,7 +32,7 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta){
 	static float iter = 0;
 
 	for(uint16_t x = 0; x < pix.matrix_width; x++){
-		float progress = float(x / float(pix.matrix_width+4)) / 2;
+		float progress = float(x / float(pix.matrix_width+4));
 		CRGB col = ColorFromPalette(pix.current_palette, progress*255+iter);
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
 			uint16_t index = pix.xy(x,y);

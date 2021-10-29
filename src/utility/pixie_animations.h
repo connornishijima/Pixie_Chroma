@@ -26,7 +26,7 @@ void ANIMATION_NULL(float delta); // Prototype definition needed so pixie_chroma
     @brief  Shows the current color palette without animation.
 */
 /**************************************************************************/
-void ANIMATION_SOLID(float delta);
+void ANIMATION_STATIC(float delta);
 
 /**************************************************************************/
 /*!
