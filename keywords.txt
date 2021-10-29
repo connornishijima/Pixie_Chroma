@@ -49,7 +49,7 @@ add_char	KEYWORD2
 set_frame_rate_target	KEYWORD2
 set_line_wrap	KEYWORD2
 free	KEYWORD2
-auto_update	KEYWORD2
+set_update_mode	KEYWORD2
 
 ######################################
 # Constants (LITERAL1)
