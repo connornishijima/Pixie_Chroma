@@ -49,6 +49,7 @@
 - :x: return type of member **PixieChroma::get_cursor_y** is not documented
 - :x: return type of member **PixieChroma::get_cursor_x_exact** is not documented
 - :x: return type of member **PixieChroma::get_cursor_y_exact** is not documented
+- :x: *Member ***print_xy_map()*** (function) of class PixieChroma is not documented.*
 - :x: *Member ***leds*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***leds_out*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***mask*** (variable) of class PixieChroma is not documented.*
