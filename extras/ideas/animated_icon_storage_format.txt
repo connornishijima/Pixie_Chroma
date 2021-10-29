@@ -6,8 +6,6 @@ frame_time (uint8_t) = 8  bits
 
 Single frame         = 80 bits / 10 bytes
 
-
-
 ANIMATION:
 
 Palette (3 cols + transp.) = 72  bits / 9 bytes

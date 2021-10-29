@@ -1,0 +1,3 @@
+"BANNED" ICONS:
+
+If a "banned" icon (use your imagination) is used with print()/write(), it will print a cheeky "Unsupported icon detected. Consider your morals or use #define ICON_ANARCHY to bypass.", replace the shown icon with an "x" and delay for 1000ms before crashing the microcontroller.
