@@ -12,6 +12,11 @@
 
 #include "Arduino.h"
 
+enum t_update_mode {
+	AUTOMATIC,
+	MANUAL
+};
+
 /*!
     @brief  Class that stores functions for interacting with
             Pixie Chroma displays.
@@ -33,6 +38,7 @@ class PixieChroma{
 		/*|*/ void set_max_power(float volts, uint16_t milliamps);
 		/*|*/ void set_frame_rate_target(uint16_t target);
 		/*|*/ void set_line_wrap(bool enabled);
+		/*|*/ void set_update_mode(t_update_mode mode, uint16_t FPS = 60);
 		/*+---------------------------------------------------------------------------------*/ 
 		
 		/*+-- Functions - write() ----------------------------------------------------------*/ 
@@ -99,7 +105,6 @@ class PixieChroma{
 		/*|*/ void show();
 		/*|*/ void hold();
 		/*|*/ void free();
-		/*|*/ void auto_update(uint16_t FPS = 60);
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Color ------------------------------------------------------------*/ 
@@ -160,12 +165,7 @@ class PixieChroma{
 		// Functions ----------------------------------
 		void build_controller(const uint8_t pin);
 		void calc_xy();
-		void run_scrollers();
-		void effect_solid_color();
-		void effect_rainbow();
 		void print_xy_map();
-		void start_animation();
-		void start_animation_old();
 		
 		// Variables ----------------------------------
 		Ticker animate;
@@ -186,6 +186,7 @@ class PixieChroma{
 		const uint8_t bit_table[2] = {0,255};
 		
 		bool freeze = false;
+		bool ticker_running = false;
 
 		float fps_target = 60;
 		

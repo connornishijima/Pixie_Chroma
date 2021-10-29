@@ -235,11 +235,11 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 	#endif
 	
 	#if defined(ARDUINO_ARCH_ESP32)
-    // Quad Mode on ESP32 takes up GPIO 10, GPIO 11, GPIO 12 and GPIO 13
-	FastLED.addLeds<NEOPIXEL, 10>(leds, 0,                     (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
-	FastLED.addLeds<NEOPIXEL, 11>(leds, (pixies_per_pin*70),   (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
-	FastLED.addLeds<NEOPIXEL, 12>(leds, (pixies_per_pin*70)*2, (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
-	FastLED.addLeds<NEOPIXEL, 13>(leds, (pixies_per_pin*70)*4, (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+    // Quad Mode on ESP32 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 27
+	FastLED.addLeds<NEOPIXEL, 13>(leds, 0,                     (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	FastLED.addLeds<NEOPIXEL, 12>(leds, (pixies_per_pin*70),   (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	FastLED.addLeds<NEOPIXEL, 14>(leds, (pixies_per_pin*70)*2, (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	FastLED.addLeds<NEOPIXEL, 27>(leds, (pixies_per_pin*70)*4, (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
 	#endif
     
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
@@ -450,6 +450,42 @@ void PixieChroma::set_frame_rate_target(uint16_t target){
 /**************************************************************************/
 void PixieChroma::set_line_wrap(bool enabled){
 	line_wrap = enabled;
+}
+
+
+/**************************************************************************/
+/*!
+    @brief  Allows for automatic show() calls at a specified frames per
+	        second if AUTOMATIC is used. (uses Ticker.attach_ms() internally)
+			
+			This lets you use things like print() as infrequently as you'd
+			like, since show() will automatically run in the background
+			to keep the current animation function running smoothly.
+			
+			Use in conjunction with hold() and free() to prevent show()
+			calls during text/image construction, leading to unintended
+			partial frames being shown. Be aware, hold() does not prevent
+			animation / palette updates (only mask updates) so animations
+			will still run smoothly during hold() times until free() is
+			called and the mask is updated.
+	
+    @param  mode  AUTOMATIC or MANUAL. AUTOMATIC will call show() at `FPS`
+	              using an ISR, MANUAL allows you call show() when you like.
+
+    @param  FPS   Update *this* many times per second (Default: 60) Only
+	              applicable when mode is AUTOMATIC
+*/
+/**************************************************************************/
+void PixieChroma::set_update_mode(t_update_mode mode, uint16_t FPS){
+	if(mode == AUTOMATIC && !ticker_running){
+		set_frame_rate_target(FPS);
+		animate.attach_ms(1000 / FPS, show_container);
+		ticker_running = true;
+	}
+	else if(mode == MANUAL && ticker_running){
+		animate.detach();
+		ticker_running = false;
+	}
 }
 
 
@@ -1697,31 +1733,6 @@ void PixieChroma::free(){
 
 /**************************************************************************/
 /*!
-    @brief  Allows for automatic show() calls at a specified frames per
-	        second. (uses Ticker.attach_ms() internally)
-			
-			This lets you use things like print() as infrequently as you'd
-			like, since show() will automatically run in the background
-			to keep the current animation function running smoothly.
-			
-			Use in conjunction with hold() and free() to prevent show()
-			calls during text/image construction, leading to unintended
-			partial frames being shown. Be aware, hold() does not prevent
-			animation / palette updates (only mask updates) so animations
-			will still run smoothly during hold() times until free() is
-			called and the mask is updated.
-	
-    @param  FPS  Update *this* many times per second (Default: 60)
-*/
-/**************************************************************************/
-void PixieChroma::auto_update(uint16_t FPS){
-	set_frame_rate_target(FPS);
-	animate.attach_ms(1000 / FPS, show_container);
-}
-
-
-/**************************************************************************/
-/*!
     @brief  Internal function called by the ANIMATE() ISR, responsible for
             parsing 1D image data into truncated versions sent to the Pixie
 	    Chroma displays. ***FastLED.show() is called here.***
@@ -1736,51 +1747,22 @@ void PixieChroma::show(){
 	
 	anim_func(delta); // Call custom animation function
 	
-	noInterrupts();
+	noInterrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 	if(!freeze){ // If we're not holding out for a pix.free() call, show with the current mask
 		memcpy(mask_out, mask, NUM_VISIBLE_LEDS);
 	}
 	memcpy(leds_out, leds, sizeof(CRGB)*NUM_VISIBLE_LEDS);
 
-	for(uint16_t i = 0; i < NUM_VISIBLE_LEDS; i+=7){ // NUM VISIBLE always a multiple of 7, this is a slight unrolling of the for loop to save on speed
+	for(uint16_t i = 0; i < NUM_VISIBLE_LEDS; i++){
 		// MASKING
-		leds_out[i+0].fadeLightBy( 255-mask_out[i+0] ); // Apply mask "over" LED color layer
-		leds_out[i+1].fadeLightBy( 255-mask_out[i+1] );
-		leds_out[i+2].fadeLightBy( 255-mask_out[i+2] );
-		leds_out[i+3].fadeLightBy( 255-mask_out[i+3] );
-		leds_out[i+4].fadeLightBy( 255-mask_out[i+4] );
-		leds_out[i+5].fadeLightBy( 255-mask_out[i+5] );
-		leds_out[i+6].fadeLightBy( 255-mask_out[i+6] );
-
+		leds_out[i].fadeLightBy( 255-mask_out[i] ); // Apply mask "over" LED color layer
+		
 		// GAMMA CORRECTION
 		if(correct_gamma){					
-			leds_out[i+0].r = gamma8[leds_out[i+0].r]; // Apply gamma correction LUT
-			leds_out[i+0].g = gamma8[leds_out[i+0].g];
-			leds_out[i+0].b = gamma8[leds_out[i+0].b];
-
-			leds_out[i+1].r = gamma8[leds_out[i+1].r];
-			leds_out[i+1].g = gamma8[leds_out[i+1].g];
-			leds_out[i+1].b = gamma8[leds_out[i+1].b];
-
-			leds_out[i+2].r = gamma8[leds_out[i+2].r];
-			leds_out[i+2].g = gamma8[leds_out[i+2].g];
-			leds_out[i+2].b = gamma8[leds_out[i+2].b];
-
-			leds_out[i+3].r = gamma8[leds_out[i+3].r];
-			leds_out[i+3].g = gamma8[leds_out[i+3].g];
-			leds_out[i+3].b = gamma8[leds_out[i+3].b];
-
-			leds_out[i+4].r = gamma8[leds_out[i+4].r];
-			leds_out[i+4].g = gamma8[leds_out[i+4].g];
-			leds_out[i+4].b = gamma8[leds_out[i+4].b];
-
-			leds_out[i+5].r = gamma8[leds_out[i+5].r];
-			leds_out[i+5].g = gamma8[leds_out[i+5].g];
-			leds_out[i+5].b = gamma8[leds_out[i+5].b];
-
-			leds_out[i+6].r = gamma8[leds_out[i+6].r];
-			leds_out[i+6].g = gamma8[leds_out[i+6].g];
-			leds_out[i+6].b = gamma8[leds_out[i+6].b];
+			leds_out[i].r = gamma8[leds_out[i].r]; // Apply gamma correction LUT
+			leds_out[i].g = gamma8[leds_out[i].g];
+			leds_out[i].b = gamma8[leds_out[i].b];
 		}
 	}
 		
@@ -1788,7 +1770,7 @@ void PixieChroma::show(){
 	FastLED.setBrightness(calculate_max_brightness_for_power_vmA(leds_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA));
 	FastLED.show();
 
-	interrupts();
+	interrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$%
 }
 
 // ---------------------------------------------------------------------------------------------------------|
