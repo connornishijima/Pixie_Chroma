@@ -1,4 +1,4 @@
-/*!
+/*! 
  * @file pixie_chroma_internal.h
  *
  * Designed specifically to work with Pixie Chroma:
