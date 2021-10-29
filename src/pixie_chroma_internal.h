@@ -131,6 +131,7 @@ class PixieChroma{
 		/*+-- Functions - 2D Tools ---------------------------------------------------------*/ 
 		/*|*/ uint16_t xy(int16_t x, int16_t y, bool wrap = false);
 		/*|*/ void     draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2);
+		/*|*/ void     print_xy_map();
 		/*+---------------------------------------------------------------------------------*/
 
 		// Variables -------------------------------------------------------------------------
@@ -165,7 +166,6 @@ class PixieChroma{
 		// Functions ----------------------------------
 		void build_controller(const uint8_t pin);
 		void calc_xy();
-		void print_xy_map();
 		
 		// Variables ----------------------------------
 		Ticker animate;

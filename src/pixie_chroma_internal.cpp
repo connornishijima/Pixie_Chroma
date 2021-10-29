@@ -707,6 +707,7 @@ void PixieChroma::write(float input, uint8_t places, uint8_t x_pos, uint8_t y_po
 
 
 
+
 /**************************************************************************/
 /*!
     @brief  Internal function for rendering icons to the mask buffer.
@@ -1773,6 +1774,17 @@ void PixieChroma::show(){
 	interrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$%
 }
 
+void PixieChroma::print_xy_map(){
+	for(uint8_t y = 0; y < matrix_height; y++){
+		for(uint8_t x = 0; x < matrix_width; x++){
+			uint16_t index = (matrix_width*y)+x;
+			Serial.print(xy_table[index]);
+			Serial.print('\t');
+		}
+		Serial.println();
+	}
+}
+
 // ---------------------------------------------------------------------------------------------------------|
 // -- PRIVATE CLASS FUNCTIONS ------------------------------------------------------------------------------|
 // ---------------------------------------------------------------------------------------------------------|
@@ -1906,7 +1918,7 @@ void PixieChroma::calc_xy(){
 					src_data += (35*chars_x);
 
 					if(src_data > NUM_VISIBLE_LEDS){
-						NUM_VISIBLE_LEDS = src_data;
+						NUM_VISIBLE_LEDS = src_data+1;
 					}
 					xy_table[final_src_index+row_length] = src_data;
 				}
@@ -1929,15 +1941,4 @@ void PixieChroma::calc_xy(){
 		}
 	}
 	//Serial.println("DONE");
-}
-
-void PixieChroma::print_xy_map(){
-	for(uint8_t y = 0; y < matrix_height; y++){
-		for(uint8_t x = 0; x < matrix_width; x++){
-			uint16_t index = (matrix_width*y)+x;
-			Serial.print(xy_table[index]);
-			Serial.print('\t');
-		}
-		Serial.println();
-	}
 }

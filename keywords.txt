@@ -53,6 +53,7 @@ color_blur_x	KEYWORD2
 color_blur_y	KEYWORD2
 xy	KEYWORD2
 draw_line	KEYWORD2
+print_xy_map	KEYWORD2
 
 
 ######################################
