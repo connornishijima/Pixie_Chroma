@@ -508,7 +508,7 @@ void setup() {
 
 <p>Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED, sets the default power budget, and kicks off the animation ISR. </p>
 <p>This version of <a class="el" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin()</a> is special, in that it will send your image data to the LEDs in 4 parallel streams to increase speed.</p>
-<p>Unfortunately, this requires hard-coded pins on the ESP8266 to function <em>due to FastLED limitations</em>:</p>
+<p>Unfortunately, this requires hard-coded pins on the ESP8266 and ESP32 to function <em>due to FastLED limitations</em>:</p>
 <ul>
 <li>DATA_OUT_1: <b>GPIO 12 / D6</b></li>
 <li>DATA_OUT_2: <b>GPIO 13 / D7</b></li>
@@ -2772,7 +2772,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Sat Oct 30 2021 20:08:25 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 30 2021 20:23:54 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
