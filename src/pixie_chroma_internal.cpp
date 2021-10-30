@@ -10,7 +10,12 @@
 #include "Pixie_Chroma.h" 
 #include "utility/pixie_utility.h"
 
-// Used for auto_update() so that Ticker can access this specific Pixie Chroma instance.
+/**************************************************************************/
+/*!
+    @brief  Used for auto_update() so that Ticker can access this specific
+            Pixie Chroma instance. Slightly hacky with the `extern`.
+*/
+/**************************************************************************/
 void show_container(){
 	extern PixieChroma pix;
 	pix.show();
