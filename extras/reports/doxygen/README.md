@@ -1,7 +1,6 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: *Member ***t_update_mode*** (enumeration) of file pixie_chroma_internal.h is not documented.*
 - :x: *Member ***ANIMATION_PALETTE_SHIFT(int8_t*** amount, float delta) (function) of file pixie_animations.cpp is not documented.*
 - :x: *Member ***ANIMATION_GLITTER(float*** delta) (function) of file pixie_animations.cpp is not documented.*
 - :x: *Member ***_PENDULUM(float*** iter, float width) (function) of file pixie_animations.cpp is not documented.*
