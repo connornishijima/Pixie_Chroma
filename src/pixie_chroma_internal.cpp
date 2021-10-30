@@ -54,7 +54,7 @@ PixieChroma::PixieChroma(){}
             
             Pixie Chroma allows for multi-row displays, which are wired in
             reading order (left to right, top to bottom) and their shape is
-            define here. For example, a 16-Pixie display with two rows of eight:
+            defined here. For example, a 16-Pixie display with two rows of eight:
             
                 data_pin
 			       |
@@ -184,13 +184,13 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
             top to bottom) you're ready to begin!
             
                                          
-                PIN 1 -------+                       PIN 2 ---------+
+                DATA_OUT_1 --+                       DATA_OUT_2 ----+
                              |                                      |
                           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
                           |  1 |-->|  2 |-->|  3 |-->|  4 |  ||  |  5 |-->|  6 |-->|  7 |-->|  8 | 
                           +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
 
-                PIN 3 -------+                       PIN 4 ---------+
+                DATA_OUT_3 --+                       DATA_OUT_4 ----+
                              |                                      |
                           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
                           |  9 |-->| 10 |-->| 11 |-->| 12 |  ||  | 13 |-->| 14 |-->| 15 |-->| 16 | 
@@ -200,8 +200,8 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
             always send the 4 lines of data in parallel, saving on time per frame.
             
             begin_quad() ideally **should not be used with less than 4 Pixie Chromas**,
-            with at least one on each line. Even if only two lines are used, all 4 pins are
-            still occupied by Quad Mode.
+            and with at least one on each line. Even if only two lines are physically used,
+            all 4 pins are still occupied by Quad Mode.
 	
 	@param  pixies_per_pin  Pixies per data pin
 	@param  pixies_x        Number of Pixie PCBs in the X axis of your display
