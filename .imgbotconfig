@@ -1,5 +1,4 @@
 {
-    "schedule": "daily", // daily|weekly|monthly
     "ignoredFiles": [
         "docs/*", // ignore by folderpath
     ],
