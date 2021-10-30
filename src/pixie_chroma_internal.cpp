@@ -724,7 +724,7 @@ void PixieChroma::write_pix(const uint8_t* icon, int16_t x_offset, int16_t y_off
 	cursor_x += display_width;
 }
 
-//  TODO: Fix cursor update issues with write_pix(char*)
+//  TODO: write_pix(char*) should never modify cursor position
 /**************************************************************************/
 /*!
     @brief  Internal function for rendering char* strings to the mask
