@@ -12,9 +12,10 @@
 
 #include "Arduino.h"
 
+/*! Modes for updating Pixie Chroma displays */
 enum t_update_mode {
-	AUTOMATIC,
-	MANUAL
+	AUTOMATIC, /*!< Will call show() at a specified FPS using an ISR */
+	MANUAL     /*!< Allows you call show() when you like */
 };
 
 /*!
