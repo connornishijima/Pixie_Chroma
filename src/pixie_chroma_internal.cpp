@@ -724,7 +724,7 @@ void PixieChroma::write_pix(const uint8_t* icon, int16_t x_offset, int16_t y_off
 	cursor_x += display_width;
 }
 
-//  TODO: write_pix(char*) should never modify cursor position
+
 /**************************************************************************/
 /*!
     @brief  Internal function for rendering char* strings to the mask
@@ -743,6 +743,8 @@ void PixieChroma::write_pix(char* message, int16_t x_offset, int16_t y_offset){
 	uint8_t len = strlen(message);
 	for(uint8_t i = 0; i < len; i++){
 		if(message[i] == '\n'){ // Newline, force line break
+			// TODO: write_pix(char*) should never modify cursor position
+			// Use an internal offset (+user offset) to place chars instead
 			cursor_x = 1;
 			cursor_y += display_height;
 		}
