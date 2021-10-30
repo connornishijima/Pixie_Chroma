@@ -817,7 +817,7 @@ PIN 3 -------+                       PIN 4 ---------+
 <p>Sets the target frame rate for animation. This target frame rate is used to calculate <code>delta</code> in custom/preset animation functions. </p>
 <p>(Default <b>60</b>)</p>
 <p>This does not change your real frame rate, or even govern it, it is left up to the user to use frequent <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls or auto_update(). The "target frame rate" here is used to calculate <code>delta</code> for the animation functions, and should be set as close as possible to the rate at which you are going to call <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a>.</p>
-<p>This function is automatically called with a matching FPS when you use auto_update().</p>
+<p>This function is automatically called with a matching FPS when you use set_update_mode(AUTOMATIC, FPS).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target</td><td>Target frame rate for animation. </td></tr>
@@ -2772,7 +2772,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Sat Oct 30 2021 20:31:00 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 30 2021 20:36:30 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
