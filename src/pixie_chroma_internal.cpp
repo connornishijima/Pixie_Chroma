@@ -428,7 +428,7 @@ void PixieChroma::set_max_power(float volts, uint16_t milliamps){
             as possible to the rate at which you are going to call show().
 
             This function is automatically called with a matching FPS when
-	        you use auto_update().
+	        you use set_update_mode(AUTOMATIC, FPS).
 
     @param  target  Target frame rate for animation.
 */
