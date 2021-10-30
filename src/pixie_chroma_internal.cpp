@@ -127,8 +127,8 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
             This version of begin() is special, in that it will send your
             image data to the LEDs in 4 parallel streams to increase speed.
             
-            Unfortunately, this requires hard-coded pins on the ESP8266 to
-            function *due to FastLED limitations*:
+            Unfortunately, this requires hard-coded pins on the ESP8266 and
+	        ESP32 to function *due to FastLED limitations*:
             
             - DATA_OUT_1:  **GPIO 12 / D6**
             - DATA_OUT_2:  **GPIO 13 / D7**
