@@ -439,7 +439,7 @@ PixieChroma pix;
 </div><div class="memdoc">
 
 <p>Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED, and sets the default power budget. </p>
-<p>Pixie Chroma allows for multi-row displays, which are wired in reading order (left to right, top to bottom) and their shape is define here. For example, a 16-Pixie display with two rows of eight: </p><pre class="fragment">data_pin
+<p>Pixie Chroma allows for multi-row displays, which are wired in reading order (left to right, top to bottom) and their shape is defined here. For example, a 16-Pixie display with two rows of eight: </p><pre class="fragment">data_pin
    |
 +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
 |  1 |--&gt;|  2 |--&gt;|  3 |--&gt;|  4 |--&gt;|  5 |--&gt;|  6 |--&gt;|  7 |--&gt;|  8 | 
@@ -558,19 +558,19 @@ void setup() {
     pix.begin_quad(PIXIES_PER_PIN, PIXIES_X, PIXIES_Y);
 }
 </pre><p> Then, with the displays physically arranged in reading order (left to right, top to bottom) you're ready to begin!</p>
-<pre class="fragment">PIN 1 -------+                       PIN 2 ---------+
+<pre class="fragment">DATA_OUT_1 --+                       DATA_OUT_2 ----+
              |                                      |
           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
           |  1 |--&gt;|  2 |--&gt;|  3 |--&gt;|  4 |  ||  |  5 |--&gt;|  6 |--&gt;|  7 |--&gt;|  8 | 
           +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
 
-PIN 3 -------+                       PIN 4 ---------+
+DATA_OUT_3 --+                       DATA_OUT_4 ----+
              |                                      |
           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
           |  9 |--&gt;| 10 |--&gt;| 11 |--&gt;| 12 |  ||  | 13 |--&gt;| 14 |--&gt;| 15 |--&gt;| 16 | 
           +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
 </pre><p> Using <a class="el" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin_quad()</a> to enable the Quad Mode driver will always send the 4 lines of data in parallel, saving on time per frame.</p>
-<p><a class="el" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin_quad()</a> ideally <b>should not be used with less than 4 Pixie Chromas</b>, with at least one on each line. Even if only two lines are used, all 4 pins are still occupied by Quad Mode.</p>
+<p><a class="el" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin_quad()</a> ideally <b>should not be used with less than 4 Pixie Chromas</b>, and with at least one on each line. Even if only two lines are physically used, all 4 pins are still occupied by Quad Mode.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pixies_per_pin</td><td>Pixies per data pin </td></tr>
@@ -2772,7 +2772,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Sat Oct 30 2021 20:39:51 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Oct 30 2021 20:43:50 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
