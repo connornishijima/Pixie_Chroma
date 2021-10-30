@@ -50,8 +50,7 @@ PixieChroma::PixieChroma(){}
 /*!
 	@brief  Initializes the display buffer, populates the XY coordinate
 			table, defaults the display colors to green, loads the default
-			CRGBPalette, initializes FastLED, sets the default power budget,
-			and kicks off the animation ISR.
+			CRGBPalette, initializes FastLED, and sets the default power budget.
             
             Pixie Chroma allows for multi-row displays, which are wired in
             reading order (left to right, top to bottom) and their shape is
@@ -126,8 +125,7 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 /*!
 	@brief  Initializes the display buffer, populates the XY coordinate
 			table, defaults the display colors to green, loads the default
-			CRGBPalette, initializes FastLED, sets the default power budget,
-			and kicks off the animation ISR.
+			CRGBPalette, initializes FastLED, and sets the default power budget.
         
             This version of begin() is special, in that it will send your
             image data to the LEDs in 4 parallel streams to increase speed.
