@@ -1,4 +1,4 @@
-name: "Docs / Reports"
+name: "Docs and Reports"
 on:
   push: # see: https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request
     paths:
@@ -20,7 +20,7 @@ on:
     - 'keywords.txt'
 jobs:
   build:
-    name: "Docs / Reports"
+    name: "Docs and Reports"
     runs-on: ubuntu-latest
     
     env:
