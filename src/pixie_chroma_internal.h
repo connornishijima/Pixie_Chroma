@@ -21,7 +21,7 @@ enum t_update_mode {
 /*! ############################################################################
     @brief
     This is the software decumentation for using Pixie Chroma functions on
-    Arduino! For full example usage, see [Demos](DEMO_LINK_HERE). 
+    Arduino! For full example usage, see [Demos](https://DEMO_LINK.HERE).
 *///............................................................................
 class PixieChroma{
 	public:
