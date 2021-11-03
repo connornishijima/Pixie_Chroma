@@ -108,17 +108,17 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
 
     NUM_LEDS = matrix_width * matrix_height;
 
-    leds = new CRGB[ NUM_LEDS + 1 ]; // Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask
-    mask = new uint8_t[ NUM_LEDS + 1 ];
-    xy_table = new int16_t[ NUM_LEDS ];
+    color_map = new CRGB[ NUM_LEDS + 1 ]; // Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask
+    mask      = new uint8_t[ NUM_LEDS + 1 ];
+    xy_table  = new int16_t[ NUM_LEDS ];
 
     calc_xy();
 
+    color_map_out = new CRGB[ NUM_VISIBLE_LEDS ];
     mask_out = new uint8_t[ NUM_VISIBLE_LEDS ];
-    leds_out = new CRGB[ NUM_VISIBLE_LEDS ];
 
     for( uint16_t i = 0; i < NUM_VISIBLE_LEDS; i++ ){
-        leds[i] = CRGB( 0, 255, 0 );
+        color_map[i] = CRGB( 0, 255, 0 );
     }
 
     current_palette.loadDynamicGradientPalette( GREEN_SOLID );
@@ -224,49 +224,49 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
 
     NUM_LEDS = matrix_width * matrix_height;
 
-    leds = new CRGB[ NUM_LEDS + 1 ]; // Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask
-    mask = new uint8_t[ NUM_LEDS + 1 ];
-    xy_table = new int16_t[ NUM_LEDS ];
+    color_map = new CRGB[ NUM_LEDS + 1 ]; // Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask
+    mask      = new uint8_t[ NUM_LEDS + 1 ];
+    xy_table  = new int16_t[ NUM_LEDS ];
 
     calc_xy();
 
+    color_map_out = new CRGB[ NUM_VISIBLE_LEDS ];
     mask_out = new uint8_t[ NUM_VISIBLE_LEDS ];
-    leds_out = new CRGB[ NUM_VISIBLE_LEDS ];
-
+    
     for( uint16_t i = 0; i < NUM_VISIBLE_LEDS; i++ ){
-        leds[i] = CRGB( 0,255,0 );
+        color_map[i] = CRGB( 0,255,0 );
     }
 
     current_palette.loadDynamicGradientPalette( GREEN_SOLID );
 
     #if defined( ARDUINO_ARCH_ESP8266 )
     // WS2811_PORTA on ESP8266 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 15 for Quad Mode
-    FastLED.addLeds<WS2811_PORTA,4>( leds_out, pixies_per_pin * leds_per_pixie ).setCorrection( TypicalLEDStrip ); // Initialize FastLED
+    FastLED.addLeds<WS2811_PORTA,4>( color_map_out, pixies_per_pin * leds_per_pixie ).setCorrection( TypicalLEDStrip ); // Initialize FastLED
     #endif
     
     #if defined( ARDUINO_ARCH_ESP32 )
     
     // Quad Mode on ESP32 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 27
     FastLED.addLeds<NEOPIXEL, 13>( // Initialize FastLED Data Out 1
-        leds,
+        color_map_out,
         0,
         ( pixies_per_pin*leds_per_pixie )
     ).setCorrection( TypicalLEDStrip ); 
     
     FastLED.addLeds<NEOPIXEL, 12>( // Initialize FastLED Data Out 2
-        leds,
+        color_map_out,
         ( pixies_per_pin*leds_per_pixie ),
         ( pixies_per_pin*leds_per_pixie )
     ).setCorrection( TypicalLEDStrip );
     
     FastLED.addLeds<NEOPIXEL, 14>( // Initialize FastLED Data Out 3
-        leds,
+        color_map_out,
         ( pixies_per_pin*leds_per_pixie ) * 2,
         ( pixies_per_pin*leds_per_pixie )
     ).setCorrection( TypicalLEDStrip );
     
     FastLED.addLeds<NEOPIXEL, 27>( // Initialize FastLED Data Out 4
-        leds,
+        color_map_out,
         ( pixies_per_pin*leds_per_pixie ) * 4,
         ( pixies_per_pin*leds_per_pixie )
     ).setCorrection( TypicalLEDStrip );
@@ -1326,7 +1326,7 @@ void PixieChroma::color_blur_x( fract8 blur_amount ){
             cur.nscale8(  keep );
             cur += carryover;
             if(  i ) leds[xy( i-1,row )] += part;
-            leds[xy( i,row )] = cur;
+            color_map[xy( i,row )] = cur;
             carryover = part;
         }
     }
@@ -1352,7 +1352,7 @@ void PixieChroma::color_blur_y( fract8 blur_amount ){
             cur.nscale8(  keep );
             cur += carryover;
             if(  i ) leds[xy( i-1,row )] += part;
-            leds[xy( i,row )] = cur;
+            color_map[xy( i,row )] = cur;
             carryover = part;
         }
     }
@@ -1366,7 +1366,7 @@ void PixieChroma::color_blur_y( fract8 blur_amount ){
     @param  amount  8-bit amount to darken the mask
 *///............................................................................
 void PixieChroma::color_dim( uint8_t amount ){
-    CRGBSet leds_temp( leds, NUM_LEDS );
+    CRGBSet leds_temp( color_map, NUM_LEDS );
     leds_temp.fadeToBlackBy( amount );
 }
 
@@ -1492,7 +1492,7 @@ uint16_t PixieChroma::xy( int16_t x, int16_t y, bool wrap ) {
     @param  col  FastLED CRGB color
 *///............................................................................
 void PixieChroma::color( CRGB col ){
-    fill_solid( leds, NUM_LEDS, col );
+    fill_solid( color_map, NUM_LEDS, col );
 }
 
 
@@ -1517,13 +1517,13 @@ void PixieChroma::color( CRGB col, uint8_t x, uint8_t y ){
     int16_t y_pos = y * display_height + display_padding_y;
     
     for( uint8_t xi = 0; xi < font_col_width; xi++ ){
-        leds[xy( x_pos+xi, y_pos+0 )] = col;
-        leds[xy( x_pos+xi, y_pos+1 )] = col;
-        leds[xy( x_pos+xi, y_pos+2 )] = col;
-        leds[xy( x_pos+xi, y_pos+3 )] = col;
-        leds[xy( x_pos+xi, y_pos+4 )] = col;
-        leds[xy( x_pos+xi, y_pos+5 )] = col;
-        leds[xy( x_pos+xi, y_pos+6 )] = col;
+        color_map[xy( x_pos+xi, y_pos+0 )] = col;
+        color_map[xy( x_pos+xi, y_pos+1 )] = col;
+        color_map[xy( x_pos+xi, y_pos+2 )] = col;
+        color_map[xy( x_pos+xi, y_pos+3 )] = col;
+        color_map[xy( x_pos+xi, y_pos+4 )] = col;
+        color_map[xy( x_pos+xi, y_pos+5 )] = col;
+        color_map[xy( x_pos+xi, y_pos+6 )] = col;
     }
 }
 
@@ -1568,7 +1568,7 @@ void PixieChroma::color( CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y
         for( uint16_t x = 0; x < x_delta; x++ ){
             int16_t x2_pos = x1_pos + x;
             int16_t y2_pos = y1_pos + y;
-            leds[xy( x2_pos, y2_pos )] = col;
+            color_map[xy( x2_pos, y2_pos )] = col;
         }
     }
 }
@@ -1763,22 +1763,22 @@ void PixieChroma::show(){
     if( !freeze ){ // If we're not holding out for a pix.free() call, show with the current mask
         memcpy( mask_out, mask, NUM_VISIBLE_LEDS );
     }
-    memcpy( leds_out, leds, sizeof( CRGB )*NUM_VISIBLE_LEDS );
+    memcpy( color_map_out, color_map, sizeof( CRGB )*NUM_VISIBLE_LEDS );
 
     for( uint16_t i = 0; i < NUM_VISIBLE_LEDS; i++ ){
         // MASKING
-        leds_out[i].fadeLightBy( 255-mask_out[i] ); // Apply mask "over" LED color layer
+        color_map_out[i].fadeLightBy( 255-mask_out[i] ); // Apply mask "over" LED color layer
         
         // GAMMA CORRECTION
         if( correct_gamma ){                    
-            leds_out[i].r = gamma8[ leds_out[i].r ]; // Apply gamma correction LUT
-            leds_out[i].g = gamma8[ leds_out[i].g ];
-            leds_out[i].b = gamma8[ leds_out[i].b ];
+            color_map_out[i].r = gamma8[ color_map_out[i].r ]; // Apply gamma correction LUT
+            color_map_out[i].g = gamma8[ color_map_out[i].g ];
+            color_map_out[i].b = gamma8[ color_map_out[i].b ];
         }
     }
         
     // Regulate brightness to keep power within budget set with pix.set_max_power( V, mA );
-    FastLED.setBrightness( calculate_max_brightness_for_power_vmA( leds_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA ) );
+    FastLED.setBrightness( calculate_max_brightness_for_power_vmA( color_map_out, NUM_VISIBLE_LEDS, brightness_level, max_V, max_mA ) );
     FastLED.show();
 
     interrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$%
@@ -1806,57 +1806,57 @@ void PixieChroma::build_controller( const uint8_t pin ){
     // define non-existent pins either.
     
     #ifdef ESP8266
-        if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 3 ){FastLED.addLeds<WS2812B, 3, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 4 ){FastLED.addLeds<WS2812B, 4, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 5 ){FastLED.addLeds<WS2812B, 5, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 3 ){FastLED.addLeds<WS2812B, 3, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 4 ){FastLED.addLeds<WS2812B, 4, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 5 ){FastLED.addLeds<WS2812B, 5, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
             // annnnd a bunch of missing pins that are tied to external flash...
-        if ( pin == 12 ){FastLED.addLeds<WS2812B, 12, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 13 ){FastLED.addLeds<WS2812B, 13, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 14 ){FastLED.addLeds<WS2812B, 14, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 15 ){FastLED.addLeds<WS2812B, 15, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 12 ){FastLED.addLeds<WS2812B, 12, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 13 ){FastLED.addLeds<WS2812B, 13, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 14 ){FastLED.addLeds<WS2812B, 14, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 15 ){FastLED.addLeds<WS2812B, 15, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
     #endif
     
     #ifdef ESP32
-        if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 3 ){FastLED.addLeds<WS2812B, 3, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 4 ){FastLED.addLeds<WS2812B, 4, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 5 ){FastLED.addLeds<WS2812B, 5, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 12 ){FastLED.addLeds<WS2812B, 12, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 13 ){FastLED.addLeds<WS2812B, 13, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 14 ){FastLED.addLeds<WS2812B, 14, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 15 ){FastLED.addLeds<WS2812B, 15, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 17 ){FastLED.addLeds<WS2812B, 17, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 18 ){FastLED.addLeds<WS2812B, 18, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 19 ){FastLED.addLeds<WS2812B, 19, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 21 ){FastLED.addLeds<WS2812B, 21, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 22 ){FastLED.addLeds<WS2812B, 22, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 23 ){FastLED.addLeds<WS2812B, 23, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 25 ){FastLED.addLeds<WS2812B, 25, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 26 ){FastLED.addLeds<WS2812B, 26, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 27 ){FastLED.addLeds<WS2812B, 27, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 32 ){FastLED.addLeds<WS2812B, 32, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 33 ){FastLED.addLeds<WS2812B, 33, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 3 ){FastLED.addLeds<WS2812B, 3, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 4 ){FastLED.addLeds<WS2812B, 4, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 5 ){FastLED.addLeds<WS2812B, 5, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 12 ){FastLED.addLeds<WS2812B, 12, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 13 ){FastLED.addLeds<WS2812B, 13, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 14 ){FastLED.addLeds<WS2812B, 14, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 15 ){FastLED.addLeds<WS2812B, 15, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 17 ){FastLED.addLeds<WS2812B, 17, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 18 ){FastLED.addLeds<WS2812B, 18, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 19 ){FastLED.addLeds<WS2812B, 19, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 21 ){FastLED.addLeds<WS2812B, 21, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 22 ){FastLED.addLeds<WS2812B, 22, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 23 ){FastLED.addLeds<WS2812B, 23, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 25 ){FastLED.addLeds<WS2812B, 25, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 26 ){FastLED.addLeds<WS2812B, 26, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 27 ){FastLED.addLeds<WS2812B, 27, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 32 ){FastLED.addLeds<WS2812B, 32, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 33 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
     #endif
     
     #ifdef SAMD_SERIES
-        if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 3 ){FastLED.addLeds<WS2812B, 3, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 4 ){FastLED.addLeds<WS2812B, 4, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 5 ){FastLED.addLeds<WS2812B, 5, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 6 ){FastLED.addLeds<WS2812B, 6, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 7 ){FastLED.addLeds<WS2812B, 7, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 8 ){FastLED.addLeds<WS2812B, 8, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 9 ){FastLED.addLeds<WS2812B, 9, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
-        if ( pin == 10 ){FastLED.addLeds<WS2812B, 10, GRB>( leds_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 3 ){FastLED.addLeds<WS2812B, 3, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 4 ){FastLED.addLeds<WS2812B, 4, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 5 ){FastLED.addLeds<WS2812B, 5, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 6 ){FastLED.addLeds<WS2812B, 6, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 7 ){FastLED.addLeds<WS2812B, 7, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 8 ){FastLED.addLeds<WS2812B, 8, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 9 ){FastLED.addLeds<WS2812B, 9, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 10 ){FastLED.addLeds<WS2812B, 10, GRB>( color_map_out, NUM_VISIBLE_LEDS ).setCorrection( TypicalLEDStrip );}
     #endif
 }
 
