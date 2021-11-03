@@ -13,6 +13,15 @@
 #include "Pixie_Chroma.h" 
 #include "utility/pixie_utility.h"
 
+// TODO: Call pix.show() from Ticker without need for wrapper function 
+// I'm currently unable to figure out how to feed a class function (non-static) like `pix::show()` to `Ticker::attach_ms()`.
+// ```
+// void show_container(){
+//   extern PixieChroma pix;
+//   pix.show();
+// }
+// ```
+
 /*! ########################################################################
     @brief  Used for auto_update() so that Ticker can access this specific
             Pixie Chroma instance. Slightly hacky with the `extern`.
