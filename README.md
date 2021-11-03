@@ -47,12 +47,12 @@ Pixie Chroma also makes it extremely easy to control advanced animation in the b
 #include "Pixie_Chroma.h" // ... Include library
 PixieChroma pix; // ............ Get class instance
 
-#define DATA_PIN  13 // ........ GPIO to use
-#define PIXIES_X  6  // ........ How many Pixie PCBs "wide" is our display?
-#define PIXIES_Y  1  // ........ How many tall?
+#define PIXIES_PER_PIN  3  // ........ GPIO to use
+#define PIXIES_X  6  // .............. How many Pixie PCBs "wide" is our display?
+#define PIXIES_Y  1  // .............. How many tall?
 
 void setup() {
-  pix.begin( DATA_PIN, PIXIES_X, PIXIES_Y ); // ... Initialize Pixies
+  pix.begin_quad( DATA_PIN, PIXIES_X, PIXIES_Y ); // ... Initialize Pixies to use 4 GPIO in parallel
   pix.set_max_power( 5, 500 ); // ................. Set power budget to 5V, 500mA
 
   // Set the color palette to use for text
@@ -67,6 +67,9 @@ void setup() {
   // Set the animation preset to "PALETTE SHIFT RIGHT",
   // which will cause our gradient to scroll right-to-left
   pix.set_animation( ANIMATION_PALETTE_SHIFT_RIGHT );
+  
+  // Run animation at half-speed
+  pix.set_animation_speed( 0.5 );
 
   // Sets the library into AUTOMATIC mode, which keeps 
   // the animation running smoothly in the background
