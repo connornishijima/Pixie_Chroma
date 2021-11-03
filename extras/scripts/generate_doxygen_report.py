@@ -5,9 +5,13 @@ import os
 
 print("Generating report from Doxygen log contents...")
 
-doxy_data = ""
+doxy_data = []
 with open("docs/doxy.log","r+") as f:
     doxy_data = f.read().split("\n")
+
+doxy_ignore = []
+with open("extras/reports/doxygen/.doxyignore","r+") as f:
+    doxy_ignore = f.read().split("\n")
 
 output = ""
 
@@ -37,9 +41,15 @@ for item in doxy_data:
                     
                 log_string.replace("is not documented", "**is not documented**")
 
-                output += "- :x: "
-                output += log_string
-                output += "\n"
+                allowed = True
+                for item in doxy_ignore:
+                    if item in log_string:
+                        allowed = False
+                
+                if allowed:
+                    output += "- :x: "
+                    output += log_string
+                    output += "\n"
                 
 final_output = []
 output = output.split("\n")
