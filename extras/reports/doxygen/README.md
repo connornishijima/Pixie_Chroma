@@ -1,7 +1,7 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: Member _PENDULUM(float iter, float **width)** (function) of file pixie_animations.cpp is not documented.
+- :x: Member _PENDULUM(float center_position, float **sway_width)** (function) of file pixie_animations.cpp is not documented.
 - :x: Member make_gradient(CRGB col1, CRGB **col2)** (function) of file pixie_animations.cpp is not documented.
 - :x: Member make_gradient(CRGB col1, CRGB **col2,** CRGB col3) (function) of file pixie_animations.cpp is not documented.
 - :x: Member make_gradient(CRGB col1, CRGB **col2,** CRGB col3, CRGB col4) (function) of file pixie_animations.cpp is not documented.
