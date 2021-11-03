@@ -1,36 +1,51 @@
 warning: source 'docs/img' is not a readable file or directory... skipping.
-/github/workspace/src/utility/pixie_animations.cpp:12: warning: parameters of member ANIMATION_NULL are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:17: warning: parameters of member ANIMATION_STATIC are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:30: warning: parameters of member ANIMATION_PALETTE_SHIFT are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:46: warning: parameters of member ANIMATION_PALETTE_SHIFT_LEFT are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:50: warning: parameters of member ANIMATION_PALETTE_SHIFT_RIGHT are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:54: warning: parameters of member ANIMATION_GLITTER are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:70: warning: parameters of member _PENDULUM are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:93: warning: parameters of member ANIMATION_PENDULUM are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:98: warning: parameters of member ANIMATION_PENDULUM_WIDE are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:103: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:114: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:126: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:139: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:153: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:168: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:184: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:21: warning: parameters of member ANIMATION_NULL are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:28: warning: parameters of member ANIMATION_STATIC are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:35: warning: parameters of member ANIMATION_PALETTE_SHIFT_LEFT are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:42: warning: parameters of member ANIMATION_PALETTE_SHIFT_RIGHT are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:49: warning: parameters of member ANIMATION_GLITTER are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:57: warning: parameters of member ANIMATION_PENDULUM are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:65: warning: parameters of member ANIMATION_PENDULUM_WIDE are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:72: warning: parameters of member ANIMATION_PALETTE_SHIFT are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:80: warning: parameters of member _PENDULUM are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:85: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:89: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:93: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:97: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:101: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:105: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:109: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:70: warning: Member _PENDULUM(float iter, float width) (function) of file pixie_animations.cpp is not documented.
+/github/workspace/src/utility/pixie_animations.cpp:103: warning: Member make_gradient(CRGB col1, CRGB col2) (function) of file pixie_animations.cpp is not documented.
+/github/workspace/src/utility/pixie_animations.cpp:114: warning: Member make_gradient(CRGB col1, CRGB col2, CRGB col3) (function) of file pixie_animations.cpp is not documented.
+/github/workspace/src/utility/pixie_animations.cpp:126: warning: Member make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4) (function) of file pixie_animations.cpp is not documented.
+/github/workspace/src/utility/pixie_animations.cpp:139: warning: Member make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5) (function) of file pixie_animations.cpp is not documented.
+/github/workspace/src/utility/pixie_animations.cpp:153: warning: Member make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6) (function) of file pixie_animations.cpp is not documented.
+/github/workspace/src/utility/pixie_animations.cpp:168: warning: Member make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7) (function) of file pixie_animations.cpp is not documented.
+/github/workspace/src/utility/pixie_animations.cpp:184: warning: Member make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8) (function) of file pixie_animations.cpp is not documented.
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col1' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col2' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col1' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col2' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col3' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col1' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col2' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col3' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col4' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col1' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col2' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col3' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col4' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col5' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col1' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col2' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col3' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col4' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col5' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col6' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col1' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col2' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col3' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col4' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col5' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col6' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col7' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col1' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col2' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col3' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col4' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col5' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col6' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col7' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:183: warning: argument 'col8' of command @param is not found in the argument list of _PENDULUM(float center_position, float sway_width)
+/github/workspace/src/utility/pixie_animations.h:99: warning: The following parameters of _PENDULUM(float center_position, float sway_width) are not documented:
+  parameter 'center_position'
+  parameter 'sway_width'
+/github/workspace/src/utility/pixie_animations.h:99: warning: documented empty return type of _PENDULUM
 /github/workspace/src/utility/pixie_icons.h:15: warning: Member ICON_ARROW_UP[5] (variable) of file pixie_icons.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:16: warning: Member ICON_ARROW_UP_LEFT[5] (variable) of file pixie_icons.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:17: warning: Member ICON_ARROW_UP_RIGHT[5] (variable) of file pixie_icons.h is not documented.
