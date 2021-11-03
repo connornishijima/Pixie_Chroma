@@ -43,8 +43,9 @@ for item in doxy_data:
 
                 allowed = True
                 for item in doxy_ignore:
-                    if item in log_string:
-                        allowed = False
+                    if len(item) >= 3:
+                        if item in log_string:
+                            allowed = False
                 
                 if allowed:
                     output += "- :x: "
