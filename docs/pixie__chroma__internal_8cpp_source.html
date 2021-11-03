@@ -1022,174 +1022,174 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01784"></a><span class="lineno"> 1784</span>&#160;    interrupts(); <span class="comment">//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$%</span></div>
 <div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160;}</div>
 <div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160;<span class="comment">//............................................................................</span></div>
-<div class="line"><a name="l01820"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb"> 1820</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb">PixieChroma::print_xy_map</a>(){</div>
-<div class="line"><a name="l01821"></a><span class="lineno"> 1821</span>&#160;    <span class="keywordflow">for</span>( uint8_t y = 0; y &lt; matrix_height; y++ ){</div>
-<div class="line"><a name="l01822"></a><span class="lineno"> 1822</span>&#160;        <span class="keywordflow">for</span>( uint8_t x = 0; x &lt; matrix_width; x++ ){</div>
-<div class="line"><a name="l01823"></a><span class="lineno"> 1823</span>&#160;            uint16_t index = ( matrix_width*y )+x;</div>
-<div class="line"><a name="l01824"></a><span class="lineno"> 1824</span>&#160;            Serial.print( xy_table[index] );</div>
-<div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;            Serial.print( <span class="charliteral">&#39;\t&#39;</span> );</div>
-<div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160;        }</div>
-<div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;        Serial.println();</div>
-<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;    }</div>
-<div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160;}</div>
-<div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160; </div>
-<div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160;<span class="comment">// ---------------------------------------------------------------------------------------------------------|</span></div>
-<div class="line"><a name="l01832"></a><span class="lineno"> 1832</span>&#160;<span class="comment">// -- PRIVATE CLASS FUNCTIONS ------------------------------------------------------------------------------|</span></div>
-<div class="line"><a name="l01833"></a><span class="lineno"> 1833</span>&#160;<span class="comment">// ---------------------------------------------------------------------------------------------------------|</span></div>
-<div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160; </div>
-<div class="line"><a name="l01835"></a><span class="lineno"> 1835</span>&#160;<span class="keywordtype">void</span> PixieChroma::build_controller( <span class="keyword">const</span> uint8_t pin ){</div>
-<div class="line"><a name="l01836"></a><span class="lineno"> 1836</span>&#160;    <span class="comment">// FastLED control pin has to be defined as a constant, ( not just declared const, it&#39;s weirdly different ) so</span></div>
-<div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;    <span class="comment">// this is a hacky workaround. Since we have to hardwire the damn pin number variable, we also have</span></div>
-<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;    <span class="comment">// to be careful of the current architecture we&#39;re compiling to, since FastLED doesn&#39;t let you </span></div>
-<div class="line"><a name="l01839"></a><span class="lineno"> 1839</span>&#160;    <span class="comment">// define non-existent pins either.</span></div>
-<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160;    </div>
-<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160;<span class="preprocessor">    #ifdef ESP8266</span></div>
-<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160;        <span class="keywordflow">if</span> ( pin == 0 ){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;        <span class="keywordflow">if</span> ( pin == 1 ){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;        <span class="keywordflow">if</span> ( pin == 2 ){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;        <span class="keywordflow">if</span> ( pin == 3 ){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;        <span class="keywordflow">if</span> ( pin == 4 ){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;        <span class="keywordflow">if</span> ( pin == 5 ){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;            <span class="comment">// annnnd a bunch of missing pins that are tied to external flash...</span></div>
-<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;        <span class="keywordflow">if</span> ( pin == 12 ){FastLED.addLeds&lt;WS2812B, 12, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;        <span class="keywordflow">if</span> ( pin == 13 ){FastLED.addLeds&lt;WS2812B, 13, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;        <span class="keywordflow">if</span> ( pin == 14 ){FastLED.addLeds&lt;WS2812B, 14, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;        <span class="keywordflow">if</span> ( pin == 15 ){FastLED.addLeds&lt;WS2812B, 15, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;        <span class="keywordflow">if</span> ( pin == 16 ){FastLED.addLeds&lt;WS2812B, 16, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l01855"></a><span class="lineno"> 1855</span>&#160;    </div>
-<div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;<span class="preprocessor">    #ifdef ESP32</span></div>
-<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;        <span class="keywordflow">if</span> ( pin == 0 ){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160;        <span class="keywordflow">if</span> ( pin == 1 ){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01859"></a><span class="lineno"> 1859</span>&#160;        <span class="keywordflow">if</span> ( pin == 2 ){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01860"></a><span class="lineno"> 1860</span>&#160;        <span class="keywordflow">if</span> ( pin == 3 ){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01861"></a><span class="lineno"> 1861</span>&#160;        <span class="keywordflow">if</span> ( pin == 4 ){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01862"></a><span class="lineno"> 1862</span>&#160;        <span class="keywordflow">if</span> ( pin == 5 ){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01863"></a><span class="lineno"> 1863</span>&#160;        <span class="keywordflow">if</span> ( pin == 12 ){FastLED.addLeds&lt;WS2812B, 12, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01864"></a><span class="lineno"> 1864</span>&#160;        <span class="keywordflow">if</span> ( pin == 13 ){FastLED.addLeds&lt;WS2812B, 13, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01865"></a><span class="lineno"> 1865</span>&#160;        <span class="keywordflow">if</span> ( pin == 14 ){FastLED.addLeds&lt;WS2812B, 14, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01866"></a><span class="lineno"> 1866</span>&#160;        <span class="keywordflow">if</span> ( pin == 15 ){FastLED.addLeds&lt;WS2812B, 15, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01867"></a><span class="lineno"> 1867</span>&#160;        <span class="keywordflow">if</span> ( pin == 16 ){FastLED.addLeds&lt;WS2812B, 16, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01868"></a><span class="lineno"> 1868</span>&#160;        <span class="keywordflow">if</span> ( pin == 17 ){FastLED.addLeds&lt;WS2812B, 17, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01869"></a><span class="lineno"> 1869</span>&#160;        <span class="keywordflow">if</span> ( pin == 18 ){FastLED.addLeds&lt;WS2812B, 18, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01870"></a><span class="lineno"> 1870</span>&#160;        <span class="keywordflow">if</span> ( pin == 19 ){FastLED.addLeds&lt;WS2812B, 19, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01871"></a><span class="lineno"> 1871</span>&#160;        <span class="keywordflow">if</span> ( pin == 21 ){FastLED.addLeds&lt;WS2812B, 21, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01872"></a><span class="lineno"> 1872</span>&#160;        <span class="keywordflow">if</span> ( pin == 22 ){FastLED.addLeds&lt;WS2812B, 22, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01873"></a><span class="lineno"> 1873</span>&#160;        <span class="keywordflow">if</span> ( pin == 23 ){FastLED.addLeds&lt;WS2812B, 23, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01874"></a><span class="lineno"> 1874</span>&#160;        <span class="keywordflow">if</span> ( pin == 25 ){FastLED.addLeds&lt;WS2812B, 25, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01875"></a><span class="lineno"> 1875</span>&#160;        <span class="keywordflow">if</span> ( pin == 26 ){FastLED.addLeds&lt;WS2812B, 26, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01876"></a><span class="lineno"> 1876</span>&#160;        <span class="keywordflow">if</span> ( pin == 27 ){FastLED.addLeds&lt;WS2812B, 27, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01877"></a><span class="lineno"> 1877</span>&#160;        <span class="keywordflow">if</span> ( pin == 32 ){FastLED.addLeds&lt;WS2812B, 32, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01878"></a><span class="lineno"> 1878</span>&#160;        <span class="keywordflow">if</span> ( pin == 33 ){FastLED.addLeds&lt;WS2812B, 33, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01879"></a><span class="lineno"> 1879</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l01880"></a><span class="lineno"> 1880</span>&#160;    </div>
-<div class="line"><a name="l01881"></a><span class="lineno"> 1881</span>&#160;<span class="preprocessor">    #ifdef SAMD_SERIES</span></div>
-<div class="line"><a name="l01882"></a><span class="lineno"> 1882</span>&#160;        <span class="keywordflow">if</span> ( pin == 0 ){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01883"></a><span class="lineno"> 1883</span>&#160;        <span class="keywordflow">if</span> ( pin == 1 ){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01884"></a><span class="lineno"> 1884</span>&#160;        <span class="keywordflow">if</span> ( pin == 2 ){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01885"></a><span class="lineno"> 1885</span>&#160;        <span class="keywordflow">if</span> ( pin == 3 ){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01886"></a><span class="lineno"> 1886</span>&#160;        <span class="keywordflow">if</span> ( pin == 4 ){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01887"></a><span class="lineno"> 1887</span>&#160;        <span class="keywordflow">if</span> ( pin == 5 ){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01888"></a><span class="lineno"> 1888</span>&#160;        <span class="keywordflow">if</span> ( pin == 6 ){FastLED.addLeds&lt;WS2812B, 6, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01889"></a><span class="lineno"> 1889</span>&#160;        <span class="keywordflow">if</span> ( pin == 7 ){FastLED.addLeds&lt;WS2812B, 7, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01890"></a><span class="lineno"> 1890</span>&#160;        <span class="keywordflow">if</span> ( pin == 8 ){FastLED.addLeds&lt;WS2812B, 8, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01891"></a><span class="lineno"> 1891</span>&#160;        <span class="keywordflow">if</span> ( pin == 9 ){FastLED.addLeds&lt;WS2812B, 9, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01892"></a><span class="lineno"> 1892</span>&#160;        <span class="keywordflow">if</span> ( pin == 10 ){FastLED.addLeds&lt;WS2812B, 10, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
-<div class="line"><a name="l01893"></a><span class="lineno"> 1893</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l01894"></a><span class="lineno"> 1894</span>&#160;}</div>
+<div class="line"><a name="l01810"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb"> 1810</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb">PixieChroma::print_xy_map</a>(){</div>
+<div class="line"><a name="l01811"></a><span class="lineno"> 1811</span>&#160;    <span class="keywordflow">for</span>( uint8_t y = 0; y &lt; matrix_height; y++ ){</div>
+<div class="line"><a name="l01812"></a><span class="lineno"> 1812</span>&#160;        <span class="keywordflow">for</span>( uint8_t x = 0; x &lt; matrix_width; x++ ){</div>
+<div class="line"><a name="l01813"></a><span class="lineno"> 1813</span>&#160;            uint16_t index = ( matrix_width*y )+x;</div>
+<div class="line"><a name="l01814"></a><span class="lineno"> 1814</span>&#160;            Serial.print( xy_table[index] );</div>
+<div class="line"><a name="l01815"></a><span class="lineno"> 1815</span>&#160;            Serial.print( <span class="charliteral">&#39;\t&#39;</span> );</div>
+<div class="line"><a name="l01816"></a><span class="lineno"> 1816</span>&#160;        }</div>
+<div class="line"><a name="l01817"></a><span class="lineno"> 1817</span>&#160;        Serial.println();</div>
+<div class="line"><a name="l01818"></a><span class="lineno"> 1818</span>&#160;    }</div>
+<div class="line"><a name="l01819"></a><span class="lineno"> 1819</span>&#160;}</div>
+<div class="line"><a name="l01820"></a><span class="lineno"> 1820</span>&#160; </div>
+<div class="line"><a name="l01821"></a><span class="lineno"> 1821</span>&#160;<span class="comment">// ---------------------------------------------------------------------------------------------------------|</span></div>
+<div class="line"><a name="l01822"></a><span class="lineno"> 1822</span>&#160;<span class="comment">// -- PRIVATE CLASS FUNCTIONS ------------------------------------------------------------------------------|</span></div>
+<div class="line"><a name="l01823"></a><span class="lineno"> 1823</span>&#160;<span class="comment">// ---------------------------------------------------------------------------------------------------------|</span></div>
+<div class="line"><a name="l01824"></a><span class="lineno"> 1824</span>&#160; </div>
+<div class="line"><a name="l01825"></a><span class="lineno"> 1825</span>&#160;<span class="keywordtype">void</span> PixieChroma::build_controller( <span class="keyword">const</span> uint8_t pin ){</div>
+<div class="line"><a name="l01826"></a><span class="lineno"> 1826</span>&#160;    <span class="comment">// FastLED control pin has to be defined as a constant, ( not just declared const, it&#39;s weirdly different ) so</span></div>
+<div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;    <span class="comment">// this is a hacky workaround. Since we have to hardwire the damn pin number variable, we also have</span></div>
+<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;    <span class="comment">// to be careful of the current architecture we&#39;re compiling to, since FastLED doesn&#39;t let you </span></div>
+<div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160;    <span class="comment">// define non-existent pins either.</span></div>
+<div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160;    </div>
+<div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160;<span class="preprocessor">    #ifdef ESP8266</span></div>
+<div class="line"><a name="l01832"></a><span class="lineno"> 1832</span>&#160;        <span class="keywordflow">if</span> ( pin == 0 ){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01833"></a><span class="lineno"> 1833</span>&#160;        <span class="keywordflow">if</span> ( pin == 1 ){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160;        <span class="keywordflow">if</span> ( pin == 2 ){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01835"></a><span class="lineno"> 1835</span>&#160;        <span class="keywordflow">if</span> ( pin == 3 ){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01836"></a><span class="lineno"> 1836</span>&#160;        <span class="keywordflow">if</span> ( pin == 4 ){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;        <span class="keywordflow">if</span> ( pin == 5 ){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;            <span class="comment">// annnnd a bunch of missing pins that are tied to external flash...</span></div>
+<div class="line"><a name="l01839"></a><span class="lineno"> 1839</span>&#160;        <span class="keywordflow">if</span> ( pin == 12 ){FastLED.addLeds&lt;WS2812B, 12, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160;        <span class="keywordflow">if</span> ( pin == 13 ){FastLED.addLeds&lt;WS2812B, 13, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160;        <span class="keywordflow">if</span> ( pin == 14 ){FastLED.addLeds&lt;WS2812B, 14, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160;        <span class="keywordflow">if</span> ( pin == 15 ){FastLED.addLeds&lt;WS2812B, 15, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;        <span class="keywordflow">if</span> ( pin == 16 ){FastLED.addLeds&lt;WS2812B, 16, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;    </div>
+<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;<span class="preprocessor">    #ifdef ESP32</span></div>
+<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;        <span class="keywordflow">if</span> ( pin == 0 ){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;        <span class="keywordflow">if</span> ( pin == 1 ){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;        <span class="keywordflow">if</span> ( pin == 2 ){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;        <span class="keywordflow">if</span> ( pin == 3 ){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;        <span class="keywordflow">if</span> ( pin == 4 ){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;        <span class="keywordflow">if</span> ( pin == 5 ){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;        <span class="keywordflow">if</span> ( pin == 12 ){FastLED.addLeds&lt;WS2812B, 12, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;        <span class="keywordflow">if</span> ( pin == 13 ){FastLED.addLeds&lt;WS2812B, 13, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01855"></a><span class="lineno"> 1855</span>&#160;        <span class="keywordflow">if</span> ( pin == 14 ){FastLED.addLeds&lt;WS2812B, 14, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;        <span class="keywordflow">if</span> ( pin == 15 ){FastLED.addLeds&lt;WS2812B, 15, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;        <span class="keywordflow">if</span> ( pin == 16 ){FastLED.addLeds&lt;WS2812B, 16, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160;        <span class="keywordflow">if</span> ( pin == 17 ){FastLED.addLeds&lt;WS2812B, 17, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01859"></a><span class="lineno"> 1859</span>&#160;        <span class="keywordflow">if</span> ( pin == 18 ){FastLED.addLeds&lt;WS2812B, 18, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01860"></a><span class="lineno"> 1860</span>&#160;        <span class="keywordflow">if</span> ( pin == 19 ){FastLED.addLeds&lt;WS2812B, 19, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01861"></a><span class="lineno"> 1861</span>&#160;        <span class="keywordflow">if</span> ( pin == 21 ){FastLED.addLeds&lt;WS2812B, 21, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01862"></a><span class="lineno"> 1862</span>&#160;        <span class="keywordflow">if</span> ( pin == 22 ){FastLED.addLeds&lt;WS2812B, 22, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01863"></a><span class="lineno"> 1863</span>&#160;        <span class="keywordflow">if</span> ( pin == 23 ){FastLED.addLeds&lt;WS2812B, 23, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01864"></a><span class="lineno"> 1864</span>&#160;        <span class="keywordflow">if</span> ( pin == 25 ){FastLED.addLeds&lt;WS2812B, 25, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01865"></a><span class="lineno"> 1865</span>&#160;        <span class="keywordflow">if</span> ( pin == 26 ){FastLED.addLeds&lt;WS2812B, 26, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01866"></a><span class="lineno"> 1866</span>&#160;        <span class="keywordflow">if</span> ( pin == 27 ){FastLED.addLeds&lt;WS2812B, 27, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01867"></a><span class="lineno"> 1867</span>&#160;        <span class="keywordflow">if</span> ( pin == 32 ){FastLED.addLeds&lt;WS2812B, 32, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01868"></a><span class="lineno"> 1868</span>&#160;        <span class="keywordflow">if</span> ( pin == 33 ){FastLED.addLeds&lt;WS2812B, 33, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01869"></a><span class="lineno"> 1869</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l01870"></a><span class="lineno"> 1870</span>&#160;    </div>
+<div class="line"><a name="l01871"></a><span class="lineno"> 1871</span>&#160;<span class="preprocessor">    #ifdef SAMD_SERIES</span></div>
+<div class="line"><a name="l01872"></a><span class="lineno"> 1872</span>&#160;        <span class="keywordflow">if</span> ( pin == 0 ){FastLED.addLeds&lt;WS2812B, 0, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01873"></a><span class="lineno"> 1873</span>&#160;        <span class="keywordflow">if</span> ( pin == 1 ){FastLED.addLeds&lt;WS2812B, 1, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01874"></a><span class="lineno"> 1874</span>&#160;        <span class="keywordflow">if</span> ( pin == 2 ){FastLED.addLeds&lt;WS2812B, 2, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01875"></a><span class="lineno"> 1875</span>&#160;        <span class="keywordflow">if</span> ( pin == 3 ){FastLED.addLeds&lt;WS2812B, 3, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01876"></a><span class="lineno"> 1876</span>&#160;        <span class="keywordflow">if</span> ( pin == 4 ){FastLED.addLeds&lt;WS2812B, 4, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01877"></a><span class="lineno"> 1877</span>&#160;        <span class="keywordflow">if</span> ( pin == 5 ){FastLED.addLeds&lt;WS2812B, 5, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01878"></a><span class="lineno"> 1878</span>&#160;        <span class="keywordflow">if</span> ( pin == 6 ){FastLED.addLeds&lt;WS2812B, 6, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01879"></a><span class="lineno"> 1879</span>&#160;        <span class="keywordflow">if</span> ( pin == 7 ){FastLED.addLeds&lt;WS2812B, 7, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01880"></a><span class="lineno"> 1880</span>&#160;        <span class="keywordflow">if</span> ( pin == 8 ){FastLED.addLeds&lt;WS2812B, 8, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01881"></a><span class="lineno"> 1881</span>&#160;        <span class="keywordflow">if</span> ( pin == 9 ){FastLED.addLeds&lt;WS2812B, 9, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01882"></a><span class="lineno"> 1882</span>&#160;        <span class="keywordflow">if</span> ( pin == 10 ){FastLED.addLeds&lt;WS2812B, 10, GRB&gt;( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}</div>
+<div class="line"><a name="l01883"></a><span class="lineno"> 1883</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l01884"></a><span class="lineno"> 1884</span>&#160;}</div>
+<div class="line"><a name="l01885"></a><span class="lineno"> 1885</span>&#160; </div>
+<div class="line"><a name="l01886"></a><span class="lineno"> 1886</span>&#160; </div>
+<div class="line"><a name="l01887"></a><span class="lineno"> 1887</span>&#160;<span class="keywordtype">void</span> PixieChroma::calc_xy(){</div>
+<div class="line"><a name="l01888"></a><span class="lineno"> 1888</span>&#160;  <span class="comment">// Initialize XY table</span></div>
+<div class="line"><a name="l01889"></a><span class="lineno"> 1889</span>&#160;    <span class="keywordflow">for</span>( uint16_t yi = 0; yi &lt; chars_y; yi++ ){</div>
+<div class="line"><a name="l01890"></a><span class="lineno"> 1890</span>&#160;        <span class="keywordflow">for</span>( uint16_t y = 0; y &lt; 11; y++ ){</div>
+<div class="line"><a name="l01891"></a><span class="lineno"> 1891</span>&#160;            <span class="keywordflow">for</span>( uint16_t xi = 0; xi &lt; chars_x; xi++ ){</div>
+<div class="line"><a name="l01892"></a><span class="lineno"> 1892</span>&#160;                <span class="keywordflow">for</span>( uint16_t x = 0; x &lt; 7; x++ ){</div>
+<div class="line"><a name="l01893"></a><span class="lineno"> 1893</span>&#160;                    int16_t x_pos = ( xi*display_width )+x;</div>
+<div class="line"><a name="l01894"></a><span class="lineno"> 1894</span>&#160;                    int16_t y_pos = ( yi*display_height )+y;</div>
 <div class="line"><a name="l01895"></a><span class="lineno"> 1895</span>&#160; </div>
-<div class="line"><a name="l01896"></a><span class="lineno"> 1896</span>&#160; </div>
-<div class="line"><a name="l01897"></a><span class="lineno"> 1897</span>&#160;<span class="keywordtype">void</span> PixieChroma::calc_xy(){</div>
-<div class="line"><a name="l01898"></a><span class="lineno"> 1898</span>&#160;  <span class="comment">// Initialize XY table</span></div>
-<div class="line"><a name="l01899"></a><span class="lineno"> 1899</span>&#160;    <span class="keywordflow">for</span>( uint16_t yi = 0; yi &lt; chars_y; yi++ ){</div>
-<div class="line"><a name="l01900"></a><span class="lineno"> 1900</span>&#160;        <span class="keywordflow">for</span>( uint16_t y = 0; y &lt; 11; y++ ){</div>
-<div class="line"><a name="l01901"></a><span class="lineno"> 1901</span>&#160;            <span class="keywordflow">for</span>( uint16_t xi = 0; xi &lt; chars_x; xi++ ){</div>
-<div class="line"><a name="l01902"></a><span class="lineno"> 1902</span>&#160;                <span class="keywordflow">for</span>( uint16_t x = 0; x &lt; 7; x++ ){</div>
-<div class="line"><a name="l01903"></a><span class="lineno"> 1903</span>&#160;                    int16_t x_pos = ( xi*display_width )+x;</div>
-<div class="line"><a name="l01904"></a><span class="lineno"> 1904</span>&#160;                    int16_t y_pos = ( yi*display_height )+y;</div>
-<div class="line"><a name="l01905"></a><span class="lineno"> 1905</span>&#160; </div>
-<div class="line"><a name="l01906"></a><span class="lineno"> 1906</span>&#160;                    int16_t x_pos_mod = x_pos % display_width;</div>
-<div class="line"><a name="l01907"></a><span class="lineno"> 1907</span>&#160;                    int16_t y_pos_mod = y_pos % display_height;</div>
-<div class="line"><a name="l01908"></a><span class="lineno"> 1908</span>&#160; </div>
-<div class="line"><a name="l01909"></a><span class="lineno"> 1909</span>&#160;                    uint16_t i_table = ( y_pos * matrix_width ) + x_pos;</div>
-<div class="line"><a name="l01910"></a><span class="lineno"> 1910</span>&#160;                    uint16_t i_template = ( y_pos_mod * display_width ) + x_pos_mod;</div>
-<div class="line"><a name="l01911"></a><span class="lineno"> 1911</span>&#160; </div>
-<div class="line"><a name="l01912"></a><span class="lineno"> 1912</span>&#160;                    xy_table[i_table] = int8_t( pgm_read_byte( xy_template + i_template ) );</div>
-<div class="line"><a name="l01913"></a><span class="lineno"> 1913</span>&#160;                }</div>
-<div class="line"><a name="l01914"></a><span class="lineno"> 1914</span>&#160;            }</div>
-<div class="line"><a name="l01915"></a><span class="lineno"> 1915</span>&#160;        }</div>
-<div class="line"><a name="l01916"></a><span class="lineno"> 1916</span>&#160;    }</div>
-<div class="line"><a name="l01917"></a><span class="lineno"> 1917</span>&#160; </div>
-<div class="line"><a name="l01918"></a><span class="lineno"> 1918</span>&#160;    <span class="comment">//Serial.println( &quot;SOLVING VISIBLE&quot; );</span></div>
+<div class="line"><a name="l01896"></a><span class="lineno"> 1896</span>&#160;                    int16_t x_pos_mod = x_pos % display_width;</div>
+<div class="line"><a name="l01897"></a><span class="lineno"> 1897</span>&#160;                    int16_t y_pos_mod = y_pos % display_height;</div>
+<div class="line"><a name="l01898"></a><span class="lineno"> 1898</span>&#160; </div>
+<div class="line"><a name="l01899"></a><span class="lineno"> 1899</span>&#160;                    uint16_t i_table = ( y_pos * matrix_width ) + x_pos;</div>
+<div class="line"><a name="l01900"></a><span class="lineno"> 1900</span>&#160;                    uint16_t i_template = ( y_pos_mod * display_width ) + x_pos_mod;</div>
+<div class="line"><a name="l01901"></a><span class="lineno"> 1901</span>&#160; </div>
+<div class="line"><a name="l01902"></a><span class="lineno"> 1902</span>&#160;                    xy_table[i_table] = int8_t( pgm_read_byte( xy_template + i_template ) );</div>
+<div class="line"><a name="l01903"></a><span class="lineno"> 1903</span>&#160;                }</div>
+<div class="line"><a name="l01904"></a><span class="lineno"> 1904</span>&#160;            }</div>
+<div class="line"><a name="l01905"></a><span class="lineno"> 1905</span>&#160;        }</div>
+<div class="line"><a name="l01906"></a><span class="lineno"> 1906</span>&#160;    }</div>
+<div class="line"><a name="l01907"></a><span class="lineno"> 1907</span>&#160; </div>
+<div class="line"><a name="l01908"></a><span class="lineno"> 1908</span>&#160;    <span class="comment">//Serial.println( &quot;SOLVING VISIBLE&quot; );</span></div>
+<div class="line"><a name="l01909"></a><span class="lineno"> 1909</span>&#160; </div>
+<div class="line"><a name="l01910"></a><span class="lineno"> 1910</span>&#160;    <span class="comment">// Initialize first row of displays</span></div>
+<div class="line"><a name="l01911"></a><span class="lineno"> 1911</span>&#160;    uint8_t visible_rows = 0;</div>
+<div class="line"><a name="l01912"></a><span class="lineno"> 1912</span>&#160;    <span class="keywordflow">for</span>( uint16_t row = 0; row &lt; display_height; row++ ){</div>
+<div class="line"><a name="l01913"></a><span class="lineno"> 1913</span>&#160;        uint16_t index = ( 5*visible_rows );</div>
+<div class="line"><a name="l01914"></a><span class="lineno"> 1914</span>&#160;        <span class="keywordtype">bool</span> found_visible = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l01915"></a><span class="lineno"> 1915</span>&#160;        int16_t last_data = 0;</div>
+<div class="line"><a name="l01916"></a><span class="lineno"> 1916</span>&#160;        <span class="keywordflow">for</span>( uint16_t col = 0; col &lt; matrix_width; col++ ){</div>
+<div class="line"><a name="l01917"></a><span class="lineno"> 1917</span>&#160;            uint16_t i = ( row*matrix_width )+col;</div>
+<div class="line"><a name="l01918"></a><span class="lineno"> 1918</span>&#160;            int16_t map_data = xy_table[i];</div>
 <div class="line"><a name="l01919"></a><span class="lineno"> 1919</span>&#160; </div>
-<div class="line"><a name="l01920"></a><span class="lineno"> 1920</span>&#160;    <span class="comment">// Initialize first row of displays</span></div>
-<div class="line"><a name="l01921"></a><span class="lineno"> 1921</span>&#160;    uint8_t visible_rows = 0;</div>
-<div class="line"><a name="l01922"></a><span class="lineno"> 1922</span>&#160;    <span class="keywordflow">for</span>( uint16_t row = 0; row &lt; display_height; row++ ){</div>
-<div class="line"><a name="l01923"></a><span class="lineno"> 1923</span>&#160;        uint16_t index = ( 5*visible_rows );</div>
-<div class="line"><a name="l01924"></a><span class="lineno"> 1924</span>&#160;        <span class="keywordtype">bool</span> found_visible = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l01925"></a><span class="lineno"> 1925</span>&#160;        int16_t last_data = 0;</div>
-<div class="line"><a name="l01926"></a><span class="lineno"> 1926</span>&#160;        <span class="keywordflow">for</span>( uint16_t col = 0; col &lt; matrix_width; col++ ){</div>
-<div class="line"><a name="l01927"></a><span class="lineno"> 1927</span>&#160;            uint16_t i = ( row*matrix_width )+col;</div>
-<div class="line"><a name="l01928"></a><span class="lineno"> 1928</span>&#160;            int16_t map_data = xy_table[i];</div>
-<div class="line"><a name="l01929"></a><span class="lineno"> 1929</span>&#160; </div>
-<div class="line"><a name="l01930"></a><span class="lineno"> 1930</span>&#160;            <span class="keywordflow">if</span>( map_data == -1 ){</div>
-<div class="line"><a name="l01931"></a><span class="lineno"> 1931</span>&#160;                xy_table[i] = index;</div>
-<div class="line"><a name="l01932"></a><span class="lineno"> 1932</span>&#160;                index++;</div>
-<div class="line"><a name="l01933"></a><span class="lineno"> 1933</span>&#160;                found_visible = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l01934"></a><span class="lineno"> 1934</span>&#160;            }</div>
-<div class="line"><a name="l01935"></a><span class="lineno"> 1935</span>&#160; </div>
-<div class="line"><a name="l01936"></a><span class="lineno"> 1936</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>( map_data == -2 ){</div>
-<div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160;                <span class="keywordflow">if</span>( last_data == -1 ){</div>
-<div class="line"><a name="l01938"></a><span class="lineno"> 1938</span>&#160;                    index+=30;</div>
-<div class="line"><a name="l01939"></a><span class="lineno"> 1939</span>&#160;                }</div>
-<div class="line"><a name="l01940"></a><span class="lineno"> 1940</span>&#160;            }</div>
+<div class="line"><a name="l01920"></a><span class="lineno"> 1920</span>&#160;            <span class="keywordflow">if</span>( map_data == -1 ){</div>
+<div class="line"><a name="l01921"></a><span class="lineno"> 1921</span>&#160;                xy_table[i] = index;</div>
+<div class="line"><a name="l01922"></a><span class="lineno"> 1922</span>&#160;                index++;</div>
+<div class="line"><a name="l01923"></a><span class="lineno"> 1923</span>&#160;                found_visible = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l01924"></a><span class="lineno"> 1924</span>&#160;            }</div>
+<div class="line"><a name="l01925"></a><span class="lineno"> 1925</span>&#160; </div>
+<div class="line"><a name="l01926"></a><span class="lineno"> 1926</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>( map_data == -2 ){</div>
+<div class="line"><a name="l01927"></a><span class="lineno"> 1927</span>&#160;                <span class="keywordflow">if</span>( last_data == -1 ){</div>
+<div class="line"><a name="l01928"></a><span class="lineno"> 1928</span>&#160;                    index+=30;</div>
+<div class="line"><a name="l01929"></a><span class="lineno"> 1929</span>&#160;                }</div>
+<div class="line"><a name="l01930"></a><span class="lineno"> 1930</span>&#160;            }</div>
+<div class="line"><a name="l01931"></a><span class="lineno"> 1931</span>&#160; </div>
+<div class="line"><a name="l01932"></a><span class="lineno"> 1932</span>&#160;            last_data = map_data;</div>
+<div class="line"><a name="l01933"></a><span class="lineno"> 1933</span>&#160;        }</div>
+<div class="line"><a name="l01934"></a><span class="lineno"> 1934</span>&#160; </div>
+<div class="line"><a name="l01935"></a><span class="lineno"> 1935</span>&#160;        <span class="keywordflow">if</span>( found_visible ){</div>
+<div class="line"><a name="l01936"></a><span class="lineno"> 1936</span>&#160;            visible_rows++;</div>
+<div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160;        }</div>
+<div class="line"><a name="l01938"></a><span class="lineno"> 1938</span>&#160;    }</div>
+<div class="line"><a name="l01939"></a><span class="lineno"> 1939</span>&#160; </div>
+<div class="line"><a name="l01940"></a><span class="lineno"> 1940</span>&#160;    NUM_LEDS = 35*chars_x; <span class="comment">// account for first row</span></div>
 <div class="line"><a name="l01941"></a><span class="lineno"> 1941</span>&#160; </div>
-<div class="line"><a name="l01942"></a><span class="lineno"> 1942</span>&#160;            last_data = map_data;</div>
-<div class="line"><a name="l01943"></a><span class="lineno"> 1943</span>&#160;        }</div>
-<div class="line"><a name="l01944"></a><span class="lineno"> 1944</span>&#160; </div>
-<div class="line"><a name="l01945"></a><span class="lineno"> 1945</span>&#160;        <span class="keywordflow">if</span>( found_visible ){</div>
-<div class="line"><a name="l01946"></a><span class="lineno"> 1946</span>&#160;            visible_rows++;</div>
-<div class="line"><a name="l01947"></a><span class="lineno"> 1947</span>&#160;        }</div>
-<div class="line"><a name="l01948"></a><span class="lineno"> 1948</span>&#160;    }</div>
-<div class="line"><a name="l01949"></a><span class="lineno"> 1949</span>&#160; </div>
-<div class="line"><a name="l01950"></a><span class="lineno"> 1950</span>&#160;    NUM_LEDS = 35*chars_x; <span class="comment">// account for first row</span></div>
-<div class="line"><a name="l01951"></a><span class="lineno"> 1951</span>&#160; </div>
-<div class="line"><a name="l01952"></a><span class="lineno"> 1952</span>&#160;    <span class="comment">// Solve additional rows</span></div>
-<div class="line"><a name="l01953"></a><span class="lineno"> 1953</span>&#160;    <span class="keywordflow">if</span>( chars_y &gt; 1 ){</div>
-<div class="line"><a name="l01954"></a><span class="lineno"> 1954</span>&#160;        uint8_t rows_left = chars_y-1;</div>
-<div class="line"><a name="l01955"></a><span class="lineno"> 1955</span>&#160;        uint16_t row_length = ( display_width*display_height )*chars_x;</div>
-<div class="line"><a name="l01956"></a><span class="lineno"> 1956</span>&#160;        <span class="keywordflow">for</span>( uint8_t ii = 0; ii &lt; rows_left; ii++ ){</div>
-<div class="line"><a name="l01957"></a><span class="lineno"> 1957</span>&#160;            <span class="keywordflow">for</span>( uint16_t r = 0; r &lt; row_length; r++ ){</div>
-<div class="line"><a name="l01958"></a><span class="lineno"> 1958</span>&#160;                uint16_t final_src_index = ( ii*row_length )+r;</div>
-<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;                int16_t src_data = xy_table[final_src_index];</div>
-<div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160;                <span class="keywordflow">if</span>( src_data &gt;= 0 ){</div>
-<div class="line"><a name="l01961"></a><span class="lineno"> 1961</span>&#160;                    src_data += ( 35*chars_x );</div>
-<div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160; </div>
-<div class="line"><a name="l01963"></a><span class="lineno"> 1963</span>&#160;                    <span class="keywordflow">if</span>( src_data &gt; NUM_LEDS ){</div>
-<div class="line"><a name="l01964"></a><span class="lineno"> 1964</span>&#160;                        NUM_LEDS = src_data+1;</div>
-<div class="line"><a name="l01965"></a><span class="lineno"> 1965</span>&#160;                    }</div>
-<div class="line"><a name="l01966"></a><span class="lineno"> 1966</span>&#160;                    xy_table[final_src_index+row_length] = src_data;</div>
-<div class="line"><a name="l01967"></a><span class="lineno"> 1967</span>&#160;                }</div>
-<div class="line"><a name="l01968"></a><span class="lineno"> 1968</span>&#160;            }</div>
-<div class="line"><a name="l01969"></a><span class="lineno"> 1969</span>&#160;        }</div>
-<div class="line"><a name="l01970"></a><span class="lineno"> 1970</span>&#160;    }</div>
-<div class="line"><a name="l01971"></a><span class="lineno"> 1971</span>&#160; </div>
-<div class="line"><a name="l01972"></a><span class="lineno"> 1972</span>&#160;    uint16_t index = NUM_LEDS;</div>
-<div class="line"><a name="l01973"></a><span class="lineno"> 1973</span>&#160; </div>
-<div class="line"><a name="l01974"></a><span class="lineno"> 1974</span>&#160;    <span class="comment">//Serial.println( &quot;SOLVING INVISIBLE&quot; );</span></div>
-<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;    <span class="keywordflow">for</span>( uint16_t y = 0; y &lt; matrix_height; y++ ){</div>
-<div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;        <span class="keywordflow">for</span>( uint16_t x = 0; x &lt; matrix_width; x++ ){</div>
-<div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160;            uint16_t i = ( y * matrix_width ) + x;</div>
-<div class="line"><a name="l01978"></a><span class="lineno"> 1978</span>&#160;            uint16_t j = xy_table[i];</div>
-<div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160; </div>
-<div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;            <span class="keywordflow">if</span>( xy_table[i] == -2 ){</div>
-<div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;                xy_table[i] = index;</div>
-<div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;                index++;</div>
-<div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160;            }</div>
-<div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;        }</div>
-<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;    }</div>
-<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;    <span class="comment">//Serial.println( &quot;DONE&quot; );</span></div>
-<div class="line"><a name="l01987"></a><span class="lineno"> 1987</span>&#160;}</div>
+<div class="line"><a name="l01942"></a><span class="lineno"> 1942</span>&#160;    <span class="comment">// Solve additional rows</span></div>
+<div class="line"><a name="l01943"></a><span class="lineno"> 1943</span>&#160;    <span class="keywordflow">if</span>( chars_y &gt; 1 ){</div>
+<div class="line"><a name="l01944"></a><span class="lineno"> 1944</span>&#160;        uint8_t rows_left = chars_y-1;</div>
+<div class="line"><a name="l01945"></a><span class="lineno"> 1945</span>&#160;        uint16_t row_length = ( display_width*display_height )*chars_x;</div>
+<div class="line"><a name="l01946"></a><span class="lineno"> 1946</span>&#160;        <span class="keywordflow">for</span>( uint8_t ii = 0; ii &lt; rows_left; ii++ ){</div>
+<div class="line"><a name="l01947"></a><span class="lineno"> 1947</span>&#160;            <span class="keywordflow">for</span>( uint16_t r = 0; r &lt; row_length; r++ ){</div>
+<div class="line"><a name="l01948"></a><span class="lineno"> 1948</span>&#160;                uint16_t final_src_index = ( ii*row_length )+r;</div>
+<div class="line"><a name="l01949"></a><span class="lineno"> 1949</span>&#160;                int16_t src_data = xy_table[final_src_index];</div>
+<div class="line"><a name="l01950"></a><span class="lineno"> 1950</span>&#160;                <span class="keywordflow">if</span>( src_data &gt;= 0 ){</div>
+<div class="line"><a name="l01951"></a><span class="lineno"> 1951</span>&#160;                    src_data += ( 35*chars_x );</div>
+<div class="line"><a name="l01952"></a><span class="lineno"> 1952</span>&#160; </div>
+<div class="line"><a name="l01953"></a><span class="lineno"> 1953</span>&#160;                    <span class="keywordflow">if</span>( src_data &gt; NUM_LEDS ){</div>
+<div class="line"><a name="l01954"></a><span class="lineno"> 1954</span>&#160;                        NUM_LEDS = src_data+1;</div>
+<div class="line"><a name="l01955"></a><span class="lineno"> 1955</span>&#160;                    }</div>
+<div class="line"><a name="l01956"></a><span class="lineno"> 1956</span>&#160;                    xy_table[final_src_index+row_length] = src_data;</div>
+<div class="line"><a name="l01957"></a><span class="lineno"> 1957</span>&#160;                }</div>
+<div class="line"><a name="l01958"></a><span class="lineno"> 1958</span>&#160;            }</div>
+<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;        }</div>
+<div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160;    }</div>
+<div class="line"><a name="l01961"></a><span class="lineno"> 1961</span>&#160; </div>
+<div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160;    uint16_t index = NUM_LEDS;</div>
+<div class="line"><a name="l01963"></a><span class="lineno"> 1963</span>&#160; </div>
+<div class="line"><a name="l01964"></a><span class="lineno"> 1964</span>&#160;    <span class="comment">//Serial.println( &quot;SOLVING INVISIBLE&quot; );</span></div>
+<div class="line"><a name="l01965"></a><span class="lineno"> 1965</span>&#160;    <span class="keywordflow">for</span>( uint16_t y = 0; y &lt; matrix_height; y++ ){</div>
+<div class="line"><a name="l01966"></a><span class="lineno"> 1966</span>&#160;        <span class="keywordflow">for</span>( uint16_t x = 0; x &lt; matrix_width; x++ ){</div>
+<div class="line"><a name="l01967"></a><span class="lineno"> 1967</span>&#160;            uint16_t i = ( y * matrix_width ) + x;</div>
+<div class="line"><a name="l01968"></a><span class="lineno"> 1968</span>&#160;            uint16_t j = xy_table[i];</div>
+<div class="line"><a name="l01969"></a><span class="lineno"> 1969</span>&#160; </div>
+<div class="line"><a name="l01970"></a><span class="lineno"> 1970</span>&#160;            <span class="keywordflow">if</span>( xy_table[i] == -2 ){</div>
+<div class="line"><a name="l01971"></a><span class="lineno"> 1971</span>&#160;                xy_table[i] = index;</div>
+<div class="line"><a name="l01972"></a><span class="lineno"> 1972</span>&#160;                index++;</div>
+<div class="line"><a name="l01973"></a><span class="lineno"> 1973</span>&#160;            }</div>
+<div class="line"><a name="l01974"></a><span class="lineno"> 1974</span>&#160;        }</div>
+<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;    }</div>
+<div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;    <span class="comment">//Serial.println( &quot;DONE&quot; );</span></div>
+<div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160;}</div>
 <div class="ttc" id="a_pixie___chroma_8h_html"><div class="ttname"><a href="_pixie___chroma_8h.html">Pixie_Chroma.h</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html"><div class="ttname"><a href="class_pixie_chroma.html">PixieChroma</a></div><div class="ttdoc">This is the software documentation for using Pixie Chroma functions on Arduino! For full example usag...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00026">pixie_chroma_internal.h:26</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a0ca20cd8276fd7cad33e3c7724be5ac6"><div class="ttname"><a href="class_pixie_chroma.html#a0ca20cd8276fd7cad33e3c7724be5ac6">PixieChroma::color_blur</a></div><div class="ttdeci">void color_blur(fract8 blur_amount)</div><div class="ttdoc">Blurs the color buffer in both axes by blur_amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01305">pixie_chroma_internal.cpp:1305</a></div></div>
@@ -1206,7 +1206,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="ttc" id="aclass_pixie_chroma_html_a51e0b0c0cd31c7a39b134dbac9a440a1"><div class="ttname"><a href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">PixieChroma::mask</a></div><div class="ttdeci">uint8_t * mask</div><div class="ttdoc">Contains the entire mask, including &quot;invisible&quot; areas.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00179">pixie_chroma_internal.h:179</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a5570ee487fa0299cf6cf07a09dcc51e9"><div class="ttname"><a href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9">PixieChroma::begin</a></div><div class="ttdeci">void begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y)</div><div class="ttdoc">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00100">pixie_chroma_internal.cpp:100</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a5af6bae45788a3050b50aed73eb5f1e2"><div class="ttname"><a href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2">PixieChroma::print</a></div><div class="ttdeci">void print(const uint8_t *icon)</div><div class="ttdoc">Prints an Icon to the displays, at the current cursor position.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00883">pixie_chroma_internal.cpp:883</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_a5da48c4082408e623dd91163637b85cb"><div class="ttname"><a href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb">PixieChroma::print_xy_map</a></div><div class="ttdeci">void print_xy_map()</div><div class="ttdoc">Prints the index table for the calculated XY map. Requires Serial.begin() first to function.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01820">pixie_chroma_internal.cpp:1820</a></div></div>
+<div class="ttc" id="aclass_pixie_chroma_html_a5da48c4082408e623dd91163637b85cb"><div class="ttname"><a href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb">PixieChroma::print_xy_map</a></div><div class="ttdeci">void print_xy_map()</div><div class="ttdoc">Prints the index table for the calculated XY map. Requires Serial.begin() first to function.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01810">pixie_chroma_internal.cpp:1810</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a60c3dccd46e28dac50b008a540719543"><div class="ttname"><a href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543">PixieChroma::free</a></div><div class="ttdeci">void free()</div><div class="ttdoc">Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01739">pixie_chroma_internal.cpp:1739</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a67b834ccdcf7f3fa8eafd4f746d34e28"><div class="ttname"><a href="class_pixie_chroma.html#a67b834ccdcf7f3fa8eafd4f746d34e28">PixieChroma::blur</a></div><div class="ttdeci">void blur(fract8 blur_amount)</div><div class="ttdoc">Blurs the mask buffer in both axes by blur_amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01209">pixie_chroma_internal.cpp:1209</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a75c1bab0aff30181ed7bc34273d881db"><div class="ttname"><a href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">PixieChroma::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears (blackens) the current mask buffer and resets the cursor to 0,0.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01422">pixie_chroma_internal.cpp:1422</a></div></div>
@@ -1250,7 +1250,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 19:40:57 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 19:46:21 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
