@@ -19,8 +19,9 @@ enum t_update_mode {
 };
 
 /*! ############################################################################
-    @brief  Class that stores functions for interacting with
-            Pixie Chroma displays.
+    @brief
+    This is the software decumentation for using Pixie Chroma functions on
+    Arduino! For full example usage, see [Demos](DEMO_LINK_HERE). 
 *///............................................................................
 class PixieChroma{
 	public:
