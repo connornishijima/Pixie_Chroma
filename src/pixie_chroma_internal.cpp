@@ -72,16 +72,18 @@ PixieChroma::PixieChroma(){}
             
             The corresponding setup for this display layout would be:
             
-	            #include "Pixie_Chroma.h"
-                PixieChroma pix;
-		
-                #define DATA_PIN 5
-                #define PIXIES_X 8
-                #define PIXIES_Y 2
-		
-                void setup() {
-                  pix.begin(DATA_PIN, PIXIES_X, PIXIES_Y);
-                }
+            ~~~{.cpp}
+            #include "Pixie_Chroma.h"
+            PixieChroma pix;
+
+            #define DATA_PIN 5
+            #define PIXIES_X 8
+            #define PIXIES_Y 2
+
+            void setup() {
+              pix.begin(DATA_PIN, PIXIES_X, PIXIES_Y);
+            }
+            ~~~
             
             For faster performance on large displays, see begin_quad().
 	
