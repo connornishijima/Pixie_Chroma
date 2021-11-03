@@ -12,36 +12,34 @@
 
 #include "../Pixie_Chroma.h"
 
-/**************************************************************************/
-/*!
-    @brief  It does nothing, but it does nothing REALLY WELL! You can enable
-            this empty function with pix.set_animation(ANIMATION_NULL) to
-            fully manually control LEDs when you want using pix.show().
-*/
-/**************************************************************************/
+
+/*! ############################################################################
+    @brief
+    It does nothing, but it does nothing REALLY WELL! You can enable this empty
+    function with pix.set_animation(ANIMATION_NULL) to fully manually control
+    LEDs when you want using pix.show().
+*///............................................................................
 void ANIMATION_NULL(float delta); // Prototype definition needed so pixie_chroma_internal.cpp can reach these functions as well as the sketch
 
-/**************************************************************************/
-/*!
-    @brief  Shows the current color palette without animation.
-*/
-/**************************************************************************/
+
+/*! ############################################################################
+    @brief
+    Shows the current color palette without animation.
+*///............................................................................
 void ANIMATION_STATIC(float delta);
 
-/**************************************************************************/
-/*!
-    @brief  Shows the current color palette, while constantly shifting it
-            to the left.
-*/
-/**************************************************************************/
+
+/*! ############################################################################
+    @brief
+    Shows the current color palette, while constantly shifting it to the left.
+*///............................................................................
 void ANIMATION_PALETTE_SHIFT_LEFT(float delta);
 
-/**************************************************************************/
-/*!
-    @brief  Shows the current color palette, while constantly shifting it
-            to the right.
-*/
-/**************************************************************************/
+
+/*! ############################################################################
+    @brief
+    Shows the current color palette, while constantly shifting it to the right.
+*///............................................................................
 void ANIMATION_PALETTE_SHIFT_RIGHT(float delta);
 
 void ANIMATION_GLITTER(float delta);
