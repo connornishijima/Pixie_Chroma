@@ -40,13 +40,6 @@
 - :x: *Member ***GRADIENT_BLACK_BLUE_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
 - :x: *Member ***dtoa(double*** d, char *buffer, int precision) (function) of file pixie_utility.h is not documented.*
 - :x: *Member ***anim_func)(float*** delta) (variable) of file pixie_utility.h is not documented.*
-- :x: *Member ***write(long*** unsigned int input, uint8_t x_pos=0, uint8_t y_pos=0) (function) of class PixieChroma is not documented.*
-- :x: *Member ***print(long*** unsigned int input) (function) of class PixieChroma is not documented.*
-- :x: *Member ***println(long*** unsigned int input) (function) of class PixieChroma is not documented.*
-- :x: return type of member **PixieChroma::get_cursor_x** is not documented
-- :x: return type of member **PixieChroma::get_cursor_y** is not documented
-- :x: return type of member **PixieChroma::get_cursor_x_exact** is not documented
-- :x: return type of member **PixieChroma::get_cursor_y_exact** is not documented
 - :x: *Member ***print_xy_map()*** (function) of class PixieChroma is not documented.*
 - :x: *Member ***leds*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***leds_out*** (variable) of class PixieChroma is not documented.*
@@ -66,4 +59,8 @@
 - :x: *Member ***animation_speed*** (variable) of class PixieChroma is not documented.*
   'x_offset'
   'y_offset'
+- :x: return type of member **PixieChroma::get_cursor_x** is not documented
+- :x: return type of member **PixieChroma::get_cursor_y** is not documented
+- :x: return type of member **PixieChroma::get_cursor_x_exact** is not documented
+- :x: return type of member **PixieChroma::get_cursor_y_exact** is not documented
 - :x: return type of member **PixieChroma::kelvin_to_rgb** is not documented
