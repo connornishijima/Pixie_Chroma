@@ -100,11 +100,10 @@ Variables</h2></td></tr>
 <tr class="memitem:a7fd2ad7110bef083d6e8fd223ddc3122"><td class="memItemLeft" align="right" valign="top"><a id="a7fd2ad7110bef083d6e8fd223ddc3122"></a>
 const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>font_col_width</b> = 5</td></tr>
 <tr class="separator:a7fd2ad7110bef083d6e8fd223ddc3122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a466d75720b43bffb634bd65bee67cc3c"><td class="memItemLeft" align="right" valign="top"><a id="a466d75720b43bffb634bd65bee67cc3c"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>printable_ascii_offset</b> = 32</td></tr>
+<tr class="memitem:a466d75720b43bffb634bd65bee67cc3c"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pixie__font_8h.html#a466d75720b43bffb634bd65bee67cc3c">printable_ascii_offset</a> = 32</td></tr>
 <tr class="separator:a466d75720b43bffb634bd65bee67cc3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a726ed429818a8cdf56df6867093a8ac4"><td class="memItemLeft" align="right" valign="top"><a id="a726ed429818a8cdf56df6867093a8ac4"></a>
-const uint8_t font[480]&#160;</td><td class="memItemRight" valign="bottom"><b>PROGMEM</b></td></tr>
+<tr class="memitem:a726ed429818a8cdf56df6867093a8ac4"><td class="memItemLeft" align="right" valign="top">const uint8_t font[480]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pixie__font_8h.html#a726ed429818a8cdf56df6867093a8ac4">PROGMEM</a></td></tr>
+<tr class="memdesc:a726ed429818a8cdf56df6867093a8ac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal lookup table for ASCII font bitmaps.  <a href="pixie__font_8h.html#a726ed429818a8cdf56df6867093a8ac4">More...</a><br /></td></tr>
 <tr class="separator:a726ed429818a8cdf56df6867093a8ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -112,13 +111,65 @@ const uint8_t font[480]&#160;</td><td class="memItemRight" valign="bottom"><b>PR
 <p>Last Updated by Connor Nishijima on 10/21/21 </p>
 
 <p class="definition">Definition in file <a class="el" href="pixie__font_8h_source.html">pixie_font.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Variable Documentation</h2>
+<a id="a466d75720b43bffb634bd65bee67cc3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a466d75720b43bffb634bd65bee67cc3c">&#9670;&nbsp;</a></span>printable_ascii_offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t printable_ascii_offset = 32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constant defining the width of a character </p>
+
+<p class="definition">Definition at line <a class="el" href="pixie__font_8h_source.html#l00013">13</a> of file <a class="el" href="pixie__font_8h_source.html">pixie_font.h</a>.</p>
+
+</div>
+</div>
+<a id="a726ed429818a8cdf56df6867093a8ac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a726ed429818a8cdf56df6867093a8ac4">&#9670;&nbsp;</a></span>PROGMEM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t font [480] PROGMEM</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal lookup table for ASCII font bitmaps. </p>
+<p>Constant defining the offset into the ASCII table that printable characters begin</p>
+<h6></h6>
+<p>For example, here is the binary bitmap for the character '5', in 5 columns of 8 bits: </p><pre class="fragment">B00101111, B01001001, B01001001, B01001001, B00110001
+
+OR, WRITTEN VERTICALLY:
+
+1   1   1   1   1  LSB
+1   0   0   0   0
+1   0   0   0   0
+1   1   1   1   0
+0   0   0   0   1
+1   0   0   0   1
+0   1   1   1   0  
+0   0   0   0   0  MSB (unused)
+B   B   B   B   B
+</pre><p> Notice how the '1' bits above form a '5' when written out this way. </p>
+
+<p class="definition">Definition at line <a class="el" href="pixie__font_8h_source.html#l00039">39</a> of file <a class="el" href="pixie__font_8h_source.html">pixie_font.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__font_8h.html">pixie_font.h</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 18:00:27 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 18:07:29 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

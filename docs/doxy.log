@@ -32,8 +32,6 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_animations.h:105: warning: parameters of member make_gradient are not (all) documented
 /github/workspace/src/utility/pixie_animations.h:109: warning: parameters of member make_gradient are not (all) documented
 /github/workspace/src/utility/pixie_font.h:12: warning: Member font_col_width (variable) of file pixie_font.h is not documented.
-/github/workspace/src/utility/pixie_font.h:13: warning: Member printable_ascii_offset (variable) of file pixie_font.h is not documented.
-/github/workspace/src/utility/pixie_font.h:15: warning: Member PROGMEM (variable) of file pixie_font.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:15: warning: Member ICON_ARROW_UP[5] (variable) of file pixie_icons.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:16: warning: Member ICON_ARROW_UP_LEFT[5] (variable) of file pixie_icons.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:17: warning: Member ICON_ARROW_UP_RIGHT[5] (variable) of file pixie_icons.h is not documented.
