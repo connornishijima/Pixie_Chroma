@@ -1,29 +1,7 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: *Member ***ANIMATION_PALETTE_SHIFT(int8_t*** amount, float delta) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***ANIMATION_GLITTER(float*** delta) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***_PENDULUM(float*** iter, float width) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***ANIMATION_PENDULUM(float*** delta) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***ANIMATION_PENDULUM_WIDE(float*** delta) (function) of file pixie_animations.cpp is not documented.*
 - :x: return type of member **make_gradient** is not documented
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8) (function) of file pixie_animations.cpp is not documented.*
-- :x: *Member ***ANIMATION_GLITTER(float*** delta) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***ANIMATION_PENDULUM(float*** delta) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***ANIMATION_PENDULUM_WIDE(float*** delta) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***_PALETTE_SHIFT(int8_t*** amount, float delta) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***_PENDULUM(float*** iter, float width) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7) (function) of file pixie_animations.h is not documented.*
-- :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8) (function) of file pixie_animations.h is not documented.*
 - :x: *Member ***font_col_width*** (variable) of file pixie_font.h is not documented.*
 - :x: *Member ***printable_ascii_offset*** (variable) of file pixie_font.h is not documented.*
 - :x: *Member ***RED_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
