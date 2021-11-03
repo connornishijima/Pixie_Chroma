@@ -72,6 +72,10 @@ PixieChroma::PixieChroma(){}
             
             The corresponding setup for this display layout would be:
             
+            ~~~~~~~~~~~~~~~{.c}
+            void setup();
+            ~~~~~~~~~~~~~~~
+            
 	            #include "Pixie_Chroma.h"
                 PixieChroma pix;
 		
