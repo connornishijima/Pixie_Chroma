@@ -860,17 +860,17 @@ void PixieChroma::print( const uint8_t* icon ){
 	@details  Example:
               
                   pix.print( B00101111, B01001001, B01001001, B01001001, B00110001 );
-                
+                  
                       OR, WRITTEN VERTICALLY:
-                
+                  
                   pix.print(    ,   ,   ,   ,    );
                              1   1   1   1   1  LSB
-		                     1   0   0   0   0
-		                     1   0   0   0   0
-		                     1   1   1   1   0
-		                     0   0   0   0   1
-		                     1   0   0   0   1
-		                     0   1   1   1   0  
+                             1   0   0   0   0
+                             1   0   0   0   0
+                             1   1   1   1   0
+                             0   0   0   0   1
+                             1   0   0   0   1
+                             0   1   1   1   0  
                              0   0   0   0   0  MSB ( unused )
                              B   B   B   B   B
               
