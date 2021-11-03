@@ -858,7 +858,7 @@ void PixieChroma::print( const uint8_t* icon ){
               taking five uint8_t as input for the column data.
 	
 	@details  Example:
-            
+              
                   pix.print( B00101111, B01001001, B01001001, B01001001, B00110001 );
                 
                       OR, WRITTEN VERTICALLY:
@@ -873,7 +873,7 @@ void PixieChroma::print( const uint8_t* icon ){
 		                     0   1   1   1   0  
                              0   0   0   0   0  MSB ( unused )
                              B   B   B   B   B
-
+              
               This writes a "5" to the display, seen above in the "1" bits of
               each column. The MSB ( highest bit ) is not used in icons.
 	
@@ -1361,13 +1361,13 @@ void PixieChroma::clear(){
 /*! ############################################################################
     @brief    This function returns the 1D index of a given 2D coordinate in the
 	          display matrix.
-	
+	          
 	@details  PixieChroma operates in a 2D context, but is run using 1D arrays. 
-	    
+	          
 			  Optionally, the result can be run through a wrapping function that
 			  allows coordinates out of range to wrap around to the opposite
 			  side of the 2D matrix.
-	    
+	          
 			  If wrap is not enabled, any coordinates outside of the display
 			  matrix will be parsed to a 1D index that is unused and unseen.
 	    
@@ -1415,11 +1415,11 @@ uint16_t PixieChroma::xy( int16_t x, int16_t y, bool wrap ) {
     @brief    Sets the entire color buffer to a CRGB value.
 	
 	@details  Example:
-	
+	          
                   pix.color(  CRGB( 0,255,255 )  );
-
+              
 	          This would set all displays to cyan, a mix of green and blue.
-	    
+	          
     @param    col  FastLED CRGB color
 *///............................................................................
 void PixieChroma::color( CRGB col ){
@@ -1431,9 +1431,9 @@ void PixieChroma::color( CRGB col ){
     @brief    Sets a specific display in the color buffer to a CRGB value.
     
 	@details  Example:
-	
+	          
                   pix.color(  CRGB( 0,255,255 ), 1, 0  );
-				  
+	          
 	          This would set the **second display of the first row** to cyan, a
 	          mix of green and blue.
 	    
@@ -1591,17 +1591,17 @@ void PixieChroma::draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
               ( e.g. 3500K ) to a CRGB color object.
 	
 	@details  This can be used within other Pixie color functions like so:
-	    
+	          
 	              pix.color(  kelvin_to_rgb(  3000  )  );
-		
+		      
 			  This would render a warm-white color. This measurement system is
 			  often used in household LED bulbs, with colors like:
-			
+			  
 			  - 2700K - **Very Warm White**
 			  - 3500K - **Warm White**
 			  - 5000K - **White**
 			  - 7000K - **Cool White**
-			
+			  
     @param    temperature  Blackbody radiation temperature in Kelvin
 *///............................................................................
 CRGB PixieChroma::kelvin_to_rgb( uint16_t temperature ){
