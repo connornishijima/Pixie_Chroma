@@ -27,15 +27,15 @@ PixieChroma pix;
 #define PIXIES_Y  2  // arrangement of Pixies =  x x x x x x
 
 void setup() {
-  pix.begin(13, PIXIES_X, PIXIES_Y); // ... Use Pin 13
-  pix.color(CRGB(0,0,255)); // ............ Set color to blue
+  pix.begin( 13, PIXIES_X, PIXIES_Y ); // ... Use Pin 13
+  pix.color( CRGB(0,0,255) ); // ............ Set color to blue
 }
 
 void loop() {
-  pix.clear(); // ................... Clear display
-  pix.println("Hello World!"); // ... Write text on first row
-  pix.print(millis()); // ........... Write the value of millis() on the second row
-  pix.show(); // .................... Show changes
+  pix.clear(); // ..................... Clear display
+  pix.println( "Hello World!" ); // ... Write text on first row
+  pix.print( millis() ); // ........... Write the value of millis() on the second row
+  pix.show(); // ...................... Show changes
 }
 ```
 		
@@ -52,8 +52,8 @@ PixieChroma pix; // ............ Get class instance
 #define PIXIES_Y  1  // ........ How many tall?
 
 void setup() {
-  pix.begin(DATA_PIN, PIXIES_X, PIXIES_Y); // ... Initialize Pixies
-  pix.set_max_power(5, 500); // ................. Set power budget to 5V, 500mA
+  pix.begin( DATA_PIN, PIXIES_X, PIXIES_Y ); // ... Initialize Pixies
+  pix.set_max_power( 5, 500 ); // ................. Set power budget to 5V, 500mA
 
   // Set the color palette to use for text
   pix.set_palette(
@@ -66,12 +66,12 @@ void setup() {
 
   // Set the animation preset to "PALETTE SHIFT RIGHT",
   // which will cause our gradient to scroll right-to-left
-  pix.set_animation(ANIMATION_PALETTE_SHIFT_RIGHT);
+  pix.set_animation( ANIMATION_PALETTE_SHIFT_RIGHT );
 
   // Sets the library into AUTOMATIC mode, which keeps 
   // the animation running smoothly in the background
   // while the microcontroller runs other functions                                  
-  pix.set_update_mode(AUTOMATIC); 
+  pix.set_update_mode( AUTOMATIC ); 
 }
 
 uint32_t counter = 0; // This is a number to show on the display
@@ -87,4 +87,4 @@ void loop() {
 }
 ```
 
-As you can see, Pixie Chroma is as easy, or advanced as you need! 
+As you can see, Pixie Chroma is as easy or advanced as you need! 
