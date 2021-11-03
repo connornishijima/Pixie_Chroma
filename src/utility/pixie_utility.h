@@ -52,10 +52,12 @@ const uint8_t gamma8[] = {
 /*!
 @brief
 Homebrew function to convert double precision floats to char*. [Arduino Forum link](https://forum.arduino.cc/t/ftoa/63464)
-@return
-A char array equivalent of the input double
+@param   input      Double value to convert
+@param   buffer     char* to store resulting string in
+@param   precision  How many places after the decimal point will be converted
+@return  A char array equivalent of the input double
 */
-char* dtoa(double d, char *buffer, int precision) {
+char* dtoa(double input, char *buffer, int precision) {
 	long wholePart = (long) d;
 
 	// Deposit the whole part of the number.
