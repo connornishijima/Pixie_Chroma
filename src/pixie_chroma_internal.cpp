@@ -280,9 +280,9 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
 
 
 /*! ############################################################################
-    @brief  Takes an 8-bit brightness value and passes it to FastLED
-            internally, to provide global brightness control with temporal
-            dithering.
+    @brief
+    Takes an 8-bit brightness value and passes it to FastLED internally, to
+    provide global brightness control with temporal dithering.
     
     @param  level  8-bit global brightness value ( 0-255 )
 *///............................................................................
@@ -292,22 +292,22 @@ void PixieChroma::set_brightness( uint8_t level ){
 
 
 /*! ############################################################################
-    @brief  Accepts a const uint8_t (8-bit) array with the following format to
-            generate a FastLED Gradient Palette at runtime:
-
-                const uint8_t* my_gradient_palette[] = {
-                    [INDEX],  [R_VAL],  [G_VAL],  [B_VAL],
-                    
-                    0,        255,      0,        0, 
-                    127,      0,        255,      0, 
-                    255,      0,        0,        255, 
-                };
-
-            On each line is the index of the color ( 0-255 ) to express the
-            position in the gradient this color occurs. So in the given
-            example, it is a gradient from red at 0, to green at 127, to
-            blue at 255.
-                
+    @brief
+    Accepts a const uint8_t (8-bit) array to generate a FastLED Gradient
+    Palette at runtime:
+    
+        const uint8_t* my_gradient_palette[] = {
+            [INDEX],  [R_VAL],  [G_VAL],  [B_VAL],
+        
+            0,        255,      0,        0, 
+            127,      0,        255,      0, 
+            255,      0,        0,        255, 
+        };
+    
+    On each line is the index of the color ( 0-255 ) to express the position in
+    the gradient this color occurs. So in the given example, it is a gradient
+    from red at 0, to green at 127, to blue at 255.
+    
     @param  pal  FastLED "Gradient Palette" array
 *///............................................................................
 void PixieChroma::set_palette( const uint8_t* pal ){ 
@@ -316,8 +316,9 @@ void PixieChroma::set_palette( const uint8_t* pal ){
 
 
 /*! ############################################################################
-    @brief  Accepts a FastLED CRGBPalette16 object to set the current color
-            palette for animation
+    @brief
+    Accepts a FastLED CRGBPalette16 object to set the current color palette for
+    animation.
     
     @param  pal  FastLED CRGBPalette16 object to use
 *///............................................................................
@@ -327,9 +328,12 @@ void PixieChroma::set_palette( CRGBPalette16 pal ){ // STANDARD PALETTE
 
 
 /*! ############################################################################
-    @brief  Accepts a preset or custom function to use for the animation ISR.
-            For a list of predefined animations, see pixie_animations.h
-
+    @brief
+    Accepts a preset or custom function to use for the animation ISR.
+    
+    @details
+    For a list of predefined animations, see pixie_animations.h.
+    
     @param  action  Function to set as an animation ISR
 *///............................................................................
 void PixieChroma::set_animation( void ( *action )(float) ) {
@@ -338,8 +342,9 @@ void PixieChroma::set_animation( void ( *action )(float) ) {
 
 
 /*! ############################################################################
-    @brief  Used to scale the animation speed of animation ISRs that can use
-            pix.animation_speed() to scale their speeds or for other effects
+    @brief
+    Used to scale the animation speed of animation ISRs that can use
+    pix.animation_speed() to scale their speeds or for other effects
                 
     @param  speed  Floating point value: 1.0 = 100%, 3.2 = 320%, 0.5 = 50%
 *///............................................................................
@@ -349,8 +354,9 @@ void PixieChroma::set_animation_speed( float speed ){
 
 
 /*! ############################################################################
-    @brief  Allows you to enable built-in automatic gamma correction, using a
-            fast LUT in pixie_utility.h. ( Not enabled by default )
+    @brief
+    Allows you to enable built-in automatic gamma correction, using a fast LUT
+    in pixie_utility.h. (Not enabled by default)
 
     @param  enabled  Whether or not to apply gamma correction
 *///............................................................................
@@ -360,48 +366,49 @@ void PixieChroma::set_gamma_correction( bool enabled ){
 
 
 /*! ############################################################################
-    @brief    Sets the cursor position in a 2D context, in whole displays.
-              Wherever the cursor is, is where the next call to print() or
-              write() will originate.
+    @brief
+    Sets the cursor position in a 2D context, in whole displays.
             
-    @details  Position is counted from zero. Remember: each Pixie Chroma has two
-              "displays" on it.
+    @details  
+    Wherever the cursor is, is where the next call to print() or write() will
+    originate. Position is counted from zero. Remember: each Pixie Chroma has
+    two "displays" on it.
 
-                  +-----------------+   +-----------------+   +-----------------+
-                  |      + + +      |   |      + + +      |   |      + + +      |
-                  |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                  || 0,0 |   | 1,0 ||-->|| 2,0 |   | 3,0 ||-->|| 4,0 |   | 5,0 ||
-                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                  |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-                  |      + + +      |   |      + + +      |   |      + + +      |
-                  +-----------------+   +-----------------+   +-----------------+
-                                                                     |
-                         +-------------------------------------------+
-                         |
-                         V
-                  +-----------------+   +-----------------+   +-----------------+
-                  |      + + +      |   |      + + +      |   |      + + +      |
-                  |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                  || 0,1 |   | 1,1 ||-->|| 2,1 |   | 3,1 ||-->|| 4,0 |   | 5,1 ||
-                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                  |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-                  |      + + +      |   |      + + +      |   |      + + +      |
-                  +-----------------+   +-----------------+   +-----------------+
+        +-----------------+   +-----------------+   +-----------------+
+        |      + + +      |   |      + + +      |   |      + + +      |
+        |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+        ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+        ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+        || 0,0 |   | 1,0 ||-->|| 2,0 |   | 3,0 ||-->|| 4,0 |   | 5,0 ||
+        ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+        ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+        |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+        |      + + +      |   |      + + +      |   |      + + +      |
+        +-----------------+   +-----------------+   +-----------------+
+                                                           |
+               +-------------------------------------------+
+               |
+               V
+        +-----------------+   +-----------------+   +-----------------+
+        |      + + +      |   |      + + +      |   |      + + +      |
+        |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+        ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+        ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+        || 0,1 |   | 1,1 ||-->|| 2,1 |   | 3,1 ||-->|| 4,0 |   | 5,1 ||
+        ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+        ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+        |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+        |      + + +      |   |      + + +      |   |      + + +      |
+        +-----------------+   +-----------------+   +-----------------+
 
-              For example:
+    For example:
 
-              `set_cursor( 1,0 )` sets the cursor to the second display in the first row.
+    `set_cursor( 1,0 )` sets the cursor to the second display in the first row.
 
-              `set_cursor( 3,1 )` sets the cursor to the fourth display in the second row.
+    `set_cursor( 3,1 )` sets the cursor to the fourth display in the second row.
 
-    @param    x_position  New cursor position on the X-axis, in whole displays
-    @param    y_position  New cursor position on the Y-axis, in whole displays
+    @param  x_position  New cursor position on the X-axis, in whole displays
+    @param  y_position  New cursor position on the Y-axis, in whole displays
 *///............................................................................
 void PixieChroma::set_cursor( uint8_t x_position, uint8_t y_position ){
     cursor_x = ( display_width  * x_position ) + display_padding_x;
@@ -410,17 +417,18 @@ void PixieChroma::set_cursor( uint8_t x_position, uint8_t y_position ){
 
 
 /*! ############################################################################
-    @brief    Sets the maximum power budget in volts and milliamps.
+    @brief
+    Sets the maximum power budget in volts and milliamps.
     
-    @details  Knowing the average power consumption of these LEDs at any given
-              color, FastLED will automatically globally scale down the output
-              values with temporal dithering to lower power usage until it is
-              within the budget defined here. Defaults to 5.0V / 500mA to
-              protect PC USB ports if the LEDs are not independently powered.
-              ( 2000mA = 2A, 500mA = 0.5A, etc. )
+    @details
+    Knowing the average power consumption of these LEDs at any given color,
+    FastLED will automatically globally scale down the output values with
+    temporal dithering to lower power usage until it is within the budget
+    defined here. Defaults to 5.0V / 500mA to protect PC USB ports if the
+    Pixies are not independently powered. ( 2000mA = 2A, 500mA = 0.5A, etc. )
 
-    @param    volts      Total LED power budget in volts. ( default: 5.0 )
-    @param    milliamps  Total LED power budget in milliamps ( default 500 )
+    @param  volts      Total LED power budget in volts. ( default: 5.0 )
+    @param  milliamps  Total LED power budget in milliamps ( default 500 )
 *///............................................................................
 void PixieChroma::set_max_power( float volts, uint16_t milliamps ){
     max_V = volts;
@@ -429,20 +437,21 @@ void PixieChroma::set_max_power( float volts, uint16_t milliamps ){
 
 
 /*! ############################################################################
-    @brief    Sets the target frame rate for animation. This target frame rate
-              is only used to calculate `delta` in custom/preset animation
-              functions.
+    @brief
+    Sets the target frame rate for animation. This target frame rate is only
+    used to calculate `delta` in custom/preset animation functions.
             
-    @details  This does not change your real frame rate, or even govern it,
-              it is left up to the user to use frequent show() calls or
-              auto_update(). The "target frame rate" here is used to calculate
-              `delta` for the animation functions, and should be set as close
-              as possible to the rate at which you are going to call show().
+    @details
+    This does not change your real frame rate, or even govern it: it is left up
+    to the user to use frequent show() calls or auto_update(). The "target frame
+    rate" here is used to calculate `delta` for the animation functions, and
+    should be set as close as possible to the rate at which you are expecting to
+    call show().
 
-              This function is automatically called with a matching FPS when
-              you use `set_update_mode( AUTOMATIC, FPS )`.
+    This function is automatically called with a matching FPS when you use
+    `set_update_mode( AUTOMATIC, FPS )`.
 
-    @param    target  Target frame rate for animation.
+    @param  target  Target frame rate for animation.
 *///............................................................................
 void PixieChroma::set_frame_rate_target( uint16_t target ){
     fps_target = target;
@@ -450,13 +459,14 @@ void PixieChroma::set_frame_rate_target( uint16_t target ){
 
 
 /*! ############################################################################
-    @brief    Sets the line wrapping behavior
+    @brief
+    Sets the line wrapping behavior
 
-    @details  `set_line_wrap( true );` will automatically enter next line when
-              the edge of the display is reached, and `set_line_wrap( false );`
-              will not.
+    @details
+    `set_line_wrap( true );` will automatically enter next line when the edge of
+    the display is reached, and `set_line_wrap( false );` will not.
 
-    @param    enabled  Enable or disable auto line-wrapping
+    @param  enabled  Enable or disable auto line-wrapping
 *///............................................................................
 void PixieChroma::set_line_wrap( bool enabled ){
     line_wrap = enabled;
@@ -464,25 +474,26 @@ void PixieChroma::set_line_wrap( bool enabled ){
 
 
 /*! ############################################################################
-    @brief    Allows for automatic show() calls at a specified frames per
-              second if AUTOMATIC is used. (uses Ticker.attach_ms() internally)
+    @brief
+    Allows for automatic show() calls at a specified frames per second if
+    AUTOMATIC is used. (uses Ticker.attach_ms() internally)
             
-    @details  This lets you use things like print() as infrequently as you'd
-              like, since show() will automatically run in the background
-              to keep the current animation function running smoothly.
+    @details
+    This lets you use things like print() as infrequently as you'd like, since
+    show() will automatically run in the background to keep the current
+    animation function running smoothly.
             
-              Use in conjunction with hold() and free() to prevent show()
-              calls during text/image construction, leading to unintended
-              partial frames being shown. Be aware, hold() does not prevent
-              animation / palette updates (only mask updates) so animations
-              will still run smoothly during hold() times until free() is
-              called and the mask is updated.
+    Use in conjunction with hold() and free() to prevent show() calls during
+    text/image construction, leading to unintended partial frames being shown.
+    Be aware, hold() does not prevent animation / palette updates (only mask
+    updates) so animations will still run smoothly during hold() times until
+    free() is called and the mask is finally updated.
     
-    @param    mode  AUTOMATIC or MANUAL. AUTOMATIC will call show() at `FPS`
-                    using an ISR, MANUAL allows you call show() when you like.
+    @param  mode  AUTOMATIC or MANUAL. AUTOMATIC will call show() at `FPS`
+                  using an ISR, MANUAL allows you call show() when you like.
 
-    @param    FPS   Update *this* many times per second (Default: 60) Only
-                    applicable when mode is AUTOMATIC
+    @param  FPS   Update *this* many times per second (Default: 60) Only
+                  applicable when mode is AUTOMATIC
 *///............................................................................
 void PixieChroma::set_update_mode( t_update_mode mode, uint16_t FPS ){
     if( mode == AUTOMATIC && ticker_running == false ){
