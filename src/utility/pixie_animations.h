@@ -12,7 +12,6 @@
 
 #include "../Pixie_Chroma.h"
 
-
 /*! ############################################################################
     @brief
     It does nothing, but it does nothing REALLY WELL! You can enable this empty
@@ -81,19 +80,32 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta);
 void _PENDULUM(float iter, float width);
 
 
-/*! @brief  Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient. */
+/*! @brief   Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.
+    @return  A CRGBPalette16 object for use with set_palette() */
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2);
-/*! @brief  Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient. */
+
+/*! @brief   Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.
+    @return  A CRGBPalette16 object for use with set_palette() */
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3);
-/*! @brief  Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient. */
+
+/*! @brief   Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.
+    @return  A CRGBPalette16 object for use with set_palette() */
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4);
-/*! @brief  Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient. */
+
+/*! @brief   Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.
+    @return  A CRGBPalette16 object for use with set_palette() */
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5);
-/*! @brief  Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient. */
+
+/*! @brief   Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.
+    @return  A CRGBPalette16 object for use with set_palette() */
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6);
-/*! @brief  Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient. */
+
+/*! @brief   Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.
+    @return  A CRGBPalette16 object for use with set_palette() */
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7);
-/*! @brief  Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient. */
+
+/*! @brief   Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.
+    @return  A CRGBPalette16 object for use with set_palette() */
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8);
 
 #endif
