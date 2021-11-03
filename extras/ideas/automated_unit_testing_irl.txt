@@ -1,0 +1,37 @@
+How To Automatically Unit Test Pixie Chroma Code
+------------------------------------------------
+
+- Write/generate Arduino sketch that can interpret calls to public PixieChroma class functions (with parameters)
+- Send these "TO DO" instructions over Serial
+- Once interpreted, the proper function is called
+- Once complete, write "DONE" back on Serial
+
+THEN
+
+- Put Pixies in box with fixed-exposure camera
+- Put medium opacity diffuser over Pixies (helps camera see)
+- Wire Pixies to ESP8266
+- Hook ESP8266 to Raspberry Pi with USB
+- Have Pi send a list of all functions to test to the ESP8266, one by one
+- When "DONE" is recieved back, automatically take a photo of the Pixies
+- All of these results are manually verified as PASSING quality (Correct color and text)
+- Results are stored as a "golden reference"
+
+EVERY MINUTE
+
+- Raspberry Pi checks GitHub for any new commits to the library
+- Once a new commit is detected, it is pulled from remote, and a new list of public functions to test (stored in /extras/reports/testbox/phy_test_functions.json) is pulled as well.
+- If a new function that does not yet have a golden reference photo is found, it will prompt for manual verification after testing
+- Pi compiles and uploads the newest copy of the library to the ESP8266, with the interpreter sketch.
+- Once "READY" is recieved from the interpreter, Pi proceeds with capturing the photo result of every function listed
+- The photos are compared at the pixel level to the golden reference, using pre-defined sample points with averaging.
+- Any pass photos will be added to /extras/reports/testbox/pass folder
+- Any fail photos will be added to /extras/reports/testbox/fail folder with mismatch areas highlighted
+- The /extras/reports/testbox/README.md file is updated with a timestamp, commit number, and checkmark results and inline links to any unverified or failed images
+- Upon completion, any unverified result photos are added to the /extras/reports/testbox/unverified folder
+- They are named after their function (I.e. println(123); is "println_123.png")
+- This result is seen on GitHub
+- To verify an image as a PASS, add "_PASS" to the name
+- This change is detected again in a commit by the Pi
+- The new function is added to the golden reference and the /extras/reports/testbox/* folders are emptied on both origin and remote
+- Pi begins testing and now properly reports back "ALL PASS".
