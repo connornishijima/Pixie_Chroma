@@ -13,9 +13,7 @@
 
 void (*anim_func)(float delta);
 
-/*!
- * @brief  Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context
- */
+/*! @brief  Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context. */
 const int8_t xy_template[77] PROGMEM = {  
 	-2, -2, -2, -2, -2, -2, -2,
 	-2, -2, -2, -2, -2, -2, -2,
@@ -30,9 +28,7 @@ const int8_t xy_template[77] PROGMEM = {
 	-2, -2, -2, -2, -2, -2, -2
 };
 
-/*!
- * @brief  Used as a fast lookup table for gamma correction
- */
+/*! @brief  Used as a fast lookup table for gamma correction. */
 const uint8_t gamma8[] = {
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
 	0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  1,
@@ -53,27 +49,22 @@ const uint8_t gamma8[] = {
 };
 
 char *dtoa(double d, char *buffer, int precision) { //https://forum.arduino.cc/t/ftoa/63464
-
 	long wholePart = (long) d;
 
 	// Deposit the whole part of the number.
-
 	itoa(wholePart,buffer,10);
 
 	// Now work on the faction if we need one.
-
 	if (precision > 0) {
 
 		// We do, so locate the end of the string and insert
 		// a decimal point.
-
 		char *endOfString = buffer;
 		while (*endOfString != '\0') endOfString++;
 		*endOfString++ = '.';
 
-		// Now work on the fraction, be sure to turn any negative
+		// Now work on the fraction, being sure to turn any negative
 		// values positive.
-
 		if (d < 0) {
 			d *= -1;
 			wholePart *= -1;
@@ -82,24 +73,21 @@ char *dtoa(double d, char *buffer, int precision) { //https://forum.arduino.cc/t
 		double fraction = d - wholePart;
 		while (precision > 0) {
 
-			// Multipleby ten and pull out the digit.
-
+			// Multiply by ten and pull out the digit.
 			fraction *= 10;
 			wholePart = (long) fraction;
 			*endOfString++ = '0' + wholePart;
 
 			// Update the fraction and move on to the
 			// next digit.
-
 			fraction -= wholePart;
 			precision--;
 		}
 
 		// Terminate the string.
-
 		*endOfString = '\0';
 	}
-
+	
     return buffer;
 }
 
