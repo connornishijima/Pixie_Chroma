@@ -148,19 +148,19 @@ class PixieChroma{
 		
 		int16_t *xy_table;
 
-		uint16_t matrix_width = 0;
-		uint16_t matrix_height = 0;
+		uint16_t matrix_width;
+		uint16_t matrix_height;
 
-		uint16_t NUM_LEDS = 0;
-		uint16_t NUM_VISIBLE_LEDS = 0;
+		uint16_t NUM_LEDS;
+		uint16_t NUM_VISIBLE_LEDS;
 		
-		volatile int16_t cursor_x = 0;
-		volatile int16_t cursor_y = 0;
+		volatile int16_t cursor_x;
+		volatile int16_t cursor_y;
 		
 		CRGBPalette16 current_palette;		
 
-		float frame_rate = 0.0;
-		uint32_t t_last = 0;
+		float frame_rate;
+		uint32_t t_last;
 		float delta = 1.0;
 
 		float animation_speed = 1.0;
@@ -173,19 +173,19 @@ class PixieChroma{
 		
 		// Variables ----------------------------------
 		Ticker animate;
+		uint8_t  pixie_pin;
 		
 		bool correct_gamma = false;
 		uint8_t brightness_level = 255;
 		
-		uint8_t  pixie_pin = 0;
 		float    max_V  = 5;
 		uint16_t max_mA = 800;
 
 		const uint8_t display_width  = 7;
 		const uint8_t display_height = 11;
 
-		uint8_t chars_x = 0;
-		uint8_t chars_y = 0;
+		uint8_t chars_x;
+		uint8_t chars_y;
 
 		const uint8_t bit_table[2] = {0,255};
 		
