@@ -133,7 +133,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     @brief
     Initializes the display buffer, populates the XY coordinate table, defaults
     the display colors to green, loads the default CRGBPalette, initializes
-    FastLED, and sets the default power budget.
+    FastLED **for Quad Mode**, and sets the default power budget.
     
     @details
     This version of begin() is special, in that it will send your image data to
