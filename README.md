@@ -56,7 +56,7 @@ Pixie Chroma's Arduino library makes it extremely easy to control advanced anima
 
       // Set the color palette to use for text
       pix.set_palette(
-        make_gradient( // For our palette, we'll generate a gradient from:
+        make_gradient( // ........... For our palette, we'll generate a gradient from:
           CRGB(255, 0,   0  ), // ... RED,
           CRGB(0,   255, 0  ), // ... GREEN,
           CRGB(255, 0,   0  )  // ... and RED.
