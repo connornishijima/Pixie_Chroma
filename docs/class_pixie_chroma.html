@@ -109,7 +109,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5570ee487fa0299cf6cf07a09dcc51e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED, and sets the default power budget.  <a href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9">More...</a><br /></td></tr>
 <tr class="separator:a5570ee487fa0299cf6cf07a09dcc51e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4c7b1051ce21bf03cfd69d30869fa6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">begin_quad</a> (uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y)</td></tr>
-<tr class="memdesc:af4c7b1051ce21bf03cfd69d30869fa6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED, and sets the default power budget.  <a href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">More...</a><br /></td></tr>
+<tr class="memdesc:af4c7b1051ce21bf03cfd69d30869fa6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED <b>for Quad Mode</b>, and sets the default power budget.  <a href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">More...</a><br /></td></tr>
 <tr class="separator:af4c7b1051ce21bf03cfd69d30869fa6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e3f715755758bc6dc82ada938165c44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44">set_brightness</a> (uint8_t level)</td></tr>
 <tr class="memdesc:a2e3f715755758bc6dc82ada938165c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes an 8-bit brightness value and passes it to FastLED internally, to provide global brightness control with temporal dithering.  <a href="class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44">More...</a><br /></td></tr>
@@ -501,7 +501,7 @@ void setup() {
       </table>
 </div><div class="memdoc">
 
-<p>Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED, and sets the default power budget. </p>
+<p>Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED <b>for Quad Mode</b>, and sets the default power budget. </p>
 <h6></h6>
 <p>This version of <a class="el" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin()</a> is special, in that it will send your image data to the LEDs in 4 parallel streams to increase speed.</p>
 <p>Unfortunately, this requires hard-coded pins on the ESP8266 and ESP32 to function <em>due to FastLED limitations</em>:</p>
@@ -3113,7 +3113,7 @@ pix.print(    ,   ,   ,   ,    );
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 17:26:47 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 17:28:17 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
