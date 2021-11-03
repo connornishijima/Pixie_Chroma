@@ -53,9 +53,7 @@ class PixieChroma{
 		/*|*/ void write(uint16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
 		/*|*/ void write(int32_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
 		/*|*/ void write(uint32_t input, uint8_t x_pos = 0, uint8_t y_pos = 0);
-		/*|*/ #if defined(ESP8266) || defined(ESP32)
-		/*|*/     void write(long unsigned int input, uint8_t x_pos = 0, uint8_t y_pos = 0); // pretty much the same as uint32_t, but Arduino is stupid
-		/*|*/ #endif
+		/*|*/ void write(long unsigned int input, uint8_t x_pos = 0, uint8_t y_pos = 0); // pretty much the same as uint32_t, but Arduino is stupid
 		/*|*/ void write(float input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0);
 		/*|*/ void write(double input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0);
 		/*|*/ 
@@ -74,9 +72,7 @@ class PixieChroma{
 		/*|*/ void print(uint16_t input);
 		/*|*/ void print(int32_t input);
 		/*|*/ void print(uint32_t input);
-		/*|*/ #if defined(ESP8266) || defined(ESP32)
-		/*|*/     void print(long unsigned int input); // pretty much the same as uint32_t, but Arduino is stupid
-		/*|*/ #endif
+		/*|*/ void print(long unsigned int input); // pretty much the same as uint32_t, but Arduino is stupid
 		/*|*/ void print(float input, uint8_t places = 2);
 		/*|*/ void print(double input, uint8_t places = 2);
 		/*+---------------------------------------------------------------------------------*/ 
@@ -89,9 +85,7 @@ class PixieChroma{
 		/*|*/ void println(uint16_t input);
 		/*|*/ void println(int32_t input);
 		/*|*/ void println(uint32_t input);
-		/*|*/ #if defined(ESP8266) || defined(ESP32)
-		/*|*/     void println(long unsigned int input); // pretty much the same as uint32_t, but Arduino is stupid
-		/*|*/ #endif
+		/*|*/ void println(long unsigned int input); // pretty much the same as uint32_t, but Arduino is stupid
 		/*|*/ void println(float input, uint8_t places = 2);
 		/*|*/ void println(double input, uint8_t places = 2);
 		/*+---------------------------------------------------------------------------------*/

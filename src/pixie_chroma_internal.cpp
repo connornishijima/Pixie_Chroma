@@ -22,10 +22,10 @@
 // }
 // ```
 
-/*! ########################################################################
+/*! ############################################################################
     @brief  Used for auto_update() so that Ticker can access this specific
             Pixie Chroma instance. Slightly hacky with the `extern`.
-*///........................................................................
+*///............................................................................
 void show_container(){
 	extern PixieChroma pix;
 	pix.show();
@@ -37,68 +37,64 @@ void show_container(){
 // ---------------------------------------------------------------------------------------------------------|
 
 
-/**************************************************************************/
-/*!
-    @brief  Used to initialize the PixieChroma library. Example usage before
-            setup() would be:
+/*! ############################################################################
+    @brief    Used to initialize the PixieChroma library.
 	
-                #include "Pixie_Chroma.h"
-                PixieChroma pix;
+	@details  Example usage before `setup()` would be:
 	
-            NOTE: Due to current limitations with the library, your class
-            instance MUST be named "pix". Mutiple instances are not yet
-            possible. Because each of these functions are contained in the
-            PixieChroma class object, you'll use them like this:
+                  #include "Pixie_Chroma.h"
+                  PixieChroma pix;
 	
-                pix.print("Hello!");
+              NOTE: Due to current limitations with the library, your class
+              instance MUST be named `pix`. Mutiple instances are not yet
+              possible. Because each of these functions are contained in the
+              PixieChroma class object, you'll use them like this:
 	
-*/
-/**************************************************************************/
+                  pix.print("Hello!");
+*///............................................................................
 PixieChroma::PixieChroma(){}
 
 
-/**************************************************************************/
-/*!
-	@brief  Initializes the display buffer, populates the XY coordinate
-			table, defaults the display colors to green, loads the default
-			CRGBPalette, initializes FastLED, and sets the default power budget.
-            
-            Pixie Chroma allows for multi-row displays, which are wired in
-            reading order (left to right, top to bottom) and their shape is
-            defined here. For example, a 16-Pixie display with two rows of eight:
-            
-                data_pin
-			       |
-                +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
-                |  1 |-->|  2 |-->|  3 |-->|  4 |-->|  5 |-->|  6 |-->|  7 |-->|  8 | 
-                +----+   +----+   +----+   +----+   +----+   +----+   +----+   +--+-+
-                                                                                  |
-                   +--------------------------------------------------------------+
-                   |
-                +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
-                |  9 |-->| 10 |-->| 11 |-->| 12 |-->| 13 |-->| 14 |-->| 15 |-->| 16 | 
-                +----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
-            
-            The corresponding setup for this display layout would be:
-            
-	            #include "Pixie_Chroma.h"
-                PixieChroma pix;
-		
-                #define DATA_PIN 5
-                #define PIXIES_X 8
-                #define PIXIES_Y 2
-		
-                void setup() {
-                  pix.begin(DATA_PIN, PIXIES_X, PIXIES_Y);
-                }
-            
-            For faster performance on large displays, see begin_quad().
-	
-	@param  data_pin GPIO pin to use for FastLED output
-	@param  pixies_x Number of Pixie PCBs in the X axis of your display
-	@param  pixies_y Number of Pixie PCBs in the Y axis of your display
-*/
-/**************************************************************************/
+/*! ############################################################################
+    @brief    Initializes the display buffer, populates the XY coordinate
+			  table, defaults the display colors to green, loads the default
+			  CRGBPalette, initializes FastLED, and sets the default power budget.
+             
+    @details  Pixie Chroma allows for multi-row displays, which are wired in
+              reading order (left to right, top to bottom) and their shape is
+              defined here. For example, a 16-Pixie display with two rows of eight:
+              
+                  data_pin
+			         |
+                  +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+                  |  1 |-->|  2 |-->|  3 |-->|  4 |-->|  5 |-->|  6 |-->|  7 |-->|  8 | 
+                  +----+   +----+   +----+   +----+   +----+   +----+   +----+   +--+-+
+                                                                                    |
+                     +--------------------------------------------------------------+
+                     |
+                  +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+                  |  9 |-->| 10 |-->| 11 |-->| 12 |-->| 13 |-->| 14 |-->| 15 |-->| 16 | 
+                  +----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+             
+              The corresponding setup for this display layout would be:
+             
+	              #include "Pixie_Chroma.h"
+                  PixieChroma pix;
+		  
+                  #define DATA_PIN 5
+                  #define PIXIES_X 8
+                  #define PIXIES_Y 2
+		  
+                  void setup() {
+                    pix.begin(DATA_PIN, PIXIES_X, PIXIES_Y);
+                  }
+              
+              For faster performance on large displays, see begin_quad().
+	  
+	@param    data_pin GPIO pin to use for FastLED output
+	@param    pixies_x Number of Pixie PCBs in the X axis of your display
+	@param    pixies_y Number of Pixie PCBs in the Y axis of your display
+*///............................................................................
 void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y ){
 	pixie_pin = data_pin;
 
@@ -131,94 +127,90 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
 	set_max_power( 5.0, 500 ); // --------- Set default power budget in volts and milliamps (5.0V, 500mA)
 }
 
+/*! ############################################################################
+    @brief    Initializes the display buffer, populates the XY coordinate
+			  table, defaults the display colors to green, loads the default
+			  CRGBPalette, initializes FastLED, and sets the default power budget.
+             
+    @details  This version of begin() is special, in that it will send your
+              image data to the LEDs in 4 parallel streams to increase speed.
+            
+              Unfortunately, this requires hard-coded pins on the ESP8266 and
+	          ESP32 to function *due to FastLED limitations*:
+            
+              - DATA_OUT_1:  **GPIO 12 / D6**
+              - DATA_OUT_2:  **GPIO 13 / D7**
+              - DATA_OUT_3:  **GPIO 14 / D5**
+              - DATA_OUT_4:  **GPIO 15 / D8**
+            
+              On each data line, you'll wire `pixies_per_pin` number of Pixie
+              Chromas, with the final image being seamlessly spread across these
+              four lines.
+            
+              For example, if you have 16 Pixie Chromas (in two rows of eight) and
+              have Quad Mode enabled, then each of the 4 data lines will have 4
+              Pixie Chromas like so:
+            
+              - **DATA_OUT_1** GPIO
+                  - Pixie 1
+                  - Pixie 2
+                  - Pixie 3
+                  - Pixie 4
+              - **DATA_OUT_2** GPIO
+                  - Pixie 5
+                  - Pixie 6
+                  - Pixie 7
+                  - Pixie 8
+              - **DATA_OUT_3** GPIO
+                  - Pixie 9
+                  - Pixie 10
+                  - Pixie 11
+                  - Pixie 12
+              - **DATA_OUT_4** GPIO
+                  - Pixie 13
+                  - Pixie 14
+                  - Pixie 15
+                  - Pixie 16
+            
+              The corresponding setup for this display layout would be:
+            
+                  #include "Pixie_Chroma.h"
+                  PixieChroma pix;
 
-/**************************************************************************/
-/*!
-	@brief  Initializes the display buffer, populates the XY coordinate
-			table, defaults the display colors to green, loads the default
-			CRGBPalette, initializes FastLED, and sets the default power budget.
-        
-            This version of begin() is special, in that it will send your
-            image data to the LEDs in 4 parallel streams to increase speed.
-            
-            Unfortunately, this requires hard-coded pins on the ESP8266 and
-	        ESP32 to function *due to FastLED limitations*:
-            
-            - DATA_OUT_1:  **GPIO 12 / D6**
-            - DATA_OUT_2:  **GPIO 13 / D7**
-            - DATA_OUT_3:  **GPIO 14 / D5**
-            - DATA_OUT_4:  **GPIO 15 / D8**
-            
-            On each data line, you'll wire `pixies_per_pin` number of Pixie
-            Chromas, with the final image being seamlessly spread across these
-            four lines.
-            
-            For example, if you have 16 Pixie Chromas (in two rows of eight) and
-            have Quad Mode enabled, then each of the 4 data lines will have 4
-            Pixie Chromas like so:
-            
-            - **DATA_OUT_1** GPIO
-                - Pixie 1
-                - Pixie 2
-                - Pixie 3
-                - Pixie 4
-            - **DATA_OUT_2** GPIO
-                - Pixie 5
-                - Pixie 6
-                - Pixie 7
-                - Pixie 8
-            - **DATA_OUT_3** GPIO
-                - Pixie 9
-                - Pixie 10
-                - Pixie 11
-                - Pixie 12
-            - **DATA_OUT_4** GPIO
-                - Pixie 13
-                - Pixie 14
-                - Pixie 15
-                - Pixie 16
-            
-            The corresponding setup for this display layout would be:
-            
-                #include "Pixie_Chroma.h"
-                PixieChroma pix;
+                  #define PIXIES_PER_PIN 4
+                  #define PIXIES_X       8
+                  #define PIXIES_Y       2
 
-                #define PIXIES_PER_PIN 4
-                #define PIXIES_X       8
-                #define PIXIES_Y       2
-
-                void setup() {
-                    pix.begin_quad(PIXIES_PER_PIN, PIXIES_X, PIXIES_Y);
-                }
+                  void setup() {
+                      pix.begin_quad(PIXIES_PER_PIN, PIXIES_X, PIXIES_Y);
+                  }
                 
-            Then, with the displays physically arranged in reading order (left to right,
-            top to bottom) you're ready to begin!
+              Then, with the displays physically arranged in reading order (left to right,
+              top to bottom) you're ready to begin!
+              
+                  DATA_OUT_1 --+                       DATA_OUT_2 ----+
+                               |                                      |
+                            +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
+                            |  1 |-->|  2 |-->|  3 |-->|  4 |  ||  |  5 |-->|  6 |-->|  7 |-->|  8 | 
+                            +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
+                  
+                  DATA_OUT_3 --+                       DATA_OUT_4 ----+
+                               |                                      |
+                            +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
+                            |  9 |-->| 10 |-->| 11 |-->| 12 |  ||  | 13 |-->| 14 |-->| 15 |-->| 16 | 
+                            +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
             
-                                         
-                DATA_OUT_1 --+                       DATA_OUT_2 ----+
-                             |                                      |
-                          +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
-                          |  1 |-->|  2 |-->|  3 |-->|  4 |  ||  |  5 |-->|  6 |-->|  7 |-->|  8 | 
-                          +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
-
-                DATA_OUT_3 --+                       DATA_OUT_4 ----+
-                             |                                      |
-                          +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
-                          |  9 |-->| 10 |-->| 11 |-->| 12 |  ||  | 13 |-->| 14 |-->| 15 |-->| 16 | 
-                          +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
-                
-            Using begin_quad() to enable the Quad Mode driver will
-            always send the 4 lines of data in parallel, saving on time per frame.
+              Using begin_quad() to enable the Quad Mode driver will
+              always send the 4 lines of data in parallel, saving on time per frame.
             
-            begin_quad() ideally **should not be used with less than 4 Pixie Chromas**,
-            and with at least one on each line. Even if only two lines are physically used,
-            all 4 pins are still occupied by Quad Mode.
+              begin_quad() ideally **should not be used with less than 4 Pixie Chromas**,
+              and with at least one on each line. Even if only two lines are physically used,
+              all 4 pins are still occupied by Quad Mode.
 	
-	@param  pixies_per_pin  Pixies per data pin
-	@param  pixies_x        Number of Pixie PCBs in the X axis of your display
-	@param  pixies_y        Number of Pixie PCBs in the Y axis of your display
-*/
-/**************************************************************************/
+	@param    pixies_per_pin  Pixies per data pin
+	@param    pixies_x        Number of Pixie PCBs in the X axis of your display
+	@param    pixies_y        Number of Pixie PCBs in the Y axis of your display
+*///............................................................................
 void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y){	
 	chars_x = pixies_x*2; // Pixies have two chars each
 	chars_y = pixies_y;
@@ -261,22 +253,20 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 	set_max_power(5, 500); // ------------ Set default power budget in volts and milliamps
 }
 
-// TODO: Convert all Doxygen comments to a more compact style
-//       (Seen here)
 
-/*! ########################################################################
+/*! ############################################################################
     @brief  Takes an 8-bit brightness value and passes it to FastLED
             internally, to provide global brightness control with temporal
             dithering.
 	
     @param  level 8-bit global brightness value (0-255)
-*///........................................................................
+*///............................................................................
 void PixieChroma::set_brightness(uint8_t level){
 	brightness_level = level;
 }
 
 
-/*! ########################################################################
+/*! ############################################################################
     @brief  Accepts a const uint8_t (8-bit) array with the following format
             to generate a FastLED Gradient Palette at runtime:
 
@@ -293,197 +283,181 @@ void PixieChroma::set_brightness(uint8_t level){
             blue at 255.
 				
     @param  pal FastLED "Gradient Palette" array
-*///........................................................................
+*///............................................................................
 void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
 	current_palette.loadDynamicGradientPalette(pal);
 }
 
 
-/*! ########################################################################
+/*! ############################################################################
     @brief  Accepts a FastLED CRGBPalette16 object to set the current color
             palette for animation
 	
     @param  pal FastLED CRGBPalette16 object to use
-*///........................................................................
+*///............................................................................
 void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
 	current_palette = pal;
 }
 
 
-/*! ########################################################################
+/*! ############################################################################
     @brief  Accepts a preset or custom function to use for the animation ISR.
             For a list of predefined animations, see pixie_animations.h
 
     @param  action Function to set as an animation ISR
-*///........................................................................
+*///............................................................................
 void PixieChroma::set_animation(void (*action)(float)) {
 	anim_func = action;
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Used to scale the animation speed of animation ISRs that can use
             pix.animation_speed to scale their speeds or for other effects
 				
     @param  speed Floating point value: 1.0 = 100%, 3.2 = 320%, 0.5 = 50%
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::set_animation_speed(float speed){
 	animation_speed = speed;
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Allows you to enable built-in automatic gamma correction, using
             a fast LUT in pixie_utility.h. (Not enabled by default)
 
     @param  enabled Whether or not to apply gamma correction
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::set_gamma_correction(bool enabled){
 	correct_gamma = enabled;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Sets the cursor position in a 2D context, in whole displays.
-            Wherever the cursor is, is where the next call to print() or
-            write() will originate. Position is counted from zero. Remember:
-            each Pixie Chroma has two "displays" on it.
+/*! ############################################################################
+    @brief    Sets the cursor position in a 2D context, in whole displays.
+              Wherever the cursor is, is where the next call to print() or
+              write() will originate.
+			
+	@details  Position is counted from zero. Remember: each Pixie Chroma has two
+			  "displays" on it.
 
-                +-----------------+   +-----------------+   +-----------------+
-                |      + + +      |   |      + + +      |   |      + + +      |
-                |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                || 0,0 |   | 1,0 ||-->|| 2,0 |   | 3,0 ||-->|| 4,0 |   | 5,0 ||
-                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-                |      + + +      |   |      + + +      |   |      + + +      |
-                +-----------------+   +-----------------+   +-----------------+
-                                                                   |
-                       +-------------------------------------------+
-                       |
-                       V
-                +-----------------+   +-----------------+   +-----------------+
-                |      + + +      |   |      + + +      |   |      + + +      |
-                |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                || 0,1 |   | 1,1 ||-->|| 2,1 |   | 3,1 ||-->|| 4,0 |   | 5,1 ||
-                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
-                |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
-                |      + + +      |   |      + + +      |   |      + + +      |
-                +-----------------+   +-----------------+   +-----------------+
+                  +-----------------+   +-----------------+   +-----------------+
+                  |      + + +      |   |      + + +      |   |      + + +      |
+                  |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                  || 0,0 |   | 1,0 ||-->|| 2,0 |   | 3,0 ||-->|| 4,0 |   | 5,0 ||
+                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                  |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+                  |      + + +      |   |      + + +      |   |      + + +      |
+                  +-----------------+   +-----------------+   +-----------------+
+                                                                     |
+                         +-------------------------------------------+
+                         |
+                         V
+                  +-----------------+   +-----------------+   +-----------------+
+                  |      + + +      |   |      + + +      |   |      + + +      |
+                  |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                  || 0,1 |   | 1,1 ||-->|| 2,1 |   | 3,1 ||-->|| 4,0 |   | 5,1 ||
+                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                  ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
+                  |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
+                  |      + + +      |   |      + + +      |   |      + + +      |
+                  +-----------------+   +-----------------+   +-----------------+
 
-            For example:
+              For example:
 
-                set_cursor(1,0) // Sets the cursor to the second display in the first row
+              `set_cursor(1,0)` sets the cursor to the second display in the first row.
 
-                set_cursor(3,1) // Sets the cursor to the fourth display in the second row
+              `set_cursor(3,1)` sets the cursor to the fourth display in the second row.
 
-    @param  x_position New cursor position on the X-axis, in whole displays
-    @param  y_position New cursor position on the Y-axis, in whole displays
-*/
-/**************************************************************************/
+    @param    x_position  New cursor position on the X-axis, in whole displays
+    @param    y_position  New cursor position on the Y-axis, in whole displays
+*///............................................................................
 void PixieChroma::set_cursor(uint8_t x_position, uint8_t y_position){
 	cursor_x = (display_width*x_position)+1;
 	cursor_y = (display_height*y_position)+2;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Sets the maximum power budget in volts and milliamps. Knowing
-            the average power consumption of these LEDs at any given color,
-            FastLED will automatically globally scale down the output values
-            with temporal dithering to lower power usage until it is within
-            the budget defined here. Defaults to 5.0V / 500mA to protect PC
-			USB ports if the LEDs are not independently powered.
-			(2000mA = 2A, 500mA = 0.5A, etc.)
+/*! ############################################################################
+    @brief    Sets the maximum power budget in volts and milliamps.
+	
+	@details  Knowing the average power consumption of these LEDs at any given
+	          color, FastLED will automatically globally scale down the output
+			  values with temporal dithering to lower power usage until it is
+			  within the budget defined here. Defaults to 5.0V / 500mA to
+			  protect PC USB ports if the LEDs are not independently powered.
+			  (2000mA = 2A, 500mA = 0.5A, etc.)
 
-    @param  volts Total LED power budget in volts. (default: 5.0)
-    @param  milliamps Total LED power budget in milliamps (default 500)
-*/
-/**************************************************************************/
+    @param    volts      Total LED power budget in volts. (default: 5.0)
+    @param    milliamps  Total LED power budget in milliamps (default 500)
+*///............................................................................
 void PixieChroma::set_max_power(float volts, uint16_t milliamps){
 	max_V = volts;
 	max_mA = milliamps;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Sets the target frame rate for animation. This target frame rate
-	        is used to calculate `delta` in custom/preset animation functions.
+/*! ############################################################################
+    @brief    Sets the target frame rate for animation. This target frame rate
+	          is only used to calculate `delta` in custom/preset animation
+			  functions.
 			
-			(Default **60**)
-			
-			This does not change your real frame rate, or even govern it,
-			it is left up to the user to use frequent show() calls or
-			auto_update(). The "target frame rate" here is used to calculate
-            `delta` for the animation functions, and should be set as close
-            as possible to the rate at which you are going to call show().
+	@details  This does not change your real frame rate, or even govern it,
+			  it is left up to the user to use frequent show() calls or
+			  auto_update(). The "target frame rate" here is used to calculate
+              `delta` for the animation functions, and should be set as close
+              as possible to the rate at which you are going to call show().
 
-            This function is automatically called with a matching FPS when
-	        you use `set_update_mode(AUTOMATIC, FPS)`.
+              This function is automatically called with a matching FPS when
+	          you use `set_update_mode(AUTOMATIC, FPS)`.
 
-    @param  target  Target frame rate for animation.
-*/
-/**************************************************************************/
+    @param    target  Target frame rate for animation.
+*///............................................................................
 void PixieChroma::set_frame_rate_target(uint16_t target){
 	fps_target = target;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Sets the line wrapping behavior:
+/*! ############################################################################
+    @brief    Sets the line wrapping behavior
 
-            `set_line_wrap(true);`
+    @details  `set_line_wrap(true);` will automatically enter next line when
+	          the edge of the display is reached, and `set_line_wrap(false);`
+			  will not.
 
-            Will automatically enter next line when edge of display is reached
-
-            `set_line_wrap(false);`
-
-            Will not automatically enter next line when edge of display is reached
-
-    @param  enabled  Enable or disable auto line-wrapping
-*/
-/**************************************************************************/
+    @param    enabled  Enable or disable auto line-wrapping
+*///............................................................................
 void PixieChroma::set_line_wrap(bool enabled){
 	line_wrap = enabled;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Allows for automatic show() calls at a specified frames per
-	        second if AUTOMATIC is used. (uses Ticker.attach_ms() internally)
+/*! ############################################################################
+    @brief    Allows for automatic show() calls at a specified frames per
+	          second if AUTOMATIC is used. (uses Ticker.attach_ms() internally)
 			
-			This lets you use things like print() as infrequently as you'd
-			like, since show() will automatically run in the background
-			to keep the current animation function running smoothly.
+	@details  This lets you use things like print() as infrequently as you'd
+			  like, since show() will automatically run in the background
+			  to keep the current animation function running smoothly.
 			
-			Use in conjunction with hold() and free() to prevent show()
-			calls during text/image construction, leading to unintended
-			partial frames being shown. Be aware, hold() does not prevent
-			animation / palette updates (only mask updates) so animations
-			will still run smoothly during hold() times until free() is
-			called and the mask is updated.
+			  Use in conjunction with hold() and free() to prevent show()
+			  calls during text/image construction, leading to unintended
+			  partial frames being shown. Be aware, hold() does not prevent
+			  animation / palette updates (only mask updates) so animations
+			  will still run smoothly during hold() times until free() is
+			  called and the mask is updated.
 	
-    @param  mode  AUTOMATIC or MANUAL. AUTOMATIC will call show() at `FPS`
-	              using an ISR, MANUAL allows you call show() when you like.
+    @param    mode  AUTOMATIC or MANUAL. AUTOMATIC will call show() at `FPS`
+	                using an ISR, MANUAL allows you call show() when you like.
 
-    @param  FPS   Update *this* many times per second (Default: 60) Only
-	              applicable when mode is AUTOMATIC
-*/
-/**************************************************************************/
+    @param    FPS   Update *this* many times per second (Default: 60) Only
+	                applicable when mode is AUTOMATIC
+*///............................................................................
 void PixieChroma::set_update_mode(t_update_mode mode, uint16_t FPS){
 	if(mode == AUTOMATIC && !ticker_running){
 		set_frame_rate_target(FPS);
@@ -497,15 +471,13 @@ void PixieChroma::set_update_mode(t_update_mode mode, uint16_t FPS){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Writes an icon* to a specified X and Y cursor position
 	
     @param  icon   The icon to write
     @param  x_pos  X cursor position of write **[optional]**
     @param  y_pos  Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::write(const uint8_t* icon, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -513,55 +485,51 @@ void PixieChroma::write(const uint8_t* icon, uint8_t x_pos, uint8_t y_pos){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Writes an icon to a specified X and Y cursor position, taking
-            five uint8_t as input for the column data.
+/*! ############################################################################
+    @brief    Writes an icon to a specified X and Y cursor position, taking five
+	          uint8_t as input for the column data.
 	   
-            For example:
+              Example:
             
-                pix.write(B00101111, B01001001, B01001001, B01001001, B00110001);
+                  pix.write(B00101111, B01001001, B01001001, B01001001, B00110001);
                 
-                    OR, WRITTEN VERTICALLY:
+                      OR, WRITTEN VERTICALLY:
                 
-                pix.write(   ,   ,   ,   ,   );
-                           1   1   1   1   1  LSB
-		                   1   0   0   0   0
-		                   1   0   0   0   0
-		                   1   1   1   1   0
-		                   0   0   0   0   1
-		                   1   0   0   0   1
-		                   0   1   1   1   0  
-                           0   0   0   0   0  MSB (unused)
-                           B   B   B   B   B
+                  pix.write(   ,   ,   ,   ,   );
+                             1   1   1   1   1  LSB
+		                     1   0   0   0   0
+		                     1   0   0   0   0
+		                     1   1   1   1   0
+		                     0   0   0   0   1
+		                     1   0   0   0   1
+		                     0   1   1   1   0  
+                             0   0   0   0   0  MSB (unused)
+                             B   B   B   B   B
 
-            This writes a "5" to the display, seen above in the "1" bits of
-            each column. The MSB (highest bit) is not used in icons.
+              This writes a "5" to the display, seen above in the "1" bits of
+              each column. The MSB (highest bit) is not used in icons.
 	
-    @param  icon_col_1  Column 1 data of this icon
-    @param  icon_col_2  Column 2 data of this icon
-    @param  icon_col_3  Column 3 data of this icon
-    @param  icon_col_4  Column 4 data of this icon
-    @param  icon_col_5  Column 5 data of this icon
-    @param  x_pos       X cursor position of write **[optional]**
-    @param  y_pos       Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+    @param    icon_col_1  Column 1 data of this icon
+    @param    icon_col_2  Column 2 data of this icon
+    @param    icon_col_3  Column 3 data of this icon
+    @param    icon_col_4  Column 4 data of this icon
+    @param    icon_col_5  Column 5 data of this icon
+    @param    x_pos       X cursor position of write **[optional]**
+    @param    y_pos       Y cursor position of write **[optional]**
+*///............................................................................
 void PixieChroma::write(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos, uint8_t y_pos){
 	uint8_t icon[5] = {icon_col_1,icon_col_2,icon_col_3,icon_col_4,icon_col_5};
 	write(icon, x_pos, y_pos);
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Writes a char* string to a specified X and Y cursor position
+/*! ############################################################################
+    @brief  Writes a char* string to a specified X and Y cursor position.
 	
     @param  message  char* string to write
     @param  x_pos    X cursor position of write **[optional]**
     @param  y_pos    Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::write(char* message, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -569,16 +537,14 @@ void PixieChroma::write(char* message, uint8_t x_pos, uint8_t y_pos){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Writes a signed 16-bit integer to a specified X and Y
-            cursor position
+/*! ############################################################################
+    @brief  Writes a signed 16-bit integer to a specified X and Y cursor
+	        position.
 	
-    @param  input    Signed integer to write
-    @param  x_pos    X cursor position of write **[optional]**
-    @param  y_pos    Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+    @param  input  Signed integer to write
+    @param  x_pos  X cursor position of write **[optional]**
+    @param  y_pos  Y cursor position of write **[optional]**
+*///............................................................................
 void PixieChroma::write(int16_t input, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -590,16 +556,14 @@ void PixieChroma::write(int16_t input, uint8_t x_pos, uint8_t y_pos){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Writes an unsigned 16-bit integer to a specified X and Y
-            cursor position
+/*! ############################################################################
+    @brief  Writes an unsigned 16-bit integer to a specified X and Y cursor
+	        position.
 	
-    @param  input    Unsigned integer to write
-    @param  x_pos    X cursor position of write **[optional]**
-    @param  y_pos    Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+    @param  input  Unsigned integer to write
+    @param  x_pos  X cursor position of write **[optional]**
+    @param  y_pos  Y cursor position of write **[optional]**
+*///............................................................................
 void PixieChroma::write(uint16_t input, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -611,16 +575,14 @@ void PixieChroma::write(uint16_t input, uint8_t x_pos, uint8_t y_pos){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Writes a signed 32-bit integer to a specified X and Y
-            cursor position
+/*! ############################################################################
+    @brief  Writes a signed 32-bit integer to a specified X and Y cursor
+	        position.
 	
-    @param  input    Signed integer to write
-    @param  x_pos    X cursor position of write **[optional]**
-    @param  y_pos    Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+    @param  input  Signed integer to write
+    @param  x_pos  X cursor position of write **[optional]**
+    @param  y_pos  Y cursor position of write **[optional]**
+*///............................................................................
 void PixieChroma::write(int32_t input, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -632,16 +594,14 @@ void PixieChroma::write(int32_t input, uint8_t x_pos, uint8_t y_pos){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Writes an unsigned 32-bit integer to a specified X and Y
-            cursor position
+/*! ############################################################################
+    @brief  Writes an unsigned 32-bit integer to a specified X and Y cursor
+	        position.
 	
-    @param  input    Unsigned integer to write
-    @param  x_pos    X cursor position of write **[optional]**
-    @param  y_pos    Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+    @param  input  Unsigned integer to write
+    @param  x_pos  X cursor position of write **[optional]**
+    @param  y_pos  Y cursor position of write **[optional]**
+*///............................................................................
 void PixieChroma::write(uint32_t input, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -653,17 +613,14 @@ void PixieChroma::write(uint32_t input, uint8_t x_pos, uint8_t y_pos){
 }
 
 
-#if defined(ESP8266) || defined(ESP32)
-/**************************************************************************/
-/*!
-    @brief  Writes an unsigned 32-bit integer to a specified X and Y
-            cursor position (Stupid ESP-specific type)
+/*! ############################################################################
+    @brief  Writes an unsigned 32-bit integer to a specified X and Y cursor
+	        position. (Stupid ESP-specific type)
 	
-    @param  input    Unsigned integer to write
-    @param  x_pos    X cursor position of write **[optional]**
-    @param  y_pos    Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+    @param  input  Unsigned integer to write
+    @param  x_pos  X cursor position of write **[optional]**
+    @param  y_pos  Y cursor position of write **[optional]**
+*///............................................................................
 void PixieChroma::write(long unsigned int input, uint8_t x_pos, uint8_t y_pos){
     uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -673,20 +630,17 @@ void PixieChroma::write(long unsigned int input, uint8_t x_pos, uint8_t y_pos){
 
 	write_pix(char_buf, x_start+(display_width*x_pos), y_start+(display_height*y_pos));
 }
-#endif
 
 
-/**************************************************************************/
-/*!
-    @brief  Writes a double-precision floating point value to a specified
-            X and Y cursor position, to a specified number of decimal places
+/*! ############################################################################
+    @brief  Writes a double-precision floating point value to a specified X and
+	        Y cursor position, to a specified number of decimal places.
 	
-    @param  input    Double-precision float to write
-    @param  places   Number of decimal places to show **[optional]**
-    @param  x_pos    X cursor position of write **[optional]**
-    @param  y_pos    Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+    @param  input   Double-precision float to write
+    @param  places  Number of decimal places to show **[optional]**
+    @param  x_pos   X cursor position of write **[optional]**
+    @param  y_pos   Y cursor position of write **[optional]**
+*///............................................................................
 void PixieChroma::write(double input, uint8_t places, uint8_t x_pos, uint8_t y_pos){
 	uint16_t x_start = 1;
 	uint16_t y_start = 2;
@@ -698,55 +652,48 @@ void PixieChroma::write(double input, uint8_t places, uint8_t x_pos, uint8_t y_p
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Writes a single-precision floating point value to a specified
-            X and Y cursor position, to a specified number of decimal places
+/*! ############################################################################
+    @brief  Writes a single-precision floating point value to a specified X and 
+	        Y cursor position, to a specified number of decimal places.
 	
-    @param  input    Single-precision float to write
-    @param  places   Number of decimal places to show **[optional]**
-    @param  x_pos    X cursor position of write **[optional]**
-    @param  y_pos    Y cursor position of write **[optional]**
-*/
-/**************************************************************************/
+    @param  input   Single-precision float to write
+    @param  places  Number of decimal places to show **[optional]**
+    @param  x_pos   X cursor position of write **[optional]**
+    @param  y_pos   Y cursor position of write **[optional]**
+*///............................................................................
 void PixieChroma::write(float input, uint8_t places, uint8_t x_pos, uint8_t y_pos){
 	write(double(input), places, x_pos, y_pos);
 }
 
 
-
-
-/**************************************************************************/
-/*!
-    @brief  Internal function for rendering icons to the mask buffer.
-            This can also be used to write Icons that are not aligned to
-            whole display positions, such as during smooth scrolling.
+/*! ############################################################################
+    @brief    Internal function for rendering icons to the mask buffer.
 	
-    @param  icon     Icon to render
-    @param  x_pos    X pixel position of write **[optional]**
-    @param  y_pos    Y pixel position of write **[optional]**
-*/
-/**************************************************************************/
+	@details  This can also be used to write Icons that are not aligned to whole
+	          display positions, such as during smooth scrolling.
+	
+    @param    icon   Icon to render
+    @param    x_pos  X pixel position of write **[optional]**
+    @param    y_pos  Y pixel position of write **[optional]**
+*///............................................................................
 void PixieChroma::write_pix(const uint8_t* icon, int16_t x_offset, int16_t y_offset){
 	add_char(icon, cursor_x+x_offset, cursor_y+y_offset);
 	cursor_x += display_width;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Internal function for rendering char* strings to the mask
-            buffer. All other write() function overloads eventually end up
-            casted to char* strings and passed to this function for
-            rendering. This can also be used to write char* strings that
-            are not aligned to whole display positions, such as during
-            smooth scrolling.
+/*! ############################################################################
+    @brief    Internal function for rendering char* strings to the mask buffer.
 	
-    @param  message  char* string to render
-    @param  x_pos    X pixel position of write **[optional]**
-    @param  y_pos    Y pixel position of write **[optional]**
-*/
-/**************************************************************************/
+	@details  All other write() function overloads eventually end up casted to
+	          char* strings and passed to this function for rendering. This can
+			  also be used to write char* strings that are not aligned to whole
+			  display positions, such as during smooth scrolling.
+	
+    @param    message  char* string to render
+    @param    x_pos    X pixel position of write **[optional]**
+    @param    y_pos    Y pixel position of write **[optional]**
+*///............................................................................
 void PixieChroma::write_pix(char* message, int16_t x_offset, int16_t y_offset){
 	uint8_t len = strlen(message);
 	for(uint8_t i = 0; i < len; i++){
@@ -773,18 +720,17 @@ void PixieChroma::write_pix(char* message, int16_t x_offset, int16_t y_offset){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Internal function for rendering a single char to the mask
-            buffer. All other write() function overloads eventually end up
-            casted to char* strings and passed to this function one
-            character at a time for rendering.
+/*! ############################################################################
+    @brief    Internal function for rendering a single char to the mask buffer.
 	
-    @param  chr      char to render
-    @param  x_pos    X pixel position of write
-    @param  y_pos    Y pixel position of write
-*/
-/**************************************************************************/
+	@details  All other write() function overloads eventually end up casted to
+	          char* strings and passed to this function one character at a time
+			  for rendering.
+	
+    @param    chr    char to render
+    @param    x_pos  X pixel position of write
+    @param    y_pos  Y pixel position of write
+*///............................................................................
 void PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos){
 	if (chr >= 32) {
 		chr -= 32;
@@ -813,18 +759,13 @@ void PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Internal function for rendering a single icon to the mask
-            buffer. All other write() function overloads eventually end up
-            casted to char* strings and passed to this function one
-            character at a time for rendering.
+/*! ############################################################################
+    @brief  Internal function for rendering a single icon to the mask buffer.
 	
-    @param  icon     Icon column data to render
-    @param  x_pos    X pixel position of write
-    @param  y_pos    Y pixel position of write
-*/
-/**************************************************************************/
+    @param  icon   Icon column data to render
+    @param  x_pos  X pixel position of write
+    @param  y_pos  Y pixel position of write
+*///............................................................................
 void PixieChroma::add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
 	for(uint8_t x = 0; x < 5; x++){
 		uint8_t column = pgm_read_byte_far(icon+x);
@@ -849,50 +790,46 @@ void PixieChroma::add_char(const uint8_t* icon, int16_t x_pos, int16_t y_pos){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints an Icon to the displays, at the current cursor position.
 	
-    @param  icon     Icon column data to render
-*/
-/**************************************************************************/
+    @param  icon  Icon column data to render
+*///............................................................................
 void PixieChroma::print(const uint8_t* icon){
 	write_pix(icon, cursor_x, cursor_y);
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Prints an icon to the displays at the current cursor position,
-            taking five uint8_t as input for the column data.
-	   
-            For example:
-            
-                pix.print(B00101111, B01001001, B01001001, B01001001, B00110001);
-                
-                    OR, WRITTEN VERTICALLY:
-                
-                pix.print(   ,   ,   ,   ,   );
-                           1   1   1   1   1  LSB
-		                   1   0   0   0   0
-		                   1   0   0   0   0
-		                   1   1   1   1   0
-		                   0   0   0   0   1
-		                   1   0   0   0   1
-		                   0   1   1   1   0  
-                           0   0   0   0   0  MSB (unused)
-                           B   B   B   B   B
-
-            This writes a "5" to the display, seen above in the "1" bits of
-            each column. The MSB (highest bit) is not used in icons.
+/*! ############################################################################
+    @brief    Prints an icon to the displays at the current cursor position,
+              taking five uint8_t as input for the column data.
 	
-    @param  icon_col_1  Column 1 data of this icon
-    @param  icon_col_2  Column 2 data of this icon
-    @param  icon_col_3  Column 3 data of this icon
-    @param  icon_col_4  Column 4 data of this icon
-    @param  icon_col_5  Column 5 data of this icon
-*/
-/**************************************************************************/
+	@details  Example:
+            
+                  pix.print(B00101111, B01001001, B01001001, B01001001, B00110001);
+                
+                      OR, WRITTEN VERTICALLY:
+                
+                  pix.print(   ,   ,   ,   ,   );
+                             1   1   1   1   1  LSB
+		                     1   0   0   0   0
+		                     1   0   0   0   0
+		                     1   1   1   1   0
+		                     0   0   0   0   1
+		                     1   0   0   0   1
+		                     0   1   1   1   0  
+                             0   0   0   0   0  MSB (unused)
+                             B   B   B   B   B
+
+              This writes a "5" to the display, seen above in the "1" bits of
+              each column. The MSB (highest bit) is not used in icons.
+	
+    @param    icon_col_1  Column 1 data of this icon
+    @param    icon_col_2  Column 2 data of this icon
+    @param    icon_col_3  Column 3 data of this icon
+    @param    icon_col_4  Column 4 data of this icon
+    @param    icon_col_5  Column 5 data of this icon
+*///............................................................................
 void PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5){
 	const uint8_t icon[5] = {
 		icon_col_1,
@@ -905,27 +842,23 @@ void PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints a char* string to the displays at the current cursor
-            position
+	        position.
 	
     @param  message  char* string to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::print(char* message){
 	write_pix(message, 0, 0);
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Prints a signed 16-bit integer to the displays at the current
-            cursor position
+/*! ############################################################################
+    @brief  Prints a signed 16-bit integer to the displays at the current cursor
+	        position.
 	
     @param  input  Signed integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::print(int16_t input){
 	char char_buf[32];
 	itoa(input,char_buf,10);
@@ -933,14 +866,12 @@ void PixieChroma::print(int16_t input){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints an unsigned 16-bit integer to the displays at the current
-            cursor position
+	        cursor position.
 	
     @param  input  Unsigned integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::print(uint16_t input){
 	char char_buf[32];
 	utoa(input,char_buf,10);
@@ -948,14 +879,12 @@ void PixieChroma::print(uint16_t input){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Prints a signed 32-bit integer to the displays at the current
-            cursor position
+/*! ############################################################################
+    @brief  Prints a signed 32-bit integer to the displays at the current cursor
+	        position.
 	
     @param  input  Signed integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::print(int32_t input){
 	char char_buf[32];
 	ltoa(input,char_buf,10);
@@ -963,14 +892,12 @@ void PixieChroma::print(int32_t input){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints an unsigned 32-bit integer to the displays at the current
-            cursor position
+            cursor position.
 	
     @param  input  Unsigned integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::print(uint32_t input){
 	char char_buf[32];
 	ultoa(input,char_buf,10);
@@ -978,33 +905,27 @@ void PixieChroma::print(uint32_t input){
 }
 
 
-#if defined(ESP8266) || defined(ESP32)
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints an unsigned 32-bit integer to the displays at the current
             cursor position. (Dumb ESP-specific type)
 	
     @param  input  Unsigned integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::print(long unsigned int input){
 	char char_buf[32];
 	ultoa(input,char_buf,10);
 	write_pix(char_buf, 0,0);
 }
-#endif
 
 
-/**************************************************************************/
-/*!
-    @brief  Prints a double-precision floating point integer to the displays
-            at the current cursor position, to a specified number of decimal
-            places.
+/*! ############################################################################
+    @brief  Prints a double-precision floating point integer to the displays at
+	        the current cursor position, to a specified number of decimal
+			places.
 	
     @param  input   double to print
     @param  places  Number of decimal places to print **[optional]**
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::print(double input, uint8_t places){
 	char char_buf[32];
 	dtoa(input,char_buf,places);
@@ -1012,30 +933,26 @@ void PixieChroma::print(double input, uint8_t places){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Prints a single-precision floating point integer to the displays
-            at the current cursor position, to a specified number of decimal
-            places.
+/*! ############################################################################
+    @brief  Prints a single-precision floating point integer to the displays at
+	        the current cursor position, to a specified number of decimal 
+			places.
 	
     @param  input   float to print
     @param  places  Number of decimal places to print **[optional]**
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::print(float input, uint8_t places){
 	print(double(input), places);
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Prints an Icon to the displays at the current cursor position,
-            then jumps to the next row in the Pixie display, similar to a
-            newline '\\n' character.
+/*! ############################################################################
+    @brief  Prints an Icon to the displays at the current cursor position, then
+	        jumps to the next row in the Pixie display, similar to a newline
+			'\\n' character.
     
-    @param  icon     Icon column data to print
-*/
-/**************************************************************************/
+    @param  icon  Icon column data to print
+*///............................................................................
 void PixieChroma::println(const uint8_t* icon){
 	write_pix(icon); // ........ Output
 	cursor_x = 1;
@@ -1043,20 +960,17 @@ void PixieChroma::println(const uint8_t* icon){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints an Icon to the displays at the current cursor position,
-            (taking five uint8_t as input for the column data) then jumps
-            to the next row in the Pixie display, similar to a newline
-            '\\n' character.
+            (taking five uint8_t as input for the column data) then jumps to the
+			next row in the Pixie display, similar to a newline '\\n' character.
     
     @param  icon_col_1  Column 1 data of this icon
     @param  icon_col_2  Column 2 data of this icon
     @param  icon_col_3  Column 3 data of this icon
     @param  icon_col_4  Column 4 data of this icon
     @param  icon_col_5  Column 5 data of this icon
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5){
 	const uint8_t icon[5] = {
 		icon_col_1,
@@ -1071,15 +985,13 @@ void PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_c
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints a char* string to the displays at the current cursor
-            position, then jumps to the next row in the Pixie display,
-            similar to a newline '\\n' character.
+	        position, then jumps to the next row in the Pixie display, similar
+			to a newline '\\n' character.
 	
     @param  message  char* string to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(char* message){
 	write_pix(message); // ........ Output
 	cursor_x = 1;
@@ -1087,15 +999,13 @@ void PixieChroma::println(char* message){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints a signed 16-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
             similar to a newline '\\n' character.
 	
     @param  input  Signed 16-bit integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(int16_t input){
 	char char_buf[32];
 	itoa(input,char_buf,10);
@@ -1103,15 +1013,13 @@ void PixieChroma::println(int16_t input){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints an unsigned 16-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
             similar to a newline '\\n' character.
 	
     @param  input  Unsigned 16-bit integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(uint16_t input){
 	char char_buf[32];
 	utoa(input,char_buf,10);
@@ -1119,15 +1027,13 @@ void PixieChroma::println(uint16_t input){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints a signed 32-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
             similar to a newline '\\n' character.
 	
     @param  input  Signed 32-bit integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(int32_t input){
 	char char_buf[32];
 	ltoa(input,char_buf,10);
@@ -1135,15 +1041,13 @@ void PixieChroma::println(int32_t input){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints an unsigned 32-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
             similar to a newline '\\n' character.
 	
     @param  input  Unsigned 32-bit integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(uint32_t input){
 	char char_buf[32];
 	ultoa(input,char_buf,10);
@@ -1151,35 +1055,29 @@ void PixieChroma::println(uint32_t input){
 }
 
 
-#if defined(ESP8266) || defined(ESP32)
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Prints an unsigned 32-bit integer to the displays at the current
             cursor position, then jumps to the next row in the Pixie display,
             similar to a newline '\\n' character. (Stupid ESP-specific type)
 	
     @param  input  Unsigned 32-bit integer to print
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(long unsigned int input){
 	char char_buf[32];
 	ultoa(input,char_buf,10);
 	println(char_buf);
 }
-#endif
 
 
-/**************************************************************************/
-/*!
-    @brief  Prints a double-precision floating point integer to the displays
-            at the current cursor position (to a specified number of decimal
-            places), then jumps to the next row in the Pixie display,
-            similar to a newline '\\n' character.
+/*! ############################################################################
+    @brief  Prints a double-precision floating point integer to the displays at
+	        the current cursor position (to a specified number of decimal
+			places), then jumps to the next row in the Pixie display, similar to
+			a newline '\\n' character.
             
     @param  input   double to print
     @param  places  Number of decimal places to print **[optional]**
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(double input, uint8_t places){
 	char char_buf[32];
 	dtoa(input,char_buf,places);
@@ -1187,42 +1085,36 @@ void PixieChroma::println(double input, uint8_t places){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Prints a single-precision floating point integer to the displays
-            at the current cursor position (to a specified number of decimal
-            places), then jumps to the next row in the Pixie display,
-            similar to a newline '\\n' character.
-            
+/*! ############################################################################
+    @brief  Prints a single-precision floating point integer to the displays at
+			the current cursor position (to a specified number of decimal
+            places), then jumps to the next row in the Pixie display, similar to
+			a newline '\\n' character.
+
     @param  input   float to print
     @param  places  Number of decimal places to print **[optional]**
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::println(float input, uint8_t places){
 	println(double(input), places);
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Blurs the mask buffer in both axes by blur_amount.
-            
-    @param  blur_amount   Amount to blur
-*/
-/**************************************************************************/
+
+    @param  blur_amount  Amount to blur
+*///............................................................................
 void PixieChroma::blur(fract8 blur_amount){
 	blur_x(blur_amount);
 	blur_y(blur_amount);
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Blurs the mask buffer in the X axis by blur_amount.
             
     @param  blur_amount   Amount to blur
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::blur_x(fract8 blur_amount){
 	uint8_t keep = 255 - blur_amount;
     uint8_t seep = blur_amount >> 1;
@@ -1244,13 +1136,11 @@ void PixieChroma::blur_x(fract8 blur_amount){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Blurs the mask buffer in the Y axis by blur_amount.
             
-    @param  blur_amount   Amount to blur
-*/
-/**************************************************************************/
+    @param  blur_amount  Amount to blur
+*///............................................................................
 void PixieChroma::blur_y(fract8 blur_amount){
 	// blur columns
     uint8_t keep = 255 - blur_amount;
@@ -1273,15 +1163,13 @@ void PixieChroma::blur_y(fract8 blur_amount){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Darkens the mask buffer by an 8-bit amount. Optionally resets
-            the cursor position.
+/*! ############################################################################
+    @brief  Darkens the mask buffer by an 8-bit amount. Optionally resets the
+	        cursor position.
             
     @param  amount        8-bit amount to darken the mask
     @param  reset_cursor  Reset the cursor to 0,0 **[optional]**
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::dim(uint8_t amount, bool reset_cursor){
 	if(reset_cursor){
 		set_cursor(0,0);
@@ -1303,26 +1191,22 @@ void PixieChroma::dim(uint8_t amount, bool reset_cursor){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Blurs the color buffer in both axes by blur_amount.
             
-    @param  blur_amount   Amount to blur
-*/
-/**************************************************************************/
+    @param  blur_amount  Amount to blur
+*///............................................................................
 void PixieChroma::color_blur(fract8 blur_amount){
 	color_blur_x(blur_amount);
 	color_blur_y(blur_amount);
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Blurs the color buffer in the X axis by blur_amount.
             
-    @param  blur_amount   Amount to blur
-*/
-/**************************************************************************/
+    @param  blur_amount  Amount to blur
+*///............................................................................
 void PixieChroma::color_blur_x(fract8 blur_amount){
 	uint8_t keep = 255 - blur_amount;
     uint8_t seep = blur_amount >> 1;
@@ -1342,13 +1226,11 @@ void PixieChroma::color_blur_x(fract8 blur_amount){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Blurs the color buffer in the Y axis by blur_amount.
             
-    @param  blur_amount   Amount to blur
-*/
-/**************************************************************************/
+    @param  blur_amount  Amount to blur
+*///............................................................................
 void PixieChroma::color_blur_y(fract8 blur_amount){
 	// blur rows same as columns, for irregular matrix
     uint8_t keep = 255 - blur_amount;
@@ -1369,91 +1251,77 @@ void PixieChroma::color_blur_y(fract8 blur_amount){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Darkens the color buffer by an 8-bit amount.
             
-    @param  amount        8-bit amount to darken the mask
-*/
-/**************************************************************************/
+    @param  amount  8-bit amount to darken the mask
+*///............................................................................
 void PixieChroma::color_dim(uint8_t amount){
 	CRGBSet leds_temp(leds, NUM_LEDS);
 	leds_temp.fadeToBlackBy(amount);
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Returns the cursor's X position
-*/
-/**************************************************************************/
+*///............................................................................
 uint8_t PixieChroma::get_cursor_x(){
 	return cursor_x / chars_x;
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Returns the cursor's Y position
-*/
-/**************************************************************************/
+*///............................................................................
 uint8_t PixieChroma::get_cursor_y(){
 	return cursor_y / chars_y;
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Returns the cursor's X position in exact pixel coordinates
-*/
-/**************************************************************************/
+*///............................................................................
 int16_t PixieChroma::get_cursor_x_exact(){
 	return cursor_x;
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Returns the cursor's Y position in exact pixel coordinates
-*/
-/**************************************************************************/
+*///............................................................................
 int16_t PixieChroma::get_cursor_y_exact(){
 	return cursor_y;
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Clears (blackens) the current mask buffer and resets the cursor
             to 0,0
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::clear(){
 	memset(mask, 0, NUM_LEDS);
 	set_cursor(0,0);
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  PixieChroma operates in a 2D context, but is run using 1D
-            arrays. This function returns the 1D index of a given 2D
-	    coordinate in the display matrix.
+/*! ############################################################################
+    @brief    This function returns the 1D index of a given 2D coordinate in the
+	          display matrix.
+	
+	@details  PixieChroma operates in a 2D context, but is run using 1D arrays. 
 	    
-	    Optionally, the result can be run through a wrapping function
-	    that allows coordinates out of range to wrap around the the 
-	    opposite side of the 2D matrix.
+			  Optionally, the result can be run through a wrapping function that
+			  allows coordinates out of range to wrap around to the opposite
+			  side of the 2D matrix.
 	    
-	    If wrap is not enabled, any coordinates outside of the
-	    display matrix will be parsed to a 1D index that is unused
-	    and unseen.
+			  If wrap is not enabled, any coordinates outside of the display
+			  matrix will be parsed to a 1D index that is unused and unseen.
 	    
-    @param   x     Signed 2D X coordinate
-    @param   y     Signed 2D Y coordinate
-    @param   wrap  Enable wrapping function **[optional]**
-    @return  The 1D index of your 2D coordinate
-*/
-/**************************************************************************/
+    @param    x     Signed 2D X coordinate
+    @param    y     Signed 2D Y coordinate
+    @param    wrap  Enable wrapping function **[optional]**
+    @return   The 1D index of your 2D coordinate
+*///............................................................................
 uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
 	if(wrap){
 		while(x < 0){
@@ -1489,33 +1357,36 @@ uint16_t PixieChroma::xy(int16_t x, int16_t y, bool wrap) {
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Sets the entire color buffer to a CRGB value. For example:
-                pix.color(CRGB(0,255,255));
-	    This would set all displays to cyan, a mix of green and blue.
+/*! ############################################################################
+    @brief    Sets the entire color buffer to a CRGB value.
+	
+	@details  Example:
+	
+                  pix.color( CRGB(0,255,255) );
+
+	          This would set all displays to cyan, a mix of green and blue.
 	    
-    @param  col FastLED CRGB color
-*/
-/**************************************************************************/
+    @param    col  FastLED CRGB color
+*///............................................................................
 void PixieChroma::color(CRGB col){
 	fill_solid(leds, NUM_LEDS, col);
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Sets a specific display in the color buffer to a CRGB value.
-            For example:
-                pix.color(CRGB(0,255,255), 1, 0);
-	    This would set the **second display of the first row** to cyan, a
-	    mix of green and blue.
+/*! ############################################################################
+    @brief    Sets a specific display in the color buffer to a CRGB value.
+    
+	@details  Example:
+	
+                  pix.color( CRGB(0,255,255), 1, 0 );
+				  
+	          This would set the **second display of the first row** to cyan, a
+	          mix of green and blue.
 	    
-    @param  col FastLED CRGB color
-    @param  x   X coordinate of display
-    @param  y   y coordinate of display
-*/
-/**************************************************************************/
+    @param    col  FastLED CRGB color
+    @param    x    X coordinate of display
+    @param    y    y coordinate of display
+*///............................................................................
 void PixieChroma::color(CRGB col, uint8_t x, uint8_t y){
 	int16_t x_pos = x*display_width+1;
 	int16_t y_pos = y*display_height+2;
@@ -1532,21 +1403,22 @@ void PixieChroma::color(CRGB col, uint8_t x, uint8_t y){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Sets a rectangular area in the color buffer to a CRGB value.
-            For example:
-                pix.color(CRGB(0,255,255), 0, 0, 5, 5);
-	    This would set **the first five columns and rows** of the color
-	    buffer to cyan, a mix of green and blue.
+/*! ############################################################################
+    @brief    Sets a rectangular area in the color buffer to a CRGB value.
+            
+	@details  Example:
+              
+			      pix.color( CRGB(0,255,255), 0, 0, 5, 5 );
+	          
+			  This would set **the first five columns and rows** of the color
+	          buffer to cyan, a mix of green and blue.
 	    
-    @param  col FastLED CRGB color
-    @param  x1  Starting X coordinate of the rectangle
-    @param  y1  Starting Y coordinate of the rectangle
-    @param  x2  Ending X coordinate of the rectangle (inclusive)
-    @param  y2  Ending Y coordinate of the rectangle (inclusive)
-*/
-/**************************************************************************/
+    @param    col  FastLED CRGB color
+    @param    x1   Starting X coordinate of the rectangle
+    @param    y1   Starting Y coordinate of the rectangle
+    @param    x2   Ending X coordinate of the rectangle (inclusive)
+    @param    y2   Ending Y coordinate of the rectangle (inclusive)
+*///............................................................................
 void PixieChroma::color(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2){
 	if(x2 < x1 || y2 < y1){
 		return;
@@ -1575,16 +1447,14 @@ void PixieChroma::color(CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Draws a line in the mask buffer using Bresenham's line algorithm
+/*! ############################################################################
+    @brief  Draws a line in the mask buffer using Bresenham's line algorithm.
 	    
     @param  x1  Starting X coordinate of the line
     @param  y1  Starting Y coordinate of the line
     @param  x2  Ending X coordinate of the line (inclusive)
     @param  y2  Ending Y coordinate of the line (inclusive)
-*/
-/**************************************************************************/
+*///............................................................................
 void PixieChroma::draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2){
 	//Bresenham's line algorithm
 	uint16_t index;
@@ -1662,25 +1532,24 @@ void PixieChroma::draw_line(int16_t x1, int16_t y1, int16_t x2, int16_t y2){
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Approximates the conversion of a blackbody radiation temperature
-            (e.g. 3500K) to a CRGB color object. This can be used within
-	    other Pixie color functions like so:
+/*! ############################################################################
+    @brief    Approximates the conversion of a blackbody radiation temperature
+              (e.g. 3500K) to a CRGB color object.
+	
+	@details  This can be used within other Pixie color functions like so:
 	    
-	        pix.color( kelvin_to_rgb( 3000 ) );
+	              pix.color( kelvin_to_rgb( 3000 ) );
 		
-	    This would render a warm-white color. This measurement system
-	    is often used in household LED bulbs, with colors like:
-	    
-	    - 2700K - **Very Warm White**
-	    - 3500K - **Warm White**
-	    - 5000K - **White**
-	    - 7000K - **Cool White**
-	    
-    @param  temperature  Blackbody radiation temperature in Kelvin
-*/
-/**************************************************************************/
+			  This would render a warm-white color. This measurement system is
+			  often used in household LED bulbs, with colors like:
+			
+			  - 2700K - **Very Warm White**
+			  - 3500K - **Warm White**
+			  - 5000K - **White**
+			  - 7000K - **Cool White**
+			
+    @param    temperature  Blackbody radiation temperature in Kelvin
+*///............................................................................
 CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){
 	// Tanner Helland formula
 	float    _temperature;
@@ -1719,36 +1588,34 @@ CRGB PixieChroma::kelvin_to_rgb(uint16_t temperature){
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Freezes the current mask buffer in memory to prevent showing
-            unfinished text if show() fires during construction
-	        of the current display data. Use free() to unfreeze.
-*/
-/**************************************************************************/
+            unfinished text if show() fires during construction of the current
+			display data.
+			
+			Use free() to unfreeze.
+*///............................................................................
 void PixieChroma::hold(){
 	freeze = true;
 }
 
 
-/**************************************************************************/
-/*!
+/*! ############################################################################
     @brief  Unfreezes the current mask buffer in memory to allow showing
             updated text the next time show() is called.
-*/
-/**************************************************************************/
+
+*///............................................................................
 void PixieChroma::free(){
 	freeze = false;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Internal function called by the ANIMATE() ISR, responsible for
-            parsing 1D image data into truncated versions sent to the Pixie
-	    Chroma displays. ***FastLED.show() is called here.***
-*/
-/**************************************************************************/
+/*! ############################################################################
+    @brief    Processes 1D image data into truncated versions, sending them to the
+	          Pixie Chroma displays.
+			
+	@details  ***FastLED.show() is called here.***
+*///............................................................................
 void PixieChroma::show(){
 	uint32_t t_now = micros();
 	float frame_delta_us = t_now-t_last;
