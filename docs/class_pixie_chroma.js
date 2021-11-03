@@ -70,7 +70,7 @@ var class_pixie_chroma =
     [ "color_blur_y", "class_pixie_chroma.html#aa1334e020afb7346fbf54a872e8ab14a", null ],
     [ "xy", "class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af", null ],
     [ "draw_line", "class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a", null ],
-    [ "print_xy_map", "class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb", null ],
+    [ "print_xy_table", "class_pixie_chroma.html#a50da512c6cbcd74c59f18d85b5bd7599", null ],
     [ "color_map", "class_pixie_chroma.html#a438496d74e5b41edfc5b5baedde07a77", null ],
     [ "mask", "class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1", null ],
     [ "current_palette", "class_pixie_chroma.html#a7fa91ac273c0d5d738bdf7a160dcc08b", null ],

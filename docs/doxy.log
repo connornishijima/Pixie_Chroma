@@ -1,5 +1,4 @@
 warning: source 'docs/img' is not a readable file or directory... skipping.
-/github/workspace/src/pixie_chroma_internal.cpp:1860: warning: documented symbol 'void PixieChroma::print_xy_table' was not declared or defined.
 /github/workspace/src/utility/pixie_animations.cpp:12: warning: parameters of member ANIMATION_NULL are not (all) documented
 /github/workspace/src/utility/pixie_animations.cpp:17: warning: parameters of member ANIMATION_STATIC are not (all) documented
 /github/workspace/src/utility/pixie_animations.cpp:30: warning: parameters of member ANIMATION_PALETTE_SHIFT are not (all) documented
@@ -271,7 +270,6 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_palettes.h:90: warning: Member GRADIENT_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:95: warning: Member GRADIENT_BLACK_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_utility.h:58: warning: parameters of member dtoa are not (all) documented
-/github/workspace/src/pixie_chroma_internal.h:130: warning: Member print_xy_map() (function) of class PixieChroma is not documented.
 /github/workspace/src/pixie_chroma_internal.h:181: warning: Member current_palette (variable) of class PixieChroma is not documented.
 /github/workspace/src/pixie_chroma_internal.h:183: warning: Member matrix_width (variable) of class PixieChroma is not documented.
 /github/workspace/src/pixie_chroma_internal.h:184: warning: Member matrix_height (variable) of class PixieChroma is not documented.
