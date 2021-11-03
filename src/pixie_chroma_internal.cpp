@@ -368,7 +368,7 @@ void PixieChroma::set_gamma_correction( bool enabled ){
 /*! ############################################################################
     @brief
     Sets the cursor position in a 2D context, in whole displays.
-            
+    
     @details  
     Wherever the cursor is, is where the next call to print() or write() will
     originate. Position is counted from zero. Remember: each Pixie Chroma has
