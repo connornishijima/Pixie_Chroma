@@ -1427,16 +1427,52 @@ void PixieChroma::clear(){
 
 /*! ############################################################################
     @brief
-    This function returns the 1D index of a given 2D coordinate in the display
-    matrix.
+    This function returns the 1D color_map / mask index of a given 2D coordinate
+    in the display matrix.
               
     @details
-    Optionally, the result can be run through a wrapping function that allows
-    coordinates out of range to wrap around to the opposite side of the 2D
-    matrix.
+    The XY Table is generated during `begin()` by an internal function,
+    `calc_xy()`. Each cell of the table denotes at what index that physical
+    pixel location is inside of the 1D color_map / mask arrays.
+    
+    For example, here is the XY Table for a single Pixie:
+    
+    |       |        |        |        |        |        |       |       |        |        |        |        |        |       |
+    |-------|--------|--------|--------|--------|--------|-------|-------|--------|--------|--------|--------|--------|-------|
+    | *70*  | *71*   | *72*   | *73*   | *74*   | *75*   | *76*  | *77*  | *78*   | *79*   | *80*   | *81*   | *82*   | *83*  |
+    | *84*  | *85*   | *86*   | *87*   | *88*   | *89*   | *90*  | *91*  | *92*   | *93*   | *94*   | *95*   | *96*   | *97*  | 
+    | *98*  | **0**  | **1**  | **2**  | **3**  | **4**  | *99*  | *100* | **35** | **36** | **37** | **38** | **39** | *101* | 
+    | *102* | **5**  | **6**  | **7**  | **8**  | **9**  | *103* | *104* | **40** | **41** | **42** | **43** | **44** | *105* | 
+    | *106* | **10** | **11** | **12** | **13** | **14** | *107* | *108* | **45** | **46** | **47** | **48** | **49** | *109* | 
+    | *110* | **15** | **16** | **17** | **18** | **19** | *111* | *112* | **50** | **51** | **52** | **53** | **54** | *113* | 
+    | *114* | **20** | **21** | **22** | **23** | **24** | *115* | *116* | **55** | **56** | **57** | **58** | **59** | *117* | 
+    | *118* | **25** | **26** | **27** | **28** | **29** | *119* | *120* | **60** | **61** | **62** | **63** | **64** | *121* | 
+    | *122* | **30** | **31** | **32** | **33** | **34** | *123* | *124* | **65** | **66** | **67** | **68** | **69** | *125* | 
+    | *126* | *127*  | *128*  | *129*  | *130*  | *131*  | *132* | *133* | *134*  | *135*  | *136*  | *137*  | *138*  | *139* | 
+    | *140* | *141*  | *142*  | *143*  | *144*  | *145*  | *146* | *147* | *148*  | *149*  | *150*  | *151*  | *152*  | *153* |
+    
+    **BOLD**   = Visible Pixel
+    **ITALIC** = Invisible Pixel
+    
+    With this example table, a given XY coordinate of `(3, 4)` would return
+    `12`. Thus, modifying the color_map or mask at index `12` would influence
+    the pixel at the physical location of `(3, 4)`.
+    
+    Starting from `0` at the top-left of the first visible pixel, (of the first
+    display in the XY Table) the index increases to `69`, (the last visible
+    pixel in the matrix) before starting to count invisible pixels at index `70`
+    and up.
+    
+    With this example table setup, the first 70 indices of color_map are visible
+    pixels, and the remaining 84 are invisible. (Simulated margin between
+    displays)
+
+    Optionally, the result of this function can be run through a wrapping
+    function that allows coordinates out of range to wrap around to the
+    opposite side of the 2D matrix.
     
     If wrap is not enabled, any coordinates outside of the display matrix will
-    be parsed to a 1D index that is unused and unseen.
+    be parsed to a 1D index that is completely unused and unseen.
         
     @param   x     Signed 2D X coordinate
     @param   y     Signed 2D Y coordinate
@@ -1791,6 +1827,11 @@ void PixieChroma::show(){
     
     @details
     Useful for debugging, the index table (XY Map) can be printed over Serial.
+    Each cell of the table denotes at what index that physical pixel location is
+    inside of the 1D color_map / mask arrays. (The xy() function uses this table
+    to translate real-world 2D coordinates to 1D indices.)
+    
+    For example, here is the XY Table for a single Pixie:
     
     |       |        |        |        |        |        |       |       |        |        |        |        |        |       |
     |-------|--------|--------|--------|--------|--------|-------|-------|--------|--------|--------|--------|--------|-------|
@@ -1806,8 +1847,17 @@ void PixieChroma::show(){
     | *126* | *127*  | *128*  | *129*  | *130*  | *131*  | *132* | *133* | *134*  | *135*  | *136*  | *137*  | *138*  | *139* | 
     | *140* | *141*  | *142*  | *143*  | *144*  | *145*  | *146* | *147* | *148*  | *149*  | *150*  | *151*  | *152*  | *153* |
     
+    **BOLD**   = Visible Pixel
+    **ITALIC** = Invisible Pixel
+    
+    Starting from `0` at the top-left of the display, the index increases to 
+    `69`, before starting to count invisible pixels at index `70` and up.
+    
+    With this setup, the first 70 indices of color_map are visible pixels, and
+    the remaining 84 are invisible. (Simulated margin between displays)
+    
 *///............................................................................
-void PixieChroma::print_xy_map(){
+void PixieChroma::print_xy_table(){
     for( uint8_t y = 0; y < matrix_height; y++ ){
         for( uint8_t x = 0; x < matrix_width; x++ ){
             uint16_t index = ( matrix_width*y )+x;
