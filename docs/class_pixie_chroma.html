@@ -307,13 +307,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa1334e020afb7346fbf54a872e8ab14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blurs the color buffer in the Y axis by blur_amount.  <a href="class_pixie_chroma.html#aa1334e020afb7346fbf54a872e8ab14a">More...</a><br /></td></tr>
 <tr class="separator:aa1334e020afb7346fbf54a872e8ab14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c6c704a93478b92e334abeeeebd2af"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a> (int16_t x, int16_t y, bool wrap=false)</td></tr>
-<tr class="memdesc:aa5c6c704a93478b92e334abeeeebd2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the 1D index of a given 2D coordinate in the display matrix.  <a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">More...</a><br /></td></tr>
+<tr class="memdesc:aa5c6c704a93478b92e334abeeeebd2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the 1D color_map / mask index of a given 2D coordinate in the display matrix.  <a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">More...</a><br /></td></tr>
 <tr class="separator:aa5c6c704a93478b92e334abeeeebd2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">draw_line</a> (int16_t x1, int16_t y1, int16_t x2, int16_t y2)</td></tr>
 <tr class="memdesc:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a line in the mask buffer using Bresenham's line algorithm.  <a href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">More...</a><br /></td></tr>
 <tr class="separator:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da48c4082408e623dd91163637b85cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb">print_xy_map</a> ()</td></tr>
-<tr class="memdesc:a5da48c4082408e623dd91163637b85cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the index table for the calculated XY map. <b>Requires Serial.begin() first to function.</b>  <a href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb">More...</a><br /></td></tr>
+<tr class="memitem:a5da48c4082408e623dd91163637b85cb"><td class="memItemLeft" align="right" valign="top"><a id="a5da48c4082408e623dd91163637b85cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print_xy_map</b> ()</td></tr>
 <tr class="separator:a5da48c4082408e623dd91163637b85cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -2510,7 +2510,7 @@ pix.print(    ,   ,   ,   ,    );
 <h6></h6>
 <p>FastLED.show() is called here.*** </p>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01752">1752</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01788">1788</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2533,7 +2533,7 @@ pix.print(    ,   ,   ,   ,    );
 <h6></h6>
 <p>Use <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> to unfreeze. </p>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01729">1729</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01765">1765</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2555,7 +2555,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Unfreezes the current mask buffer in memory to allow showing updated text the next time <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> is called. </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01739">1739</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01775">1775</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2586,7 +2586,7 @@ pix.print(    ,   ,   ,   ,    );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01494">1494</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01530">1530</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2635,7 +2635,7 @@ pix.print(    ,   ,   ,   ,    );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01515">1515</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01551">1551</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2698,7 +2698,7 @@ pix.print(    ,   ,   ,   ,    );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01549">1549</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01585">1585</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2736,7 +2736,7 @@ pix.print(    ,   ,   ,   ,    );
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Approximate CRGB representation of the given temperature </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01684">1684</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01720">1720</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -3015,10 +3015,42 @@ pix.print(    ,   ,   ,   ,    );
       </table>
 </div><div class="memdoc">
 
-<p>This function returns the 1D index of a given 2D coordinate in the display matrix. </p>
+<p>This function returns the 1D color_map / mask index of a given 2D coordinate in the display matrix. </p>
 <h6></h6>
-<p>Optionally, the result can be run through a wrapping function that allows coordinates out of range to wrap around to the opposite side of the 2D matrix.</p>
-<p>If wrap is not enabled, any coordinates outside of the display matrix will be parsed to a 1D index that is unused and unseen.</p>
+<p>The XY Table is generated during <code><a class="el" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin()</a></code> by an internal function, <code>calc_xy()</code>. Each cell of the table denotes at what index that physical pixel location is inside of the 1D color_map / mask arrays.</p>
+<p>For example, here is the XY Table for a single Pixie:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><em>70</em>   </td><td class="markdownTableBodyNone"><em>71</em>   </td><td class="markdownTableBodyNone"><em>72</em>   </td><td class="markdownTableBodyNone"><em>73</em>   </td><td class="markdownTableBodyNone"><em>74</em>   </td><td class="markdownTableBodyNone"><em>75</em>   </td><td class="markdownTableBodyNone"><em>76</em>   </td><td class="markdownTableBodyNone"><em>77</em>   </td><td class="markdownTableBodyNone"><em>78</em>   </td><td class="markdownTableBodyNone"><em>79</em>   </td><td class="markdownTableBodyNone"><em>80</em>   </td><td class="markdownTableBodyNone"><em>81</em>   </td><td class="markdownTableBodyNone"><em>82</em>   </td><td class="markdownTableBodyNone"><em>83</em>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><em>84</em>   </td><td class="markdownTableBodyNone"><em>85</em>   </td><td class="markdownTableBodyNone"><em>86</em>   </td><td class="markdownTableBodyNone"><em>87</em>   </td><td class="markdownTableBodyNone"><em>88</em>   </td><td class="markdownTableBodyNone"><em>89</em>   </td><td class="markdownTableBodyNone"><em>90</em>   </td><td class="markdownTableBodyNone"><em>91</em>   </td><td class="markdownTableBodyNone"><em>92</em>   </td><td class="markdownTableBodyNone"><em>93</em>   </td><td class="markdownTableBodyNone"><em>94</em>   </td><td class="markdownTableBodyNone"><em>95</em>   </td><td class="markdownTableBodyNone"><em>96</em>   </td><td class="markdownTableBodyNone"><em>97</em>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><em>98</em>   </td><td class="markdownTableBodyNone"><b>0</b>   </td><td class="markdownTableBodyNone"><b>1</b>   </td><td class="markdownTableBodyNone"><b>2</b>   </td><td class="markdownTableBodyNone"><b>3</b>   </td><td class="markdownTableBodyNone"><b>4</b>   </td><td class="markdownTableBodyNone"><em>99</em>   </td><td class="markdownTableBodyNone"><em>100</em>   </td><td class="markdownTableBodyNone"><b>35</b>   </td><td class="markdownTableBodyNone"><b>36</b>   </td><td class="markdownTableBodyNone"><b>37</b>   </td><td class="markdownTableBodyNone"><b>38</b>   </td><td class="markdownTableBodyNone"><b>39</b>   </td><td class="markdownTableBodyNone"><em>101</em>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><em>102</em>   </td><td class="markdownTableBodyNone"><b>5</b>   </td><td class="markdownTableBodyNone"><b>6</b>   </td><td class="markdownTableBodyNone"><b>7</b>   </td><td class="markdownTableBodyNone"><b>8</b>   </td><td class="markdownTableBodyNone"><b>9</b>   </td><td class="markdownTableBodyNone"><em>103</em>   </td><td class="markdownTableBodyNone"><em>104</em>   </td><td class="markdownTableBodyNone"><b>40</b>   </td><td class="markdownTableBodyNone"><b>41</b>   </td><td class="markdownTableBodyNone"><b>42</b>   </td><td class="markdownTableBodyNone"><b>43</b>   </td><td class="markdownTableBodyNone"><b>44</b>   </td><td class="markdownTableBodyNone"><em>105</em>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><em>106</em>   </td><td class="markdownTableBodyNone"><b>10</b>   </td><td class="markdownTableBodyNone"><b>11</b>   </td><td class="markdownTableBodyNone"><b>12</b>   </td><td class="markdownTableBodyNone"><b>13</b>   </td><td class="markdownTableBodyNone"><b>14</b>   </td><td class="markdownTableBodyNone"><em>107</em>   </td><td class="markdownTableBodyNone"><em>108</em>   </td><td class="markdownTableBodyNone"><b>45</b>   </td><td class="markdownTableBodyNone"><b>46</b>   </td><td class="markdownTableBodyNone"><b>47</b>   </td><td class="markdownTableBodyNone"><b>48</b>   </td><td class="markdownTableBodyNone"><b>49</b>   </td><td class="markdownTableBodyNone"><em>109</em>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><em>110</em>   </td><td class="markdownTableBodyNone"><b>15</b>   </td><td class="markdownTableBodyNone"><b>16</b>   </td><td class="markdownTableBodyNone"><b>17</b>   </td><td class="markdownTableBodyNone"><b>18</b>   </td><td class="markdownTableBodyNone"><b>19</b>   </td><td class="markdownTableBodyNone"><em>111</em>   </td><td class="markdownTableBodyNone"><em>112</em>   </td><td class="markdownTableBodyNone"><b>50</b>   </td><td class="markdownTableBodyNone"><b>51</b>   </td><td class="markdownTableBodyNone"><b>52</b>   </td><td class="markdownTableBodyNone"><b>53</b>   </td><td class="markdownTableBodyNone"><b>54</b>   </td><td class="markdownTableBodyNone"><em>113</em>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><em>114</em>   </td><td class="markdownTableBodyNone"><b>20</b>   </td><td class="markdownTableBodyNone"><b>21</b>   </td><td class="markdownTableBodyNone"><b>22</b>   </td><td class="markdownTableBodyNone"><b>23</b>   </td><td class="markdownTableBodyNone"><b>24</b>   </td><td class="markdownTableBodyNone"><em>115</em>   </td><td class="markdownTableBodyNone"><em>116</em>   </td><td class="markdownTableBodyNone"><b>55</b>   </td><td class="markdownTableBodyNone"><b>56</b>   </td><td class="markdownTableBodyNone"><b>57</b>   </td><td class="markdownTableBodyNone"><b>58</b>   </td><td class="markdownTableBodyNone"><b>59</b>   </td><td class="markdownTableBodyNone"><em>117</em>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><em>118</em>   </td><td class="markdownTableBodyNone"><b>25</b>   </td><td class="markdownTableBodyNone"><b>26</b>   </td><td class="markdownTableBodyNone"><b>27</b>   </td><td class="markdownTableBodyNone"><b>28</b>   </td><td class="markdownTableBodyNone"><b>29</b>   </td><td class="markdownTableBodyNone"><em>119</em>   </td><td class="markdownTableBodyNone"><em>120</em>   </td><td class="markdownTableBodyNone"><b>60</b>   </td><td class="markdownTableBodyNone"><b>61</b>   </td><td class="markdownTableBodyNone"><b>62</b>   </td><td class="markdownTableBodyNone"><b>63</b>   </td><td class="markdownTableBodyNone"><b>64</b>   </td><td class="markdownTableBodyNone"><em>121</em>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><em>122</em>   </td><td class="markdownTableBodyNone"><b>30</b>   </td><td class="markdownTableBodyNone"><b>31</b>   </td><td class="markdownTableBodyNone"><b>32</b>   </td><td class="markdownTableBodyNone"><b>33</b>   </td><td class="markdownTableBodyNone"><b>34</b>   </td><td class="markdownTableBodyNone"><em>123</em>   </td><td class="markdownTableBodyNone"><em>124</em>   </td><td class="markdownTableBodyNone"><b>65</b>   </td><td class="markdownTableBodyNone"><b>66</b>   </td><td class="markdownTableBodyNone"><b>67</b>   </td><td class="markdownTableBodyNone"><b>68</b>   </td><td class="markdownTableBodyNone"><b>69</b>   </td><td class="markdownTableBodyNone"><em>125</em>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><em>126</em>   </td><td class="markdownTableBodyNone"><em>127</em>   </td><td class="markdownTableBodyNone"><em>128</em>   </td><td class="markdownTableBodyNone"><em>129</em>   </td><td class="markdownTableBodyNone"><em>130</em>   </td><td class="markdownTableBodyNone"><em>131</em>   </td><td class="markdownTableBodyNone"><em>132</em>   </td><td class="markdownTableBodyNone"><em>133</em>   </td><td class="markdownTableBodyNone"><em>134</em>   </td><td class="markdownTableBodyNone"><em>135</em>   </td><td class="markdownTableBodyNone"><em>136</em>   </td><td class="markdownTableBodyNone"><em>137</em>   </td><td class="markdownTableBodyNone"><em>138</em>   </td><td class="markdownTableBodyNone"><em>139</em>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><em>140</em>   </td><td class="markdownTableBodyNone"><em>141</em>   </td><td class="markdownTableBodyNone"><em>142</em>   </td><td class="markdownTableBodyNone"><em>143</em>   </td><td class="markdownTableBodyNone"><em>144</em>   </td><td class="markdownTableBodyNone"><em>145</em>   </td><td class="markdownTableBodyNone"><em>146</em>   </td><td class="markdownTableBodyNone"><em>147</em>   </td><td class="markdownTableBodyNone"><em>148</em>   </td><td class="markdownTableBodyNone"><em>149</em>   </td><td class="markdownTableBodyNone"><em>150</em>   </td><td class="markdownTableBodyNone"><em>151</em>   </td><td class="markdownTableBodyNone"><em>152</em>   </td><td class="markdownTableBodyNone"><em>153</em>   </td></tr>
+</table>
+<p>BOLD** = Visible Pixel ITALIC** = Invisible Pixel</p>
+<p>With this example table, a given XY coordinate of <code>(3, 4)</code> would return <code>12</code>. Thus, modifying the color_map or mask at index <code>12</code> would influence the pixel at the physical location of <code>(3, 4)</code>.</p>
+<p>Starting from <code>0</code> at the top-left of the first visible pixel, (of the first display in the XY Table) the index increases to <code>69</code>, (the last visible pixel in the matrix) before starting to count invisible pixels at index <code>70</code> and up.</p>
+<p>With this example table setup, the first 70 indices of color_map are visible pixels, and the remaining 84 are invisible. (Simulated margin between displays)</p>
+<p>Optionally, the result of this function can be run through a wrapping function that allows coordinates out of range to wrap around to the opposite side of the 2D matrix.</p>
+<p>If wrap is not enabled, any coordinates outside of the display matrix will be parsed to a 1D index that is completely unused and unseen.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Signed 2D X coordinate </td></tr>
@@ -3029,7 +3061,7 @@ pix.print(    ,   ,   ,   ,    );
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The 1D index of your 2D coordinate </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01446">1446</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01482">1482</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -3083,56 +3115,7 @@ pix.print(    ,   ,   ,   ,    );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01586">1586</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a5da48c4082408e623dd91163637b85cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5da48c4082408e623dd91163637b85cb">&#9670;&nbsp;</a></span>print_xy_map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PixieChroma::print_xy_map </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prints the index table for the calculated XY map. <b>Requires Serial.begin() first to function.</b> </p>
-<h6></h6>
-<p>Useful for debugging, the index table (XY Map) can be printed over Serial.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><em>70</em>   </td><td class="markdownTableBodyNone"><em>71</em>   </td><td class="markdownTableBodyNone"><em>72</em>   </td><td class="markdownTableBodyNone"><em>73</em>   </td><td class="markdownTableBodyNone"><em>74</em>   </td><td class="markdownTableBodyNone"><em>75</em>   </td><td class="markdownTableBodyNone"><em>76</em>   </td><td class="markdownTableBodyNone"><em>77</em>   </td><td class="markdownTableBodyNone"><em>78</em>   </td><td class="markdownTableBodyNone"><em>79</em>   </td><td class="markdownTableBodyNone"><em>80</em>   </td><td class="markdownTableBodyNone"><em>81</em>   </td><td class="markdownTableBodyNone"><em>82</em>   </td><td class="markdownTableBodyNone"><em>83</em>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><em>84</em>   </td><td class="markdownTableBodyNone"><em>85</em>   </td><td class="markdownTableBodyNone"><em>86</em>   </td><td class="markdownTableBodyNone"><em>87</em>   </td><td class="markdownTableBodyNone"><em>88</em>   </td><td class="markdownTableBodyNone"><em>89</em>   </td><td class="markdownTableBodyNone"><em>90</em>   </td><td class="markdownTableBodyNone"><em>91</em>   </td><td class="markdownTableBodyNone"><em>92</em>   </td><td class="markdownTableBodyNone"><em>93</em>   </td><td class="markdownTableBodyNone"><em>94</em>   </td><td class="markdownTableBodyNone"><em>95</em>   </td><td class="markdownTableBodyNone"><em>96</em>   </td><td class="markdownTableBodyNone"><em>97</em>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><em>98</em>   </td><td class="markdownTableBodyNone"><b>0</b>   </td><td class="markdownTableBodyNone"><b>1</b>   </td><td class="markdownTableBodyNone"><b>2</b>   </td><td class="markdownTableBodyNone"><b>3</b>   </td><td class="markdownTableBodyNone"><b>4</b>   </td><td class="markdownTableBodyNone"><em>99</em>   </td><td class="markdownTableBodyNone"><em>100</em>   </td><td class="markdownTableBodyNone"><b>35</b>   </td><td class="markdownTableBodyNone"><b>36</b>   </td><td class="markdownTableBodyNone"><b>37</b>   </td><td class="markdownTableBodyNone"><b>38</b>   </td><td class="markdownTableBodyNone"><b>39</b>   </td><td class="markdownTableBodyNone"><em>101</em>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><em>102</em>   </td><td class="markdownTableBodyNone"><b>5</b>   </td><td class="markdownTableBodyNone"><b>6</b>   </td><td class="markdownTableBodyNone"><b>7</b>   </td><td class="markdownTableBodyNone"><b>8</b>   </td><td class="markdownTableBodyNone"><b>9</b>   </td><td class="markdownTableBodyNone"><em>103</em>   </td><td class="markdownTableBodyNone"><em>104</em>   </td><td class="markdownTableBodyNone"><b>40</b>   </td><td class="markdownTableBodyNone"><b>41</b>   </td><td class="markdownTableBodyNone"><b>42</b>   </td><td class="markdownTableBodyNone"><b>43</b>   </td><td class="markdownTableBodyNone"><b>44</b>   </td><td class="markdownTableBodyNone"><em>105</em>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><em>106</em>   </td><td class="markdownTableBodyNone"><b>10</b>   </td><td class="markdownTableBodyNone"><b>11</b>   </td><td class="markdownTableBodyNone"><b>12</b>   </td><td class="markdownTableBodyNone"><b>13</b>   </td><td class="markdownTableBodyNone"><b>14</b>   </td><td class="markdownTableBodyNone"><em>107</em>   </td><td class="markdownTableBodyNone"><em>108</em>   </td><td class="markdownTableBodyNone"><b>45</b>   </td><td class="markdownTableBodyNone"><b>46</b>   </td><td class="markdownTableBodyNone"><b>47</b>   </td><td class="markdownTableBodyNone"><b>48</b>   </td><td class="markdownTableBodyNone"><b>49</b>   </td><td class="markdownTableBodyNone"><em>109</em>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><em>110</em>   </td><td class="markdownTableBodyNone"><b>15</b>   </td><td class="markdownTableBodyNone"><b>16</b>   </td><td class="markdownTableBodyNone"><b>17</b>   </td><td class="markdownTableBodyNone"><b>18</b>   </td><td class="markdownTableBodyNone"><b>19</b>   </td><td class="markdownTableBodyNone"><em>111</em>   </td><td class="markdownTableBodyNone"><em>112</em>   </td><td class="markdownTableBodyNone"><b>50</b>   </td><td class="markdownTableBodyNone"><b>51</b>   </td><td class="markdownTableBodyNone"><b>52</b>   </td><td class="markdownTableBodyNone"><b>53</b>   </td><td class="markdownTableBodyNone"><b>54</b>   </td><td class="markdownTableBodyNone"><em>113</em>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><em>114</em>   </td><td class="markdownTableBodyNone"><b>20</b>   </td><td class="markdownTableBodyNone"><b>21</b>   </td><td class="markdownTableBodyNone"><b>22</b>   </td><td class="markdownTableBodyNone"><b>23</b>   </td><td class="markdownTableBodyNone"><b>24</b>   </td><td class="markdownTableBodyNone"><em>115</em>   </td><td class="markdownTableBodyNone"><em>116</em>   </td><td class="markdownTableBodyNone"><b>55</b>   </td><td class="markdownTableBodyNone"><b>56</b>   </td><td class="markdownTableBodyNone"><b>57</b>   </td><td class="markdownTableBodyNone"><b>58</b>   </td><td class="markdownTableBodyNone"><b>59</b>   </td><td class="markdownTableBodyNone"><em>117</em>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><em>118</em>   </td><td class="markdownTableBodyNone"><b>25</b>   </td><td class="markdownTableBodyNone"><b>26</b>   </td><td class="markdownTableBodyNone"><b>27</b>   </td><td class="markdownTableBodyNone"><b>28</b>   </td><td class="markdownTableBodyNone"><b>29</b>   </td><td class="markdownTableBodyNone"><em>119</em>   </td><td class="markdownTableBodyNone"><em>120</em>   </td><td class="markdownTableBodyNone"><b>60</b>   </td><td class="markdownTableBodyNone"><b>61</b>   </td><td class="markdownTableBodyNone"><b>62</b>   </td><td class="markdownTableBodyNone"><b>63</b>   </td><td class="markdownTableBodyNone"><b>64</b>   </td><td class="markdownTableBodyNone"><em>121</em>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><em>122</em>   </td><td class="markdownTableBodyNone"><b>30</b>   </td><td class="markdownTableBodyNone"><b>31</b>   </td><td class="markdownTableBodyNone"><b>32</b>   </td><td class="markdownTableBodyNone"><b>33</b>   </td><td class="markdownTableBodyNone"><b>34</b>   </td><td class="markdownTableBodyNone"><em>123</em>   </td><td class="markdownTableBodyNone"><em>124</em>   </td><td class="markdownTableBodyNone"><b>65</b>   </td><td class="markdownTableBodyNone"><b>66</b>   </td><td class="markdownTableBodyNone"><b>67</b>   </td><td class="markdownTableBodyNone"><b>68</b>   </td><td class="markdownTableBodyNone"><b>69</b>   </td><td class="markdownTableBodyNone"><em>125</em>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><em>126</em>   </td><td class="markdownTableBodyNone"><em>127</em>   </td><td class="markdownTableBodyNone"><em>128</em>   </td><td class="markdownTableBodyNone"><em>129</em>   </td><td class="markdownTableBodyNone"><em>130</em>   </td><td class="markdownTableBodyNone"><em>131</em>   </td><td class="markdownTableBodyNone"><em>132</em>   </td><td class="markdownTableBodyNone"><em>133</em>   </td><td class="markdownTableBodyNone"><em>134</em>   </td><td class="markdownTableBodyNone"><em>135</em>   </td><td class="markdownTableBodyNone"><em>136</em>   </td><td class="markdownTableBodyNone"><em>137</em>   </td><td class="markdownTableBodyNone"><em>138</em>   </td><td class="markdownTableBodyNone"><em>139</em>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><em>140</em>   </td><td class="markdownTableBodyNone"><em>141</em>   </td><td class="markdownTableBodyNone"><em>142</em>   </td><td class="markdownTableBodyNone"><em>143</em>   </td><td class="markdownTableBodyNone"><em>144</em>   </td><td class="markdownTableBodyNone"><em>145</em>   </td><td class="markdownTableBodyNone"><em>146</em>   </td><td class="markdownTableBodyNone"><em>147</em>   </td><td class="markdownTableBodyNone"><em>148</em>   </td><td class="markdownTableBodyNone"><em>149</em>   </td><td class="markdownTableBodyNone"><em>150</em>   </td><td class="markdownTableBodyNone"><em>151</em>   </td><td class="markdownTableBodyNone"><em>152</em>   </td><td class="markdownTableBodyNone"><em>153</em>   </td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01810">1810</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01622">1622</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -3201,7 +3184,7 @@ pix.print(    ,   ,   ,   ,    );
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 19:54:12 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 20:16:13 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
