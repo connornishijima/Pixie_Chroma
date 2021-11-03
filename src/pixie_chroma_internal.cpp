@@ -289,7 +289,8 @@ void PixieChroma::set_brightness( uint8_t level ){
 	        generate a FastLED Gradient Palette at runtime:
 
                 const uint8_t* my_gradient_palette[] = {
-                //  [INDEX],  [R_VAL],  [G_VAL],  [B_VAL],
+                    [INDEX],  [R_VAL],  [G_VAL],  [B_VAL],
+                    
                     0,        255,      0,        0, 
                     127,      0,        255,      0, 
                     255,      0,        0,        255, 
