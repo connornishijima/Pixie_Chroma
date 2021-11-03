@@ -1451,20 +1451,20 @@ void PixieChroma::clear(){
     | *126* | *127*  | *128*  | *129*  | *130*  | *131*  | *132* | *133* | *134*  | *135*  | *136*  | *137*  | *138*  | *139* | 
     | *140* | *141*  | *142*  | *143*  | *144*  | *145*  | *146* | *147* | *148*  | *149*  | *150*  | *151*  | *152*  | *153* |
     
-    ***BOLD**   = Visible Pixel
-    ***ITALIC** = Invisible Pixel
+    - **BOLD**   = Visible Pixel
+    - **ITALIC** = Invisible Pixel
     
     With this example table, a given XY coordinate of `(3, 4)` would return
     `12`. Thus, modifying the color_map or mask at index `12` would influence
     the pixel at the physical location of `(3, 4)`.
     
-    Starting from `0` at the top-left of the first visible pixel, (of the first
+    Starting from `0` at the top-left with the first visible pixel, (of the first
     display in the XY Table) the index increases to `69`, (the last visible
     pixel in the matrix) before starting to count invisible pixels at index `70`
-    and up.
+    and up through `153`.
     
-    With this example table setup, the first 70 indices of color_map are visible
-    pixels, and the remaining 84 are invisible. (Simulated margin between
+    With this example table setup, the first 70 indices of color_map / mask are
+    visible pixels, and the remaining 84 are invisible. (Simulated margin between
     displays)
 
     Optionally, the result of this function can be run through a wrapping
@@ -1847,14 +1847,17 @@ void PixieChroma::show(){
     | *126* | *127*  | *128*  | *129*  | *130*  | *131*  | *132* | *133* | *134*  | *135*  | *136*  | *137*  | *138*  | *139* | 
     | *140* | *141*  | *142*  | *143*  | *144*  | *145*  | *146* | *147* | *148*  | *149*  | *150*  | *151*  | *152*  | *153* |
     
-    **BOLD**   = Visible Pixel
-    **ITALIC** = Invisible Pixel
+    - **BOLD**   = Visible Pixel
+    - **ITALIC** = Invisible Pixel
     
-    Starting from `0` at the top-left of the display, the index increases to 
-    `69`, before starting to count invisible pixels at index `70` and up.
+    Starting from `0` at the top-left with the first visible pixel, (of the first
+    display in the XY Table) the index increases to `69`, (the last visible
+    pixel in the matrix) before starting to count invisible pixels at index `70`
+    and up through `153`.
     
-    With this setup, the first 70 indices of color_map are visible pixels, and
-    the remaining 84 are invisible. (Simulated margin between displays)
+    With this example table setup, the first 70 indices of color_map / mask are
+    visible pixels, and the remaining 84 are invisible. (Simulated margin between
+    displays)
     
 *///............................................................................
 void PixieChroma::print_xy_table(){
