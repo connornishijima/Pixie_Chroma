@@ -133,12 +133,8 @@ class PixieChroma{
 		// Variables -------------------------------------------------------------------------
 
 		CRGB *leds;
-		CRGB *leds_out;
-		
-		uint8_t *mask;
-		uint8_t *mask_out;		
-		
-		int16_t *xy_table;
+		CRGBPalette16 current_palette;
+        uint8_t *mask;
 
 		uint16_t matrix_width;
 		uint16_t matrix_height;
@@ -146,16 +142,7 @@ class PixieChroma{
 		uint16_t NUM_LEDS;
 		uint16_t NUM_VISIBLE_LEDS;
 		
-		volatile int16_t cursor_x;
-		volatile int16_t cursor_y;
-		
-		CRGBPalette16 current_palette;		
-
-		float frame_rate;
-		uint32_t t_last;
-		float delta = 1.0;
-
-		float animation_speed = 1.0;
+        float delta = 1.0;
 		
 		
 	private:
@@ -173,12 +160,22 @@ class PixieChroma{
 		const uint8_t leds_per_pixie    = 70;
 		const uint8_t bit_table[2]      = {0,255};
 
-        float    max_V  = 5;
-		uint16_t max_mA = 800;
+        volatile int16_t cursor_x;
+		volatile int16_t cursor_y;
+    
+        CRGB *leds_out;
+        uint8_t *mask_out;
+        int16_t *xy_table;
+        float frame_rate;
+        uint32_t t_last;
+        float animation_speed = 1.0;
 
+        float    max_V  = 5;
+		uint16_t max_mA = 500;    
+		uint8_t brightness_level = 255;
+        
 		bool correct_gamma = false;
 		bool line_wrap = false;
-		uint8_t brightness_level = 255;
 		
 		bool freeze = false;
 		bool ticker_running = false;
