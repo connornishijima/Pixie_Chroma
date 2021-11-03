@@ -20,4 +20,3 @@
 - :x: *Member ***animation_speed*** (variable) of class PixieChroma is not documented.*
   'x_offset'
   'y_offset'
-- :x: return type of member **PixieChroma::kelvin_to_rgb** is not documented
