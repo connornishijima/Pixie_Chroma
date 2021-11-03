@@ -151,13 +151,13 @@ $(document).ready(function(){initNavTree('pixie__animations_8cpp_source.html',''
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#a074e472c078919fcb6364d283c64e161">_PENDULUM</a>(<span class="keywordtype">float</span> iter, <span class="keywordtype">float</span> width){</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8h.html#a074e472c078919fcb6364d283c64e161">_PENDULUM</a>(<span class="keywordtype">float</span> center_position, <span class="keywordtype">float</span> sway_width){</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">extern</span> <a class="code" href="class_pixie_chroma.html">PixieChroma</a> pix;     </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    iter *= width;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    center_position *= sway_width;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">for</span>(uint16_t x = 0; x &lt; pix.<a class="code" href="class_pixie_chroma.html#a7d45d3c3ff4ae66562fd9c3a97fb4ac0">matrix_width</a>; x++){</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">float</span> progress = float(x / <span class="keywordtype">float</span>(pix.<a class="code" href="class_pixie_chroma.html#a7d45d3c3ff4ae66562fd9c3a97fb4ac0">matrix_width</a>+4));</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">float</span> palette_index = (progress*255)+iter;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">float</span> palette_index = (progress*255)+center_position;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">if</span>(palette_index &lt; 0){</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            palette_index = 0;</div>
@@ -175,13 +175,13 @@ $(document).ready(function(){initNavTree('pixie__animations_8cpp_source.html',''
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="pixie__animations_8cpp.html#a4ccc84a6f0c67188259fa332c7b63fc9">   93</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8cpp.html#a4ccc84a6f0c67188259fa332c7b63fc9">ANIMATION_PENDULUM</a>(<span class="keywordtype">float</span> delta){</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">float</span> iter = (beatsin8(60)-128);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="pixie__animations_8h.html#a074e472c078919fcb6364d283c64e161">_PENDULUM</a>(iter,0.5);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">float</span> center_position = (beatsin8(60)-128);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="pixie__animations_8h.html#a074e472c078919fcb6364d283c64e161">_PENDULUM</a>(center_position,0.5);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="pixie__animations_8cpp.html#aa36462b27ee7c4bf3297b5f343690f26">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="pixie__animations_8cpp.html#aa36462b27ee7c4bf3297b5f343690f26">ANIMATION_PENDULUM_WIDE</a>(<span class="keywordtype">float</span> delta){</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">float</span> iter = (beatsin8(60)-128);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="pixie__animations_8h.html#a074e472c078919fcb6364d283c64e161">_PENDULUM</a>(iter,1.0);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">float</span> center_position = (beatsin8(60)-128);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="pixie__animations_8h.html#a074e472c078919fcb6364d283c64e161">_PENDULUM</a>(center_position,1.0);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;CRGBPalette16 make_gradient(CRGB col1, CRGB col2){</div>
@@ -305,7 +305,7 @@ $(document).ready(function(){initNavTree('pixie__animations_8cpp_source.html',''
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__animations_8cpp.html">pixie_animations.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 21:25:08 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 21:26:05 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
