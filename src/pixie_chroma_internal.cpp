@@ -7,7 +7,6 @@
  * Last Updated by Connor Nishijima on 10/21/21
  */
 
-// TODO: Use @details as well as @brief in Doxygen comments.
 // TODO: Remove any "magic numbers"
 
 #include "Pixie_Chroma.h" 
