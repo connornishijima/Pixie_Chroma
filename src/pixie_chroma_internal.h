@@ -199,12 +199,15 @@ class PixieChroma{
         /*! ############################################################################
         @brief
         Stores the total number of pixels, including invisible pixels.
+        @details
+        This is calculated for you with the display size given to begin().
 		*///............................................................................
 		uint16_t NUM_PIXELS;
     
         /*! ############################################################################
         @brief
-        Stores the total number of physical LEDs, not including invisible pixels.
+        Stores the total number of physical LEDs, not including invisible pixels. This 
+        is calculated for you during begin() with an internal function, calc_xy().
 		*///............................................................................
 		uint16_t NUM_LEDS;
 		
