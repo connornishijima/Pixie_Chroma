@@ -131,50 +131,51 @@ $(document).ready(function(){initNavTree('pixie__utility_8h_source.html',''); in
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    215,218,220,223,225,228,231,233,236,239,241,244,247,249,252,255</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="pixie__utility_8h.html#a2d88d8fb62831ea1977c2cc9789d89ec">   60</a></span>&#160;<span class="keywordtype">char</span>* <a class="code" href="pixie__utility_8h.html#a2d88d8fb62831ea1977c2cc9789d89ec">dtoa</a>(<span class="keywordtype">double</span> input, <span class="keywordtype">char</span> *buffer, <span class="keywordtype">int</span> precision) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">long</span> wholePart = (long) d;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="pixie__utility_8h.html#a2d88d8fb62831ea1977c2cc9789d89ec">   60</a></span>&#160;<span class="keywordtype">char</span>* <a class="code" href="pixie__utility_8h.html#a2d88d8fb62831ea1977c2cc9789d89ec">dtoa</a>(<span class="keywordtype">double</span> input, <span class="keywordtype">char</span>* buffer, <span class="keywordtype">int</span> precision) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    int32_t whole_part = (int32_t) input;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Deposit the whole part of the number.</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    itoa(wholePart,buffer,10);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    itoa( whole_part, buffer, 10 );</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// Now work on the faction if we need one.</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span> (precision &gt; 0) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span>( precision &gt; 0 ) {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// We do, so locate the end of the string and insert</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">// a decimal point.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">char</span> *endOfString = buffer;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">while</span> (*endOfString != <span class="charliteral">&#39;\0&#39;</span>) endOfString++;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        *endOfString++ = <span class="charliteral">&#39;.&#39;</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">// Now work on the fraction, being sure to turn any negative</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">// values positive.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span> (d &lt; 0) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            d *= -1;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            wholePart *= -1;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">double</span> fraction = d - wholePart;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">while</span> (precision &gt; 0) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="comment">// Multiply by ten and pull out the digit.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            fraction *= 10;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            wholePart = (long) fraction;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            *endOfString++ = <span class="charliteral">&#39;0&#39;</span> + wholePart;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="comment">// Update the fraction and move on to the</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="comment">// next digit.</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            fraction -= wholePart;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            precision--;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">// Terminate the string.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        *endOfString = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> buffer;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">char</span>* end_of_string = buffer;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">while</span>( *end_of_string != <span class="charliteral">&#39;\0&#39;</span> ){</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            end_of_string++;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        *end_of_string++ = <span class="charliteral">&#39;.&#39;</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">// Now work on the fraction, being sure to turn any negative</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">// values positive.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">if</span> (input &lt; 0) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            input *= -1;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            whole_part *= -1;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">double</span> fraction = input - whole_part;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">while</span> (precision &gt; 0) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="comment">// Multiply by ten and pull out the digit.</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            fraction *= 10;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            whole_part = (int32_t) fraction;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            *end_of_string++ = <span class="charliteral">&#39;0&#39;</span> + whole_part;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="comment">// Update the fraction and move on to the</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="comment">// next digit.</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            fraction -= whole_part;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            precision--;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">// Terminate the string.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        *end_of_string = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> buffer;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="apixie__utility_8h_html_a2d88d8fb62831ea1977c2cc9789d89ec"><div class="ttname"><a href="pixie__utility_8h.html#a2d88d8fb62831ea1977c2cc9789d89ec">dtoa</a></div><div class="ttdeci">char * dtoa(double input, char *buffer, int precision)</div><div class="ttdoc">Homebrew function to convert double precision floats to char*. Arduino Forum link</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00060">pixie_utility.h:60</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html_a496f73fd03363df4c9a299c3108094a4"><div class="ttname"><a href="pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4">gamma8</a></div><div class="ttdeci">const uint8_t gamma8[]</div><div class="ttdoc">Used as a fast lookup table for gamma correction.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00033">pixie_utility.h:33</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html_a71c7ea7c7ea36c3cf4941124b58e1aaa"><div class="ttname"><a href="pixie__utility_8h.html#a71c7ea7c7ea36c3cf4941124b58e1aaa">anim_func</a></div><div class="ttdeci">void(* anim_func)(float delta)</div><div class="ttdoc">Used to store the pointer to any preset/custom animation functions the library needs to call during s...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00015">pixie_utility.h:15</a></div></div>
@@ -185,7 +186,7 @@ $(document).ready(function(){initNavTree('pixie__utility_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__utility_8h.html">pixie_utility.h</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 21:31:39 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 21:36:12 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
