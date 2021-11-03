@@ -71,7 +71,7 @@ Pixie Chroma also makes it extremely easy to control advanced animation in the b
 #include "Pixie_Chroma.h" // ... Include library
 PixieChroma pix; // ............ Get class instance
 
-#define PIXIES_PER_PIN  3  // ... GPIO to use
+#define PIXIES_PER_PIN  3  // ... Pixies per data line
 
 #define PIXIES_X  6  // ......... Total amount and         x x x x x x
 #define PIXIES_Y  2  // ......... arrangement of Pixies =  x x x x x x
