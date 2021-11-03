@@ -8,6 +8,7 @@
  */
 
 // TODO: Use @details as well as @brief in Doxygen comments.
+// TODO: Remove any "magic numbers"
 
 #include "Pixie_Chroma.h" 
 #include "utility/pixie_utility.h"
@@ -119,7 +120,7 @@ void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies
 	build_controller(pixie_pin); // ------ Initialize FastLED
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
 	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
-	set_max_power(5.0, 500); // ---------- Set default power budget in volts and milliamps
+	set_max_power(5.0, 500); // ---------- Set default power budget in volts and milliamps (5.0V, 500mA)
 }
 
 
@@ -236,15 +237,15 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 
 	#if defined(ARDUINO_ARCH_ESP8266)
     // WS2811_PORTA on ESP8266 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 15 for Quad Mode
-	FastLED.addLeds<WS2811_PORTA,4>(leds_out, pixies_per_pin*70).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	FastLED.addLeds<WS2811_PORTA,4>(leds_out, pixies_per_pin * leds_per_pixie).setCorrection(TypicalLEDStrip); // Initialize FastLED
 	#endif
 	
 	#if defined(ARDUINO_ARCH_ESP32)
     // Quad Mode on ESP32 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 27
-	FastLED.addLeds<NEOPIXEL, 13>(leds, 0,                     (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
-	FastLED.addLeds<NEOPIXEL, 12>(leds, (pixies_per_pin*70),   (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
-	FastLED.addLeds<NEOPIXEL, 14>(leds, (pixies_per_pin*70)*2, (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
-	FastLED.addLeds<NEOPIXEL, 27>(leds, (pixies_per_pin*70)*4, (pixies_per_pin*70)).setCorrection(TypicalLEDStrip); // Initialize FastLED
+	FastLED.addLeds<NEOPIXEL, 13>(leds, 0,                                 (pixies_per_pin*leds_per_pixie)).setCorrection(TypicalLEDStrip); // Initialize FastLED Data Out 1
+	FastLED.addLeds<NEOPIXEL, 12>(leds, (pixies_per_pin*leds_per_pixie),   (pixies_per_pin*leds_per_pixie)).setCorrection(TypicalLEDStrip); // Initialize FastLED Data Out 2
+	FastLED.addLeds<NEOPIXEL, 14>(leds, (pixies_per_pin*leds_per_pixie)*2, (pixies_per_pin*leds_per_pixie)).setCorrection(TypicalLEDStrip); // Initialize FastLED Data Out 3
+	FastLED.addLeds<NEOPIXEL, 27>(leds, (pixies_per_pin*leds_per_pixie)*4, (pixies_per_pin*leds_per_pixie)).setCorrection(TypicalLEDStrip); // Initialize FastLED Data Out 4
 	#endif
     
 	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
