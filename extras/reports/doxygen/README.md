@@ -24,6 +24,8 @@
 - :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6) (function) of file pixie_animations.h is not documented.*
 - :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7) (function) of file pixie_animations.h is not documented.*
 - :x: *Member ***make_gradient(CRGB*** col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8) (function) of file pixie_animations.h is not documented.*
+- :x: *Member ***font_col_width*** (variable) of file pixie_font.h is not documented.*
+- :x: *Member ***printable_ascii_offset*** (variable) of file pixie_font.h is not documented.*
 - :x: *Member ***RED_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
 - :x: *Member ***YELLOW_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
 - :x: *Member ***GREEN_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
