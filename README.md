@@ -17,13 +17,23 @@
 
 -------------------------------------------------------------------------------
 
-***This repository is still under construction, make sure to follow our Twitter for official releases!***
-
-**[@lixielabs](https://twitter.com/lixielabs)**
-
-# About
-
 **PIXIE CHROMA** is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO!
+
+**NOTE: *This repository/library are still under construction, make sure to [follow our Twitter](https://twitter.com/lixielabs) for official releases!***
+
+## Table of Contents
+
+- [About](#about)
+- [Demo](#demo)
+
+# The Coolest Character Display for Arduino
+
+- Dual 5x7 RGB LED matrices
+- 3.7V to 5.5V supply
+- Fast bitmap control
+- 8-bit global dimming
+- 27.5mm * 16.5mm matrix size (10.16 ppi)
+- 30mm * 24mm package
 
 # Demo
 
