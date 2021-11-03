@@ -1451,8 +1451,8 @@ void PixieChroma::clear(){
     | *126* | *127*  | *128*  | *129*  | *130*  | *131*  | *132* | *133* | *134*  | *135*  | *136*  | *137*  | *138*  | *139* | 
     | *140* | *141*  | *142*  | *143*  | *144*  | *145*  | *146* | *147* | *148*  | *149*  | *150*  | *151*  | *152*  | *153* |
     
-    - **BOLD**   = Visible Pixel
-    - **ITALIC** = Invisible Pixel
+    - **BOLD** = Visible Pixel
+    - *ITALIC* = Invisible Pixel
     
     With this example table, a given XY coordinate of `(3, 4)` would return
     `12`. Thus, modifying the color_map or mask at index `12` would influence
@@ -1847,8 +1847,8 @@ void PixieChroma::show(){
     | *126* | *127*  | *128*  | *129*  | *130*  | *131*  | *132* | *133* | *134*  | *135*  | *136*  | *137*  | *138*  | *139* | 
     | *140* | *141*  | *142*  | *143*  | *144*  | *145*  | *146* | *147* | *148*  | *149*  | *150*  | *151*  | *152*  | *153* |
     
-    - **BOLD**   = Visible Pixel
-    - **ITALIC** = Invisible Pixel
+    - **BOLD** = Visible Pixel
+    - *ITALIC* = Invisible Pixel
     
     Starting from `0` at the top-left with the first visible pixel, (of the first
     display in the XY Table) the index increases to `69`, (the last visible
