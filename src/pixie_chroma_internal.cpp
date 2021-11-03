@@ -1374,6 +1374,8 @@ void PixieChroma::color_dim( uint8_t amount ){
 /*! ############################################################################
     @brief
     Returns the cursor's X position
+    
+    @return  The cursor's X position
 *///............................................................................
 uint8_t PixieChroma::get_cursor_x(){
     return cursor_x / chars_x;
@@ -1383,6 +1385,8 @@ uint8_t PixieChroma::get_cursor_x(){
 /*! ############################################################################
     @brief
     Returns the cursor's Y position
+    
+    @return  The cursor's Y position
 *///............................................................................
 uint8_t PixieChroma::get_cursor_y(){
     return cursor_y / chars_y;
@@ -1392,6 +1396,8 @@ uint8_t PixieChroma::get_cursor_y(){
 /*! ############################################################################
     @brief
     Returns the cursor's X position in exact pixel coordinates
+    
+    @return  The cursor's X position in exact pixel coordinates
 *///............................................................................
 int16_t PixieChroma::get_cursor_x_exact(){
     return cursor_x;
@@ -1401,6 +1407,8 @@ int16_t PixieChroma::get_cursor_x_exact(){
 /*! ############################################################################
     @brief
     Returns the cursor's Y position in exact pixel coordinates
+    
+    @return  The cursor's Y position in exact pixel coordinates
 *///............................................................................
 int16_t PixieChroma::get_cursor_y_exact(){
     return cursor_y;
