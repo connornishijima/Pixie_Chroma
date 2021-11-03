@@ -739,9 +739,9 @@ void PixieChroma::write( float input, uint8_t places, uint8_t x_pos, uint8_t y_p
     This can also be used to write Icons that are not aligned to whole display
     positions, such as during smooth scrolling.
     
-    @param  icon   Icon to render
-    @param  x_pos  X pixel position of write **[optional]**
-    @param  y_pos  Y pixel position of write **[optional]**
+    @param  icon      Icon to render
+    @param  x_offset  X pixel position of write **[optional]**
+    @param  y_offset  Y pixel position of write **[optional]**
 *///............................................................................
 void PixieChroma::write_pix( const uint8_t* icon, int16_t x_offset, int16_t y_offset ){
     add_char(
@@ -763,9 +763,9 @@ void PixieChroma::write_pix( const uint8_t* icon, int16_t x_offset, int16_t y_of
     write char* strings that are not aligned to whole display positions, such
     as during smooth scrolling.
     
-    @param  message  char* string to render
-    @param  x_pos    X pixel position of write **[optional]**
-    @param  y_pos    Y pixel position of write **[optional]**
+    @param  icon      Icon to render
+    @param  x_offset  X pixel position of write **[optional]**
+    @param  y_offset  Y pixel position of write **[optional]**
 *///............................................................................
 void PixieChroma::write_pix( char* message, int16_t x_offset, int16_t y_offset ){
     uint8_t len = strlen( message );
