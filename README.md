@@ -1,22 +1,26 @@
-<img src="extras/img/logo.png"> 
+-------------------------------------------------------------------------------
+
+<img src="extras/img/logo.png">
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
    · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a> · · · 
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet"><b>DATASHEET</b></a> · · · 
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=tutorials"><b>TUTORIALS</b></a> · · · 
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=oshw"><b>OSHW</b></a> · · · 
-  <br><br>
+</p>
+<br>
+<p align="center">
   <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg">
   <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_build.yml/badge.svg">
   <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/docs_and_reports.yml/badge.svg">
   <a href="https://www.ardu-badge.com/Pixie_Chroma"><img src="https://www.ardu-badge.com/badge/Pixie_Chroma.svg"></a>
-  
 </p>
+
+-------------------------------------------------------------------------------
 
 ***This repository is still under construction, make sure to follow our Twitter for official releases!***
 
 **[@lixielabs](https://twitter.com/lixielabs)**
-
 
 **PIXIE CHROMA** is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO! Here's a quick peek at how easy that is:
 
