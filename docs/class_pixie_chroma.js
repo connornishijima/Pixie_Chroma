@@ -72,19 +72,11 @@ var class_pixie_chroma =
     [ "draw_line", "class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a", null ],
     [ "print_xy_map", "class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb", null ],
     [ "leds", "class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233", null ],
-    [ "leds_out", "class_pixie_chroma.html#a3ac03e4d82a8c3736d0afc8b5954e7b3", null ],
+    [ "current_palette", "class_pixie_chroma.html#a7fa91ac273c0d5d738bdf7a160dcc08b", null ],
     [ "mask", "class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1", null ],
-    [ "mask_out", "class_pixie_chroma.html#a2b9a70551aeaa7c0eda5ef0b4e3d1ccb", null ],
-    [ "xy_table", "class_pixie_chroma.html#a49e5d811ea6460e70130fc076403e6f7", null ],
     [ "matrix_width", "class_pixie_chroma.html#a7d45d3c3ff4ae66562fd9c3a97fb4ac0", null ],
     [ "matrix_height", "class_pixie_chroma.html#abc3eb468d9f6db281603aa0acd2ab3a8", null ],
     [ "NUM_LEDS", "class_pixie_chroma.html#a77b654ac9cd84ebac757b6225ce27edb", null ],
     [ "NUM_VISIBLE_LEDS", "class_pixie_chroma.html#ad6fd586d4df48614044617e85906e7eb", null ],
-    [ "cursor_x", "class_pixie_chroma.html#a249a8789f2261b909c1aaaa7d1c1a2a7", null ],
-    [ "cursor_y", "class_pixie_chroma.html#afa93ace9ad25262a29e08a1534e5706f", null ],
-    [ "current_palette", "class_pixie_chroma.html#a7fa91ac273c0d5d738bdf7a160dcc08b", null ],
-    [ "frame_rate", "class_pixie_chroma.html#ad6e8d3ccf335da400b3b777229c7d7ad", null ],
-    [ "t_last", "class_pixie_chroma.html#a64636cccd5ce7ff51f6d302c2cb1c56a", null ],
-    [ "delta", "class_pixie_chroma.html#a3dfc62ac1509e593a55b4c47f27d8a9f", null ],
-    [ "animation_speed", "class_pixie_chroma.html#a213e7c32790cd07ec55db1f269cda8cf", null ]
+    [ "delta", "class_pixie_chroma.html#a3dfc62ac1509e593a55b4c47f27d8a9f", null ]
 ];

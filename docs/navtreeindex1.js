@@ -1,13 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"pixie__icons_8h.html#a6eb5dbaa50ffad8d2172907d6d01219c":[1,0,0,0,3,118],
-"pixie__icons_8h.html#a6fe198546ff75898d05c3bfff499125f":[1,0,0,0,3,78],
-"pixie__icons_8h.html#a71786fd037a25c106032e82fbb02de47":[1,0,0,0,3,104],
-"pixie__icons_8h.html#a749ec4c8f54e8aecbd4473c935ba0659":[1,0,0,0,3,103],
-"pixie__icons_8h.html#a75b6d36d7cc1f8588e15be22880e9280":[1,0,0,0,3,24],
-"pixie__icons_8h.html#a7604167b3285b59743aab702b774c88c":[1,0,0,0,3,102],
-"pixie__icons_8h.html#a7842b73643a963e768d955fe764ca45e":[1,0,0,0,3,168],
-"pixie__icons_8h.html#a7e013ff1debfbafd58988beec184eae1":[1,0,0,0,3,0],
 "pixie__icons_8h.html#a7e4924bfb0e638be423f1b0077179060":[1,0,0,0,3,133],
 "pixie__icons_8h.html#a807c24e42f8d23e567299aa089bb2b9f":[1,0,0,0,3,92],
 "pixie__icons_8h.html#a80ee9181d24990bcc34199c93e131d9a":[1,0,0,0,3,163],
