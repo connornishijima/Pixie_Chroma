@@ -1,7 +1,6 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: return type of member **dtoa** is not documented
 - :x: *Member ***print_xy_map()*** (function) of class PixieChroma is not documented.*
 - :x: *Member ***leds*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***leds_out*** (variable) of class PixieChroma is not documented.*
