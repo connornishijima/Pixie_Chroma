@@ -312,8 +312,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">draw_line</a> (int16_t x1, int16_t y1, int16_t x2, int16_t y2)</td></tr>
 <tr class="memdesc:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a line in the mask buffer using Bresenham's line algorithm.  <a href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">More...</a><br /></td></tr>
 <tr class="separator:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da48c4082408e623dd91163637b85cb"><td class="memItemLeft" align="right" valign="top"><a id="a5da48c4082408e623dd91163637b85cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_xy_map</b> ()</td></tr>
+<tr class="memitem:a5da48c4082408e623dd91163637b85cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb">print_xy_map</a> ()</td></tr>
+<tr class="memdesc:a5da48c4082408e623dd91163637b85cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the index table for the calculated XY map. <b>Requires Serial.begin() first to function.</b>  <a href="class_pixie_chroma.html#a5da48c4082408e623dd91163637b85cb">More...</a><br /></td></tr>
 <tr class="separator:a5da48c4082408e623dd91163637b85cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -3087,6 +3087,30 @@ pix.print(    ,   ,   ,   ,    );
 
 </div>
 </div>
+<a id="a5da48c4082408e623dd91163637b85cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5da48c4082408e623dd91163637b85cb">&#9670;&nbsp;</a></span>print_xy_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::print_xy_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the index table for the calculated XY map. <b>Requires Serial.begin() first to function.</b> </p>
+<h6></h6>
+<p>Useful for debugging, the index table (XY Map) can be printed over Serial.</p>
+<p>+-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |70 | 71 | 72 | 73 | 74 | 75 | 76 | 77 | 78 | 79 | 80 | 81 | 82 | 83 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |84 | 85 | 86 | 87 | 88 | 89 | 90 | 91 | 92 | 93 | 94 | 95 | 96 | 97 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |98 | <b>0</b> | <b>1</b> | <b>2</b> | <b>3</b> | <b>4</b> | 99 | 100 | <b>35</b> | <b>36</b> | <b>37</b> | <b>38</b> | <b>39</b> | 101 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |102 | <b>5</b> | <b>6</b> | <b>7</b> | <b>8</b> | <b>9</b> | 103 | 104 | <b>40</b> | <b>41</b> | <b>42</b> | <b>43</b> | <b>44</b> | 105 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |106 | <b>10</b> | <b>11</b> | <b>12</b> | <b>13</b> | <b>14</b> | 107 | 108 | <b>45</b> | <b>46</b> | <b>47</b> | <b>48</b> | <b>49</b> | 109 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |110 | <b>15</b> | <b>16</b> | <b>17</b> | <b>18</b> | <b>19</b> | 111 | 112 | <b>50</b> | <b>51</b> | <b>52</b> | <b>53</b> | <b>54</b> | 113 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |114 | <b>20</b> | <b>21</b> | <b>22</b> | <b>23</b> | <b>24</b> | 115 | 116 | <b>55</b> | <b>56</b> | <b>57</b> | <b>58</b> | <b>59</b> | 117 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |118 | <b>25</b> | <b>26</b> | <b>27</b> | <b>28</b> | <b>29</b> | 119 | 120 | <b>60</b> | <b>61</b> | <b>62</b> | <b>63</b> | <b>64</b> | 121 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |122 | <b>30</b> | <b>31</b> | <b>32</b> | <b>33</b> | <b>34</b> | 123 | 124 | <b>65</b> | <b>66</b> | <b>67</b> | <b>68</b> | <b>69</b> | 125 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |126 | 127 | 128 | 129 | 130 | 131 | 132 | 133 | 134 | 135 | 136 | 137 | 138 | 139 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ |140 | 141 | 142 | 143 | 144 | 145 | 146 | 147 | 148 | 149 | 150 | 151 | 152 | 153 | +-&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+--&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+-----&mdash;+--&mdash;+ </p>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01820">1820</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a438496d74e5b41edfc5b5baedde07a77"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a438496d74e5b41edfc5b5baedde07a77">&#9670;&nbsp;</a></span>color_map</h2>
@@ -3152,7 +3176,7 @@ pix.print(    ,   ,   ,   ,    );
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 19:20:47 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 19:40:57 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
