@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mask_135',['mask',['../class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1',1,'PixieChroma']]]
+  ['gamma8_144',['gamma8',['../pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4',1,'pixie_utility.h']]]
 ];

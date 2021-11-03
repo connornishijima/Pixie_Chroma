@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['printable_5fascii_5foffset_136',['printable_ascii_offset',['../pixie__font_8h.html#a466d75720b43bffb634bd65bee67cc3c',1,'pixie_font.h']]],
-  ['progmem_137',['PROGMEM',['../pixie__font_8h.html#a726ed429818a8cdf56df6867093a8ac4',1,'PROGMEM():&#160;pixie_font.h'],['../pixie__utility_8h.html#ab96bd90634bb0e6e4a0258490750a425',1,'PROGMEM():&#160;pixie_utility.h']]]
+  ['mask_145',['mask',['../class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1',1,'PixieChroma']]],
+  ['matrix_5fheight_146',['matrix_height',['../class_pixie_chroma.html#abc3eb468d9f6db281603aa0acd2ab3a8',1,'PixieChroma']]],
+  ['matrix_5fwidth_147',['matrix_width',['../class_pixie_chroma.html#a7d45d3c3ff4ae66562fd9c3a97fb4ac0',1,'PixieChroma']]]
 ];
