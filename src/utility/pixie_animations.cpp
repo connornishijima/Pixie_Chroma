@@ -22,7 +22,7 @@ void ANIMATION_STATIC(float delta){
 		CRGB col = ColorFromPalette(pix.current_palette, progress*255);
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
 			uint16_t index = pix.xy(x,y);			
-			pix.leds[index] = col;
+			pix.color_map[index] = col;
 		}
 	}
 }
@@ -36,7 +36,7 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta){
 		CRGB col = ColorFromPalette(pix.current_palette, progress*255+iter);
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
 			uint16_t index = pix.xy(x,y);
-			pix.leds[index] = col;
+			pix.color_map[index] = col;
 		}
 	}
 
@@ -61,7 +61,7 @@ void ANIMATION_GLITTER(float delta){
 			if(random8() <= 32){ // 12.5% chance
 				uint16_t index = pix.xy(x,y);
 				CRGB col = ColorFromPalette(pix.current_palette, progress*255);
-				pix.leds[index] = col;
+				pix.color_map[index] = col;
 			}
 		}
 	}
@@ -85,7 +85,7 @@ void _PENDULUM(float iter, float width){
 		CRGB col = ColorFromPalette(pix.current_palette, uint8_t(palette_index));		
 		for(uint16_t y = 0; y < pix.matrix_height; y++){
 			uint16_t index = pix.xy(x,y);			
-			pix.leds[index] = col;
+			pix.color_map[index] = col;
 		}
 	}
 }
