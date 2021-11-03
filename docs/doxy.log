@@ -1,18 +1,4 @@
 warning: source 'docs/img' is not a readable file or directory... skipping.
-/github/workspace/src/utility/pixie_animations.cpp:103: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:103: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.cpp:114: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:114: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.cpp:126: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:126: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.cpp:139: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:139: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.cpp:153: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:153: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.cpp:168: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:168: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.cpp:184: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.cpp:184: warning: return type of member make_gradient is not documented
 /github/workspace/src/utility/pixie_animations.cpp:12: warning: parameters of member ANIMATION_NULL are not (all) documented
 /github/workspace/src/utility/pixie_animations.cpp:17: warning: parameters of member ANIMATION_STATIC are not (all) documented
 /github/workspace/src/utility/pixie_animations.cpp:30: warning: parameters of member ANIMATION_PALETTE_SHIFT are not (all) documented
@@ -22,29 +8,29 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_animations.cpp:70: warning: parameters of member _PENDULUM are not (all) documented
 /github/workspace/src/utility/pixie_animations.cpp:93: warning: parameters of member ANIMATION_PENDULUM are not (all) documented
 /github/workspace/src/utility/pixie_animations.cpp:98: warning: parameters of member ANIMATION_PENDULUM_WIDE are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:103: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:114: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:126: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:139: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:153: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:168: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.cpp:184: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:21: warning: parameters of member ANIMATION_NULL are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:28: warning: parameters of member ANIMATION_STATIC are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:35: warning: parameters of member ANIMATION_PALETTE_SHIFT_LEFT are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:42: warning: parameters of member ANIMATION_PALETTE_SHIFT_RIGHT are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:49: warning: parameters of member ANIMATION_GLITTER are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:57: warning: parameters of member ANIMATION_PENDULUM are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:65: warning: parameters of member ANIMATION_PENDULUM_WIDE are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:72: warning: parameters of member ANIMATION_PALETTE_SHIFT are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:80: warning: parameters of member _PENDULUM are not (all) documented
 /github/workspace/src/utility/pixie_animations.h:85: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:85: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.h:87: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:87: warning: return type of member make_gradient is not documented
 /github/workspace/src/utility/pixie_animations.h:89: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:89: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.h:91: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:91: warning: return type of member make_gradient is not documented
 /github/workspace/src/utility/pixie_animations.h:93: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:93: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.h:95: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:95: warning: return type of member make_gradient is not documented
 /github/workspace/src/utility/pixie_animations.h:97: warning: parameters of member make_gradient are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:97: warning: return type of member make_gradient is not documented
-/github/workspace/src/utility/pixie_animations.h:22: warning: parameters of member ANIMATION_NULL are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:29: warning: parameters of member ANIMATION_STATIC are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:36: warning: parameters of member ANIMATION_PALETTE_SHIFT_LEFT are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:43: warning: parameters of member ANIMATION_PALETTE_SHIFT_RIGHT are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:50: warning: parameters of member ANIMATION_GLITTER are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:58: warning: parameters of member ANIMATION_PENDULUM are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:66: warning: parameters of member ANIMATION_PENDULUM_WIDE are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:73: warning: parameters of member ANIMATION_PALETTE_SHIFT are not (all) documented
-/github/workspace/src/utility/pixie_animations.h:81: warning: parameters of member _PENDULUM are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:101: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:105: warning: parameters of member make_gradient are not (all) documented
+/github/workspace/src/utility/pixie_animations.h:109: warning: parameters of member make_gradient are not (all) documented
 /github/workspace/src/utility/pixie_font.h:12: warning: Member font_col_width (variable) of file pixie_font.h is not documented.
 /github/workspace/src/utility/pixie_font.h:13: warning: Member printable_ascii_offset (variable) of file pixie_font.h is not documented.
 /github/workspace/src/utility/pixie_font.h:15: warning: Member PROGMEM (variable) of file pixie_font.h is not documented.
