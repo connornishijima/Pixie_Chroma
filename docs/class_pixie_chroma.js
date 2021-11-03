@@ -78,5 +78,6 @@ var class_pixie_chroma =
     [ "matrix_height", "class_pixie_chroma.html#abc3eb468d9f6db281603aa0acd2ab3a8", null ],
     [ "NUM_LEDS", "class_pixie_chroma.html#a77b654ac9cd84ebac757b6225ce27edb", null ],
     [ "NUM_VISIBLE_LEDS", "class_pixie_chroma.html#ad6fd586d4df48614044617e85906e7eb", null ],
-    [ "delta", "class_pixie_chroma.html#a3dfc62ac1509e593a55b4c47f27d8a9f", null ]
+    [ "delta", "class_pixie_chroma.html#a3dfc62ac1509e593a55b4c47f27d8a9f", null ],
+    [ "animation_speed", "class_pixie_chroma.html#a213e7c32790cd07ec55db1f269cda8cf", null ]
 ];

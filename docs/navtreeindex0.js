@@ -12,6 +12,7 @@ var NAVTREEINDEX0 =
 "class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63":[0,0,0,6],
 "class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1":[0,0,0,56],
 "class_pixie_chroma.html#a203dbbe34e3185372be5c72173cad23e":[0,0,0,37],
+"class_pixie_chroma.html#a213e7c32790cd07ec55db1f269cda8cf":[0,0,0,79],
 "class_pixie_chroma.html#a26ba14ec2e9dc8a93b382828918437bb":[0,0,0,38],
 "class_pixie_chroma.html#a28d98417cd1e16d63bf55f07fc8434cb":[0,0,0,23],
 "class_pixie_chroma.html#a294ad187f0e3b6c031165fed62157f41":[0,0,0,35],
@@ -90,6 +91,7 @@ var NAVTREEINDEX0 =
 "files.html":[1,0],
 "functions.html":[0,2,0],
 "functions_func.html":[0,2,1],
+"functions_vars.html":[0,2,2],
 "globals.html":[1,1,0],
 "globals_enum.html":[1,1,3],
 "globals_eval.html":[1,1,4],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "pixie__icons_8h.html#a71786fd037a25c106032e82fbb02de47":[1,0,0,0,3,104],
 "pixie__icons_8h.html#a749ec4c8f54e8aecbd4473c935ba0659":[1,0,0,0,3,103],
 "pixie__icons_8h.html#a75b6d36d7cc1f8588e15be22880e9280":[1,0,0,0,3,24],
-"pixie__icons_8h.html#a7604167b3285b59743aab702b774c88c":[1,0,0,0,3,102],
-"pixie__icons_8h.html#a7842b73643a963e768d955fe764ca45e":[1,0,0,0,3,168],
-"pixie__icons_8h.html#a7e013ff1debfbafd58988beec184eae1":[1,0,0,0,3,0]
+"pixie__icons_8h.html#a7604167b3285b59743aab702b774c88c":[1,0,0,0,3,102]
 };

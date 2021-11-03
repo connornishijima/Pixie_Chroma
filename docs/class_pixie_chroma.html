@@ -318,8 +318,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print_xy_map</b> ()</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7f64ea97cac1cbd29924674921761233"><td class="memItemLeft" align="right" valign="top"><a id="a7f64ea97cac1cbd29924674921761233"></a>
-CRGB *&#160;</td><td class="memItemRight" valign="bottom"><b>leds</b></td></tr>
+<tr class="memitem:a7f64ea97cac1cbd29924674921761233"><td class="memItemLeft" align="right" valign="top">CRGB *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a></td></tr>
+<tr class="memdesc:a7f64ea97cac1cbd29924674921761233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the entire color map, including "invisible" areas.  <a href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">More...</a><br /></td></tr>
 <tr class="separator:a7f64ea97cac1cbd29924674921761233"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fa91ac273c0d5d738bdf7a160dcc08b"><td class="memItemLeft" align="right" valign="top"><a id="a7fa91ac273c0d5d738bdf7a160dcc08b"></a>
 CRGBPalette16&#160;</td><td class="memItemRight" valign="bottom"><b>current_palette</b></td></tr>
@@ -342,6 +342,9 @@ uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>NUM_VISIBLE_LEDS<
 <tr class="memitem:a3dfc62ac1509e593a55b4c47f27d8a9f"><td class="memItemLeft" align="right" valign="top"><a id="a3dfc62ac1509e593a55b4c47f27d8a9f"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>delta</b> = 1.0</td></tr>
 <tr class="separator:a3dfc62ac1509e593a55b4c47f27d8a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a213e7c32790cd07ec55db1f269cda8cf"><td class="memItemLeft" align="right" valign="top"><a id="a213e7c32790cd07ec55db1f269cda8cf"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>animation_speed</b> = 1.0</td></tr>
+<tr class="separator:a213e7c32790cd07ec55db1f269cda8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is the software documentation for using Pixie Chroma functions on Arduino! <b>For full example usage, see <a href="https://DEMO_LINK.HERE">Demos</a></b>. </p>
@@ -3084,6 +3087,27 @@ pix.print(    ,   ,   ,   ,    );
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7f64ea97cac1cbd29924674921761233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f64ea97cac1cbd29924674921761233">&#9670;&nbsp;</a></span>leds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CRGB* PixieChroma::leds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Contains the entire color map, including "invisible" areas. </p>
+<h6></h6>
+<p>Pixie Chroma uses "invisible" LEDs acting as padding between displays, to allow for spatial consistency. (i.e. If a word starts to scroll off the left side of one display, it will enter an "invisible" margin before it arrives on the next display. </p>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00144">144</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a></li>
 <li>src/<a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a></li>
@@ -3094,7 +3118,7 @@ pix.print(    ,   ,   ,   ,    );
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 18:40:33 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 18:47:42 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
