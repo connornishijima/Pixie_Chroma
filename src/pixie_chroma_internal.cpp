@@ -252,13 +252,14 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 
 // TODO: Convert all Doxygen comments to a more compact style
 //       (Seen here)
-/*########################################################################*/
-/*! @brief  Takes an 8-bit brightness value and passes it to FastLED
+
+/*! ########################################################################
+    @brief  Takes an 8-bit brightness value and passes it to FastLED
             internally, to provide global brightness control with temporal
             dithering.
 	
     @param  level 8-bit global brightness value (0-255)
-..........................................................................*/
+*///........................................................................
 void PixieChroma::set_brightness(uint8_t level){
 	brightness_level = level;
 }
@@ -281,7 +282,7 @@ void PixieChroma::set_brightness(uint8_t level){
             blue at 255.
 				
     @param  pal FastLED "Gradient Palette" array
-..........................................................................*/
+*///........................................................................
 void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
 	current_palette.loadDynamicGradientPalette(pal);
 }
@@ -292,7 +293,7 @@ void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
             palette for animation
 	
     @param  pal FastLED CRGBPalette16 object to use
-..........................................................................*/
+*///........................................................................
 void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
 	current_palette = pal;
 }
@@ -303,7 +304,7 @@ void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
             For a list of predefined animations, see pixie_animations.h
 
     @param  action Function to set as an animation ISR
-..........................................................................*/
+*///........................................................................
 void PixieChroma::set_animation(void (*action)(float)) {
 	anim_func = action;
 }
