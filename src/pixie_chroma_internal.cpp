@@ -1678,7 +1678,8 @@ void PixieChroma::draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
     - 5000K - **White**
     - 7000K - **Cool White**
 
-    @param  temperature  Blackbody radiation temperature in Kelvin
+    @param   temperature  Blackbody radiation temperature in Kelvin
+    @return  Approximate CRGB representation of the given temperature
 *///............................................................................
 CRGB PixieChroma::kelvin_to_rgb( uint16_t temperature ){
     // Tanner Helland formula
