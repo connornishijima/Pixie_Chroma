@@ -88,7 +88,7 @@ if len(final_output) == 0:
     output_string += ":heavy_check_mark: **All checks passed, nothing left undocumented!**"
 else:
     output_string += ("\n".join(final_output))
-    output_string += "\n" + "To see more information, check the [full Doxygen log](../../docs/doxy.log)."
+    output_string += "\n\n" + "To see more information, check the [full Doxygen log](../../../docs/doxy.log)."
 
 with open("extras/reports/doxygen/README.md","w+") as f:
     f.write(output_string)
