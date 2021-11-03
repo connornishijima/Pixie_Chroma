@@ -1415,10 +1415,10 @@ uint16_t PixieChroma::xy( int16_t x, int16_t y, bool wrap ) {
     @brief    Sets the entire color buffer to a CRGB value.
 	
 	@details  Example:
-	          
+              
                   pix.color(  CRGB( 0,255,255 )  );
               
-	          This would set all displays to cyan, a mix of green and blue.
+              This would set all displays to cyan, a mix of green and blue.
 	          
     @param    col  FastLED CRGB color
 *///............................................................................
@@ -1429,13 +1429,13 @@ void PixieChroma::color( CRGB col ){
 
 /*! ############################################################################
     @brief    Sets a specific display in the color buffer to a CRGB value.
-    
-	@details  Example:
-	          
+              
+    @details  Example:
+              
                   pix.color(  CRGB( 0,255,255 ), 1, 0  );
-	          
-	          This would set the **second display of the first row** to cyan, a
-	          mix of green and blue.
+              
+              This would set the **second display of the first row** to cyan, a
+              mix of green and blue.
 	    
     @param    col  FastLED CRGB color
     @param    x    X coordinate of display
@@ -1459,14 +1459,14 @@ void PixieChroma::color( CRGB col, uint8_t x, uint8_t y ){
 
 /*! ############################################################################
     @brief    Sets a rectangular area in the color buffer to a CRGB value.
-            
-	@details  Example:
               
-			      pix.color(  CRGB( 0,255,255 ), 0, 0, 5, 5  );
+    @details  Example:
+              
+                  pix.color(  CRGB( 0,255,255 ), 0, 0, 5, 5  );
 	          
-			  This would set **the first five columns and rows** of the color
-	          buffer to cyan, a mix of green and blue.
-	    
+              This would set **the first five columns and rows** of the color
+              buffer to cyan, a mix of green and blue.
+              
     @param    col  FastLED CRGB color
     @param    x1   Starting X coordinate of the rectangle
     @param    y1   Starting Y coordinate of the rectangle
@@ -1589,19 +1589,19 @@ void PixieChroma::draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
 /*! ############################################################################
     @brief    Approximates the conversion of a blackbody radiation temperature
               ( e.g. 3500K ) to a CRGB color object.
-	
-	@details  This can be used within other Pixie color functions like so:
-	          
-	              pix.color(  kelvin_to_rgb(  3000  )  );
+              
+    @details  This can be used within other Pixie color functions like so:
+              
+                  pix.color(  kelvin_to_rgb(  3000  )  );
 		      
-			  This would render a warm-white color. This measurement system is
-			  often used in household LED bulbs, with colors like:
-			  
-			  - 2700K - **Very Warm White**
-			  - 3500K - **Warm White**
-			  - 5000K - **White**
-			  - 7000K - **Cool White**
-			  
+              This would render a warm-white color. This measurement system is
+              often used in household LED bulbs, with colors like:
+              
+              - 2700K - **Very Warm White**
+              - 3500K - **Warm White**
+              - 5000K - **White**
+              - 7000K - **Cool White**
+              
     @param    temperature  Blackbody radiation temperature in Kelvin
 *///............................................................................
 CRGB PixieChroma::kelvin_to_rgb( uint16_t temperature ){
