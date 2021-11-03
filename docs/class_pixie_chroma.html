@@ -130,16 +130,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aea494d2e17eff09cc25fff8b4d25e441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows you to enable built-in automatic gamma correction, using a fast LUT in <a class="el" href="pixie__utility_8h.html">pixie_utility.h</a>. (Not enabled by default)  <a href="class_pixie_chroma.html#aea494d2e17eff09cc25fff8b4d25e441">More...</a><br /></td></tr>
 <tr class="separator:aea494d2e17eff09cc25fff8b4d25e441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaf733f35d310b1896989babf21d27b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">set_max_power</a> (float volts, uint16_t milliamps)</td></tr>
-<tr class="memdesc:abaf733f35d310b1896989babf21d27b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum power budget in volts and milliamps. Knowing the average power consumption of these LEDs at any given color, FastLED will automatically globally scale down the output values with temporal dithering to lower power usage until it is within the budget defined here. Defaults to 5.0V / 500mA to protect PC USB ports if the LEDs are not independently powered. (2000mA = 2A, 500mA = 0.5A, etc.)  <a href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">More...</a><br /></td></tr>
+<tr class="memdesc:abaf733f35d310b1896989babf21d27b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum power budget in volts and milliamps.  <a href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">More...</a><br /></td></tr>
 <tr class="separator:abaf733f35d310b1896989babf21d27b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb726ffa62b76f2f348e7885b30f0176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#adb726ffa62b76f2f348e7885b30f0176">set_frame_rate_target</a> (uint16_t target)</td></tr>
-<tr class="memdesc:adb726ffa62b76f2f348e7885b30f0176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the target frame rate for animation. This target frame rate is used to calculate <code>delta</code> in custom/preset animation functions.  <a href="class_pixie_chroma.html#adb726ffa62b76f2f348e7885b30f0176">More...</a><br /></td></tr>
+<tr class="memdesc:adb726ffa62b76f2f348e7885b30f0176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the target frame rate for animation. This target frame rate is only used to calculate <code>delta</code> in custom/preset animation functions.  <a href="class_pixie_chroma.html#adb726ffa62b76f2f348e7885b30f0176">More...</a><br /></td></tr>
 <tr class="separator:adb726ffa62b76f2f348e7885b30f0176"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4462c03c40883ffc28cbc5b7973dc171"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a4462c03c40883ffc28cbc5b7973dc171">set_line_wrap</a> (bool enabled)</td></tr>
-<tr class="memdesc:a4462c03c40883ffc28cbc5b7973dc171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the line wrapping behavior:  <a href="class_pixie_chroma.html#a4462c03c40883ffc28cbc5b7973dc171">More...</a><br /></td></tr>
+<tr class="memdesc:a4462c03c40883ffc28cbc5b7973dc171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the line wrapping behavior.  <a href="class_pixie_chroma.html#a4462c03c40883ffc28cbc5b7973dc171">More...</a><br /></td></tr>
 <tr class="separator:a4462c03c40883ffc28cbc5b7973dc171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf400f08ce7d2e3252aff91b8e5b8622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622">set_update_mode</a> (<a class="el" href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19c">t_update_mode</a> mode, uint16_t FPS=60)</td></tr>
-<tr class="memdesc:adf400f08ce7d2e3252aff91b8e5b8622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for automatic <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls at a specified frames per second if AUTOMATIC is used. (uses Ticker.attach_ms() internally)  <a href="class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622">More...</a><br /></td></tr>
+<tr class="memdesc:adf400f08ce7d2e3252aff91b8e5b8622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows for automatic <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> calls at a specified frames per second if AUTOMATIC is used. (uses Ticker.attach_ms() internally)  <a href="class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622">More...</a><br /></td></tr>
 <tr class="separator:adf400f08ce7d2e3252aff91b8e5b8622"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7">write</a> (const uint8_t *icon, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
 <tr class="memdesc:a89ff2c569d6161c9b0ee6df04d2959b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an icon* to a specified X and Y cursor position.  <a href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7">More...</a><br /></td></tr>
@@ -162,8 +162,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af705c532d1088d687618ed7924919039"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#af705c532d1088d687618ed7924919039">write</a> (uint32_t input, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
 <tr class="memdesc:af705c532d1088d687618ed7924919039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an unsigned 32-bit integer to a specified X and Y cursor position.  <a href="class_pixie_chroma.html#af705c532d1088d687618ed7924919039">More...</a><br /></td></tr>
 <tr class="separator:af705c532d1088d687618ed7924919039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6814635dd6418c3c69a55930466eebe0"><td class="memItemLeft" align="right" valign="top"><a id="a6814635dd6418c3c69a55930466eebe0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (long unsigned int input, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
+<tr class="memitem:a6814635dd6418c3c69a55930466eebe0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a6814635dd6418c3c69a55930466eebe0">write</a> (long unsigned int input, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
+<tr class="memdesc:a6814635dd6418c3c69a55930466eebe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an unsigned 32-bit integer to a specified X and Y cursor position. (Stupid ESP-specific type)  <a href="class_pixie_chroma.html#a6814635dd6418c3c69a55930466eebe0">More...</a><br /></td></tr>
 <tr class="separator:a6814635dd6418c3c69a55930466eebe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56c95d5e7396c8bcd9614d9fd1213575"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a56c95d5e7396c8bcd9614d9fd1213575">write</a> (float input, uint8_t places=2, uint8_t x_pos=0, uint8_t y_pos=0)</td></tr>
 <tr class="memdesc:a56c95d5e7396c8bcd9614d9fd1213575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a single-precision floating point value to a specified X and Y cursor position, to a specified number of decimal places.  <a href="class_pixie_chroma.html#a56c95d5e7396c8bcd9614d9fd1213575">More...</a><br /></td></tr>
@@ -172,16 +172,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (long unsig
 <tr class="memdesc:adc2679a49961581a4cca3353b7a047cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a double-precision floating point value to a specified X and Y cursor position, to a specified number of decimal places.  <a href="class_pixie_chroma.html#adc2679a49961581a4cca3353b7a047cc">More...</a><br /></td></tr>
 <tr class="separator:adc2679a49961581a4cca3353b7a047cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28d98417cd1e16d63bf55f07fc8434cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a28d98417cd1e16d63bf55f07fc8434cb">write_pix</a> (char *message, int16_t x_offset=0, int16_t y_offset=0)</td></tr>
-<tr class="memdesc:a28d98417cd1e16d63bf55f07fc8434cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function for rendering char* strings to the mask buffer. All other <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> function overloads eventually end up casted to char* strings and passed to this function for rendering. This can also be used to write char* strings that are not aligned to whole display positions, such as during smooth scrolling.  <a href="class_pixie_chroma.html#a28d98417cd1e16d63bf55f07fc8434cb">More...</a><br /></td></tr>
+<tr class="memdesc:a28d98417cd1e16d63bf55f07fc8434cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function for rendering char* strings to the mask buffer.  <a href="class_pixie_chroma.html#a28d98417cd1e16d63bf55f07fc8434cb">More...</a><br /></td></tr>
 <tr class="separator:a28d98417cd1e16d63bf55f07fc8434cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f81d508043839c6a82e0d4b05bdd5c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a2f81d508043839c6a82e0d4b05bdd5c5">write_pix</a> (const uint8_t *icon, int16_t x_offset=0, int16_t y_offset=0)</td></tr>
-<tr class="memdesc:a2f81d508043839c6a82e0d4b05bdd5c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function for rendering icons to the mask buffer. This can also be used to write Icons that are not aligned to whole display positions, such as during smooth scrolling.  <a href="class_pixie_chroma.html#a2f81d508043839c6a82e0d4b05bdd5c5">More...</a><br /></td></tr>
+<tr class="memdesc:a2f81d508043839c6a82e0d4b05bdd5c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function for rendering icons to the mask buffer.  <a href="class_pixie_chroma.html#a2f81d508043839c6a82e0d4b05bdd5c5">More...</a><br /></td></tr>
 <tr class="separator:a2f81d508043839c6a82e0d4b05bdd5c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44dfdcadcb3e913233e7f9059d73c5a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a44dfdcadcb3e913233e7f9059d73c5a4">add_char</a> (char c, int16_t x_pos, int16_t y_pos)</td></tr>
-<tr class="memdesc:a44dfdcadcb3e913233e7f9059d73c5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function for rendering a single char to the mask buffer. All other <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> function overloads eventually end up casted to char* strings and passed to this function one character at a time for rendering.  <a href="class_pixie_chroma.html#a44dfdcadcb3e913233e7f9059d73c5a4">More...</a><br /></td></tr>
+<tr class="memdesc:a44dfdcadcb3e913233e7f9059d73c5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function for rendering a single char to the mask buffer.  <a href="class_pixie_chroma.html#a44dfdcadcb3e913233e7f9059d73c5a4">More...</a><br /></td></tr>
 <tr class="separator:a44dfdcadcb3e913233e7f9059d73c5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe6f1a95e2b3bb1d6e22ad2866dc5f67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#afe6f1a95e2b3bb1d6e22ad2866dc5f67">add_char</a> (const uint8_t *icon, int16_t x_pos, int16_t y_pos)</td></tr>
-<tr class="memdesc:afe6f1a95e2b3bb1d6e22ad2866dc5f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function for rendering a single icon to the mask buffer. All other <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> function overloads eventually end up casted to char* strings and passed to this function one character at a time for rendering.  <a href="class_pixie_chroma.html#afe6f1a95e2b3bb1d6e22ad2866dc5f67">More...</a><br /></td></tr>
+<tr class="memdesc:afe6f1a95e2b3bb1d6e22ad2866dc5f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function for rendering a single icon to the mask buffer.  <a href="class_pixie_chroma.html#afe6f1a95e2b3bb1d6e22ad2866dc5f67">More...</a><br /></td></tr>
 <tr class="separator:afe6f1a95e2b3bb1d6e22ad2866dc5f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5af6bae45788a3050b50aed73eb5f1e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2">print</a> (const uint8_t *icon)</td></tr>
 <tr class="memdesc:a5af6bae45788a3050b50aed73eb5f1e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an Icon to the displays, at the current cursor position.  <a href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2">More...</a><br /></td></tr>
@@ -204,8 +204,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (long unsig
 <tr class="memitem:a3ebf7a2344a59aaa09b32b2c7dd38c13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a3ebf7a2344a59aaa09b32b2c7dd38c13">print</a> (uint32_t input)</td></tr>
 <tr class="memdesc:a3ebf7a2344a59aaa09b32b2c7dd38c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an unsigned 32-bit integer to the displays at the current cursor position.  <a href="class_pixie_chroma.html#a3ebf7a2344a59aaa09b32b2c7dd38c13">More...</a><br /></td></tr>
 <tr class="separator:a3ebf7a2344a59aaa09b32b2c7dd38c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87e04aa77fec8fc1b02c92cb1f11cd76"><td class="memItemLeft" align="right" valign="top"><a id="a87e04aa77fec8fc1b02c92cb1f11cd76"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> (long unsigned int input)</td></tr>
+<tr class="memitem:a87e04aa77fec8fc1b02c92cb1f11cd76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a87e04aa77fec8fc1b02c92cb1f11cd76">print</a> (long unsigned int input)</td></tr>
+<tr class="memdesc:a87e04aa77fec8fc1b02c92cb1f11cd76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an unsigned 32-bit integer to the displays at the current cursor position. (Dumb ESP-specific type)  <a href="class_pixie_chroma.html#a87e04aa77fec8fc1b02c92cb1f11cd76">More...</a><br /></td></tr>
 <tr class="separator:a87e04aa77fec8fc1b02c92cb1f11cd76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a294ad187f0e3b6c031165fed62157f41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a294ad187f0e3b6c031165fed62157f41">print</a> (float input, uint8_t places=2)</td></tr>
 <tr class="memdesc:a294ad187f0e3b6c031165fed62157f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a single-precision floating point integer to the displays at the current cursor position, to a specified number of decimal places.  <a href="class_pixie_chroma.html#a294ad187f0e3b6c031165fed62157f41">More...</a><br /></td></tr>
@@ -234,8 +234,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> (long unsig
 <tr class="memitem:a57e43738bf9a909f0aba9b6dae0d0d88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a57e43738bf9a909f0aba9b6dae0d0d88">println</a> (uint32_t input)</td></tr>
 <tr class="memdesc:a57e43738bf9a909f0aba9b6dae0d0d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an unsigned 32-bit integer to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character.  <a href="class_pixie_chroma.html#a57e43738bf9a909f0aba9b6dae0d0d88">More...</a><br /></td></tr>
 <tr class="separator:a57e43738bf9a909f0aba9b6dae0d0d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8a2f273680131b954a69628d99e6434"><td class="memItemLeft" align="right" valign="top"><a id="ad8a2f273680131b954a69628d99e6434"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>println</b> (long unsigned int input)</td></tr>
+<tr class="memitem:ad8a2f273680131b954a69628d99e6434"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#ad8a2f273680131b954a69628d99e6434">println</a> (long unsigned int input)</td></tr>
+<tr class="memdesc:ad8a2f273680131b954a69628d99e6434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an unsigned 32-bit integer to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character. (Stupid ESP-specific type)  <a href="class_pixie_chroma.html#ad8a2f273680131b954a69628d99e6434">More...</a><br /></td></tr>
 <tr class="separator:ad8a2f273680131b954a69628d99e6434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cce03487abbceddb5c8c8e4029ca9a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a8cce03487abbceddb5c8c8e4029ca9a7">println</a> (float input, uint8_t places=2)</td></tr>
 <tr class="memdesc:a8cce03487abbceddb5c8c8e4029ca9a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a single-precision floating point integer to the displays at the current cursor position (to a specified number of decimal places), then jumps to the next row in the Pixie display, similar to a newline '\n' character.  <a href="class_pixie_chroma.html#a8cce03487abbceddb5c8c8e4029ca9a7">More...</a><br /></td></tr>
@@ -244,51 +244,43 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>println</b> (long uns
 <tr class="memdesc:ab27af21db66261416baeb7dce24ef871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a double-precision floating point integer to the displays at the current cursor position (to a specified number of decimal places), then jumps to the next row in the Pixie display, similar to a newline '\n' character.  <a href="class_pixie_chroma.html#ab27af21db66261416baeb7dce24ef871">More...</a><br /></td></tr>
 <tr class="separator:ab27af21db66261416baeb7dce24ef871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae250a6769121e2949f39d4f7d5369942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">set_cursor</a> (uint8_t x_position, uint8_t y_position=0)</td></tr>
-<tr class="memdesc:ae250a6769121e2949f39d4f7d5369942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to <a class="el" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2" title="Prints an Icon to the displays, at the current cursor position.">print()</a> or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember: each Pixie Chroma has two "displays" on it.  <a href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">More...</a><br /></td></tr>
+<tr class="memdesc:ae250a6769121e2949f39d4f7d5369942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to <a class="el" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2" title="Prints an Icon to the displays, at the current cursor position.">print()</a> or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate.  <a href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">More...</a><br /></td></tr>
 <tr class="separator:ae250a6769121e2949f39d4f7d5369942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5524f6da87f57c23750ef8067d1f243"><td class="memItemLeft" align="right" valign="top"><a id="af5524f6da87f57c23750ef8067d1f243"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243">get_cursor_x</a> ()</td></tr>
-<tr class="memdesc:af5524f6da87f57c23750ef8067d1f243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's X position. <br /></td></tr>
+<tr class="memitem:af5524f6da87f57c23750ef8067d1f243"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243">get_cursor_x</a> ()</td></tr>
+<tr class="memdesc:af5524f6da87f57c23750ef8067d1f243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's X position.  <a href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243">More...</a><br /></td></tr>
 <tr class="separator:af5524f6da87f57c23750ef8067d1f243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8862e3c12f698c3128f614aaa064bc0e"><td class="memItemLeft" align="right" valign="top"><a id="a8862e3c12f698c3128f614aaa064bc0e"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a8862e3c12f698c3128f614aaa064bc0e">get_cursor_y</a> ()</td></tr>
-<tr class="memdesc:a8862e3c12f698c3128f614aaa064bc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's Y position. <br /></td></tr>
+<tr class="memitem:a8862e3c12f698c3128f614aaa064bc0e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a8862e3c12f698c3128f614aaa064bc0e">get_cursor_y</a> ()</td></tr>
+<tr class="memdesc:a8862e3c12f698c3128f614aaa064bc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's Y position.  <a href="class_pixie_chroma.html#a8862e3c12f698c3128f614aaa064bc0e">More...</a><br /></td></tr>
 <tr class="separator:a8862e3c12f698c3128f614aaa064bc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9235da3b588545ce9e412e00e86f55bd"><td class="memItemLeft" align="right" valign="top"><a id="a9235da3b588545ce9e412e00e86f55bd"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a9235da3b588545ce9e412e00e86f55bd">get_cursor_x_exact</a> ()</td></tr>
-<tr class="memdesc:a9235da3b588545ce9e412e00e86f55bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's X position in exact pixel coordinates. <br /></td></tr>
+<tr class="memitem:a9235da3b588545ce9e412e00e86f55bd"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a9235da3b588545ce9e412e00e86f55bd">get_cursor_x_exact</a> ()</td></tr>
+<tr class="memdesc:a9235da3b588545ce9e412e00e86f55bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's X position in exact pixel coordinates.  <a href="class_pixie_chroma.html#a9235da3b588545ce9e412e00e86f55bd">More...</a><br /></td></tr>
 <tr class="separator:a9235da3b588545ce9e412e00e86f55bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac11ef6fa698e0d19ae892c4395adeb77"><td class="memItemLeft" align="right" valign="top"><a id="ac11ef6fa698e0d19ae892c4395adeb77"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#ac11ef6fa698e0d19ae892c4395adeb77">get_cursor_y_exact</a> ()</td></tr>
-<tr class="memdesc:ac11ef6fa698e0d19ae892c4395adeb77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's Y position in exact pixel coordinates. <br /></td></tr>
+<tr class="memitem:ac11ef6fa698e0d19ae892c4395adeb77"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#ac11ef6fa698e0d19ae892c4395adeb77">get_cursor_y_exact</a> ()</td></tr>
+<tr class="memdesc:ac11ef6fa698e0d19ae892c4395adeb77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cursor's Y position in exact pixel coordinates.  <a href="class_pixie_chroma.html#ac11ef6fa698e0d19ae892c4395adeb77">More...</a><br /></td></tr>
 <tr class="separator:ac11ef6fa698e0d19ae892c4395adeb77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75c1bab0aff30181ed7bc34273d881db"><td class="memItemLeft" align="right" valign="top"><a id="a75c1bab0aff30181ed7bc34273d881db"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">clear</a> ()</td></tr>
-<tr class="memdesc:a75c1bab0aff30181ed7bc34273d881db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears (blackens) the current mask buffer and resets the cursor to 0,0. <br /></td></tr>
+<tr class="memitem:a75c1bab0aff30181ed7bc34273d881db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">clear</a> ()</td></tr>
+<tr class="memdesc:a75c1bab0aff30181ed7bc34273d881db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears (blackens) the current mask buffer and resets the cursor to 0,0.  <a href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">More...</a><br /></td></tr>
 <tr class="separator:a75c1bab0aff30181ed7bc34273d881db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a836b7172ea635c0d5cad04a71d7ad332"><td class="memItemLeft" align="right" valign="top"><a id="a836b7172ea635c0d5cad04a71d7ad332"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332">show</a> ()</td></tr>
-<tr class="memdesc:a836b7172ea635c0d5cad04a71d7ad332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated versions sent to the Pixie Chroma displays. <em><b>FastLED.show() is called here.</b></em> <br /></td></tr>
+<tr class="memitem:a836b7172ea635c0d5cad04a71d7ad332"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332">show</a> ()</td></tr>
+<tr class="memdesc:a836b7172ea635c0d5cad04a71d7ad332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.  <a href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332">More...</a><br /></td></tr>
 <tr class="separator:a836b7172ea635c0d5cad04a71d7ad332"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affe6627f15ce6af997b761136dc8bd8b"><td class="memItemLeft" align="right" valign="top"><a id="affe6627f15ce6af997b761136dc8bd8b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b">hold</a> ()</td></tr>
-<tr class="memdesc:affe6627f15ce6af997b761136dc8bd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Freezes the current mask buffer in memory to prevent showing unfinished text if <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> fires during construction of the current display data. Use <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> to unfreeze. <br /></td></tr>
+<tr class="memitem:affe6627f15ce6af997b761136dc8bd8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b">hold</a> ()</td></tr>
+<tr class="memdesc:affe6627f15ce6af997b761136dc8bd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Freezes the current mask buffer in memory to prevent showing unfinished text if <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> fires during construction of the current display data.  <a href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b">More...</a><br /></td></tr>
 <tr class="separator:affe6627f15ce6af997b761136dc8bd8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60c3dccd46e28dac50b008a540719543"><td class="memItemLeft" align="right" valign="top"><a id="a60c3dccd46e28dac50b008a540719543"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543">free</a> ()</td></tr>
-<tr class="memdesc:a60c3dccd46e28dac50b008a540719543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unfreezes the current mask buffer in memory to allow showing updated text the next time <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> is called. <br /></td></tr>
+<tr class="memitem:a60c3dccd46e28dac50b008a540719543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543">free</a> ()</td></tr>
+<tr class="memdesc:a60c3dccd46e28dac50b008a540719543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unfreezes the current mask buffer in memory to allow showing updated text the next time <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> is called.  <a href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543">More...</a><br /></td></tr>
 <tr class="separator:a60c3dccd46e28dac50b008a540719543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d2f01d594a77c139365eb34053464b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">color</a> (CRGB col)</td></tr>
-<tr class="memdesc:a1d2f01d594a77c139365eb34053464b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the entire color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255)); This would set all displays to cyan, a mix of green and blue.  <a href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">More...</a><br /></td></tr>
+<tr class="memdesc:a1d2f01d594a77c139365eb34053464b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the entire color buffer to a CRGB value.  <a href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">More...</a><br /></td></tr>
 <tr class="separator:a1d2f01d594a77c139365eb34053464b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16dabdffbb39358645cd687a98c352b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a16dabdffbb39358645cd687a98c352b9">color</a> (CRGB col, uint8_t x, uint8_t y)</td></tr>
-<tr class="memdesc:a16dabdffbb39358645cd687a98c352b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a specific display in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 1, 0); This would set the <b>second display of the first row</b> to cyan, a mix of green and blue.  <a href="class_pixie_chroma.html#a16dabdffbb39358645cd687a98c352b9">More...</a><br /></td></tr>
+<tr class="memdesc:a16dabdffbb39358645cd687a98c352b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a specific display in the color buffer to a CRGB value.  <a href="class_pixie_chroma.html#a16dabdffbb39358645cd687a98c352b9">More...</a><br /></td></tr>
 <tr class="separator:a16dabdffbb39358645cd687a98c352b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53e052b9e02cebcd81ff73bf687e3754"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754">color</a> (CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2)</td></tr>
-<tr class="memdesc:a53e052b9e02cebcd81ff73bf687e3754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a rectangular area in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 0, 0, 5, 5); This would set <b>the first five columns and rows</b> of the color buffer to cyan, a mix of green and blue.  <a href="class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754">More...</a><br /></td></tr>
+<tr class="memdesc:a53e052b9e02cebcd81ff73bf687e3754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a rectangular area in the color buffer to a CRGB value.  <a href="class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754">More...</a><br /></td></tr>
 <tr class="separator:a53e052b9e02cebcd81ff73bf687e3754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec59fe7c26010adfc68efa8b7f23fa20"><td class="memItemLeft" align="right" valign="top">CRGB&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aec59fe7c26010adfc68efa8b7f23fa20">kelvin_to_rgb</a> (uint16_t temperature)</td></tr>
-<tr class="memdesc:aec59fe7c26010adfc68efa8b7f23fa20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximates the conversion of a blackbody radiation temperature (e.g. 3500K) to a CRGB color object. This can be used within other Pixie color functions like so:  <a href="class_pixie_chroma.html#aec59fe7c26010adfc68efa8b7f23fa20">More...</a><br /></td></tr>
+<tr class="memdesc:aec59fe7c26010adfc68efa8b7f23fa20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximates the conversion of a blackbody radiation temperature (e.g. 3500K) to a CRGB color object.  <a href="class_pixie_chroma.html#aec59fe7c26010adfc68efa8b7f23fa20">More...</a><br /></td></tr>
 <tr class="separator:aec59fe7c26010adfc68efa8b7f23fa20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add7fe811bfb5a0c5cf19aff32ed916a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#add7fe811bfb5a0c5cf19aff32ed916a8">dim</a> (uint8_t amount, bool reset_cursor=false)</td></tr>
 <tr class="memdesc:add7fe811bfb5a0c5cf19aff32ed916a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Darkens the mask buffer by an 8-bit amount. Optionally resets the cursor position.  <a href="class_pixie_chroma.html#add7fe811bfb5a0c5cf19aff32ed916a8">More...</a><br /></td></tr>
@@ -315,7 +307,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:aa1334e020afb7346fbf54a872e8ab14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blurs the color buffer in the Y axis by blur_amount.  <a href="class_pixie_chroma.html#aa1334e020afb7346fbf54a872e8ab14a">More...</a><br /></td></tr>
 <tr class="separator:aa1334e020afb7346fbf54a872e8ab14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c6c704a93478b92e334abeeeebd2af"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a> (int16_t x, int16_t y, bool wrap=false)</td></tr>
-<tr class="memdesc:aa5c6c704a93478b92e334abeeeebd2af"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix.  <a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">More...</a><br /></td></tr>
+<tr class="memdesc:aa5c6c704a93478b92e334abeeeebd2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the 1D index of a given 2D coordinate in the display matrix.  <a href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">More...</a><br /></td></tr>
 <tr class="separator:aa5c6c704a93478b92e334abeeeebd2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">draw_line</a> (int16_t x1, int16_t y1, int16_t x2, int16_t y2)</td></tr>
 <tr class="memdesc:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a line in the mask buffer using Bresenham's line algorithm.  <a href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">More...</a><br /></td></tr>
@@ -396,12 +388,19 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>animation_speed</b> 
 </div><div class="memdoc">
 
 <p>Construct a Pixie Chroma class object. </p>
-<p>Used to initialize the <a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> library. Example usage before setup() would be:</p>
-<pre class="fragment">#include "Pixie_Chroma.h"
-PixieChroma pix;
-</pre><p> NOTE: Due to current limitations with the library, your class instance MUST be named "pix". Mutiple instances are not yet possible. Because each of these functions are contained in the <a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> class object, you'll use them like this: </p><pre class="fragment">pix.print("Hello!");
+<p>Used to initialize the <a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> library.</p>
+<h6></h6>
+<p>Example usage before <code>setup()</code> would be: </p><pre class="fragment">          #include "Pixie_Chroma.h"
+          PixieChroma pix;
+
+      NOTE: Due to current limitations with the library, your class
+      instance MUST be named `pix`. Mutiple instances are not yet
+      possible. Because each of these functions are contained in the
+      PixieChroma class object, you'll use them like this:
+
+          pix.print("Hello!");
 </pre> 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00057">57</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00055">55</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -439,6 +438,7 @@ PixieChroma pix;
 </div><div class="memdoc">
 
 <p>Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED, and sets the default power budget. </p>
+<h6></h6>
 <p>Pixie Chroma allows for multi-row displays, which are wired in reading order (left to right, top to bottom) and their shape is defined here. For example, a 16-Pixie display with two rows of eight: </p><pre class="fragment">data_pin
    |
 +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
@@ -470,7 +470,7 @@ void setup() {
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00102">102</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00098">98</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -507,6 +507,7 @@ void setup() {
 </div><div class="memdoc">
 
 <p>Initializes the display buffer, populates the XY coordinate table, defaults the display colors to green, loads the default CRGBPalette, initializes FastLED, and sets the default power budget. </p>
+<h6></h6>
 <p>This version of <a class="el" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin()</a> is special, in that it will send your image data to the LEDs in 4 parallel streams to increase speed.</p>
 <p>Unfortunately, this requires hard-coded pins on the ESP8266 and ESP32 to function <em>due to FastLED limitations</em>:</p>
 <ul>
@@ -557,8 +558,7 @@ PixieChroma pix;
 void setup() {
     pix.begin_quad(PIXIES_PER_PIN, PIXIES_X, PIXIES_Y);
 }
-</pre><p> Then, with the displays physically arranged in reading order (left to right, top to bottom) you're ready to begin!</p>
-<pre class="fragment">DATA_OUT_1 --+                       DATA_OUT_2 ----+
+</pre><p> Then, with the displays physically arranged in reading order (left to right, top to bottom) you're ready to begin! </p><pre class="fragment">DATA_OUT_1 --+                       DATA_OUT_2 ----+
              |                                      |
           +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
           |  1 |--&gt;|  2 |--&gt;|  3 |--&gt;|  4 |  ||  |  5 |--&gt;|  6 |--&gt;|  7 |--&gt;|  8 | 
@@ -580,7 +580,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00222">222</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00214">214</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -609,7 +609,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00274">274</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00264">264</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -645,7 +645,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00297">297</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00287">287</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -674,7 +674,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00308">308</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00298">298</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -703,7 +703,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00319">319</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00309">309</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -724,6 +724,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
 </div><div class="memdoc">
 
 <p>Used to scale the animation speed of animation ISRs that can use pix.animation_speed to scale their speeds or for other effects. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">speed</td><td>Floating point value: 1.0 = 100%, 3.2 = 320%, 0.5 = 50% </td></tr>
@@ -731,7 +732,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00332">332</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00320">320</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -752,6 +753,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
 </div><div class="memdoc">
 
 <p>Allows you to enable built-in automatic gamma correction, using a fast LUT in <a class="el" href="pixie__utility_8h.html">pixie_utility.h</a>. (Not enabled by default) </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>Whether or not to apply gamma correction </td></tr>
@@ -759,7 +761,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00345">345</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00331">331</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -789,7 +791,9 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
       </table>
 </div><div class="memdoc">
 
-<p>Sets the maximum power budget in volts and milliamps. Knowing the average power consumption of these LEDs at any given color, FastLED will automatically globally scale down the output values with temporal dithering to lower power usage until it is within the budget defined here. Defaults to 5.0V / 500mA to protect PC USB ports if the LEDs are not independently powered. (2000mA = 2A, 500mA = 0.5A, etc.) </p>
+<p>Sets the maximum power budget in volts and milliamps. </p>
+<h6></h6>
+<p>Knowing the average power consumption of these LEDs at any given color, FastLED will automatically globally scale down the output values with temporal dithering to lower power usage until it is within the budget defined here. Defaults to 5.0V / 500mA to protect PC USB ports if the LEDs are not independently powered. (2000mA = 2A, 500mA = 0.5A, etc.)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">volts</td><td>Total LED power budget in volts. (default: 5.0) </td></tr>
@@ -798,7 +802,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00414">414</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00399">399</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -818,9 +822,9 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
       </table>
 </div><div class="memdoc">
 
-<p>Sets the target frame rate for animation. This target frame rate is used to calculate <code>delta</code> in custom/preset animation functions. </p>
-<p>(Default <b>60</b>)</p>
-<p>This does not change your real frame rate, or even govern it, it is left up to the user to use frequent <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls or auto_update(). The "target frame rate" here is used to calculate <code>delta</code> for the animation functions, and should be set as close as possible to the rate at which you are going to call <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a>.</p>
+<p>Sets the target frame rate for animation. This target frame rate is only used to calculate <code>delta</code> in custom/preset animation functions. </p>
+<h6></h6>
+<p>This does not change your real frame rate, or even govern it, it is left up to the user to use frequent <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> calls or auto_update(). The "target frame rate" here is used to calculate <code>delta</code> for the animation functions, and should be set as close as possible to the rate at which you are going to call <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a>.</p>
 <p>This function is automatically called with a matching FPS when you use <code>set_update_mode(AUTOMATIC, FPS)</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -829,7 +833,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00439">439</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00421">421</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -849,22 +853,17 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
       </table>
 </div><div class="memdoc">
 
-<p>Sets the line wrapping behavior: </p>
-<pre class="fragment">    `set_line_wrap(true);`
-
-    Will automatically enter next line when edge of display is reached
-
-    `set_line_wrap(false);`
-
-    Will not automatically enter next line when edge of display is reached
-</pre> <dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the line wrapping behavior. </p>
+<h6></h6>
+<p><code>set_line_wrap(true);</code> will automatically enter next line when the edge of the display is reached, and <code>set_line_wrap(false);</code> will not.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>Enable or disable auto line-wrapping </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00459">459</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00435">435</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -894,23 +893,24 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
       </table>
 </div><div class="memdoc">
 
-<p>Allows for automatic <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls at a specified frames per second if AUTOMATIC is used. (uses Ticker.attach_ms() internally) </p>
-<p>This lets you use things like <a class="el" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2" title="Prints an Icon to the displays, at the current cursor position.">print()</a> as infrequently as you'd like, since <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> will automatically run in the background to keep the current animation function running smoothly.</p>
-<p>Use in conjunction with <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> and <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> to prevent <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> calls during text/image construction, leading to unintended partial frames being shown. Be aware, <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> does not prevent animation / palette updates (only mask updates) so animations will still run smoothly during <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> times until <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> is called and the mask is updated.</p>
+<p>Allows for automatic <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> calls at a specified frames per second if AUTOMATIC is used. (uses Ticker.attach_ms() internally) </p>
+<h6></h6>
+<p>This lets you use things like <a class="el" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2" title="Prints an Icon to the displays, at the current cursor position.">print()</a> as infrequently as you'd like, since <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> will automatically run in the background to keep the current animation function running smoothly.</p>
+<p>Use in conjunction with <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> and <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> to prevent <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> calls during text/image construction, leading to unintended partial frames being shown. Be aware, <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> does not prevent animation / palette updates (only mask updates) so animations will still run smoothly during <a class="el" href="class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b" title="Freezes the current mask buffer in memory to prevent showing unfinished text if show() fires during c...">hold()</a> times until <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> is called and the mask is updated.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mode</td><td>AUTOMATIC or MANUAL. AUTOMATIC will call <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> at <code>FPS</code> using an ISR, MANUAL allows you call <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...">show()</a> when you like.</td></tr>
+    <tr><td class="paramname">mode</td><td>AUTOMATIC or MANUAL. AUTOMATIC will call <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> at <code>FPS</code> using an ISR, MANUAL allows you call <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> when you like.</td></tr>
     <tr><td class="paramname">FPS</td><td>Update <em>this</em> many times per second (Default: 60) Only applicable when mode is AUTOMATIC </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00487">487</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00461">461</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a89ff2c569d6161c9b0ee6df04d2959b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89ff2c569d6161c9b0ee6df04d2959b7">&#9670;&nbsp;</a></span>write() <span class="overload">[1/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a89ff2c569d6161c9b0ee6df04d2959b7">&#9670;&nbsp;</a></span>write() <span class="overload">[1/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -942,6 +942,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
 </div><div class="memdoc">
 
 <p>Writes an icon* to a specified X and Y cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">icon</td><td>The icon to write </td></tr>
@@ -951,12 +952,12 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00509">509</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00481">481</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="aa60dcec78788028f019b20eaea86591f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa60dcec78788028f019b20eaea86591f">&#9670;&nbsp;</a></span>write() <span class="overload">[2/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa60dcec78788028f019b20eaea86591f">&#9670;&nbsp;</a></span>write() <span class="overload">[2/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1012,7 +1013,8 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
 </div><div class="memdoc">
 
 <p>Writes an icon to a specified X and Y cursor position, taking five uint8_t as input for the column data. </p>
-<p>For example: </p><pre class="fragment">pix.write(B00101111, B01001001, B01001001, B01001001, B00110001);
+<h6></h6>
+<p>Example: </p><pre class="fragment">pix.write(B00101111, B01001001, B01001001, B01001001, B00110001);
 
     OR, WRITTEN VERTICALLY:
 
@@ -1040,12 +1042,12 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00550">550</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00520">520</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a7f02edabb02306d07a9ed0f314779021"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f02edabb02306d07a9ed0f314779021">&#9670;&nbsp;</a></span>write() <span class="overload">[3/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f02edabb02306d07a9ed0f314779021">&#9670;&nbsp;</a></span>write() <span class="overload">[3/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1077,6 +1079,7 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Writes a char* string to a specified X and Y cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>char* string to write </td></tr>
@@ -1086,12 +1089,12 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00565">565</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00533">533</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="ac7cf3342de0e9edd372a366ac5708be7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7cf3342de0e9edd372a366ac5708be7">&#9670;&nbsp;</a></span>write() <span class="overload">[4/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7cf3342de0e9edd372a366ac5708be7">&#9670;&nbsp;</a></span>write() <span class="overload">[4/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1123,6 +1126,7 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Writes a signed 16-bit integer to a specified X and Y cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Signed integer to write </td></tr>
@@ -1132,12 +1136,12 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00582">582</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00548">548</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a76eea38e2de2855dc1e3a1f93a369044"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76eea38e2de2855dc1e3a1f93a369044">&#9670;&nbsp;</a></span>write() <span class="overload">[5/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a76eea38e2de2855dc1e3a1f93a369044">&#9670;&nbsp;</a></span>write() <span class="overload">[5/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1169,6 +1173,7 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Writes an unsigned 16-bit integer to a specified X and Y cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Unsigned integer to write </td></tr>
@@ -1178,12 +1183,12 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00603">603</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00567">567</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a8dfb19feaf3fb2854e5ee935a7eedfcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dfb19feaf3fb2854e5ee935a7eedfcc">&#9670;&nbsp;</a></span>write() <span class="overload">[6/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dfb19feaf3fb2854e5ee935a7eedfcc">&#9670;&nbsp;</a></span>write() <span class="overload">[6/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1215,6 +1220,7 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Writes a signed 32-bit integer to a specified X and Y cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Signed integer to write </td></tr>
@@ -1224,12 +1230,12 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00624">624</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00586">586</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="af705c532d1088d687618ed7924919039"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af705c532d1088d687618ed7924919039">&#9670;&nbsp;</a></span>write() <span class="overload">[7/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af705c532d1088d687618ed7924919039">&#9670;&nbsp;</a></span>write() <span class="overload">[7/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1261,6 +1267,7 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Writes an unsigned 32-bit integer to a specified X and Y cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Unsigned integer to write </td></tr>
@@ -1270,12 +1277,59 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00645">645</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00605">605</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6814635dd6418c3c69a55930466eebe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6814635dd6418c3c69a55930466eebe0">&#9670;&nbsp;</a></span>write() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::write </td>
+          <td>(</td>
+          <td class="paramtype">long unsigned int&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>x_pos</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>y_pos</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes an unsigned 32-bit integer to a specified X and Y cursor position. (Stupid ESP-specific type) </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Unsigned integer to write </td></tr>
+    <tr><td class="paramname">x_pos</td><td>X cursor position of write <b>[optional]</b> </td></tr>
+    <tr><td class="paramname">y_pos</td><td>Y cursor position of write <b>[optional]</b> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00624">624</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a56c95d5e7396c8bcd9614d9fd1213575"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56c95d5e7396c8bcd9614d9fd1213575">&#9670;&nbsp;</a></span>write() <span class="overload">[8/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c95d5e7396c8bcd9614d9fd1213575">&#9670;&nbsp;</a></span>write() <span class="overload">[9/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1313,6 +1367,7 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Writes a single-precision floating point value to a specified X and Y cursor position, to a specified number of decimal places. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Single-precision float to write </td></tr>
@@ -1323,12 +1378,12 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00712">712</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00664">664</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="adc2679a49961581a4cca3353b7a047cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc2679a49961581a4cca3353b7a047cc">&#9670;&nbsp;</a></span>write() <span class="overload">[9/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adc2679a49961581a4cca3353b7a047cc">&#9670;&nbsp;</a></span>write() <span class="overload">[10/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1366,6 +1421,7 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Writes a double-precision floating point value to a specified X and Y cursor position, to a specified number of decimal places. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Double-precision float to write </td></tr>
@@ -1376,7 +1432,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00690">690</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00644">644</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1412,7 +1468,9 @@ pix.write(   ,   ,   ,   ,   );
       </table>
 </div><div class="memdoc">
 
-<p>Internal function for rendering char* strings to the mask buffer. All other <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> function overloads eventually end up casted to char* strings and passed to this function for rendering. This can also be used to write char* strings that are not aligned to whole display positions, such as during smooth scrolling. </p>
+<p>Internal function for rendering char* strings to the mask buffer. </p>
+<h6></h6>
+<p>All other <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> function overloads eventually end up casted to char* strings and passed to this function for rendering. This can also be used to write char* strings that are not aligned to whole display positions, such as during smooth scrolling.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>char* string to render </td></tr>
@@ -1422,7 +1480,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00750">750</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00697">697</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1458,7 +1516,9 @@ pix.write(   ,   ,   ,   ,   );
       </table>
 </div><div class="memdoc">
 
-<p>Internal function for rendering icons to the mask buffer. This can also be used to write Icons that are not aligned to whole display positions, such as during smooth scrolling. </p>
+<p>Internal function for rendering icons to the mask buffer. </p>
+<h6></h6>
+<p>This can also be used to write Icons that are not aligned to whole display positions, such as during smooth scrolling.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">icon</td><td>Icon to render </td></tr>
@@ -1468,7 +1528,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00730">730</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00679">679</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1504,7 +1564,9 @@ pix.write(   ,   ,   ,   ,   );
       </table>
 </div><div class="memdoc">
 
-<p>Internal function for rendering a single char to the mask buffer. All other <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> function overloads eventually end up casted to char* strings and passed to this function one character at a time for rendering. </p>
+<p>Internal function for rendering a single char to the mask buffer. </p>
+<h6></h6>
+<p>All other <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> function overloads eventually end up casted to char* strings and passed to this function one character at a time for rendering.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">chr</td><td>char to render </td></tr>
@@ -1514,7 +1576,7 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00788">788</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00734">734</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -1550,7 +1612,8 @@ pix.write(   ,   ,   ,   ,   );
       </table>
 </div><div class="memdoc">
 
-<p>Internal function for rendering a single icon to the mask buffer. All other <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> function overloads eventually end up casted to char* strings and passed to this function one character at a time for rendering. </p>
+<p>Internal function for rendering a single icon to the mask buffer. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">icon</td><td>Icon column data to render </td></tr>
@@ -1560,12 +1623,12 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00828">828</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00769">769</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a5af6bae45788a3050b50aed73eb5f1e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5af6bae45788a3050b50aed73eb5f1e2">&#9670;&nbsp;</a></span>print() <span class="overload">[1/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5af6bae45788a3050b50aed73eb5f1e2">&#9670;&nbsp;</a></span>print() <span class="overload">[1/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1581,6 +1644,7 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints an Icon to the displays, at the current cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">icon</td><td>Icon column data to render </td></tr>
@@ -1588,12 +1652,12 @@ pix.write(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00859">859</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00798">798</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a7937761f8bbe90e176fabdb916725c3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7937761f8bbe90e176fabdb916725c3a">&#9670;&nbsp;</a></span>print() <span class="overload">[2/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7937761f8bbe90e176fabdb916725c3a">&#9670;&nbsp;</a></span>print() <span class="overload">[2/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1637,22 +1701,25 @@ pix.write(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints an icon to the displays at the current cursor position, taking five uint8_t as input for the column data. </p>
-<p>For example: </p><pre class="fragment">pix.print(B00101111, B01001001, B01001001, B01001001, B00110001);
+<h6></h6>
+<p>Example: </p><pre class="fragment">          pix.print(B00101111, B01001001, B01001001, B01001001, B00110001);
 
-    OR, WRITTEN VERTICALLY:
+              OR, WRITTEN VERTICALLY:
 
-pix.print(   ,   ,   ,   ,   );
-           1   1   1   1   1  LSB
-           1   0   0   0   0
-           1   0   0   0   0
-           1   1   1   1   0
-           0   0   0   0   1
-           1   0   0   0   1
-           0   1   1   1   0  
-           0   0   0   0   0  MSB (unused)
-           B   B   B   B   B
-</pre><p> This writes a "5" to the display, seen above in the "1" bits of each column. The MSB (highest bit) is not used in icons.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+          pix.print(   ,   ,   ,   ,   );
+                     1   1   1   1   1  LSB
+                     1   0   0   0   0
+                     1   0   0   0   0
+                     1   1   1   1   0
+                     0   0   0   0   1
+                     1   0   0   0   1
+                     0   1   1   1   0  
+                     0   0   0   0   0  MSB (unused)
+                     B   B   B   B   B
+
+      This writes a "5" to the display, seen above in the "1" bits of
+      each column. The MSB (highest bit) is not used in icons.
+</pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">icon_col_1</td><td>Column 1 data of this icon </td></tr>
     <tr><td class="paramname">icon_col_2</td><td>Column 2 data of this icon </td></tr>
@@ -1663,12 +1730,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00896">896</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00833">833</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="ac25ecd1460617b86fae6c6a38b0e10ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac25ecd1460617b86fae6c6a38b0e10ef">&#9670;&nbsp;</a></span>print() <span class="overload">[3/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac25ecd1460617b86fae6c6a38b0e10ef">&#9670;&nbsp;</a></span>print() <span class="overload">[3/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1684,6 +1751,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a char* string to the displays at the current cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>char* string to print </td></tr>
@@ -1691,12 +1759,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00916">916</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00851">851</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a671856b0040685bae60a90acf239843d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a671856b0040685bae60a90acf239843d">&#9670;&nbsp;</a></span>print() <span class="overload">[4/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a671856b0040685bae60a90acf239843d">&#9670;&nbsp;</a></span>print() <span class="overload">[4/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1712,6 +1780,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a signed 16-bit integer to the displays at the current cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Signed integer to print </td></tr>
@@ -1719,12 +1788,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00929">929</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00862">862</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="ab8658ee99bae32da27c35ab551f5bd4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8658ee99bae32da27c35ab551f5bd4d">&#9670;&nbsp;</a></span>print() <span class="overload">[5/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8658ee99bae32da27c35ab551f5bd4d">&#9670;&nbsp;</a></span>print() <span class="overload">[5/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1740,6 +1809,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints an unsigned 16-bit integer to the displays at the current cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Unsigned integer to print </td></tr>
@@ -1747,12 +1817,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00944">944</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00875">875</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="aaee65447bd9d9580dd40c304fe761d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaee65447bd9d9580dd40c304fe761d52">&#9670;&nbsp;</a></span>print() <span class="overload">[6/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaee65447bd9d9580dd40c304fe761d52">&#9670;&nbsp;</a></span>print() <span class="overload">[6/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1768,6 +1838,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a signed 32-bit integer to the displays at the current cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Signed integer to print </td></tr>
@@ -1775,12 +1846,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00959">959</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00888">888</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a3ebf7a2344a59aaa09b32b2c7dd38c13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ebf7a2344a59aaa09b32b2c7dd38c13">&#9670;&nbsp;</a></span>print() <span class="overload">[7/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ebf7a2344a59aaa09b32b2c7dd38c13">&#9670;&nbsp;</a></span>print() <span class="overload">[7/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1796,6 +1867,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints an unsigned 32-bit integer to the displays at the current cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Unsigned integer to print </td></tr>
@@ -1803,12 +1875,41 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00974">974</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00901">901</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a87e04aa77fec8fc1b02c92cb1f11cd76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87e04aa77fec8fc1b02c92cb1f11cd76">&#9670;&nbsp;</a></span>print() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::print </td>
+          <td>(</td>
+          <td class="paramtype">long unsigned int&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints an unsigned 32-bit integer to the displays at the current cursor position. (Dumb ESP-specific type) </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Unsigned integer to print </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00914">914</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a294ad187f0e3b6c031165fed62157f41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a294ad187f0e3b6c031165fed62157f41">&#9670;&nbsp;</a></span>print() <span class="overload">[8/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a294ad187f0e3b6c031165fed62157f41">&#9670;&nbsp;</a></span>print() <span class="overload">[9/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1834,6 +1935,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a single-precision floating point integer to the displays at the current cursor position, to a specified number of decimal places. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>float to print </td></tr>
@@ -1842,12 +1944,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01025">1025</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00944">944</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="aa5f6198c9c0cfd72ce636779491284df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5f6198c9c0cfd72ce636779491284df">&#9670;&nbsp;</a></span>print() <span class="overload">[9/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5f6198c9c0cfd72ce636779491284df">&#9670;&nbsp;</a></span>print() <span class="overload">[10/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1873,6 +1975,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a double-precision floating point integer to the displays at the current cursor position, to a specified number of decimal places. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>double to print </td></tr>
@@ -1881,12 +1984,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01008">1008</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00929">929</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a203dbbe34e3185372be5c72173cad23e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a203dbbe34e3185372be5c72173cad23e">&#9670;&nbsp;</a></span>println() <span class="overload">[1/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a203dbbe34e3185372be5c72173cad23e">&#9670;&nbsp;</a></span>println() <span class="overload">[1/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1902,6 +2005,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints an Icon to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">icon</td><td>Icon column data to print </td></tr>
@@ -1909,12 +2013,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01039">1039</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00956">956</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a26ba14ec2e9dc8a93b382828918437bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26ba14ec2e9dc8a93b382828918437bb">&#9670;&nbsp;</a></span>println() <span class="overload">[2/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ba14ec2e9dc8a93b382828918437bb">&#9670;&nbsp;</a></span>println() <span class="overload">[2/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1958,6 +2062,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints an Icon to the displays at the current cursor position, (taking five uint8_t as input for the column data) then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">icon_col_1</td><td>Column 1 data of this icon </td></tr>
@@ -1969,12 +2074,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01060">1060</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00974">974</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a449dc1956e1ef12efe8f1487582ac30d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a449dc1956e1ef12efe8f1487582ac30d">&#9670;&nbsp;</a></span>println() <span class="overload">[3/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a449dc1956e1ef12efe8f1487582ac30d">&#9670;&nbsp;</a></span>println() <span class="overload">[3/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1990,6 +2095,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a char* string to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">message</td><td>char* string to print </td></tr>
@@ -1997,12 +2103,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01083">1083</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00995">995</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a015584aace3cb2bf1923031bc5e0ad1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a015584aace3cb2bf1923031bc5e0ad1f">&#9670;&nbsp;</a></span>println() <span class="overload">[4/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a015584aace3cb2bf1923031bc5e0ad1f">&#9670;&nbsp;</a></span>println() <span class="overload">[4/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2018,6 +2124,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a signed 16-bit integer to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Signed 16-bit integer to print </td></tr>
@@ -2025,12 +2132,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01099">1099</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01009">1009</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a944d6a805312a1b2c17d9ff716fb8be2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a944d6a805312a1b2c17d9ff716fb8be2">&#9670;&nbsp;</a></span>println() <span class="overload">[5/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a944d6a805312a1b2c17d9ff716fb8be2">&#9670;&nbsp;</a></span>println() <span class="overload">[5/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2046,6 +2153,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints an unsigned 16-bit integer to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Unsigned 16-bit integer to print </td></tr>
@@ -2053,12 +2161,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01115">1115</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01023">1023</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a396bf8a839db2e3ba03622873de6ccc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a396bf8a839db2e3ba03622873de6ccc4">&#9670;&nbsp;</a></span>println() <span class="overload">[6/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a396bf8a839db2e3ba03622873de6ccc4">&#9670;&nbsp;</a></span>println() <span class="overload">[6/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2074,6 +2182,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a signed 32-bit integer to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Signed 32-bit integer to print </td></tr>
@@ -2081,12 +2190,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01131">1131</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01037">1037</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a57e43738bf9a909f0aba9b6dae0d0d88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57e43738bf9a909f0aba9b6dae0d0d88">&#9670;&nbsp;</a></span>println() <span class="overload">[7/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a57e43738bf9a909f0aba9b6dae0d0d88">&#9670;&nbsp;</a></span>println() <span class="overload">[7/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2102,6 +2211,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints an unsigned 32-bit integer to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>Unsigned 32-bit integer to print </td></tr>
@@ -2109,12 +2219,41 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01147">1147</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01051">1051</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad8a2f273680131b954a69628d99e6434"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a2f273680131b954a69628d99e6434">&#9670;&nbsp;</a></span>println() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::println </td>
+          <td>(</td>
+          <td class="paramtype">long unsigned int&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints an unsigned 32-bit integer to the displays at the current cursor position, then jumps to the next row in the Pixie display, similar to a newline '\n' character. (Stupid ESP-specific type) </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Unsigned 32-bit integer to print </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01065">1065</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a8cce03487abbceddb5c8c8e4029ca9a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cce03487abbceddb5c8c8e4029ca9a7">&#9670;&nbsp;</a></span>println() <span class="overload">[8/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cce03487abbceddb5c8c8e4029ca9a7">&#9670;&nbsp;</a></span>println() <span class="overload">[9/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2140,6 +2279,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a single-precision floating point integer to the displays at the current cursor position (to a specified number of decimal places), then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>float to print </td></tr>
@@ -2148,12 +2288,12 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01201">1201</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01097">1097</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
 <a id="ab27af21db66261416baeb7dce24ef871"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab27af21db66261416baeb7dce24ef871">&#9670;&nbsp;</a></span>println() <span class="overload">[9/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab27af21db66261416baeb7dce24ef871">&#9670;&nbsp;</a></span>println() <span class="overload">[10/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2179,6 +2319,7 @@ pix.print(   ,   ,   ,   ,   );
 </div><div class="memdoc">
 
 <p>Prints a double-precision floating point integer to the displays at the current cursor position (to a specified number of decimal places), then jumps to the next row in the Pixie display, similar to a newline '\n' character. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>double to print </td></tr>
@@ -2187,7 +2328,7 @@ pix.print(   ,   ,   ,   ,   );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01183">1183</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01081">1081</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2217,8 +2358,9 @@ pix.print(   ,   ,   ,   ,   );
       </table>
 </div><div class="memdoc">
 
-<p>Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to <a class="el" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2" title="Prints an Icon to the displays, at the current cursor position.">print()</a> or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. Position is counted from zero. Remember: each Pixie Chroma has two "displays" on it. </p>
-<pre class="fragment">+-----------------+   +-----------------+   +-----------------+
+<p>Sets the cursor position in a 2D context, in whole displays. Wherever the cursor is, is where the next call to <a class="el" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2" title="Prints an Icon to the displays, at the current cursor position.">print()</a> or <a class="el" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7" title="Writes an icon* to a specified X and Y cursor position.">write()</a> will originate. </p>
+<h6></h6>
+<p>Position is counted from zero. Remember: each Pixie Chroma has two "displays" on it. </p><pre class="fragment">+-----------------+   +-----------------+   +-----------------+
 |      + + +      |   |      + + +      |   |      + + +      |
 |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
 ||     |   |     ||   ||     |   |     ||   ||     |   |     ||
@@ -2244,10 +2386,10 @@ pix.print(   ,   ,   ,   ,   );
 |+-----+   +-----+|   |+-----+   +-----+|   |+-----+   +-----+|
 |      + + +      |   |      + + +      |   |      + + +      |
 +-----------------+   +-----------------+   +-----------------+
-</pre><p> For example: </p><pre class="fragment">set_cursor(1,0) // Sets the cursor to the second display in the first row
-
-set_cursor(3,1) // Sets the cursor to the fourth display in the second row
-</pre> <dl class="params"><dt>Parameters</dt><dd>
+</pre><p> For example:</p>
+<p><code>set_cursor(1,0)</code> sets the cursor to the second display in the first row.</p>
+<p><code>set_cursor(3,1)</code> sets the cursor to the fourth display in the second row.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x_position</td><td>New cursor position on the X-axis, in whole displays </td></tr>
     <tr><td class="paramname">y_position</td><td>New cursor position on the Y-axis, in whole displays </td></tr>
@@ -2255,7 +2397,185 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00394">394</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00380">380</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af5524f6da87f57c23750ef8067d1f243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5524f6da87f57c23750ef8067d1f243">&#9670;&nbsp;</a></span>get_cursor_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t PixieChroma::get_cursor_x </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the cursor's X position. </p>
+<h6></h6>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01268">1268</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8862e3c12f698c3128f614aaa064bc0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8862e3c12f698c3128f614aaa064bc0e">&#9670;&nbsp;</a></span>get_cursor_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t PixieChroma::get_cursor_y </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the cursor's Y position. </p>
+<h6></h6>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01276">1276</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9235da3b588545ce9e412e00e86f55bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9235da3b588545ce9e412e00e86f55bd">&#9670;&nbsp;</a></span>get_cursor_x_exact()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t PixieChroma::get_cursor_x_exact </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the cursor's X position in exact pixel coordinates. </p>
+<h6></h6>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01284">1284</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac11ef6fa698e0d19ae892c4395adeb77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac11ef6fa698e0d19ae892c4395adeb77">&#9670;&nbsp;</a></span>get_cursor_y_exact()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t PixieChroma::get_cursor_y_exact </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the cursor's Y position in exact pixel coordinates. </p>
+<h6></h6>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01292">1292</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a75c1bab0aff30181ed7bc34273d881db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c1bab0aff30181ed7bc34273d881db">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears (blackens) the current mask buffer and resets the cursor to 0,0. </p>
+<h6></h6>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01301">1301</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a836b7172ea635c0d5cad04a71d7ad332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a836b7172ea635c0d5cad04a71d7ad332">&#9670;&nbsp;</a></span>show()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::show </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays. </p>
+<h6></h6>
+<p><em><b>FastLED.show() is called here.</b></em> </p>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01619">1619</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="affe6627f15ce6af997b761136dc8bd8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affe6627f15ce6af997b761136dc8bd8b">&#9670;&nbsp;</a></span>hold()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::hold </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Freezes the current mask buffer in memory to prevent showing unfinished text if <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> fires during construction of the current display data. </p>
+<h6></h6>
+<p>Use <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> to unfreeze. </p>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01598">1598</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a60c3dccd46e28dac50b008a540719543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c3dccd46e28dac50b008a540719543">&#9670;&nbsp;</a></span>free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::free </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unfreezes the current mask buffer in memory to allow showing updated text the next time <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> is called. </p>
+<h6></h6>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01608">1608</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2275,15 +2595,19 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
       </table>
 </div><div class="memdoc">
 
-<p>Sets the entire color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255)); This would set all displays to cyan, a mix of green and blue. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the entire color buffer to a CRGB value. </p>
+<h6></h6>
+<p>Example: </p><pre class="fragment">          pix.color( CRGB(0,255,255) );
+
+      This would set all displays to cyan, a mix of green and blue.
+</pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">col</td><td>FastLED CRGB color </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01501">1501</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01371">1371</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2319,8 +2643,13 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
       </table>
 </div><div class="memdoc">
 
-<p>Sets a specific display in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 1, 0); This would set the <b>second display of the first row</b> to cyan, a mix of green and blue. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Sets a specific display in the color buffer to a CRGB value. </p>
+<h6></h6>
+<p>Example: </p><pre class="fragment">          pix.color( CRGB(0,255,255), 1, 0 );
+
+      This would set the **second display of the first row** to cyan, a
+      mix of green and blue.
+</pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">col</td><td>FastLED CRGB color </td></tr>
     <tr><td class="paramname">x</td><td>X coordinate of display </td></tr>
@@ -2329,7 +2658,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01519">1519</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01390">1390</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2377,8 +2706,13 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
       </table>
 </div><div class="memdoc">
 
-<p>Sets a rectangular area in the color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255), 0, 0, 5, 5); This would set <b>the first five columns and rows</b> of the color buffer to cyan, a mix of green and blue. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Sets a rectangular area in the color buffer to a CRGB value. </p>
+<h6></h6>
+<p>Example: </p><pre class="fragment">          pix.color( CRGB(0,255,255), 0, 0, 5, 5 );
+
+      This would set **the first five columns and rows** of the color
+      buffer to cyan, a mix of green and blue.
+</pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">col</td><td>FastLED CRGB color </td></tr>
     <tr><td class="paramname">x1</td><td>Starting X coordinate of the rectangle </td></tr>
@@ -2389,7 +2723,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01550">1550</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01422">1422</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2409,23 +2743,25 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
       </table>
 </div><div class="memdoc">
 
-<p>Approximates the conversion of a blackbody radiation temperature (e.g. 3500K) to a CRGB color object. This can be used within other Pixie color functions like so: </p>
-<pre class="fragment">pix.color( kelvin_to_rgb( 3000 ) );
-</pre><p> This would render a warm-white color. This measurement system is often used in household LED bulbs, with colors like:</p>
-<ul>
-<li>2700K - <b>Very Warm White</b></li>
-<li>3500K - <b>Warm White</b></li>
-<li>5000K - <b>White</b></li>
-<li>7000K - <b>Cool White</b></li>
-</ul>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Approximates the conversion of a blackbody radiation temperature (e.g. 3500K) to a CRGB color object. </p>
+<h6></h6>
+<p>This can be used within other Pixie color functions like so: </p><pre class="fragment">          pix.color( kelvin_to_rgb( 3000 ) );
+
+      This would render a warm-white color. This measurement system is
+      often used in household LED bulbs, with colors like:
+
+      - 2700K - **Very Warm White**
+      - 3500K - **Warm White**
+      - 5000K - **White**
+      - 7000K - **Cool White**
+</pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">temperature</td><td>Blackbody radiation temperature in Kelvin </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01684">1684</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01553">1553</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2456,6 +2792,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Darkens the mask buffer by an 8-bit amount. Optionally resets the cursor position. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">amount</td><td>8-bit amount to darken the mask </td></tr>
@@ -2464,7 +2801,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01285">1285</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01173">1173</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2485,6 +2822,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Blurs the mask buffer in both axes by blur_amount. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">blur_amount</td><td>Amount to blur </td></tr>
@@ -2492,7 +2830,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01213">1213</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01107">1107</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2513,6 +2851,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Blurs the mask buffer in the X axis by blur_amount. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">blur_amount</td><td>Amount to blur </td></tr>
@@ -2520,7 +2859,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01226">1226</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01118">1118</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2541,6 +2880,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Blurs the mask buffer in the Y axis by blur_amount. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">blur_amount</td><td>Amount to blur </td></tr>
@@ -2548,7 +2888,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01254">1254</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01144">1144</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2569,6 +2909,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Darkens the color buffer by an 8-bit amount. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">amount</td><td>8-bit amount to darken the mask </td></tr>
@@ -2576,7 +2917,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01379">1379</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01259">1259</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2597,6 +2938,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Blurs the color buffer in both axes by blur_amount. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">blur_amount</td><td>Amount to blur </td></tr>
@@ -2604,7 +2946,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01313">1313</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01199">1199</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2625,6 +2967,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Blurs the color buffer in the X axis by blur_amount. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">blur_amount</td><td>Amount to blur </td></tr>
@@ -2632,7 +2975,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01326">1326</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01210">1210</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2653,6 +2996,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Blurs the color buffer in the Y axis by blur_amount. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">blur_amount</td><td>Amount to blur </td></tr>
@@ -2660,7 +3004,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01352">1352</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01234">1234</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2696,10 +3040,15 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. This function returns the 1D index of a given 2D coordinate in the display matrix. </p>
-<p>Optionally, the result can be run through a wrapping function that allows coordinates out of range to wrap around the the opposite side of the 2D matrix.</p>
-<p>If wrap is not enabled, any coordinates outside of the display matrix will be parsed to a 1D index that is unused and unseen.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This function returns the 1D index of a given 2D coordinate in the display matrix. </p>
+<h6></h6>
+<p><a class="el" href="class_pixie_chroma.html" title="Class that stores functions for interacting with Pixie Chroma displays.">PixieChroma</a> operates in a 2D context, but is run using 1D arrays. </p><pre class="fragment">      Optionally, the result can be run through a wrapping function that
+      allows coordinates out of range to wrap around to the opposite
+      side of the 2D matrix.
+
+      If wrap is not enabled, any coordinates outside of the display
+      matrix will be parsed to a 1D index that is unused and unseen.
+</pre> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Signed 2D X coordinate </td></tr>
     <tr><td class="paramname">y</td><td>Signed 2D Y coordinate </td></tr>
@@ -2709,7 +3058,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The 1D index of your 2D coordinate </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01457">1457</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01325">1325</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2752,6 +3101,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 </div><div class="memdoc">
 
 <p>Draws a line in the mask buffer using Bresenham's line algorithm. </p>
+<h6></h6>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x1</td><td>Starting X coordinate of the line </td></tr>
@@ -2762,7 +3112,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01588">1588</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01458">1458</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2776,7 +3126,7 @@ set_cursor(3,1) // Sets the cursor to the fourth display in the second row
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 13:45:26 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 15:31:16 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
