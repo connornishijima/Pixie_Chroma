@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['free_86',['free',['../class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543',1,'PixieChroma']]]
+  ['dim_94',['dim',['../class_pixie_chroma.html#add7fe811bfb5a0c5cf19aff32ed916a8',1,'PixieChroma']]],
+  ['draw_5fline_95',['draw_line',['../class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a',1,'PixieChroma']]]
 ];

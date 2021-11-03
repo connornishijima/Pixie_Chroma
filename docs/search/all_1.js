@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['begin_6',['begin',['../class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9',1,'PixieChroma']]],
-  ['begin_5fquad_7',['begin_quad',['../class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c',1,'PixieChroma']]],
-  ['blur_8',['blur',['../class_pixie_chroma.html#a67b834ccdcf7f3fa8eafd4f746d34e28',1,'PixieChroma']]],
-  ['blur_5fx_9',['blur_x',['../class_pixie_chroma.html#a8999f315e39ee240012a206ffd2f9701',1,'PixieChroma']]],
-  ['blur_5fy_10',['blur_y',['../class_pixie_chroma.html#afaa2e00fa43bf4a8603919fa1238ddc4',1,'PixieChroma']]]
+  ['add_5fchar_1',['add_char',['../class_pixie_chroma.html#afe6f1a95e2b3bb1d6e22ad2866dc5f67',1,'PixieChroma::add_char(const uint8_t *icon, int16_t x_pos, int16_t y_pos)'],['../class_pixie_chroma.html#a44dfdcadcb3e913233e7f9059d73c5a4',1,'PixieChroma::add_char(char c, int16_t x_pos, int16_t y_pos)']]],
+  ['animation_5fglitter_2',['ANIMATION_GLITTER',['../pixie__animations_8cpp.html#a5c34109ae673cb9e96152c7bdceae217',1,'ANIMATION_GLITTER(float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#a5c34109ae673cb9e96152c7bdceae217',1,'ANIMATION_GLITTER(float delta):&#160;pixie_animations.cpp']]],
+  ['animation_5fnull_3',['ANIMATION_NULL',['../pixie__animations_8cpp.html#a5121d4eeca2b50de7fd9af35945ecea0',1,'ANIMATION_NULL(float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#a5121d4eeca2b50de7fd9af35945ecea0',1,'ANIMATION_NULL(float delta):&#160;pixie_animations.cpp']]],
+  ['animation_5fpalette_5fshift_4',['ANIMATION_PALETTE_SHIFT',['../pixie__animations_8cpp.html#ae834ecf7dbdac4d62c88376055a032af',1,'ANIMATION_PALETTE_SHIFT(int8_t amount, float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#ae834ecf7dbdac4d62c88376055a032af',1,'ANIMATION_PALETTE_SHIFT(int8_t amount, float delta):&#160;pixie_animations.cpp']]],
+  ['animation_5fpalette_5fshift_5fleft_5',['ANIMATION_PALETTE_SHIFT_LEFT',['../pixie__animations_8h.html#a41d5534ed4743b6767661619bb32eb8c',1,'ANIMATION_PALETTE_SHIFT_LEFT(float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8cpp.html#a41d5534ed4743b6767661619bb32eb8c',1,'ANIMATION_PALETTE_SHIFT_LEFT(float delta):&#160;pixie_animations.cpp']]],
+  ['animation_5fpalette_5fshift_5fright_6',['ANIMATION_PALETTE_SHIFT_RIGHT',['../pixie__animations_8cpp.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5',1,'ANIMATION_PALETTE_SHIFT_RIGHT(float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5',1,'ANIMATION_PALETTE_SHIFT_RIGHT(float delta):&#160;pixie_animations.cpp']]],
+  ['animation_5fpendulum_7',['ANIMATION_PENDULUM',['../pixie__animations_8cpp.html#a4ccc84a6f0c67188259fa332c7b63fc9',1,'ANIMATION_PENDULUM(float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#a4ccc84a6f0c67188259fa332c7b63fc9',1,'ANIMATION_PENDULUM(float delta):&#160;pixie_animations.cpp']]],
+  ['animation_5fpendulum_5fwide_8',['ANIMATION_PENDULUM_WIDE',['../pixie__animations_8cpp.html#aa36462b27ee7c4bf3297b5f343690f26',1,'ANIMATION_PENDULUM_WIDE(float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#aa36462b27ee7c4bf3297b5f343690f26',1,'ANIMATION_PENDULUM_WIDE(float delta):&#160;pixie_animations.cpp']]],
+  ['animation_5fstatic_9',['ANIMATION_STATIC',['../pixie__animations_8cpp.html#a108a9ca13f5b47f0d988d218bcc8be0b',1,'ANIMATION_STATIC(float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#a108a9ca13f5b47f0d988d218bcc8be0b',1,'ANIMATION_STATIC(float delta):&#160;pixie_animations.cpp']]],
+  ['automatic_10',['AUTOMATIC',['../pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda',1,'pixie_chroma_internal.h']]]
 ];

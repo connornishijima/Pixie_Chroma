@@ -1,15 +1,16 @@
 var searchData=
 [
-  ['set_5fanimation_42',['set_animation',['../class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63',1,'PixieChroma']]],
-  ['set_5fanimation_5fspeed_43',['set_animation_speed',['../class_pixie_chroma.html#aabf61038df573b7c6d9e09ee918ffbe2',1,'PixieChroma']]],
-  ['set_5fbrightness_44',['set_brightness',['../class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44',1,'PixieChroma']]],
-  ['set_5fcursor_45',['set_cursor',['../class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942',1,'PixieChroma']]],
-  ['set_5fframe_5frate_5ftarget_46',['set_frame_rate_target',['../class_pixie_chroma.html#adb726ffa62b76f2f348e7885b30f0176',1,'PixieChroma']]],
-  ['set_5fgamma_5fcorrection_47',['set_gamma_correction',['../class_pixie_chroma.html#aea494d2e17eff09cc25fff8b4d25e441',1,'PixieChroma']]],
-  ['set_5fline_5fwrap_48',['set_line_wrap',['../class_pixie_chroma.html#a4462c03c40883ffc28cbc5b7973dc171',1,'PixieChroma']]],
-  ['set_5fmax_5fpower_49',['set_max_power',['../class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7',1,'PixieChroma']]],
-  ['set_5fpalette_50',['set_palette',['../class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117',1,'PixieChroma::set_palette(const uint8_t *pal)'],['../class_pixie_chroma.html#a73b485321858edb0900e35a56a77fa8f',1,'PixieChroma::set_palette(CRGBPalette16 pal)']]],
-  ['set_5fupdate_5fmode_51',['set_update_mode',['../class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622',1,'PixieChroma']]],
-  ['show_52',['show',['../class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332',1,'PixieChroma']]],
-  ['show_5fcontainer_53',['show_container',['../pixie__chroma__internal_8cpp.html#a99ff998592ae5ada3cf1ea9a11aeca34',1,'pixie_chroma_internal.cpp']]]
+  ['pixie_5fanimations_2ecpp_34',['pixie_animations.cpp',['../pixie__animations_8cpp.html',1,'']]],
+  ['pixie_5fanimations_2eh_35',['pixie_animations.h',['../pixie__animations_8h.html',1,'']]],
+  ['pixie_5fchroma_2eh_36',['Pixie_Chroma.h',['../_pixie___chroma_8h.html',1,'']]],
+  ['pixie_5fchroma_5finternal_2ecpp_37',['pixie_chroma_internal.cpp',['../pixie__chroma__internal_8cpp.html',1,'']]],
+  ['pixie_5fchroma_5finternal_2eh_38',['pixie_chroma_internal.h',['../pixie__chroma__internal_8h.html',1,'']]],
+  ['pixie_5ffont_2eh_39',['pixie_font.h',['../pixie__font_8h.html',1,'']]],
+  ['pixie_5ficons_2eh_40',['pixie_icons.h',['../pixie__icons_8h.html',1,'']]],
+  ['pixie_5fpalettes_2eh_41',['pixie_palettes.h',['../pixie__palettes_8h.html',1,'']]],
+  ['pixie_5futility_2eh_42',['pixie_utility.h',['../pixie__utility_8h.html',1,'']]],
+  ['pixiechroma_43',['PixieChroma',['../class_pixie_chroma.html#a2fc65dd9269568f34968c4af09f627ec',1,'PixieChroma::PixieChroma()'],['../class_pixie_chroma.html',1,'PixieChroma']]],
+  ['print_44',['print',['../class_pixie_chroma.html#aaee65447bd9d9580dd40c304fe761d52',1,'PixieChroma::print(int32_t input)'],['../class_pixie_chroma.html#aa5f6198c9c0cfd72ce636779491284df',1,'PixieChroma::print(double input, uint8_t places=2)'],['../class_pixie_chroma.html#a294ad187f0e3b6c031165fed62157f41',1,'PixieChroma::print(float input, uint8_t places=2)'],['../class_pixie_chroma.html#a87e04aa77fec8fc1b02c92cb1f11cd76',1,'PixieChroma::print(long unsigned int input)'],['../class_pixie_chroma.html#a3ebf7a2344a59aaa09b32b2c7dd38c13',1,'PixieChroma::print(uint32_t input)'],['../class_pixie_chroma.html#ab8658ee99bae32da27c35ab551f5bd4d',1,'PixieChroma::print(uint16_t input)'],['../class_pixie_chroma.html#a671856b0040685bae60a90acf239843d',1,'PixieChroma::print(int16_t input)'],['../class_pixie_chroma.html#ac25ecd1460617b86fae6c6a38b0e10ef',1,'PixieChroma::print(char *message)'],['../class_pixie_chroma.html#a7937761f8bbe90e176fabdb916725c3a',1,'PixieChroma::print(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5)'],['../class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2',1,'PixieChroma::print(const uint8_t *icon)']]],
+  ['println_45',['println',['../class_pixie_chroma.html#a203dbbe34e3185372be5c72173cad23e',1,'PixieChroma::println(const uint8_t *icon)'],['../class_pixie_chroma.html#a26ba14ec2e9dc8a93b382828918437bb',1,'PixieChroma::println(uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5)'],['../class_pixie_chroma.html#a449dc1956e1ef12efe8f1487582ac30d',1,'PixieChroma::println(char *message)'],['../class_pixie_chroma.html#a015584aace3cb2bf1923031bc5e0ad1f',1,'PixieChroma::println(int16_t input)'],['../class_pixie_chroma.html#a944d6a805312a1b2c17d9ff716fb8be2',1,'PixieChroma::println(uint16_t input)'],['../class_pixie_chroma.html#a396bf8a839db2e3ba03622873de6ccc4',1,'PixieChroma::println(int32_t input)'],['../class_pixie_chroma.html#a57e43738bf9a909f0aba9b6dae0d0d88',1,'PixieChroma::println(uint32_t input)'],['../class_pixie_chroma.html#ad8a2f273680131b954a69628d99e6434',1,'PixieChroma::println(long unsigned int input)'],['../class_pixie_chroma.html#a8cce03487abbceddb5c8c8e4029ca9a7',1,'PixieChroma::println(float input, uint8_t places=2)'],['../class_pixie_chroma.html#ab27af21db66261416baeb7dce24ef871',1,'PixieChroma::println(double input, uint8_t places=2)']]],
+  ['progmem_46',['PROGMEM',['../pixie__utility_8h.html#ab96bd90634bb0e6e4a0258490750a425',1,'pixie_utility.h']]]
 ];
