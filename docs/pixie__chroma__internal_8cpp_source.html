@@ -118,36 +118,36 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">/**************************************************************************/</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9">   96</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9">PixieChroma::begin</a>(<span class="keyword">const</span> uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y){</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9">   96</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9">PixieChroma::begin</a>( <span class="keyword">const</span> uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y ){</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    pixie_pin = data_pin;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    chars_x = pixies_x*2; <span class="comment">// Pixies have two chars each</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    chars_x = pixies_x * 2; <span class="comment">// Pixies have two chars each</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    chars_y = pixies_y;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    matrix_width  = display_width*chars_x;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    matrix_height = display_height*chars_y;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    matrix_width  = display_width  * chars_x;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    matrix_height = display_height * chars_y;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    NUM_LEDS = (matrix_width*matrix_height);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    NUM_LEDS = ( matrix_width * matrix_height );</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    leds = <span class="keyword">new</span> CRGB[NUM_LEDS+1]; <span class="comment">// Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    mask = <span class="keyword">new</span> uint8_t[NUM_LEDS+1];</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    xy_table = <span class="keyword">new</span> int16_t[NUM_LEDS];</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    leds = <span class="keyword">new</span> CRGB[ NUM_LEDS + 1 ]; <span class="comment">// Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    mask = <span class="keyword">new</span> uint8_t[ NUM_LEDS + 1 ];</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    xy_table = <span class="keyword">new</span> int16_t[ NUM_LEDS ];</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    calc_xy();</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    mask_out = <span class="keyword">new</span> uint8_t[NUM_VISIBLE_LEDS];</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    leds_out = <span class="keyword">new</span> CRGB[NUM_VISIBLE_LEDS];</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    mask_out = <span class="keyword">new</span> uint8_t[ NUM_VISIBLE_LEDS ];</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    leds_out = <span class="keyword">new</span> CRGB[ NUM_VISIBLE_LEDS ];</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">for</span>(uint16_t i = 0; i &lt; NUM_VISIBLE_LEDS; i++){</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        leds[i] = CRGB(0,255,0);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">for</span>( uint16_t i = 0; i &lt; NUM_VISIBLE_LEDS; i++ ){</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        leds[ i ] = CRGB( 0, 255, 0 );</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    current_palette.loadDynamicGradientPalette(GREEN_SOLID);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    current_palette.loadDynamicGradientPalette( GREEN_SOLID );</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    build_controller(pixie_pin); <span class="comment">// ------ Initialize FastLED</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63">set_animation</a>(<a class="code" href="pixie__animations_8cpp.html#a5121d4eeca2b50de7fd9af35945ecea0">ANIMATION_NULL</a>); <span class="comment">// ---- Set animation function to an empty one</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">clear</a>(); <span class="comment">// -------------------------- Clear anything in mask (should be empty anyways), reset cursor</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">set_max_power</a>(5.0, 500); <span class="comment">// ---------- Set default power budget in volts and milliamps (5.0V, 500mA)</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    build_controller( pixie_pin ); <span class="comment">// ----- Initialize FastLED</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63">set_animation</a>( <a class="code" href="pixie__animations_8cpp.html#a5121d4eeca2b50de7fd9af35945ecea0">ANIMATION_NULL</a> ); <span class="comment">// --- Set animation function to an empty one</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">clear</a>(); <span class="comment">// --------------------------- Clear anything in mask (should be empty anyways), reset cursor</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">set_max_power</a>( 5.0, 500 ); <span class="comment">// --------- Set default power budget in volts and milliamps (5.0V, 500mA)</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
@@ -1328,7 +1328,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 13:34:56 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 13:39:02 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
