@@ -23,8 +23,8 @@
 
 ## Table of Contents
 
-- [About](#about)
-- [Demo](#demo)
+- [Intro](#the-coolest-character-display-for-arduino)
+- [Code Demo](#code-demo)
 
 # The Coolest Character Display for Arduino
 
@@ -35,12 +35,12 @@
 - 27.5mm * 16.5mm matrix size (10.16 ppi)
 - 30mm * 24mm package
 
-# Demo
+# Code Demo
 
 Here's a quick peek at how easy it is to use a Pixie display:
 
 ```cpp
-#include "Pixie_Chroma.h"
+#include "Pixie_Chroma.h" // Include library
 PixieChroma pix;
 #define PIXIES_X  6  // Total amount and         x x x x x x
 #define PIXIES_Y  2  // arrangement of Pixies =  x x x x x x
@@ -77,7 +77,7 @@ void setup() {
 
   pix.set_max_power( 5, 500 ); // ............................ Set power budget to 5V, 500mA
 
-  // Set the color palette to use for text
+  // Set the color palette to use for showing our text
   pix.set_palette(
     make_gradient( // ........... For our palette, we'll generate a gradient from:
       CRGB(255, 0,   0  ), // ... RED,
