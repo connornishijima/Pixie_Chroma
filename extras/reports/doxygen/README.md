@@ -1,7 +1,6 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: return type of member **make_gradient** is not documented
 - :x: *Member ***font_col_width*** (variable) of file pixie_font.h is not documented.*
 - :x: *Member ***printable_ascii_offset*** (variable) of file pixie_font.h is not documented.*
 - :x: *Member ***RED_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
