@@ -28,7 +28,7 @@ PixieChroma pix;
 
 void setup() {
   pix.begin( 13, PIXIES_X, PIXIES_Y ); // ... Use Pin 13
-  pix.color( CRGB(0,0,255) ); // ............ Set color to blue
+  pix.color( CRGB::Blue ); // ............... Set color to blue
 }
 
 void loop() {
