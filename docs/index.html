@@ -90,15 +90,33 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">Pixie Chroma Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p align="center"><a class="anchor" id="md_README"></a> <img src="extras/img/logo.png" alt="" class="inline"/> </p>
+<div class="textblock"><p align="center"><a class="anchor" id="md_README"></a> <br  />
+ <img src="extras/img/logo.png" alt="" class="inline"/> </p>
 <p><b>Arduino library and documentation for Pixie Chroma displays!</b><br  />
- · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a> · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet"><b>DATASHEET</b></a> · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=tutorials"><b>TUTORIALS</b></a> · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=oshw"><b>OSHW</b></a> · · · <br  />
-<br  />
- <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg" alt="" style="pointer-events: none;" class="inline"/> <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_build.yml/badge.svg" alt="" style="pointer-events: none;" class="inline"/> <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/docs_and_reports.yml/badge.svg" alt="" style="pointer-events: none;" class="inline"/> <a href="https://www.ardu-badge.com/Pixie_Chroma"><img src="https://www.ardu-badge.com/badge/Pixie_Chroma.svg" alt="" style="pointer-events: none;" class="inline"/></a></p>
-<p><em><b>This repository is still under construction, make sure to follow our Twitter for official releases!</b></em></p>
-<p><b><a href="https://twitter.com/lixielabs">@lixielabs</a></b></p>
-<p><b>PIXIE CHROMA</b> is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO! Here's a quick peek at how easy that is:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_pixie___chroma_8h.html">Pixie_Chroma.h</a>&quot;</span></div>
+ · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a> · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet"><b>DATASHEET</b></a> · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=tutorials"><b>TUTORIALS</b></a> · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=oshw"><b>OSHW</b></a> · · · </p>
+<p align="center"><br  />
+ </p>
+<p><img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg" alt="" style="pointer-events: none;" class="inline"/> <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_build.yml/badge.svg" alt="" style="pointer-events: none;" class="inline"/> <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/docs_and_reports.yml/badge.svg" alt="" style="pointer-events: none;" class="inline"/> <a href="https://www.ardu-badge.com/Pixie_Chroma"><img src="https://www.ardu-badge.com/badge/Pixie_Chroma.svg" alt="" style="pointer-events: none;" class="inline"/></a> </p>
+<hr  />
+<p><b>PIXIE CHROMA</b> is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO!</p>
+<p>**NOTE: *This repository/library are still under construction, make sure to <a href="https://twitter.com/lixielabs">follow our Twitter</a> for official releases!***</p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#the-coolest-character-display-for-arduino">Intro</a></li>
+<li><a href="#code-demo">Code Demo</a></li>
+</ul>
+<h1>The Coolest Character Display for Arduino</h1>
+<ul>
+<li>Dual 5x7 RGB LED matrices</li>
+<li>3.7V to 5.5V supply</li>
+<li>Fast bitmap control</li>
+<li>8-bit global dimming</li>
+<li>27.5mm * 16.5mm matrix size (10.16 ppi)</li>
+<li>30mm * 24mm package</li>
+</ul>
+<h1>Code Demo</h1>
+<p>Here's a quick peek at how easy it is to use a Pixie display:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_pixie___chroma_8h.html">Pixie_Chroma.h</a>&quot;</span> <span class="comment">// Include library</span></div>
 <div class="line"><a class="code" href="class_pixie_chroma.html">PixieChroma</a> pix;</div>
 <div class="line"><span class="preprocessor">#define PIXIES_X  6  </span><span class="comment">// Total amount and         x x x x x x</span></div>
 <div class="line"><span class="preprocessor">#define PIXIES_Y  2  </span><span class="comment">// arrangement of Pixies =  x x x x x x</span></div>
@@ -115,14 +133,14 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">  pix.<a class="code" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332">show</a>(); <span class="comment">// ...................... Show changes</span></div>
 <div class="line">}</div>
 <div class="ttc" id="a_pixie___chroma_8h_html"><div class="ttname"><a href="_pixie___chroma_8h.html">Pixie_Chroma.h</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html"><div class="ttname"><a href="class_pixie_chroma.html">PixieChroma</a></div><div class="ttdoc">Class that stores functions for interacting with Pixie Chroma displays.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00025">pixie_chroma_internal.h:25</a></div></div>
+<div class="ttc" id="aclass_pixie_chroma_html"><div class="ttname"><a href="class_pixie_chroma.html">PixieChroma</a></div><div class="ttdoc">Class that stores functions for interacting with Pixie Chroma displays.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00028">pixie_chroma_internal.h:28</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a1d2f01d594a77c139365eb34053464b1"><div class="ttname"><a href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">PixieChroma::color</a></div><div class="ttdeci">void color(CRGB col)</div><div class="ttdoc">Sets the entire color buffer to a CRGB value. For example: pix.color(CRGB(0,255,255)); This would set...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01498">pixie_chroma_internal.cpp:1498</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a203dbbe34e3185372be5c72173cad23e"><div class="ttname"><a href="class_pixie_chroma.html#a203dbbe34e3185372be5c72173cad23e">PixieChroma::println</a></div><div class="ttdeci">void println(const uint8_t *icon)</div><div class="ttdoc">Prints an Icon to the displays at the current cursor position, then jumps to the next row in the Pixi...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01036">pixie_chroma_internal.cpp:1036</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a5570ee487fa0299cf6cf07a09dcc51e9"><div class="ttname"><a href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9">PixieChroma::begin</a></div><div class="ttdeci">void begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y)</div><div class="ttdoc">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00093">pixie_chroma_internal.cpp:93</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a5af6bae45788a3050b50aed73eb5f1e2"><div class="ttname"><a href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2">PixieChroma::print</a></div><div class="ttdeci">void print(const uint8_t *icon)</div><div class="ttdoc">Prints an Icon to the displays, at the current cursor position.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00856">pixie_chroma_internal.cpp:856</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a75c1bab0aff30181ed7bc34273d881db"><div class="ttname"><a href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">PixieChroma::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears (blackens) the current mask buffer and resets the cursor to 0,0.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01428">pixie_chroma_internal.cpp:1428</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a836b7172ea635c0d5cad04a71d7ad332"><div class="ttname"><a href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332">PixieChroma::show</a></div><div class="ttdeci">void show()</div><div class="ttdoc">Internal function called by the ANIMATE() ISR, responsible for parsing 1D image data into truncated v...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01749">pixie_chroma_internal.cpp:1749</a></div></div>
-</div><!-- fragment --><p>In this case, (in just 16 lines) you're in control of over 800 LEDs to show any text you'd like!</p>
+</div><!-- fragment --><p>In just 16 lines, you're in control of over 800 LEDs to show any text you'd like!</p>
 <p>Pixie Chroma also makes it extremely easy to control advanced animation in the background while other code runs! For example:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_pixie___chroma_8h.html">Pixie_Chroma.h</a>&quot;</span> <span class="comment">// ... Include library</span></div>
 <div class="line"><a class="code" href="class_pixie_chroma.html">PixieChroma</a> pix; <span class="comment">// ............ Get class instance</span></div>
@@ -133,12 +151,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line"><span class="preprocessor">#define PIXIES_Y  2  </span><span class="comment">// ......... arrangement of Pixies =  x x x x x x</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">begin_quad</a>( PIXIES_PER_PIN, PIXIES_X, PIXIES_Y ); <span class="comment">// ... Initialize Pixies to use 4 GPIO in</span></div>
-<div class="line">                                                        <span class="comment">//     parallel, with three Pixies on each line</span></div>
+<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">begin_quad</a>( PIXIES_PER_PIN, PIXIES_X, PIXIES_Y ); <span class="comment">// Initialize Pixies to use 4 GPIO in</span></div>
+<div class="line">                                                        <span class="comment">// parallel, with three Pixies on each line</span></div>
 <div class="line"> </div>
 <div class="line">  pix.<a class="code" href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">set_max_power</a>( 5, 500 ); <span class="comment">// ............................ Set power budget to 5V, 500mA</span></div>
 <div class="line"> </div>
-<div class="line">  <span class="comment">// Set the color palette to use for text</span></div>
+<div class="line">  <span class="comment">// Set the color palette to use for showing our text</span></div>
 <div class="line">  pix.<a class="code" href="class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117">set_palette</a>(</div>
 <div class="line">    <a class="code" href="pixie__animations_8cpp.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>( <span class="comment">// ........... For our palette, we&#39;ll generate a gradient from:</span></div>
 <div class="line">      CRGB(255, 0,   0  ), <span class="comment">// ... RED,</span></div>
@@ -179,15 +197,15 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="ttc" id="aclass_pixie_chroma_html_af4c7b1051ce21bf03cfd69d30869fa6c"><div class="ttname"><a href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">PixieChroma::begin_quad</a></div><div class="ttdeci">void begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y)</div><div class="ttdoc">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00213">pixie_chroma_internal.cpp:213</a></div></div>
 <div class="ttc" id="apixie__animations_8cpp_html_a26e7ecc10bdd314d7f8cd6e53d1da0e5"><div class="ttname"><a href="pixie__animations_8cpp.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5">ANIMATION_PALETTE_SHIFT_RIGHT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_RIGHT(float delta)</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the right.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00050">pixie_animations.cpp:50</a></div></div>
 <div class="ttc" id="apixie__animations_8cpp_html_a2b39ccf276d680bc3f1fb41eef9f53ea"><div class="ttname"><a href="pixie__animations_8cpp.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a></div><div class="ttdeci">CRGBPalette16 make_gradient(CRGB col1, CRGB col2)</div><div class="ttdoc">Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00103">pixie_animations.cpp:103</a></div></div>
-<div class="ttc" id="apixie__chroma__internal_8h_html_a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda"><div class="ttname"><a href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda">AUTOMATIC</a></div><div class="ttdeci">@ AUTOMATIC</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00017">pixie_chroma_internal.h:17</a></div></div>
-</div><!-- fragment --><p>As you can see, Pixie Chroma is <b>as easy or advanced as you need!</b> </p>
+<div class="ttc" id="apixie__chroma__internal_8h_html_a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda"><div class="ttname"><a href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda">AUTOMATIC</a></div><div class="ttdeci">@ AUTOMATIC</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00020">pixie_chroma_internal.h:20</a></div></div>
+</div><!-- fragment --><p>As you can see, Pixie Chroma is <b>as easy or advanced as you need!</b> Luckily, you don't need to dive into documentation to get started - the included examples (<code>File -&gt; Examples -&gt; Pixie_Chroma</code>) are an easy template to modify for your own projects! </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Nov 3 2021 04:48:36 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 12:49:53 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
