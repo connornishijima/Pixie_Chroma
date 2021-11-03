@@ -6,5 +6,4 @@
 - :x: *Member ***NUM_LEDS*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***delta*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***animation_speed*** (variable) of class PixieChroma is not documented.*
-  'x_offset'
-  'y_offset'
+  'message'
