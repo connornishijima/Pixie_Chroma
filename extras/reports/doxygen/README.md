@@ -2,8 +2,6 @@
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
 - :x: *Member ***current_palette*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***matrix_width*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***matrix_height*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***NUM_PIXELS*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***NUM_LEDS*** (variable) of class PixieChroma is not documented.*
 - :x: *Member ***delta*** (variable) of class PixieChroma is not documented.*
