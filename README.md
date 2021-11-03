@@ -53,8 +53,8 @@ PixieChroma pix; // ............ Get class instance
 #define PIXIES_Y  2  // ......... arrangement of Pixies =  x x x x x x
 
 void setup() {
-  pix.begin_quad( PIXIES_PER_PIN, PIXIES_X, PIXIES_Y ); // ... Initialize Pixies to use 4 GPIO
-                                                        //     in parallel, with three Pixies on each line
+  pix.begin_quad( PIXIES_PER_PIN, PIXIES_X, PIXIES_Y ); // ... Initialize Pixies to use 4 GPIO in
+                                                        //     parallel, with three Pixies on each line
 
   pix.set_max_power( 5, 500 ); // ............................ Set power budget to 5V, 500mA
 
