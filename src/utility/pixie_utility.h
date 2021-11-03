@@ -51,7 +51,7 @@ const uint8_t gamma8[] = {
 
 /*!
 @brief
-Homebrew function to convert double precision floats to char*. [Arduino Forum link](https://forum.arduino.cc/t/ftoa/63464)
+Homebrew function to convert double precision floats to char*. ([Arduino Forum link](https://forum.arduino.cc/t/ftoa/63464))
 @param   input      Double value to convert
 @param   buffer     char* to store resulting string in
 @param   precision  How many places after the decimal point will be converted
