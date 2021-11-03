@@ -9,6 +9,9 @@
 #ifndef pixie_font_h
 #define pixie_font_h
 
+const uint8_t font_col_width = 5;
+const uint8_t printable_ascii_offset = 32;
+
 const uint8_t font[480] PROGMEM = {
 	  0x00, 0x00, 0x00, 0x00, 0x00, // (space)  00
 	  0x00, 0x00, 0x5F, 0x00, 0x00, // !        01
