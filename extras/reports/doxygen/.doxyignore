@@ -1,5 +1,7 @@
 matrix_width
 matrix_height
+x_offset
+y_offset
 RED_SOLID[]
 YELLOW_SOLID[]
 GREEN_SOLID[]
