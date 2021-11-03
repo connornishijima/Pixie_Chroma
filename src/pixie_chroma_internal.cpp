@@ -1436,7 +1436,7 @@ void PixieChroma::color( CRGB col ){
               
               This would set the **second display of the first row** to cyan, a
               mix of green and blue.
-        
+              
     @param    col  FastLED CRGB color
     @param    x    X coordinate of display
     @param    y    y coordinate of display
