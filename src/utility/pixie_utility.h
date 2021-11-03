@@ -49,7 +49,12 @@ const uint8_t gamma8[] = {
 	215,218,220,223,225,228,231,233,236,239,241,244,247,249,252,255
 };
 
-/*! @brief  Homebrew function to convert double precision floats to char*. [Arduino Forum link](https://forum.arduino.cc/t/ftoa/63464) */
+/*!
+@brief
+Homebrew function to convert double precision floats to char*. [Arduino Forum link](https://forum.arduino.cc/t/ftoa/63464)
+@return
+A char array equivalent of the input double
+*/
 char* dtoa(double d, char *buffer, int precision) {
 	long wholePart = (long) d;
 
