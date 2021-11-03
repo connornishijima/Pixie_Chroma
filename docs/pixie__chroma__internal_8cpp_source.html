@@ -128,8 +128,8 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    NUM_LEDS = matrix_width * matrix_height;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a> = <span class="keyword">new</span> CRGB[ NUM_LEDS + 1 ]; <span class="comment">// Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    mask = <span class="keyword">new</span> uint8_t[ NUM_LEDS + 1 ];</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    leds = <span class="keyword">new</span> CRGB[ NUM_LEDS + 1 ]; <span class="comment">// Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a> = <span class="keyword">new</span> uint8_t[ NUM_LEDS + 1 ];</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    xy_table = <span class="keyword">new</span> int16_t[ NUM_LEDS ];</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    calc_xy();</div>
@@ -138,7 +138,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    leds_out = <span class="keyword">new</span> CRGB[ NUM_VISIBLE_LEDS ];</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">for</span>( uint16_t i = 0; i &lt; NUM_VISIBLE_LEDS; i++ ){</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[i] = CRGB( 0, 255, 0 );</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        leds[i] = CRGB( 0, 255, 0 );</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    current_palette.loadDynamicGradientPalette( GREEN_SOLID );</div>
@@ -158,8 +158,8 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    NUM_LEDS = matrix_width * matrix_height;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a> = <span class="keyword">new</span> CRGB[ NUM_LEDS + 1 ]; <span class="comment">// Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    mask = <span class="keyword">new</span> uint8_t[ NUM_LEDS + 1 ];</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    leds = <span class="keyword">new</span> CRGB[ NUM_LEDS + 1 ]; <span class="comment">// Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a> = <span class="keyword">new</span> uint8_t[ NUM_LEDS + 1 ];</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    xy_table = <span class="keyword">new</span> int16_t[ NUM_LEDS ];</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    calc_xy();</div>
@@ -168,7 +168,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    leds_out = <span class="keyword">new</span> CRGB[ NUM_VISIBLE_LEDS ];</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">for</span>( uint16_t i = 0; i &lt; NUM_VISIBLE_LEDS; i++ ){</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[i] = CRGB( 0,255,0 );</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        leds[i] = CRGB( 0,255,0 );</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    current_palette.loadDynamicGradientPalette( GREEN_SOLID );</div>
@@ -182,25 +182,25 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    </div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="comment">// Quad Mode on ESP32 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 27</span></div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    FastLED.addLeds&lt;NEOPIXEL, 13&gt;( <span class="comment">// Initialize FastLED Data Out 1</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>,</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        leds,</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        0,</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        ( pixies_per_pin*leds_per_pixie )</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    ).setCorrection( TypicalLEDStrip ); </div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    </div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    FastLED.addLeds&lt;NEOPIXEL, 12&gt;( <span class="comment">// Initialize FastLED Data Out 2</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>,</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        leds,</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        ( pixies_per_pin*leds_per_pixie ),</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        ( pixies_per_pin*leds_per_pixie )</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    ).setCorrection( TypicalLEDStrip );</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    </div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    FastLED.addLeds&lt;NEOPIXEL, 14&gt;( <span class="comment">// Initialize FastLED Data Out 3</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>,</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        leds,</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        ( pixies_per_pin*leds_per_pixie ) * 2,</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        ( pixies_per_pin*leds_per_pixie )</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    ).setCorrection( TypicalLEDStrip );</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    FastLED.addLeds&lt;NEOPIXEL, 27&gt;( <span class="comment">// Initialize FastLED Data Out 4</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>,</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        leds,</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        ( pixies_per_pin*leds_per_pixie ) * 4,</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        ( pixies_per_pin*leds_per_pixie )</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    ).setCorrection( TypicalLEDStrip );</div>
@@ -452,13 +452,13 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;        uint16_t row7_index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+x, y_pos+6 );</div>
 <div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160; </div>
 <div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;        <span class="comment">// &quot;Subtract&quot; from mask transparency with saturating function</span></div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;        mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( column, 0 )] );</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;        mask[row2_index] = qadd8( mask[row2_index], bit_table[bitRead( column, 1 )] );</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;        mask[row3_index] = qadd8( mask[row3_index], bit_table[bitRead( column, 2 )] );</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;        mask[row4_index] = qadd8( mask[row4_index], bit_table[bitRead( column, 3 )] );</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        mask[row5_index] = qadd8( mask[row5_index], bit_table[bitRead( column, 4 )] );</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        mask[row6_index] = qadd8( mask[row6_index], bit_table[bitRead( column, 5 )] );</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;        mask[row7_index] = qadd8( mask[row7_index], bit_table[bitRead( column, 6 )] );</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row1_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row1_index], bit_table[bitRead( column, 0 )] );</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row2_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row2_index], bit_table[bitRead( column, 1 )] );</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row3_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row3_index], bit_table[bitRead( column, 2 )] );</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row4_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row4_index], bit_table[bitRead( column, 3 )] );</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row5_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row5_index], bit_table[bitRead( column, 4 )] );</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row6_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row6_index], bit_table[bitRead( column, 5 )] );</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row7_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row7_index], bit_table[bitRead( column, 6 )] );</div>
 <div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;    }</div>
 <div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;}</div>
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160; </div>
@@ -476,13 +476,13 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;        uint16_t row7_index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+x, y_pos+6 );</div>
 <div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160; </div>
 <div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;        <span class="comment">// &quot;Subtract&quot; from mask transparency with saturating function</span></div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( column,0 )] );</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;        mask[row2_index] = qadd8( mask[row2_index], bit_table[bitRead( column,1 )] );</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;        mask[row3_index] = qadd8( mask[row3_index], bit_table[bitRead( column,2 )] );</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        mask[row4_index] = qadd8( mask[row4_index], bit_table[bitRead( column,3 )] );</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;        mask[row5_index] = qadd8( mask[row5_index], bit_table[bitRead( column,4 )] );</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        mask[row6_index] = qadd8( mask[row6_index], bit_table[bitRead( column,5 )] );</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;        mask[row7_index] = qadd8( mask[row7_index], bit_table[bitRead( column,6 )] );</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row1_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row1_index], bit_table[bitRead( column,0 )] );</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row2_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row2_index], bit_table[bitRead( column,1 )] );</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row3_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row3_index], bit_table[bitRead( column,2 )] );</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row4_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row4_index], bit_table[bitRead( column,3 )] );</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row5_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row5_index], bit_table[bitRead( column,4 )] );</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row6_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row6_index], bit_table[bitRead( column,5 )] );</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row7_index] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[row7_index], bit_table[bitRead( column,6 )] );</div>
 <div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;    }</div>
 <div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;}</div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160; </div>
@@ -643,15 +643,15 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;    <span class="keywordflow">for</span>(  uint8_t row = 0; row &lt; matrix_height; row++ ) {</div>
 <div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;        uint8_t carryover = 0;</div>
 <div class="line"><a name="l01226"></a><span class="lineno"> 1226</span>&#160;        <span class="keywordflow">for</span>(  uint8_t i = 0; i &lt; matrix_width; i++ ) {</div>
-<div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160;            uint8_t cur = mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )];</div>
+<div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160;            uint8_t cur = <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )];</div>
 <div class="line"><a name="l01228"></a><span class="lineno"> 1228</span>&#160;            uint8_t part = cur;</div>
 <div class="line"><a name="l01229"></a><span class="lineno"> 1229</span>&#160;            part = scale8( part, seep );</div>
 <div class="line"><a name="l01230"></a><span class="lineno"> 1230</span>&#160;            cur  = scale8( cur, keep );</div>
 <div class="line"><a name="l01231"></a><span class="lineno"> 1231</span>&#160;            cur  = qadd8( cur,carryover );</div>
 <div class="line"><a name="l01232"></a><span class="lineno"> 1232</span>&#160;            <span class="keywordflow">if</span>( i ){</div>
-<div class="line"><a name="l01233"></a><span class="lineno"> 1233</span>&#160;                mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i-1,row )] = qadd8( mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i-1,row )],part );</div>
+<div class="line"><a name="l01233"></a><span class="lineno"> 1233</span>&#160;                <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i-1,row )] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i-1,row )],part );</div>
 <div class="line"><a name="l01234"></a><span class="lineno"> 1234</span>&#160;            }</div>
-<div class="line"><a name="l01235"></a><span class="lineno"> 1235</span>&#160;            mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )] = cur;</div>
+<div class="line"><a name="l01235"></a><span class="lineno"> 1235</span>&#160;            <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )] = cur;</div>
 <div class="line"><a name="l01236"></a><span class="lineno"> 1236</span>&#160;            carryover = part;</div>
 <div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160;        }</div>
 <div class="line"><a name="l01238"></a><span class="lineno"> 1238</span>&#160;    }</div>
@@ -665,15 +665,15 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01252"></a><span class="lineno"> 1252</span>&#160;    <span class="keywordflow">for</span>(  uint8_t col = 0; col &lt; matrix_width; ++col ) {</div>
 <div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160;        uint8_t carryover = 0;</div>
 <div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;        <span class="keywordflow">for</span>(  uint8_t i = 0; i &lt; matrix_height; ++i ) {            </div>
-<div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;            uint8_t cur = mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i )];</div>
+<div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;            uint8_t cur = <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i )];</div>
 <div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;            uint8_t part = cur;</div>
 <div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;            part = scale8( part, seep );</div>
 <div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;            cur  = scale8( cur, keep );</div>
 <div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;            cur  = qadd8( cur,carryover );</div>
 <div class="line"><a name="l01260"></a><span class="lineno"> 1260</span>&#160;            <span class="keywordflow">if</span>( i ){</div>
-<div class="line"><a name="l01261"></a><span class="lineno"> 1261</span>&#160;                mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i-1 )] = qadd8( mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i-1 )],part );</div>
+<div class="line"><a name="l01261"></a><span class="lineno"> 1261</span>&#160;                <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i-1 )] = qadd8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i-1 )],part );</div>
 <div class="line"><a name="l01262"></a><span class="lineno"> 1262</span>&#160;            }</div>
-<div class="line"><a name="l01263"></a><span class="lineno"> 1263</span>&#160;            mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i )] = cur;</div>
+<div class="line"><a name="l01263"></a><span class="lineno"> 1263</span>&#160;            <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i )] = cur;</div>
 <div class="line"><a name="l01264"></a><span class="lineno"> 1264</span>&#160;            carryover = part;</div>
 <div class="line"><a name="l01265"></a><span class="lineno"> 1265</span>&#160;        }</div>
 <div class="line"><a name="l01266"></a><span class="lineno"> 1266</span>&#160;    }</div>
@@ -686,17 +686,17 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;    }</div>
 <div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;    </div>
 <div class="line"><a name="l01283"></a><span class="lineno"> 1283</span>&#160;    <span class="keywordflow">for</span>( uint16_t i = 0; i &lt; NUM_LEDS; i+=11 ){</div>
-<div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;        mask[i+0]  = scale8( mask[i+0],  255-amount );</div>
-<div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160;        mask[i+1]  = scale8( mask[i+1],  255-amount );</div>
-<div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160;        mask[i+2]  = scale8( mask[i+2],  255-amount );</div>
-<div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;        mask[i+3]  = scale8( mask[i+3],  255-amount );</div>
-<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;        mask[i+4]  = scale8( mask[i+4],  255-amount );</div>
-<div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;        mask[i+5]  = scale8( mask[i+5],  255-amount );</div>
-<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;        mask[i+6]  = scale8( mask[i+6],  255-amount );</div>
-<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;        mask[i+7]  = scale8( mask[i+7],  255-amount );</div>
-<div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;        mask[i+8]  = scale8( mask[i+8],  255-amount );</div>
-<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;        mask[i+9]  = scale8( mask[i+9],  255-amount );</div>
-<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;        mask[i+10] = scale8( mask[i+10], 255-amount );</div>
+<div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+0]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+0],  255-amount );</div>
+<div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+1]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+1],  255-amount );</div>
+<div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+2]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+2],  255-amount );</div>
+<div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+3]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+3],  255-amount );</div>
+<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+4]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+4],  255-amount );</div>
+<div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+5]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+5],  255-amount );</div>
+<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+6]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+6],  255-amount );</div>
+<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+7]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+7],  255-amount );</div>
+<div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+8]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+8],  255-amount );</div>
+<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+9]  = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+9],  255-amount );</div>
+<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+10] = scale8( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i+10], 255-amount );</div>
 <div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;    }</div>
 <div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;}</div>
 <div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160; </div>
@@ -713,13 +713,13 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01320"></a><span class="lineno"> 1320</span>&#160;    <span class="keywordflow">for</span>(  uint8_t row = 0; row &lt; matrix_height; row++ ) {</div>
 <div class="line"><a name="l01321"></a><span class="lineno"> 1321</span>&#160;        uint8_t carryover = 0;</div>
 <div class="line"><a name="l01322"></a><span class="lineno"> 1322</span>&#160;        <span class="keywordflow">for</span>(  uint8_t i = 0; i &lt; matrix_width; i++ ) {</div>
-<div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;            CRGB cur = <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )];</div>
+<div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;            CRGB cur = leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )];</div>
 <div class="line"><a name="l01324"></a><span class="lineno"> 1324</span>&#160;            CRGB part = cur;</div>
 <div class="line"><a name="l01325"></a><span class="lineno"> 1325</span>&#160;            part.nscale8(  seep );</div>
 <div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;            cur.nscale8(  keep );</div>
 <div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;            cur += carryover;</div>
-<div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;            <span class="keywordflow">if</span>(  i ) <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i-1,row )] += part;</div>
-<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;            <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )] = cur;</div>
+<div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;            <span class="keywordflow">if</span>(  i ) leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i-1,row )] += part;</div>
+<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;            leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )] = cur;</div>
 <div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;            carryover = part;</div>
 <div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;        }</div>
 <div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;    }</div>
@@ -733,13 +733,13 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;    <span class="keywordflow">for</span>(  uint8_t row = 0; row &lt; matrix_width; row++ ) {</div>
 <div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;        CRGB carryover = CRGB::Black;</div>
 <div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;        <span class="keywordflow">for</span>(  uint8_t i = 0; i &lt; matrix_height; i++ ) {</div>
-<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;            CRGB cur = <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )];</div>
+<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;            CRGB cur = leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )];</div>
 <div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;            CRGB part = cur;</div>
 <div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;            part.nscale8(  seep );</div>
 <div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;            cur.nscale8(  keep );</div>
 <div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;            cur += carryover;</div>
-<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;            <span class="keywordflow">if</span>(  i ) <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i-1,row )] += part;</div>
-<div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;            <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )] = cur;</div>
+<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;            <span class="keywordflow">if</span>(  i ) leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i-1,row )] += part;</div>
+<div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;            leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( i,row )] = cur;</div>
 <div class="line"><a name="l01356"></a><span class="lineno"> 1356</span>&#160;            carryover = part;</div>
 <div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;        }</div>
 <div class="line"><a name="l01358"></a><span class="lineno"> 1358</span>&#160;    }</div>
@@ -747,7 +747,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160; </div>
 <div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l01368"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#ab91ce62285b7ffc368b5d613e373706b"> 1368</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#ab91ce62285b7ffc368b5d613e373706b">PixieChroma::color_dim</a>( uint8_t amount ){</div>
-<div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;    CRGBSet leds_temp( <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>, NUM_LEDS );</div>
+<div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;    CRGBSet leds_temp( leds, NUM_LEDS );</div>
 <div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;    leds_temp.fadeToBlackBy( amount );</div>
 <div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;}</div>
 <div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160; </div>
@@ -773,7 +773,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160; </div>
 <div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l01422"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db"> 1422</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">PixieChroma::clear</a>(){</div>
-<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;    memset( mask, 0, NUM_LEDS );</div>
+<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;    memset( <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>, 0, NUM_LEDS );</div>
 <div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;    <a class="code" href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">set_cursor</a>( 0,0 );</div>
 <div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;}</div>
 <div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160; </div>
@@ -814,7 +814,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160; </div>
 <div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l01494"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1"> 1494</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">PixieChroma::color</a>( CRGB col ){</div>
-<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;    fill_solid( <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>, NUM_LEDS, col );</div>
+<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;    fill_solid( leds, NUM_LEDS, col );</div>
 <div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;}</div>
 <div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160; </div>
 <div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;<span class="comment">//............................................................................</span></div>
@@ -823,13 +823,13 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;    int16_t y_pos = y * display_height + display_padding_y;</div>
 <div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;    </div>
 <div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;    <span class="keywordflow">for</span>( uint8_t xi = 0; xi &lt; <a class="code" href="pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122">font_col_width</a>; xi++ ){</div>
-<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+0 )] = col;</div>
-<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+1 )] = col;</div>
-<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+2 )] = col;</div>
-<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+3 )] = col;</div>
-<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+4 )] = col;</div>
-<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+5 )] = col;</div>
-<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;        <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+6 )] = col;</div>
+<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+0 )] = col;</div>
+<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+1 )] = col;</div>
+<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+2 )] = col;</div>
+<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+3 )] = col;</div>
+<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+4 )] = col;</div>
+<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+5 )] = col;</div>
+<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+6 )] = col;</div>
 <div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;    }</div>
 <div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;}</div>
 <div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160; </div>
@@ -856,7 +856,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;        <span class="keywordflow">for</span>( uint16_t x = 0; x &lt; x_delta; x++ ){</div>
 <div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;            int16_t x2_pos = x1_pos + x;</div>
 <div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;            int16_t y2_pos = y1_pos + y;</div>
-<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;            <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x2_pos, y2_pos )] = col;</div>
+<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;            leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x2_pos, y2_pos )] = col;</div>
 <div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;        }</div>
 <div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;    }</div>
 <div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;}</div>
@@ -885,7 +885,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;            xe=x1;</div>
 <div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;        }</div>
 <div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;        index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x,y );</div>
-<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;        mask[index] = qadd8(  255, mask[index]  );</div>
+<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[index] = qadd8(  255, <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[index]  );</div>
 <div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;        <span class="keywordflow">for</span>( i=0;x&lt;xe;i++ ){</div>
 <div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;            x=x+1;</div>
 <div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;            <span class="keywordflow">if</span>( px&lt;0 ){</div>
@@ -902,7 +902,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01623"></a><span class="lineno"> 1623</span>&#160;            }</div>
 <div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160;            delay( 0 );</div>
 <div class="line"><a name="l01625"></a><span class="lineno"> 1625</span>&#160;            index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x,y );</div>
-<div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;            mask[index] = qadd8(  255, mask[index]  );</div>
+<div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;            <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[index] = qadd8(  255, <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[index]  );</div>
 <div class="line"><a name="l01627"></a><span class="lineno"> 1627</span>&#160;        }</div>
 <div class="line"><a name="l01628"></a><span class="lineno"> 1628</span>&#160;    }</div>
 <div class="line"><a name="l01629"></a><span class="lineno"> 1629</span>&#160;    <span class="keywordflow">else</span>{</div>
@@ -917,7 +917,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01638"></a><span class="lineno"> 1638</span>&#160;            ye=y1;</div>
 <div class="line"><a name="l01639"></a><span class="lineno"> 1639</span>&#160;        }</div>
 <div class="line"><a name="l01640"></a><span class="lineno"> 1640</span>&#160;        index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x,y );</div>
-<div class="line"><a name="l01641"></a><span class="lineno"> 1641</span>&#160;        mask[index] = qadd8(  255, mask[index]  );</div>
+<div class="line"><a name="l01641"></a><span class="lineno"> 1641</span>&#160;        <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[index] = qadd8(  255, <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[index]  );</div>
 <div class="line"><a name="l01642"></a><span class="lineno"> 1642</span>&#160;        <span class="keywordflow">for</span>( i=0;y&lt;ye;i++ ){</div>
 <div class="line"><a name="l01643"></a><span class="lineno"> 1643</span>&#160;            y=y+1;</div>
 <div class="line"><a name="l01644"></a><span class="lineno"> 1644</span>&#160;            <span class="keywordflow">if</span>( py&lt;=0 ){</div>
@@ -933,7 +933,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01654"></a><span class="lineno"> 1654</span>&#160;                py=py+2*( dx1-dy1 );</div>
 <div class="line"><a name="l01655"></a><span class="lineno"> 1655</span>&#160;            }</div>
 <div class="line"><a name="l01656"></a><span class="lineno"> 1656</span>&#160;            index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x,y );</div>
-<div class="line"><a name="l01657"></a><span class="lineno"> 1657</span>&#160;            mask[index] = qadd8(  255, mask[index]  );</div>
+<div class="line"><a name="l01657"></a><span class="lineno"> 1657</span>&#160;            <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[index] = qadd8(  255, <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[index]  );</div>
 <div class="line"><a name="l01658"></a><span class="lineno"> 1658</span>&#160;        }</div>
 <div class="line"><a name="l01659"></a><span class="lineno"> 1659</span>&#160;    }</div>
 <div class="line"><a name="l01660"></a><span class="lineno"> 1660</span>&#160;}</div>
@@ -999,9 +999,9 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01761"></a><span class="lineno"> 1761</span>&#160;    noInterrupts(); <span class="comment">//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></div>
 <div class="line"><a name="l01762"></a><span class="lineno"> 1762</span>&#160;    </div>
 <div class="line"><a name="l01763"></a><span class="lineno"> 1763</span>&#160;    <span class="keywordflow">if</span>( !freeze ){ <span class="comment">// If we&#39;re not holding out for a pix.free() call, show with the current mask</span></div>
-<div class="line"><a name="l01764"></a><span class="lineno"> 1764</span>&#160;        memcpy( mask_out, mask, NUM_VISIBLE_LEDS );</div>
+<div class="line"><a name="l01764"></a><span class="lineno"> 1764</span>&#160;        memcpy( mask_out, <a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>, NUM_VISIBLE_LEDS );</div>
 <div class="line"><a name="l01765"></a><span class="lineno"> 1765</span>&#160;    }</div>
-<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;    memcpy( leds_out, <a class="code" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a>, <span class="keyword">sizeof</span>( CRGB )*NUM_VISIBLE_LEDS );</div>
+<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;    memcpy( leds_out, leds, <span class="keyword">sizeof</span>( CRGB )*NUM_VISIBLE_LEDS );</div>
 <div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160; </div>
 <div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160;    <span class="keywordflow">for</span>( uint16_t i = 0; i &lt; NUM_VISIBLE_LEDS; i++ ){</div>
 <div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;        <span class="comment">// MASKING</span></div>
@@ -1202,12 +1202,12 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="ttc" id="aclass_pixie_chroma_html_a2fc65dd9269568f34968c4af09f627ec"><div class="ttname"><a href="class_pixie_chroma.html#a2fc65dd9269568f34968c4af09f627ec">PixieChroma::PixieChroma</a></div><div class="ttdeci">PixieChroma()</div><div class="ttdoc">Construct a Pixie Chroma class object.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00055">pixie_chroma_internal.cpp:55</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a4462c03c40883ffc28cbc5b7973dc171"><div class="ttname"><a href="class_pixie_chroma.html#a4462c03c40883ffc28cbc5b7973dc171">PixieChroma::set_line_wrap</a></div><div class="ttdeci">void set_line_wrap(bool enabled)</div><div class="ttdoc">Sets the line wrapping behavior.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00471">pixie_chroma_internal.cpp:471</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a44dfdcadcb3e913233e7f9059d73c5a4"><div class="ttname"><a href="class_pixie_chroma.html#a44dfdcadcb3e913233e7f9059d73c5a4">PixieChroma::add_char</a></div><div class="ttdeci">void add_char(char c, int16_t x_pos, int16_t y_pos)</div><div class="ttdoc">Internal function for rendering a single char to the mask buffer.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00817">pixie_chroma_internal.cpp:817</a></div></div>
+<div class="ttc" id="aclass_pixie_chroma_html_a51e0b0c0cd31c7a39b134dbac9a440a1"><div class="ttname"><a href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">PixieChroma::mask</a></div><div class="ttdeci">uint8_t * mask</div><div class="ttdoc">Contains the entire mask, including &quot;invisible&quot; areas.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00179">pixie_chroma_internal.h:179</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a5570ee487fa0299cf6cf07a09dcc51e9"><div class="ttname"><a href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9">PixieChroma::begin</a></div><div class="ttdeci">void begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y)</div><div class="ttdoc">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00100">pixie_chroma_internal.cpp:100</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a5af6bae45788a3050b50aed73eb5f1e2"><div class="ttname"><a href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2">PixieChroma::print</a></div><div class="ttdeci">void print(const uint8_t *icon)</div><div class="ttdoc">Prints an Icon to the displays, at the current cursor position.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00883">pixie_chroma_internal.cpp:883</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a60c3dccd46e28dac50b008a540719543"><div class="ttname"><a href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543">PixieChroma::free</a></div><div class="ttdeci">void free()</div><div class="ttdoc">Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01739">pixie_chroma_internal.cpp:1739</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a67b834ccdcf7f3fa8eafd4f746d34e28"><div class="ttname"><a href="class_pixie_chroma.html#a67b834ccdcf7f3fa8eafd4f746d34e28">PixieChroma::blur</a></div><div class="ttdeci">void blur(fract8 blur_amount)</div><div class="ttdoc">Blurs the mask buffer in both axes by blur_amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01209">pixie_chroma_internal.cpp:1209</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a75c1bab0aff30181ed7bc34273d881db"><div class="ttname"><a href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">PixieChroma::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears (blackens) the current mask buffer and resets the cursor to 0,0.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01422">pixie_chroma_internal.cpp:1422</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_a7f64ea97cac1cbd29924674921761233"><div class="ttname"><a href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">PixieChroma::leds</a></div><div class="ttdeci">CRGB * leds</div><div class="ttdoc">Contains the entire color map, including &quot;invisible&quot; areas.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00144">pixie_chroma_internal.h:144</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a836b7172ea635c0d5cad04a71d7ad332"><div class="ttname"><a href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332">PixieChroma::show</a></div><div class="ttdeci">void show()</div><div class="ttdoc">Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01752">pixie_chroma_internal.cpp:1752</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a8862e3c12f698c3128f614aaa064bc0e"><div class="ttname"><a href="class_pixie_chroma.html#a8862e3c12f698c3128f614aaa064bc0e">PixieChroma::get_cursor_y</a></div><div class="ttdeci">uint8_t get_cursor_y()</div><div class="ttdoc">Returns the cursor's Y position.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01391">pixie_chroma_internal.cpp:1391</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a8999f315e39ee240012a206ffd2f9701"><div class="ttname"><a href="class_pixie_chroma.html#a8999f315e39ee240012a206ffd2f9701">PixieChroma::blur_x</a></div><div class="ttdeci">void blur_x(fract8 blur_amount)</div><div class="ttdoc">Blurs the mask buffer in the X axis by blur_amount.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01221">pixie_chroma_internal.cpp:1221</a></div></div>
@@ -1248,7 +1248,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 18:47:42 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 18:57:45 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

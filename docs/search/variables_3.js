@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['leds_131',['leds',['../class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233',1,'PixieChroma']]]
+  ['gamma8_132',['gamma8',['../pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4',1,'pixie_utility.h']]]
 ];

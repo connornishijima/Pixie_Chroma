@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['font_5fcol_5fwidth_129',['font_col_width',['../pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122',1,'pixie_font.h']]]
+  ['color_5fmap_130',['color_map',['../class_pixie_chroma.html#a438496d74e5b41edfc5b5baedde07a77',1,'PixieChroma']]]
 ];

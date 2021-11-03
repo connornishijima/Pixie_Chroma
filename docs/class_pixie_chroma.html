@@ -318,15 +318,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print_xy_map</b> ()</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7f64ea97cac1cbd29924674921761233"><td class="memItemLeft" align="right" valign="top">CRGB *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">leds</a></td></tr>
-<tr class="memdesc:a7f64ea97cac1cbd29924674921761233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the entire color map, including "invisible" areas.  <a href="class_pixie_chroma.html#a7f64ea97cac1cbd29924674921761233">More...</a><br /></td></tr>
-<tr class="separator:a7f64ea97cac1cbd29924674921761233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438496d74e5b41edfc5b5baedde07a77"><td class="memItemLeft" align="right" valign="top">CRGB *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a438496d74e5b41edfc5b5baedde07a77">color_map</a></td></tr>
+<tr class="memdesc:a438496d74e5b41edfc5b5baedde07a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the entire color map, including "invisible" areas.  <a href="class_pixie_chroma.html#a438496d74e5b41edfc5b5baedde07a77">More...</a><br /></td></tr>
+<tr class="separator:a438496d74e5b41edfc5b5baedde07a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51e0b0c0cd31c7a39b134dbac9a440a1"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a></td></tr>
+<tr class="memdesc:a51e0b0c0cd31c7a39b134dbac9a440a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the entire mask, including "invisible" areas.  <a href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">More...</a><br /></td></tr>
+<tr class="separator:a51e0b0c0cd31c7a39b134dbac9a440a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fa91ac273c0d5d738bdf7a160dcc08b"><td class="memItemLeft" align="right" valign="top"><a id="a7fa91ac273c0d5d738bdf7a160dcc08b"></a>
 CRGBPalette16&#160;</td><td class="memItemRight" valign="bottom"><b>current_palette</b></td></tr>
 <tr class="separator:a7fa91ac273c0d5d738bdf7a160dcc08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51e0b0c0cd31c7a39b134dbac9a440a1"><td class="memItemLeft" align="right" valign="top"><a id="a51e0b0c0cd31c7a39b134dbac9a440a1"></a>
-uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><b>mask</b></td></tr>
-<tr class="separator:a51e0b0c0cd31c7a39b134dbac9a440a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d45d3c3ff4ae66562fd9c3a97fb4ac0"><td class="memItemLeft" align="right" valign="top"><a id="a7d45d3c3ff4ae66562fd9c3a97fb4ac0"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>matrix_width</b></td></tr>
 <tr class="separator:a7d45d3c3ff4ae66562fd9c3a97fb4ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3088,23 +3088,57 @@ pix.print(    ,   ,   ,   ,    );
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7f64ea97cac1cbd29924674921761233"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f64ea97cac1cbd29924674921761233">&#9670;&nbsp;</a></span>leds</h2>
+<a id="a438496d74e5b41edfc5b5baedde07a77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438496d74e5b41edfc5b5baedde07a77">&#9670;&nbsp;</a></span>color_map</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CRGB* PixieChroma::leds</td>
+          <td class="memname">CRGB* PixieChroma::color_map</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Contains the entire color map, including "invisible" areas. </p>
 <h6></h6>
-<p>Pixie Chroma uses "invisible" LEDs acting as padding between displays, to allow for spatial consistency. (i.e. If a word starts to scroll off the left side of one display, it will enter an "invisible" margin before it arrives on the next display. </p>
+<p>Note: Pixie Chroma uses "invisible" LEDs acting as padding between displays, to allow for spatial consistency. (i.e. If a word starts to scroll off the left side of one display, it will enter an "invisible" margin before it arrives on the next display. </p><pre class="fragment">X = Visible
+. = Invisible
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00144">144</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+. . . . . . . . . . . . . .
+. . . . . . . . . . . . . .
+. X X X X X . . X X X X X .
+. X X X X X . . X X X X X .
+. X X X X X . . X X X X X .
+. X X X X X . . X X X X X .
+. X X X X X . . X X X X X .
+. X X X X X . . X X X X X .
+. X X X X X . . X X X X X .
+. . . . . . . . . . . . . .
+. . . . . . . . . . . . . .
+</pre> 
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00160">160</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+
+</div>
+</div>
+<a id="a51e0b0c0cd31c7a39b134dbac9a440a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51e0b0c0cd31c7a39b134dbac9a440a1">&#9670;&nbsp;</a></span>mask</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* PixieChroma::mask</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Contains the entire mask, including "invisible" areas. </p>
+<h6></h6>
+<p>The "mask" is used like a semi-transparent overlay over the color map. Imagine that you had a red piece of paper: if you took a marker and blacked out all areas of the paper except for a circle in the center, it would appear as if there was a <em>red</em> circle painted on a <em>black</em> paper. This is essentially what the mask here is doing: subtracting from the output of the color map, to show text or icons.</p>
+<p>Note: Pixie Chroma uses "invisible" LEDs acting as padding between displays, to allow for spatial consistency. (i.e. If a word starts to scroll off the left side of one display, it will enter an "invisible" margin before it arrives on the next display. (See <code>CRGB *color_map</code>.) </p>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00179">179</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3118,7 +3152,7 @@ pix.print(    ,   ,   ,   ,    );
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 18:47:42 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 18:57:46 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
