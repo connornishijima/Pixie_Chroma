@@ -9,8 +9,11 @@
 #ifndef pixie_font_h
 #define pixie_font_h
 
-const uint8_t font_col_width = 5;          /*! Constant defining the width of a character */
-const uint8_t printable_ascii_offset = 32; /*! Constant defining the offset into the ASCII table that printable characters begin */
+/*! @brief  Constant defining the width of a character */
+const uint8_t font_col_width = 5;
+
+/*! @brief  Constant defining the offset into the ASCII table that printable characters begin */
+const uint8_t printable_ascii_offset = 32;
 
 /*! ############################################################################
     @brief
