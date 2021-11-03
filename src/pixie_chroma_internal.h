@@ -183,8 +183,8 @@ class PixieChroma{
 		uint16_t matrix_width;
 		uint16_t matrix_height;
 
+		uint16_t NUM_PIXELS;
 		uint16_t NUM_LEDS;
-		uint16_t NUM_VISIBLE_LEDS;
 		
         float delta = 1.0;
 		float animation_speed = 1.0;
