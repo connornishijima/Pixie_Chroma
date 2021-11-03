@@ -265,8 +265,8 @@ void PixieChroma::set_brightness(uint8_t level){
 }
 
 
-/*########################################################################*/
-/*! @brief  Accepts a const uint8_t (8-bit) array with the following format
+/*! ########################################################################
+    @brief  Accepts a const uint8_t (8-bit) array with the following format
             to generate a FastLED Gradient Palette at runtime:
 
                 const uint8_t* my_gradient_palette[] = {
@@ -288,8 +288,8 @@ void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
 }
 
 
-/*########################################################################*/
-/*! @brief  Accepts a FastLED CRGBPalette16 object to set the current color
+/*! ########################################################################
+    @brief  Accepts a FastLED CRGBPalette16 object to set the current color
             palette for animation
 	
     @param  pal FastLED CRGBPalette16 object to use
@@ -299,8 +299,8 @@ void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
 }
 
 
-/*########################################################################*/
-/*! @brief  Accepts a preset or custom function to use for the animation ISR.
+/*! ########################################################################
+    @brief  Accepts a preset or custom function to use for the animation ISR.
             For a list of predefined animations, see pixie_animations.h
 
     @param  action Function to set as an animation ISR
