@@ -2,7 +2,6 @@
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
 - :x: *Member ***font_col_width*** (variable) of file pixie_font.h is not documented.*
-- :x: *Member ***printable_ascii_offset*** (variable) of file pixie_font.h is not documented.*
 - :x: *Member ***RED_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
 - :x: *Member ***YELLOW_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
 - :x: *Member ***GREEN_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
