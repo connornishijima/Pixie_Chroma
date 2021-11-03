@@ -132,8 +132,18 @@ class PixieChroma{
 
 		// Variables -------------------------------------------------------------------------
 
-		CRGB *leds;
-		CRGBPalette16 current_palette;
+        /*! ############################################################################
+        @brief
+        Contains the entire color map, including "invisible" areas.
+        @details
+        Pixie Chroma uses "invisible" LEDs acting as padding between displays, to allow
+        for spatial consistency. (i.e. If a word starts to scroll off the left side of
+        one display, it will enter an "invisible" margin before it arrives on the next
+        display.
+		*///............................................................................
+        CRGB *leds;
+		
+        CRGBPalette16 current_palette;
         uint8_t *mask;
 
 		uint16_t matrix_width;
@@ -143,7 +153,7 @@ class PixieChroma{
 		uint16_t NUM_VISIBLE_LEDS;
 		
         float delta = 1.0;
-		
+		float animation_speed = 1.0;
 		
 	private:
 		// Functions ----------------------------------
@@ -168,7 +178,7 @@ class PixieChroma{
         int16_t *xy_table;
         float frame_rate;
         uint32_t t_last;
-        float animation_speed = 1.0;
+        
 
         float    max_V  = 5;
 		uint16_t max_mA = 500;    
