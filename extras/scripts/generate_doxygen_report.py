@@ -16,58 +16,29 @@ with open("extras/reports/doxygen/.doxyignore","r+") as f:
 output = ""
 
 for item in doxy_data:
-    if "parameter '" in item:
-        log_string = item.split("parameter ")[1]
-        output += "  "
-        output += log_string
-        output += "\n"
-        
-    elif "warning" in item:
-        if "is not documented" in item:
-            if not "PROGMEM" in item:
-                if "return type" in item:
-                    log_string = item.split("warning: ")[1]
+    if not "ICON_" in item:
+        if "not documented" in item or "are not (all) documented" in item:
+            log_string = item.split("warning: ")[1]
 
-                    log_string = log_string.split(" ")
-                    log_string[4] = "**"+log_string[4]+"**"
-                    log_string = ' '.join([str(x) for x in log_string])
-                    
-                    log_string.replace("is not documented", "**is not documented**")
-                
-                    allowed = True
-                    for item in doxy_ignore:
-                        if len(item) >= 3:
-                            if item in log_string:
-                                allowed = False
+            log_string = log_string.split(" ")
+            log_string[4] = "**"+log_string[4]+"**"
+            log_string = ' '.join([str(x) for x in log_string])
 
-                    if allowed:
-                        output += "- :x: "
-                        output += log_string
-                        output += "\n"
-                    else:
-                        print("SKIPPING: "+log_string)
-                    
-                elif not "ICON_" in item:
-                    log_string = "*"+item.split("warning: ")[1]+"*"
+            log_string.replace("is not documented", "**is not documented**")
+            log_string.replace("are not (all) documented", "**are not (all) documented**")
 
-                    log_string = log_string.split(" ")
-                    log_string[1] = "***"+log_string[1]+"***"
-                    log_string = ' '.join([str(x) for x in log_string])
-                    
-                    log_string.replace("is not documented", "**is not documented**")
+            allowed = True
+            for item in doxy_ignore:
+                if len(item) >= 3:
+                    if item in log_string:
+                        allowed = False
 
-                    allowed = True
-                    for item in doxy_ignore:
-                        if len(item) >= 3:
-                            if item in log_string:
-                                allowed = False
-
-                    if allowed:
-                        output += "- :x: "
-                        output += log_string
-                        output += "\n"
-                    else:
-                        print("SKIPPING: "+log_string)
+            if allowed:
+                output += "- :x: "
+                output += log_string
+                output += "\n"
+            else:
+                print("SKIPPING (.doxyignore): "+log_string)
                 
 final_output = []
 output = output.split("\n")
