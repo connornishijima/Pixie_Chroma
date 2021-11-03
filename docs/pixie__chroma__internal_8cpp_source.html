@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">set_max_power</a>( 5.0, 500 ); <span class="comment">// --------- Set default power budget in volts and milliamps (5.0V, 500mA)</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">//............................................................................</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">  211</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">PixieChroma::begin_quad</a>( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y ){ </div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">  211</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">PixieChroma::begin_quad</a>( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y ){    </div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    chars_x = pixies_x * 2; <span class="comment">// Pixies have two chars each</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    chars_y = pixies_y;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
@@ -430,7 +430,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                cursor_y + y_offset</div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;            );</div>
 <div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            cursor_x += display_width;</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        }       </div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        }        </div>
 <div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    }</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;}</div>
 <div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
@@ -664,7 +664,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;    uint8_t seep = blur_amount &gt;&gt; 1;</div>
 <div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;    <span class="keywordflow">for</span>(  uint8_t col = 0; col &lt; matrix_width; ++col ) {</div>
 <div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;        uint8_t carryover = 0;</div>
-<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;        <span class="keywordflow">for</span>(  uint8_t i = 0; i &lt; matrix_height; ++i ) {         </div>
+<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;        <span class="keywordflow">for</span>(  uint8_t i = 0; i &lt; matrix_height; ++i ) {            </div>
 <div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;            uint8_t cur = mask[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( col,i )];</div>
 <div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;            uint8_t part = cur;</div>
 <div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;            part = scale8( part, seep );</div>
@@ -1243,7 +1243,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 16:30:37 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 16:33:12 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
