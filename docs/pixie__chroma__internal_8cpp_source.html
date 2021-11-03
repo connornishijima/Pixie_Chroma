@@ -229,7 +229,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l00339"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63">  339</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63">PixieChroma::set_animation</a>( <span class="keywordtype">void</span> ( *action )(<span class="keywordtype">float</span>) ) {</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    anim_func = action;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <a class="code" href="pixie__utility_8h.html#a71c7ea7c7ea36c3cf4941124b58e1aaa">anim_func</a> = action;</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;}</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment">//............................................................................</span></div>
@@ -370,7 +370,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l00702"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#adc2679a49961581a4cca3353b7a047cc">  702</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a89ff2c569d6161c9b0ee6df04d2959b7">PixieChroma::write</a>( <span class="keywordtype">double</span> input, uint8_t places, uint8_t x_pos, uint8_t y_pos ){</div>
 <div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    <span class="keywordtype">char</span> char_buf[32];</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    dtoa( input, char_buf, places );</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <a class="code" href="pixie__utility_8h.html#a24480bb0ea05122af15b53664bb10fd0">dtoa</a>( input, char_buf, places );</div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160; </div>
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    <a class="code" href="class_pixie_chroma.html#a28d98417cd1e16d63bf55f07fc8434cb">write_pix</a>(</div>
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;        char_buf,</div>
@@ -546,7 +546,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01012"></a><span class="lineno"> 1012</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l01021"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#aa5f6198c9c0cfd72ce636779491284df"> 1021</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a5af6bae45788a3050b50aed73eb5f1e2">PixieChroma::print</a>( <span class="keywordtype">double</span> input, uint8_t places ){</div>
 <div class="line"><a name="l01022"></a><span class="lineno"> 1022</span>&#160;    <span class="keywordtype">char</span> char_buf[32];</div>
-<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;    dtoa( input, char_buf, places );</div>
+<div class="line"><a name="l01023"></a><span class="lineno"> 1023</span>&#160;    <a class="code" href="pixie__utility_8h.html#a24480bb0ea05122af15b53664bb10fd0">dtoa</a>( input, char_buf, places );</div>
 <div class="line"><a name="l01024"></a><span class="lineno"> 1024</span>&#160;    <a class="code" href="class_pixie_chroma.html#a28d98417cd1e16d63bf55f07fc8434cb">write_pix</a>( char_buf, cursor_x, cursor_y );</div>
 <div class="line"><a name="l01025"></a><span class="lineno"> 1025</span>&#160;}</div>
 <div class="line"><a name="l01026"></a><span class="lineno"> 1026</span>&#160; </div>
@@ -621,7 +621,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l01181"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#ab27af21db66261416baeb7dce24ef871"> 1181</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a203dbbe34e3185372be5c72173cad23e">PixieChroma::println</a>( <span class="keywordtype">double</span> input, uint8_t places ){</div>
 <div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;    <span class="keywordtype">char</span> char_buf[32];</div>
-<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;    dtoa( input, char_buf, places );</div>
+<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;    <a class="code" href="pixie__utility_8h.html#a24480bb0ea05122af15b53664bb10fd0">dtoa</a>( input, char_buf, places );</div>
 <div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;    <a class="code" href="class_pixie_chroma.html#a203dbbe34e3185372be5c72173cad23e">println</a>( char_buf );</div>
 <div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;}</div>
 <div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160; </div>
@@ -994,7 +994,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01747"></a><span class="lineno"> 1747</span>&#160;    delta = fps_target / frame_rate;</div>
 <div class="line"><a name="l01748"></a><span class="lineno"> 1748</span>&#160;    t_last = t_now;</div>
 <div class="line"><a name="l01749"></a><span class="lineno"> 1749</span>&#160;    </div>
-<div class="line"><a name="l01750"></a><span class="lineno"> 1750</span>&#160;    anim_func( delta ); <span class="comment">// Call custom animation function</span></div>
+<div class="line"><a name="l01750"></a><span class="lineno"> 1750</span>&#160;    <a class="code" href="pixie__utility_8h.html#a71c7ea7c7ea36c3cf4941124b58e1aaa">anim_func</a>( delta ); <span class="comment">// Call custom animation function</span></div>
 <div class="line"><a name="l01751"></a><span class="lineno"> 1751</span>&#160;    </div>
 <div class="line"><a name="l01752"></a><span class="lineno"> 1752</span>&#160;    noInterrupts(); <span class="comment">//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></div>
 <div class="line"><a name="l01753"></a><span class="lineno"> 1753</span>&#160;    </div>
@@ -1238,14 +1238,16 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="ttc" id="apixie__font_8h_html_a466d75720b43bffb634bd65bee67cc3c"><div class="ttname"><a href="pixie__font_8h.html#a466d75720b43bffb634bd65bee67cc3c">printable_ascii_offset</a></div><div class="ttdeci">const uint8_t printable_ascii_offset</div><div class="ttdoc">Constant defining the offset into the ASCII table that printable characters begin.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__font_8h_source.html#l00016">pixie_font.h:16</a></div></div>
 <div class="ttc" id="apixie__font_8h_html_a7fd2ad7110bef083d6e8fd223ddc3122"><div class="ttname"><a href="pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122">font_col_width</a></div><div class="ttdeci">const uint8_t font_col_width</div><div class="ttdoc">Constant defining the width of a character.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__font_8h_source.html#l00013">pixie_font.h:13</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html"><div class="ttname"><a href="pixie__utility_8h.html">pixie_utility.h</a></div></div>
-<div class="ttc" id="apixie__utility_8h_html_a496f73fd03363df4c9a299c3108094a4"><div class="ttname"><a href="pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4">gamma8</a></div><div class="ttdeci">const uint8_t gamma8[]</div><div class="ttdoc">Used as a fast lookup table for gamma correction.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00032">pixie_utility.h:32</a></div></div>
+<div class="ttc" id="apixie__utility_8h_html_a24480bb0ea05122af15b53664bb10fd0"><div class="ttname"><a href="pixie__utility_8h.html#a24480bb0ea05122af15b53664bb10fd0">dtoa</a></div><div class="ttdeci">char * dtoa(double d, char *buffer, int precision)</div><div class="ttdoc">Homebrew function to convert double precision floats to char*. Arduino Forum link</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00053">pixie_utility.h:53</a></div></div>
+<div class="ttc" id="apixie__utility_8h_html_a496f73fd03363df4c9a299c3108094a4"><div class="ttname"><a href="pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4">gamma8</a></div><div class="ttdeci">const uint8_t gamma8[]</div><div class="ttdoc">Used as a fast lookup table for gamma correction.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00033">pixie_utility.h:33</a></div></div>
+<div class="ttc" id="apixie__utility_8h_html_a71c7ea7c7ea36c3cf4941124b58e1aaa"><div class="ttname"><a href="pixie__utility_8h.html#a71c7ea7c7ea36c3cf4941124b58e1aaa">anim_func</a></div><div class="ttdeci">void(* anim_func)(float delta)</div><div class="ttdoc">Used to store the pointer to any preset/custom animation functions the library needs to call during s...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00015">pixie_utility.h:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 18:27:57 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 18:29:26 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
