@@ -269,8 +269,7 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_palettes.h:84: warning: Member GRADIENT_BLACK_GREEN_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:90: warning: Member GRADIENT_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:95: warning: Member GRADIENT_BLACK_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
-/github/workspace/src/utility/pixie_utility.h:53: warning: parameters of member dtoa are not (all) documented
-/github/workspace/src/utility/pixie_utility.h:53: warning: return type of member dtoa is not documented
+/github/workspace/src/utility/pixie_utility.h:58: warning: parameters of member dtoa are not (all) documented
 /github/workspace/src/pixie_chroma_internal.h:130: warning: Member print_xy_map() (function) of class PixieChroma is not documented.
 /github/workspace/src/pixie_chroma_internal.h:135: warning: Member leds (variable) of class PixieChroma is not documented.
 /github/workspace/src/pixie_chroma_internal.h:136: warning: Member leds_out (variable) of class PixieChroma is not documented.
