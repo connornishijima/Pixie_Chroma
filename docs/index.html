@@ -158,7 +158,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Set the color palette to use for showing our text</span></div>
 <div class="line">  pix.<a class="code" href="class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117">set_palette</a>(</div>
-<div class="line">    make_gradient( <span class="comment">// ........... For our palette, we&#39;ll generate a gradient from:</span></div>
+<div class="line">    <a class="code" href="pixie__animations_8cpp.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>( <span class="comment">// ........... For our palette, we&#39;ll generate a gradient from:</span></div>
 <div class="line">      CRGB(255, 0,   0  ), <span class="comment">// ... RED,</span></div>
 <div class="line">      CRGB(0,   255, 0  ), <span class="comment">// ... GREEN,</span></div>
 <div class="line">      CRGB(255, 0,   0  )  <span class="comment">// ... and RED.</span></div>
@@ -196,6 +196,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="ttc" id="aclass_pixie_chroma_html_adf400f08ce7d2e3252aff91b8e5b8622"><div class="ttname"><a href="class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622">PixieChroma::set_update_mode</a></div><div class="ttdeci">void set_update_mode(t_update_mode mode, uint16_t FPS=60)</div><div class="ttdoc">Allows for automatic show() calls at a specified frames per second if AUTOMATIC is used....</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00498">pixie_chroma_internal.cpp:498</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_af4c7b1051ce21bf03cfd69d30869fa6c"><div class="ttname"><a href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">PixieChroma::begin_quad</a></div><div class="ttdeci">void begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y)</div><div class="ttdoc">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00218">pixie_chroma_internal.cpp:218</a></div></div>
 <div class="ttc" id="apixie__animations_8cpp_html_a26e7ecc10bdd314d7f8cd6e53d1da0e5"><div class="ttname"><a href="pixie__animations_8cpp.html#a26e7ecc10bdd314d7f8cd6e53d1da0e5">ANIMATION_PALETTE_SHIFT_RIGHT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_RIGHT(float delta)</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the right.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00050">pixie_animations.cpp:50</a></div></div>
+<div class="ttc" id="apixie__animations_8cpp_html_a2b39ccf276d680bc3f1fb41eef9f53ea"><div class="ttname"><a href="pixie__animations_8cpp.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a></div><div class="ttdeci">CRGBPalette16 make_gradient(CRGB col1, CRGB col2)</div><div class="ttdoc">Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00103">pixie_animations.cpp:103</a></div></div>
 <div class="ttc" id="apixie__chroma__internal_8h_html_a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda"><div class="ttname"><a href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda">AUTOMATIC</a></div><div class="ttdeci">@ AUTOMATIC</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00017">pixie_chroma_internal.h:17</a></div></div>
 </div><!-- fragment --><p>As you can see, Pixie Chroma is <b>as easy or advanced as you need!</b> Luckily, you don't need to dive into documentation to get started - the included examples (<code>File -&gt; Examples -&gt; Pixie_Chroma</code>) are an easy template to modify for your own projects! </p>
 </div></div><!-- PageDoc -->
@@ -204,7 +205,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Nov 3 2021 21:26:05 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 21:27:57 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
