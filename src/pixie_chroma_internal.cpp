@@ -20,8 +20,9 @@
 // ```
 
 /*! ############################################################################
-    @brief  Used for auto_update() so that Ticker can access this specific
-            Pixie Chroma instance. Slightly hacky with the `extern`.
+    @brief
+    Used for auto_update() so that Ticker can access this specific Pixie Chroma
+    instance. Slightly hacky with the `extern`.
 *///............................................................................
 void show_container(){
     extern PixieChroma pix;
@@ -55,44 +56,46 @@ PixieChroma::PixieChroma(){}
 
 
 /*! ############################################################################
-    @brief    Initializes the display buffer, populates the XY coordinate
-              table, defaults the display colors to green, loads the default
-              CRGBPalette, initializes FastLED, and sets the default power budget.
+    @brief
+    Initializes the display buffer, populates the XY coordinate table, defaults
+    the display colors to green, loads the default CRGBPalette, initializes
+    FastLED, and sets the default power budget.
              
-    @details  Pixie Chroma allows for multi-row displays, which are wired in
-              reading order (left to right, top to bottom) and their shape is
-              defined here. For example, a 16-Pixie display with two rows of eight:
+    @details
+    Pixie Chroma allows for multi-row displays, which are wired in reading
+    order (left to right, top to bottom) and their shape is defined here. For
+    example, a 16-Pixie display with two rows of eight:
               
-                  data_pin
-                     |
-                  +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
-                  |  1 |-->|  2 |-->|  3 |-->|  4 |-->|  5 |-->|  6 |-->|  7 |-->|  8 | 
-                  +----+   +----+   +----+   +----+   +----+   +----+   +----+   +--+-+
-                                                                                    |
-                     +--------------------------------------------------------------+
-                     |
-                  +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
-                  |  9 |-->| 10 |-->| 11 |-->| 12 |-->| 13 |-->| 14 |-->| 15 |-->| 16 | 
-                  +----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
-             
-              The corresponding setup for this display layout would be:
-             
-                  #include "Pixie_Chroma.h"
-                  PixieChroma pix;
-          
-                  #define DATA_PIN 5
-                  #define PIXIES_X 8
-                  #define PIXIES_Y 2
-          
-                  void setup() {
-                    pix.begin( DATA_PIN, PIXIES_X, PIXIES_Y );
-                  }
-              
-              For faster performance on large displays, see begin_quad().
-      
-    @param    data_pin GPIO pin to use for FastLED output
-    @param    pixies_x Number of Pixie PCBs in the X axis of your display
-    @param    pixies_y Number of Pixie PCBs in the Y axis of your display
+        data_pin
+           |
+        +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+        |  1 |-->|  2 |-->|  3 |-->|  4 |-->|  5 |-->|  6 |-->|  7 |-->|  8 | 
+        +----+   +----+   +----+   +----+   +----+   +----+   +----+   +--+-+
+                                                                          |
+           +--------------------------------------------------------------+
+           |
+        +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+        |  9 |-->| 10 |-->| 11 |-->| 12 |-->| 13 |-->| 14 |-->| 15 |-->| 16 | 
+        +----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+
+    The corresponding setup for this display layout would be:
+    
+        #include "Pixie_Chroma.h"
+        PixieChroma pix;
+        
+        #define DATA_PIN 5
+        #define PIXIES_X 8
+        #define PIXIES_Y 2
+        
+        void setup() {
+            pix.begin( DATA_PIN, PIXIES_X, PIXIES_Y );
+        }
+    
+    For faster performance on large displays, see begin_quad().
+    
+    @param  data_pin GPIO pin to use for FastLED output
+    @param  pixies_x Number of Pixie PCBs in the X axis of your display
+    @param  pixies_y Number of Pixie PCBs in the Y axis of your display
 *///............................................................................
 void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y ){
     pixie_pin = data_pin;
