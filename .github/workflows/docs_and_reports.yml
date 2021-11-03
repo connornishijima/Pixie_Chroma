@@ -8,6 +8,7 @@ on:
     - '**.sh'
     - '**.py'
     - '**Doxyfile'
+    - '**doxyignore'
     - 'keywords.txt'
   pull_request:
     paths:
@@ -17,6 +18,7 @@ on:
     - '**.sh'
     - '**.py'
     - '**Doxyfile'
+    - '**doxyignore'
     - 'keywords.txt'
 jobs:
   build:
