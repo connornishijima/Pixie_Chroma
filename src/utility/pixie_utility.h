@@ -57,44 +57,45 @@ Homebrew function to convert double precision floats to char*. [Arduino Forum li
 @param   precision  How many places after the decimal point will be converted
 @return  A char array equivalent of the input double
 */
-char* dtoa(double input, char *buffer, int precision) {
-	long wholePart = (long) d;
+char* dtoa(double input, char* buffer, int precision) {
+	int32_t whole_part = (int32_t) input;
 
 	// Deposit the whole part of the number.
-	itoa(wholePart,buffer,10);
+	itoa( whole_part, buffer, 10 );
 
 	// Now work on the faction if we need one.
-	if (precision > 0) {
+	if( precision > 0 ) {
 
 		// We do, so locate the end of the string and insert
 		// a decimal point.
-		char *endOfString = buffer;
-		while (*endOfString != '\0') endOfString++;
-		*endOfString++ = '.';
+		char* end_of_string = buffer;
+		while( *end_of_string != '\0' ){
+			end_of_string++;
+        }
+		*end_of_string++ = '.';
 
 		// Now work on the fraction, being sure to turn any negative
 		// values positive.
-		if (d < 0) {
-			d *= -1;
-			wholePart *= -1;
+		if (input < 0) {
+			input *= -1;
+			whole_part *= -1;
 		}
 		
-		double fraction = d - wholePart;
+		double fraction = input - whole_part;
 		while (precision > 0) {
-
 			// Multiply by ten and pull out the digit.
 			fraction *= 10;
-			wholePart = (long) fraction;
-			*endOfString++ = '0' + wholePart;
+			whole_part = (int32_t) fraction;
+			*end_of_string++ = '0' + whole_part;
 
 			// Update the fraction and move on to the
 			// next digit.
-			fraction -= wholePart;
+			fraction -= whole_part;
 			precision--;
 		}
 
 		// Terminate the string.
-		*endOfString = '\0';
+		*end_of_string = '\0';
 	}
 	
     return buffer;
