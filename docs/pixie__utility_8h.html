@@ -98,9 +98,9 @@ $(document).ready(function(){initNavTree('pixie__utility_8h.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a24480bb0ea05122af15b53664bb10fd0"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pixie__utility_8h.html#a24480bb0ea05122af15b53664bb10fd0">dtoa</a> (double d, char *buffer, int precision)</td></tr>
-<tr class="memdesc:a24480bb0ea05122af15b53664bb10fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Homebrew function to convert double precision floats to char*. <a href="https://forum.arduino.cc/t/ftoa/63464">Arduino Forum link</a>  <a href="pixie__utility_8h.html#a24480bb0ea05122af15b53664bb10fd0">More...</a><br /></td></tr>
-<tr class="separator:a24480bb0ea05122af15b53664bb10fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d88d8fb62831ea1977c2cc9789d89ec"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pixie__utility_8h.html#a2d88d8fb62831ea1977c2cc9789d89ec">dtoa</a> (double input, char *buffer, int precision)</td></tr>
+<tr class="memdesc:a2d88d8fb62831ea1977c2cc9789d89ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Homebrew function to convert double precision floats to char*. <a href="https://forum.arduino.cc/t/ftoa/63464">Arduino Forum link</a>  <a href="pixie__utility_8h.html#a2d88d8fb62831ea1977c2cc9789d89ec">More...</a><br /></td></tr>
+<tr class="separator:a2d88d8fb62831ea1977c2cc9789d89ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -121,8 +121,8 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pi
 
 <p class="definition">Definition in file <a class="el" href="pixie__utility_8h_source.html">pixie_utility.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a24480bb0ea05122af15b53664bb10fd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24480bb0ea05122af15b53664bb10fd0">&#9670;&nbsp;</a></span>dtoa()</h2>
+<a id="a2d88d8fb62831ea1977c2cc9789d89ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d88d8fb62831ea1977c2cc9789d89ec">&#9670;&nbsp;</a></span>dtoa()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +131,7 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pi
           <td class="memname">char* dtoa </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
+          <td class="paramname"><em>input</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -154,9 +154,17 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pi
 </div><div class="memdoc">
 
 <p>Homebrew function to convert double precision floats to char*. <a href="https://forum.arduino.cc/t/ftoa/63464">Arduino Forum link</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Double value to convert </td></tr>
+    <tr><td class="paramname">buffer</td><td>char* to store resulting string in </td></tr>
+    <tr><td class="paramname">precision</td><td>How many places after the decimal point will be converted </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>A char array equivalent of the input double </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__utility_8h_source.html#l00058">58</a> of file <a class="el" href="pixie__utility_8h_source.html">pixie_utility.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__utility_8h_source.html#l00060">60</a> of file <a class="el" href="pixie__utility_8h_source.html">pixie_utility.h</a>.</p>
 
 </div>
 </div>
@@ -234,7 +242,7 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__utility_8h.html">pixie_utility.h</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 21:27:57 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 21:31:40 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
