@@ -173,28 +173,26 @@ class PixieChroma{
 		
 		// Variables ----------------------------------
 		Ticker animate;
-		uint8_t  pixie_pin;
-		
-		bool correct_gamma = false;
-		uint8_t brightness_level = 255;
-		
-		float    max_V  = 5;
-		uint16_t max_mA = 800;
 
 		const uint8_t display_width  = 7;
 		const uint8_t display_height = 11;
-
-		uint8_t chars_x;
-		uint8_t chars_y;
-
+		const uint8_t leds_per_pixie = 70;
 		const uint8_t bit_table[2] = {0,255};
+
+        float    max_V  = 5;
+		uint16_t max_mA = 800;
+
+		bool correct_gamma = false;
+		bool line_wrap = false;
+		uint8_t brightness_level = 255;
 		
 		bool freeze = false;
 		bool ticker_running = false;
-
 		float fps_target = 60;
 		
-		bool line_wrap = false;
+        uint8_t pixie_pin;
+		uint8_t chars_x;
+		uint8_t chars_y;
 };
 
 #endif
