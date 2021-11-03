@@ -13,13 +13,10 @@
 #include "Pixie_Chroma.h" 
 #include "utility/pixie_utility.h"
 
-/**************************************************************************/
-/*!
-    @brief  Used for auto_update() so that Ticker can access this specific
+
+/*! @brief  Used for auto_update() so that Ticker can access this specific
             Pixie Chroma instance. Slightly hacky with the `extern`.
-*/
-/**************************************************************************/
-void show_container(){
+*/ void show_container(){
 	extern PixieChroma pix;
 	pix.show();
 }
@@ -253,24 +250,22 @@ void PixieChroma::begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t p
 	set_max_power(5, 500); // ------------ Set default power budget in volts and milliamps
 }
 
-
-/**************************************************************************/
-/*!
-    @brief  Takes an 8-bit brightness value and passes it to FastLED
+// TODO: Convert all Doxygen comments to a more compact style
+//       (Seen here)
+/*########################################################################*/
+/*! @brief  Takes an 8-bit brightness value and passes it to FastLED
             internally, to provide global brightness control with temporal
-            dithering
+            dithering.
 	
     @param  level 8-bit global brightness value (0-255)
-*/
-/**************************************************************************/
+..........................................................................*/
 void PixieChroma::set_brightness(uint8_t level){
 	brightness_level = level;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Accepts a const uint8_t (8-bit) array with the following format
+/*########################################################################*/
+/*! @brief  Accepts a const uint8_t (8-bit) array with the following format
             to generate a FastLED Gradient Palette at runtime:
 
                 const uint8_t* my_gradient_palette[] = {
@@ -286,34 +281,29 @@ void PixieChroma::set_brightness(uint8_t level){
             blue at 255.
 				
     @param  pal FastLED "Gradient Palette" array
-*/
-/**************************************************************************/
+..........................................................................*/
 void PixieChroma::set_palette(const uint8_t* pal){ // GRADIENT PALETTE
 	current_palette.loadDynamicGradientPalette(pal);
 }
 
 
-/**************************************************************************/
-/*!
-    @brief  Accepts a FastLED CRGBPalette16 object to set the current color
+/*########################################################################*/
+/*! @brief  Accepts a FastLED CRGBPalette16 object to set the current color
             palette for animation
 	
     @param  pal FastLED CRGBPalette16 object to use
-*/
-/**************************************************************************/
+..........................................................................*/
 void PixieChroma::set_palette(CRGBPalette16 pal){ // STANDARD PALETTE
 	current_palette = pal;
 }
 
 
-/**************************************************************************/
-/*!
-    @brief	Accepts a preset or custom function to use for the animation ISR.
+/*########################################################################*/
+/*! @brief  Accepts a preset or custom function to use for the animation ISR.
             For a list of predefined animations, see pixie_animations.h
 
     @param  action Function to set as an animation ISR
-*/
-/**************************************************************************/
+..........................................................................*/
 void PixieChroma::set_animation(void (*action)(float)) {
 	anim_func = action;
 }
