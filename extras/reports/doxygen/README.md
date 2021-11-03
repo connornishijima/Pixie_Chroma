@@ -1,44 +1,5 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: *Member ***font_col_width*** (variable) of file pixie_font.h is not documented.*
-- :x: *Member ***RED_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***YELLOW_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***GREEN_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***CYAN_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***BLUE_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***PURPLE_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***MAGENTA_SOLID[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***RAINBOW[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***GRADIENT_RED_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***GRADIENT_BLACK_RED_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***GRADIENT_GREEN_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***GRADIENT_BLACK_GREEN_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***GRADIENT_BLUE_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***GRADIENT_BLACK_BLUE_BLACK[]*** (variable) of file pixie_palettes.h is not documented.*
-- :x: *Member ***dtoa(double*** d, char *buffer, int precision) (function) of file pixie_utility.h is not documented.*
-- :x: *Member ***anim_func)(float*** delta) (variable) of file pixie_utility.h is not documented.*
-- :x: *Member ***print_xy_map()*** (function) of class PixieChroma is not documented.*
-- :x: *Member ***leds*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***leds_out*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***mask*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***mask_out*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***xy_table*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***matrix_width*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***matrix_height*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***NUM_LEDS*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***NUM_VISIBLE_LEDS*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***cursor_x*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***cursor_y*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***current_palette*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***frame_rate*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***t_last*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***delta*** (variable) of class PixieChroma is not documented.*
-- :x: *Member ***animation_speed*** (variable) of class PixieChroma is not documented.*
   'x_offset'
   'y_offset'
-- :x: return type of member **PixieChroma::get_cursor_x** is not documented
-- :x: return type of member **PixieChroma::get_cursor_y** is not documented
-- :x: return type of member **PixieChroma::get_cursor_x_exact** is not documented
-- :x: return type of member **PixieChroma::get_cursor_y_exact** is not documented
-- :x: return type of member **PixieChroma::kelvin_to_rgb** is not documented
