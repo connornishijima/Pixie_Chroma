@@ -1320,12 +1320,12 @@ void PixieChroma::color_blur_x( fract8 blur_amount ){
     for(  uint8_t row = 0; row < matrix_height; row++ ) {
         uint8_t carryover = 0;
         for(  uint8_t i = 0; i < matrix_width; i++ ) {
-            CRGB cur = leds[xy( i,row )];
+            CRGB cur = color_map[xy( i,row )];
             CRGB part = cur;
             part.nscale8(  seep );
             cur.nscale8(  keep );
             cur += carryover;
-            if(  i ) leds[xy( i-1,row )] += part;
+            if(  i ) color_map[xy( i-1,row )] += part;
             color_map[xy( i,row )] = cur;
             carryover = part;
         }
@@ -1346,12 +1346,12 @@ void PixieChroma::color_blur_y( fract8 blur_amount ){
     for(  uint8_t row = 0; row < matrix_width; row++ ) {
         CRGB carryover = CRGB::Black;
         for(  uint8_t i = 0; i < matrix_height; i++ ) {
-            CRGB cur = leds[xy( i,row )];
+            CRGB cur = color_map[xy( i,row )];
             CRGB part = cur;
             part.nscale8(  seep );
             cur.nscale8(  keep );
             cur += carryover;
-            if(  i ) leds[xy( i-1,row )] += part;
+            if(  i ) color_map[xy( i-1,row )] += part;
             color_map[xy( i,row )] = cur;
             carryover = part;
         }
