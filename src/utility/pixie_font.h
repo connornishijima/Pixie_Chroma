@@ -9,9 +9,33 @@
 #ifndef pixie_font_h
 #define pixie_font_h
 
-const uint8_t font_col_width = 5;
-const uint8_t printable_ascii_offset = 32;
+const uint8_t font_col_width = 5;          /*! Constant defining the width of a character */
+const uint8_t printable_ascii_offset = 32; /*! Constant defining the offset into the ASCII table that printable characters begin */
 
+/*! ############################################################################
+    @brief
+    Internal lookup table for ASCII font bitmaps.
+    
+    @details
+    For example, here is the binary bitmap for the character '5', in 5 columns
+    of 8 bits:
+    
+        B00101111, B01001001, B01001001, B01001001, B00110001
+
+        OR, WRITTEN VERTICALLY:
+        
+        1   1   1   1   1  LSB
+        1   0   0   0   0
+        1   0   0   0   0
+        1   1   1   1   0
+        0   0   0   0   1
+        1   0   0   0   1
+        0   1   1   1   0  
+        0   0   0   0   0  MSB (unused)
+        B   B   B   B   B
+        
+    Notice how the '1' bits above form a '5' when written out this way.
+*///............................................................................
 const uint8_t font[480] PROGMEM = {
 	  0x00, 0x00, 0x00, 0x00, 0x00, // (space)  00
 	  0x00, 0x00, 0x5F, 0x00, 0x00, // !        01
