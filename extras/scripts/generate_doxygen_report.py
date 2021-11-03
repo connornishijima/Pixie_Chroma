@@ -32,6 +32,21 @@ for item in doxy_data:
                     log_string[4] = "**"+log_string[4]+"**"
                     log_string = ' '.join([str(x) for x in log_string])
                     
+                    log_string.replace("is not documented", "**is not documented**")
+                
+                    allowed = True
+                    for item in doxy_ignore:
+                        if len(item) >= 3:
+                            if item in log_string:
+                                allowed = False
+
+                    if allowed:
+                        output += "- :x: "
+                        output += log_string
+                        output += "\n"
+                    else:
+                        print("SKIPPING: "+log_string)
+                    
                 elif not "ICON_" in item:
                     log_string = "*"+item.split("warning: ")[1]+"*"
 
@@ -39,20 +54,20 @@ for item in doxy_data:
                     log_string[1] = "***"+log_string[1]+"***"
                     log_string = ' '.join([str(x) for x in log_string])
                     
-                log_string.replace("is not documented", "**is not documented**")
+                    log_string.replace("is not documented", "**is not documented**")
 
-                allowed = True
-                for item in doxy_ignore:
-                    if len(item) >= 3:
-                        if item in log_string:
-                            allowed = False
-                
-                if allowed:
-                    output += "- :x: "
-                    output += log_string
-                    output += "\n"
-                else:
-                    print("SKIPPING: "+log_string)
+                    allowed = True
+                    for item in doxy_ignore:
+                        if len(item) >= 3:
+                            if item in log_string:
+                                allowed = False
+
+                    if allowed:
+                        output += "- :x: "
+                        output += log_string
+                        output += "\n"
+                    else:
+                        print("SKIPPING: "+log_string)
                 
 final_output = []
 output = output.split("\n")
