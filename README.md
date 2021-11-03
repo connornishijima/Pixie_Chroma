@@ -22,7 +22,13 @@
 
 **[@lixielabs](https://twitter.com/lixielabs)**
 
-**PIXIE CHROMA** is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO! Here's a quick peek at how easy that is:
+# About
+
+**PIXIE CHROMA** is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO!
+
+# Demo
+
+Here's a quick peek at how easy it is to use a Pixie display:
 
 ```cpp
 #include "Pixie_Chroma.h"
@@ -43,7 +49,7 @@ void loop() {
 }
 ```
 		
-In this case, (in just 16 lines) you're in control of over 800 LEDs to show any text you'd like! 
+In just 16 lines, you're in control of over 800 LEDs to show any text you'd like! 
 	
 Pixie Chroma also makes it extremely easy to control advanced animation in the background while other code runs! For example:
 
@@ -97,4 +103,4 @@ void loop() {
 }
 ```
 
-As you can see, Pixie Chroma is **as easy or advanced as you need!**
+As you can see, Pixie Chroma is **as easy or advanced as you need!** Luckily, you don't need to dive into documentation to get started - the included examples (`File -> Examples -> Pixie_Chroma`) are an easy template to modify for your own projects!
