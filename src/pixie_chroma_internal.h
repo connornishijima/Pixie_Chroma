@@ -7,6 +7,9 @@
  * Last Updated by Connor Nishijima on 10/20/21 
  */
 
+// TODO: Increase readability with spaced parameters
+//       I.e. `print( value );` vs `print(value);`
+
 #ifndef pixie_chroma_h
 #define pixie_chroma_h
 
