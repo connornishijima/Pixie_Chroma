@@ -67,13 +67,13 @@ void ANIMATION_GLITTER(float delta){
 	}
 }
 
-void _PENDULUM(float iter, float width){
+void _PENDULUM(float center_position, float sway_width){
 	extern PixieChroma pix;		
-	iter *= width;
+	center_position *= sway_width;
 	
 	for(uint16_t x = 0; x < pix.matrix_width; x++){
 		float progress = float(x / float(pix.matrix_width+4));
-		float palette_index = (progress*255)+iter;
+		float palette_index = (progress*255)+center_position;
 		
 		if(palette_index < 0){
 			palette_index = 0;
@@ -91,13 +91,13 @@ void _PENDULUM(float iter, float width){
 }
 
 void ANIMATION_PENDULUM(float delta){
-	float iter = (beatsin8(60)-128);
-	_PENDULUM(iter,0.5);
+	float center_position = (beatsin8(60)-128);
+	_PENDULUM(center_position,0.5);
 }
 
 void ANIMATION_PENDULUM_WIDE(float delta){
-	float iter = (beatsin8(60)-128);
-	_PENDULUM(iter,1.0);
+	float center_position = (beatsin8(60)-128);
+	_PENDULUM(center_position,1.0);
 }
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2){
