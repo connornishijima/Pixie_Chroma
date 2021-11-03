@@ -93,36 +93,36 @@ PixieChroma::PixieChroma(){}
 	@param  pixies_y Number of Pixie PCBs in the Y axis of your display
 */
 /**************************************************************************/
-void PixieChroma::begin(const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y){
+void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y ){
 	pixie_pin = data_pin;
 
-	chars_x = pixies_x*2; // Pixies have two chars each
+	chars_x = pixies_x * 2; // Pixies have two chars each
 	chars_y = pixies_y;
 
-	matrix_width  = display_width*chars_x;
-	matrix_height = display_height*chars_y;
+	matrix_width  = display_width  * chars_x;
+	matrix_height = display_height * chars_y;
 
-	NUM_LEDS = (matrix_width*matrix_height);
+	NUM_LEDS = ( matrix_width * matrix_height );
 
-	leds = new CRGB[NUM_LEDS+1]; // Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask
-	mask = new uint8_t[NUM_LEDS+1];
-	xy_table = new int16_t[NUM_LEDS];
+	leds = new CRGB[ NUM_LEDS + 1 ]; // Hidden extra LED to write to if we call an out-of-bounds XY coordinate for color or mask
+	mask = new uint8_t[ NUM_LEDS + 1 ];
+	xy_table = new int16_t[ NUM_LEDS ];
 
 	calc_xy();
 
-	mask_out = new uint8_t[NUM_VISIBLE_LEDS];
-	leds_out = new CRGB[NUM_VISIBLE_LEDS];
+	mask_out = new uint8_t[ NUM_VISIBLE_LEDS ];
+	leds_out = new CRGB[ NUM_VISIBLE_LEDS ];
 
-	for(uint16_t i = 0; i < NUM_VISIBLE_LEDS; i++){
-		leds[i] = CRGB(0,255,0);
+	for( uint16_t i = 0; i < NUM_VISIBLE_LEDS; i++ ){
+		leds[ i ] = CRGB( 0, 255, 0 );
 	}
 
-	current_palette.loadDynamicGradientPalette(GREEN_SOLID);
+	current_palette.loadDynamicGradientPalette( GREEN_SOLID );
 
-	build_controller(pixie_pin); // ------ Initialize FastLED
-	set_animation(ANIMATION_NULL); // ---- Set animation function to an empty one
-	clear(); // -------------------------- Clear anything in mask (should be empty anyways), reset cursor
-	set_max_power(5.0, 500); // ---------- Set default power budget in volts and milliamps (5.0V, 500mA)
+	build_controller( pixie_pin ); // ----- Initialize FastLED
+	set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
+	clear(); // --------------------------- Clear anything in mask (should be empty anyways), reset cursor
+	set_max_power( 5.0, 500 ); // --------- Set default power budget in volts and milliamps (5.0V, 500mA)
 }
 
 
