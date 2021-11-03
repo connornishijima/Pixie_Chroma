@@ -136,15 +136,49 @@ class PixieChroma{
         @brief
         Contains the entire color map, including "invisible" areas.
         @details
-        Pixie Chroma uses "invisible" LEDs acting as padding between displays, to allow
+        Note: Pixie Chroma uses "invisible" LEDs acting as padding between displays, to allow
         for spatial consistency. (i.e. If a word starts to scroll off the left side of
         one display, it will enter an "invisible" margin before it arrives on the next
         display.
+        
+            X = Visible
+            . = Invisible
+        
+            . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . .
+            . X X X X X . . X X X X X .
+            . X X X X X . . X X X X X .
+            . X X X X X . . X X X X X .
+            . X X X X X . . X X X X X .
+            . X X X X X . . X X X X X .
+            . X X X X X . . X X X X X .
+            . X X X X X . . X X X X X .
+            . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . .
+        
 		*///............................................................................
-        CRGB *leds;
-		
-        CRGBPalette16 current_palette;
+        CRGB *color_map;
+    
+        /*! ############################################################################
+        @brief
+        Contains the entire mask, including "invisible" areas.
+        @details
+        The "mask" is used like a semi-transparent overlay over the color map. Imagine
+        that you had a red piece of paper: if you took a marker and blacked out all
+        areas of the paper except for a circle in the center, it would appear as if
+        there was a *red* circle painted on a *black* paper. This is essentially what
+        the mask here is doing: subtracting from the output of the color map, to show
+        text or icons.
+        
+        Note: Pixie Chroma uses "invisible" LEDs acting as padding between displays, to allow
+        for spatial consistency. (i.e. If a word starts to scroll off the left side of
+        one display, it will enter an "invisible" margin before it arrives on the next
+        display. (See `CRGB *color_map`.)
+        
+		*///............................................................................
         uint8_t *mask;
+    
+        CRGBPalette16 current_palette;
 
 		uint16_t matrix_width;
 		uint16_t matrix_height;
@@ -173,7 +207,7 @@ class PixieChroma{
         volatile int16_t cursor_x;
 		volatile int16_t cursor_y;
     
-        CRGB *leds_out;
+        CRGB *color_map_out;
         uint8_t *mask_out;
         int16_t *xy_table;
         float frame_rate;
