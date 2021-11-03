@@ -90,4 +90,4 @@ void loop() {
 }
 ```
 
-As you can see, Pixie Chroma is as easy or advanced as you need! 
+As you can see, Pixie Chroma is **as easy or advanced as you need!**
