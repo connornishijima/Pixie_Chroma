@@ -2,10 +2,15 @@
 <img src="extras/img/logo.png">
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
-   · · · <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a> · · · 
-  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet"><b>DATASHEET</b></a> · · · 
-  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=tutorials"><b>TUTORIALS</b></a> · · · 
-  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=oshw"><b>OSHW</b></a> · · · 
+  &nbsp;&nbsp;· · ·&nbsp;&nbsp;
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a>
+  &nbsp;&nbsp;· · ·&nbsp;&nbsp;
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet"><b>DATASHEET</b></a>
+  &nbsp;&nbsp;· · ·&nbsp;&nbsp;
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=tutorials"><b>TUTORIALS</b></a>
+  &nbsp;&nbsp;· · ·&nbsp;&nbsp;
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=oshw"><b>OSHW</b></a>
+  &nbsp;&nbsp;· · ·&nbsp;&nbsp;
 </p>
 <br>
 <p align="center">
