@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gamma8_123',['gamma8',['../pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4',1,'pixie_utility.h']]]
+  ['font_5fcol_5fwidth_124',['font_col_width',['../pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122',1,'pixie_font.h']]]
 ];

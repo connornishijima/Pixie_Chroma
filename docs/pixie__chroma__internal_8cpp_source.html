@@ -440,8 +440,8 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;        chr -= <a class="code" href="pixie__font_8h.html#a466d75720b43bffb634bd65bee67cc3c">printable_ascii_offset</a>;</div>
 <div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    }</div>
 <div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160; </div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="keywordflow">for</span>( uint8_t x = 0; x &lt; font_col_width; x++ ){</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;        uint8_t column = pgm_read_byte( font + ( chr * font_col_width + x ) );</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="keywordflow">for</span>( uint8_t x = 0; x &lt; <a class="code" href="pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122">font_col_width</a>; x++ ){</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;        uint8_t column = pgm_read_byte( font + ( chr * <a class="code" href="pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122">font_col_width</a> + x ) );</div>
 <div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; </div>
 <div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;        uint16_t row1_index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+x, y_pos+0 );</div>
 <div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;        uint16_t row2_index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+x, y_pos+1 );</div>
@@ -464,7 +464,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160; </div>
 <div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l00853"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#afe6f1a95e2b3bb1d6e22ad2866dc5f67">  853</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_pixie_chroma.html#a44dfdcadcb3e913233e7f9059d73c5a4">PixieChroma::add_char</a>( <span class="keyword">const</span> uint8_t* icon, int16_t x_pos, int16_t y_pos ){</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    <span class="keywordflow">for</span>( uint8_t x = 0; x &lt; font_col_width; x++ ){</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    <span class="keywordflow">for</span>( uint8_t x = 0; x &lt; <a class="code" href="pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122">font_col_width</a>; x++ ){</div>
 <div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;        uint8_t column = pgm_read_byte_far( icon+x );</div>
 <div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160; </div>
 <div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;        uint16_t row1_index = <a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+x, y_pos+0 );</div>
@@ -822,7 +822,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;    int16_t x_pos = x * display_width  + display_padding_x;</div>
 <div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;    int16_t y_pos = y * display_height + display_padding_y;</div>
 <div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;    </div>
-<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;    <span class="keywordflow">for</span>( uint8_t xi = 0; xi &lt; font_col_width; xi++ ){</div>
+<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;    <span class="keywordflow">for</span>( uint8_t xi = 0; xi &lt; <a class="code" href="pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122">font_col_width</a>; xi++ ){</div>
 <div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+0 )] = col;</div>
 <div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+1 )] = col;</div>
 <div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;        leds[<a class="code" href="class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af">xy</a>( x_pos+xi, y_pos+2 )] = col;</div>
@@ -1235,7 +1235,8 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="ttc" id="apixie__chroma__internal_8h_html_a8dbce326e7d153234a6fa2f171dfd19c"><div class="ttname"><a href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19c">t_update_mode</a></div><div class="ttdeci">t_update_mode</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00016">pixie_chroma_internal.h:16</a></div></div>
 <div class="ttc" id="apixie__chroma__internal_8h_html_a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda"><div class="ttname"><a href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda">AUTOMATIC</a></div><div class="ttdeci">@ AUTOMATIC</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00017">pixie_chroma_internal.h:17</a></div></div>
 <div class="ttc" id="apixie__chroma__internal_8h_html_a8dbce326e7d153234a6fa2f171dfd19ca506e8dd29460ea318b68d035f679b01b"><div class="ttname"><a href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19ca506e8dd29460ea318b68d035f679b01b">MANUAL</a></div><div class="ttdeci">@ MANUAL</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00019">pixie_chroma_internal.h:18</a></div></div>
-<div class="ttc" id="apixie__font_8h_html_a466d75720b43bffb634bd65bee67cc3c"><div class="ttname"><a href="pixie__font_8h.html#a466d75720b43bffb634bd65bee67cc3c">printable_ascii_offset</a></div><div class="ttdeci">const uint8_t printable_ascii_offset</div><div class="ttdef"><b>Definition:</b> <a href="pixie__font_8h_source.html#l00013">pixie_font.h:13</a></div></div>
+<div class="ttc" id="apixie__font_8h_html_a466d75720b43bffb634bd65bee67cc3c"><div class="ttname"><a href="pixie__font_8h.html#a466d75720b43bffb634bd65bee67cc3c">printable_ascii_offset</a></div><div class="ttdeci">const uint8_t printable_ascii_offset</div><div class="ttdoc">Constant defining the offset into the ASCII table that printable characters begin.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__font_8h_source.html#l00016">pixie_font.h:16</a></div></div>
+<div class="ttc" id="apixie__font_8h_html_a7fd2ad7110bef083d6e8fd223ddc3122"><div class="ttname"><a href="pixie__font_8h.html#a7fd2ad7110bef083d6e8fd223ddc3122">font_col_width</a></div><div class="ttdeci">const uint8_t font_col_width</div><div class="ttdoc">Constant defining the width of a character.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__font_8h_source.html#l00013">pixie_font.h:13</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html"><div class="ttname"><a href="pixie__utility_8h.html">pixie_utility.h</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html_a496f73fd03363df4c9a299c3108094a4"><div class="ttname"><a href="pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4">gamma8</a></div><div class="ttdeci">const uint8_t gamma8[]</div><div class="ttdoc">Used as a fast lookup table for gamma correction.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00032">pixie_utility.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -1244,7 +1245,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Wed Nov 3 2021 18:19:24 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Nov 3 2021 18:20:43 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
