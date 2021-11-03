@@ -11,7 +11,6 @@
 - :x: parameters of member ANIMATION_PENDULUM **are** not (all) documented
 - :x: parameters of member ANIMATION_PENDULUM_WIDE **are** not (all) documented
 - :x: parameters of member make_gradient **are** not (all) documented
-- :x: Member GRADIENT_BLACK_BLUE_BLACK[] (variable) of **file** pixie_palettes.h is not documented.
 - :x: parameters of member dtoa **are** not (all) documented
 
 To see more information, check the [full Doxygen log](../../../docs/doxy.log).
