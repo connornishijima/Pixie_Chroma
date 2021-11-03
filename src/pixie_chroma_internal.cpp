@@ -763,7 +763,7 @@ void PixieChroma::write_pix( const uint8_t* icon, int16_t x_offset, int16_t y_of
     write char* strings that are not aligned to whole display positions, such
     as during smooth scrolling.
     
-    @param  icon      Icon to render
+    @param  message   char* of text to render
     @param  x_offset  X pixel position of write **[optional]**
     @param  y_offset  Y pixel position of write **[optional]**
 *///............................................................................
