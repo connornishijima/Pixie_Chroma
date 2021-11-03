@@ -96,7 +96,7 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta);
     @param  center_position  Offset of the color palette left or right
     @param  sway_width       Offset multiplier
 *///............................................................................
-void _PENDULUM(float center_position, float sway_width){
+void _PENDULUM(float center_position, float sway_width);
 
     
 /*! ############################################################################
