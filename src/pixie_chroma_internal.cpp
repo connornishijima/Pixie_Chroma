@@ -856,7 +856,7 @@ void PixieChroma::print( const uint8_t* icon ){
 /*! ############################################################################
     @brief    Prints an icon to the displays at the current cursor position,
               taking five uint8_t as input for the column data.
-    
+              
     @details  Example:
               
                   pix.print( B00101111, B01001001, B01001001, B01001001, B00110001 );
@@ -876,7 +876,7 @@ void PixieChroma::print( const uint8_t* icon ){
               
               This writes a "5" to the display, seen above in the "1" bits of
               each column. The MSB ( highest bit ) is not used in icons.
-    
+              
     @param    icon_col_1  Column 1 data of this icon
     @param    icon_col_2  Column 2 data of this icon
     @param    icon_col_3  Column 3 data of this icon
