@@ -178,15 +178,47 @@ class PixieChroma{
 		*///............................................................................
         uint8_t *mask;
     
+        /*! ############################################################################
+        @brief
+        The current FastLED CRGBPalette16 used for animations.
+		*///............................................................................
         CRGBPalette16 current_palette;
-
+        
+        /*! ############################################################################
+        @brief
+        Stores the final width of the matrix, including invisible pixels.
+		*///............................................................................
 		uint16_t matrix_width;
+    
+        /*! ############################################################################
+        @brief
+        Stores the final height of the matrix, including invisible pixels.
+		*///............................................................................
 		uint16_t matrix_height;
 
+        /*! ############################################################################
+        @brief
+        Stores the total number of pixels, including invisible pixels.
+		*///............................................................................
 		uint16_t NUM_PIXELS;
+    
+        /*! ############################################################################
+        @brief
+        Stores the total number of physical LEDs, not including invisible pixels.
+		*///............................................................................
 		uint16_t NUM_LEDS;
 		
+        /*! ############################################################################
+        @brief
+        Used by animation functions as a way of self-regulating speed if performance
+        drops, similar to a game engine.
+		*///............................................................................
         float delta = 1.0;
+    
+        /*! ############################################################################
+        @brief
+        Used by animation functions to scale the apparent speed of animation.
+		*///............................................................................
 		float animation_speed = 1.0;
 		
 	private:
