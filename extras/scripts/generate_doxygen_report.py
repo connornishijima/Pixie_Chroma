@@ -51,6 +51,8 @@ for item in doxy_data:
                     output += "- :x: "
                     output += log_string
                     output += "\n"
+                else:
+                    print("SKIPPING: "+log_string)
                 
 final_output = []
 output = output.split("\n")
