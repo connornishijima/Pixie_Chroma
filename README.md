@@ -68,7 +68,7 @@ void setup() {
   );
 
   // Set the animation preset to "PALETTE SHIFT RIGHT",
-  // which will cause our gradient to scroll right-to-left
+  // which will cause our gradient to scroll left-to-right
   pix.set_animation( ANIMATION_PALETTE_SHIFT_RIGHT );
   
   // Run animation at half-speed
