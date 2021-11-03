@@ -1,7 +1,6 @@
 ### Doxygen coverage report: 
 #### Any undocumented objects currently seen by Doxygen will appear here after every CI test!
 ---------------------------------------------------------
-- :x: *Member ***dtoa(double*** d, char *buffer, int precision) (function) of file pixie_utility.h is not documented.*
 - :x: *Member ***anim_func)(float*** delta) (variable) of file pixie_utility.h is not documented.*
 - :x: *Member ***print_xy_map()*** (function) of class PixieChroma is not documented.*
 - :x: *Member ***leds*** (variable) of class PixieChroma is not documented.*
