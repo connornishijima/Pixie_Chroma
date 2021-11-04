@@ -9,77 +9,65 @@
 
 #include "pixie_animations.h"
 
-void ANIMATION_NULL(float delta){
+void ANIMATION_NULL(PixieChroma* _p, float delta){
 	// It does nothing, but it does nothing REALLY WELL! You can enable this
-	// empty function with pix.set_animation(ANIMATION_NULL) to manually control color when you want
+	// empty function with p.set_animation(ANIMATION_NULL) to manually control color when you want
 }
 
-// TODO: Remove need for hardcoded "pix" extern in animation functions
-
-void ANIMATION_STATIC(float delta){
-	extern PixieChroma pix;
-
-	for(uint16_t x = 0; x < pix.matrix_width; x++){
-		float progress = float(x / float(pix.matrix_width+4));
-		CRGB col = ColorFromPalette(pix.current_palette, progress*255);
-		for(uint16_t y = 0; y < pix.matrix_height; y++){
-			uint16_t index = pix.xy(x,y);			
-			pix.color_map[index] = col;
+void ANIMATION_STATIC(PixieChroma* _p, float delta){
+	for(uint16_t x = 0; x < _p->matrix_width; x++){
+		float progress = float(x / float(_p->matrix_width+4));
+		CRGB col = ColorFromPalette(_p->current_palette, progress*255);
+		for(uint16_t y = 0; y < _p->matrix_height; y++){
+			uint16_t index = _p->xy(x,y);			
+			_p->color_map[index] = col;
 		}
 	}
 }
 
-
-void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta){
-	extern PixieChroma pix;
+void ANIMATION_PALETTE_SHIFT(PixieChroma* _p, int8_t amount, float delta){
 	static float iter = 0;
 
-	for(uint16_t x = 0; x < pix.matrix_width; x++){
-		float progress = float(x / float(pix.matrix_width+4));
-		CRGB col = ColorFromPalette(pix.current_palette, progress*255+iter);
-		for(uint16_t y = 0; y < pix.matrix_height; y++){
-			uint16_t index = pix.xy(x,y);
-			pix.color_map[index] = col;
+	for(uint16_t x = 0; x < _p->matrix_width; x++){
+		float progress = float(x / float(_p->matrix_width+4));
+		CRGB col = ColorFromPalette(_p->current_palette, progress*255+iter);
+		for(uint16_t y = 0; y < _p->matrix_height; y++){
+			uint16_t index = _p->xy(x,y);
+			_p->color_map[index] = col;
 		}
 	}
 
-	iter += amount * pix.animation_speed * delta;
+	iter += amount * _p->animation_speed * delta;
 }
 
-
-void ANIMATION_PALETTE_SHIFT_LEFT(float delta){
-	ANIMATION_PALETTE_SHIFT(4, delta);
+void ANIMATION_PALETTE_SHIFT_LEFT(PixieChroma* _p, float delta){
+	ANIMATION_PALETTE_SHIFT(_p, 4, delta);
 }
 
-
-void ANIMATION_PALETTE_SHIFT_RIGHT(float delta){
-	ANIMATION_PALETTE_SHIFT(-4, delta);
+void ANIMATION_PALETTE_SHIFT_RIGHT(PixieChroma* _p, float delta){
+	ANIMATION_PALETTE_SHIFT(_p, -4, delta);
 }
 
+void ANIMATION_GLITTER(PixieChroma* _p, float delta){
+	_p->color_dim(16); // Fade to black by 6.25%;
 
-void ANIMATION_GLITTER(float delta){
-	extern PixieChroma pix;
-	pix.color_dim(16); // Fade to black by 6.25%;
-
-	for(uint16_t x = 0; x < pix.matrix_width; x++){
-		float progress = float(x / float(pix.matrix_width+4));
-		for(uint16_t y = 0; y < pix.matrix_height; y++){
+	for(uint16_t x = 0; x < _p->matrix_width; x++){
+		float progress = float(x / float(_p->matrix_width+4));
+		for(uint16_t y = 0; y < _p->matrix_height; y++){
 			if(random8() <= 32){ // 12.5% chance
-				uint16_t index = pix.xy(x,y);
-				CRGB col = ColorFromPalette(pix.current_palette, progress*255);
-				pix.color_map[index] = col;
+				uint16_t index = _p->xy(x,y);
+				CRGB col = ColorFromPalette(_p->current_palette, progress*255);
+				_p->color_map[index] = col;
 			}
 		}
 	}
 }
 
-
-void _PENDULUM(float center_position, float sway_width){
-	extern PixieChroma pix;		
+void _PENDULUM(PixieChroma* _p, float center_position, float sway_width){
 	center_position *= sway_width;
 	
-	for(uint16_t x = 0; x < pix.matrix_width; x++){
-		float progress = float(x / float(pix.matrix_width+4));
+	for(uint16_t x = 0; x < _p->matrix_width; x++){
+		float progress = float(x / float(_p->matrix_width+4));
 		float palette_index = (progress*255)+center_position;
 		
 		if(palette_index < 0){
@@ -89,26 +77,23 @@ void _PENDULUM(float center_position, float sway_width){
 			palette_index = 255;
 		}
 		
-		CRGB col = ColorFromPalette(pix.current_palette, uint8_t(palette_index));		
-		for(uint16_t y = 0; y < pix.matrix_height; y++){
-			uint16_t index = pix.xy(x,y);			
-			pix.color_map[index] = col;
+		CRGB col = ColorFromPalette(_p->current_palette, uint8_t(palette_index));		
+		for(uint16_t y = 0; y < _p->matrix_height; y++){
+			uint16_t index = _p->xy(x,y);			
+			_p->color_map[index] = col;
 		}
 	}
 }
 
-
-void ANIMATION_PENDULUM(float delta){
+void ANIMATION_PENDULUM(PixieChroma* _p, float delta){
 	float center_position = (beatsin8(60)-128);
-	_PENDULUM(center_position,0.5);
+	_PENDULUM(_p,center_position,0.5);
 }
 
-
-void ANIMATION_PENDULUM_WIDE(float delta){
+void ANIMATION_PENDULUM_WIDE(PixieChroma* _p, float delta){
 	float center_position = (beatsin8(60)-128);
-	_PENDULUM(center_position,1.0);
+	_PENDULUM(_p, center_position,1.0);
 }
-
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2){
 	const uint8_t gradient[] = {
@@ -121,7 +106,6 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2){
 	return pal;
 }
 
-
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3){
 	const uint8_t gradient[] = {
 		0,    col1.r, col1.g, col1.b,
@@ -133,7 +117,6 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3){
 	
 	return pal;
 }
-
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4){
 	const uint8_t gradient[] = {
@@ -148,7 +131,6 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4){
 	return pal;
 }
 
-
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5){
 	const uint8_t gradient[] = {
 		0,    col1.r, col1.g, col1.b,
@@ -162,7 +144,6 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col
 	
 	return pal;
 }
-
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6){
 	const uint8_t gradient[] = {
@@ -179,7 +160,6 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col
 	return pal;
 }
 
-
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7){
 	const uint8_t gradient[] = {
 		0,    col1.r, col1.g, col1.b,
@@ -195,7 +175,6 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col
 	
 	return pal;
 }
-
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8){
 	const uint8_t gradient[] = {

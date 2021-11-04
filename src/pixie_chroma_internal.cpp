@@ -104,7 +104,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     current_palette.loadDynamicGradientPalette( GREEN_SOLID );
 
     build_controller( pixie_pin ); // ----- Initialize FastLED
-    set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
+    //set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
     clear(); // --------------------------- Clear anything in mask (should be empty anyways), reset cursor
     set_max_power( 5.0, 500 ); // --------- Set default power budget in volts and milliamps (5.0V, 500mA)
 }
@@ -253,7 +253,7 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
 
     #endif
     
-    set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
+    //set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
     clear(); // --------------------------- Clear anything in mask ( should be empty anyways ), reset cursor
     set_max_power( 5, 500 ); // ----------- Set default power budget in volts and milliamps
 }
@@ -316,7 +316,7 @@ void PixieChroma::set_palette( CRGBPalette16 pal ){ // STANDARD PALETTE
     
     @param  action  Function to set as an animation ISR
 *///............................................................................
-void PixieChroma::set_animation( void ( *action )(float) ) {
+void PixieChroma::set_animation( void ( *action )(PixieChroma*, float) ) {
     anim_func = action;
 }
 
@@ -1911,7 +1911,7 @@ void PixieChroma::show(){
     delta = fps_target / frame_rate;
     t_last = t_now;
     
-    anim_func( delta ); // Call custom animation function
+    anim_func( this, delta ); // Call custom animation function
     
     noInterrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     

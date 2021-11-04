@@ -12,7 +12,7 @@
 // Extra utilities for PixieChroma code, such as the gamma LUT
 
 /*! @brief  Used to store the pointer to any preset/custom animation functions the library needs to call during show(); */
-void (*anim_func)(float delta);
+void (*anim_func)(PixieChroma* _p, float delta);
 
 /*! @brief  Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context. */
 const int8_t xy_template[77] PROGMEM = {  

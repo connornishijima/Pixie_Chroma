@@ -20,7 +20,7 @@
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_NULL(float delta); // Prototype definition needed so pixie_chroma_internal.cpp can reach these functions as well as the sketch
+void ANIMATION_NULL(PixieChroma* _p, float delta); // Prototype definition needed so pixie_chroma_internal.cpp can reach these functions as well as the sketch
 
 
 /*! ############################################################################
@@ -29,7 +29,7 @@ void ANIMATION_NULL(float delta); // Prototype definition needed so pixie_chroma
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_STATIC(float delta);
+void ANIMATION_STATIC(PixieChroma* _p, float delta);
 
 
 /*! ############################################################################
@@ -38,7 +38,7 @@ void ANIMATION_STATIC(float delta);
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_PALETTE_SHIFT_LEFT(float delta);
+void ANIMATION_PALETTE_SHIFT_LEFT(PixieChroma* _p, float delta);
 
 
 /*! ############################################################################
@@ -47,7 +47,7 @@ void ANIMATION_PALETTE_SHIFT_LEFT(float delta);
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_PALETTE_SHIFT_RIGHT(float delta);
+void ANIMATION_PALETTE_SHIFT_RIGHT(PixieChroma* _p, float delta);
 
 
 /*! ############################################################################
@@ -56,7 +56,7 @@ void ANIMATION_PALETTE_SHIFT_RIGHT(float delta);
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_GLITTER(float delta);
+void ANIMATION_GLITTER(PixieChroma* _p, float delta);
 
 
 /*! ############################################################################
@@ -66,7 +66,7 @@ void ANIMATION_GLITTER(float delta);
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_PENDULUM(float delta);
+void ANIMATION_PENDULUM(PixieChroma* _p, float delta);
 
 
 /*! ############################################################################
@@ -76,7 +76,7 @@ void ANIMATION_PENDULUM(float delta);
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_PENDULUM_WIDE(float delta);
+void ANIMATION_PENDULUM_WIDE(PixieChroma* _p, float delta);
 
 
 /*! ############################################################################
@@ -86,7 +86,7 @@ void ANIMATION_PENDULUM_WIDE(float delta);
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta);
+void ANIMATION_PALETTE_SHIFT(PixieChroma* _p, int8_t amount, float delta);
 
 
 /*! ############################################################################
@@ -96,7 +96,7 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta);
     @param  center_position  Offset of the color palette left or right
     @param  sway_width       Offset multiplier
 *///............................................................................
-void _PENDULUM(float center_position, float sway_width);
+void _PENDULUM(PixieChroma* _p, float center_position, float sway_width);
 
     
 /*! ############################################################################

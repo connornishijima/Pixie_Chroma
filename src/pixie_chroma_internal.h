@@ -34,7 +34,7 @@ class PixieChroma{
 		/*|*/ void set_brightness( uint8_t level );
 		/*|*/ void set_palette( const uint8_t* pal );
 		/*|*/ void set_palette( CRGBPalette16 pal );
-		/*|*/ void set_animation( void ( *action )( float ) );
+		/*|*/ void set_animation( void ( *action )( PixieChroma*, float ) );
 		/*|*/ void set_animation_speed( float speed );
 		/*|*/ void set_gamma_correction( bool enabled );
 		/*|*/ void set_max_power( float volts, uint16_t milliamps );
