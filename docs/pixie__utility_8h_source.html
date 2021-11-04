@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('pixie__utility_8h_source.html',''); in
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// Extra utilities for PixieChroma code, such as the gamma LUT</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="pixie__utility_8h.html#a71c7ea7c7ea36c3cf4941124b58e1aaa">   15</a></span>&#160;void (*<a class="code" href="pixie__utility_8h.html#a71c7ea7c7ea36c3cf4941124b58e1aaa">anim_func</a>)(<span class="keywordtype">float</span> delta);</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="pixie__utility_8h.html#a67d14d9a3ae463e4b4a0fd90cd472518">   15</a></span>&#160;void (*<a class="code" href="pixie__utility_8h.html#a67d14d9a3ae463e4b4a0fd90cd472518">anim_func</a>)(<a class="code" href="class_pixie_chroma.html">PixieChroma</a>* _p, <span class="keywordtype">float</span> delta);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="pixie__utility_8h.html#ab96bd90634bb0e6e4a0258490750a425">   18</a></span>&#160;<span class="keyword">const</span> int8_t xy_template[77] <a class="code" href="pixie__utility_8h.html#ab96bd90634bb0e6e4a0258490750a425">PROGMEM</a> = {  </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    -2, -2, -2, -2, -2, -2, -2,</div>
@@ -176,9 +176,10 @@ $(document).ready(function(){initNavTree('pixie__utility_8h_source.html',''); in
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_pixie_chroma_html"><div class="ttname"><a href="class_pixie_chroma.html">PixieChroma</a></div><div class="ttdoc">This is the software documentation for using Pixie Chroma functions on Arduino! For full example usag...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00026">pixie_chroma_internal.h:26</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html_a2d88d8fb62831ea1977c2cc9789d89ec"><div class="ttname"><a href="pixie__utility_8h.html#a2d88d8fb62831ea1977c2cc9789d89ec">dtoa</a></div><div class="ttdeci">char * dtoa(double input, char *buffer, int precision)</div><div class="ttdoc">Homebrew C function to convert double precision floats to char*. (Arduino Forum link)</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00060">pixie_utility.h:60</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html_a496f73fd03363df4c9a299c3108094a4"><div class="ttname"><a href="pixie__utility_8h.html#a496f73fd03363df4c9a299c3108094a4">gamma8</a></div><div class="ttdeci">const uint8_t gamma8[]</div><div class="ttdoc">Used as a fast lookup table for gamma correction.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00033">pixie_utility.h:33</a></div></div>
-<div class="ttc" id="apixie__utility_8h_html_a71c7ea7c7ea36c3cf4941124b58e1aaa"><div class="ttname"><a href="pixie__utility_8h.html#a71c7ea7c7ea36c3cf4941124b58e1aaa">anim_func</a></div><div class="ttdeci">void(* anim_func)(float delta)</div><div class="ttdoc">Used to store the pointer to any preset/custom animation functions the library needs to call during s...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00015">pixie_utility.h:15</a></div></div>
+<div class="ttc" id="apixie__utility_8h_html_a67d14d9a3ae463e4b4a0fd90cd472518"><div class="ttname"><a href="pixie__utility_8h.html#a67d14d9a3ae463e4b4a0fd90cd472518">anim_func</a></div><div class="ttdeci">void(* anim_func)(PixieChroma *_p, float delta)</div><div class="ttdoc">Used to store the pointer to any preset/custom animation functions the library needs to call during s...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00015">pixie_utility.h:15</a></div></div>
 <div class="ttc" id="apixie__utility_8h_html_ab96bd90634bb0e6e4a0258490750a425"><div class="ttname"><a href="pixie__utility_8h.html#ab96bd90634bb0e6e4a0258490750a425">PROGMEM</a></div><div class="ttdeci">const int8_t xy_template[77] PROGMEM</div><div class="ttdoc">Used as a template by calc_xy() to build the XY coordinate map for accessing 1D LEDS in a 2D context.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__utility_8h_source.html#l00018">pixie_utility.h:18</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -186,7 +187,7 @@ $(document).ready(function(){initNavTree('pixie__utility_8h_source.html',''); in
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0619a8f54b4fad7043a6de45be8fde0b.html">utility</a></li><li class="navelem"><a class="el" href="pixie__utility_8h.html">pixie_utility.h</a></li>
-    <li class="footer">Generated on Thu Nov 4 2021 17:37:37 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Nov 4 2021 18:18:13 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

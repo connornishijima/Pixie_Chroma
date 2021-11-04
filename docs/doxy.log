@@ -1,4 +1,40 @@
 warning: source 'docs/img' is not a readable file or directory... skipping.
+/github/workspace/src/utility/pixie_animations.cpp:12: warning: The following parameter of ANIMATION_NULL(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.cpp:17: warning: The following parameter of ANIMATION_STATIC(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.cpp:28: warning: The following parameter of ANIMATION_PALETTE_SHIFT(PixieChroma *_p, int8_t amount, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.cpp:43: warning: The following parameter of ANIMATION_PALETTE_SHIFT_LEFT(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.cpp:47: warning: The following parameter of ANIMATION_PALETTE_SHIFT_RIGHT(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.cpp:51: warning: The following parameter of ANIMATION_GLITTER(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.cpp:66: warning: The following parameter of _PENDULUM(PixieChroma *_p, float center_position, float sway_width) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.cpp:88: warning: The following parameter of ANIMATION_PENDULUM(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.cpp:93: warning: The following parameter of ANIMATION_PENDULUM_WIDE(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:23: warning: The following parameter of ANIMATION_NULL(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:32: warning: The following parameter of ANIMATION_STATIC(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:41: warning: The following parameter of ANIMATION_PALETTE_SHIFT_LEFT(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:50: warning: The following parameter of ANIMATION_PALETTE_SHIFT_RIGHT(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:59: warning: The following parameter of ANIMATION_GLITTER(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:69: warning: The following parameter of ANIMATION_PENDULUM(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:79: warning: The following parameter of ANIMATION_PENDULUM_WIDE(PixieChroma *_p, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:89: warning: The following parameter of ANIMATION_PALETTE_SHIFT(PixieChroma *_p, int8_t amount, float delta) is not documented:
+  parameter '_p'
+/github/workspace/src/utility/pixie_animations.h:99: warning: The following parameter of _PENDULUM(PixieChroma *_p, float center_position, float sway_width) is not documented:
+  parameter '_p'
 /github/workspace/src/utility/pixie_icons.h:15: warning: Member ICON_ARROW_UP[5] (variable) of file pixie_icons.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:16: warning: Member ICON_ARROW_UP_LEFT[5] (variable) of file pixie_icons.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:17: warning: Member ICON_ARROW_UP_RIGHT[5] (variable) of file pixie_icons.h is not documented.

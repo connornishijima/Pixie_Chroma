@@ -6,7 +6,7 @@ var class_pixie_chroma =
     [ "set_brightness", "class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44", null ],
     [ "set_palette", "class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117", null ],
     [ "set_palette", "class_pixie_chroma.html#a73b485321858edb0900e35a56a77fa8f", null ],
-    [ "set_animation", "class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63", null ],
+    [ "set_animation", "class_pixie_chroma.html#a737b1d3147fb2c27582ac57ee0220db1", null ],
     [ "set_animation_speed", "class_pixie_chroma.html#aabf61038df573b7c6d9e09ee918ffbe2", null ],
     [ "set_gamma_correction", "class_pixie_chroma.html#aea494d2e17eff09cc25fff8b4d25e441", null ],
     [ "set_max_power", "class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7", null ],

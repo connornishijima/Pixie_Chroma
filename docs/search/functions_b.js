@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['set_5fanimation_128',['set_animation',['../class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63',1,'PixieChroma']]],
+  ['set_5fanimation_128',['set_animation',['../class_pixie_chroma.html#a737b1d3147fb2c27582ac57ee0220db1',1,'PixieChroma']]],
   ['set_5fanimation_5fspeed_129',['set_animation_speed',['../class_pixie_chroma.html#aabf61038df573b7c6d9e09ee918ffbe2',1,'PixieChroma']]],
   ['set_5fbrightness_130',['set_brightness',['../class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44',1,'PixieChroma']]],
   ['set_5fcursor_131',['set_cursor',['../class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942',1,'PixieChroma']]],

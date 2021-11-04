@@ -120,9 +120,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a73b485321858edb0900e35a56a77fa8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a73b485321858edb0900e35a56a77fa8f">set_palette</a> (CRGBPalette16 pal)</td></tr>
 <tr class="memdesc:a73b485321858edb0900e35a56a77fa8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a FastLED CRGBPalette16 object to set the current color palette for animation.  <a href="class_pixie_chroma.html#a73b485321858edb0900e35a56a77fa8f">More...</a><br /></td></tr>
 <tr class="separator:a73b485321858edb0900e35a56a77fa8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cd185e6de2d136bfff69615c02dac63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63">set_animation</a> (void(*action)(float))</td></tr>
-<tr class="memdesc:a1cd185e6de2d136bfff69615c02dac63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a preset or custom function to use for the animation ISR.  <a href="class_pixie_chroma.html#a1cd185e6de2d136bfff69615c02dac63">More...</a><br /></td></tr>
-<tr class="separator:a1cd185e6de2d136bfff69615c02dac63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a737b1d3147fb2c27582ac57ee0220db1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a737b1d3147fb2c27582ac57ee0220db1">set_animation</a> (void(*action)(<a class="el" href="class_pixie_chroma.html">PixieChroma</a> *, float))</td></tr>
+<tr class="memdesc:a737b1d3147fb2c27582ac57ee0220db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a preset or custom function to use for the animation ISR.  <a href="class_pixie_chroma.html#a737b1d3147fb2c27582ac57ee0220db1">More...</a><br /></td></tr>
+<tr class="separator:a737b1d3147fb2c27582ac57ee0220db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabf61038df573b7c6d9e09ee918ffbe2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#aabf61038df573b7c6d9e09ee918ffbe2">set_animation_speed</a> (float speed)</td></tr>
 <tr class="memdesc:aabf61038df573b7c6d9e09ee918ffbe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to scale the animation speed of animation ISRs that can use pix.animation_speed() to scale their speeds or for other effects.  <a href="class_pixie_chroma.html#aabf61038df573b7c6d9e09ee918ffbe2">More...</a><br /></td></tr>
 <tr class="separator:aabf61038df573b7c6d9e09ee918ffbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -665,8 +665,8 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
 
 </div>
 </div>
-<a id="a1cd185e6de2d136bfff69615c02dac63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cd185e6de2d136bfff69615c02dac63">&#9670;&nbsp;</a></span>set_animation()</h2>
+<a id="a737b1d3147fb2c27582ac57ee0220db1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a737b1d3147fb2c27582ac57ee0220db1">&#9670;&nbsp;</a></span>set_animation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -674,7 +674,7 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
         <tr>
           <td class="memname">void PixieChroma::set_animation </td>
           <td>(</td>
-          <td class="paramtype">void(*)(float)&#160;</td>
+          <td class="paramtype">void(*)(<a class="el" href="class_pixie_chroma.html">PixieChroma</a> *, float)&#160;</td>
           <td class="paramname"><em>action</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3523,7 +3523,7 @@ pix.print(    ,   ,   ,   ,    );
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Thu Nov 4 2021 17:37:37 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Nov 4 2021 18:18:13 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
