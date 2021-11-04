@@ -140,7 +140,6 @@ var NAVTREEINDEX0 =
 "pixie__animations_8h.html#af6fb8b82b790c05f2231e4a689a21721":[1,0,0,0,1,11],
 "pixie__animations_8h_source.html":[1,0,0,0,1],
 "pixie__chroma__internal_8cpp.html":[1,0,0,2],
-"pixie__chroma__internal_8cpp.html#a99ff998592ae5ada3cf1ea9a11aeca34":[1,0,0,2,0],
 "pixie__chroma__internal_8cpp_source.html":[1,0,0,2],
 "pixie__chroma__internal_8h.html":[1,0,0,3],
 "pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19c":[1,0,0,3,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "pixie__icons_8h.html#a6d3b1d5ea749cd2784c60ea76328bcf4":[1,0,0,0,3,126],
 "pixie__icons_8h.html#a6dd5b82c661a8a727711ca03b6ee1034":[1,0,0,0,3,215],
 "pixie__icons_8h.html#a6eb5dbaa50ffad8d2172907d6d01219c":[1,0,0,0,3,118],
-"pixie__icons_8h.html#a6fe198546ff75898d05c3bfff499125f":[1,0,0,0,3,78]
+"pixie__icons_8h.html#a6fe198546ff75898d05c3bfff499125f":[1,0,0,0,3,78],
+"pixie__icons_8h.html#a71786fd037a25c106032e82fbb02de47":[1,0,0,0,3,104]
 };
