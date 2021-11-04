@@ -739,9 +739,9 @@ void PixieChroma::write( float input, uint8_t places, uint8_t x_pos, uint8_t y_p
     This can also be used to write Icons that are not aligned to whole display
     positions, such as during smooth scrolling.
     
-    @param  icon      Icon to render
-    @param  x_offset  X pixel position of write **[optional]**
-    @param  y_offset  Y pixel position of write **[optional]**
+    @param  icon    Icon to render
+    @param  x_dest  X pixel position of write **[optional]**
+    @param  y_dest  Y pixel position of write **[optional]**
 *///............................................................................
 void PixieChroma::write_pix( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){
     add_char(
@@ -762,9 +762,9 @@ void PixieChroma::write_pix( const uint8_t* icon, int16_t x_dest, int16_t y_dest
     write char* strings that are not aligned to whole display positions, such
     as during smooth scrolling.
     
-    @param  message   char* of text to render
-    @param  x_offset  X pixel position of write **[optional]**
-    @param  y_offset  Y pixel position of write **[optional]**
+    @param  message  char* of text to render
+    @param  x_dest   X pixel position of write **[optional]**
+    @param  y_dest   Y pixel position of write **[optional]**
 *///............................................................................
 void PixieChroma::write_pix( char* message, int16_t x_dest, int16_t y_dest ){
 	int16_t offset_x = 0;
@@ -815,9 +815,9 @@ void PixieChroma::write_pix( char* message, int16_t x_dest, int16_t y_dest ){
     All other write() function overloads eventually end up casted to char*
     strings and passed to this function one character at a time for rendering.
     
-    @param  chr    char to render
-    @param  x_pos  X pixel position of write
-    @param  y_pos  Y pixel position of write
+    @param  chr     char to render
+    @param  x_dest  X pixel position of write
+    @param  y_dest  Y pixel position of write
 *///............................................................................
 void PixieChroma::add_char( char chr, int16_t x_dest, int16_t y_dest ){
     if ( chr >= printable_ascii_offset ) {
@@ -851,9 +851,9 @@ void PixieChroma::add_char( char chr, int16_t x_dest, int16_t y_dest ){
     @brief
     Internal function for rendering a single icon to the mask buffer.
     
-    @param  icon   Icon column data to render
-    @param  x_pos  X pixel position of write
-    @param  y_pos  Y pixel position of write
+    @param  icon    Icon column data to render
+    @param  x_dest  X pixel position of write
+    @param  y_dest  Y pixel position of write
 *///............................................................................
 void PixieChroma::add_char( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){
     for( uint8_t x = 0; x < font_col_width; x++ ){
