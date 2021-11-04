@@ -68,7 +68,10 @@ var class_pixie_chroma =
     [ "color_blur", "class_pixie_chroma.html#a0ca20cd8276fd7cad33e3c7724be5ac6", null ],
     [ "color_blur_x", "class_pixie_chroma.html#aa87c27112d74d1a5c05f1154c4f9b3d5", null ],
     [ "color_blur_y", "class_pixie_chroma.html#aa1334e020afb7346fbf54a872e8ab14a", null ],
-    [ "xy", "class_pixie_chroma.html#aa5c6c704a93478b92e334abeeeebd2af", null ],
+    [ "xy", "class_pixie_chroma.html#a9c7de7d26f46da8cc869539c5306bf39", null ],
+    [ "uv", "class_pixie_chroma.html#a8469c787620cde68a0b9d0678744f4c2", null ],
+    [ "get_uv_x", "class_pixie_chroma.html#a9f9a7311e1891ac324db42044534f1e2", null ],
+    [ "get_uv_y", "class_pixie_chroma.html#a42e7deba3d0a995e61dd31b697bfde80", null ],
     [ "draw_line", "class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a", null ],
     [ "print_xy_table", "class_pixie_chroma.html#a50da512c6cbcd74c59f18d85b5bd7599", null ],
     [ "color_map", "class_pixie_chroma.html#a438496d74e5b41edfc5b5baedde07a77", null ],
@@ -79,5 +82,6 @@ var class_pixie_chroma =
     [ "NUM_PIXELS", "class_pixie_chroma.html#a01bcd71b02a4adbe291aff9a566ebca7", null ],
     [ "NUM_LEDS", "class_pixie_chroma.html#a77b654ac9cd84ebac757b6225ce27edb", null ],
     [ "delta", "class_pixie_chroma.html#a3dfc62ac1509e593a55b4c47f27d8a9f", null ],
-    [ "animation_speed", "class_pixie_chroma.html#a213e7c32790cd07ec55db1f269cda8cf", null ]
+    [ "animation_speed", "class_pixie_chroma.html#a213e7c32790cd07ec55db1f269cda8cf", null ],
+    [ "frame_rate", "class_pixie_chroma.html#ad6e8d3ccf335da400b3b777229c7d7ad", null ]
 ];
