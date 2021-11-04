@@ -5,5 +5,7 @@
 - :x: The following parameters of **PixieChroma::write_pix(const** uint8_t *icon, int16_t x_dest=0, int16_t y_dest=0) are not documented:
 - :x: The following parameters of **PixieChroma::add_char(char** chr, int16_t x_dest, int16_t y_dest) are not documented:
 - :x: The following parameters of **PixieChroma::add_char(const** uint8_t *icon, int16_t x_dest, int16_t y_dest) are not documented:
+- :x: return type of member **PixieChroma::get_uv_x** is not documented
+- :x: return type of member **PixieChroma::get_uv_y** is not documented
 
 To see more information, check the [full Doxygen log](../../../docs/doxy.log).
