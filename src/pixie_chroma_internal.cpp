@@ -411,8 +411,8 @@ void PixieChroma::set_gamma_correction( bool enabled ){
     @param  y_position  New cursor position on the Y-axis, in whole displays
 *///............................................................................
 void PixieChroma::set_cursor( uint8_t x_position, uint8_t y_position ){
-    cursor_x = ( display_width  * x_position ) + display_padding_x;
-    cursor_y = ( display_height * y_position ) + display_padding_y;
+    cursor_x = display_padding_x + ( display_width  * x_position );
+    cursor_y = display_padding_y + ( display_height * y_position );
 }
 
 
@@ -743,13 +743,12 @@ void PixieChroma::write( float input, uint8_t places, uint8_t x_pos, uint8_t y_p
     @param  x_offset  X pixel position of write **[optional]**
     @param  y_offset  Y pixel position of write **[optional]**
 *///............................................................................
-void PixieChroma::write_pix( const uint8_t* icon, int16_t x_offset, int16_t y_offset ){
+void PixieChroma::write_pix( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){
     add_char(
         icon,
-        cursor_x + x_offset,
-        cursor_y + y_offset
+        x_dest,
+        y_dest
     );
-    cursor_x += display_width;
 }
 
 
@@ -767,38 +766,44 @@ void PixieChroma::write_pix( const uint8_t* icon, int16_t x_offset, int16_t y_of
     @param  x_offset  X pixel position of write **[optional]**
     @param  y_offset  Y pixel position of write **[optional]**
 *///............................................................................
-void PixieChroma::write_pix( char* message, int16_t x_offset, int16_t y_offset ){
+void PixieChroma::write_pix( char* message, int16_t x_dest, int16_t y_dest ){
+	int16_t offset_x = 0;
+	int16_t offset_y = 0;
+	
     uint8_t len = strlen( message );
     for( uint8_t i = 0; i < len; i++ ){
         if( message[i] == '\n' ){ // Newline, force line break
-            // TODO: write_pix( char* ) should never modify cursor position
-            // Use an internal offset ( +user offset ) to place chars instead
-            cursor_x =  display_padding_x;
-            cursor_y += display_height;
+            x_dest = display_padding_x;
+			offset_x = 0;
+			offset_y = display_height;
         }
-        else if( line_wrap == true && cursor_x >= ( display_width * chars_x ) ){ // End of line reached, wrap to new line if line_wrap enabled
-            cursor_x =  display_padding_x;
-            cursor_y += display_height;
+        else if( line_wrap == true && x_dest+offset_x >= ( display_width * chars_x ) ){ // End of line reached, wrap to new line if line_wrap enabled
+            x_dest = display_padding_x;
+			offset_x = 0;
+			offset_y = display_height;
             
             add_char(
                 message[i],
-                cursor_x + x_offset,
-                cursor_y + y_offset
+                x_dest + offset_x,
+                y_dest + offset_y
             );
-            cursor_x += display_width;
+            offset_x += display_width;
         }
         else if( message[i] == 0 || message[i] == '\0' ){ // end of string
             return;
         }
-        else{ // Normal
+        else{ // Normal char
             add_char(
                 message[i],
-                cursor_x + x_offset,
-                cursor_y + y_offset
+                x_dest + offset_x,
+                y_dest + offset_y
             );
-            cursor_x += display_width;
+            offset_x += display_width;
         }        
     }
+	
+	cursor_x_temp = x_dest+offset_x;
+	cursor_y_temp = y_dest+offset_y;
 }
 
 
@@ -814,7 +819,7 @@ void PixieChroma::write_pix( char* message, int16_t x_offset, int16_t y_offset )
     @param  x_pos  X pixel position of write
     @param  y_pos  Y pixel position of write
 *///............................................................................
-void PixieChroma::add_char( char chr, int16_t x_pos, int16_t y_pos ){
+void PixieChroma::add_char( char chr, int16_t x_dest, int16_t y_dest ){
     if ( chr >= printable_ascii_offset ) {
         chr -= printable_ascii_offset;
     }
@@ -822,13 +827,13 @@ void PixieChroma::add_char( char chr, int16_t x_pos, int16_t y_pos ){
     for( uint8_t x = 0; x < font_col_width; x++ ){
         uint8_t column = pgm_read_byte( font + ( chr * font_col_width + x ) );
 
-        uint16_t row1_index = xy( x_pos+x, y_pos+0 );
-        uint16_t row2_index = xy( x_pos+x, y_pos+1 );
-        uint16_t row3_index = xy( x_pos+x, y_pos+2 );
-        uint16_t row4_index = xy( x_pos+x, y_pos+3 );
-        uint16_t row5_index = xy( x_pos+x, y_pos+4 );
-        uint16_t row6_index = xy( x_pos+x, y_pos+5 );
-        uint16_t row7_index = xy( x_pos+x, y_pos+6 );
+        uint16_t row1_index = xy( x_dest+x, y_dest+0 );
+        uint16_t row2_index = xy( x_dest+x, y_dest+1 );
+        uint16_t row3_index = xy( x_dest+x, y_dest+2 );
+        uint16_t row4_index = xy( x_dest+x, y_dest+3 );
+        uint16_t row5_index = xy( x_dest+x, y_dest+4 );
+        uint16_t row6_index = xy( x_dest+x, y_dest+5 );
+        uint16_t row7_index = xy( x_dest+x, y_dest+6 );
 
         // "Subtract" from mask transparency with saturating function
         mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( column, 0 )] );
@@ -850,17 +855,17 @@ void PixieChroma::add_char( char chr, int16_t x_pos, int16_t y_pos ){
     @param  x_pos  X pixel position of write
     @param  y_pos  Y pixel position of write
 *///............................................................................
-void PixieChroma::add_char( const uint8_t* icon, int16_t x_pos, int16_t y_pos ){
+void PixieChroma::add_char( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){
     for( uint8_t x = 0; x < font_col_width; x++ ){
         uint8_t column = pgm_read_byte_far( icon+x );
 
-        uint16_t row1_index = xy( x_pos+x, y_pos+0 );
-        uint16_t row2_index = xy( x_pos+x, y_pos+1 );
-        uint16_t row3_index = xy( x_pos+x, y_pos+2 );
-        uint16_t row4_index = xy( x_pos+x, y_pos+3 );
-        uint16_t row5_index = xy( x_pos+x, y_pos+4 );
-        uint16_t row6_index = xy( x_pos+x, y_pos+5 );
-        uint16_t row7_index = xy( x_pos+x, y_pos+6 );
+        uint16_t row1_index = xy( x_dest+x, y_dest+0 );
+        uint16_t row2_index = xy( x_dest+x, y_dest+1 );
+        uint16_t row3_index = xy( x_dest+x, y_dest+2 );
+        uint16_t row4_index = xy( x_dest+x, y_dest+3 );
+        uint16_t row5_index = xy( x_dest+x, y_dest+4 );
+        uint16_t row6_index = xy( x_dest+x, y_dest+5 );
+        uint16_t row7_index = xy( x_dest+x, y_dest+6 );
 
         // "Subtract" from mask transparency with saturating function
         mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( column,0 )] );
@@ -937,6 +942,10 @@ void PixieChroma::print( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_co
 *///............................................................................
 void PixieChroma::print( char* message ){
     write_pix( message, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -993,6 +1002,10 @@ void PixieChroma::print( uint32_t input ){
     char char_buf[32];
     ultoa( input, char_buf, 10 );
     write_pix( char_buf, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -1197,6 +1210,11 @@ void PixieChroma::println( double input, uint8_t places ){
 *///............................................................................
 void PixieChroma::println( float input, uint8_t places ){
     println( double(input), places );
+}
+
+
+void PixieChroma::increment_cursor( uint8_t amount ){
+	
 }
 
 
@@ -1421,7 +1439,7 @@ int16_t PixieChroma::get_cursor_y_exact(){
 *///............................................................................
 void PixieChroma::clear(){
     memset( mask, 0, NUM_PIXELS );
-    set_cursor( 0,0 );
+    set_cursor( 0, 0 );
 }
 
 

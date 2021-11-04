@@ -226,6 +226,7 @@ class PixieChroma{
 		
 	private:
 		// Functions ----------------------------------
+		void increment_cursor( uint8_t amount );
 		void build_controller( const uint8_t pin );
 		void calc_xy();
 		
@@ -241,6 +242,8 @@ class PixieChroma{
 
         volatile int16_t cursor_x;
 		volatile int16_t cursor_y;
+		volatile int16_t cursor_x_temp;
+		volatile int16_t cursor_y_temp;
     
         CRGB *color_map_out;
         uint8_t *mask_out;
@@ -254,7 +257,7 @@ class PixieChroma{
 		uint8_t brightness_level = 255;
         
 		bool correct_gamma = false;
-		bool line_wrap = false;
+		bool line_wrap = true;
 		
 		bool freeze = false;
 		bool ticker_running = false;
