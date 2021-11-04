@@ -125,7 +125,10 @@ class PixieChroma{
 		/*+---------------------------------------------------------------------------------*/
 
 		/*+-- Functions - 2D Tools ---------------------------------------------------------*/ 
-		/*|*/ uint16_t xy( int16_t x, int16_t y, bool wrap = false );
+		/*|*/ uint16_t xy( int32_t x, int32_t y, bool wrap = false );
+		/*|*/ uint16_t uv( float x, float y, bool wrap = false );
+		/*|*/ float    get_uv_x( int32_t x_pixel );
+		/*|*/ float    get_uv_y( int32_t y_pixel );
 		/*|*/ void     draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 );
 		/*|*/ void     print_xy_table();
 		/*+---------------------------------------------------------------------------------*/
@@ -224,9 +227,14 @@ class PixieChroma{
 		*///............................................................................
 		float animation_speed = 1.0;
 		
+		/*! ############################################################################
+        @brief
+        Allows the user to access a live frame rate calculation (1 frame latency)
+		*///............................................................................
+		float frame_rate;
+		
 	private:
 		// Functions ----------------------------------
-		void increment_cursor( uint8_t amount );
 		void build_controller( const uint8_t pin );
 		void calc_xy();
 		
@@ -248,9 +256,7 @@ class PixieChroma{
         CRGB *color_map_out;
         uint8_t *mask_out;
         int16_t *xy_table;
-        float frame_rate;
         uint32_t t_last;
-        
 
         float    max_V  = 5;
 		uint16_t max_mA = 500;    

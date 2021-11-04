@@ -498,7 +498,7 @@ void PixieChroma::set_line_wrap( bool enabled ){
 void PixieChroma::set_update_mode( t_update_mode mode, uint16_t FPS ){
     if( mode == AUTOMATIC && ticker_running == false ){
         set_frame_rate_target( FPS );
-        animate.attach_ms( 1000 / FPS, show_container );
+        animate.attach_ms( round(1000 / float(FPS)), show_container );
         ticker_running = true;
     }
     else if( mode == MANUAL && ticker_running == true ){
@@ -887,6 +887,10 @@ void PixieChroma::add_char( const uint8_t* icon, int16_t x_dest, int16_t y_dest 
 *///............................................................................
 void PixieChroma::print( const uint8_t* icon ){
     write_pix( icon, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -923,6 +927,8 @@ void PixieChroma::print( const uint8_t* icon ){
     @param  icon_col_5  Column 5 data of this icon
 *///............................................................................
 void PixieChroma::print( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5 ){
+	cursor_x_temp = cursor_x;
+	cursor_y_temp = cursor_y;
     const uint8_t icon[5] = {
         icon_col_1,
         icon_col_2,
@@ -931,6 +937,10 @@ void PixieChroma::print( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_co
         icon_col_5,
     };
     write_pix( icon, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -942,6 +952,10 @@ void PixieChroma::print( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_co
 *///............................................................................
 void PixieChroma::print( char* message ){
     write_pix( message, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 	
 	// Store cursor changes
 	cursor_x = cursor_x_temp;
@@ -960,6 +974,10 @@ void PixieChroma::print( int16_t input ){
     char char_buf[32];
     itoa( input, char_buf, 10 );
     write_pix( char_buf, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -974,6 +992,10 @@ void PixieChroma::print( uint16_t input ){
     char char_buf[32];
     utoa( input, char_buf, 10 );
     write_pix( char_buf, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -988,6 +1010,10 @@ void PixieChroma::print( int32_t input ){
     char char_buf[32];
     ltoa( input, char_buf, 10 );
     write_pix( char_buf, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -1020,6 +1046,10 @@ void PixieChroma::print( long unsigned int input ){
     char char_buf[32];
     ultoa( input, char_buf, 10 );
     write_pix( char_buf, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -1035,6 +1065,10 @@ void PixieChroma::print( double input, uint8_t places ){
     char char_buf[32];
     dtoa( input, char_buf, places );
     write_pix( char_buf, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -1048,6 +1082,10 @@ void PixieChroma::print( double input, uint8_t places ){
 *///............................................................................
 void PixieChroma::print( float input, uint8_t places ){
     print( double( input ), places );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
 }
 
 
@@ -1059,8 +1097,13 @@ void PixieChroma::print( float input, uint8_t places ){
     @param  icon  Icon column data to print
 *///............................................................................
 void PixieChroma::println( const uint8_t* icon ){
-    write_pix( icon ); // ........ Output
-    cursor_x =  display_padding_x;
+    write_pix( icon, cursor_x, cursor_y ); // ........ Output
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
+	
+    cursor_x  = display_padding_x;
     cursor_y += display_height;
 }
 
@@ -1085,7 +1128,12 @@ void PixieChroma::println( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_
         icon_col_4,
         icon_col_5
     };
-    write_pix( icon );
+    write_pix( icon, cursor_x, cursor_y );
+	
+	// Store cursor changes
+	cursor_x = cursor_x_temp;
+	cursor_y = cursor_y_temp;
+	
     cursor_x =  display_padding_x;
     cursor_y += display_height;
 }
@@ -1100,8 +1148,11 @@ void PixieChroma::println( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_
     @param  message  char* string to print
 *///............................................................................
 void PixieChroma::println( char* message ){
-    write_pix( message ); // ........ Output
+    write_pix( message, cursor_x, cursor_y ); // ........ Output
+	
+	// Store cursor changes
     cursor_x =  display_padding_x;
+	cursor_y = cursor_y_temp;
     cursor_y += display_height;
 }
 
@@ -1210,11 +1261,6 @@ void PixieChroma::println( double input, uint8_t places ){
 *///............................................................................
 void PixieChroma::println( float input, uint8_t places ){
     println( double(input), places );
-}
-
-
-void PixieChroma::increment_cursor( uint8_t amount ){
-	
 }
 
 
@@ -1497,7 +1543,7 @@ void PixieChroma::clear(){
     @param   wrap  Enable wrapping function **[optional]**
     @return  The 1D index of your 2D coordinate
 *///............................................................................
-uint16_t PixieChroma::xy( int16_t x, int16_t y, bool wrap ) {
+uint16_t PixieChroma::xy( int32_t x, int32_t y, bool wrap ) {
     if( wrap ){
         while( x < 0 ){
             x += matrix_width;
@@ -1531,6 +1577,74 @@ uint16_t PixieChroma::xy( int16_t x, int16_t y, bool wrap ) {
     return xy_table[ ( y * matrix_width ) + x ];
 }
 
+
+/*! ############################################################################
+    @brief
+    This wrapper function returns the 1D color_map / mask index of a given
+	OpenGL-style UV coordinate in the display matrix.
+    
+    @details
+    See xy(). UV Map:
+	
+		+-------------------+
+		|0, 1           1, 1|
+		|                   |
+		|^                  |
+		|                   |
+		|0, 0     >     1, 0|
+		+-------------------+
+    
+    @param   x     Floating-point UV X coordinate
+    @param   y     Floating-point UV Y coordinate
+    @param   wrap  Enable wrapping function **[optional]**
+    @return  The 1D index of your UV coordinate
+*///............................................................................
+uint16_t PixieChroma::uv( float x, float y, bool wrap ) {
+	if( wrap ){
+		while( x < 0.0 ){
+			x += 1.0;
+		}
+		while( x > 1.0 ){
+			x -= 1.0;
+		}
+		while( y < 0.0 ){
+			y += 1.0;
+		}
+		while( y > 1.0 ){
+			y -= 1.0;
+		}
+	}
+	
+	y = 1.0-y; // Invert Y axis for OpenGL coordinate style
+	
+	return xy(
+		uint16_t( matrix_width  * x ),
+		uint16_t( matrix_height * y )
+	);
+}
+
+
+/*! ############################################################################
+    @brief
+	Returns the X-axis UV coordinate for a given X-axis pixel position
+    
+    @param  x_pixel  X-axis pixel position
+*///............................................................................
+float PixieChroma::get_uv_x( int32_t x_pixel ){
+    return x_pixel / float( matrix_width );
+}
+
+
+/*! ############################################################################
+    @brief
+	Returns the Y-axis UV coordinate for a given Y-axis pixel position
+    
+    @param  y_pixel  Y-axis pixel position
+*///............................................................................
+float PixieChroma::get_uv_y( int32_t y_pixel ){
+    return y_pixel / float( matrix_height );
+}
+	
 
 /*! ############################################################################
     @brief
