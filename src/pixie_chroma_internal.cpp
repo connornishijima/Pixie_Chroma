@@ -479,8 +479,10 @@ void PixieChroma::set_update_mode( t_update_mode mode, uint16_t FPS ){
         animate.attach_ms( round(1000 / float(FPS)), [this](){ this->show(); });
 		//                                           This. ^ This is the magic sauce
 		//                                           right here. This is apparently how
-		//                                           you add a non-static function to
-		//                                           Ticker and I hate it.
+		//                                           you add a non-static class member to
+		//                                           Ticker from within a class and I
+		//                                           hate it. Readability sucks, oh well.
+		
         ticker_running = true;
     }
     else if( mode == MANUAL && ticker_running == true ){
