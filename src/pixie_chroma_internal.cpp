@@ -25,10 +25,8 @@
         #include "Pixie_Chroma.h"
         PixieChroma pix;
     
-    NOTE: Due to current limitations with the library, your class
-    instance MUST be named `pix`. Mutiple instances are not yet
-    possible. Because each of these functions are contained in the
-    PixieChroma class object, you'll use them like this:
+    Because each of these functions are contained in the PixieChroma class
+	object, you'll use them like this:
     
         pix.print( "Hello!" );
 *///............................................................................
