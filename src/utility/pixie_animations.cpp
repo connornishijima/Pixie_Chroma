@@ -14,6 +14,8 @@ void ANIMATION_NULL(float delta){
 	// empty function with pix.set_animation(ANIMATION_NULL) to manually control color when you want
 }
 
+// TODO: Remove need for hardcoded "pix" extern in animation functions
+
 void ANIMATION_STATIC(float delta){
 	extern PixieChroma pix;
 
@@ -26,6 +28,7 @@ void ANIMATION_STATIC(float delta){
 		}
 	}
 }
+
 
 void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta){
 	extern PixieChroma pix;
@@ -43,13 +46,16 @@ void ANIMATION_PALETTE_SHIFT(int8_t amount, float delta){
 	iter += amount * pix.animation_speed * delta;
 }
 
+
 void ANIMATION_PALETTE_SHIFT_LEFT(float delta){
 	ANIMATION_PALETTE_SHIFT(4, delta);
 }
 
+
 void ANIMATION_PALETTE_SHIFT_RIGHT(float delta){
 	ANIMATION_PALETTE_SHIFT(-4, delta);
 }
+
 
 void ANIMATION_GLITTER(float delta){
 	extern PixieChroma pix;
@@ -66,6 +72,7 @@ void ANIMATION_GLITTER(float delta){
 		}
 	}
 }
+
 
 void _PENDULUM(float center_position, float sway_width){
 	extern PixieChroma pix;		
@@ -90,15 +97,18 @@ void _PENDULUM(float center_position, float sway_width){
 	}
 }
 
+
 void ANIMATION_PENDULUM(float delta){
 	float center_position = (beatsin8(60)-128);
 	_PENDULUM(center_position,0.5);
 }
 
+
 void ANIMATION_PENDULUM_WIDE(float delta){
 	float center_position = (beatsin8(60)-128);
 	_PENDULUM(center_position,1.0);
 }
+
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2){
 	const uint8_t gradient[] = {
@@ -111,6 +121,7 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2){
 	return pal;
 }
 
+
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3){
 	const uint8_t gradient[] = {
 		0,    col1.r, col1.g, col1.b,
@@ -122,6 +133,7 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3){
 	
 	return pal;
 }
+
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4){
 	const uint8_t gradient[] = {
@@ -136,6 +148,7 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4){
 	return pal;
 }
 
+
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5){
 	const uint8_t gradient[] = {
 		0,    col1.r, col1.g, col1.b,
@@ -149,6 +162,7 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col
 	
 	return pal;
 }
+
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6){
 	const uint8_t gradient[] = {
@@ -165,6 +179,7 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col
 	return pal;
 }
 
+
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7){
 	const uint8_t gradient[] = {
 		0,    col1.r, col1.g, col1.b,
@@ -180,6 +195,7 @@ CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col
 	
 	return pal;
 }
+
 
 CRGBPalette16 make_gradient(CRGB col1, CRGB col2, CRGB col3, CRGB col4, CRGB col5, CRGB col6, CRGB col7, CRGB col8){
 	const uint8_t gradient[] = {

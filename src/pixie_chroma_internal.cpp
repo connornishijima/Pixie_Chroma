@@ -10,26 +10,6 @@
 #include "Pixie_Chroma.h" 
 #include "utility/pixie_utility.h"
 
-// TODO: Call pix.show() from Ticker without need for wrapper function 
-// I'm currently unable to figure out how to feed a class function (non-static) like `pix::show()` to `Ticker::attach_ms()`.
-// ```
-// void show_container(){
-//   extern PixieChroma pix;
-//   pix.show();
-// }
-// ```
-
-/*! ############################################################################
-    @brief
-    Used for auto_update() so that Ticker can access this specific Pixie Chroma
-    instance. Slightly hacky with the `extern`.
-*///............................................................................
-void show_container(){
-    extern PixieChroma pix;
-    pix.show();
-}
-
-
 // ---------------------------------------------------------------------------------------------------------|
 // -- PUBLIC CLASS FUNCTIONS -------------------------------------------------------------------------------|
 // ---------------------------------------------------------------------------------------------------------|
@@ -498,7 +478,11 @@ void PixieChroma::set_line_wrap( bool enabled ){
 void PixieChroma::set_update_mode( t_update_mode mode, uint16_t FPS ){
     if( mode == AUTOMATIC && ticker_running == false ){
         set_frame_rate_target( FPS );
-        animate.attach_ms( round(1000 / float(FPS)), show_container );
+        animate.attach_ms( round(1000 / float(FPS)), [this](){ this->show(); });
+		//                                           This. ^ This is the magic sauce
+		//                                           right here. This is apparently how
+		//                                           you add a non-static function to
+		//                                           Ticker and I hate it.
         ticker_running = true;
     }
     else if( mode == MANUAL && ticker_running == true ){
