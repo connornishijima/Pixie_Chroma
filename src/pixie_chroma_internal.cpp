@@ -1628,7 +1628,8 @@ uint16_t PixieChroma::uv( float x, float y, bool wrap ) {
     @brief
 	Returns the X-axis UV coordinate for a given X-axis pixel position
     
-    @param  x_pixel  X-axis pixel position
+    @param   x_pixel  X-axis pixel position
+    @return  X-axis UV coordinate
 *///............................................................................
 float PixieChroma::get_uv_x( int32_t x_pixel ){
     return x_pixel / float( matrix_width );
@@ -1639,9 +1640,11 @@ float PixieChroma::get_uv_x( int32_t x_pixel ){
     @brief
 	Returns the Y-axis UV coordinate for a given Y-axis pixel position
     
-    @param  y_pixel  Y-axis pixel position
+    @param   y_pixel  Y-axis pixel position
+    @return  Y-axis UV coordinate
 *///............................................................................
 float PixieChroma::get_uv_y( int32_t y_pixel ){
+	y_pixel = matrix_height - y_pixel;
     return y_pixel / float( matrix_height );
 }
 	
