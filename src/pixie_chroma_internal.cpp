@@ -227,13 +227,13 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
     // Quad Mode on ESP32 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 27
     FastLED.addLeds<NEOPIXEL, 13>( // Initialize FastLED Data Out 1
         color_map_out,
-        0,
+        ( pixies_per_pin*leds_per_pixie ) * 0,
         ( pixies_per_pin*leds_per_pixie )
     ).setCorrection( TypicalLEDStrip ); 
     
     FastLED.addLeds<NEOPIXEL, 12>( // Initialize FastLED Data Out 2
         color_map_out,
-        ( pixies_per_pin*leds_per_pixie ),
+        ( pixies_per_pin*leds_per_pixie ) * 1,
         ( pixies_per_pin*leds_per_pixie )
     ).setCorrection( TypicalLEDStrip );
     
@@ -245,7 +245,7 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
     
     FastLED.addLeds<NEOPIXEL, 27>( // Initialize FastLED Data Out 4
         color_map_out,
-        ( pixies_per_pin*leds_per_pixie ) * 4,
+        ( pixies_per_pin*leds_per_pixie ) * 3,
         ( pixies_per_pin*leds_per_pixie )
     ).setCorrection( TypicalLEDStrip );
 
@@ -476,12 +476,17 @@ void PixieChroma::set_line_wrap( bool enabled ){
 void PixieChroma::set_update_mode( t_update_mode mode, uint16_t FPS ){
     if( mode == AUTOMATIC && ticker_running == false ){
         set_frame_rate_target( FPS );
-        animate.attach_ms( round(1000 / float(FPS)), [this](){ this->show(); });
-		//                                           This. ^ This is the magic sauce
-		//                                           right here. This is apparently how
-		//                                           you add a non-static class member to
-		//                                           Ticker from within a class and I
-		//                                           hate it. Readability sucks, oh well.
+		
+		animate.attach_ms<typeof this>(
+			round(1000 / float(FPS)),
+			[](typeof this _p){ _p->show(); },
+   // This. ^ This is the magic sauce
+   // right here. This is apparently how
+   // you add a non-static class member to
+   // Ticker from within a class and I
+   // hate it. Readability sucks, oh well.
+			this
+		);                                 
 		
         ticker_running = true;
     }
@@ -1918,6 +1923,7 @@ void PixieChroma::show(){
     if( !freeze ){ // If we're not holding out for a pix.free() call, show with the current mask
         memcpy( mask_out, mask, NUM_LEDS );
     }
+	
     memcpy( color_map_out, color_map, sizeof( CRGB )*NUM_LEDS );
 
     for( uint16_t i = 0; i < NUM_LEDS; i++ ){
@@ -1925,7 +1931,7 @@ void PixieChroma::show(){
         color_map_out[i].fadeLightBy( 255-mask_out[i] ); // Apply mask "over" LED color layer
         
         // GAMMA CORRECTION
-        if( correct_gamma ){                    
+        if( correct_gamma ){
             color_map_out[i].r = gamma8[ color_map_out[i].r ]; // Apply gamma correction LUT
             color_map_out[i].g = gamma8[ color_map_out[i].g ];
             color_map_out[i].b = gamma8[ color_map_out[i].b ];
