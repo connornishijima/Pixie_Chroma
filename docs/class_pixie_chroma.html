@@ -318,9 +318,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a42e7deba3d0a995e61dd31b697bfde80"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a42e7deba3d0a995e61dd31b697bfde80">get_uv_y</a> (int32_t y_pixel)</td></tr>
 <tr class="memdesc:a42e7deba3d0a995e61dd31b697bfde80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Y-axis UV coordinate for a given Y-axis pixel position.  <a href="class_pixie_chroma.html#a42e7deba3d0a995e61dd31b697bfde80">More...</a><br /></td></tr>
 <tr class="separator:a42e7deba3d0a995e61dd31b697bfde80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">draw_line</a> (int16_t x1, int16_t y1, int16_t x2, int16_t y2)</td></tr>
-<tr class="memdesc:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a line in the mask buffer using Bresenham's line algorithm.  <a href="class_pixie_chroma.html#a0f57ff826763f4d8ccd8ffa0e260d87a">More...</a><br /></td></tr>
-<tr class="separator:a0f57ff826763f4d8ccd8ffa0e260d87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84548380d772a21b9633794d4de1a73d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a84548380d772a21b9633794d4de1a73d">get_pixel_mask</a> (int32_t x, int32_t y)</td></tr>
+<tr class="memdesc:a84548380d772a21b9633794d4de1a73d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the mask value at a given pixel coordinate.  <a href="class_pixie_chroma.html#a84548380d772a21b9633794d4de1a73d">More...</a><br /></td></tr>
+<tr class="separator:a84548380d772a21b9633794d4de1a73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0b7506b72f48d433df2d95b9d403a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#ac0b7506b72f48d433df2d95b9d403a2c">set_pixel_mask</a> (int32_t x, int32_t y, uint8_t value)</td></tr>
+<tr class="memdesc:ac0b7506b72f48d433df2d95b9d403a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mask value at a given pixel coordinate.  <a href="class_pixie_chroma.html#ac0b7506b72f48d433df2d95b9d403a2c">More...</a><br /></td></tr>
+<tr class="separator:ac0b7506b72f48d433df2d95b9d403a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6553627696b24aad9e83913880d92912"><td class="memItemLeft" align="right" valign="top">CRGB&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a6553627696b24aad9e83913880d92912">get_pixel_color</a> (int32_t x, int32_t y)</td></tr>
+<tr class="memdesc:a6553627696b24aad9e83913880d92912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the RGB color value at a given pixel coordinate.  <a href="class_pixie_chroma.html#a6553627696b24aad9e83913880d92912">More...</a><br /></td></tr>
+<tr class="separator:a6553627696b24aad9e83913880d92912"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6861f1bdaf33100aae22f5dbe9d725ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a6861f1bdaf33100aae22f5dbe9d725ba">set_pixel_color</a> (int32_t x, int32_t y, CRGB <a class="el" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">color</a>)</td></tr>
+<tr class="memdesc:a6861f1bdaf33100aae22f5dbe9d725ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RGB color value at a given pixel coordinate.  <a href="class_pixie_chroma.html#a6861f1bdaf33100aae22f5dbe9d725ba">More...</a><br /></td></tr>
+<tr class="separator:a6861f1bdaf33100aae22f5dbe9d725ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a0958ce91966a09d3e6977cdf8b0cbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a1a0958ce91966a09d3e6977cdf8b0cbb">draw_line_mask</a> (int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint8_t value=255)</td></tr>
+<tr class="memdesc:a1a0958ce91966a09d3e6977cdf8b0cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a line in the mask buffer using Bresenham's line algorithm.  <a href="class_pixie_chroma.html#a1a0958ce91966a09d3e6977cdf8b0cbb">More...</a><br /></td></tr>
+<tr class="separator:a1a0958ce91966a09d3e6977cdf8b0cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1d0b3ccb4711893502cb48a32b46252"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#ab1d0b3ccb4711893502cb48a32b46252">draw_line_color</a> (int16_t x1, int16_t y1, int16_t x2, int16_t y2, CRGB <a class="el" href="class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1">color</a>)</td></tr>
+<tr class="memdesc:ab1d0b3ccb4711893502cb48a32b46252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a line in the color map using Bresenham's line algorithm.  <a href="class_pixie_chroma.html#ab1d0b3ccb4711893502cb48a32b46252">More...</a><br /></td></tr>
+<tr class="separator:ab1d0b3ccb4711893502cb48a32b46252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50da512c6cbcd74c59f18d85b5bd7599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a50da512c6cbcd74c59f18d85b5bd7599">print_xy_table</a> ()</td></tr>
 <tr class="memdesc:a50da512c6cbcd74c59f18d85b5bd7599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the index table for the calculated XY map. <b>Requires Serial.begin() first to function.</b>  <a href="class_pixie_chroma.html#a50da512c6cbcd74c59f18d85b5bd7599">More...</a><br /></td></tr>
 <tr class="separator:a50da512c6cbcd74c59f18d85b5bd7599"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2525,7 +2540,7 @@ pix.print(    ,   ,   ,   ,    );
 <h6></h6>
 <p>FastLED.show() is called here.*** </p>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01912">1912</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l02042">2042</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2548,7 +2563,7 @@ pix.print(    ,   ,   ,   ,    );
 <h6></h6>
 <p>Use <a class="el" href="class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543" title="Unfreezes the current mask buffer in memory to allow showing updated text the next time show() is cal...">free()</a> to unfreeze. </p>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01889">1889</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l02019">2019</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2570,7 +2585,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Unfreezes the current mask buffer in memory to allow showing updated text the next time <a class="el" href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332" title="Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.">show()</a> is called. </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01899">1899</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l02029">2029</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2592,7 +2607,7 @@ pix.print(    ,   ,   ,   ,    );
 
 <p>Sets the entire color buffer to a CRGB value. </p>
 <h6></h6>
-<p>Example: </p><pre class="fragment">pix.color(  CRGB( 0,255,255 )  );
+<p>Example: </p><pre class="fragment">pix.color( CRGB( 0,255,255 ) );
 </pre><p> This would set all displays to cyan, a mix of green and blue.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2601,7 +2616,7 @@ pix.print(    ,   ,   ,   ,    );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01654">1654</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01706">1706</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2639,7 +2654,7 @@ pix.print(    ,   ,   ,   ,    );
 
 <p>Sets a specific display in the color buffer to a CRGB value. </p>
 <h6></h6>
-<p>Example: </p><pre class="fragment">pix.color(  CRGB( 0,255,255 ), 1, 0  );
+<p>Example: </p><pre class="fragment">pix.color( CRGB( 0,255,255 ), 1, 0 );
 </pre><p> This would set the <b>second display of the first row</b> to cyan, a mix of green and blue.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2650,7 +2665,7 @@ pix.print(    ,   ,   ,   ,    );
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01675">1675</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01727">1727</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2700,20 +2715,20 @@ pix.print(    ,   ,   ,   ,    );
 
 <p>Sets a rectangular area in the color buffer to a CRGB value. </p>
 <h6></h6>
-<p>Example: </p><pre class="fragment">pix.color(  CRGB( 0,255,255 ), 0, 0, 5, 5  );
+<p>Example: </p><pre class="fragment">pix.color( CRGB( 0,255,255 ), 0, 0, 5, 5 );
 </pre><p> This would set <b>the first five columns and rows</b> of the color buffer to cyan, a mix of green and blue.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">col</td><td>FastLED CRGB color </td></tr>
     <tr><td class="paramname">x1</td><td>Starting X coordinate of the rectangle </td></tr>
     <tr><td class="paramname">y1</td><td>Starting Y coordinate of the rectangle </td></tr>
-    <tr><td class="paramname">x2</td><td>Ending X coordinate of the rectangle ( inclusive ) </td></tr>
-    <tr><td class="paramname">y2</td><td>Ending Y coordinate of the rectangle ( inclusive ) </td></tr>
+    <tr><td class="paramname">x2</td><td>Ending X coordinate of the rectangle (inclusive) </td></tr>
+    <tr><td class="paramname">y2</td><td>Ending Y coordinate of the rectangle (inclusive) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01709">1709</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01761">1761</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -2751,7 +2766,7 @@ pix.print(    ,   ,   ,   ,    );
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Approximate CRGB representation of the given temperature </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01844">1844</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01974">1974</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -3198,14 +3213,190 @@ pix.print(    ,   ,   ,   ,    );
 
 </div>
 </div>
-<a id="a0f57ff826763f4d8ccd8ffa0e260d87a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f57ff826763f4d8ccd8ffa0e260d87a">&#9670;&nbsp;</a></span>draw_line()</h2>
+<a id="a84548380d772a21b9633794d4de1a73d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84548380d772a21b9633794d4de1a73d">&#9670;&nbsp;</a></span>get_pixel_mask()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PixieChroma::draw_line </td>
+          <td class="memname">uint8_t PixieChroma::get_pixel_mask </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the mask value at a given pixel coordinate. </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X pixel coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Y pixel coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Mask value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01649">1649</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac0b7506b72f48d433df2d95b9d403a2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b7506b72f48d433df2d95b9d403a2c">&#9670;&nbsp;</a></span>set_pixel_mask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::set_pixel_mask </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the mask value at a given pixel coordinate. </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X pixel coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Y pixel coordinate </td></tr>
+    <tr><td class="paramname">value</td><td>Mask value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01662">1662</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6553627696b24aad9e83913880d92912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6553627696b24aad9e83913880d92912">&#9670;&nbsp;</a></span>get_pixel_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CRGB PixieChroma::get_pixel_color </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the RGB color value at a given pixel coordinate. </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X pixel coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Y pixel coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>CRGB color </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01675">1675</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6861f1bdaf33100aae22f5dbe9d725ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6861f1bdaf33100aae22f5dbe9d725ba">&#9670;&nbsp;</a></span>set_pixel_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::set_pixel_color </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CRGB&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the RGB color value at a given pixel coordinate. </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X pixel coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Y pixel coordinate </td></tr>
+    <tr><td class="paramname">color</td><td>CRGB color </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01688">1688</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1a0958ce91966a09d3e6977cdf8b0cbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a0958ce91966a09d3e6977cdf8b0cbb">&#9670;&nbsp;</a></span>draw_line_mask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::draw_line_mask </td>
           <td>(</td>
           <td class="paramtype">int16_t&#160;</td>
           <td class="paramname"><em>x1</em>, </td>
@@ -3226,7 +3417,13 @@ pix.print(    ,   ,   ,   ,    );
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>y2</em>&#160;</td>
+          <td class="paramname"><em>y2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em> = <code>255</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -3242,13 +3439,75 @@ pix.print(    ,   ,   ,   ,    );
   <table class="params">
     <tr><td class="paramname">x1</td><td>Starting X coordinate of the line </td></tr>
     <tr><td class="paramname">y1</td><td>Starting Y coordinate of the line </td></tr>
-    <tr><td class="paramname">x2</td><td>Ending X coordinate of the line ( inclusive ) </td></tr>
-    <tr><td class="paramname">y2</td><td>Ending Y coordinate of the line ( inclusive ) </td></tr>
+    <tr><td class="paramname">x2</td><td>Ending X coordinate of the line (inclusive) </td></tr>
+    <tr><td class="paramname">y2</td><td>Ending Y coordinate of the line (inclusive) </td></tr>
+    <tr><td class="paramname">value</td><td>8-bit mask value to draw (Default 255) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01746">1746</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01799">1799</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab1d0b3ccb4711893502cb48a32b46252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1d0b3ccb4711893502cb48a32b46252">&#9670;&nbsp;</a></span>draw_line_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::draw_line_color </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>y2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CRGB&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws a line in the color map using Bresenham's line algorithm. </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x1</td><td>Starting X coordinate of the line </td></tr>
+    <tr><td class="paramname">y1</td><td>Starting Y coordinate of the line </td></tr>
+    <tr><td class="paramname">x2</td><td>Ending X coordinate of the line (inclusive) </td></tr>
+    <tr><td class="paramname">y2</td><td>Ending Y coordinate of the line (inclusive) </td></tr>
+    <tr><td class="paramname">color</td><td>CRGB color to draw </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01881">1881</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -3304,7 +3563,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Starting from <code>0</code> at the top-left with the first visible pixel, (of the first display in the XY Table) the index increases to <code>69</code>, (the last visible pixel in the matrix) before starting to count invisible pixels at index <code>70</code> and up through <code>153</code>.</p>
 <p>With this example table setup, the first 70 indices of color_map / mask are visible pixels, and the remaining 84 are invisible. (Simulated margin between displays) </p>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l01988">1988</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l02118">2118</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -3338,7 +3597,7 @@ pix.print(    ,   ,   ,   ,    );
 . . . . . . . . . . . . . .
 . . . . . . . . . . . . . .
 </pre> 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00167">167</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00172">172</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3359,7 +3618,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>The "mask" is used like a semi-transparent overlay over the color map. Imagine that you had a red piece of paper: if you took a marker and blacked out all areas of the paper except for a circle in the center, it would appear as if there was a <em>red</em> circle painted on a <em>black</em> paper. This is essentially what the mask here is doing: subtracting from the output of the color map, to show text or icons.</p>
 <p>Note: Pixie Chroma uses "invisible" pixels acting as padding between displays, to allow for spatial consistency. (i.e. If a word starts to scroll off the left side of one display, it will enter an "invisible" margin before it arrives on the next display. (See <code>CRGB *color_map</code>.) </p>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00186">186</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00191">191</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3378,7 +3637,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>The current FastLED CRGBPalette16 used for animations. </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00192">192</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00197">197</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3397,7 +3656,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Stores the final width of the matrix, including invisible pixels. </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00198">198</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00203">203</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3416,7 +3675,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Stores the final height of the matrix, including invisible pixels. </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00204">204</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00209">209</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3436,7 +3695,7 @@ pix.print(    ,   ,   ,   ,    );
 <h6></h6>
 <p>This is calculated for you with the display size given to <a class="el" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00212">212</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00217">217</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3455,7 +3714,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Stores the total number of physical LEDs, not including invisible pixels. This is calculated for you during <a class="el" href="class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9" title="Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...">begin()</a> with an internal function, calc_xy(). </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00219">219</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00224">224</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3474,7 +3733,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Used by animation functions as a way of self-regulating speed if performance drops, similar to a game engine. </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00226">226</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00231">231</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3493,7 +3752,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Used by animation functions to scale the apparent speed of animation. </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00232">232</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00237">237</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3512,7 +3771,7 @@ pix.print(    ,   ,   ,   ,    );
 <p>Allows the user to access a live frame rate calculation (1 frame latency) </p>
 <h6></h6>
 
-<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00238">238</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8h_source.html#l00243">243</a> of file <a class="el" href="pixie__chroma__internal_8h_source.html">pixie_chroma_internal.h</a>.</p>
 
 </div>
 </div>
@@ -3526,7 +3785,7 @@ pix.print(    ,   ,   ,   ,    );
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Sat Nov 6 2021 03:01:22 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sat Nov 6 2021 15:32:22 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

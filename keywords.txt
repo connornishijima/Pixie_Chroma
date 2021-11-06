@@ -54,8 +54,10 @@ color_blur_y	KEYWORD2
 
 xy	KEYWORD2
 uv	KEYWORD2
-draw_line	KEYWORD2
+draw_line_mask	KEYWORD2
+draw_line_color	KEYWORD2
 print_xy_map	KEYWORD2
+unit_tests	KEYWORD2
 
 ######################################
 # Constants (LITERAL1)

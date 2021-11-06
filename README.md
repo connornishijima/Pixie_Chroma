@@ -26,6 +26,8 @@
 
 **NOTE: *This repository/library are still under construction, make sure to [follow our Twitter](https://twitter.com/lixielabs) for official releases!***
 
+![PIXIE CHROMA PCB](extras/img/PCB_SINGLE.png)
+
 ## Table of Contents
 
 - [Intro](#the-coolest-character-display-for-arduino)
