@@ -2193,9 +2193,9 @@ void PixieChroma::calc_xy(){
 // ---------------------------------------------------------------------------------------------------------|
 
 bool PixieChroma::unit_tests(){
-	randomSeed( 
-		analogRead( ANALOG_PIN )
-	);
+	//randomSeed( 
+	//	analogRead( ANALOG_PIN )
+	//);
 	
 	char* border  = "+---------------------------------------------+";
 
