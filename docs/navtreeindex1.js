@@ -1,5 +1,10 @@
 var NAVTREEINDEX1 =
 {
+"pixie__icons_8h.html#a642ee4fc0cf6f54158f3320c8082d548":[1,0,0,0,3,142],
+"pixie__icons_8h.html#a674be4906a81acd80501771e221e2b45":[1,0,0,0,3,14],
+"pixie__icons_8h.html#a67d0029986892c409c365622e0b4cadf":[1,0,0,0,3,198],
+"pixie__icons_8h.html#a6b44f6926b3d873ef17de71e3c1f1419":[1,0,0,0,3,2],
+"pixie__icons_8h.html#a6d3b1d5ea749cd2784c60ea76328bcf4":[1,0,0,0,3,126],
 "pixie__icons_8h.html#a6dd5b82c661a8a727711ca03b6ee1034":[1,0,0,0,3,215],
 "pixie__icons_8h.html#a6eb5dbaa50ffad8d2172907d6d01219c":[1,0,0,0,3,118],
 "pixie__icons_8h.html#a6fe198546ff75898d05c3bfff499125f":[1,0,0,0,3,78],

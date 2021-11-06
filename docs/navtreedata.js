@@ -50,7 +50,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_pixie___chroma_8h.html",
-"pixie__icons_8h.html#a6dd5b82c661a8a727711ca03b6ee1034"
+"pixie__icons_8h.html#a642ee4fc0cf6f54158f3320c8082d548"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
