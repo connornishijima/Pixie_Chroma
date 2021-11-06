@@ -1,4 +1,8 @@
 warning: source 'docs/img' is not a readable file or directory... skipping.
+/github/workspace/src/Pixie_Chroma.h:59: warning: Member FASTLED_INTERNAL (macro definition) of file Pixie_Chroma.h is not documented.
+/github/workspace/src/Pixie_Chroma.h:68: warning: Member UNIT_TEST_PIXIES_PER_PIN (macro definition) of file Pixie_Chroma.h is not documented.
+/github/workspace/src/Pixie_Chroma.h:69: warning: Member UNIT_TEST_PIXIES_X (macro definition) of file Pixie_Chroma.h is not documented.
+/github/workspace/src/Pixie_Chroma.h:70: warning: Member UNIT_TEST_PIXIES_Y (macro definition) of file Pixie_Chroma.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:15: warning: Member ICON_ARROW_UP[5] (variable) of file pixie_icons.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:16: warning: Member ICON_ARROW_UP_LEFT[5] (variable) of file pixie_icons.h is not documented.
 /github/workspace/src/utility/pixie_icons.h:17: warning: Member ICON_ARROW_UP_RIGHT[5] (variable) of file pixie_icons.h is not documented.
@@ -237,3 +241,4 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_palettes.h:84: warning: Member GRADIENT_BLACK_GREEN_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:90: warning: Member GRADIENT_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:95: warning: Member GRADIENT_BLACK_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
+/github/workspace/src/pixie_chroma_internal.h:137: warning: Member unit_tests() (function) of class PixieChroma is not documented.
