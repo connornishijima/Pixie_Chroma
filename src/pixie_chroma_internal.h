@@ -129,7 +129,12 @@ class PixieChroma{
 		/*|*/ uint16_t uv( float x, float y, bool wrap = false );
 		/*|*/ float    get_uv_x( int32_t x_pixel );
 		/*|*/ float    get_uv_y( int32_t y_pixel );
-		/*|*/ void     draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 );
+		/*|*/ uint8_t  get_pixel_mask( int32_t x, int32_t y );
+		/*|*/ void     set_pixel_mask( int32_t x, int32_t y, uint8_t value );
+		/*|*/ CRGB     get_pixel_color( int32_t x, int32_t y );
+		/*|*/ void     set_pixel_color( int32_t x, int32_t y, CRGB color );
+		/*|*/ void     draw_line_mask( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint8_t value = 255 );
+		/*|*/ void     draw_line_color( int16_t x1, int16_t y1, int16_t x2, int16_t y2, CRGB color );
 		/*|*/ void     print_xy_table();
 		/*+---------------------------------------------------------------------------------*/
 		

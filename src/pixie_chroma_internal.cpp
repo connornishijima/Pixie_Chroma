@@ -1636,6 +1636,58 @@ float PixieChroma::get_uv_y( int32_t y_pixel ){
 	y_pixel = matrix_height - y_pixel;
     return y_pixel / float( matrix_height );
 }
+
+
+/*! ############################################################################
+    @brief
+    Gets the mask value at a given pixel coordinate.
+        
+    @param   x  X pixel coordinate
+    @param   y  Y pixel coordinate
+	@return  Mask value
+*///............................................................................
+uint8_t PixieChroma::get_pixel_mask( int32_t x, int32_t y ){
+	return mask[ xy(x,y) ];
+}
+
+
+/*! ############################################################################
+    @brief
+    Sets the mask value at a given pixel coordinate.
+        
+    @param   x      X pixel coordinate
+    @param   y      Y pixel coordinate
+	@param   value  Mask value
+*///............................................................................
+void PixieChroma::set_pixel_mask( int32_t x, int32_t y, uint8_t value ){
+	mask[ xy(x,y) ] = value;
+}
+
+
+/*! ############################################################################
+    @brief
+    Gets the RGB color value at a given pixel coordinate.
+        
+    @param   x  X pixel coordinate
+    @param   y  Y pixel coordinate
+	@return  CRGB color
+*///............................................................................
+CRGB PixieChroma::get_pixel_color( int32_t x, int32_t y ){
+	return color_map[ xy(x,y) ];
+}
+
+
+/*! ############################################################################
+    @brief
+    Sets the RGB color value at a given pixel coordinate.
+        
+    @param   x      X pixel coordinate
+    @param   y      Y pixel coordinate
+	@param   color  CRGB color
+*///............................................................................
+void PixieChroma::set_pixel_color( int32_t x, int32_t y, CRGB color ){
+	color_map[ xy(x,y) ] = color;
+}
 	
 
 /*! ############################################################################
@@ -1645,7 +1697,7 @@ float PixieChroma::get_uv_y( int32_t y_pixel ){
     @details
     Example:
     
-        pix.color(  CRGB( 0,255,255 )  );
+        pix.color( CRGB( 0,255,255 ) );
     
     This would set all displays to cyan, a mix of green and blue.
               
@@ -1663,7 +1715,7 @@ void PixieChroma::color( CRGB col ){
     @details
     Example:
     
-        pix.color(  CRGB( 0,255,255 ), 1, 0  );
+        pix.color( CRGB( 0,255,255 ), 1, 0 );
     
     This would set the **second display of the first row** to cyan, a mix of
     green and blue.
@@ -1695,7 +1747,7 @@ void PixieChroma::color( CRGB col, uint8_t x, uint8_t y ){
     @details
     Example:
     
-        pix.color(  CRGB( 0,255,255 ), 0, 0, 5, 5  );
+        pix.color( CRGB( 0,255,255 ), 0, 0, 5, 5 );
     
     This would set **the first five columns and rows** of the color buffer to
     cyan, a mix of green and blue.
@@ -1703,8 +1755,8 @@ void PixieChroma::color( CRGB col, uint8_t x, uint8_t y ){
     @param    col  FastLED CRGB color
     @param    x1   Starting X coordinate of the rectangle
     @param    y1   Starting Y coordinate of the rectangle
-    @param    x2   Ending X coordinate of the rectangle ( inclusive )
-    @param    y2   Ending Y coordinate of the rectangle ( inclusive )
+    @param    x2   Ending X coordinate of the rectangle (inclusive)
+    @param    y2   Ending Y coordinate of the rectangle (inclusive)
 *///............................................................................
 void PixieChroma::color( CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2 ){
     if( x2 < x1 || y2 < y1 ){
@@ -1738,12 +1790,13 @@ void PixieChroma::color( CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y
     @brief
     Draws a line in the mask buffer using Bresenham's line algorithm.
         
-    @param  x1  Starting X coordinate of the line
-    @param  y1  Starting Y coordinate of the line
-    @param  x2  Ending X coordinate of the line ( inclusive )
-    @param  y2  Ending Y coordinate of the line ( inclusive )
+    @param  x1     Starting X coordinate of the line
+    @param  y1     Starting Y coordinate of the line
+    @param  x2     Ending X coordinate of the line (inclusive)
+    @param  y2     Ending Y coordinate of the line (inclusive)
+	@param  value  8-bit mask value to draw (Default 255)
 *///............................................................................
-void PixieChroma::draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
+void PixieChroma::draw_line_mask( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint8_t value ){
     //Bresenham's line algorithm
     uint16_t index;
     
@@ -1765,8 +1818,7 @@ void PixieChroma::draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
             y=y2;
             xe=x1;
         }
-        index = xy( x,y );
-        mask[index] = qadd8(  255, mask[index]  );
+        set_pixel_mask( x, y, value );
         for( i=0;x<xe;i++ ){
             x=x+1;
             if( px<0 ){
@@ -1781,9 +1833,7 @@ void PixieChroma::draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
                 }
                 px=px+2*( dy1-dx1 );
             }
-            delay( 0 );
-            index = xy( x,y );
-            mask[index] = qadd8(  255, mask[index]  );
+			set_pixel_mask( x, y, value );
         }
     }
     else{
@@ -1797,8 +1847,7 @@ void PixieChroma::draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
             y=y2;
             ye=y1;
         }
-        index = xy( x,y );
-        mask[index] = qadd8(  255, mask[index]  );
+        set_pixel_mask( x, y, value );
         for( i=0;y<ye;i++ ){
             y=y+1;
             if( py<=0 ){
@@ -1813,8 +1862,89 @@ void PixieChroma::draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
                 }
                 py=py+2*( dx1-dy1 );
             }
-            index = xy( x,y );
-            mask[index] = qadd8(  255, mask[index]  );
+            set_pixel_mask( x, y, value );
+        }
+    }
+}
+
+
+/*! ############################################################################
+    @brief
+    Draws a line in the color map using Bresenham's line algorithm.
+        
+    @param  x1     Starting X coordinate of the line
+    @param  y1     Starting Y coordinate of the line
+    @param  x2     Ending X coordinate of the line (inclusive)
+    @param  y2     Ending Y coordinate of the line (inclusive)
+	@param  color  CRGB color to draw
+*///............................................................................
+void PixieChroma::draw_line_color( int16_t x1, int16_t y1, int16_t x2, int16_t y2, CRGB color ){
+    //Bresenham's line algorithm
+    uint16_t index;
+    
+    int16_t x,y,dx,dy,dx1,dy1,px,py,xe,ye,i;
+    dx=x2-x1;
+    dy=y2-y1;
+    dx1=fabs( dx );
+    dy1=fabs( dy );
+    px=2*dy1-dx1;
+    py=2*dx1-dy1;
+    if( dy1<=dx1 ){
+        if( dx>=0 ){
+            x=x1;
+            y=y1;
+            xe=x2;
+        }
+        else{
+            x=x2;
+            y=y2;
+            xe=x1;
+        }
+        set_pixel_color( x, y, color );
+        for( i=0;x<xe;i++ ){
+            x=x+1;
+            if( px<0 ){
+                px=px+2*dy1;
+            }
+            else{
+                if( ( dx<0 && dy<0 ) || ( dx>0 && dy>0 ) ){
+                    y=y+1;
+                }
+                else{
+                    y=y-1;
+                }
+                px=px+2*( dy1-dx1 );
+            }
+            set_pixel_color( x, y, color );
+        }
+    }
+    else{
+        if( dy>=0 ){
+            x=x1;
+            y=y1;
+            ye=y2;
+        }
+        else{
+            x=x2;
+            y=y2;
+            ye=y1;
+        }
+        set_pixel_color( x, y, color );
+        for( i=0;y<ye;i++ ){
+            y=y+1;
+            if( py<=0 ){
+                py=py+2*dx1;
+            }
+            else{
+                if( ( dx<0 && dy<0 ) || ( dx>0 && dy>0 ) ){
+                    x=x+1;
+                }
+                else{
+                    x=x-1;
+                }
+                py=py+2*( dx1-dy1 );
+            }
+            set_pixel_color( x, y, color );
         }
     }
 }
