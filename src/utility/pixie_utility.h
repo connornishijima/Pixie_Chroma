@@ -11,6 +11,10 @@
 
 // Extra utilities for PixieChroma code, such as the gamma LUT
 
+#if defined(ARDUINO_ARCH_ESP32)
+	#define ANALOG_PIN 35
+#endif
+
 /*! @brief  Used to store the pointer to any preset/custom animation functions the library needs to call during show(); */
 void (*anim_func)(PixieChroma* _p, float delta);
 

@@ -64,3 +64,7 @@
 #include "utility/pixie_icons.h" // -------- Bitmap icon pack
 #include "utility/pixie_animations.h" // --- Preset animation routines
 #include "pixie_chroma_internal.h" // ------ Main library code
+
+#define UNIT_TEST_PIXIES_PER_PIN 3
+#define UNIT_TEST_PIXIES_X       6
+#define UNIT_TEST_PIXIES_Y       2

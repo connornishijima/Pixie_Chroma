@@ -102,7 +102,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     current_palette.loadDynamicGradientPalette( GREEN_SOLID );
 
     build_controller( pixie_pin ); // ----- Initialize FastLED
-    //set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
+    set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
     clear(); // --------------------------- Clear anything in mask (should be empty anyways), reset cursor
     set_max_power( 5.0, 500 ); // --------- Set default power budget in volts and milliamps (5.0V, 500mA)
 }
@@ -251,7 +251,7 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
 
     #endif
     
-    //set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
+    set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
     clear(); // --------------------------- Clear anything in mask ( should be empty anyways ), reset cursor
     set_max_power( 5, 500 ); // ----------- Set default power budget in volts and milliamps
 }
@@ -844,7 +844,7 @@ void PixieChroma::add_char( char chr, int16_t x_dest, int16_t y_dest ){
     @param  x_dest  X pixel position of write
     @param  y_dest  Y pixel position of write
 *///............................................................................
-void PixieChroma::add_char( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){
+void PixieChroma::add_char( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){	
     for( uint8_t x = 0; x < font_col_width; x++ ){
         uint8_t column = pgm_read_byte_far( icon+x );
 
@@ -1996,6 +1996,7 @@ void PixieChroma::print_xy_table(){
     }
 }
 
+
 // ---------------------------------------------------------------------------------------------------------|
 // -- PRIVATE CLASS FUNCTIONS ------------------------------------------------------------------------------|
 // ---------------------------------------------------------------------------------------------------------|
@@ -2152,4 +2153,485 @@ void PixieChroma::calc_xy(){
         }
     }
     //Serial.println( "DONE" );
+}
+
+// (End of user code)
+
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+// ##########################################################################################################
+
+// ---------------------------------------------------------------------------------------------------------|
+// -- DEVELOPER FUNCTIONS ----------------------------------------------------------------------------------|
+// ---------------------------------------------------------------------------------------------------------|
+
+bool PixieChroma::unit_tests(){
+	randomSeed( 
+		analogRead( ANALOG_PIN )
+	);
+	
+	char* border  = "+---------------------------------------------+";
+
+	char* testing = "Testing: ";
+	char* PASS    = "PASS";
+	char* FAIL    = "FAIL\n--------------------------------------------------------- #####";
+	bool  success = true;
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ begin ---------------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("begin() ......................... "));
+	uint8_t fail_step = 0;
+	
+	begin_quad( // 12 Pixies, (6x2) in quad mode
+		UNIT_TEST_PIXIES_PER_PIN,
+		UNIT_TEST_PIXIES_X,
+		UNIT_TEST_PIXIES_Y
+	);
+	
+	if( chars_x               != 12   ){ fail_step = 1;  }
+	if( chars_y               != 2    ){ fail_step = 2;  }
+	if( matrix_width          != 84   ){ fail_step = 3;  }
+	if( matrix_height         != 22   ){ fail_step = 4;  }
+	if( NUM_PIXELS            != 1848 ){ fail_step = 5;  }
+	if( NUM_LEDS              != 840  ){ fail_step = 6;  }
+	if( xy_table[0]           != 840  ){ fail_step = 7;  }
+	if( xy_table[500]         != 402  ){ fail_step = 8;  }
+	if( color_map[0].g        != 255  ){ fail_step = 9;  }
+	
+	if(fail_step == 0){
+		Serial.println(PASS);
+		
+		clear();
+		print("------------------------");
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.print("FAIL_STEP: ");
+		Serial.println(fail_step);
+		
+		success = false;
+	}
+		
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ xy ------------------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("xy() ............................ "));
+	fail_step = 0;
+		
+	if( xy(0, 0 ) != 840  ){ fail_step = 1; } // top left
+	if( xy(83,0 ) != 923  ){ fail_step = 2; } // top right
+	if( xy(0, 21) != 1764 ){ fail_step = 3; } // bottom left
+	if( xy(83,21) != 1847 ){ fail_step = 4; } // bottom_right
+	if( xy(41,10) != 1301 ){ fail_step = 5; } // center
+	
+	if(fail_step == 0){
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.print("FAIL_STEP: ");
+		Serial.println(fail_step);
+		
+		success = false;
+	}
+		
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ set_brightness ------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("set_brightness() ................ "));
+	
+	bool success_temp = true;
+	for(uint8_t i = 0; i < 100; i++){
+		uint8_t rand_brightness = random( 0, 255 );
+		set_brightness( rand_brightness );
+		show();
+		
+		if( brightness_level != rand_brightness ){
+			success_temp = false;
+		}
+	}
+	
+	if(success_temp == true){
+		set_brightness( 8 );
+		show();
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ set_palette ---------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	set_animation(ANIMATION_STATIC);
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("set_palette() ................... "));
+	
+	print("------------------------");
+	
+	success_temp = true;
+	for(uint8_t i = 0; i < 100; i++){		
+		CRGB rands[8] = {
+			CRGB(random(0,255), random(0,255), random(0,255)),
+			CRGB(random(0,255), random(0,255), random(0,255)),
+			CRGB(random(0,255), random(0,255), random(0,255)),
+			CRGB(random(0,255), random(0,255), random(0,255)),
+			CRGB(random(0,255), random(0,255), random(0,255)),
+			CRGB(random(0,255), random(0,255), random(0,255)),
+			CRGB(random(0,255), random(0,255), random(0,255)),
+			CRGB(random(0,255), random(0,255), random(0,255))
+		};
+		
+		CRGBPalette16 test_palette = CRGBPalette16(
+										rands[0],  rands[1],  rands[2],  rands[3], 
+										rands[4],  rands[5],  rands[6],  rands[7],
+										rands[0],  rands[1],  rands[2],  rands[3], 
+										rands[4],  rands[5],  rands[6],  rands[7]
+									);
+		
+		set_palette( test_palette );
+		show();
+		
+		bool success_temp_b = true;
+		for(uint8_t i = 0; i < 8; i++){
+			if(test_palette.entries[i] != rands[i] || test_palette.entries[i+8] != rands[i]){
+				success_temp_b = false;
+			}
+		}
+		
+		if(!success_temp_b){
+			success_temp = false;
+		}
+	}
+
+	if(success_temp){
+		Serial.println(PASS);
+		set_palette(GREEN_SOLID);
+	}
+	else{
+		Serial.println(FAIL);
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ set_update_mode ------------------------------------------------------------------------ @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("set_update_mode() ............... "));
+	fail_step = 0;
+	
+	set_update_mode(AUTOMATIC);	
+	if(!ticker_running){
+		fail_step = 1;
+	}
+	
+	set_update_mode(MANUAL);	
+	if(ticker_running){
+		fail_step = 2;
+	}	
+
+	if(fail_step == 0){
+		set_update_mode( MANUAL );
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.println(fail_step);
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ write(ICON) ---------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("write(ICON) ..................... "));
+
+	clear();
+	write(ICON_HEART,0,0);
+	show();
+
+	success_temp = true;
+	for(uint8_t x = 0; x < 5; x++){
+		uint8_t column = pgm_read_byte_far( ICON_HEART+x );
+		
+		for(uint8_t y = 0; y < 7; y++){
+			uint8_t icon_val = bit_table[ bitRead( column, y ) ];
+			
+			uint16_t index = xy(x+display_padding_x, y+display_padding_y);
+			uint8_t mask_val = mask[index];
+			
+			if(icon_val != mask_val){
+				success_temp = false;
+			}
+		}
+	}
+	
+	if(success_temp){
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ write(int16_t) ------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("write(int16_t) .................. "));
+
+	clear();
+	write(int16_t(-2),0,0);
+	show();
+
+	success_temp = true;
+	for(uint8_t x = 0; x < 5; x++){
+		char chr = '-';
+		chr -= printable_ascii_offset;
+		uint8_t column = pgm_read_byte( font + ( chr * font_col_width + x ) );
+		
+		for(uint8_t y = 0; y < 7; y++){
+			uint8_t char_val = bit_table[ bitRead( column, y ) ];
+			
+			uint16_t index = xy(x+display_padding_x, y+display_padding_y);
+			uint8_t mask_val = mask[index];
+			
+			if(char_val != mask_val){
+				success_temp = false;
+			}
+		}
+	}
+	for(uint8_t x = 0; x < 5; x++){
+		char chr = '2';
+		chr -= printable_ascii_offset;
+		uint8_t column = pgm_read_byte( font + ( chr * font_col_width + x ) );
+		
+		for(uint8_t y = 0; y < 7; y++){
+			uint8_t char_val = bit_table[ bitRead( column, y ) ];
+			
+			uint16_t index = xy(x+display_padding_x+(display_width*1), y+display_padding_y);
+			uint8_t mask_val = mask[index];
+			
+			if(char_val != mask_val){
+				success_temp = false;
+			}
+		}
+	}
+	for(uint8_t x = 0; x < 5; x++){
+		char chr = ' ';
+		chr -= printable_ascii_offset;
+		uint8_t column = pgm_read_byte( font + ( chr * font_col_width + x ) );
+		
+		for(uint8_t y = 0; y < 7; y++){
+			uint8_t char_val = bit_table[ bitRead( column, y ) ];
+			
+			uint16_t index = xy(x+display_padding_x+(display_width*2), y+display_padding_y);
+			uint8_t mask_val = mask[index];
+			
+			if(char_val != mask_val){
+				success_temp = false;
+			}
+		}
+	}
+	
+	if(success_temp){
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ print(ICON) ---------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("print(ICON) ..................... "));
+
+	clear();
+	print(ICON_HEART);
+	show();
+
+	success_temp = true;
+	for(uint8_t x = 0; x < 5; x++){
+		uint8_t column = pgm_read_byte_far( ICON_HEART+x );
+		
+		for(uint8_t y = 0; y < 7; y++){
+			uint8_t icon_val = bit_table[ bitRead( column, y ) ];
+			
+			uint16_t index = xy(x+display_padding_x, y+display_padding_y);
+			uint8_t mask_val = mask[index];
+			
+			if(icon_val != mask_val){
+				success_temp = false;
+			}
+		}
+	}
+	
+	if(success_temp){
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ print(int16_t) ------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("print(int16_t) .................. "));
+
+	clear();
+	print(int16_t(-2));
+	show();
+
+	success_temp = true;
+	for(uint8_t x = 0; x < 5; x++){
+		char chr = '-';
+		chr -= printable_ascii_offset;
+		uint8_t column = pgm_read_byte( font + ( chr * font_col_width + x ) );
+		
+		for(uint8_t y = 0; y < 7; y++){
+			uint8_t char_val = bit_table[ bitRead( column, y ) ];
+			
+			uint16_t index = xy(x+display_padding_x, y+display_padding_y);
+			uint8_t mask_val = mask[index];
+			
+			if(char_val != mask_val){
+				success_temp = false;
+			}
+		}
+	}
+	for(uint8_t x = 0; x < 5; x++){
+		char chr = '2';
+		chr -= printable_ascii_offset;
+		uint8_t column = pgm_read_byte( font + ( chr * font_col_width + x ) );
+		
+		for(uint8_t y = 0; y < 7; y++){
+			uint8_t char_val = bit_table[ bitRead( column, y ) ];
+			
+			uint16_t index = xy(x+display_padding_x+(display_width*1), y+display_padding_y);
+			uint8_t mask_val = mask[index];
+			
+			if(char_val != mask_val){
+				success_temp = false;
+			}
+		}
+	}
+	for(uint8_t x = 0; x < 5; x++){
+		char chr = ' ';
+		chr -= printable_ascii_offset;
+		uint8_t column = pgm_read_byte( font + ( chr * font_col_width + x ) );
+		
+		for(uint8_t y = 0; y < 7; y++){
+			uint8_t char_val = bit_table[ bitRead( column, y ) ];
+			
+			uint16_t index = xy(x+display_padding_x+(display_width*2), y+display_padding_y);
+			uint8_t mask_val = mask[index];
+			
+			if(char_val != mask_val){
+				success_temp = false;
+			}
+		}
+	}
+	
+	if(success_temp){
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	Serial.println("\nXY MAP:");
+	print_xy_table();
+
+	return success;	
 }

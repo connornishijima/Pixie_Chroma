@@ -58,7 +58,7 @@ class PixieChroma{
 		/*|*/ void write_pix( char* message, int16_t x_offset = 0, int16_t y_offset = 0 );
 		/*|*/ void write_pix( const uint8_t* icon, int16_t x_offset = 0, int16_t y_offset = 0 );
 		/*|*/ 
-		/*|*/ void add_char( char c, int16_t x_pos, int16_t y_pos );
+		/*|*/ void add_char( char chr, int16_t x_pos, int16_t y_pos );
 		/*|*/ void add_char( const uint8_t* icon, int16_t x_pos, int16_t y_pos );
 		/*+---------------------------------------------------------------------------------*/ 
 
@@ -131,6 +131,10 @@ class PixieChroma{
 		/*|*/ float    get_uv_y( int32_t y_pixel );
 		/*|*/ void     draw_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2 );
 		/*|*/ void     print_xy_table();
+		/*+---------------------------------------------------------------------------------*/
+		
+		/*+-- Functions - Developer --------------------------------------------------------*/ 
+		/*|*/ bool unit_tests();
 		/*+---------------------------------------------------------------------------------*/
 
 		// Variables -------------------------------------------------------------------------
@@ -272,6 +276,7 @@ class PixieChroma{
         uint8_t pixie_pin;
 		uint8_t chars_x;
 		uint8_t chars_y;
+		
 };
 
 #endif
