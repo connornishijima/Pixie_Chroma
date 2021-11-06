@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['add_5fchar_1',['add_char',['../class_pixie_chroma.html#afe6f1a95e2b3bb1d6e22ad2866dc5f67',1,'PixieChroma::add_char(const uint8_t *icon, int16_t x_pos, int16_t y_pos)'],['../class_pixie_chroma.html#a44dfdcadcb3e913233e7f9059d73c5a4',1,'PixieChroma::add_char(char c, int16_t x_pos, int16_t y_pos)']]],
+  ['add_5fchar_1',['add_char',['../class_pixie_chroma.html#afe6f1a95e2b3bb1d6e22ad2866dc5f67',1,'PixieChroma::add_char(const uint8_t *icon, int16_t x_pos, int16_t y_pos)'],['../class_pixie_chroma.html#ae8f4c22d9463fa714ec9f94fc49e2ed6',1,'PixieChroma::add_char(char chr, int16_t x_pos, int16_t y_pos)']]],
   ['anim_5ffunc_2',['anim_func',['../pixie__utility_8h.html#a67d14d9a3ae463e4b4a0fd90cd472518',1,'pixie_utility.h']]],
   ['animation_5fglitter_3',['ANIMATION_GLITTER',['../pixie__animations_8cpp.html#ac8c859bf0daefc9c145cdf335acf9f00',1,'ANIMATION_GLITTER(PixieChroma *_p, float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#ac8c859bf0daefc9c145cdf335acf9f00',1,'ANIMATION_GLITTER(PixieChroma *_p, float delta):&#160;pixie_animations.cpp']]],
   ['animation_5fnull_4',['ANIMATION_NULL',['../pixie__animations_8cpp.html#a5a49cfbffe85f8e43867e79394bc16a8',1,'ANIMATION_NULL(PixieChroma *_p, float delta):&#160;pixie_animations.cpp'],['../pixie__animations_8h.html#a5a49cfbffe85f8e43867e79394bc16a8',1,'ANIMATION_NULL(PixieChroma *_p, float delta):&#160;pixie_animations.cpp']]],
