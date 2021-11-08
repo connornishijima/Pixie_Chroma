@@ -812,13 +812,13 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;}</div>
 <div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160; </div>
 <div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;<span class="comment">//............................................................................</span></div>
-<div class="line"><a name="l01433"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243"> 1433</a></span>&#160;uint8_t <a class="code" href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243">PixieChroma::get_cursor_x</a>(){</div>
-<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;    <span class="keywordflow">return</span> cursor_x / chars_x;</div>
+<div class="line"><a name="l01433"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243"> 1433</a></span>&#160;uint8_t <a class="code" href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243">PixieChroma::get_cursor_x</a>(){    </div>
+<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;    <span class="keywordflow">return</span> cursor_x / display_width;</div>
 <div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;}</div>
 <div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160; </div>
 <div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;<span class="comment">//............................................................................</span></div>
 <div class="line"><a name="l01444"></a><span class="lineno"><a class="line" href="class_pixie_chroma.html#a8862e3c12f698c3128f614aaa064bc0e"> 1444</a></span>&#160;uint8_t <a class="code" href="class_pixie_chroma.html#a8862e3c12f698c3128f614aaa064bc0e">PixieChroma::get_cursor_y</a>(){</div>
-<div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;    <span class="keywordflow">return</span> cursor_y / chars_y;</div>
+<div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;    <span class="keywordflow">return</span> cursor_y / display_height;</div>
 <div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;}</div>
 <div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160; </div>
 <div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;<span class="comment">//............................................................................</span></div>
@@ -1844,18 +1844,165 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l02759"></a><span class="lineno"> 2759</span>&#160;    Serial.println(border);</div>
 <div class="line"><a name="l02760"></a><span class="lineno"> 2760</span>&#160;    </div>
 <div class="line"><a name="l02761"></a><span class="lineno"> 2761</span>&#160;    </div>
-<div class="line"><a name="l02762"></a><span class="lineno"> 2762</span>&#160;    </div>
-<div class="line"><a name="l02763"></a><span class="lineno"> 2763</span>&#160;    </div>
-<div class="line"><a name="l02764"></a><span class="lineno"> 2764</span>&#160;    </div>
+<div class="line"><a name="l02762"></a><span class="lineno"> 2762</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02763"></a><span class="lineno"> 2763</span>&#160;    <span class="comment">// @@@@@ set_cursor() --------------------------------------------------------------------------- @@@@@</span></div>
+<div class="line"><a name="l02764"></a><span class="lineno"> 2764</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l02765"></a><span class="lineno"> 2765</span>&#160;    </div>
-<div class="line"><a name="l02766"></a><span class="lineno"> 2766</span>&#160;    </div>
-<div class="line"><a name="l02767"></a><span class="lineno"> 2767</span>&#160;    </div>
-<div class="line"><a name="l02768"></a><span class="lineno"> 2768</span>&#160;    </div>
-<div class="line"><a name="l02769"></a><span class="lineno"> 2769</span>&#160;    Serial.println(<span class="stringliteral">&quot;\nXY MAP:&quot;</span>);</div>
-<div class="line"><a name="l02770"></a><span class="lineno"> 2770</span>&#160;    <a class="code" href="class_pixie_chroma.html#a50da512c6cbcd74c59f18d85b5bd7599">print_xy_table</a>();</div>
+<div class="line"><a name="l02766"></a><span class="lineno"> 2766</span>&#160;    Serial.println( border );</div>
+<div class="line"><a name="l02767"></a><span class="lineno"> 2767</span>&#160;    Serial.print  ( testing );</div>
+<div class="line"><a name="l02768"></a><span class="lineno"> 2768</span>&#160;    Serial.print(F(<span class="stringliteral">&quot;set_cursor() .................... &quot;</span>));</div>
+<div class="line"><a name="l02769"></a><span class="lineno"> 2769</span>&#160; </div>
+<div class="line"><a name="l02770"></a><span class="lineno"> 2770</span>&#160;    <a class="code" href="class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942">set_cursor</a>(2,3); <span class="comment">// whole displays</span></div>
 <div class="line"><a name="l02771"></a><span class="lineno"> 2771</span>&#160; </div>
-<div class="line"><a name="l02772"></a><span class="lineno"> 2772</span>&#160;    <span class="keywordflow">return</span> success; </div>
-<div class="line"><a name="l02773"></a><span class="lineno"> 2773</span>&#160;}</div>
+<div class="line"><a name="l02772"></a><span class="lineno"> 2772</span>&#160;    <span class="keywordflow">if</span>(cursor_x != 15 || cursor_y != 35){ <span class="comment">// pixel positions calculated</span></div>
+<div class="line"><a name="l02773"></a><span class="lineno"> 2773</span>&#160;        success = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l02774"></a><span class="lineno"> 2774</span>&#160;    }</div>
+<div class="line"><a name="l02775"></a><span class="lineno"> 2775</span>&#160;    </div>
+<div class="line"><a name="l02776"></a><span class="lineno"> 2776</span>&#160;    <span class="keywordflow">if</span>(success){</div>
+<div class="line"><a name="l02777"></a><span class="lineno"> 2777</span>&#160;        Serial.println(PASS);</div>
+<div class="line"><a name="l02778"></a><span class="lineno"> 2778</span>&#160;    }</div>
+<div class="line"><a name="l02779"></a><span class="lineno"> 2779</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l02780"></a><span class="lineno"> 2780</span>&#160;        Serial.println(FAIL);</div>
+<div class="line"><a name="l02781"></a><span class="lineno"> 2781</span>&#160;        Serial.print(<span class="stringliteral">&quot;cursor: (&quot;</span>);</div>
+<div class="line"><a name="l02782"></a><span class="lineno"> 2782</span>&#160;        Serial.print(cursor_x);</div>
+<div class="line"><a name="l02783"></a><span class="lineno"> 2783</span>&#160;        Serial.print(<span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line"><a name="l02784"></a><span class="lineno"> 2784</span>&#160;        Serial.println(<span class="stringliteral">&quot;) != (15,35)&quot;</span>);</div>
+<div class="line"><a name="l02785"></a><span class="lineno"> 2785</span>&#160;    }</div>
+<div class="line"><a name="l02786"></a><span class="lineno"> 2786</span>&#160;    </div>
+<div class="line"><a name="l02787"></a><span class="lineno"> 2787</span>&#160;    Serial.println(border);</div>
+<div class="line"><a name="l02788"></a><span class="lineno"> 2788</span>&#160;    </div>
+<div class="line"><a name="l02789"></a><span class="lineno"> 2789</span>&#160;    </div>
+<div class="line"><a name="l02790"></a><span class="lineno"> 2790</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02791"></a><span class="lineno"> 2791</span>&#160;    <span class="comment">// @@@@@ get_cursor_x() ------------------------------------------------------------------------- @@@@@</span></div>
+<div class="line"><a name="l02792"></a><span class="lineno"> 2792</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02793"></a><span class="lineno"> 2793</span>&#160;    </div>
+<div class="line"><a name="l02794"></a><span class="lineno"> 2794</span>&#160;    Serial.println( border );</div>
+<div class="line"><a name="l02795"></a><span class="lineno"> 2795</span>&#160;    Serial.print  ( testing );</div>
+<div class="line"><a name="l02796"></a><span class="lineno"> 2796</span>&#160;    Serial.print(F(<span class="stringliteral">&quot;get_cursor_x() .................. &quot;</span>));</div>
+<div class="line"><a name="l02797"></a><span class="lineno"> 2797</span>&#160; </div>
+<div class="line"><a name="l02798"></a><span class="lineno"> 2798</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243">get_cursor_x</a>() == 2){ <span class="comment">// whole displays</span></div>
+<div class="line"><a name="l02799"></a><span class="lineno"> 2799</span>&#160;        Serial.println(PASS);</div>
+<div class="line"><a name="l02800"></a><span class="lineno"> 2800</span>&#160;    }</div>
+<div class="line"><a name="l02801"></a><span class="lineno"> 2801</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l02802"></a><span class="lineno"> 2802</span>&#160;        Serial.println(FAIL);</div>
+<div class="line"><a name="l02803"></a><span class="lineno"> 2803</span>&#160;        Serial.print(<a class="code" href="class_pixie_chroma.html#af5524f6da87f57c23750ef8067d1f243">get_cursor_x</a>());</div>
+<div class="line"><a name="l02804"></a><span class="lineno"> 2804</span>&#160;        Serial.println(<span class="stringliteral">&quot; != 2&quot;</span>);</div>
+<div class="line"><a name="l02805"></a><span class="lineno"> 2805</span>&#160;        success = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l02806"></a><span class="lineno"> 2806</span>&#160;    }</div>
+<div class="line"><a name="l02807"></a><span class="lineno"> 2807</span>&#160;    </div>
+<div class="line"><a name="l02808"></a><span class="lineno"> 2808</span>&#160;    Serial.println(border);</div>
+<div class="line"><a name="l02809"></a><span class="lineno"> 2809</span>&#160;    </div>
+<div class="line"><a name="l02810"></a><span class="lineno"> 2810</span>&#160;    </div>
+<div class="line"><a name="l02811"></a><span class="lineno"> 2811</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02812"></a><span class="lineno"> 2812</span>&#160;    <span class="comment">// @@@@@ get_cursor_y() ------------------------------------------------------------------------- @@@@@</span></div>
+<div class="line"><a name="l02813"></a><span class="lineno"> 2813</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02814"></a><span class="lineno"> 2814</span>&#160;    </div>
+<div class="line"><a name="l02815"></a><span class="lineno"> 2815</span>&#160;    Serial.println( border );</div>
+<div class="line"><a name="l02816"></a><span class="lineno"> 2816</span>&#160;    Serial.print  ( testing );</div>
+<div class="line"><a name="l02817"></a><span class="lineno"> 2817</span>&#160;    Serial.print(F(<span class="stringliteral">&quot;get_cursor_y() .................. &quot;</span>));</div>
+<div class="line"><a name="l02818"></a><span class="lineno"> 2818</span>&#160; </div>
+<div class="line"><a name="l02819"></a><span class="lineno"> 2819</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="class_pixie_chroma.html#a8862e3c12f698c3128f614aaa064bc0e">get_cursor_y</a>() == 3){ <span class="comment">// whole displays</span></div>
+<div class="line"><a name="l02820"></a><span class="lineno"> 2820</span>&#160;        Serial.println(PASS);</div>
+<div class="line"><a name="l02821"></a><span class="lineno"> 2821</span>&#160;    }</div>
+<div class="line"><a name="l02822"></a><span class="lineno"> 2822</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l02823"></a><span class="lineno"> 2823</span>&#160;        Serial.println(FAIL);</div>
+<div class="line"><a name="l02824"></a><span class="lineno"> 2824</span>&#160;        Serial.print(<a class="code" href="class_pixie_chroma.html#a8862e3c12f698c3128f614aaa064bc0e">get_cursor_y</a>());</div>
+<div class="line"><a name="l02825"></a><span class="lineno"> 2825</span>&#160;        Serial.println(<span class="stringliteral">&quot; != 2&quot;</span>);</div>
+<div class="line"><a name="l02826"></a><span class="lineno"> 2826</span>&#160;        success = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l02827"></a><span class="lineno"> 2827</span>&#160;    }</div>
+<div class="line"><a name="l02828"></a><span class="lineno"> 2828</span>&#160;    </div>
+<div class="line"><a name="l02829"></a><span class="lineno"> 2829</span>&#160;    Serial.println(border);</div>
+<div class="line"><a name="l02830"></a><span class="lineno"> 2830</span>&#160;    </div>
+<div class="line"><a name="l02831"></a><span class="lineno"> 2831</span>&#160;    </div>
+<div class="line"><a name="l02832"></a><span class="lineno"> 2832</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02833"></a><span class="lineno"> 2833</span>&#160;    <span class="comment">// @@@@@ get_cursor_x_exact() ------------------------------------------------------------------- @@@@@</span></div>
+<div class="line"><a name="l02834"></a><span class="lineno"> 2834</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02835"></a><span class="lineno"> 2835</span>&#160;    </div>
+<div class="line"><a name="l02836"></a><span class="lineno"> 2836</span>&#160;    Serial.println( border );</div>
+<div class="line"><a name="l02837"></a><span class="lineno"> 2837</span>&#160;    Serial.print  ( testing );</div>
+<div class="line"><a name="l02838"></a><span class="lineno"> 2838</span>&#160;    Serial.print(F(<span class="stringliteral">&quot;get_cursor_x_exact() ............ &quot;</span>));</div>
+<div class="line"><a name="l02839"></a><span class="lineno"> 2839</span>&#160; </div>
+<div class="line"><a name="l02840"></a><span class="lineno"> 2840</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="class_pixie_chroma.html#a9235da3b588545ce9e412e00e86f55bd">get_cursor_x_exact</a>() == 15){ <span class="comment">// whole displays</span></div>
+<div class="line"><a name="l02841"></a><span class="lineno"> 2841</span>&#160;        Serial.println(PASS);</div>
+<div class="line"><a name="l02842"></a><span class="lineno"> 2842</span>&#160;    }</div>
+<div class="line"><a name="l02843"></a><span class="lineno"> 2843</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l02844"></a><span class="lineno"> 2844</span>&#160;        Serial.println(FAIL);</div>
+<div class="line"><a name="l02845"></a><span class="lineno"> 2845</span>&#160;        Serial.print(<a class="code" href="class_pixie_chroma.html#a9235da3b588545ce9e412e00e86f55bd">get_cursor_x_exact</a>());</div>
+<div class="line"><a name="l02846"></a><span class="lineno"> 2846</span>&#160;        Serial.println(<span class="stringliteral">&quot; != 15&quot;</span>);</div>
+<div class="line"><a name="l02847"></a><span class="lineno"> 2847</span>&#160;        success = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l02848"></a><span class="lineno"> 2848</span>&#160;    }</div>
+<div class="line"><a name="l02849"></a><span class="lineno"> 2849</span>&#160;    </div>
+<div class="line"><a name="l02850"></a><span class="lineno"> 2850</span>&#160;    Serial.println(border);</div>
+<div class="line"><a name="l02851"></a><span class="lineno"> 2851</span>&#160;    </div>
+<div class="line"><a name="l02852"></a><span class="lineno"> 2852</span>&#160;    </div>
+<div class="line"><a name="l02853"></a><span class="lineno"> 2853</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02854"></a><span class="lineno"> 2854</span>&#160;    <span class="comment">// @@@@@ get_cursor_y_exact() ------------------------------------------------------------------- @@@@@</span></div>
+<div class="line"><a name="l02855"></a><span class="lineno"> 2855</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02856"></a><span class="lineno"> 2856</span>&#160;    </div>
+<div class="line"><a name="l02857"></a><span class="lineno"> 2857</span>&#160;    Serial.println( border );</div>
+<div class="line"><a name="l02858"></a><span class="lineno"> 2858</span>&#160;    Serial.print  ( testing );</div>
+<div class="line"><a name="l02859"></a><span class="lineno"> 2859</span>&#160;    Serial.print(F(<span class="stringliteral">&quot;get_cursor_y_exact() ............ &quot;</span>));</div>
+<div class="line"><a name="l02860"></a><span class="lineno"> 2860</span>&#160; </div>
+<div class="line"><a name="l02861"></a><span class="lineno"> 2861</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="class_pixie_chroma.html#ac11ef6fa698e0d19ae892c4395adeb77">get_cursor_y_exact</a>() == 35){ <span class="comment">// whole displays</span></div>
+<div class="line"><a name="l02862"></a><span class="lineno"> 2862</span>&#160;        Serial.println(PASS);</div>
+<div class="line"><a name="l02863"></a><span class="lineno"> 2863</span>&#160;    }</div>
+<div class="line"><a name="l02864"></a><span class="lineno"> 2864</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l02865"></a><span class="lineno"> 2865</span>&#160;        Serial.println(FAIL);</div>
+<div class="line"><a name="l02866"></a><span class="lineno"> 2866</span>&#160;        Serial.print(<a class="code" href="class_pixie_chroma.html#ac11ef6fa698e0d19ae892c4395adeb77">get_cursor_y_exact</a>());</div>
+<div class="line"><a name="l02867"></a><span class="lineno"> 2867</span>&#160;        Serial.println(<span class="stringliteral">&quot; != 35&quot;</span>);</div>
+<div class="line"><a name="l02868"></a><span class="lineno"> 2868</span>&#160;        success = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l02869"></a><span class="lineno"> 2869</span>&#160;    }</div>
+<div class="line"><a name="l02870"></a><span class="lineno"> 2870</span>&#160;    </div>
+<div class="line"><a name="l02871"></a><span class="lineno"> 2871</span>&#160;    Serial.println(border);</div>
+<div class="line"><a name="l02872"></a><span class="lineno"> 2872</span>&#160;    </div>
+<div class="line"><a name="l02873"></a><span class="lineno"> 2873</span>&#160;    </div>
+<div class="line"><a name="l02874"></a><span class="lineno"> 2874</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02875"></a><span class="lineno"> 2875</span>&#160;    <span class="comment">// @@@@@ clear() -------------------------------------------------------------------------------- @@@@@</span></div>
+<div class="line"><a name="l02876"></a><span class="lineno"> 2876</span>&#160;    <span class="comment">// ----------------------------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l02877"></a><span class="lineno"> 2877</span>&#160;    </div>
+<div class="line"><a name="l02878"></a><span class="lineno"> 2878</span>&#160;    Serial.println( border );</div>
+<div class="line"><a name="l02879"></a><span class="lineno"> 2879</span>&#160;    Serial.print  ( testing );</div>
+<div class="line"><a name="l02880"></a><span class="lineno"> 2880</span>&#160;    Serial.print(F(<span class="stringliteral">&quot;clear() ......................... &quot;</span>));</div>
+<div class="line"><a name="l02881"></a><span class="lineno"> 2881</span>&#160;    </div>
+<div class="line"><a name="l02882"></a><span class="lineno"> 2882</span>&#160;    <a class="code" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">clear</a>();</div>
+<div class="line"><a name="l02883"></a><span class="lineno"> 2883</span>&#160;    fail_step = 0;</div>
+<div class="line"><a name="l02884"></a><span class="lineno"> 2884</span>&#160; </div>
+<div class="line"><a name="l02885"></a><span class="lineno"> 2885</span>&#160;    <span class="keywordflow">for</span>(uint16_t i = 0; i &lt; <a class="code" href="class_pixie_chroma.html#a01bcd71b02a4adbe291aff9a566ebca7">NUM_PIXELS</a>; i++){</div>
+<div class="line"><a name="l02886"></a><span class="lineno"> 2886</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1">mask</a>[i] != 0){</div>
+<div class="line"><a name="l02887"></a><span class="lineno"> 2887</span>&#160;            fail_step = 1;</div>
+<div class="line"><a name="l02888"></a><span class="lineno"> 2888</span>&#160;        }</div>
+<div class="line"><a name="l02889"></a><span class="lineno"> 2889</span>&#160;    }</div>
+<div class="line"><a name="l02890"></a><span class="lineno"> 2890</span>&#160;    </div>
+<div class="line"><a name="l02891"></a><span class="lineno"> 2891</span>&#160;    <span class="keywordflow">if</span>(success_temp){</div>
+<div class="line"><a name="l02892"></a><span class="lineno"> 2892</span>&#160;        <span class="keywordflow">if</span>(cursor_x != display_padding_x || cursor_y != display_padding_y){ <span class="comment">// Default position after clear()</span></div>
+<div class="line"><a name="l02893"></a><span class="lineno"> 2893</span>&#160;            fail_step = 2;</div>
+<div class="line"><a name="l02894"></a><span class="lineno"> 2894</span>&#160;        }</div>
+<div class="line"><a name="l02895"></a><span class="lineno"> 2895</span>&#160;    }</div>
+<div class="line"><a name="l02896"></a><span class="lineno"> 2896</span>&#160; </div>
+<div class="line"><a name="l02897"></a><span class="lineno"> 2897</span>&#160;    <span class="keywordflow">if</span>(fail_step == 0){</div>
+<div class="line"><a name="l02898"></a><span class="lineno"> 2898</span>&#160;        Serial.println(PASS);</div>
+<div class="line"><a name="l02899"></a><span class="lineno"> 2899</span>&#160;    }</div>
+<div class="line"><a name="l02900"></a><span class="lineno"> 2900</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l02901"></a><span class="lineno"> 2901</span>&#160;        Serial.println(FAIL);</div>
+<div class="line"><a name="l02902"></a><span class="lineno"> 2902</span>&#160;        Serial.println(fail_step);</div>
+<div class="line"><a name="l02903"></a><span class="lineno"> 2903</span>&#160;        success = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l02904"></a><span class="lineno"> 2904</span>&#160;    }</div>
+<div class="line"><a name="l02905"></a><span class="lineno"> 2905</span>&#160;    </div>
+<div class="line"><a name="l02906"></a><span class="lineno"> 2906</span>&#160;    Serial.println(border);</div>
+<div class="line"><a name="l02907"></a><span class="lineno"> 2907</span>&#160;    </div>
+<div class="line"><a name="l02908"></a><span class="lineno"> 2908</span>&#160;    </div>
+<div class="line"><a name="l02909"></a><span class="lineno"> 2909</span>&#160;    </div>
+<div class="line"><a name="l02910"></a><span class="lineno"> 2910</span>&#160;    </div>
+<div class="line"><a name="l02911"></a><span class="lineno"> 2911</span>&#160;    </div>
+<div class="line"><a name="l02912"></a><span class="lineno"> 2912</span>&#160;    </div>
+<div class="line"><a name="l02913"></a><span class="lineno"> 2913</span>&#160;    </div>
+<div class="line"><a name="l02914"></a><span class="lineno"> 2914</span>&#160;    </div>
+<div class="line"><a name="l02915"></a><span class="lineno"> 2915</span>&#160;    </div>
+<div class="line"><a name="l02916"></a><span class="lineno"> 2916</span>&#160;    Serial.println(<span class="stringliteral">&quot;\nXY MAP:&quot;</span>);</div>
+<div class="line"><a name="l02917"></a><span class="lineno"> 2917</span>&#160;    <a class="code" href="class_pixie_chroma.html#a50da512c6cbcd74c59f18d85b5bd7599">print_xy_table</a>();</div>
+<div class="line"><a name="l02918"></a><span class="lineno"> 2918</span>&#160; </div>
+<div class="line"><a name="l02919"></a><span class="lineno"> 2919</span>&#160;    <span class="keywordflow">return</span> success; </div>
+<div class="line"><a name="l02920"></a><span class="lineno"> 2920</span>&#160;}</div>
 <div class="ttc" id="a_pixie___chroma_8h_html"><div class="ttname"><a href="_pixie___chroma_8h.html">Pixie_Chroma.h</a></div></div>
 <div class="ttc" id="a_pixie___chroma_8h_html_a2127e2c4498dd288097c0c087f53facd"><div class="ttname"><a href="_pixie___chroma_8h.html#a2127e2c4498dd288097c0c087f53facd">UNIT_TEST_PIXIES_X</a></div><div class="ttdeci">#define UNIT_TEST_PIXIES_X</div><div class="ttdoc">Developer use - unit testing defaults.</div><div class="ttdef"><b>Definition:</b> <a href="_pixie___chroma_8h_source.html#l00072">Pixie_Chroma.h:72</a></div></div>
 <div class="ttc" id="a_pixie___chroma_8h_html_a2d5fb091a92d930934626f7e84794ea6"><div class="ttname"><a href="_pixie___chroma_8h.html#a2d5fb091a92d930934626f7e84794ea6">UNIT_TEST_PIXIES_PER_PIN</a></div><div class="ttdeci">#define UNIT_TEST_PIXIES_PER_PIN</div><div class="ttdoc">Developer use - unit testing defaults.</div><div class="ttdef"><b>Definition:</b> <a href="_pixie___chroma_8h_source.html#l00070">Pixie_Chroma.h:70</a></div></div>
@@ -1936,7 +2083,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Mon Nov 8 2021 21:07:30 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 8 2021 21:58:40 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
