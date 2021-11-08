@@ -32,7 +32,7 @@
 
 ---------------------------------------------------------------------------------
 
-![PIXIE CHROMA PCB](extras/img/PCB_SINGLE.png)
+![HELLO WORLD](extras/img/hello_world.png)
 
 ## Table of Contents
 
@@ -127,4 +127,4 @@ void loop() {
 
 As you can see, Pixie Chroma is **as easy or advanced as you need!** Luckily, you don't need to dive into documentation to get started - the included examples (`File -> Examples -> Pixie_Chroma`) are an easy template to modify for your own projects!
 
-![HELLO WORLD](extras/img/hello_world.png)
+![PIXIE CHROMA PCB](extras/img/PCB_SINGLE.png)
