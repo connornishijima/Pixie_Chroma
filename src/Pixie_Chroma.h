@@ -56,6 +56,7 @@
 	#define FASTLED_ESP32_FLASH_LOCK 1
 #endif
 
+/** @brief Used to quiet unavoidable FastLED warnings about bit banging. */
 #define FASTLED_INTERNAL // As in: INTERNALize your thoughts about how we bang bits when you go to compile, FastLED.
 #include "FastLED.h"     // Apart from some issues, it's my tool of choice for WS2812B/compatibles because it's actually amazingly useful
 
@@ -65,6 +66,9 @@
 #include "utility/pixie_animations.h" // --- Preset animation routines
 #include "pixie_chroma_internal.h" // ------ Main library code
 
+/** @brief Developer use - unit testing defaults. */
 #define UNIT_TEST_PIXIES_PER_PIN 3
+/** @brief Developer use - unit testing defaults. */
 #define UNIT_TEST_PIXIES_X       6
+/** @brief Developer use - unit testing defaults. */
 #define UNIT_TEST_PIXIES_Y       2
