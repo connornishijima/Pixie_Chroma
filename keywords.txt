@@ -15,7 +15,7 @@ PixieChroma	KEYWORD1
 begin	KEYWORD2 
 begin_quad	KEYWORD2
 set_brightness	KEYWORD2
-set_palette KEYWORD2
+set_palette	KEYWORD2
 set_animation	KEYWORD2
 set_animation_speed	KEYWORD2
 set_gamma_correction	KEYWORD2

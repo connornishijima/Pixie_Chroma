@@ -1430,8 +1430,8 @@ void PixieChroma::color_dim( uint8_t amount ){
     
     @return  The cursor's X position
 *///............................................................................
-uint8_t PixieChroma::get_cursor_x(){
-    return cursor_x / chars_x;
+uint8_t PixieChroma::get_cursor_x(){	
+    return cursor_x / display_width;
 }
 
 
@@ -1442,7 +1442,7 @@ uint8_t PixieChroma::get_cursor_x(){
     @return  The cursor's Y position
 *///............................................................................
 uint8_t PixieChroma::get_cursor_y(){
-    return cursor_y / chars_y;
+    return cursor_y / display_height;
 }
 
 
@@ -2753,6 +2753,153 @@ bool PixieChroma::unit_tests(){
 	}
 	else{
 		Serial.println(FAIL);
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ set_cursor() --------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("set_cursor() .................... "));
+
+	set_cursor(2,3); // whole displays
+
+	if(cursor_x != 15 || cursor_y != 35){ // pixel positions calculated
+		success = false;
+	}
+	
+	if(success){
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.print("cursor: (");
+		Serial.print(cursor_x);
+		Serial.print(',');
+		Serial.println(") != (15,35)");
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ get_cursor_x() ------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("get_cursor_x() .................. "));
+
+	if(get_cursor_x() == 2){ // whole displays
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.print(get_cursor_x());
+		Serial.println(" != 2");
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ get_cursor_y() ------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("get_cursor_y() .................. "));
+
+	if(get_cursor_y() == 3){ // whole displays
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.print(get_cursor_y());
+		Serial.println(" != 2");
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ get_cursor_x_exact() ------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("get_cursor_x_exact() ............ "));
+
+	if(get_cursor_x_exact() == 15){ // whole displays
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.print(get_cursor_x_exact());
+		Serial.println(" != 15");
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ get_cursor_y_exact() ------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("get_cursor_y_exact() ............ "));
+
+	if(get_cursor_y_exact() == 35){ // whole displays
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.print(get_cursor_y_exact());
+		Serial.println(" != 35");
+		success = false;
+	}
+	
+	Serial.println(border);
+	
+	
+	// ----------------------------------------------------------------------------------------------------
+	// @@@@@ clear() -------------------------------------------------------------------------------- @@@@@
+	// ----------------------------------------------------------------------------------------------------
+	
+	Serial.println( border );
+	Serial.print  ( testing );
+	Serial.print(F("clear() ......................... "));
+	
+	clear();
+	fail_step = 0;
+
+	for(uint16_t i = 0; i < NUM_PIXELS; i++){
+		if(mask[i] != 0){
+			fail_step = 1;
+		}
+	}
+	
+	if(success_temp){
+		if(cursor_x != display_padding_x || cursor_y != display_padding_y){ // Default position after clear()
+			fail_step = 2;
+		}
+	}
+
+	if(fail_step == 0){
+		Serial.println(PASS);
+	}
+	else{
+		Serial.println(FAIL);
+		Serial.println(fail_step);
 		success = false;
 	}
 	
