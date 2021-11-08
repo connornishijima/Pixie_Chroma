@@ -2325,6 +2325,8 @@ void PixieChroma::calc_xy(){
 /*! ############################################################################
     @brief
     Developer use - automated unit testing of PixieChroma code.
+	
+	@return Boolean test pass status
 *///............................................................................
 bool PixieChroma::unit_tests(){
 	//randomSeed( 
