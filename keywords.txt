@@ -12,7 +12,7 @@ PixieChroma	KEYWORD1
 # Methods and Functions (KEYWORD2)
 ######################################
 
-begin	KEYWORD2 
+begin	KEYWORD2
 begin_quad	KEYWORD2
 set_brightness	KEYWORD2
 set_palette	KEYWORD2
@@ -24,14 +24,14 @@ set_frame_rate_target	KEYWORD2
 set_line_wrap	KEYWORD2
 set_update_mode	KEYWORD2
 
-write KEYWORD2
+write	KEYWORD2
 write_pix	KEYWORD2
 add_char	KEYWORD2
 
-print KEYWORD2
+print	KEYWORD2
 println	KEYWORD2
 
-set_cursor  KEYWORD2
+set_cursor		KEYWORD2
 get_cursor_x	KEYWORD2
 get_cursor_y	KEYWORD2
 get_cursor_x_exact	KEYWORD2
