@@ -1,18 +1,60 @@
-// TODO: 01_Getting_Started.ino needs content
+/*----------------------------------------------------------------------------
 
-#include "Pixie_Chroma.h"
-PixieChroma pix;
+  Pixie Chroma | 01_Getting_Started.ino
+  by Connor Nishijima Nov. 2021
+  -------------------------------------
 
-#define DATA_PIN	3
-#define PIXIES_X	6
-#define PIXIES_Y	2
+  Welcome to Pixie Chroma! This sketch will define the bare minimum of any
+  Pixie Chroma Arduino code, including how to initialize your Pixie Chromas
+  and print text to the display!
+
+  ################################# WIRING ###################################
+
+  GND ---------------+---------------------------+
+                     |                           |
+  DATA_PIN -------+  |  +-- VCC    +----------+  |  +-- VCC
+                  |  |  |          |          |  |  |  
+           +- - - | -|- | - - -+   |   +- - - | -|- | - - -+
+           | ==== O  O  O ==== |   |   | ==== O  O  O ==== |
+                     ^             |             ^          
+           |                   |   |   |                   |
+                  PIXIE 1          |          PIXIE 2       
+           |                   |   |   |                   |
+                                   |                        
+           | ==== O  O  O ==== |   |   | ==== O  O  O ==== |
+           +- - - | - - - - - -+   |   +- - - - - - - - - -+
+                  |                |
+                  +----------------+
+               (DATA LINE TO NEXT PIXIE)
+
+  WARNING: Always double-check your wiring! LEDs may be low-power, but they
+  are more-than-happy to burn themselves out if wired incorrectly!
+
+  Each Pixie Chroma PCB has a gold arrow on its face, which points to the top
+  of the PCB - shown here with a ^ character.
+
+----------------------------------------------------------------------------*/
+
+#include "Pixie_Chroma.h" // ... Include library
+PixieChroma pix; // ............ Get class object
+
+#define DATA_PIN  12 // GPIO to use for Pixie Chroma data line
+#define PIXIES_X  2  // Total amount and arrangement
+#define PIXIES_Y  1  // of Pixie PCBs = 2 x 1
 
 void setup() {
-  Serial.begin(250000);
-  pix.begin(DATA_PIN, PIXIES_X, PIXIES_Y);
-  delay(200);
+  pix.begin( DATA_PIN, PIXIES_X, PIXIES_Y );
+  // Initializes the displays, and sets things
+  // like the default power budget for you.
+
+  pix.clear(); // ................... Clears the display buffer
+  pix.color( CRGB(255,0,64) ); // ... Sets the global color to *PINK*
+  
+  pix.print( "HI " ); // ........ Print a char array
+  pix.print( ICON_HEART ); // ... Print an Icon (see 02_Advanced/14_Icon_Library.ino)
+  pix.show(); // ................ Send all updates to the Pixie Chroma PCBs
 }
 
 void loop() {
-  pix.clear();
+  // Nothing to see here!
 }
