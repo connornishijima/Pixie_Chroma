@@ -1,3 +1,5 @@
+// TODO: 04_Printing_Functions.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 

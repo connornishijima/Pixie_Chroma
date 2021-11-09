@@ -1,3 +1,5 @@
+// TODO: 10_Update_Modes.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 

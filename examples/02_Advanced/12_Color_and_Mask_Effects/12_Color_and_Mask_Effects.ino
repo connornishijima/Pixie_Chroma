@@ -1,3 +1,5 @@
+// TODO: 12_Color_and_Mask_Effects.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 

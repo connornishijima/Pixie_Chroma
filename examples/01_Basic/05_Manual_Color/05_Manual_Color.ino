@@ -1,3 +1,5 @@
+// TODO: 05_Manual_Color.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 

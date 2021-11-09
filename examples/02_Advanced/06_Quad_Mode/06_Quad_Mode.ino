@@ -1,3 +1,5 @@
+// TODO: 06_Quad_Mode.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 

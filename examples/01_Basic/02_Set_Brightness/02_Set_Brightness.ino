@@ -1,3 +1,5 @@
+// TODO: 02_Set_Brightness.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 

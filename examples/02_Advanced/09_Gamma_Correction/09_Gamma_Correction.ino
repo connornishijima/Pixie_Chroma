@@ -1,3 +1,5 @@
+// TODO: 09_Gamma_Correction.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 

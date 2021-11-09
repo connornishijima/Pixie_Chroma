@@ -1,3 +1,5 @@
+// TODO: 01_Getting_Started.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 

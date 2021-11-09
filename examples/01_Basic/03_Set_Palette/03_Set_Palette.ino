@@ -1,3 +1,5 @@
+// TODO: 03_Set_Palette.ino needs content
+
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 
