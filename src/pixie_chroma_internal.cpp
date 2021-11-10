@@ -31,6 +31,9 @@
         pix.print( "Hello!" );
 *///............................................................................
 PixieChroma::PixieChroma(){}
+// TODO: Fix "first led" being on in the mask upon initialization
+// This is most visible using begin_quad(). (The color of the erroneous
+// LED is from the color map.)  
 
 
 /*! ############################################################################
@@ -732,12 +735,18 @@ void PixieChroma::write( float input, uint8_t places, uint8_t x_pos, uint8_t y_p
     @param  x_dest  X pixel position of write **[optional]**
     @param  y_dest  Y pixel position of write **[optional]**
 *///............................................................................
-void PixieChroma::write_pix( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){
+void PixieChroma::write_pix( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){	
     add_char(
         icon,
         x_dest,
         y_dest
     );
+	
+	cursor_x_temp = x_dest+display_width;
+	if( cursor_x_temp >= ( display_width * chars_x ) ){
+		cursor_x_temp = display_padding_x;
+		cursor_y_temp += display_height;
+	}
 }
 
 
