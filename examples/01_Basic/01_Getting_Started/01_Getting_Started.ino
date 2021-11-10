@@ -8,31 +8,6 @@
   Pixie Chroma Arduino code, including how to initialize your Pixie Chromas
   and print text to the display!
 
-  ################################# WIRING ###################################
-
-  GND ---------------+---------------------------+
-                     |                           |
-  DATA_PIN -------+  |  +-- VCC    +----------+  |  +-- VCC
-                  |  |  |          |          |  |  |  
-           +- - - | -|- | - - -+   |   +- - - | -|- | - - -+
-           | ==== O  O  O ==== |   |   | ==== O  O  O ==== |
-                     ^             |             ^          
-           |                   |   |   |                   |
-                  PIXIE 1          |          PIXIE 2       
-           |                   |   |   |                   |
-                                   |                        
-           | ==== O  O  O ==== |   |   | ==== O  O  O ==== |
-           +- - - | - - - - - -+   |   +- - - - - - - - - -+
-                  |                |
-                  +----------------+
-               (DATA LINE TO NEXT PIXIE)
-
-  WARNING: Always double-check your wiring! LEDs may be low-power, but they
-  are more-than-happy to burn themselves out if wired incorrectly!
-
-  Each Pixie Chroma PCB has a gold arrow on its face, which points to the top
-  of the PCB - shown here with a ^ character.
-
 ----------------------------------------------------------------------------*/
 
 #include "Pixie_Chroma.h" // ... Include library
@@ -58,3 +33,31 @@ void setup() {
 void loop() {
   // Nothing to see here!
 }
+
+
+/*################################# WIRING ###################################
+
+  GND ---------------+---------------------------+
+                     |                           |
+  DATA_PIN -------+  |  +-- VCC    +----------+  |  +-- VCC
+                  |  |  |          |          |  |  |  
+           +- - - | -|- | - - -+   |   +- - - | -|- | - - -+
+           | ==== O  O  O ==== |   |   | ==== O  O  O ==== |
+                     ^             |             ^          
+           |                   |   |   |                   |
+                  PIXIE 1          |          PIXIE 2       
+           |                   |   |   |                   |
+                                   |                        
+           | ==== O  O  O ==== |   |   | ==== O  O  O ==== |
+           +- - - | - - - - - -+   |   +- - - - - - - - - -+
+                  |                |
+                  +----------------+
+               (DATA LINE TO NEXT PIXIE)
+
+  WARNING: Always double-check your wiring! LEDs may be low power, but they
+  are more-than-happy to burn themselves out if wired incorrectly!
+
+  Each Pixie Chroma PCB has a gold arrow on its face, which points to the top
+  of the PCB - shown here with a ^ character.
+
+################################## WIRING ##################################*/
