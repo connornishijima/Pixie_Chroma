@@ -1,4 +1,4 @@
-// This is a bare-minimum Pixie Chroma sketch using Quad-line mode!
+// This is a bare-minimum Pixie Chroma sketch using Quad-GPIO mode!
 // Use this template to easily build your own Pixie Chroma sketches.
 
 #include "Pixie_Chroma.h" // ... Include library
