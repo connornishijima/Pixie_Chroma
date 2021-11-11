@@ -106,7 +106,7 @@ class PixieChroma{
 		/*+-- Functions - Color ------------------------------------------------------------*/ 
 		/*|*/ void color( CRGB col ); // Set all displays
 		/*|*/ void color( CRGB col, uint8_t x, uint8_t y ); // Set one display
-		/*|*/ void color( CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2 ); // Set a 2D rectangle
+		/*|*/ void color( CRGB col, int16_t x1, int16_t y1, int16_t x2, int16_t y2 ); // Set a 2D rectangle
 		/*|*/ CRGB kelvin_to_rgb( uint16_t temperature ); // Get an approximate CRGB ( not yet gamma corrected ) of a blackbody radiation temperature
 		/*+---------------------------------------------------------------------------------*/
 

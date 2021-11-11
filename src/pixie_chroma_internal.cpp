@@ -1767,28 +1767,29 @@ void PixieChroma::color( CRGB col, uint8_t x, uint8_t y ){
     @param    x2   Ending X coordinate of the rectangle (inclusive)
     @param    y2   Ending Y coordinate of the rectangle (inclusive)
 *///............................................................................
-void PixieChroma::color( CRGB col, uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2 ){
-    if( x2 < x1 || y2 < y1 ){
-        return;
-    }
-
+void PixieChroma::color( CRGB col, int16_t x1, int16_t y1, int16_t x2, int16_t y2 ){
     // Make rectangle selection inclusive
     x2 += 1;
     y2 += 1;
-    
-    int16_t x1_pos = x1 * display_width  + display_padding_x;
-    int16_t y1_pos = y1 * display_height + display_padding_y;
-    
-    int16_t x2_pos = x2 * display_width  + display_padding_x;
-    int16_t y2_pos = y2 * display_height + display_padding_y;
 
-    uint16_t x_delta = x2_pos - x1_pos;
-    uint16_t y_delta = y2_pos - y1_pos;
+    if( x2 < x1 ){
+		uint8_t x_temp = x2;
+		x2 = x1;
+		x1 = x_temp;
+	}
+	if( y2 < y1 ){
+		uint8_t y_temp = y2;
+		y2 = y1;
+		y1 = y_temp;
+	}
+    
+    uint16_t x_delta = x2 - x1;
+    uint16_t y_delta = y2 - y1;
     
     for( uint16_t y = 0; y < y_delta; y++ ){
         for( uint16_t x = 0; x < x_delta; x++ ){
-            int16_t x2_pos = x1_pos + x;
-            int16_t y2_pos = y1_pos + y;
+            int16_t x2_pos = x1 + x;
+            int16_t y2_pos = y1 + y;
             color_map[xy( x2_pos, y2_pos )] = col;
         }
     }
