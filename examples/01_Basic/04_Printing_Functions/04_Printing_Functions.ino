@@ -118,24 +118,24 @@ void loop() {
 
   // float -----------------------------------------------------------
   float print_value_g = 5.678;
-  pix.clear(); // ................. Clear the display buffer,
-  pix.color( CRGB::Yellow ); // ... set color to yellow,
-  pix.print(     // ............... print a
-    print_value_g, // ............. single precision floating point value
-    2            // ............... to two decimal place(s) of precision and
+  pix.clear(); // .................. Clear the display buffer,
+  pix.color( CRGB::Yellow ); // .... set color to yellow,
+  pix.print(     // ................ print a
+    print_value_g, // .............. single precision floating point value
+    2            // ................ to two decimal place(s) of precision and
   ); 
-  pix.show(); // .................. send the updated image to the Pixies.
+  pix.show(); // ................... send the updated image to the Pixies.
   delay(1000);
 
   // double -----------------------------------------------------------
   double print_value_h = -9.012;
-  pix.clear(); // ................. Clear the display buffer,
-  pix.color( CRGB::Purple ); // ... set color to purple,
-  pix.print(     // ............... print a
-    print_value_h, // ............. double precision floating point value
-    1            // ............... to one decimal place(s) of precision and
+  pix.clear(); // .................. Clear the display buffer,
+  pix.color( CRGB::Purple ); // .... set color to purple,
+  pix.print(     // ................ print a
+    print_value_h, // .............. double precision floating point value
+    1            // ................ to one decimal place(s) of precision and
   ); 
-  pix.show(); // .................. send the updated image to the Pixies.
+  pix.show(); // ................... send the updated image to the Pixies.
   delay(1000);
 
 
@@ -152,22 +152,22 @@ void loop() {
 
   // char* (Pointer) -------------------------------------------------
   char* print_value_j = "HI:)";
-  pix.clear(); // ................. Clear the display buffer,
-  pix.color( CRGB::Orange ); // ... set color to orange,
-  pix.print(print_value_j); //..... print a char* pointer, and
-  pix.show(); // .................. send the updated image to the Pixies.
+  pix.clear(); // .................. Clear the display buffer,
+  pix.color( CRGB::Orange ); // .... set color to orange,
+  pix.print(print_value_j); //...... print a char* pointer, and
+  pix.show(); // ................... send the updated image to the Pixies.
   delay(1000);
 
 
   // ### Icons #######################################################
 
-  pix.clear(); // ............... Clear the display buffer,
-  pix.color( CRGB::Cyan ); // ... set color to cyan,
-  pix.print(ICON_HEART); //...... print ICON_HEART, 
-  pix.print(ICON_EXPORT); //..... print ICON_EXPORT,
-  pix.print(ICON_BITCOIN); //.... print ICON_BITCOIN,
-  pix.print(ICON_A_UMLAUT); //... print ICON_A_UMLAUT, and
-  pix.show(); // ................ send the updated image to the Pixies.
+  pix.clear(); // .................. Clear the display buffer,
+  pix.color( CRGB::Cyan ); // ...... set color to cyan,
+  pix.print(ICON_HEART); //......... print ICON_HEART, 
+  pix.print(ICON_EXPORT); //........ print ICON_EXPORT,
+  pix.print(ICON_BITCOIN); //....... print ICON_BITCOIN,
+  pix.print(ICON_A_UMLAUT); //...... print ICON_A_UMLAUT, and
+  pix.show(); // ................... send the updated image to the Pixies.
   delay(1000);
 
   // REPEAT
