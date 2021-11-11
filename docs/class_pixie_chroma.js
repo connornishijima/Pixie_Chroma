@@ -58,7 +58,7 @@ var class_pixie_chroma =
     [ "free", "class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543", null ],
     [ "color", "class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1", null ],
     [ "color", "class_pixie_chroma.html#a16dabdffbb39358645cd687a98c352b9", null ],
-    [ "color", "class_pixie_chroma.html#a53e052b9e02cebcd81ff73bf687e3754", null ],
+    [ "color", "class_pixie_chroma.html#aedc3197ddb1011f8bd111cc2b7544d46", null ],
     [ "kelvin_to_rgb", "class_pixie_chroma.html#aec59fe7c26010adfc68efa8b7f23fa20", null ],
     [ "dim", "class_pixie_chroma.html#add7fe811bfb5a0c5cf19aff32ed916a8", null ],
     [ "blur", "class_pixie_chroma.html#a67b834ccdcf7f3fa8eafd4f746d34e28", null ],
