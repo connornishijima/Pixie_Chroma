@@ -76,8 +76,8 @@ In just 16 lines, you're in control of over 800 LEDs to show any text you'd like
 Pixie Chroma also makes it extremely easy to control advanced animation in the background while other code runs! For example:
 
 ```cpp
-#include "Pixie_Chroma.h" // ... Include library
-PixieChroma pix; // ............ Get class instance
+#include "Pixie_Chroma.h" // .... Include library
+PixieChroma pix; // ............. Get class instance
 
 #define PIXIES_PER_PIN  3  // ... Pixies per data line
 
