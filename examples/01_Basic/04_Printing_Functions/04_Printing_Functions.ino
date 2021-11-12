@@ -164,10 +164,10 @@ void loop() {
 
   pix.clear(); // .................. Clear the display buffer,
   pix.color( CRGB::Cyan ); // ...... set color to cyan,
-  pix.print(ICON_HEART); //......... print ICON_HEART, 
-  pix.print(ICON_EXPORT); //........ print ICON_EXPORT,
-  pix.print(ICON_BITCOIN); //....... print ICON_BITCOIN,
-  pix.print(ICON_A_UMLAUT); //...... print ICON_A_UMLAUT, and
+  pix.print(ICON_HEART); //......... print a HEART, 
+  pix.print(ICON_EXPORT); //........ print an "EXPORT" icon,
+  pix.print(ICON_BITCOIN); //....... print the BITCOIN logo,
+  pix.print(ICON_A_UMLAUT); //...... print an "a" with an umlaut accent, and
   pix.show(); // ................... send the updated image to the Pixies.
   delay(1000);
 
