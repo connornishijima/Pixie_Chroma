@@ -1,7 +1,5 @@
 // TODO: 14_Icon_Library.ino needs content
 
-// TODO: Icon Generator needs to be fully ported from the original Pixie library to work with Pixie Chroma-format Icons and files
-
 #include "Pixie_Chroma.h"
 PixieChroma pix;
 
