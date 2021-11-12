@@ -155,6 +155,7 @@
 				var category = "";
 				var icon_count = 0;
 				for(var x in lines){
+					console.log(lines[x]);
 					if(lines[x].substring(0,3) == "// "){
 						category = lines[x].substring(3);
 					}
