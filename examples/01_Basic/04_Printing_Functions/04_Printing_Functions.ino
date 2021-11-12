@@ -17,6 +17,7 @@
   - int32_t
   - float
   - double
+  - bool (parsed as binary integer)
   - Icon (see 02_Advanced/14_Icon_Library)
 
   This print() function is how you'll write text to the Pixie displays!
