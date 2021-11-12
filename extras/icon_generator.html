@@ -63,7 +63,7 @@
 				margin-top: 20px;
 			}
 			#icon_count{
-				color: #3ffd40;
+				color: #ff5c93;
 			}
 			.library_item{
 				display:inline-block;
@@ -92,7 +92,7 @@
 	<body>
 		<div id="container">
 			<div id="title">
-				PIXIE CHROMA - ICON GENERATOR
+				PIXIE CHROMA&nbsp;&nbsp;//&nbsp;&nbsp;ICON GENERATOR
 			</div>
 			<br>
 			<div id="clear" onclick="clear_pixie();">
@@ -130,7 +130,7 @@
 			var pixel_margin = 10;
 			var pixel_color = "GREEN";
 			var pixel_colors = {
-				"GREEN":[64,255,64],
+				"GREEN":[255,92,147],
 				"RED":[255,0,0]
 			};
 			var skip_bytes = true;
@@ -155,14 +155,16 @@
 				var category = "";
 				var icon_count = 0;
 				for(var x in lines){
-					console.log(lines[x]);
+					//console.log(lines[x]);
 					if(lines[x].substring(0,3) == "// "){
 						category = lines[x].substring(3);
 					}
 					else if(lines[x].includes("=")){
-						var name_raw = lines[x].split(" ")[1].replace("[]","");
+						console.log(lines[x]);
+						var name_raw = lines[x].split(" ")[3].split("[")[0];
 						var name = title_case( replace_all( replace_all( name_raw, "ICON_",""), "_"," "));
 						var bytes = lines[x].split(" = ")[1];
+						console.log(name);
 						icon_count++;
 						try{
 							library_visible[category][name_raw] = {							
