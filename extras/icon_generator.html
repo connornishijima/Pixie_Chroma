@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>PIXIE ICON GENERATOR</title>
+		<title>PIXIE CHROMA ICON GENERATOR</title>
 		<style>
 			body{
 				background-color:#242424;
@@ -92,7 +92,7 @@
 	<body>
 		<div id="container">
 			<div id="title">
-				PIXIE ICON GENERATOR
+				PIXIE CHROMA - ICON GENERATOR
 			</div>
 			<br>
 			<div id="clear" onclick="clear_pixie();">
@@ -100,7 +100,7 @@
 			</div>
 			<canvas id="pixie" width="250" height="350"></canvas><br>
 			<br>
-			<input type="text" value="pix.set_icon(PIX_SMILE, 0);" id="code"></input>
+			<input type="text" value="pix.set_icon(ICON_SMILE, 0);" id="code"></input>
 			<br>
 			<br>
 			<br>
@@ -142,11 +142,11 @@
 			fetch_library();
 			
 			function fetch_library(){
-				$.get( "https://raw.githubusercontent.com/connornishijima/Pixie/master/src/Pixie_Icon_Pack.h", function( data ) {
+				$.get( "https://raw.githubusercontent.com/connornishijima/Pixie_Chroma/main/src/utility/pixie_icons.h", function( data ) {
 				$( ".result" ).html( data );
 					library_visible = {};
 					parse_library(data);
-					set_pixels("SYMBOLS","PIX_SMILE");
+					set_pixels("SYMBOLS","ICON_SMILE");
 				});
 			}
 			
@@ -160,7 +160,7 @@
 					}
 					else if(lines[x].includes("=")){
 						var name_raw = lines[x].split(" ")[1].replace("[]","");
-						var name = title_case( replace_all( replace_all( name_raw, "PIX_",""), "_"," "));
+						var name = title_case( replace_all( replace_all( name_raw, "ICON_",""), "_"," "));
 						var bytes = lines[x].split(" = ")[1];
 						icon_count++;
 						try{
@@ -231,7 +231,7 @@
 						pixels[y][x] = library_visible[category][variable]["pixels"][y][x];
 					}
 				}
-				var code = "pix.push("+variable+");";
+				var code = "pix.print("+variable+");";
 				document.getElementById("code").value = code;
 				skip_bytes = true;
 				render_pixie();
@@ -275,7 +275,7 @@
 				var dv = document.createElement('div');
 				dv.setAttribute('id', variable);
 				dv.setAttribute('class', 'library_item');
-				dv.setAttribute('onclick',      'set_pixels("'+category+'","'+variable+'");');
+				dv.setAttribute('onclick', 'set_pixels("'+category+'","'+variable+'");');
 				
 				var iv = document.createElement('div');
 				iv.setAttribute('id', variable+"_info");
@@ -389,7 +389,7 @@
 					col_bytes.push("0x"+hex_val);
 				}
 				
-				var out_line = "pix.push(";
+				var out_line = "pix.print(";
 				for(var i = 0; i < 5; i++){				
 					out_line += col_bytes[i]; 
 					if(i < 4){
