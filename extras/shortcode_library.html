@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>PIXIE CHROMA ICON GENERATOR</title>
+		<title>PIXIE CHROMA SHORTCODE LIBRARY</title>
 		<style>
 			body{
 				background-color:#242424;
@@ -53,7 +53,7 @@
 				border: none;
 				border-radius: 5px;
 				font-size:18px;
-				font-family: 'Source Sans Pro', sans-serif;
+				font-family: monospace;
 			}
 			#icon_count_container{
 				font-size: 34px;
@@ -92,7 +92,7 @@
 	<body>
 		<div id="container">
 			<div id="title">
-				PIXIE CHROMA&nbsp;&nbsp;//&nbsp;&nbsp;ICON GENERATOR
+				<span style="color:#ff5c93;">PIXIE CHROMA</span>&nbsp;&nbsp;//&nbsp;&nbsp;SHORTCODE LIBRARY
 			</div>
 			<br>
 			<div id="clear" onclick="clear_pixie();">
@@ -100,13 +100,13 @@
 			</div>
 			<canvas id="pixie" width="250" height="350"></canvas><br>
 			<br>
-			<input type="text" value="pix.print(ICON_SMILE);" id="code"></input>
+			<input type="text" value="pix.print( \"[:SMILE:]\" );" id="code"></input>
 			<br>
 			<br>
 			<br>
 			<br>
 			<div id="icon_count_container">
-				Or... <span id="icon_count">X</span> BUILT-IN ICONS
+				Or... <span id="icon_count">X</span> BUILT-IN SHORTCODES
 			</div>
 			<br>
 			<br>
@@ -142,11 +142,11 @@
 			fetch_library();
 			
 			function fetch_library(){
-				$.get( "https://raw.githubusercontent.com/connornishijima/Pixie_Chroma/main/src/utility/pixie_icons.h", function( data ) {
+				$.get( "https://raw.githubusercontent.com/connornishijima/Pixie_Chroma/main/src/utility/pixie_shortcodes.h", function( data ) {
 				$( ".result" ).html( data );
 					library_visible = {};
 					parse_library(data);
-					set_pixels("SYMBOLS","ICON_SMILE");
+					set_pixels("SYMBOLS","SMILE");
 				});
 			}
 			
@@ -156,15 +156,16 @@
 				var icon_count = 0;
 				for(var x in lines){
 					//console.log(lines[x]);
-					if(lines[x].substring(0,3) == "// "){
-						category = lines[x].substring(3);
+					if(lines[x].substring(0,5) == "// - "){
+						category = lines[x].split(' - ')[1].split(' -')[0];;
+						console.log(category);
 					}
-					else if(lines[x].includes("=")){
+					else if(lines[x].includes("255")){
 						console.log(lines[x]);
-						var name_raw = lines[x].split(" ")[3].split("[")[0];
-						var name = title_case( replace_all( replace_all( name_raw, "ICON_",""), "_"," "));
-						var bytes = lines[x].split(" = ")[1];
-						console.log(name);
+						var name_raw = lines[x].split("[:")[1].split(":]")[0];
+						var name = title_case( replace_all(name_raw, "_"," ") );
+						var bytes = lines[x].split("*/ ")[1].split(", 255")[0];
+						console.log("NAME: "+name_raw);
 						icon_count++;
 						try{
 							library_visible[category][name_raw] = {							
@@ -229,12 +230,14 @@
 			}
 			
 			function set_pixels(category, variable){
+				console.log("CAT: "+category+" VAR: "+variable);
+				console.log(library_visible[category]);
 				for(var y = 0; y < pixels.length; y++){
 					for(var x = 0; x < pixels[y].length; x++){
 						pixels[y][x] = library_visible[category][variable]["pixels"][y][x];
 					}
 				}
-				var code = "pix.print("+variable+");";
+				var code = "pix.print( \"[:"+variable+":]\" );";
 				document.getElementById("code").value = code;
 				skip_bytes = true;
 				render_pixie();
