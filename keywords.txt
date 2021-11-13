@@ -23,6 +23,7 @@ set_max_power	KEYWORD2
 set_frame_rate_target	KEYWORD2
 set_line_wrap	KEYWORD2
 set_update_mode	KEYWORD2
+set_print_color KEYWORD2
 
 write	KEYWORD2
 write_pix	KEYWORD2
