@@ -157,16 +157,16 @@
 				var category = "";
 				var icon_count = 0;
 				for(var x in lines){
-					//console.log(lines[x]);
 					if(lines[x].substring(0,5) == "// - "){
 						category = lines[x].split(' - ')[1].split(' -')[0];;
 						console.log(category);
 					}
-					else if(lines[x].includes("255")){
+					
+					else if(lines[x].includes(":]")){
 						console.log(lines[x]);
 						var name_raw = lines[x].split("[:")[1].split(":]")[0];
 						var name = title_case( replace_all(name_raw, "_"," ") );
-						var bytes = lines[x].split("*/ ")[1].split(", 255")[0];
+						var bytes = lines[x].split("*/ ")[1].split(", 0")[0];
 						console.log("NAME: "+name_raw);
 						icon_count++;
 						try{
