@@ -2342,8 +2342,10 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 
 	uint32_t index = 0;
 	while (index < sizeof(PIXIE_SHORTCODE_LIBRARY)) {
-		if (PIXIE_SHORTCODE_LIBRARY[index] == 255) {
+		if (PIXIE_SHORTCODE_LIBRARY[index] >= 200) {
+			uint8_t skips = PIXIE_SHORTCODE_LIBRARY[index]-200;
 			index += 1; // Skip the "255" marker
+			skips -= 1;
 			
 			char first_name_char = PIXIE_SHORTCODE_LIBRARY[index];
 			if(bitmap_name[0] == first_name_char){
@@ -2362,6 +2364,7 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 
 					bitmap_temp_index += 1;
 					index += 1;
+					skips -= 1;
 				}
 				if (strcmp(bitmap_temp, bitmap_name) == 0) {
 					print(
@@ -2373,6 +2376,10 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 					);
 					return;
 				}
+			}
+			else{
+				index += skips;
+				skips = 0;
 			}
 		}
 		else {
