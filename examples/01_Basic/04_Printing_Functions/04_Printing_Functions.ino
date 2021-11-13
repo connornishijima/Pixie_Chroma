@@ -18,7 +18,7 @@
   - float
   - double
   - bool (parsed as binary integer)
-  - Icon (see 02_Advanced/14_Icon_Library)
+  - Shortcode (see 02_Advanced/14_Shortcode_Library)
 
   This print() function is how you'll write text to the Pixie displays!
 
@@ -160,14 +160,14 @@ void loop() {
   delay(1000);
 
 
-  // ### Icons #######################################################
+  // ### Shortcodes ##################################################
 
   pix.clear(); // .................. Clear the display buffer,
   pix.color( CRGB::Cyan ); // ...... set color to cyan,
-  pix.print(ICON_HEART); //......... print a HEART, 
-  pix.print(ICON_EXPORT); //........ print an "EXPORT" icon,
-  pix.print(ICON_BITCOIN); //....... print the BITCOIN logo,
-  pix.print(ICON_A_UMLAUT); //...... print an "a" with an umlaut accent, and
+  pix.print("[:HEART:]"); //........ print a HEART, 
+  pix.print("[:EXPORT:]"); //....... print an "EXPORT" icon,
+  pix.print("[:BITCOIN:]"); //...... print the BITCOIN logo,
+  pix.print("[:A_UMLAUT:]"); //..... print an "a" with an umlaut accent, and
   pix.show(); // ................... send the updated image to the Pixies.
   delay(1000);
 
