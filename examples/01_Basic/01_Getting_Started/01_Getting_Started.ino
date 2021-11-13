@@ -25,9 +25,8 @@ void setup() {
   pix.clear(); // ................... Clears the display buffer
   pix.color( CRGB(255,0,64) ); // ... Sets the global color to *PINK*
   
-  pix.print( "HI " ); // ........ Print a char array
-  pix.print( ICON_HEART ); // ... Print an Icon (see 02_Advanced/14_Icon_Library)
-  pix.show(); // ................ Send all updates to the Pixie Chroma PCBs
+  pix.print( "HI [:HEART:]" ); // ... Print a char array with a Shortcode (see 02_Advanced/14_Shortcode_Library)
+  pix.show(); // .................... Send all updates to the Pixie Chroma PCBs
 }
 
 void loop() {
