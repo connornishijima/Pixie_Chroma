@@ -31,9 +31,6 @@
         pix.print( "Hello!" );
 *///............................................................................
 PixieChroma::PixieChroma(){}
-// TODO: Fix "first led" being on in the mask upon initialization
-// This is most visible using begin_quad(). (The color of the erroneous
-// LED is from the color map.)  
 
 
 /*! ############################################################################
