@@ -9,7 +9,6 @@ import sys
 
 os.system("sudo python ./extras/scripts/generate_doxygen_report.py")
 os.system("sudo python ./extras/scripts/generate_keywords_report.py")
-os.system("sudo python ./extras/scripts/generate_icons_report.py")
 os.system("sudo python ./extras/scripts/generate_overview_report.py")
 
 print("Cleaning up CI junk...")
