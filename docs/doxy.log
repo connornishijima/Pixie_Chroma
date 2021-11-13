@@ -1,6 +1,4 @@
 warning: source 'docs/img' is not a readable file or directory... skipping.
-/github/workspace/src/utility/simplemap.h:43: warning: Compound SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:36: warning: Compound SimpleMapNode is not documented.
 /github/workspace/src/utility/pixie_palettes.h:14: warning: Member RED_SOLID[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:19: warning: Member YELLOW_SOLID[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:24: warning: Member GREEN_SOLID[] (variable) of file pixie_palettes.h is not documented.
@@ -22,30 +20,3 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
   parameter 'bitmap_col_3'
   parameter 'bitmap_col_4'
   parameter 'bitmap_col_5'
-/github/workspace/src/utility/simplemap.h:47: warning: Member SimpleMap(int(*compare)(T &a, T &b)) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:50: warning: Member size() (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:51: warning: Member clear() (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:52: warning: Member remove(T key) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:53: warning: Member remove(int i) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:54: warning: Member put(T key, U obj) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:55: warning: Member get(T key) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:56: warning: Member getKey(int i) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:57: warning: Member getData(int i) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:58: warning: Member getIndex(T key) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:59: warning: Member has(T key) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:61: warning: Member lock() (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:62: warning: Member unlock() (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:63: warning: Member isLocked() (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:45: warning: Member compare)(T &a, T &b) (variable) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:77: warning: Member getNode(T key) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:78: warning: Member getNodeIndex(int index) (function) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:66: warning: Member listSize (variable) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:67: warning: Member listBegin (variable) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:68: warning: Member listEnd (variable) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:70: warning: Member locked (variable) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:73: warning: Member lastNodeGot (variable) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:74: warning: Member lastIndexGot (variable) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:75: warning: Member isCached (variable) of class SimpleMap is not documented.
-/github/workspace/src/utility/simplemap.h:37: warning: Member key (variable) of struct SimpleMapNode is not documented.
-/github/workspace/src/utility/simplemap.h:38: warning: Member data (variable) of struct SimpleMapNode is not documented.
-/github/workspace/src/utility/simplemap.h:39: warning: Member next (variable) of struct SimpleMapNode is not documented.

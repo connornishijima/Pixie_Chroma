@@ -12,7 +12,5 @@ var searchData=
   ['set_5fpixel_5fcolor_77',['set_pixel_color',['../class_pixie_chroma.html#a6861f1bdaf33100aae22f5dbe9d725ba',1,'PixieChroma']]],
   ['set_5fpixel_5fmask_78',['set_pixel_mask',['../class_pixie_chroma.html#ac0b7506b72f48d433df2d95b9d403a2c',1,'PixieChroma']]],
   ['set_5fupdate_5fmode_79',['set_update_mode',['../class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622',1,'PixieChroma']]],
-  ['show_80',['show',['../class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332',1,'PixieChroma']]],
-  ['simplemap_81',['SimpleMap',['../class_simple_map.html',1,'']]],
-  ['simplemapnode_82',['SimpleMapNode',['../struct_simple_map_node.html',1,'']]]
+  ['show_80',['show',['../class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332',1,'PixieChroma']]]
 ];
