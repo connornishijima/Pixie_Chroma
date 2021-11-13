@@ -957,6 +957,13 @@ void PixieChroma::print( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bit
     @brief
     Prints a char* string to the displays at the current cursor position.
     
+    The given string will be searched for "Shortcodes", which are special
+    strings which will automatically be replaced with bitmap icons such as:
+    
+    `print("SMILEY FACE! [:SMILE:]");`
+    
+    A full list of Shortcodes can be found in pixie_shortcodes.h.
+    
     @param  message  char* string to print
 *///............................................................................
 void PixieChroma::print( char* message ){
@@ -1169,6 +1176,13 @@ void PixieChroma::println( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t b
     Prints a char* string to the displays at the current cursor position, then
     jumps to the next row in the Pixie display, similar to a newline '\\n'
     character.
+    
+    The given string will be searched for "Shortcodes", which are special
+    strings which will automatically be replaced with bitmap icons such as:
+    
+    `print("SMILEY FACE! [:SMILE:]");`
+    
+    A full list of Shortcodes can be found in pixie_shortcodes.h.
     
     @param  message  char* string to print
 *///............................................................................
