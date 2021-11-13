@@ -196,7 +196,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     @param  pixies_x        Number of Pixie PCBs in the X axis of your display
     @param  pixies_y        Number of Pixie PCBs in the Y axis of your display
 *///............................................................................
-void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y ){    
+void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y ){
     chars_x = pixies_x * 2; // Pixies have two chars each
     chars_y = pixies_y;
 
@@ -293,6 +293,8 @@ void PixieChroma::set_brightness( uint8_t level ){
 *///............................................................................
 void PixieChroma::set_palette( const uint8_t* pal ){ 
     current_palette.loadDynamicGradientPalette( pal ); // GRADIENT PALETTE
+	clear();
+	show();
 }
 
 
@@ -305,6 +307,8 @@ void PixieChroma::set_palette( const uint8_t* pal ){
 *///............................................................................
 void PixieChroma::set_palette( CRGBPalette16 pal ){ // STANDARD PALETTE
     current_palette = pal;
+	clear();
+	show();
 }
 
 
@@ -319,6 +323,8 @@ void PixieChroma::set_palette( CRGBPalette16 pal ){ // STANDARD PALETTE
 *///............................................................................
 void PixieChroma::set_animation( void ( *action )(PixieChroma*, float) ) {
     anim_func = action;
+	clear();
+	show();
 }
 
 
@@ -502,24 +508,7 @@ void PixieChroma::set_update_mode( t_update_mode mode, uint16_t FPS ){
 
 /*! ############################################################################
     @brief
-    Writes an icon* to a specified X and Y cursor position
-    
-    @param  icon   The icon to write
-    @param  x_pos  X cursor position of write **[optional]**
-    @param  y_pos  Y cursor position of write **[optional]**
-*///............................................................................
-void PixieChroma::write( const uint8_t* icon, uint8_t x_pos, uint8_t y_pos ){
-    write_pix(
-        icon,
-        display_padding_x + ( display_width  * x_pos ),
-        display_padding_y + ( display_height * y_pos )
-    );
-}
-
-
-/*! ############################################################################
-    @brief
-    Writes an icon to a specified X and Y cursor position, taking five uint8_t
+    Writes a bitmap to a specified X and Y cursor position, taking five uint8_t
     as input for the column data.
     
     @details
@@ -541,25 +530,18 @@ void PixieChroma::write( const uint8_t* icon, uint8_t x_pos, uint8_t y_pos ){
                    B   B   B   B   B
     
     This writes a "5" to the display, seen above in the "1" bits of each column.
-    The MSB (highest bit) is not used in icons.
+    The MSB (highest bit) is not used in bitmaps.
     
-    @param  icon_col_1  Column 1 data of this icon
-    @param  icon_col_2  Column 2 data of this icon
-    @param  icon_col_3  Column 3 data of this icon
-    @param  icon_col_4  Column 4 data of this icon
-    @param  icon_col_5  Column 5 data of this icon
+    @param  bitmap_col_1  Column 1 data of this bitmap
+    @param  bitmap_col_2  Column 2 data of this bitmap
+    @param  bitmap_col_3  Column 3 data of this bitmap
+    @param  bitmap_col_4  Column 4 data of this bitmap
+    @param  bitmap_col_5  Column 5 data of this bitmap
     @param  x_pos       X cursor position of write **[optional]**
     @param  y_pos       Y cursor position of write **[optional]**
 *///............................................................................
-void PixieChroma::write( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos, uint8_t y_pos ){
-    uint8_t icon[5] = {
-        icon_col_1,
-        icon_col_2,
-        icon_col_3,
-        icon_col_4,
-        icon_col_5
-    };
-    write( icon, x_pos, y_pos );
+void PixieChroma::write( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, uint8_t x_pos, uint8_t y_pos ){
+    write_pix( bitmap_col_1, bitmap_col_2, bitmap_col_3, bitmap_col_4, bitmap_col_5, x_pos, y_pos );
 }
 
 
@@ -725,28 +707,40 @@ void PixieChroma::write( float input, uint8_t places, uint8_t x_pos, uint8_t y_p
 
 /*! ############################################################################
     @brief
-    Internal function for rendering icons to the mask buffer.
+    Internal function for rendering bitmaps to the mask buffer.
     
     @details
-    This can also be used to write Icons that are not aligned to whole display
+    This can also be used to write bitmaps that are not aligned to whole display
     positions, such as during smooth scrolling.
     
-    @param  icon    Icon to render
+    @param  bitmap  Bitmap to render
     @param  x_dest  X pixel position of write **[optional]**
     @param  y_dest  Y pixel position of write **[optional]**
 *///............................................................................
-void PixieChroma::write_pix( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){	
-    add_char(
-        icon,
-        x_dest,
-        y_dest
-    );
-	
-	cursor_x_temp = x_dest+display_width;
-	if( cursor_x_temp >= ( display_width * chars_x ) ){
-		cursor_x_temp = display_padding_x;
-		cursor_y_temp += display_height;
+void PixieChroma::write_pix( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_dest, int16_t y_dest ){	
+    int16_t offset_x = 0;
+	int16_t offset_y = 0;
+		
+	if( line_wrap == true && x_dest+offset_x >= ( display_width * chars_x ) ){ // End of line reached, wrap to new line if line_wrap enabled
+		x_dest = display_padding_x;
+		offset_x = 0;
+		offset_y = display_height;	
 	}
+	
+	add_char(
+		bitmap_col_1,
+		bitmap_col_2,
+		bitmap_col_3,
+		bitmap_col_4,
+		bitmap_col_5,
+		x_dest + offset_x,
+		y_dest + offset_y
+	);
+	offset_x += display_width;
+
+	
+	cursor_x_temp = x_dest+offset_x;
+	cursor_y_temp = y_dest+offset_y;
 }
 
 
@@ -847,54 +841,77 @@ void PixieChroma::add_char( char chr, int16_t x_dest, int16_t y_dest ){
 
 /*! ############################################################################
     @brief
-    Internal function for rendering a single icon to the mask buffer.
+    Internal function for rendering a single bitmap to the mask buffer.
     
-    @param  icon    Icon column data to render
-    @param  x_dest  X pixel position of write
-    @param  y_dest  Y pixel position of write
+    @param  bitmap_col_1  Column 1 data of this bitmap
+    @param  bitmap_col_2  Column 2 data of this bitmap
+    @param  bitmap_col_3  Column 3 data of this bitmap
+    @param  bitmap_col_4  Column 4 data of this bitmap
+    @param  bitmap_col_5  Column 5 data of this bitmap
+    @param  x_dest        X pixel position of write
+    @param  y_dest        Y pixel position of write
 *///............................................................................
-void PixieChroma::add_char( const uint8_t* icon, int16_t x_dest, int16_t y_dest ){	
-    for( uint8_t x = 0; x < font_col_width; x++ ){
-        uint8_t column = pgm_read_byte_far( icon+x );
-
-        uint16_t row1_index = xy( x_dest+x, y_dest+0 );
-        uint16_t row2_index = xy( x_dest+x, y_dest+1 );
-        uint16_t row3_index = xy( x_dest+x, y_dest+2 );
-        uint16_t row4_index = xy( x_dest+x, y_dest+3 );
-        uint16_t row5_index = xy( x_dest+x, y_dest+4 );
-        uint16_t row6_index = xy( x_dest+x, y_dest+5 );
-        uint16_t row7_index = xy( x_dest+x, y_dest+6 );
-
-        // "Subtract" from mask transparency with saturating function
-        mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( column,0 )] );
-        mask[row2_index] = qadd8( mask[row2_index], bit_table[bitRead( column,1 )] );
-        mask[row3_index] = qadd8( mask[row3_index], bit_table[bitRead( column,2 )] );
-        mask[row4_index] = qadd8( mask[row4_index], bit_table[bitRead( column,3 )] );
-        mask[row5_index] = qadd8( mask[row5_index], bit_table[bitRead( column,4 )] );
-        mask[row6_index] = qadd8( mask[row6_index], bit_table[bitRead( column,5 )] );
-        mask[row7_index] = qadd8( mask[row7_index], bit_table[bitRead( column,6 )] );
-    }
-}
-
-
-/*! ############################################################################
-    @brief
-    Prints an Icon to the displays, at the current cursor position.
-    
-    @param  icon  Icon column data to render
-*///............................................................................
-void PixieChroma::print( const uint8_t* icon ){
-    write_pix( icon, cursor_x, cursor_y );
+void PixieChroma::add_char( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_dest, int16_t y_dest ){	
+    uint16_t row1_index;
+	uint16_t row2_index;
+	uint16_t row3_index;
+	uint16_t row4_index;
+	uint16_t row5_index;
+	uint16_t row6_index;
+	uint16_t row7_index;
 	
-	// Store cursor changes
-	cursor_x = cursor_x_temp;
-	cursor_y = cursor_y_temp;
+	// COLUMN 1 --------------------------------------------------------------------------------------------------------------
+	row1_index = xy( x_dest+0, y_dest+0 ); mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( bitmap_col_1,0 )] );
+	row2_index = xy( x_dest+0, y_dest+1 ); mask[row2_index] = qadd8( mask[row2_index], bit_table[bitRead( bitmap_col_1,1 )] );
+	row3_index = xy( x_dest+0, y_dest+2 ); mask[row3_index] = qadd8( mask[row3_index], bit_table[bitRead( bitmap_col_1,2 )] );
+	row4_index = xy( x_dest+0, y_dest+3 ); mask[row4_index] = qadd8( mask[row4_index], bit_table[bitRead( bitmap_col_1,3 )] );
+	row5_index = xy( x_dest+0, y_dest+4 ); mask[row5_index] = qadd8( mask[row5_index], bit_table[bitRead( bitmap_col_1,4 )] );
+	row6_index = xy( x_dest+0, y_dest+5 ); mask[row6_index] = qadd8( mask[row6_index], bit_table[bitRead( bitmap_col_1,5 )] );
+	row7_index = xy( x_dest+0, y_dest+6 ); mask[row7_index] = qadd8( mask[row7_index], bit_table[bitRead( bitmap_col_1,6 )] );
+	
+	// COLUMN 2 --------------------------------------------------------------------------------------------------------------
+	row1_index = xy( x_dest+1, y_dest+0 ); mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( bitmap_col_2,0 )] );
+	row2_index = xy( x_dest+1, y_dest+1 ); mask[row2_index] = qadd8( mask[row2_index], bit_table[bitRead( bitmap_col_2,1 )] );
+	row3_index = xy( x_dest+1, y_dest+2 ); mask[row3_index] = qadd8( mask[row3_index], bit_table[bitRead( bitmap_col_2,2 )] );
+	row4_index = xy( x_dest+1, y_dest+3 ); mask[row4_index] = qadd8( mask[row4_index], bit_table[bitRead( bitmap_col_2,3 )] );
+	row5_index = xy( x_dest+1, y_dest+4 ); mask[row5_index] = qadd8( mask[row5_index], bit_table[bitRead( bitmap_col_2,4 )] );
+	row6_index = xy( x_dest+1, y_dest+5 ); mask[row6_index] = qadd8( mask[row6_index], bit_table[bitRead( bitmap_col_2,5 )] );
+	row7_index = xy( x_dest+1, y_dest+6 ); mask[row7_index] = qadd8( mask[row7_index], bit_table[bitRead( bitmap_col_2,6 )] );
+	
+	// COLUMN 3 --------------------------------------------------------------------------------------------------------------
+	row1_index = xy( x_dest+2, y_dest+0 ); mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( bitmap_col_3,0 )] );
+	row2_index = xy( x_dest+2, y_dest+1 ); mask[row2_index] = qadd8( mask[row2_index], bit_table[bitRead( bitmap_col_3,1 )] );
+	row3_index = xy( x_dest+2, y_dest+2 ); mask[row3_index] = qadd8( mask[row3_index], bit_table[bitRead( bitmap_col_3,2 )] );
+	row4_index = xy( x_dest+2, y_dest+3 ); mask[row4_index] = qadd8( mask[row4_index], bit_table[bitRead( bitmap_col_3,3 )] );
+	row5_index = xy( x_dest+2, y_dest+4 ); mask[row5_index] = qadd8( mask[row5_index], bit_table[bitRead( bitmap_col_3,4 )] );
+	row6_index = xy( x_dest+2, y_dest+5 ); mask[row6_index] = qadd8( mask[row6_index], bit_table[bitRead( bitmap_col_3,5 )] );
+	row7_index = xy( x_dest+2, y_dest+6 ); mask[row7_index] = qadd8( mask[row7_index], bit_table[bitRead( bitmap_col_3,6 )] );
+	
+	// COLUMN 4 --------------------------------------------------------------------------------------------------------------
+	row1_index = xy( x_dest+3, y_dest+0 ); mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( bitmap_col_4,0 )] );
+	row2_index = xy( x_dest+3, y_dest+1 ); mask[row2_index] = qadd8( mask[row2_index], bit_table[bitRead( bitmap_col_4,1 )] );
+	row3_index = xy( x_dest+3, y_dest+2 ); mask[row3_index] = qadd8( mask[row3_index], bit_table[bitRead( bitmap_col_4,2 )] );
+	row4_index = xy( x_dest+3, y_dest+3 ); mask[row4_index] = qadd8( mask[row4_index], bit_table[bitRead( bitmap_col_4,3 )] );
+	row5_index = xy( x_dest+3, y_dest+4 ); mask[row5_index] = qadd8( mask[row5_index], bit_table[bitRead( bitmap_col_4,4 )] );
+	row6_index = xy( x_dest+3, y_dest+5 ); mask[row6_index] = qadd8( mask[row6_index], bit_table[bitRead( bitmap_col_4,5 )] );
+	row7_index = xy( x_dest+3, y_dest+6 ); mask[row7_index] = qadd8( mask[row7_index], bit_table[bitRead( bitmap_col_4,6 )] );
+	
+	// COLUMN 5 --------------------------------------------------------------------------------------------------------------
+	row1_index = xy( x_dest+4, y_dest+0 ); mask[row1_index] = qadd8( mask[row1_index], bit_table[bitRead( bitmap_col_5,0 )] );
+	row2_index = xy( x_dest+4, y_dest+1 ); mask[row2_index] = qadd8( mask[row2_index], bit_table[bitRead( bitmap_col_5,1 )] );
+	row3_index = xy( x_dest+4, y_dest+2 ); mask[row3_index] = qadd8( mask[row3_index], bit_table[bitRead( bitmap_col_5,2 )] );
+	row4_index = xy( x_dest+4, y_dest+3 ); mask[row4_index] = qadd8( mask[row4_index], bit_table[bitRead( bitmap_col_5,3 )] );
+	row5_index = xy( x_dest+4, y_dest+4 ); mask[row5_index] = qadd8( mask[row5_index], bit_table[bitRead( bitmap_col_5,4 )] );
+	row6_index = xy( x_dest+4, y_dest+5 ); mask[row6_index] = qadd8( mask[row6_index], bit_table[bitRead( bitmap_col_5,5 )] );
+	row7_index = xy( x_dest+4, y_dest+6 ); mask[row7_index] = qadd8( mask[row7_index], bit_table[bitRead( bitmap_col_5,6 )] );
+	
+
 }
 
 
 /*! ############################################################################
     @brief
-    Prints an icon to the displays at the current cursor position, taking five
+    Prints a bitmap to the displays at the current cursor position, taking five
     uint8_t as input for the column data.
     
     @details
@@ -916,25 +933,19 @@ void PixieChroma::print( const uint8_t* icon ){
                     B   B   B   B   B
         
     This writes a "5" to the display, seen above in the "1" bits of
-    each column. The MSB ( highest bit ) is not used in icons.
+    each column. The MSB ( highest bit ) is not used in bitmaps.
               
-    @param  icon_col_1  Column 1 data of this icon
-    @param  icon_col_2  Column 2 data of this icon
-    @param  icon_col_3  Column 3 data of this icon
-    @param  icon_col_4  Column 4 data of this icon
-    @param  icon_col_5  Column 5 data of this icon
+    @param  bitmap_col_1  Column 1 data of this bitmap
+    @param  bitmap_col_2  Column 2 data of this bitmap
+    @param  bitmap_col_3  Column 3 data of this bitmap
+    @param  bitmap_col_4  Column 4 data of this bitmap
+    @param  bitmap_col_5  Column 5 data of this bitmap
 *///............................................................................
-void PixieChroma::print( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5 ){
+void PixieChroma::print( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5 ){
 	cursor_x_temp = cursor_x;
 	cursor_y_temp = cursor_y;
-    const uint8_t icon[5] = {
-        icon_col_1,
-        icon_col_2,
-        icon_col_3,
-        icon_col_4,
-        icon_col_5,
-    };
-    write_pix( icon, cursor_x, cursor_y );
+	
+    write_pix( bitmap_col_1, bitmap_col_2, bitmap_col_3, bitmap_col_4, bitmap_col_5, cursor_x, cursor_y );
 	
 	// Store cursor changes
 	cursor_x = cursor_x_temp;
@@ -949,15 +960,63 @@ void PixieChroma::print( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_co
     @param  message  char* string to print
 *///............................................................................
 void PixieChroma::print( char* message ){
+	uint16_t len = strlen(message);
+	uint16_t i = 0;
+	while (i < len - 1) {
+		if (message[i] == '[' && message[i + 1] == ':') { // Found start of shortcode
+			for (uint16_t j = i; j < len - 1; j++) {
+				if (message[j] == ':' && message[j + 1] == ']') { // Found end of shortcode
+					fetch_shortcode( message, i + 2, j );
+					i = j + 2;
+					break;
+				}
+			}
+		}
+		else {
+			print(message[i]);
+			i += 1;
+		}
+	}
+
+	if(message[len-1] != ']'){ // If message doesn't end with shortcode
+		print( message[len-1] );
+	}
+	
+	/*
     write_pix( message, cursor_x, cursor_y );
 	
 	// Store cursor changes
 	cursor_x = cursor_x_temp;
 	cursor_y = cursor_y_temp;
-	
-	// Store cursor changes
-	cursor_x = cursor_x_temp;
-	cursor_y = cursor_y_temp;
+	*/
+}
+
+
+/*! ############################################################################
+    @brief
+    Prints a single char to the displays at the current cursor position.
+    
+    @param  chr  char to print
+*///............................................................................
+void PixieChroma::print( char chr ){
+	if(chr != '\n'){
+		add_char(
+			chr,
+			cursor_x,
+			cursor_y
+		);
+		
+		cursor_x += display_width;
+
+		if(line_wrap && cursor_x >= ( display_width * chars_x )	){
+			cursor_x = display_padding_x;
+			cursor_y += display_height;
+		}
+	}
+	else{
+		cursor_x = display_padding_x;
+		cursor_y += display_height;
+	}
 }
 
 
@@ -1089,51 +1148,19 @@ void PixieChroma::print( float input, uint8_t places ){
 
 /*! ############################################################################
     @brief
-    Prints an Icon to the displays at the current cursor position, then jumps to
-    the next row in the Pixie display, similar to a newline '\\n' character.
-    
-    @param  icon  Icon column data to print
-*///............................................................................
-void PixieChroma::println( const uint8_t* icon ){
-    write_pix( icon, cursor_x, cursor_y ); // ........ Output
-	
-	// Store cursor changes
-	cursor_x = cursor_x_temp;
-	cursor_y = cursor_y_temp;
-	
-    cursor_x  = display_padding_x;
-    cursor_y += display_height;
-}
-
-
-/*! ############################################################################
-    @brief
-    Prints an Icon to the displays at the current cursor position, (taking five
+    Prints a bitmap to the displays at the current cursor position, (taking five
     uint8_t as input for the column data) then jumps to the next row in the
     Pixie display, similar to a newline '\\n' character.
     
-    @param  icon_col_1  Column 1 data of this icon
-    @param  icon_col_2  Column 2 data of this icon
-    @param  icon_col_3  Column 3 data of this icon
-    @param  icon_col_4  Column 4 data of this icon
-    @param  icon_col_5  Column 5 data of this icon
+    @param  bitmap_col_1  Column 1 data of this bitmap
+    @param  bitmap_col_2  Column 2 data of this bitmap
+    @param  bitmap_col_3  Column 3 data of this bitmap
+    @param  bitmap_col_4  Column 4 data of this bitmap
+    @param  bitmap_col_5  Column 5 data of this bitmap
 *///............................................................................
-void PixieChroma::println( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5 ){
-    const uint8_t icon[5] = {
-        icon_col_1,
-        icon_col_2,
-        icon_col_3,
-        icon_col_4,
-        icon_col_5
-    };
-    write_pix( icon, cursor_x, cursor_y );
-	
-	// Store cursor changes
-	cursor_x = cursor_x_temp;
-	cursor_y = cursor_y_temp;
-	
-    cursor_x =  display_padding_x;
-    cursor_y += display_height;
+void PixieChroma::println( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5 ){	
+	print( bitmap_col_1, bitmap_col_2, bitmap_col_3, bitmap_col_4, bitmap_col_5 );
+	print('\n');
 }
 
 
@@ -1146,12 +1173,8 @@ void PixieChroma::println( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_
     @param  message  char* string to print
 *///............................................................................
 void PixieChroma::println( char* message ){
-    write_pix( message, cursor_x, cursor_y ); // ........ Output
-	
-	// Store cursor changes
-    cursor_x =  display_padding_x;
-	cursor_y = cursor_y_temp;
-    cursor_y += display_height;
+	print(message);	
+	print('\n');
 }
 
 
@@ -1164,9 +1187,8 @@ void PixieChroma::println( char* message ){
     @param  input  Signed 16-bit integer to print
 *///............................................................................
 void PixieChroma::println( int16_t input ){
-    char char_buf[32];
-    itoa( input, char_buf, 10 );
-    println( char_buf );
+    print( input );
+	print('\n');
 }
 
 
@@ -1179,9 +1201,8 @@ void PixieChroma::println( int16_t input ){
     @param  input  Unsigned 16-bit integer to print
 *///............................................................................
 void PixieChroma::println( uint16_t input ){
-    char char_buf[32];
-    utoa( input, char_buf, 10 );
-    println( char_buf );
+    print( input );
+	print('\n');
 }
 
 
@@ -1194,9 +1215,8 @@ void PixieChroma::println( uint16_t input ){
     @param  input  Signed 32-bit integer to print
 *///............................................................................
 void PixieChroma::println( int32_t input ){
-    char char_buf[32];
-    ltoa( input, char_buf, 10 );
-    println( char_buf );
+    print( input );
+	print('\n');
 }
 
 
@@ -1209,9 +1229,8 @@ void PixieChroma::println( int32_t input ){
     @param  input  Unsigned 32-bit integer to print
 *///............................................................................
 void PixieChroma::println( uint32_t input ){
-    char char_buf[32];
-    ultoa( input, char_buf, 10 );
-    println( char_buf );
+    print( input );
+	print('\n');
 }
 
 
@@ -1224,9 +1243,8 @@ void PixieChroma::println( uint32_t input ){
     @param  input  Unsigned 32-bit integer to print
 *///............................................................................
 void PixieChroma::println( long unsigned int input ){
-    char char_buf[32];
-    ultoa( input, char_buf, 10 );
-    println( char_buf );
+    print( input );
+	print('\n');
 }
 
 
@@ -1241,9 +1259,8 @@ void PixieChroma::println( long unsigned int input ){
     @param  places  Number of decimal places to print **[optional]**
 *///............................................................................
 void PixieChroma::println( double input, uint8_t places ){
-    char char_buf[32];
-    dtoa( input, char_buf, places );
-    println( char_buf );
+    print( input, places );
+	print('\n');
 }
 
 
@@ -2295,6 +2312,60 @@ void PixieChroma::calc_xy(){
     //Serial.println( "DONE" );
 }
 
+
+void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end ){
+	char bitmap_name[32];
+	memset(bitmap_name, 0, 32);
+	char bitmap_temp[32];
+	memset(bitmap_temp, 0, 32);
+	uint8_t bitmap_temp_index = 0;
+
+	uint16_t code_length = code_end - code_start;
+	for (uint16_t i = 0; i < code_length; i++) {
+		bitmap_name[i] = message[code_start + i];
+	}
+
+	uint32_t index = 0;
+	while (index < sizeof(PIXIE_SHORTCODE_LIBRARY)) {
+		if (PIXIE_SHORTCODE_LIBRARY[index] == 255) {
+			index += 1; // Skip the "255" marker
+			
+			char first_name_char = PIXIE_SHORTCODE_LIBRARY[index];
+			if(bitmap_name[0] == first_name_char){
+				memset(bitmap_temp, 0, 32);
+				bitmap_temp_index = 0;
+				uint32_t bitmap_data_index = index - 6;
+
+				bool end_found = false;
+				while (end_found == false) {
+					uint8_t val = PIXIE_SHORTCODE_LIBRARY[index];
+
+					bitmap_temp[bitmap_temp_index] = char(val); // Gather chars, even null terminator
+					if (val == 0) { // Found end of name
+						end_found = true;
+					}
+
+					bitmap_temp_index += 1;
+					index += 1;
+				}
+				if (strcmp(bitmap_temp, bitmap_name) == 0) {
+					print(
+						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 0],
+						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 1],
+						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 2],
+						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 3],
+						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 4]
+					);
+					return;
+				}
+			}
+		}
+		else {
+			index += 1;
+		}
+	}
+}
+
 // (End of user code)
 
 // ##########################################################################################################
@@ -2546,28 +2617,29 @@ bool PixieChroma::unit_tests(){
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// @@@@@ write(ICON) ---------------------------------------------------------------------------- @@@@@
+	// @@@@@ write(bitmap) ---------------------------------------------------------------------------- @@@@@
 	// ----------------------------------------------------------------------------------------------------
+	/*
 	
 	Serial.println( border );
 	Serial.print  ( testing );
-	Serial.print(F("write(ICON) ..................... "));
+	Serial.print(F("write(bitmap) ..................... "));
 
 	clear();
-	write(ICON_HEART,0,0);
+	write(bitmap_HEART,0,0);
 	show();
 
 	success_temp = true;
 	for(uint8_t x = 0; x < 5; x++){
-		uint8_t column = pgm_read_byte_far( ICON_HEART+x );
+		uint8_t column = pgm_read_byte_far( bitmap_HEART+x );
 		
 		for(uint8_t y = 0; y < 7; y++){
-			uint8_t icon_val = bit_table[ bitRead( column, y ) ];
+			uint8_t bitmap_val = bit_table[ bitRead( column, y ) ];
 			
 			uint16_t index = xy(x+display_padding_x, y+display_padding_y);
 			uint8_t mask_val = mask[index];
 			
-			if(icon_val != mask_val){
+			if(bitmap_val != mask_val){
 				success_temp = false;
 			}
 		}
@@ -2583,7 +2655,7 @@ bool PixieChroma::unit_tests(){
 	
 	Serial.println(border);
 	
-	
+	*/
 	// ----------------------------------------------------------------------------------------------------
 	// @@@@@ write(int16_t) ------------------------------------------------------------------------- @@@@@
 	// ----------------------------------------------------------------------------------------------------
@@ -2658,28 +2730,29 @@ bool PixieChroma::unit_tests(){
 	
 	
 	// ----------------------------------------------------------------------------------------------------
-	// @@@@@ print(ICON) ---------------------------------------------------------------------------- @@@@@
+	// @@@@@ print(bitmap) ---------------------------------------------------------------------------- @@@@@
 	// ----------------------------------------------------------------------------------------------------
+	/*
 	
 	Serial.println( border );
 	Serial.print  ( testing );
-	Serial.print(F("print(ICON) ..................... "));
+	Serial.print(F("print(bitmap) ..................... "));
 
 	clear();
-	print(ICON_HEART);
+	print(bitmap_HEART);
 	show();
 
 	success_temp = true;
 	for(uint8_t x = 0; x < 5; x++){
-		uint8_t column = pgm_read_byte_far( ICON_HEART+x );
+		uint8_t column = pgm_read_byte_far( bitmap_HEART+x );
 		
 		for(uint8_t y = 0; y < 7; y++){
-			uint8_t icon_val = bit_table[ bitRead( column, y ) ];
+			uint8_t bitmap_val = bit_table[ bitRead( column, y ) ];
 			
 			uint16_t index = xy(x+display_padding_x, y+display_padding_y);
 			uint8_t mask_val = mask[index];
 			
-			if(icon_val != mask_val){
+			if(bitmap_val != mask_val){
 				success_temp = false;
 			}
 		}
@@ -2695,7 +2768,7 @@ bool PixieChroma::unit_tests(){
 	
 	Serial.println(border);
 	
-	
+	*/
 	// ----------------------------------------------------------------------------------------------------
 	// @@@@@ print(int16_t) ------------------------------------------------------------------------- @@@@@
 	// ----------------------------------------------------------------------------------------------------

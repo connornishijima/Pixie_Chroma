@@ -44,8 +44,7 @@ class PixieChroma{
 		/*+---------------------------------------------------------------------------------*/ 
 		
 		/*+-- Functions - write(  ) ----------------------------------------------------------*/ 
-		/*|*/ void write( const uint8_t* icon, uint8_t x_pos = 0, uint8_t y_pos = 0 );
-		/*|*/ void write( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5, uint8_t x_pos = 0, uint8_t y_pos = 0 );
+		/*|*/ void write( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ void write( char* message, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ void write( int16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ void write( uint16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0 );
@@ -56,15 +55,15 @@ class PixieChroma{
 		/*|*/ void write( double input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ 
 		/*|*/ void write_pix( char* message, int16_t x_offset = 0, int16_t y_offset = 0 );
-		/*|*/ void write_pix( const uint8_t* icon, int16_t x_offset = 0, int16_t y_offset = 0 );
+		/*|*/ void write_pix( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_dest = 0, int16_t y_dest = 0 );
 		/*|*/ 
 		/*|*/ void add_char( char chr, int16_t x_pos, int16_t y_pos );
-		/*|*/ void add_char( const uint8_t* icon, int16_t x_pos, int16_t y_pos );
+		/*|*/ void add_char( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_pos, int16_t y_pos );
 		/*+---------------------------------------------------------------------------------*/ 
 
 		/*+-- Functions - print(  ) ----------------------------------------------------------*/ 
-		/*|*/ void print( const uint8_t* icon );
-		/*|*/ void print( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5 );
+		/*|*/ void print( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5 );
+		/*|*/ void print( char chr );
 		/*|*/ void print( char* message );
 		/*|*/ void print( int16_t input );
 		/*|*/ void print( uint16_t input );
@@ -76,8 +75,7 @@ class PixieChroma{
 		/*+---------------------------------------------------------------------------------*/ 
 
 		/*+-- Functions - println(  ) --------------------------------------------------------*/ 	
-		/*|*/ void println( const uint8_t* icon );
-		/*|*/ void println( uint8_t icon_col_1, uint8_t icon_col_2, uint8_t icon_col_3, uint8_t icon_col_4, uint8_t icon_col_5 );
+		/*|*/ void println( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5 );
 		/*|*/ void println( char* message );
 		/*|*/ void println( int16_t input );
 		/*|*/ void println( uint16_t input );
@@ -180,7 +178,7 @@ class PixieChroma{
         areas of the paper except for a circle in the center, it would appear as if
         there was a *red* circle painted on a *black* paper. This is essentially what
         the mask here is doing: subtracting from the output of the color map, to show
-        text or icons.
+        text or bitmaps.
         
         Note: Pixie Chroma uses "invisible" pixels acting as padding between displays,
         to allow for spatial consistency. (i.e. If a word starts to scroll off the left
@@ -246,6 +244,7 @@ class PixieChroma{
 		// Functions ----------------------------------
 		void build_controller( const uint8_t pin );
 		void calc_xy();
+		void fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end );
 		
 		// Variables ----------------------------------
 		Ticker animate;

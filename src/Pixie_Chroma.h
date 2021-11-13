@@ -62,7 +62,7 @@
 
 #include "utility/pixie_palettes.h" // ----- Color Palettes
 #include "utility/pixie_font.h" // --------- ASCII font
-#include "utility/pixie_icons.h" // -------- Bitmap icon pack
+#include "utility/pixie_shortcodes.h" // --- Bitmap Icon pack
 #include "utility/pixie_animations.h" // --- Preset animation routines
 #include "pixie_chroma_internal.h" // ------ Main library code
 

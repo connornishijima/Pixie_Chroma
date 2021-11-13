@@ -8,7 +8,7 @@ PixieChroma pix; // ............ Get class object
 #define PIXIES_X        6 // Total amount and arrangement
 #define PIXIES_Y        2 // of Pixie PCBs
                           //
-						  // 4 lines with 3 Pixies == 12 total
+                          // 4 lines with 3 Pixies == 12 total
 
 // Quad Mode GPIO, same on ESP8266 and ESP32:
 
