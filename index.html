@@ -65,6 +65,14 @@
 				max-width: 430px;
 				overflow: hidden;
 			}
+			.noselect {
+			  -webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none; /* Safari */
+				   -moz-user-select: none; /* Old versions of Firefox */
+					-ms-user-select: none; /* Internet Explorer/Edge */
+						user-select: none; /* Non-prefixed version, currently
+											  supported by Chrome, Edge, Opera and Firefox */
+			}
 		</style>
 	</head>
 	<body>
@@ -76,9 +84,7 @@
 					</a>
 				</div>
 			</span>
-			<span id="menu_links">
-				
-			</span>
+			<span id="menu_links" class="noselect"></span>
 		</div>
 		<iframe id="content_frame" name="content_frame" src="https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html"></iframe>
 
