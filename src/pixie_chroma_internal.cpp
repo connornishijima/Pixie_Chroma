@@ -713,9 +713,13 @@ void PixieChroma::write( float input, uint8_t places, uint8_t x_pos, uint8_t y_p
     This can also be used to write bitmaps that are not aligned to whole display
     positions, such as during smooth scrolling.
     
-    @param  bitmap  Bitmap to render
-    @param  x_dest  X pixel position of write **[optional]**
-    @param  y_dest  Y pixel position of write **[optional]**
+    @param  bitmap_col_1  Column 1 data of this bitmap
+    @param  bitmap_col_2  Column 2 data of this bitmap
+    @param  bitmap_col_3  Column 3 data of this bitmap
+    @param  bitmap_col_4  Column 4 data of this bitmap
+    @param  bitmap_col_5  Column 5 data of this bitmap
+    @param  x_dest        X pixel position of write **[optional]**
+    @param  y_dest        Y pixel position of write **[optional]**
 *///............................................................................
 void PixieChroma::write_pix( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_dest, int16_t y_dest ){	
     int16_t offset_x = 0;
