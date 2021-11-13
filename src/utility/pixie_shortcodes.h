@@ -44,7 +44,7 @@ static const uint8_t PIXIE_SHORTCODE_LIBRARY[] = {
 /* [:DOCUMENT:]          */ 0x38,0x2C,0x2E,0x22,0x3E, 255, 'D','O','C','U','M','E','N','T', 0,
 /* [:SMARTPHONE:]        */ 0x3E,0x41,0x61,0x41,0x3E, 255, 'S','M','A','R','T','P','H','O','N','E', 0,
 /* [:BLUETOOTH:]         */ 0x14,0x08,0x7F,0x2A,0x14, 255, 'B','L','U','E','T','O','O','T','H', 0,
-/* [:AIRPLANE:]          */ 0x08,0x44,0x7F,0x44,0x08, 255, 'A','I','R','P','L','A','N','E', 0,
+/* [:AIRPLANE:]          */ 0x08,0x04,0x3F,0x44,0x08, 255, 'A','I','R','P','L','A','N','E', 0,
 /* [:GPS_PIN:]           */ 0x0E,0x11,0x65,0x11,0x0E, 255, 'G','P','S','_','P','I','N', 0,
 /* [:STOCKS:]            */ 0x60,0x10,0x20,0x18,0x06, 255, 'S','T','O','C','K','S', 0,
 /* [:TRUMP_STOCKS:]      */ 0x06,0x18,0x20,0x10,0x60, 255, 'T','R','U','M','P','_','S','T','O','C','K','S', 0,
