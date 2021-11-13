@@ -44,16 +44,19 @@
 				font-size:18px;
 				font-family: 'Source Sans Pro', sans-serif;
 			}
-			#code{
-				width: 500;
-				height: 40;
+			#code {
+				width: 500px;
+				height: 40px;
 				text-align: center;
 				background-color: #181818;
 				color: #fff;
 				border: none;
 				border-radius: 5px;
-				font-size:18px;
+				font-size: 18px;
 				font-family: monospace;
+				margin-left: auto;
+				margin-right: auto;
+				padding-top: 15px;
 			}
 			#icon_count_container{
 				font-size: 34px;
@@ -92,7 +95,7 @@
 	<body>
 		<div id="container">
 			<div id="title">
-				<span style="color:#ff5c93;">PIXIE CHROMA</span>&nbsp;&nbsp;//&nbsp;&nbsp;SHORTCODE LIBRARY
+				<span style="color:#ff5c93;">PIXIE CHROMA</span>&nbsp;&nbsp;<span style="color:#787878;">//</span>&nbsp;&nbsp;SHORTCODE LIBRARY
 			</div>
 			<br>
 			<div id="clear" onclick="clear_pixie();">
@@ -100,9 +103,7 @@
 			</div>
 			<canvas id="pixie" width="250" height="350"></canvas><br>
 			<br>
-			<input type="text" value="pix.print( \"[:SMILE:]\" );" id="code"></input>
-			<br>
-			<br>
+			<div id="code"></div>
 			<br>
 			<br>
 			<div id="icon_count_container">
@@ -237,8 +238,8 @@
 						pixels[y][x] = library_visible[category][variable]["pixels"][y][x];
 					}
 				}
-				var code = "pix.print( \"[:"+variable+":]\" );";
-				document.getElementById("code").value = code;
+				var code = "pix.<span style='color:#ffcc42;'>print</span>( \"<span style='color:#94dbff;'>[:"+variable+":]</span>\" );";
+				document.getElementById("code").innerHTML = code;
 				skip_bytes = true;
 				render_pixie();
 				window.scrollTo({top: 0, behavior: 'smooth'});
@@ -395,16 +396,16 @@
 					col_bytes.push("0x"+hex_val);
 				}
 				
-				var out_line = "pix.print(";
+				var out_line = "pix.<span style='color:#ffcc42;'>print</span>(<span style='color:#94dbff;'>";
 				for(var i = 0; i < 5; i++){				
 					out_line += col_bytes[i]; 
 					if(i < 4){
 						out_line += ",";
 					}
 				}
-				out_line += "); // Custom";
+				out_line += "</span>); <span style='color:#787878;'>// Custom</span>";
 				console.log(out_line);
-				document.getElementById("code").value = out_line;
+				document.getElementById("code").innerHTML = out_line;
 			}
 			
 			function get_mouse_position(canvas, event) { 
