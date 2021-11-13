@@ -12,6 +12,17 @@
 
 #include "Arduino.h"
 
+// TODO: Add set_print_color(CRGB) function
+// This allows manual color to be automatically applied during subsequent print() calls.
+// 
+// Usage:
+//     set_print_color( CRGB::Red );
+//     print( "RED " );   
+//     print( "color!" ); // Prints in red
+//     set_print_color( CRGB::Green );
+//     print( "GREEN " );   
+//     print( "color!" ); // Prints in green
+
 /*! Modes for updating Pixie Chroma displays */
 enum t_update_mode {
 	AUTOMATIC, /*!< Will call show() at a specified FPS using an ISR */
