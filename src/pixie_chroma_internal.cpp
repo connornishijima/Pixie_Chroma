@@ -713,9 +713,13 @@ void PixieChroma::write( float input, uint8_t places, uint8_t x_pos, uint8_t y_p
     This can also be used to write bitmaps that are not aligned to whole display
     positions, such as during smooth scrolling.
     
-    @param  bitmap  Bitmap to render
-    @param  x_dest  X pixel position of write **[optional]**
-    @param  y_dest  Y pixel position of write **[optional]**
+    @param  bitmap_col_1  Column 1 data of this bitmap
+    @param  bitmap_col_2  Column 2 data of this bitmap
+    @param  bitmap_col_3  Column 3 data of this bitmap
+    @param  bitmap_col_4  Column 4 data of this bitmap
+    @param  bitmap_col_5  Column 5 data of this bitmap
+    @param  x_dest        X pixel position of write **[optional]**
+    @param  y_dest        Y pixel position of write **[optional]**
 *///............................................................................
 void PixieChroma::write_pix( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_dest, int16_t y_dest ){	
     int16_t offset_x = 0;
@@ -957,6 +961,13 @@ void PixieChroma::print( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bit
     @brief
     Prints a char* string to the displays at the current cursor position.
     
+    The given string will be searched for "Shortcodes", which are special
+    strings which will automatically be replaced with bitmap icons such as:
+    
+    `print("SMILEY FACE! [:SMILE:]");`
+    
+    A full list of Shortcodes can be found in pixie_shortcodes.h.
+    
     @param  message  char* string to print
 *///............................................................................
 void PixieChroma::print( char* message ){
@@ -1169,6 +1180,13 @@ void PixieChroma::println( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t b
     Prints a char* string to the displays at the current cursor position, then
     jumps to the next row in the Pixie display, similar to a newline '\\n'
     character.
+    
+    The given string will be searched for "Shortcodes", which are special
+    strings which will automatically be replaced with bitmap icons such as:
+    
+    `print("SMILEY FACE! [:SMILE:]");`
+    
+    A full list of Shortcodes can be found in pixie_shortcodes.h.
     
     @param  message  char* string to print
 *///............................................................................

@@ -3,4 +3,4 @@
 ---------------------------------------------------------
 - :heavy_check_mark: Icons
 - :heavy_check_mark: Keywords
-- :x: Doxygen
+- :heavy_check_mark: Doxygen
