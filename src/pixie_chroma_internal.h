@@ -23,6 +23,18 @@
 //     print( "GREEN " );   
 //     print( "color!" ); // Prints in green
 
+// TODO: Add justify(justification, row = 0) function
+// This allows (already printed) rows to be justified LEFT, RIGHT, or to the CENTER
+// before a call to show() by studying the existing mask for its maximum left
+// and right "extents".
+// 
+// Anything unable to be perfectly centered (odd length strings) will always bias left.
+// 
+// Usage:
+//     print("TEST");
+//     justify(CENTER); // Mask centered here
+//     show();
+
 /*! Modes for updating Pixie Chroma displays */
 enum t_update_mode {
 	AUTOMATIC, /*!< Will call show() at a specified FPS using an ISR */
