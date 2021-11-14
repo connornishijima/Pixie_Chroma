@@ -1679,9 +1679,61 @@ float PixieChroma::get_uv_y( int32_t y_pixel ){
 }
 
 
+void PixieChroma::shift_mask_x( int16_t amount ){
+	if(amount < 0){
+		for( uint16_t x = 0; x < matrix_width; x++ ){
+			for( uint16_t y = 0; y < matrix_height; y++ ){
+				int16_t x_dest = x - amount;
+				int16_t y_dest = y - 0;
+				
+				if(x_dest >= 0 && y_dest >= 0 && x_dest < matrix_width && y_dest < matrix_height){
+					mask[ xy( x,y )  ] = mask[ xy( x_dest, y_dest ) ];
+				}
+				else{
+					mask[ xy( x,y )  ] = 0;
+				}
+				
+			}
+		}
+	}
+	else if(amount > 0){
+		for( int16_t x = matrix_width; x >= 0; x-- ){
+			for( uint16_t y = 0; y < matrix_height; y++ ){
+				int16_t x_dest = x - amount;
+				int16_t y_dest = y - 0;
+				
+				if(x_dest >= 0 && y_dest >= 0 && x_dest < matrix_width && y_dest < matrix_height){
+					mask[ xy( x,y )  ] = mask[ xy( x_dest, y_dest ) ];
+				}
+				else{
+					mask[ xy( x,y )  ] = 0;
+				}
+				
+			}
+		}
+	}
+}
+
+
 void PixieChroma::shift_mask_y( int16_t amount ){
 	if(amount < 0){
 		for( uint16_t y = 0; y < matrix_height; y++ ){
+			for( uint16_t x = 0; x < matrix_width; x++ ){
+				int16_t x_dest = x - 0;
+				int16_t y_dest = y - amount;
+				
+				if(x_dest >= 0 && y_dest >= 0 && x_dest < matrix_width && y_dest < matrix_height){
+					mask[ xy( x,y )  ] = mask[ xy( x_dest, y_dest ) ];
+				}
+				else{
+					mask[ xy( x,y )  ] = 0;
+				}
+				
+			}
+		}
+	}
+	else if(amount > 0){
+		for( int16_t y = matrix_height; y >= 0; y-- ){
 			for( uint16_t x = 0; x < matrix_width; x++ ){
 				int16_t x_dest = x - 0;
 				int16_t y_dest = y - amount;

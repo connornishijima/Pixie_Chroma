@@ -138,6 +138,7 @@ class PixieChroma{
 		/*|*/ uint16_t uv( float x, float y, bool wrap = false );
 		/*|*/ float    get_uv_x( int32_t x_pixel );
 		/*|*/ float    get_uv_y( int32_t y_pixel );
+		/*|*/ void     shift_mask_x( int16_t amount );
 		/*|*/ void     shift_mask_y( int16_t amount );
 		/*|*/ uint8_t  get_pixel_mask( int32_t x, int32_t y );
 		/*|*/ void     set_pixel_mask( int32_t x, int32_t y, uint8_t value );
