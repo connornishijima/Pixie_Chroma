@@ -70,6 +70,7 @@ var class_pixie_chroma =
     [ "uv", "class_pixie_chroma.html#a8469c787620cde68a0b9d0678744f4c2", null ],
     [ "get_uv_x", "class_pixie_chroma.html#a9f9a7311e1891ac324db42044534f1e2", null ],
     [ "get_uv_y", "class_pixie_chroma.html#a42e7deba3d0a995e61dd31b697bfde80", null ],
+    [ "shift_mask_x", "class_pixie_chroma.html#a55d27ea603a12ae1786905795c19aabc", null ],
     [ "shift_mask_y", "class_pixie_chroma.html#ae2e7e25c45dfb7cd6ad2dbf447b545ff", null ],
     [ "get_pixel_mask", "class_pixie_chroma.html#a84548380d772a21b9633794d4de1a73d", null ],
     [ "set_pixel_mask", "class_pixie_chroma.html#ac0b7506b72f48d433df2d95b9d403a2c", null ],
