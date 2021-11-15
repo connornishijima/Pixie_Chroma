@@ -2,7 +2,7 @@ var pixie__animations_8cpp =
 [
     [ "ANIMATION_NULL", "pixie__animations_8cpp.html#a5a49cfbffe85f8e43867e79394bc16a8", null ],
     [ "ANIMATION_STATIC", "pixie__animations_8cpp.html#a4416971b5ba5c34675f0132dc0f43929", null ],
-    [ "ANIMATION_PALETTE_SHIFT", "pixie__animations_8cpp.html#a1fa2c6cb3bc35acd0ff5ff13068e0064", null ],
+    [ "_PALETTE_SHIFT", "pixie__animations_8cpp.html#ad0941383445524ba40f781b808de4022", null ],
     [ "ANIMATION_PALETTE_SHIFT_LEFT", "pixie__animations_8cpp.html#a4a270ebbd597ad31f21eeac98a6f5c37", null ],
     [ "ANIMATION_PALETTE_SHIFT_RIGHT", "pixie__animations_8cpp.html#a352d51515a8900b188cd376d02cfddde", null ],
     [ "ANIMATION_GLITTER", "pixie__animations_8cpp.html#ac8c859bf0daefc9c145cdf335acf9f00", null ],

@@ -7,7 +7,7 @@ var pixie__animations_8h =
     [ "ANIMATION_GLITTER", "pixie__animations_8h.html#ac8c859bf0daefc9c145cdf335acf9f00", null ],
     [ "ANIMATION_PENDULUM", "pixie__animations_8h.html#ac5944dfdb8fccd0f7094b3903da88123", null ],
     [ "ANIMATION_PENDULUM_WIDE", "pixie__animations_8h.html#ab5612da72a1f639e5fa5c9b761310747", null ],
-    [ "ANIMATION_PALETTE_SHIFT", "pixie__animations_8h.html#a1fa2c6cb3bc35acd0ff5ff13068e0064", null ],
+    [ "_PALETTE_SHIFT", "pixie__animations_8h.html#ad0941383445524ba40f781b808de4022", null ],
     [ "_PENDULUM", "pixie__animations_8h.html#a09e000b66503b563ba68153172af5239", null ],
     [ "make_gradient", "pixie__animations_8h.html#a2b39ccf276d680bc3f1fb41eef9f53ea", null ],
     [ "make_gradient", "pixie__animations_8h.html#a6217d41ecd990c2ebcb07f9f6338210f", null ],
