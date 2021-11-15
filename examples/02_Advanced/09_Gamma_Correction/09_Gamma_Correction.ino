@@ -56,14 +56,14 @@ void loop() {
   // Enable gamma correction, show gradient
   pix.set_gamma_correction(true);
   pix.clear();
-  pix.print("1111");
+  pix.print("[:PASS:]---");
   pix.show();
   delay(1000);
 
   // Disable gamma correction, show gradient
   pix.set_gamma_correction(false);
   pix.clear();
-  pix.print("0000");
+  pix.print("[:FAIL:]---");
   pix.show();
   delay(1000);
 
