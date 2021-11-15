@@ -1500,7 +1500,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l02416"></a><span class="lineno"> 2416</span>&#160;    <span class="keywordflow">while</span> (index &lt; <span class="keyword">sizeof</span>(PIXIE_SHORTCODE_LIBRARY)) {</div>
 <div class="line"><a name="l02417"></a><span class="lineno"> 2417</span>&#160;        <span class="keywordflow">if</span> (PIXIE_SHORTCODE_LIBRARY[index] &gt;= 200) {</div>
 <div class="line"><a name="l02418"></a><span class="lineno"> 2418</span>&#160;            uint8_t skips = PIXIE_SHORTCODE_LIBRARY[index]-200;</div>
-<div class="line"><a name="l02419"></a><span class="lineno"> 2419</span>&#160;            index += 1; <span class="comment">// Skip the &quot;255&quot; marker</span></div>
+<div class="line"><a name="l02419"></a><span class="lineno"> 2419</span>&#160;            index += 1; <span class="comment">// Skip the mark byte</span></div>
 <div class="line"><a name="l02420"></a><span class="lineno"> 2420</span>&#160;            skips -= 1;</div>
 <div class="line"><a name="l02421"></a><span class="lineno"> 2421</span>&#160;            </div>
 <div class="line"><a name="l02422"></a><span class="lineno"> 2422</span>&#160;            <span class="keywordtype">char</span> first_name_char = PIXIE_SHORTCODE_LIBRARY[index];</div>
@@ -1522,8 +1522,8 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div class="line"><a name="l02438"></a><span class="lineno"> 2438</span>&#160;                    index += 1;</div>
 <div class="line"><a name="l02439"></a><span class="lineno"> 2439</span>&#160;                    skips -= 1;</div>
 <div class="line"><a name="l02440"></a><span class="lineno"> 2440</span>&#160;                }</div>
-<div class="line"><a name="l02441"></a><span class="lineno"> 2441</span>&#160;                <span class="keywordflow">if</span> (strcmp(bitmap_temp, bitmap_name) == 0) {</div>
-<div class="line"><a name="l02442"></a><span class="lineno"> 2442</span>&#160;                    <a class="code" href="class_pixie_chroma.html#a17f2ba5470b916904735a19afeb78055">print</a>(</div>
+<div class="line"><a name="l02441"></a><span class="lineno"> 2441</span>&#160;                <span class="keywordflow">if</span> (strcmp(bitmap_temp, bitmap_name) == 0) { <span class="comment">// If a string match is found:</span></div>
+<div class="line"><a name="l02442"></a><span class="lineno"> 2442</span>&#160;                    <a class="code" href="class_pixie_chroma.html#a17f2ba5470b916904735a19afeb78055">print</a>( <span class="comment">// Print column data</span></div>
 <div class="line"><a name="l02443"></a><span class="lineno"> 2443</span>&#160;                        PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 0],</div>
 <div class="line"><a name="l02444"></a><span class="lineno"> 2444</span>&#160;                        PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 1],</div>
 <div class="line"><a name="l02445"></a><span class="lineno"> 2445</span>&#160;                        PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 2],</div>
@@ -2253,7 +2253,7 @@ $(document).ready(function(){initNavTree('pixie__chroma__internal_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pixie__chroma__internal_8cpp.html">pixie_chroma_internal.cpp</a></li>
-    <li class="footer">Generated on Sun Nov 14 2021 01:27:20 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 15 2021 00:48:24 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
