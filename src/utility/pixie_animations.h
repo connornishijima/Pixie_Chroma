@@ -101,7 +101,7 @@ void ANIMATION_PENDULUM_WIDE( PixieChroma* _p, float delta );
     @param  delta  Used to regulate animation playback consistency if
                    performance drops
 *///............................................................................
-void ANIMATION_PALETTE_SHIFT( PixieChroma* _p, int8_t amount, float delta );
+void _PALETTE_SHIFT( PixieChroma* _p, int8_t amount, float delta );
 
 
 /*! ############################################################################

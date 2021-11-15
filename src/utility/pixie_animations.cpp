@@ -27,7 +27,7 @@ void ANIMATION_STATIC( PixieChroma* _p, float delta ){
 }
 
 
-void ANIMATION_PALETTE_SHIFT( PixieChroma* _p, int8_t amount, float delta ){
+void _PALETTE_SHIFT( PixieChroma* _p, int8_t amount, float delta ){
 	static float iter = 0;
 
 	for( uint16_t x = 0; x < _p->matrix_width; x++ ){
@@ -44,12 +44,12 @@ void ANIMATION_PALETTE_SHIFT( PixieChroma* _p, int8_t amount, float delta ){
 
 
 void ANIMATION_PALETTE_SHIFT_LEFT( PixieChroma* _p, float delta ){
-	ANIMATION_PALETTE_SHIFT( _p, 4, delta );
+	_PALETTE_SHIFT( _p, 4, delta );
 }
 
 
 void ANIMATION_PALETTE_SHIFT_RIGHT( PixieChroma* _p, float delta ){
-	ANIMATION_PALETTE_SHIFT( _p, -4, delta );
+	_PALETTE_SHIFT( _p, -4, delta );
 }
 
 
