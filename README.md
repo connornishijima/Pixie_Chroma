@@ -9,7 +9,7 @@
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=tutorials"><b>TUTORIALS</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
-  <a href="extras/OSHW/PCB"><b>OSHW</b></a>
+  <a href="extras/OSHW"><b>OSHW</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
 </p>
 <br>
