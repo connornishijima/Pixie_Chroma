@@ -1,0 +1,13 @@
+// INTRO CODE ##########################
+  pix.set_palette(RAINBOW);
+  pix.set_animation(ANIMATION_PENDULUM);
+  pix.set_line_wrap(false);
+  pix.clear();
+  pix.println("HEADER TEXT HERE");
+  pix.println("HEADER TEXT HERE");
+  pix.show();  
+  delay(5000);
+  pix.clear();
+  pix.show();
+  delay(500);
+  // INTRO CODE ##########################
