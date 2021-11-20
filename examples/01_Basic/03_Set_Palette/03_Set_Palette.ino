@@ -28,7 +28,7 @@ void setup() {
 }
 
 void loop() {
-  // GRADIENT ---------------------------------------------------------------------------------------------  
+  // GRADIENT EXAMPLE ---------------------------------------------------------------------------------------------
   pix.clear(); // ................. Clears the display buffer and
   pix.set_palette( // ............. Sets the palette to 
     GRADIENT_BLACK_RED_BLACK // ... a predefined gradient
@@ -38,7 +38,7 @@ void loop() {
   delay(1000);
 
 
-  // RAINBOW ----------------------------------------------------------------------------------------------  
+  // RAINBOW EXAMPLE ----------------------------------------------------------------------------------------------
   pix.clear(); // ................ Clears the display buffer and
   pix.set_palette(RAINBOW); // ... sets the palette to a predefined color scheme from pixie_palettes.h.
   pix.print(4.5678, 2); // ....... Print a floating point value, to two decimal places of precision and
@@ -46,7 +46,7 @@ void loop() {
   delay(1000);
 
 
-  // CUSTOM -----------------------------------------------------------------------------------------------
+  // CUSTOM EXAMPLE-----------------------------------------------------------------------------------------------
   pix.clear(); // ............ Clears the display buffer and
   pix.set_palette( // ........ Sets the palette to 
     make_gradient( // ........ a gradient generated at runtime from
