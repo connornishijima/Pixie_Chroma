@@ -60,6 +60,17 @@ draw_line_color	KEYWORD2
 print_xy_map	KEYWORD2
 unit_tests	KEYWORD2
 
+color_map	KEYWORD2
+mask	KEYWORD2
+current_palette	KEYWORD2
+matrix_width	KEYWORD2
+matrix_height	KEYWORD2
+pixel_count	KEYWORD2
+led_count	KEYWORD2
+delta	KEYWORD2
+animation_speed	KEYWORD2
+frame_rate	KEYWORD2
+
 ######################################
 # Constants (LITERAL1)
 ######################################
