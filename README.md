@@ -20,7 +20,7 @@
   <a href="https://www.ardu-badge.com/Pixie_Chroma"><img src="https://www.ardu-badge.com/badge/Pixie_Chroma.svg"></a>
 </p>
 
--------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 
 **PIXIE CHROMA** is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO!
 

@@ -1705,6 +1705,12 @@ float PixieChroma::get_uv_y( int32_t y_pixel ){
 }
 
 
+/*! ############################################################################
+    @brief
+	Shifts the mask data by `amount` on the X axis. Useful for scrolling!
+    
+    @param   amount  Amount in whole-pixels to shift the mask data
+*///............................................................................
 void PixieChroma::shift_mask_x( int16_t amount ){
 	if(amount < 0){
 		for( uint16_t x = 0; x < matrix_width; x++ ){
@@ -1741,6 +1747,12 @@ void PixieChroma::shift_mask_x( int16_t amount ){
 }
 
 
+/*! ############################################################################
+    @brief
+	Shifts the mask data by `amount` on the Y axis. Useful for scrolling!
+    
+    @param   amount  Amount in whole-pixels to shift the mask data
+*///............................................................................
 void PixieChroma::shift_mask_y( int16_t amount ){
 	if(amount < 0){
 		for( uint16_t y = 0; y < matrix_height; y++ ){
