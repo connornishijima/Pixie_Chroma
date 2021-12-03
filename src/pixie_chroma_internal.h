@@ -12,17 +12,6 @@
 
 #include "Arduino.h"
 
-// TODO: Add set_print_color(CRGB) function
-// This allows manual color to be automatically applied during subsequent print() calls.
-// 
-// Usage:
-//     set_print_color( CRGB::Red );
-//     print( "RED " );   
-//     print( "color!" ); // Prints in red
-//     set_print_color( CRGB::Green );
-//     print( "GREEN " );   
-//     print( "color!" ); // Prints in green
-
 
 /*! Modes for updating Pixie Chroma displays */
 enum t_update_mode {
@@ -129,6 +118,7 @@ class PixieChroma{
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Color ------------------------------------------------------------*/ 
+		/*|*/ void print_color( CRGB col );
 		/*|*/ void color( CRGB col ); // Set all displays
 		/*|*/ void color( CRGB col, uint8_t x, uint8_t y ); // Set one display
 		/*|*/ void color( CRGB col, int16_t x1, int16_t y1, int16_t x2, int16_t y2 ); // Set a 2D rectangle
@@ -156,6 +146,8 @@ class PixieChroma{
 		/*|*/ float    get_uv_y( int32_t y_pixel );
 		/*|*/ void     shift_mask_x( int16_t amount, int16_t row = -1 );
 		/*|*/ void     shift_mask_y( int16_t amount );
+		/*|*/ void     shift_color_map_x( int16_t amount, int16_t row = -1 );
+		/*|*/ void     shift_color_map_y( int16_t amount );
 		/*|*/ uint8_t  get_pixel_mask( int32_t x, int32_t y );
 		/*|*/ void     set_pixel_mask( int32_t x, int32_t y, uint8_t value );
 		/*|*/ CRGB     get_pixel_color( int32_t x, int32_t y );
@@ -298,11 +290,11 @@ class PixieChroma{
 			LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT
 		};
 		
-    
         CRGB *color_map_out;
         uint8_t *mask_out;
         int16_t *xy_table;
         uint32_t t_last;
+		CRGB print_col = CRGB(0,255,0);
 
         float    max_V  = 5;
 		uint16_t max_mA = 500;    
@@ -310,6 +302,7 @@ class PixieChroma{
         
 		bool correct_gamma = false;
 		bool line_wrap = true;
+		bool just_wrapped = false;
 		
 		bool freeze = false;
 		bool ticker_running = false;

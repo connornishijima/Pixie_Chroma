@@ -807,24 +807,34 @@ void PixieChroma::write_pix( char* message, int16_t x_dest, int16_t y_dest ){
 	int16_t offset_x = 0;
 	int16_t offset_y = 0;
 	
+	just_wrapped = false;
+	
     uint8_t len = strlen( message );
     for( uint8_t i = 0; i < len; i++ ){
         if( message[i] == '\n' ){ // Newline, force line break
-            x_dest = display_padding_x;
-			offset_x = 0;
-			offset_y = display_height;
+			if(just_wrapped == true){
+				just_wrapped = false;
+				// Skip newline, auto wrapping just newline'd for us.
+			}
+			else{
+				x_dest = display_padding_x;
+				offset_x = 0;
+				offset_y = display_height;
+			}
         }
-        else if( line_wrap == true && x_dest+offset_x >= ( display_width * chars_x ) ){ // End of line reached, wrap to new line if line_wrap enabled
-            x_dest = display_padding_x;
-			offset_x = 0;
-			offset_y = display_height;
-            
-            add_char(
+        else if( line_wrap == true && x_dest+offset_x+display_width >= (matrix_width) ){ // End of line reached, wrap to new line if line_wrap enabled		
+			add_char(
                 message[i],
                 x_dest + offset_x,
                 y_dest + offset_y
             );
             offset_x += display_width;
+			
+            x_dest = display_padding_x;
+			offset_x = 0;
+			offset_y = display_height;
+			
+			just_wrapped = true;
         }
         else if( message[i] == 0 || message[i] == '\0' ){ // end of string
             return;
@@ -836,7 +846,7 @@ void PixieChroma::write_pix( char* message, int16_t x_dest, int16_t y_dest ){
                 y_dest + offset_y
             );
             offset_x += display_width;
-        }        
+        }
     }
 	
 	cursor_x_temp = x_dest+offset_x;
@@ -857,6 +867,8 @@ void PixieChroma::write_pix( char* message, int16_t x_dest, int16_t y_dest ){
     @param  y_dest  Y pixel position of write
 *///............................................................................
 void PixieChroma::add_char( char chr, int16_t x_dest, int16_t y_dest ){
+	color(print_col, x_dest/display_width, y_dest/display_height);
+	
     if ( chr >= printable_ascii_offset ) {
         chr -= printable_ascii_offset;
     }
@@ -1063,11 +1075,17 @@ void PixieChroma::print( char chr ){
 		if(line_wrap && cursor_x >= ( display_width * chars_x )	){
 			cursor_x = display_padding_x;
 			cursor_y += display_height;
+			just_wrapped = true;
 		}
 	}
 	else{
-		cursor_x = display_padding_x;
-		cursor_y += display_height;
+		if(just_wrapped == false){
+			cursor_x = display_padding_x;
+			cursor_y += display_height;
+		}
+		else{
+			just_wrapped = false;
+		}
 	}
 }
 
@@ -1754,7 +1772,6 @@ void PixieChroma::shift_mask_x( int16_t amount, int16_t row ){
 				else{
 					mask[ xy( x,y )  ] = 0;
 				}
-				
 			}
 		}
 	}
@@ -1770,7 +1787,57 @@ void PixieChroma::shift_mask_x( int16_t amount, int16_t row ){
 				else{
 					mask[ xy( x,y )  ] = 0;
 				}
+			}
+		}
+	}
+}
+
+
+/*! ############################################################################
+    @brief
+	Shifts the color_map data by `amount` on the X axis. Useful for scrolling or
+	justification!
+    
+    @param   amount  Amount in whole-pixels to shift the color map data
+    @param   row     If not the default (-1), shift only the specified row
+*///............................................................................
+void PixieChroma::shift_color_map_x( int16_t amount, int16_t row ){
+	int16_t y_start = 0;
+	int16_t y_end   = matrix_height;
+	
+	if(row != -1){
+		y_start = display_height*row;
+		y_end   = display_height*(row+1);
+	}
+	
+	if(amount < 0){
+		for( uint16_t x = 0; x < matrix_width; x++ ){
+			for( uint16_t y = y_start; y < y_end; y++ ){
+				int16_t x_dest = x - amount;
+				int16_t y_dest = y - 0;
 				
+				if(x_dest >= 0 && y_dest >= 0 && x_dest < matrix_width && y_dest < matrix_height){
+					color_map[ xy( x,y )  ] = color_map[ xy( x_dest, y_dest ) ];
+				}
+				else{
+					color_map[ xy( x,y )  ] = 0;
+				}
+				
+			}
+		}
+	}
+	else if(amount > 0){
+		for( int16_t x = matrix_width; x >= 0; x-- ){
+			for( uint16_t y = y_start; y < y_end; y++ ){
+				int16_t x_dest = x - amount;
+				int16_t y_dest = y - 0;
+				
+				if(x_dest >= 0 && y_dest >= 0 && x_dest < matrix_width && y_dest < matrix_height){
+					color_map[ xy( x,y )  ] = color_map[ xy( x_dest, y_dest ) ];
+				}
+				else{
+					color_map[ xy( x,y )  ] = 0;
+				}
 			}
 		}
 	}
@@ -1796,7 +1863,6 @@ void PixieChroma::shift_mask_y( int16_t amount ){
 				else{
 					mask[ xy( x,y )  ] = 0;
 				}
-				
 			}
 		}
 	}
@@ -1812,7 +1878,46 @@ void PixieChroma::shift_mask_y( int16_t amount ){
 				else{
 					mask[ xy( x,y )  ] = 0;
 				}
+			}
+		}
+	}
+}
+
+
+/*! ############################################################################
+    @brief
+	Shifts the color map data by `amount` on the Y axis. Useful for scrolling!
+    
+    @param   amount  Amount in whole-pixels to shift the color map data
+*///............................................................................
+void PixieChroma::shift_color_map_y( int16_t amount ){	
+	if(amount < 0){
+		for( uint16_t x = 0; x < matrix_width; x++ ){
+			for( uint16_t y = 0; y < matrix_height; y++ ){
+				int16_t x_dest = x - 0;
+				int16_t y_dest = y - amount;
 				
+				if(x_dest >= 0 && y_dest >= 0 && x_dest < matrix_width && y_dest < matrix_height){
+					color_map[ xy( x,y )  ] = color_map[ xy( x_dest, y_dest ) ];
+				}
+				else{
+					color_map[ xy( x,y )  ] = 0;
+				}
+			}
+		}
+	}
+	else if(amount > 0){
+		for( int16_t x = matrix_width; x >= 0; x-- ){
+			for( uint16_t y = 0; y < matrix_height; y++ ){
+				int16_t x_dest = x - amount;
+				int16_t y_dest = y - 0;
+				
+				if(x_dest >= 0 && y_dest >= 0 && x_dest < matrix_width && y_dest < matrix_height){
+					color_map[ xy( x,y )  ] = color_map[ xy( x_dest, y_dest ) ];
+				}
+				else{
+					color_map[ xy( x,y )  ] = 0;
+				}				
 			}
 		}
 	}
@@ -1869,6 +1974,22 @@ CRGB PixieChroma::get_pixel_color( int32_t x, int32_t y ){
 void PixieChroma::set_pixel_color( int32_t x, int32_t y, CRGB color ){
 	color_map[ xy(x,y) ] = color;
 }
+
+
+/*! ############################################################################
+    @brief
+    All print() calls after a print_color() will be colored with this value.
+	
+	    print_color( CRGB::Red );
+		print("Hello "); // ..........Printed in red
+		print_color( CRGB::Green );
+		print("World!"); // ..........Printed in green
+              
+    @param  col  FastLED CRGB color
+*///............................................................................
+void PixieChroma::print_color( CRGB col ){
+    print_col = col;
+}
 	
 
 /*! ############################################################################
@@ -1885,6 +2006,7 @@ void PixieChroma::set_pixel_color( int32_t x, int32_t y, CRGB color ){
     @param  col  FastLED CRGB color
 *///............................................................................
 void PixieChroma::color( CRGB col ){
+	print_col = col;
     fill_solid( color_map, pixel_count, col );
 }
 
@@ -2233,7 +2355,9 @@ void PixieChroma::show(){
     noInterrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	for(uint8_t i = 0; i < chars_y; i++){
-		shift_mask_x( calc_justification(justifications[i], i), i);
+		int16_t x_offset = calc_justification(justifications[i], i);
+		shift_mask_x( x_offset, i);
+		shift_color_map_x( x_offset, i);
 	}
     
     if( !freeze ){ // If we're not holding out for a pix.free() call, show with the current mask
@@ -2524,6 +2648,8 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 					skips -= 1;
 				}
 				if (strcmp(bitmap_temp, bitmap_name) == 0) { // If a string match is found:
+					color(print_col, cursor_x/display_width, cursor_y/display_height);
+
 					print( // Print column data
 						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 0],
 						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 1],
@@ -2599,6 +2725,10 @@ int16_t PixieChroma::calc_justification( t_justification justification, uint8_t 
 	
 	uint8_t length = x_disp_end - x_disp_start;
 	int16_t x_offset_chars;
+	
+	if(length > chars_x){
+		return 0;
+	}
 	
 	if(justification == CENTER){
 		x_offset_chars = floor((chars_x - length) / 2.0);
