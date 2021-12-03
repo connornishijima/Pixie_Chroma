@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['num_5fleds_174',['NUM_LEDS',['../class_pixie_chroma.html#a77b654ac9cd84ebac757b6225ce27edb',1,'PixieChroma']]],
-  ['num_5fpixels_175',['NUM_PIXELS',['../class_pixie_chroma.html#a01bcd71b02a4adbe291aff9a566ebca7',1,'PixieChroma']]]
+  ['mask_172',['mask',['../class_pixie_chroma.html#a51e0b0c0cd31c7a39b134dbac9a440a1',1,'PixieChroma']]],
+  ['matrix_5fheight_173',['matrix_height',['../class_pixie_chroma.html#abc3eb468d9f6db281603aa0acd2ab3a8',1,'PixieChroma']]],
+  ['matrix_5fwidth_174',['matrix_width',['../class_pixie_chroma.html#a7d45d3c3ff4ae66562fd9c3a97fb4ac0',1,'PixieChroma']]]
 ];

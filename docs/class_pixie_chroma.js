@@ -85,8 +85,8 @@ var class_pixie_chroma =
     [ "current_palette", "class_pixie_chroma.html#a7fa91ac273c0d5d738bdf7a160dcc08b", null ],
     [ "matrix_width", "class_pixie_chroma.html#a7d45d3c3ff4ae66562fd9c3a97fb4ac0", null ],
     [ "matrix_height", "class_pixie_chroma.html#abc3eb468d9f6db281603aa0acd2ab3a8", null ],
-    [ "NUM_PIXELS", "class_pixie_chroma.html#a01bcd71b02a4adbe291aff9a566ebca7", null ],
-    [ "NUM_LEDS", "class_pixie_chroma.html#a77b654ac9cd84ebac757b6225ce27edb", null ],
+    [ "pixel_count", "class_pixie_chroma.html#afebb2f0eb1a3f7a4e24080faca82af08", null ],
+    [ "led_count", "class_pixie_chroma.html#a4737bb0ee50aa7d2ff07e4a7b25edc41", null ],
     [ "delta", "class_pixie_chroma.html#a3dfc62ac1509e593a55b4c47f27d8a9f", null ],
     [ "animation_speed", "class_pixie_chroma.html#a213e7c32790cd07ec55db1f269cda8cf", null ],
     [ "frame_rate", "class_pixie_chroma.html#ad6e8d3ccf335da400b3b777229c7d7ad", null ]
