@@ -43,7 +43,7 @@ jobs:
           doxygenconf: './extras/Doxyfile'
           htmloutput: './extras/docs/'
           ghpagesbranch: 'main'
-          ghpagesdir: './extras/docs/'
+          ghpagesdir: './'
           
       - name: Generate Issues From TODOs
         uses: alstr/todo-to-issue-action@v4.3
