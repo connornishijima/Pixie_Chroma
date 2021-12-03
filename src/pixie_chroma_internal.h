@@ -35,10 +35,6 @@
 //     justify(CENTER); // Mask centered here
 //     show();
 
-// TODO: pix.print( digitalRead(p) ); does not work on Teensy 3.2
-// 02_Quad_Mode:30: error: call of overloaded 'print(uint8_t)' is ambiguous
-// `pix.print( digitalRead(6) );`
-
 
 /*! Modes for updating Pixie Chroma displays */
 enum t_update_mode {
@@ -49,7 +45,8 @@ enum t_update_mode {
 /*! ############################################################################
     @brief
     This is the software documentation for using Pixie Chroma functions on
-    Arduino! **For full example usage, see [Demos](https://DEMO_LINK.HERE)**.
+    Arduino! **For full example usage, see File > Examples > Pixie_Chroma
+	inside Arduino!**.
 *///............................................................................
 class PixieChroma{
 	public:

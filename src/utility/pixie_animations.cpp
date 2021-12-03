@@ -2,16 +2,16 @@
  * @file pixie_animations.cpp
  *
  * Designed specifically to work with Pixie Chroma:
- * ----> https://connornishijima.github.io/PixieChroma
+ * ----> https://connornishijima.github.io/Pixie_Chroma
  *
- * Last Updated by Connor Nishijima on 10/21/21
+ * Last Updated by Connor Nishijima on 12/2/21
  */
 
 #include "pixie_animations.h"
 
 void ANIMATION_NULL( PixieChroma* _p, float delta ){
 	// It does nothing, but it does nothing REALLY WELL! You can enable this
-	// empty function with p.set_animation(ANIMATION_NULL) to manually control color when you want
+	// empty function with pix.set_animation(ANIMATION_NULL) to manually control color when you want
 }
 
 
