@@ -2338,6 +2338,7 @@ void PixieChroma::build_controller( const uint8_t pin ){
         if ( pin == 17 ){FastLED.addLeds<WS2812B, 17, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 18 ){FastLED.addLeds<WS2812B, 18, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 19 ){FastLED.addLeds<WS2812B, 19, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 20 ){FastLED.addLeds<WS2812B, 20, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 21 ){FastLED.addLeds<WS2812B, 21, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 22 ){FastLED.addLeds<WS2812B, 22, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 23 ){FastLED.addLeds<WS2812B, 23, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
