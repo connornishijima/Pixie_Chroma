@@ -6,7 +6,7 @@ import os
 print("Generating report from Doxygen log contents...")
 
 doxy_data = []
-with open("docs/doxy.log","r+") as f:
+with open("extras/docs/doxy.log","r+") as f:
     doxy_data = f.read().split("\n")
 
 doxy_ignore = []
