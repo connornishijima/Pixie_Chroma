@@ -20,13 +20,15 @@
 
     pix.begin_quad( 3, 6, 2 );
 
-  Quad Mode is currently only supported on ESP32 / ESP8266, and its GPIO
-  numbers are unfortunately hard-coded for I2S driver reasons.
+  Unfortunately, this currently requires hard-coded pins to function *due to
+  FastLED limitations*:
 
-    DATA_OUT_1: GPIO 12 / D6
-    DATA_OUT_2: GPIO 13 / D7
-    DATA_OUT_3: GPIO 14 / D5
-    DATA_OUT_4: GPIO 15 / D8
+   Quad Mode GPIO:     ESP8266 / ESP32     TEENSY 3.X
+   --------------------------------------------------
+   DATA_OUT_1:         GPIO 12 / D6        GPIO 2
+   DATA_OUT_2:         GPIO 13 / D7        GPIO 14
+   DATA_OUT_3:         GPIO 14 / D5        GPIO 7
+   DATA_OUT_4:         GPIO 15 / D8        GPIO 8
 
   See "WIRING" below for quad mode-specific hookup details.  
 

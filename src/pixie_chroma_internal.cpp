@@ -117,13 +117,22 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     This version of begin() is special, in that it will send your image data to
     the LEDs in 4 parallel streams to increase speed.
     
-    Unfortunately, this requires hard-coded pins on the ESP8266 and ESP32 to
-    function *due to FastLED limitations*:
+    Unfortunately, this currently requires hard-coded pins to function *due to
+	FastLED limitations*:
     
+	**ESP32 / ESP8266:**
+	
     - DATA_OUT_1:  **GPIO 12 / D6**
     - DATA_OUT_2:  **GPIO 13 / D7**
     - DATA_OUT_3:  **GPIO 14 / D5**
     - DATA_OUT_4:  **GPIO 15 / D8**
+	
+	**TEENSY 3.X:**
+	
+    - DATA_OUT_1:  **GPIO 2**
+    - DATA_OUT_2:  **GPIO 14**
+    - DATA_OUT_3:  **GPIO 7**
+    - DATA_OUT_4:  **GPIO 8**
     
     On each data line, you'll wire `pixies_per_pin` number of Pixie
     Chromas, with the final image being seamlessly spread across these
@@ -218,37 +227,38 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
     current_palette.loadDynamicGradientPalette( GREEN_SOLID );
 
     #if defined( ARDUINO_ARCH_ESP8266 )
-    // WS2811_PORTA on ESP8266 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 15 for Quad Mode
-    FastLED.addLeds<WS2811_PORTA,4>( color_map_out, pixies_per_pin * leds_per_pixie ).setCorrection( TypicalLEDStrip ); // Initialize FastLED
-    #endif
+		// WS2811_PORTA on ESP8266 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 15 for Quad Mode
+		FastLED.addLeds<WS2811_PORTA,4>( color_map_out, pixies_per_pin * leds_per_pixie ).setCorrection( TypicalLEDStrip ); // Initialize FastLED
     
-    #if defined( ARDUINO_ARCH_ESP32 )
-    
-    // Quad Mode on ESP32 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 27
-    FastLED.addLeds<NEOPIXEL, 13>( // Initialize FastLED Data Out 1
-        color_map_out,
-        ( pixies_per_pin*leds_per_pixie ) * 0,
-        ( pixies_per_pin*leds_per_pixie )
-    ).setCorrection( TypicalLEDStrip ); 
-    
-    FastLED.addLeds<NEOPIXEL, 12>( // Initialize FastLED Data Out 2
-        color_map_out,
-        ( pixies_per_pin*leds_per_pixie ) * 1,
-        ( pixies_per_pin*leds_per_pixie )
-    ).setCorrection( TypicalLEDStrip );
-    
-    FastLED.addLeds<NEOPIXEL, 14>( // Initialize FastLED Data Out 3
-        color_map_out,
-        ( pixies_per_pin*leds_per_pixie ) * 2,
-        ( pixies_per_pin*leds_per_pixie )
-    ).setCorrection( TypicalLEDStrip );
-    
-    FastLED.addLeds<NEOPIXEL, 27>( // Initialize FastLED Data Out 4
-        color_map_out,
-        ( pixies_per_pin*leds_per_pixie ) * 3,
-        ( pixies_per_pin*leds_per_pixie )
-    ).setCorrection( TypicalLEDStrip );
-
+	#elif defined( ARDUINO_ARCH_ESP32 )
+		// Quad Mode on ESP32 takes up GPIO 12, GPIO 13, GPIO 14 and GPIO 27
+		FastLED.addLeds<NEOPIXEL, 13>( // Initialize FastLED Data Out 1
+			color_map_out,
+			( pixies_per_pin*leds_per_pixie ) * 0,
+			( pixies_per_pin*leds_per_pixie )
+		).setCorrection( TypicalLEDStrip ); 
+		
+		FastLED.addLeds<NEOPIXEL, 12>( // Initialize FastLED Data Out 2
+			color_map_out,
+			( pixies_per_pin*leds_per_pixie ) * 1,
+			( pixies_per_pin*leds_per_pixie )
+		).setCorrection( TypicalLEDStrip );
+		
+		FastLED.addLeds<NEOPIXEL, 14>( // Initialize FastLED Data Out 3
+			color_map_out,
+			( pixies_per_pin*leds_per_pixie ) * 2,
+			( pixies_per_pin*leds_per_pixie )
+		).setCorrection( TypicalLEDStrip );
+		
+		FastLED.addLeds<NEOPIXEL, 27>( // Initialize FastLED Data Out 4
+			color_map_out,
+			( pixies_per_pin*leds_per_pixie ) * 3,
+			( pixies_per_pin*leds_per_pixie )
+		).setCorrection( TypicalLEDStrip );
+		
+    #elif defined( ARDUINO_ARCH_TEENSY_3_X )
+		// WS2811_PORTD on TEENSY 3.X takes up GPIO 2, GPIO 14, GPIO 7 and GPIO 8 for Quad Mode
+		FastLED.addLeds<WS2811_PORTD,4>( color_map_out, pixies_per_pin * leds_per_pixie ).setCorrection( TypicalLEDStrip ); // Initialize FastLED
     #endif
     
     set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
@@ -483,21 +493,34 @@ void PixieChroma::set_update_mode( t_update_mode mode, uint16_t FPS ){
     if( mode == AUTOMATIC && ticker_running == false ){
         set_frame_rate_target( FPS );
 		
-		animate.attach_ms<typeof this>(
-			round(1000 / float(FPS)),
-			[](typeof this _p){ _p->show(); },
-   // This. ^ This is the magic sauce
-   // right here. This is apparently how
-   // you add a non-static class member to
-   // Ticker from within a class and I
-   // hate it. Readability sucks, oh well.
-			this
-		);                                 
+		#if defined( ARDUINO_ARCH_ESP8266 ) || defined( ARDUINO_ARCH_ESP32 )
+			animate.attach_ms<typeof this>(
+				round(1000 / float(FPS)),
+				[](typeof this _p){ _p->show(); },
+			   // This. ^ This is the magic sauce
+			   // right here. This is apparently how
+			   // you add a non-static class member to
+			   // Ticker from within a class and I
+			   // hate it. Readability sucks, oh well.
+			   // At least I got a Lambdaghini.
+				this
+			);
+		#elif defined( ARDUINO_ARCH_TEENSY_3_X )
+			animate.begin(
+				[](typeof this _p){ _p->show(); },
+				round(1000000 / float(FPS))
+			);
+			animate.priority(1);
+		#endif
 		
         ticker_running = true;
     }
     else if( mode == MANUAL && ticker_running == true ){
-        animate.detach();
+		#if defined( ARDUINO_ARCH_ESP8266 ) || defined( ARDUINO_ARCH_ESP32 )
+			animate.detach();
+		#elif defined( ARDUINO_ARCH_TEENSY_3_X )
+			animate.end();
+		#endif
         ticker_running = false;
     }
 }
@@ -648,6 +671,7 @@ void PixieChroma::write( uint32_t input, uint8_t x_pos, uint8_t y_pos ){
     @param  x_pos  X cursor position of write **[optional]**
     @param  y_pos  Y cursor position of write **[optional]**
 *///............................................................................
+#ifndef ARDUINO_ARCH_TEENSY_3_X
 void PixieChroma::write( long unsigned int input, uint8_t x_pos, uint8_t y_pos ){
     char char_buf[32];
     ultoa( input, char_buf, 10 );
@@ -658,7 +682,7 @@ void PixieChroma::write( long unsigned int input, uint8_t x_pos, uint8_t y_pos )
         display_padding_y + ( display_height * y_pos )
     );
 }
-
+#endif
 
 /*! ############################################################################
     @brief
@@ -1107,6 +1131,7 @@ void PixieChroma::print( uint32_t input ){
     
     @param  input  Unsigned integer to print
 *///............................................................................
+#ifndef ARDUINO_ARCH_TEENSY_3_X
 void PixieChroma::print( long unsigned int input ){
     char char_buf[32];
     ultoa( input, char_buf, 10 );
@@ -1116,7 +1141,7 @@ void PixieChroma::print( long unsigned int input ){
 	cursor_x = cursor_x_temp;
 	cursor_y = cursor_y_temp;
 }
-
+#endif
 
 /*! ############################################################################
     @brief
@@ -1257,11 +1282,12 @@ void PixieChroma::println( uint32_t input ){
     
     @param  input  Unsigned 32-bit integer to print
 *///............................................................................
+#ifndef ARDUINO_ARCH_TEENSY_3_X
 void PixieChroma::println( long unsigned int input ){
     print( input );
 	print('\n');
 }
-
+#endif
 
 /*! ############################################################################
     @brief
@@ -2251,7 +2277,7 @@ void PixieChroma::build_controller( const uint8_t pin ){
     // to be careful of the current architecture we're compiling to, since FastLED doesn't let you 
     // define non-existent pins either.
     
-    #ifdef ESP8266
+    #ifdef ARDUINO_ARCH_ESP8266
         if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
@@ -2266,7 +2292,7 @@ void PixieChroma::build_controller( const uint8_t pin ){
         if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
     #endif
     
-    #ifdef ESP32
+    #ifdef ARDUINO_ARCH_ESP32
         if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
@@ -2291,7 +2317,7 @@ void PixieChroma::build_controller( const uint8_t pin ){
         if ( pin == 33 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
     #endif
     
-    #ifdef SAMD_SERIES
+    #ifdef ARDUINO_ARCH_TEENSY_3_X
         if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
@@ -2303,6 +2329,18 @@ void PixieChroma::build_controller( const uint8_t pin ){
         if ( pin == 8 ){FastLED.addLeds<WS2812B, 8, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 9 ){FastLED.addLeds<WS2812B, 9, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
         if ( pin == 10 ){FastLED.addLeds<WS2812B, 10, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 11 ){FastLED.addLeds<WS2812B, 11, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 12 ){FastLED.addLeds<WS2812B, 12, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 13 ){FastLED.addLeds<WS2812B, 13, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 14 ){FastLED.addLeds<WS2812B, 14, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 15 ){FastLED.addLeds<WS2812B, 15, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 17 ){FastLED.addLeds<WS2812B, 17, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 18 ){FastLED.addLeds<WS2812B, 18, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 19 ){FastLED.addLeds<WS2812B, 19, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 21 ){FastLED.addLeds<WS2812B, 21, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 22 ){FastLED.addLeds<WS2812B, 22, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 23 ){FastLED.addLeds<WS2812B, 23, GRB>( color_map_out, NUM_LEDS ).setCorrection( TypicalLEDStrip );}
     #endif
 }
 

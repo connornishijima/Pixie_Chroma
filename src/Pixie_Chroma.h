@@ -43,11 +43,17 @@
 
 #include "Arduino.h" // Needed for things like uint8_t typedefs
 
+#if defined(__MK20DX128__) || defined(__MK20DX256__)
+	#define ARDUINO_ARCH_TEENSY_3_X	1
+#endif
+
 #if defined(ARDUINO_ARCH_ESP8266) || defined(ARDUINO_ARCH_ESP32)
 	#define FASTLED_ESP8266_RAW_PIN_ORDER
 	#include "Ticker.h"  // Ticker for optional automated show() calls
+#elif defined(ARDUINO_ARCH_TEENSY_3_X)
+	#include <MsTimer2.h> // MsTimer2 for optional automated show() calls
 #else
-	#error "This library currently only supports boards with an ESP8266 or ESP32 processor."
+	#error "This library currently only supports ESP8266, ESP32, or TEENSY 3.X controllers."
 #endif
 
 #if defined(ARDUINO_ARCH_ESP32)
