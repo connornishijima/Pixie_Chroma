@@ -11,7 +11,7 @@ on:
     - '**Doxyfile'
     - '**doxyignore'
     - 'keywords.txt'
-    - 'docs_and_reports.yml'
+    - '**docs_and_reports.yml'
   pull_request:
     paths:
     - '**.ino'
@@ -23,7 +23,7 @@ on:
     - '**Doxyfile'
     - '**doxyignore'
     - 'keywords.txt'
-    - 'docs_and_reports.yml'
+    - '**docs_and_reports.yml'
 jobs:
   build:
     name: "Docs and Reports"
