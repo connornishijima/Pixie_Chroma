@@ -41,9 +41,9 @@ jobs:
         uses: langroodi/doxygenize@v1.3
         with:
           doxygenconf: './extras/Doxyfile'
-          htmloutput: './html/'
+          htmloutput: './docs/'
           ghpagesbranch: 'main'
-          ghpagesdir: './html/'
+          ghpagesdir: './docs/'
           
       - name: Generate Issues From TODOs
         uses: alstr/todo-to-issue-action@v4.3
