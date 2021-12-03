@@ -285,7 +285,7 @@ void PixieChroma::set_brightness( uint8_t level ){
     Palette at runtime:
     
         const uint8_t* my_gradient_palette[] = {
-            [INDEX],  [R_VAL],  [G_VAL],  [B_VAL],
+        //  [INDEX],  [R_VAL],  [G_VAL],  [B_VAL],
         
             0,        255,      0,        0, 
             127,      0,        255,      0, 
@@ -299,6 +299,9 @@ void PixieChroma::set_brightness( uint8_t level ){
     @param  pal  FastLED "Gradient Palette" array
 *///............................................................................
 void PixieChroma::set_palette( const uint8_t* pal ){ 
+	if(custom_animation == false){
+		set_animation(ANIMATION_STATIC);
+	}
     current_palette.loadDynamicGradientPalette( pal ); // GRADIENT PALETTE
 	clear();
 	show();
@@ -313,6 +316,9 @@ void PixieChroma::set_palette( const uint8_t* pal ){
     @param  pal  FastLED CRGBPalette16 object to use
 *///............................................................................
 void PixieChroma::set_palette( CRGBPalette16 pal ){ // STANDARD PALETTE
+	if(custom_animation == false){
+		set_animation(ANIMATION_STATIC);
+	}
     current_palette = pal;
 	clear();
 	show();
@@ -330,6 +336,12 @@ void PixieChroma::set_palette( CRGBPalette16 pal ){ // STANDARD PALETTE
 *///............................................................................
 void PixieChroma::set_animation( void ( *action )(PixieChroma*, float) ) {
     anim_func = action;
+	if(anim_func == ANIMATION_NULL){
+		custom_animation = false;
+	}
+	else{
+		custom_animation = true;
+	}
 	clear();
 	show();
 }
@@ -2357,7 +2369,9 @@ void PixieChroma::show(){
 	for(uint8_t i = 0; i < chars_y; i++){
 		int16_t x_offset = calc_justification(justifications[i], i);
 		shift_mask_x( x_offset, i);
-		shift_color_map_x( x_offset, i);
+		if( custom_animation == false ){
+			shift_color_map_x( x_offset, i);
+		}
 	}
     
     if( !freeze ){ // If we're not holding out for a pix.free() call, show with the current mask

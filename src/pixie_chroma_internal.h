@@ -303,6 +303,7 @@ class PixieChroma{
 		bool correct_gamma = false;
 		bool line_wrap = true;
 		bool just_wrapped = false;
+		bool custom_animation = false;
 		
 		bool freeze = false;
 		bool ticker_running = false;
@@ -311,7 +312,6 @@ class PixieChroma{
         uint8_t pixie_pin;
 		uint8_t chars_x;
 		uint8_t chars_y;
-		
 };
 
 #endif
