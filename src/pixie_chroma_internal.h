@@ -23,23 +23,18 @@
 //     print( "GREEN " );   
 //     print( "color!" ); // Prints in green
 
-// TODO: Add justify(justification, row = 0) function
-// This allows (already printed) rows to be justified LEFT, RIGHT, or to the CENTER
-// before a call to show() by studying the existing mask for its maximum left
-// and right "extents".
-// 
-// Anything unable to be perfectly centered (odd length strings) will always bias left.
-// 
-// Usage:
-//     print("TEST");
-//     justify(CENTER); // Mask centered here
-//     show();
-
 
 /*! Modes for updating Pixie Chroma displays */
 enum t_update_mode {
 	AUTOMATIC, /*!< Will call show() at a specified FPS using an ISR */
 	MANUAL     /*!< Allows you call show() when you like */
+};
+
+/*! All text justification options */
+enum t_justification {
+	LEFT,
+	CENTER,
+	RIGHT
 };
 
 /*! ############################################################################
@@ -65,6 +60,7 @@ class PixieChroma{
 		/*|*/ void set_max_power( float volts, uint16_t milliamps );
 		/*|*/ void set_frame_rate_target( uint16_t target );
 		/*|*/ void set_line_wrap( bool enabled );
+		/*|*/ void set_justification( t_justification justification, int16_t row = -1 );
 		/*|*/ void set_update_mode( t_update_mode mode, uint16_t FPS = 60 );
 		/*+---------------------------------------------------------------------------------*/ 
 		
@@ -158,7 +154,7 @@ class PixieChroma{
 		/*|*/ uint16_t uv( float x, float y, bool wrap = false );
 		/*|*/ float    get_uv_x( int32_t x_pixel );
 		/*|*/ float    get_uv_y( int32_t y_pixel );
-		/*|*/ void     shift_mask_x( int16_t amount );
+		/*|*/ void     shift_mask_x( int16_t amount, int16_t row = -1 );
 		/*|*/ void     shift_mask_y( int16_t amount );
 		/*|*/ uint8_t  get_pixel_mask( int32_t x, int32_t y );
 		/*|*/ void     set_pixel_mask( int32_t x, int32_t y, uint8_t value );
@@ -278,6 +274,7 @@ class PixieChroma{
 		void build_controller( const uint8_t pin );
 		void calc_xy();
 		void fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end );
+		int16_t calc_justification( t_justification justification, uint8_t row );
 		
 		// Variables ----------------------------------
 		#if defined( ARDUINO_ARCH_ESP8266 ) || defined( ARDUINO_ARCH_ESP32 )
@@ -286,10 +283,10 @@ class PixieChroma{
 			IntervalTimer animate;
 		#endif
 
-		const uint8_t display_width     = 7;
-		const uint8_t display_height    = 11;
 		const uint8_t display_padding_x = 1;
 		const uint8_t display_padding_y = 2;
+		const uint8_t display_width     = display_padding_x + 5 + display_padding_x;
+		const uint8_t display_height    = display_padding_y + 7 + display_padding_y;
 		const uint8_t leds_per_pixie    = 70;
 		const uint8_t bit_table[2]      = {0,255};
 
@@ -297,6 +294,10 @@ class PixieChroma{
 		volatile int16_t cursor_y;
 		volatile int16_t cursor_x_temp;
 		volatile int16_t cursor_y_temp;
+		t_justification justifications[8] = {
+			LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT
+		};
+		
     
         CRGB *color_map_out;
         uint8_t *mask_out;

@@ -469,6 +469,26 @@ void PixieChroma::set_line_wrap( bool enabled ){
 
 /*! ############################################################################
     @brief
+    Sets the text justification globally, or by row
+
+    @param  justification  Can be LEFT, CENTER, or RIGHT
+	@param  row            Specifies the row to justify, or global justification
+	                       if not specified.
+*///............................................................................
+void PixieChroma::set_justification( t_justification justification, int16_t row ){
+	if(row == -1){
+		for(uint8_t i = 0; i < chars_y; i++){
+			justifications[i] = justification;
+		}
+	}
+	else{
+		justifications[row] = justification;
+	}
+}
+
+
+/*! ############################################################################
+    @brief
     Allows for automatic show() calls at a specified frames per second if
     AUTOMATIC is used. (uses Ticker.attach_ms() internally)
             
@@ -1707,14 +1727,24 @@ float PixieChroma::get_uv_y( int32_t y_pixel ){
 
 /*! ############################################################################
     @brief
-	Shifts the mask data by `amount` on the X axis. Useful for scrolling!
+	Shifts the mask data by `amount` on the X axis. Useful for scrolling or
+	justification!
     
     @param   amount  Amount in whole-pixels to shift the mask data
+    @param   row     If not the default (-1), shift only the specified row
 *///............................................................................
-void PixieChroma::shift_mask_x( int16_t amount ){
+void PixieChroma::shift_mask_x( int16_t amount, int16_t row ){
+	int16_t y_start = 0;
+	int16_t y_end   = matrix_height;
+	
+	if(row != -1){
+		y_start = display_height*row;
+		y_end   = display_height*(row+1);
+	}
+	
 	if(amount < 0){
 		for( uint16_t x = 0; x < matrix_width; x++ ){
-			for( uint16_t y = 0; y < matrix_height; y++ ){
+			for( uint16_t y = y_start; y < y_end; y++ ){
 				int16_t x_dest = x - amount;
 				int16_t y_dest = y - 0;
 				
@@ -1730,7 +1760,7 @@ void PixieChroma::shift_mask_x( int16_t amount ){
 	}
 	else if(amount > 0){
 		for( int16_t x = matrix_width; x >= 0; x-- ){
-			for( uint16_t y = 0; y < matrix_height; y++ ){
+			for( uint16_t y = y_start; y < y_end; y++ ){
 				int16_t x_dest = x - amount;
 				int16_t y_dest = y - 0;
 				
@@ -2201,6 +2231,10 @@ void PixieChroma::show(){
     anim_func( this, delta ); // Call custom animation function
     
     noInterrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	for(uint8_t i = 0; i < chars_y; i++){
+		shift_mask_x( calc_justification(justifications[i], i), i);
+	}
     
     if( !freeze ){ // If we're not holding out for a pix.free() call, show with the current mask
         memcpy( mask_out, mask, led_count );
@@ -2509,6 +2543,75 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 			index += 1;
 		}
 	}
+}
+
+
+int16_t PixieChroma::calc_justification( t_justification justification, uint8_t row ){
+	if(justification == LEFT){
+		return 0;
+	}
+	
+	uint8_t x_disp_start = 0;
+	uint8_t x_disp_end = 0;
+
+	uint16_t x_led = 0;
+	uint16_t x_pos = 0;
+
+	for(int16_t x = 0; x < matrix_width; x++){
+		for(int16_t y = (display_height*row); y < (display_height*(row+1)); y++){
+			if(mask[ xy(x,y) ] != 0){
+				x = matrix_width;
+				y = matrix_height;
+				break;
+			}
+			else{
+				x_led += 1;
+				if(x_led >= (display_width*display_height)){
+					x_led = 0;
+					x_pos += 1;
+				}
+			}
+		}
+	}
+	
+	x_disp_start = x_pos;
+	x_led = 0;
+	x_pos = chars_x;
+	
+	for(int16_t x = matrix_width-1; x > 0; x--){
+		for(int16_t y = (display_height*row); y < (display_height*(row+1)); y++){
+			if(mask[ xy(x,y) ] != 0){
+				x = 0;
+				y = matrix_height;
+				break;
+			}
+			else{
+				x_led += 1;
+				if(x_led >= (display_width*display_height)){
+					x_led = 0;
+					x_pos -= 1;
+				}
+			}
+		}
+	}
+	
+	x_disp_end = x_pos;
+	
+	uint8_t length = x_disp_end - x_disp_start;
+	int16_t x_offset_chars;
+	
+	if(justification == CENTER){
+		x_offset_chars = floor((chars_x - length) / 2.0);
+		
+		if((x_offset_chars*2) + length > chars_x){
+			x_offset_chars -= 1;
+		}
+	}
+	else if(justification == RIGHT){
+		x_offset_chars = chars_x-length;
+	}
+	
+	return x_offset_chars * display_width;
 }
 
 // (End of user code)
