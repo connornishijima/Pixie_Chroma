@@ -26,6 +26,13 @@ enum t_justification {
 	RIGHT
 };
 
+/*! All scroll options */
+enum t_scroll_type {
+	SMOOTH,
+	SHIFT,
+	INSTANT
+};
+
 /*! ############################################################################
     @brief
     This is the software documentation for using Pixie Chroma functions on
@@ -51,6 +58,7 @@ class PixieChroma{
 		/*|*/ void set_line_wrap( bool enabled );
 		/*|*/ void set_justification( t_justification justification, int16_t row = -1 );
 		/*|*/ void set_update_mode( t_update_mode mode, uint16_t FPS = 60 );
+		/*|*/ void set_scroll_type(t_scroll_type type);
 		/*+---------------------------------------------------------------------------------*/ 
 		
 		/*+-- Functions - write(  ) ----------------------------------------------------------*/ 
@@ -142,6 +150,7 @@ class PixieChroma{
 		/*+-- Functions - 2D Tools ---------------------------------------------------------*/ 
 		/*|*/ uint16_t xy( int32_t x, int32_t y, bool wrap = false );
 		/*|*/ uint16_t uv( float x, float y, bool wrap = false );
+		/*|*/ void     scroll_message( char* message, uint8_t row = 0 );
 		/*|*/ float    get_uv_x( int32_t x_pixel );
 		/*|*/ float    get_uv_y( int32_t y_pixel );
 		/*|*/ void     shift_mask_x( int16_t amount, int16_t row = -1 );
@@ -265,8 +274,10 @@ class PixieChroma{
 		// Functions ----------------------------------
 		void build_controller( const uint8_t pin );
 		void calc_xy();
-		void fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end );
+		void fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end, bool return_code = false );
 		int16_t calc_justification( t_justification justification, uint8_t row );
+		void scroll_char(char c, uint8_t row);
+		void scroll_char(uint8_t* bitmap, uint8_t row);
 		
 		// Variables ----------------------------------
 		#if defined( ARDUINO_ARCH_ESP8266 ) || defined( ARDUINO_ARCH_ESP32 )
@@ -279,26 +290,30 @@ class PixieChroma{
 		const uint8_t display_padding_y = 2;
 		const uint8_t display_width     = display_padding_x + 5 + display_padding_x;
 		const uint8_t display_height    = display_padding_y + 7 + display_padding_y;
+		const uint8_t extra_space_left  = display_width;
 		const uint8_t leds_per_pixie    = 70;
-		const uint8_t bit_table[2]      = {0,255};
+		const uint8_t bit_table[2]      = { 0, 255 };
 
         volatile int16_t cursor_x;
 		volatile int16_t cursor_y;
 		volatile int16_t cursor_x_temp;
 		volatile int16_t cursor_y_temp;
-		t_justification justifications[8] = {
-			LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT
-		};
+		t_justification justifications[8] = { LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT };         // Up to 8 rows
+		bool scrolling[8]                 = { false, false, false, false, false, false, false, false }; // Up to 8 rows
+		uint16_t scroll_frame_delay_ms = 10;
+		uint16_t scroll_hold_ms        = 80;
+		t_scroll_type scroll_type = SMOOTH;
 		
         CRGB *color_map_out;
         uint8_t *mask_out;
         int16_t *xy_table;
         uint32_t t_last;
-		CRGB print_col = CRGB(0,255,0);
+		CRGB print_col = CRGB( 0, 255, 0 );
+		uint8_t temp_code[5];
 
         float    max_V  = 5;
 		uint16_t max_mA = 500;    
-		uint8_t brightness_level = 255;
+		uint8_t  brightness_level = 255;
         
 		bool correct_gamma = false;
 		bool line_wrap = true;

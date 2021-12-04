@@ -78,7 +78,7 @@ PixieChroma::PixieChroma(){}
 void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y ){
     pixie_pin = data_pin;
 
-    chars_x = pixies_x * 2; // Pixies have two chars each
+    chars_x = (pixies_x+1) * 2; // Pixies have two chars each, plus deadzone for scrolling
     chars_y = pixies_y;
 
     matrix_width  = display_width  * chars_x;
@@ -95,7 +95,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     color_map_out = new CRGB[ led_count ];
     mask_out = new uint8_t[ led_count ];
 
-    for( uint16_t i = 0; i < led_count; i++ ){
+    for( uint16_t i = 0; i < pixel_count; i++ ){
         color_map[i] = CRGB( 0, 255, 0 );
     }
 
@@ -203,7 +203,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     @param  pixies_y        Number of Pixie PCBs in the Y axis of your display
 *///............................................................................
 void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y ){
-    chars_x = pixies_x * 2; // Pixies have two chars each
+    chars_x = (pixies_x+1) * 2; // Pixies have two chars each, plus deadzone for scrolling
     chars_y = pixies_y;
 
     matrix_width  = display_width  * chars_x;
@@ -417,7 +417,7 @@ void PixieChroma::set_gamma_correction( bool enabled ){
     @param  y_position  New cursor position on the Y-axis, in whole displays
 *///............................................................................
 void PixieChroma::set_cursor( uint8_t x_position, uint8_t y_position ){
-    cursor_x = display_padding_x + ( display_width  * x_position );
+    cursor_x = extra_space_left + display_padding_x + ( display_width  * x_position );
     cursor_y = display_padding_y + ( display_height * y_position );
 }
 
@@ -495,6 +495,34 @@ void PixieChroma::set_justification( t_justification justification, int16_t row 
 	}
 	else{
 		justifications[row] = justification;
+	}
+}
+
+
+/*! ############################################################################
+    @brief
+	Sets the scroll behavior:
+	
+	- INSTANT (No smooth animation, shift whole characters at a time)
+	- SMOOTH (Smooth pixel scrolling)
+	- SHIFT (Smooth pixel scrolling with stops at each whole display)
+
+    @param  scroll_type  Can be INSTANT, SMOOTH, or SHIFT
+*///............................................................................
+void PixieChroma::set_scroll_type(t_scroll_type type){
+	scroll_type = type;
+	
+	if(scroll_type == INSTANT){
+		scroll_frame_delay_ms = 0;
+		scroll_hold_ms        = 150;
+	}
+	else if(scroll_type == SHIFT){
+		scroll_frame_delay_ms = 10;
+		scroll_hold_ms        = 80;
+	}
+	else if(scroll_type == SMOOTH){
+		scroll_frame_delay_ms = 10;
+		scroll_hold_ms        = 0;
 	}
 }
 
@@ -829,7 +857,7 @@ void PixieChroma::write_pix( char* message, int16_t x_dest, int16_t y_dest ){
 				// Skip newline, auto wrapping just newline'd for us.
 			}
 			else{
-				x_dest = display_padding_x;
+				x_dest = extra_space_left+display_padding_x;
 				offset_x = 0;
 				offset_y = display_height;
 			}
@@ -842,7 +870,7 @@ void PixieChroma::write_pix( char* message, int16_t x_dest, int16_t y_dest ){
             );
             offset_x += display_width;
 			
-            x_dest = display_padding_x;
+            x_dest = extra_space_left+display_padding_x;
 			offset_x = 0;
 			offset_y = display_height;
 			
@@ -1057,14 +1085,6 @@ void PixieChroma::print( char* message ){
 	if(message[len-1] != ']'){ // If message doesn't end with shortcode
 		print( message[len-1] );
 	}
-	
-	/*
-    write_pix( message, cursor_x, cursor_y );
-	
-	// Store cursor changes
-	cursor_x = cursor_x_temp;
-	cursor_y = cursor_y_temp;
-	*/
 }
 
 
@@ -1085,14 +1105,14 @@ void PixieChroma::print( char chr ){
 		cursor_x += display_width;
 
 		if(line_wrap && cursor_x >= ( display_width * chars_x )	){
-			cursor_x = display_padding_x;
+			cursor_x = extra_space_left+display_padding_x;
 			cursor_y += display_height;
 			just_wrapped = true;
 		}
 	}
 	else{
 		if(just_wrapped == false){
-			cursor_x = display_padding_x;
+			cursor_x = extra_space_left+display_padding_x;
 			cursor_y += display_height;
 		}
 		else{
@@ -2367,10 +2387,12 @@ void PixieChroma::show(){
     noInterrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	for(uint8_t i = 0; i < chars_y; i++){
-		int16_t x_offset = calc_justification(justifications[i], i);
-		shift_mask_x( x_offset, i);
-		if( custom_animation == false ){
-			shift_color_map_x( x_offset, i);
+		if(scrolling[i] == false){
+			int16_t x_offset = calc_justification(justifications[i], i);
+			shift_mask_x( x_offset, i);
+			if( custom_animation == false ){
+				shift_color_map_x( x_offset, i);
+			}
 		}
 	}
     
@@ -2398,6 +2420,50 @@ void PixieChroma::show(){
 
     interrupts(); //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$%
 }
+
+
+/*! ############################################################################
+    @brief
+    Scrolls a message across the matrix by constructing it one character at a
+	time in the dead-space outside the visible area and scrolling it in from the
+	right.
+    
+	@param   message  Message to scroll across the matrix
+	@param   row      Row to scroll the message on (default 0)
+*///............................................................................
+void PixieChroma::scroll_message( char* message, uint8_t row ){	
+	scrolling[row] = true;
+
+	uint16_t len = strlen(message);
+	uint16_t i = 0;
+	while (i < len - 1) {	
+		if (message[i] == '[' && message[i + 1] == ':') { // Found start of shortcode
+			for (uint16_t j = i; j < len - 1; j++) {
+				if (message[j] == ':' && message[j + 1] == ']') { // Found end of shortcode
+					fetch_shortcode( message, i + 2, j, true );
+					scroll_char(temp_code, row);
+					i = j + 2;
+					break;
+				}
+			}
+		}
+		else {
+			scroll_char(message[i], row);
+			i += 1;
+		}
+	}
+
+	if(message[len-1] != ']'){ // If message doesn't end with shortcode
+		scroll_char(message[len-1], row);
+	}
+	
+	for(uint8_t i = 0; i < chars_x; i++){
+		scroll_char(' ', row);
+	}
+	
+	scrolling[row] = false;
+}
+
 
 /*! ############################################################################
     @brief
@@ -2531,6 +2597,10 @@ void PixieChroma::build_controller( const uint8_t pin ){
 
 
 void PixieChroma::calc_xy(){
+	Serial.println("#######################");
+	Serial.println(led_count);
+	Serial.println(pixel_count);
+	
   // Initialize XY table
     for( uint16_t yi = 0; yi < chars_y; yi++ ){
         for( uint16_t y = 0; y < 11; y++ ){
@@ -2545,11 +2615,19 @@ void PixieChroma::calc_xy(){
                     uint16_t i_table = ( y_pos * matrix_width ) + x_pos;
                     uint16_t i_template = ( y_pos_mod * display_width ) + x_pos_mod;
 
-                    xy_table[i_table] = int8_t( pgm_read_byte( xy_template + i_template ) );
+					if(xi != 0 && xi != chars_x-1){
+						xy_table[i_table] = int8_t( pgm_read_byte( xy_template + i_template ) );
+					}
+					else{
+						xy_table[i_table] = -2;
+					}
                 }
             }
         }
     }
+	
+	print_xy_table();
+	Serial.println();
 
     //Serial.println( "SOLVING VISIBLE" );
 
@@ -2583,7 +2661,7 @@ void PixieChroma::calc_xy(){
         }
     }
 
-    led_count = 35*chars_x; // account for first row
+    led_count = 35*(chars_x-2); // account for first row
 
     // Solve additional rows
     if( chars_y > 1 ){
@@ -2594,7 +2672,7 @@ void PixieChroma::calc_xy(){
                 uint16_t final_src_index = ( ii*row_length )+r;
                 int16_t src_data = xy_table[final_src_index];
                 if( src_data >= 0 ){
-                    src_data += ( 35*chars_x );
+                    src_data += ( 35*(chars_x-2) );
 
                     if( src_data > led_count ){
                         led_count = src_data+1;
@@ -2620,10 +2698,15 @@ void PixieChroma::calc_xy(){
         }
     }
     //Serial.println( "DONE" );
+	
+	Serial.println("///////////////////////");
+	Serial.println(led_count);
+	Serial.println(pixel_count);
+	Serial.println("#######################");
 }
 
 
-void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end ){
+void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end, bool return_code ){
 	char bitmap_name[32];
 	memset(bitmap_name, 0, 32);
 	char bitmap_temp[32];
@@ -2662,15 +2745,26 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 					skips -= 1;
 				}
 				if (strcmp(bitmap_temp, bitmap_name) == 0) { // If a string match is found:
-					color(print_col, cursor_x/display_width, cursor_y/display_height);
+				
+					if(return_code == false){
+						color(print_col, cursor_x/display_width, cursor_y/display_height);
 
-					print( // Print column data
-						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 0],
-						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 1],
-						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 2],
-						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 3],
-						PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 4]
-					);
+						print( // Print column data
+							PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 0],
+							PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 1],
+							PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 2],
+							PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 3],
+							PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 4]
+						);
+					}
+					else{
+						temp_code[0] = PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 0];
+						temp_code[1] = PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 1];
+						temp_code[2] = PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 2];
+						temp_code[3] = PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 3];
+						temp_code[4] = PIXIE_SHORTCODE_LIBRARY[bitmap_data_index + 4];
+					}
+					
 					return;
 				}
 			}
@@ -2683,6 +2777,34 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 			index += 1;
 		}
 	}
+}
+
+
+void PixieChroma::scroll_char(char c, uint8_t row){
+	add_char(c, (chars_x * display_width)-6, 2+(row*display_height));
+	for (uint8_t i = 0; i < 7; i++) {
+		shift_mask_x(-1, row);
+		if(scroll_type != INSTANT){
+			show();
+			delay(scroll_frame_delay_ms);
+		}
+	}
+	show();
+	delay(scroll_hold_ms);
+}
+
+
+void PixieChroma::scroll_char(uint8_t* bitmap, uint8_t row){
+	add_char(bitmap[0], bitmap[1], bitmap[2], bitmap[3], bitmap[4], (chars_x * display_width)-6, 2+(row*display_height));
+	for (uint8_t i = 0; i < 7; i++) {
+		shift_mask_x(-1, row);
+		if(scroll_type != INSTANT){
+			show();
+			delay(scroll_frame_delay_ms);
+		}
+	}
+	show();
+	delay(scroll_hold_ms);	
 }
 
 
@@ -2740,19 +2862,19 @@ int16_t PixieChroma::calc_justification( t_justification justification, uint8_t 
 	uint8_t length = x_disp_end - x_disp_start;
 	int16_t x_offset_chars;
 	
-	if(length > chars_x){
+	if(length > (chars_x-2)){
 		return 0;
 	}
 	
 	if(justification == CENTER){
-		x_offset_chars = floor((chars_x - length) / 2.0);
+		x_offset_chars = floor(((chars_x-2) - length) / 2.0);
 		
-		if((x_offset_chars*2) + length > chars_x){
+		if((x_offset_chars*2) + length > (chars_x-2)){
 			x_offset_chars -= 1;
 		}
 	}
 	else if(justification == RIGHT){
-		x_offset_chars = chars_x-length;
+		x_offset_chars = (chars_x-2)-length;
 	}
 	
 	return x_offset_chars * display_width;
@@ -3379,13 +3501,6 @@ bool PixieChroma::unit_tests(){
 	}
 	
 	Serial.println(border);
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	Serial.println("\nXY MAP:");
