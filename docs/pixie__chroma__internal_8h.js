@@ -9,5 +9,10 @@ var pixie__chroma__internal_8h =
       [ "LEFT", "pixie__chroma__internal_8h.html#a3ab09b0eefc7f5e256af77389b23874aadb45120aafd37a973140edee24708065", null ],
       [ "CENTER", "pixie__chroma__internal_8h.html#a3ab09b0eefc7f5e256af77389b23874aa2159ffbd3a68037511ab5ab4dd35ace7", null ],
       [ "RIGHT", "pixie__chroma__internal_8h.html#a3ab09b0eefc7f5e256af77389b23874aaec8379af7490bb9eaaf579cf17876f38", null ]
+    ] ],
+    [ "t_scroll_type", "pixie__chroma__internal_8h.html#a9271422a1c9d76e006b7f7ebc500514c", [
+      [ "SMOOTH", "pixie__chroma__internal_8h.html#a9271422a1c9d76e006b7f7ebc500514ca33c7ccbb848d8fd75455dd9786a1153a", null ],
+      [ "SHIFT", "pixie__chroma__internal_8h.html#a9271422a1c9d76e006b7f7ebc500514ca1ce4ab037343ee04fbf20ceb2ebc5081", null ],
+      [ "INSTANT", "pixie__chroma__internal_8h.html#a9271422a1c9d76e006b7f7ebc500514caceab93c18bce42ce4a2de2f8b9082df7", null ]
     ] ]
 ];
