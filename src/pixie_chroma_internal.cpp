@@ -2596,11 +2596,7 @@ void PixieChroma::build_controller( const uint8_t pin ){
 }
 
 
-void PixieChroma::calc_xy(){
-	Serial.println("#######################");
-	Serial.println(led_count);
-	Serial.println(pixel_count);
-	
+void PixieChroma::calc_xy(){	
   // Initialize XY table
     for( uint16_t yi = 0; yi < chars_y; yi++ ){
         for( uint16_t y = 0; y < 11; y++ ){
@@ -2625,9 +2621,6 @@ void PixieChroma::calc_xy(){
             }
         }
     }
-	
-	print_xy_table();
-	Serial.println();
 
     //Serial.println( "SOLVING VISIBLE" );
 
@@ -2698,11 +2691,6 @@ void PixieChroma::calc_xy(){
         }
     }
     //Serial.println( "DONE" );
-	
-	Serial.println("///////////////////////");
-	Serial.println(led_count);
-	Serial.println(pixel_count);
-	Serial.println("#######################");
 }
 
 
@@ -2720,8 +2708,8 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 
 	// Allow for lowercase shortcodes as well
 	for (uint16_t i = 0; i < code_length; i++) {
-		if( uint8_t(bitmap_name[i]) >= 97 && uint8_t(bitmap_name[i]) <= 122 ){
-			bitmap_name[i] -= 32;
+		if( uint8_t(bitmap_name[i]) >= 97 && uint8_t(bitmap_name[i]) <= 122 ){ // if in lowercase a-z range
+			bitmap_name[i] -= 32; // shift to uppercase A-Z range
 		}
 	}
 
