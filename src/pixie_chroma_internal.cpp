@@ -2718,6 +2718,13 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 		bitmap_name[i] = message[code_start + i];
 	}
 
+	// Allow for lowercase shortcodes as well
+	for (uint16_t i = 0; i < code_length; i++) {
+		if( uint8_t(bitmap_name[i]) >= 97 && uint8_t(bitmap_name[i]) <= 122 ){
+			bitmap_name[i] -= 32;
+		}
+	}
+
 	uint32_t index = 0;
 	while (index < sizeof(PIXIE_SHORTCODE_LIBRARY)) {
 		if (PIXIE_SHORTCODE_LIBRARY[index] >= 200) {
