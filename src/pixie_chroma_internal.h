@@ -4,7 +4,7 @@
  * Designed specifically to work with Pixie Chroma:
  * ----> https://connornishijima.github.io/PixieChroma
  *
- * Last Updated by Connor Nishijima on 10/20/21 
+ * Last Updated by Connor Nishijima on 12/3/21
  */
 
 #ifndef pixie_chroma_h
@@ -68,9 +68,9 @@ class PixieChroma{
 		/*|*/ void write( uint16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ void write( int32_t input, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ void write( uint32_t input, uint8_t x_pos = 0, uint8_t y_pos = 0 );
-		#ifndef ARDUINO_ARCH_TEENSY_3_X
-		/*|*/ void write( long unsigned int input, uint8_t x_pos = 0, uint8_t y_pos = 0 ); // pretty much the same as uint32_t, but Arduino is stupid
-		#endif
+		/*|*/ #ifndef ARDUINO_ARCH_TEENSY_3_X
+		/*|*/     void write( long unsigned int input, uint8_t x_pos = 0, uint8_t y_pos = 0 ); // pretty much the same as uint32_t, but Arduino is stupid
+		/*|*/ #endif
 		/*|*/ void write( float input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ void write( double input, uint8_t places = 2, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ 
@@ -89,9 +89,9 @@ class PixieChroma{
 		/*|*/ void print( uint16_t input );
 		/*|*/ void print( int32_t input );
 		/*|*/ void print( uint32_t input );
-		#ifndef ARDUINO_ARCH_TEENSY_3_X
-		/*|*/ void print( long unsigned int input ); // pretty much the same as uint32_t, but Arduino is stupid
-		#endif
+		/*|*/ #ifndef ARDUINO_ARCH_TEENSY_3_X
+		/*|*/     void print( long unsigned int input ); // pretty much the same as uint32_t, but Arduino is stupid
+		/*|*/ #endif
 		/*|*/ void print( float input, uint8_t places = 2 );
 		/*|*/ void print( double input, uint8_t places = 2 );
 		/*+---------------------------------------------------------------------------------*/ 
@@ -103,9 +103,9 @@ class PixieChroma{
 		/*|*/ void println( uint16_t input );
 		/*|*/ void println( int32_t input );
 		/*|*/ void println( uint32_t input );
-		#ifndef ARDUINO_ARCH_TEENSY_3_X
-		/*|*/ void println( long unsigned int input ); // pretty much the same as uint32_t, but Arduino is stupid
-		#endif
+		/*|*/ #ifndef ARDUINO_ARCH_TEENSY_3_X
+		/*|*/     void println( long unsigned int input ); // pretty much the same as uint32_t, but Arduino is stupid
+		/*|*/ #endif
 		/*|*/ void println( float input, uint8_t places = 2 );
 		/*|*/ void println( double input, uint8_t places = 2 );
 		/*+---------------------------------------------------------------------------------*/

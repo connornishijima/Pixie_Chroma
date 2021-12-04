@@ -4,7 +4,7 @@
  * Designed specifically to work with Pixie Chroma:
  * ----> https://connornishijima.github.io/PixieChroma
  *
- * Last Updated by Connor Nishijima on 10/21/21
+ * Last Updated by Connor Nishijima on 12/3/21
  */
 
 #include "Pixie_Chroma.h" 
