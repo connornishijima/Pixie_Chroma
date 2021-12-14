@@ -387,24 +387,19 @@
 					col_strings.push(out);
 				}
 
-				var col_bytes = [];
+				var col_bytes = "";
 
 				for(var i = 0; i < 5; i++){		
 					var hex_val = parseInt(col_strings[i], 2).toString(16).toUpperCase();
 					while(hex_val.length < 2){
 						hex_val = "0"+hex_val;
 					}
-					col_bytes.push("0x"+hex_val);
+					col_bytes += hex_val;
 				}
 				
-				var out_line = "pix.<span style='color:#ffcc42;'>print</span>(<span style='color:#94dbff;'>";
-				for(var i = 0; i < 5; i++){				
-					out_line += col_bytes[i]; 
-					if(i < 4){
-						out_line += ",";
-					}
-				}
-				out_line += "</span>); <span style='color:#787878;'>// Custom</span>";
+				var out_line = "pix.<span style='color:#ffcc42;'>print</span>(<span style='color:#94dbff;'>\"[:#";
+				out_line += col_bytes[i]; 
+				out_line += ":]</span>); <span style='color:#787878;'>// Custom</span>";
 				console.log(out_line);
 				document.getElementById("code").innerHTML = out_line;
 			}
