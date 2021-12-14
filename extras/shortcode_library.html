@@ -136,10 +136,10 @@
 				"RED":[255,0,0]
 			};
 			var skip_bytes = true;
+			var library_visible = {};			
+			var library_flat = {};
 			
-			var library_visible = {
-				
-			};
+			temp_cols = "";
 			
 			fetch_library();
 			
@@ -149,6 +149,7 @@
 					library_visible = {};
 					parse_library(data);
 					set_pixels("SYMBOLS","SMILE");
+					render_pixie(false);
 				});
 			}
 			
@@ -159,16 +160,17 @@
 				for(var x in lines){
 					if(lines[x].substring(0,5) == "// - "){
 						category = lines[x].split(' - ')[1].split(' -')[0];;
-						console.log(category);
+						//console.log(category);
 					}
 					
 					else if(lines[x].includes(":]")){
-						console.log(lines[x]);
+						//console.log(lines[x]);
 						var name_raw = lines[x].split("[:")[1].split(":]")[0];
 						var name = title_case( replace_all(name_raw, "_"," ") );
 						var bytes = lines[x].split("*/ ")[1].split(", 0")[0];
-						console.log("NAME: "+name_raw);
+						//console.log("NAME: "+name_raw);
 						icon_count++;
+						library_flat[name_raw] = bytes;
 						try{
 							library_visible[category][name_raw] = {							
 								"name":name,
@@ -185,7 +187,7 @@
 					}
 				}
 				document.getElementById("icon_count").innerHTML = icon_count;
-				console.log(library_visible);
+				//console.log(library_visible);
 				render_library();
 			}
 			
@@ -232,14 +234,14 @@
 			}
 			
 			function set_pixels(category, variable){
-				console.log("CAT: "+category+" VAR: "+variable);
-				console.log(library_visible[category]);
+				//console.log("CAT: "+category+" VAR: "+variable);
+				//console.log(library_visible[category]);
 				for(var y = 0; y < pixels.length; y++){
 					for(var x = 0; x < pixels[y].length; x++){
 						pixels[y][x] = library_visible[category][variable]["pixels"][y][x];
 					}
 				}
-				var code = "pix.<span style='color:#ffcc42;'>print</span>( \"<span style='color:#94dbff;'>[:"+variable+":]</span>\" );";
+				var code = "pix.<span style='color:#ffcc42;'>print</span>( <span style='color:#94dbff;'>\"[:"+variable+":]\"</span> );";
 				document.getElementById("code").innerHTML = code;
 				skip_bytes = true;
 				render_pixie();
@@ -326,7 +328,7 @@
 				render_pixie();
 			}
 		
-			function render_pixie(){
+			function render_pixie(search_matches = true){
 				ctx.fillStyle = "rgb(0,0,0)";
 				ctx.fillRect(0,0,250,350);
 				
@@ -350,15 +352,39 @@
 					}
 				}
 				
-				if(!skip_bytes){
-					generate_code();
+				generate_code(true);
+				var current_code = temp_cols;
+				console.log(library_flat);
+				console.log("OUT:");
+				console.log(current_code);
+				
+				var matched = false;
+				var match_name = "";
+				if(search_matches){
+					for(var x in library_flat){
+						if(library_flat[x].includes(current_code)){
+							console.log("MATCH: "+x);
+							matched = true;
+							match_name = x;
+						}
+					}
+				}
+				
+				if(!matched){
+					if(!skip_bytes){
+						generate_code();
+					}
+					else{
+						skip_bytes = false;
+					}
 				}
 				else{
-					skip_bytes = false;
+					var code = "pix.<span style='color:#ffcc42;'>print</span>( <span style='color:#94dbff;'>\"[:"+match_name+":]\"</span> );";
+					document.getElementById("code").innerHTML = code;
 				}
 			}
 			
-			function generate_code(){
+			function generate_code(return_data = false){
 				var cols = [
 					[0,0,0,0,0,0,0,0],
 					[0,0,0,0,0,0,0,0],
@@ -388,6 +414,8 @@
 				}
 
 				var col_bytes = "";
+				var raw_bytes = "";
+				//console.log("TEST: "+col_strings);
 
 				for(var i = 0; i < 5; i++){		
 					var hex_val = parseInt(col_strings[i], 2).toString(16).toUpperCase();
@@ -395,13 +423,25 @@
 						hex_val = "0"+hex_val;
 					}
 					col_bytes += hex_val;
+					raw_bytes += "0x"+hex_val;
+					if(i != 4){
+						raw_bytes += ","
+					}
 				}
 				
-				var out_line = "pix.<span style='color:#ffcc42;'>print</span>(<span style='color:#94dbff;'>\"[:#";
-				out_line += col_bytes[i]; 
-				out_line += ":]</span>); <span style='color:#787878;'>// Custom</span>";
-				console.log(out_line);
-				document.getElementById("code").innerHTML = out_line;
+				var out_line = "pix.<span style='color:#ffcc42;'>print</span>(<span style='color:#94dbff;'> \"[:#";
+				out_line += col_bytes; 
+				out_line += ":]\" </span>); <span style='color:#787878;'>// Custom</span>";
+				//console.log(out_line);
+				
+				if(!return_data){
+					document.getElementById("code").innerHTML = out_line;
+				}
+				else{
+					temp_cols = raw_bytes;
+					console.log(col_bytes);
+					return;
+				}
 			}
 			
 			function get_mouse_position(canvas, event) { 
@@ -422,7 +462,7 @@
 					pixels[y][x] = 0;
 				}
 				
-				console.log(pixels[y][x]);
+				//console.log(pixels[y][x]);
 				render_pixie();
 			}
 
@@ -430,7 +470,10 @@
 
 			canvas_elem.addEventListener("mousedown", function(e) { 
 				get_mouse_position(canvas_elem, e); 
-			}); 
+			});
+			
+			toggle_pixel(0,0);
+			toggle_pixel(0,0);
 		</script>
 	</body>
 </html>
