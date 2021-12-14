@@ -275,6 +275,7 @@ class PixieChroma{
 		void build_controller( const uint8_t pin );
 		void calc_xy();
 		void fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end, bool return_code = false );
+		void parse_custom_shortcode( char* message, uint16_t code_start, uint16_t code_end, bool return_code = false );
 		int16_t calc_justification( t_justification justification, uint8_t row );
 		void scroll_char(char c, uint8_t row);
 		void scroll_char(uint8_t* bitmap, uint8_t row);

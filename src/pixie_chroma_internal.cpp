@@ -2695,6 +2695,10 @@ void PixieChroma::calc_xy(){
 
 
 void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t code_end, bool return_code ){
+	if( message[code_start] == '#' ){ // custom data, no lookup needed
+		parse_custom_shortcode( message, code_start+1, code_end, return_code );
+		return;
+	}
 	char bitmap_name[32];
 	memset(bitmap_name, 0, 32);
 	char bitmap_temp[32];
@@ -2771,6 +2775,57 @@ void PixieChroma::fetch_shortcode( char* message, uint16_t code_start, uint16_t 
 		else {
 			index += 1;
 		}
+	}
+}
+
+
+void PixieChroma::parse_custom_shortcode( char* message, uint16_t code_start, uint16_t code_end, bool return_code ){
+	uint8_t input[10];
+	
+	for(uint8_t i = 0; i < (code_end-code_start); i++){
+		char chr = message[code_start+i];
+		
+		if     (chr == '0'){ input[i] = 0;  }
+		else if(chr == '1'){ input[i] = 1;  }
+		else if(chr == '2'){ input[i] = 2;  }
+		else if(chr == '3'){ input[i] = 3;  }
+		else if(chr == '4'){ input[i] = 4;  }
+		else if(chr == '5'){ input[i] = 5;  }
+		else if(chr == '6'){ input[i] = 6;  }
+		else if(chr == '7'){ input[i] = 7;  }
+		else if(chr == '8'){ input[i] = 8;  }
+		else if(chr == '9'){ input[i] = 9;  }
+		else if(chr == 'A'){ input[i] = 10; }
+		else if(chr == 'B'){ input[i] = 11; }
+		else if(chr == 'C'){ input[i] = 12; }
+		else if(chr == 'D'){ input[i] = 13; }
+		else if(chr == 'E'){ input[i] = 14; }
+		else if(chr == 'F'){ input[i] = 15; }
+	}
+	
+	uint8_t column_1 = input[1] + (input[0]<<4);
+	uint8_t column_2 = input[3] + (input[2]<<4);
+	uint8_t column_3 = input[5] + (input[4]<<4);
+	uint8_t column_4 = input[7] + (input[6]<<4);
+	uint8_t column_5 = input[9] + (input[8]<<4);
+	
+	if(return_code == false){
+		color(print_col, cursor_x/display_width, cursor_y/display_height);
+
+		print( // Print column data
+			column_1,
+			column_2,
+			column_3,
+			column_4,
+			column_5
+		);
+	}
+	else{
+		temp_code[0] = column_1;
+		temp_code[1] = column_2;
+		temp_code[2] = column_3;
+		temp_code[3] = column_4;
+		temp_code[4] = column_5;
 	}
 }
 
