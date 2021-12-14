@@ -89,21 +89,33 @@
 				margin-bottom: 10px;
 				margin-top: 10px;
 			}
+			
+			.noselect {
+			  -webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none; /* Safari */
+				 -khtml-user-select: none; /* Konqueror HTML */
+				   -moz-user-select: none; /* Old versions of Firefox */
+					-ms-user-select: none; /* Internet Explorer/Edge */
+						user-select: none; /* Non-prefixed version, currently
+											  supported by Chrome, Edge, Opera and Firefox */
+			}
 		</style>
 		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<div id="container">
-			<div id="title">
-				<span style="color:#ff5c93;">PIXIE CHROMA</span>&nbsp;&nbsp;<span style="color:#787878;">//</span>&nbsp;&nbsp;SHORTCODE LIBRARY
+			<div class="noselect">
+				<div id="title">
+					<span style="color:#ff5c93;">PIXIE CHROMA</span>&nbsp;&nbsp;<span style="color:#787878;">//</span>&nbsp;&nbsp;SHORTCODE LIBRARY
+				</div>
+				<br>
+				<div id="clear" onclick="clear_pixie();">
+					CLEAR
+				</div>
+				<canvas id="pixie" width="250" height="350"></canvas><br>
+				<br>
 			</div>
-			<br>
-			<div id="clear" onclick="clear_pixie();">
-				CLEAR
-			</div>
-			<canvas id="pixie" width="250" height="350"></canvas><br>
-			<br>
 			<div id="code"></div>
 			<br>
 			<br>
