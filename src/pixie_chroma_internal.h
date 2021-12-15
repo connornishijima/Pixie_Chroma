@@ -47,21 +47,23 @@ class PixieChroma{
 		/*+-- Functions - Setup ------------------------------------------------------------*/ 
 		/*|*/ void begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y );
 		/*|*/ void begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y );
-		/*|*/ void set_brightness( uint8_t level );
-		/*|*/ void set_palette( const uint8_t* pal );
-		/*|*/ void set_palette( CRGBPalette16 pal );
 		/*|*/ void set_animation( void ( *action )( PixieChroma*, float ) );
 		/*|*/ void set_animation_speed( float speed );
-		/*|*/ void set_gamma_correction( bool enabled );
-		/*|*/ void set_max_power( float volts, uint16_t milliamps );
+		/*|*/ void set_brightness( uint8_t level );
 		/*|*/ void set_frame_rate_target( uint16_t target );
-		/*|*/ void set_line_wrap( bool enabled );
+		/*|*/ void set_gamma_correction( bool enabled );
 		/*|*/ void set_justification( t_justification justification, int16_t row = -1 );
-		/*|*/ void set_update_mode( t_update_mode mode, uint16_t FPS = 60 );
+		/*|*/ void set_line_wrap( bool enabled );
+		/*|*/ void set_max_power( float volts, uint16_t milliamps );
+		/*|*/ void set_palette( const uint8_t* pal );
+		/*|*/ void set_palette( CRGBPalette16 pal );
 		/*|*/ void set_scroll_type(t_scroll_type type);
+		/*|*/ void set_update_mode( t_update_mode mode, uint16_t FPS = 60 );
 		/*+---------------------------------------------------------------------------------*/ 
 		
 		/*+-- Functions - write(  ) ----------------------------------------------------------*/ 
+		/*|*/ void add_char( char chr, int16_t x_pos, int16_t y_pos );
+		/*|*/ void add_char( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_pos, int16_t y_pos );
 		/*|*/ void write( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ void write( char* message, uint8_t x_pos = 0, uint8_t y_pos = 0 );
 		/*|*/ void write( int16_t input, uint8_t x_pos = 0, uint8_t y_pos = 0 );
@@ -77,8 +79,6 @@ class PixieChroma{
 		/*|*/ void write_pix( char* message, int16_t x_offset = 0, int16_t y_offset = 0 );
 		/*|*/ void write_pix( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_dest = 0, int16_t y_dest = 0 );
 		/*|*/ 
-		/*|*/ void add_char( char chr, int16_t x_pos, int16_t y_pos );
-		/*|*/ void add_char( uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5, int16_t x_pos, int16_t y_pos );
 		/*+---------------------------------------------------------------------------------*/ 
 
 		/*+-- Functions - print(  ) ----------------------------------------------------------*/ 
@@ -111,59 +111,59 @@ class PixieChroma{
 		/*+---------------------------------------------------------------------------------*/
 
 		/*+-- Functions - Cursor -----------------------------------------------------------*/ 
-		/*|*/ void    set_cursor( uint8_t x_position, uint8_t y_position = 0 );
 		/*|*/ uint8_t get_cursor_x();
-		/*|*/ uint8_t get_cursor_y();
 		/*|*/ int16_t get_cursor_x_exact();
+		/*|*/ uint8_t get_cursor_y();
 		/*|*/ int16_t get_cursor_y_exact();
+		/*|*/ void    set_cursor( uint8_t x_position, uint8_t y_position = 0 );
 		/*+---------------------------------------------------------------------------------*/
 		
-		/*+-- Functions - Updating the mask/LEDS -------------------------------------------*/
+		/*+-- Functions - Updating the mask/LEDs -------------------------------------------*/
 		/*|*/ void clear();
-		/*|*/ void show();
-		/*|*/ void hold();
 		/*|*/ void free();
+		/*|*/ void hold();
+		/*|*/ void show();
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Color ------------------------------------------------------------*/ 
-		/*|*/ void print_color( CRGB col );
 		/*|*/ void color( CRGB col ); // Set all displays
 		/*|*/ void color( CRGB col, uint8_t x, uint8_t y ); // Set one display
 		/*|*/ void color( CRGB col, int16_t x1, int16_t y1, int16_t x2, int16_t y2 ); // Set a 2D rectangle
+		/*|*/ void print_color( CRGB col );
 		/*|*/ CRGB kelvin_to_rgb( uint16_t temperature ); // Get an approximate CRGB ( not yet gamma corrected ) of a blackbody radiation temperature
 		/*+---------------------------------------------------------------------------------*/
 
 		/*+-- Functions - Mask Effects -----------------------------------------------------*/ 
-		/*|*/ void dim( uint8_t amount, bool reset_cursor = false ); // Fade towards black by amount
 		/*|*/ void blur( fract8 blur_amount );
 		/*|*/ void blur_x( fract8 blur_amount );
 		/*|*/ void blur_y( fract8 blur_amount );
+		/*|*/ void dim( uint8_t amount, bool reset_cursor = false ); // Fade towards black by amount
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Color Effects ----------------------------------------------------*/ 
-		/*|*/ void color_dim( uint8_t amount ); // Fade towards black by amount
 		/*|*/ void color_blur( fract8 blur_amount );
 		/*|*/ void color_blur_x( fract8 blur_amount );
 		/*|*/ void color_blur_y( fract8 blur_amount );
+		/*|*/ void color_dim( uint8_t amount ); // Fade towards black by amount
 		/*+---------------------------------------------------------------------------------*/
 
 		/*+-- Functions - 2D Tools ---------------------------------------------------------*/ 
-		/*|*/ uint16_t xy( int32_t x, int32_t y, bool wrap = false );
-		/*|*/ uint16_t uv( float x, float y, bool wrap = false );
-		/*|*/ void     scroll_message( char* message, uint8_t row = 0 );
+		/*|*/ void     draw_line_color( int16_t x1, int16_t y1, int16_t x2, int16_t y2, CRGB color );
+		/*|*/ void     draw_line_mask( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint8_t value = 255 );
 		/*|*/ float    get_uv_x( int32_t x_pixel );
 		/*|*/ float    get_uv_y( int32_t y_pixel );
+		/*|*/ uint8_t  get_pixel_mask( int32_t x, int32_t y );
+		/*|*/ CRGB     get_pixel_color( int32_t x, int32_t y );
+		/*|*/ void     print_xy_table();
+		/*|*/ void     scroll_message( char* message, uint8_t row = 0 );
+		/*|*/ void     set_pixel_mask( int32_t x, int32_t y, uint8_t value );
+		/*|*/ void     set_pixel_color( int32_t x, int32_t y, CRGB color );
 		/*|*/ void     shift_mask_x( int16_t amount, int16_t row = -1 );
 		/*|*/ void     shift_mask_y( int16_t amount );
 		/*|*/ void     shift_color_map_x( int16_t amount, int16_t row = -1 );
 		/*|*/ void     shift_color_map_y( int16_t amount );
-		/*|*/ uint8_t  get_pixel_mask( int32_t x, int32_t y );
-		/*|*/ void     set_pixel_mask( int32_t x, int32_t y, uint8_t value );
-		/*|*/ CRGB     get_pixel_color( int32_t x, int32_t y );
-		/*|*/ void     set_pixel_color( int32_t x, int32_t y, CRGB color );
-		/*|*/ void     draw_line_mask( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint8_t value = 255 );
-		/*|*/ void     draw_line_color( int16_t x1, int16_t y1, int16_t x2, int16_t y2, CRGB color );
-		/*|*/ void     print_xy_table();
+		/*|*/ uint16_t uv( float x, float y, bool wrap = false );
+		/*|*/ uint16_t xy( int32_t x, int32_t y, bool wrap = false );
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Developer --------------------------------------------------------*/ 
