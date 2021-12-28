@@ -105,12 +105,12 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p><b>Pixie Chroma is a project that we here at Lixie Labs are incredibly passionate about!</b> In this third iteration, we have finally created the best RGB text display we've ever used. While we loved our original Pixie models, we felt that you couldn't get the same level of creativity that you <b>can</b> get with Pixie Chroma. With its ability to be dropped into any breadboard and coded with any experience level, these displays have a wide range of potential uses, meaning anybody in the maker community can find a use for them! Pixie Chroma is our gift to you.</p>
 <p><img src="https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm1.png?raw=true" alt="PIXIE CHROMA" class="inline"/></p>
 <h2>Two Big New Features</h2>
-<p>Along with full RGB control, and an absolute <b>UNIT</b> of an Arduino Library, we are introducing two other <b>big</b> new features with this release: quad mode and shortcodes.</p>
-<h3>Introducing QUAD MODE</h3>
-<p><img src="https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm2.jpg?raw=true" alt="PIXIE CHROMA" class="inline"/></p>
+<p>Along with full RGB control, and an absolute <b>UNIT</b> of an Arduino Library, we are introducing two other <b>big</b> new features with this release: <b>Quad Mode</b> and <b>Shortcodes</b>.</p>
+<hr  />
+<p><img src="https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/quad_mode.png?raw=true" alt="PIXIE CHROMA" class="inline"/></p>
 <p><b>Quad mode is made specifically for those wishing to drive their displays faster.</b> By <em>optionally</em> sending the data in four parallel streams with Quad Mode, you can expect to see a ~3.75x increase in speed! For example, if you had 12 Pixie Chromas, you can wire four GPIO of your microcontroller to the 1st, 4th, 7th, and 10th Pixie. Each GPIO is now only responsible for the data of three Pixie Chromas compared to <em>only one GPIO feeding all 12</em>. With this, you can run animations, scrolling, and color palettes more smoothly or free up processor time!</p>
-<h2>Introducing SHORTCODES</h2>
-<p><img src="https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm3.jpg?raw=true" alt="PIXIE CHROMA" class="inline"/></p>
+<hr  />
+<p><img src="https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/shortcodes.png?raw=true" alt="PIXIE CHROMA" class="inline"/></p>
 <p>Our next big feature is <b>Shortcodes</b>, a <b>super simple way to show icons beyond the alphanumeric ASCII set and easily create animations!</b> We have an extensive library of 230+ built-in icons that are accessible by name within <em>other</em> strings. See the example above. Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And, if we don't, you can make your own with the magical Shortcode Editor.</p>
 <h3>Shortcode Editor</h3>
 <p>Our favorite part of these icons is how easy it is to make your own! With <a href="https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes">our online/offline editor</a>, you can create any shape or image (so long as it fits in a 5x7 grid) and the editor will directly show the code that would print that shape!</p>
@@ -148,6 +148,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <h2>Dedication to Our Craft</h2>
 <p>Lixie Labs is a homegrown business <b>dedicated to furthering open source hardware and software</b> in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!</p>
 <p><b>We are OSHWA certified (<a href="https://certification.oshwa.org/us002058.html">UID US002058</a>)</b>, we've created an <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet">extensive datasheet</a>, and every function within the library comes with <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs">documentation</a>.</p>
+<p><img src="https://raw.githubusercontent.com/connornishijima/Pixie_Chroma/main/extras/OSHW/oshw_facts.svg" alt="OSHW INFO" style="pointer-events: none;" class="inline"/></p>
 <h2>Features &amp; Specifications</h2>
 <ul>
 <li>Dual-5x7 RGB LED matrices</li>
@@ -223,7 +224,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Dec 28 2021 13:40:22 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Dec 28 2021 13:45:49 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
