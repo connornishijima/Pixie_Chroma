@@ -148,4 +148,8 @@ Everything is open source and available. Our source code has been fully document
 
 # Sponsors
 
-- **[Nitz](https://github.com/nitz)**
+- **[Nitz](https://github.com/nitz)** 
+
+# Credits
+
+**Developed by Connor Nishijima for Lixie Labs (2021)**
