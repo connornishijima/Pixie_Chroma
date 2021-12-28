@@ -161,12 +161,12 @@
 <package name="CHROMA">
 <wire x1="15" y1="-12" x2="15" y2="-5" width="0.127" layer="21"/>
 <wire x1="15" y1="5" x2="15" y2="12" width="0.127" layer="21"/>
-<pad name="GND" x="0" y="10.15" drill="1.02" diameter="2.1844" rot="R90"/>
-<pad name="VCC" x="2.54" y="10.15" drill="1.02" diameter="2.1844" rot="R90"/>
-<pad name="DATA_IN" x="-2.54" y="10.15" drill="1.02" diameter="2.1844" rot="R90"/>
-<pad name="*GND" x="0" y="-10.15" drill="1.02" diameter="2.1844" rot="R90"/>
-<pad name="*VCC" x="2.54" y="-10.15" drill="1.02" diameter="2.1844" rot="R90"/>
-<pad name="DATA_OUT" x="-2.54" y="-10.15" drill="1.02" diameter="2.1844" rot="R90"/>
+<pad name="GND" x="0" y="10.15" drill="1.02" diameter="1.9304" rot="R90"/>
+<pad name="VCC" x="2.54" y="10.15" drill="1.02" diameter="1.9304" rot="R90"/>
+<pad name="DATA_IN" x="-2.54" y="10.15" drill="1.02" diameter="1.9304" rot="R90"/>
+<pad name="*GND" x="0" y="-10.15" drill="1.02" diameter="1.9304" rot="R90"/>
+<pad name="*VCC" x="2.54" y="-10.15" drill="1.02" diameter="1.9304" rot="R90"/>
+<pad name="DATA_OUT" x="-2.54" y="-10.15" drill="1.02" diameter="1.9304" rot="R90"/>
 <wire x1="-15" y1="12" x2="-4" y2="12" width="0.127" layer="21"/>
 <wire x1="4" y1="12" x2="15" y2="12" width="0.127" layer="21"/>
 <wire x1="-15" y1="-12" x2="-4" y2="-12" width="0.127" layer="21"/>
@@ -216,6 +216,11 @@ CHROMA</text>
 </symbols>
 <devicesets>
 <deviceset name="CHROMA" prefix="PIX">
+<description>PIXIE CHROMA (R1)
+
+by LIXIE LABS
+
+(c) 2021 - CERN-OHL-W-2.0 LICENSE</description>
 <gates>
 <gate name="G$1" symbol="CHROMA" x="0" y="0"/>
 </gates>
