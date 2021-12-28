@@ -35,8 +35,8 @@
 
     Welcome to the source code of the Pixie Chroma library!
 
-    "PixieChroma.h" is the main file, which loads all others, including
-    the pixie_chroma_internal.h/.cpp that contain the PixieChroma class definitions.
+    "Pixie_Chroma.h" is the main file, which loads all others, including
+    the pixie_chroma_internal.h/.cpp that contain the Pixie_Chroma class definitions.
 
     ----------------------------------------------------------------------------------------------------
 */
