@@ -36,11 +36,15 @@
 
 ## Two Big New Features
 
-Along with full RGB control, and an absolute **UNIT** of an Arduino Library, we are introducing two other **big** new features with this release: quad mode and shortcodes.
+Along with full RGB control, and an absolute **UNIT** of an Arduino Library, we are introducing two other **big** new features with this release: **Quad Mode** and **Shortcodes**.
+
+----------------------------------------------------------
 
 ![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/quad_mode.png?raw=true)
 
 **Quad mode is made specifically for those wishing to drive their displays faster.** By *optionally* sending the data in four parallel streams with Quad Mode, you can expect to see a ~3.75x increase in speed! For example, if you had 12 Pixie Chromas, you can wire four GPIO of your microcontroller to the 1st, 4th, 7th, and 10th Pixie. Each GPIO is now only responsible for the data of three Pixie Chromas compared to *only one GPIO feeding all 12*. With this, you can run animations, scrolling, and color palettes more smoothly or free up processor time!
+
+----------------------------------------------------------
 
 ![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/shortcodes.png?raw=true)
 
@@ -87,6 +91,8 @@ void loop() {
 Lixie Labs is a homegrown business **dedicated to furthering open source hardware and software** in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!
 
 **We are OSHWA certified ([UID US002058](https://certification.oshwa.org/us002058.html))**, we've created an [extensive datasheet](https://connornishijima.github.io/Pixie_Chroma/?section=datasheet), and every function within the library comes with [documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs).
+
+![OSHW INFO](https://raw.githubusercontent.com/connornishijima/Pixie_Chroma/main/extras/OSHW/oshw_facts.svg)
 
 ## Features & Specifications
 
