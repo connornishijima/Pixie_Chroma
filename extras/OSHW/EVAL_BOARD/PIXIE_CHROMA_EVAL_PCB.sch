@@ -397,6 +397,8 @@ by LIXIE LABS
 <sheets>
 <sheet>
 <plain>
+<text x="15.24" y="43.18" size="3.81" layer="91" align="bottom-center">PIXIE CHROMA EVALUATION PCB</text>
+<text x="15.24" y="38.1" size="2.1844" layer="91" align="bottom-center">LIXIE LABS 2021 - CERN-OHL-W-2.0 LICENSE</text>
 </plain>
 <instances>
 <instance part="PIX1" gate="G$1" x="15.24" y="7.62" smashed="yes">
@@ -417,13 +419,13 @@ by LIXIE LABS
 <instance part="PIX6" gate="G$1" x="15.24" y="-106.68" smashed="yes">
 <attribute name="NAME" x="0" y="-97.79" size="1.27" layer="94"/>
 </instance>
-<instance part="JP1" gate="A" x="7.62" y="33.02" smashed="yes">
-<attribute name="NAME" x="1.27" y="38.735" size="1.778" layer="95"/>
-<attribute name="VALUE" x="1.27" y="25.4" size="1.778" layer="96"/>
+<instance part="JP1" gate="A" x="7.62" y="27.94" smashed="yes">
+<attribute name="NAME" x="1.27" y="33.655" size="1.778" layer="95"/>
+<attribute name="VALUE" x="1.27" y="20.32" size="1.778" layer="96"/>
 </instance>
-<instance part="JP2" gate="A" x="22.86" y="33.02" smashed="yes" rot="R180">
-<attribute name="NAME" x="29.21" y="27.305" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="29.21" y="40.64" size="1.778" layer="96" rot="R180"/>
+<instance part="JP2" gate="A" x="22.86" y="27.94" smashed="yes" rot="R180">
+<attribute name="NAME" x="21.59" y="33.655" size="1.778" layer="95"/>
+<attribute name="VALUE" x="29.21" y="35.56" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -542,17 +544,17 @@ by LIXIE LABS
 </segment>
 <segment>
 <pinref part="JP1" gate="A" pin="1"/>
-<wire x1="5.08" y1="35.56" x2="0" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="0" y1="35.56" x2="0" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="0" y1="38.1" x2="-2.54" y2="38.1" width="0.1524" layer="91"/>
-<label x="-2.54" y="38.1" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="5.08" y1="30.48" x2="0" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="0" y1="30.48" x2="0" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="0" y1="33.02" x2="-2.54" y2="33.02" width="0.1524" layer="91"/>
+<label x="-2.54" y="33.02" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="JP2" gate="A" pin="3"/>
-<wire x1="25.4" y1="35.56" x2="30.48" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="35.56" x2="30.48" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="38.1" x2="33.02" y2="38.1" width="0.1524" layer="91"/>
-<label x="33.02" y="38.1" size="1.778" layer="95" xref="yes"/>
+<wire x1="25.4" y1="30.48" x2="30.48" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="30.48" x2="30.48" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="33.02" x2="33.02" y2="33.02" width="0.1524" layer="91"/>
+<label x="33.02" y="33.02" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -618,13 +620,13 @@ by LIXIE LABS
 </segment>
 <segment>
 <pinref part="JP1" gate="A" pin="2"/>
-<wire x1="5.08" y1="33.02" x2="-2.54" y2="33.02" width="0.1524" layer="91"/>
-<label x="-2.54" y="33.02" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="5.08" y1="27.94" x2="-2.54" y2="27.94" width="0.1524" layer="91"/>
+<label x="-2.54" y="27.94" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="JP2" gate="A" pin="2"/>
-<wire x1="25.4" y1="33.02" x2="33.02" y2="33.02" width="0.1524" layer="91"/>
-<label x="33.02" y="33.02" size="1.778" layer="95" xref="yes"/>
+<wire x1="25.4" y1="27.94" x2="33.02" y2="27.94" width="0.1524" layer="91"/>
+<label x="33.02" y="27.94" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="DATA_OUT" class="0">
@@ -635,10 +637,10 @@ by LIXIE LABS
 </segment>
 <segment>
 <pinref part="JP2" gate="A" pin="1"/>
-<wire x1="25.4" y1="30.48" x2="30.48" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="30.48" x2="30.48" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="27.94" x2="33.02" y2="27.94" width="0.1524" layer="91"/>
-<label x="33.02" y="27.94" size="1.778" layer="95" xref="yes"/>
+<wire x1="25.4" y1="25.4" x2="30.48" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="25.4" x2="30.48" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="22.86" x2="33.02" y2="22.86" width="0.1524" layer="91"/>
+<label x="33.02" y="22.86" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="DATA_IN" class="0">
@@ -649,10 +651,10 @@ by LIXIE LABS
 </segment>
 <segment>
 <pinref part="JP1" gate="A" pin="3"/>
-<wire x1="5.08" y1="30.48" x2="0" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="0" y1="30.48" x2="0" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="0" y1="27.94" x2="-2.54" y2="27.94" width="0.1524" layer="91"/>
-<label x="-2.54" y="27.94" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="5.08" y1="25.4" x2="0" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="0" y1="25.4" x2="0" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="0" y1="22.86" x2="-2.54" y2="22.86" width="0.1524" layer="91"/>
+<label x="-2.54" y="22.86" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 </nets>
