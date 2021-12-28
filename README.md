@@ -28,15 +28,11 @@
 
 ![HELLO WORLD](extras/img/hello_world.png)
 
-## Table of Contents
-
-- [Intro](#the-coolest-character-display-for-arduino)
-- [Code Demo](#code-demo)
 ## Pixie Chroma Is the Display We Always Wanted
 
-Pixie Chroma is a project that we here at Lixie Labs are incredibly passionate about! In this third iteration, we have finally created the best RGB text display we've ever used. While we loved our original Pixie models, we felt that you couldn't get the same level of creativity that you **can** get with Pixie Chroma. With its ability to be dropped into any breadboard and coded with any experience level, these displays have a wide range of potential uses, meaning anybody in the maker community can find a use for them! Pixie Chroma is our gift to you.
+**Pixie Chroma is a project that we here at Lixie Labs are incredibly passionate about!** In this third iteration, we have finally created the best RGB text display we've ever used. While we loved our original Pixie models, we felt that you couldn't get the same level of creativity that you **can** get with Pixie Chroma. With its ability to be dropped into any breadboard and coded with any experience level, these displays have a wide range of potential uses, meaning anybody in the maker community can find a use for them! Pixie Chroma is our gift to you.
 
-![PIXIE CHROMA](https://www.crowdsupply.com/img/5103/pixie-chroma-hi-3.png)
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm1.png?raw=true)
 
 ## Two Big New Features
 
@@ -44,27 +40,27 @@ Along with full RGB control, and an absolute **UNIT** of an Arduino Library, we 
 
 ### Introducing QUAD MODE
 
-{pixie-chroma-quadmode-explanation-cropped-1 | link}
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm2.jpg?raw=true)
 
-Quad mode is made specifically for those wishing to drive their displays faster. By *optionally* sending the data in four parallel streams with Quad Mode, you can expect to see a ~3.75x increase in speed! For example, if you had 12 Pixie Chromas, you can wire four GPIO of your microcontroller to the 1st, 4th, 7th, and 10th Pixie. Each GPIO is now only responsible for the data of three Pixie Chromas compared to *only one GPIO feeding all 12*. With this, you can run animations, scrolling, and color palettes more smoothly or free up processor time!
+**Quad mode is made specifically for those wishing to drive their displays faster.** By *optionally* sending the data in four parallel streams with Quad Mode, you can expect to see a ~3.75x increase in speed! For example, if you had 12 Pixie Chromas, you can wire four GPIO of your microcontroller to the 1st, 4th, 7th, and 10th Pixie. Each GPIO is now only responsible for the data of three Pixie Chromas compared to *only one GPIO feeding all 12*. With this, you can run animations, scrolling, and color palettes more smoothly or free up processor time!
 
 ## Introducing SHORTCODES
 
-{pixie-chroma-shortcode-explanation-cropped-1 | link}
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm3.jpg?raw=true)
 
-Our next big feature is **Shortcodes**, a super simple way to show icons beyond the alphanumeric ASCII set and easily create animations! We have an extensive library of 230+ built-in icons that are accessible by name within *other* strings. See the example above. Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And, if we don't, you can make your own with the magical Shortcode Editor.
+Our next big feature is **Shortcodes**, a **super simple way to show icons beyond the alphanumeric ASCII set and easily create animations!** We have an extensive library of 230+ built-in icons that are accessible by name within *other* strings. See the example above. Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And, if we don't, you can make your own with the magical Shortcode Editor.
 
 ### Shortcode Editor
 
-Our favorite part of these icons is how easy it is to make your own! With our online/offline editor, you can create any shape or image (so long as it fits in a 5x7 grid) and the editor will directly show the code that would print that shape!
+Our favorite part of these icons is how easy it is to make your own! With [our online/offline editor](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes), you can create any shape or image (so long as it fits in a 5x7 grid) and the editor will directly show the code that would print that shape!
 
-{pixie-chroma-shortcode-screenshot | link}
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm4.png?raw=true)
 
 This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it in an upcoming campaign update.
 
 ## A New Standard for Arduino Libraries
 
-We pride ourselves in how easy our products are to use. We have kept the wiring very simple, with only three wires connected to each breadboard-friendly display. Our code also has many examples that are explained line-by-line so that anybody can understand them. We include template Arduino Sketches to skip the parts newcomers find  tedious, like `#include` directives and class definitions. Many advanced projects that even seasoned coders would find challenging are hassle-free with the Pixie Chroma library!
+**We pride ourselves in how easy our products are to use.** We have kept the wiring very simple, with only three wires connected to each breadboard-friendly display. Our code also has many examples that are explained line-by-line so that anybody can understand them. We even include [template Arduino Sketches](https://github.com/connornishijima/Pixie_Chroma/blob/main/examples/04_Minimal_Sketches/01_Standard/01_Standard.ino) to skip the parts newcomers find tedious, like `#include` directives and class definitions. Many advanced projects that even seasoned coders would find challenging are hassle-free with the Pixie Chroma library!
 
 ```cpp
 #include "Pixie_Chroma.h" // Include library
@@ -86,15 +82,15 @@ void loop() {
 ```
 ## Amazing Documentation  
 
-{pixie-chroma-library-screenshot-2 | link}
-
 [Pixie Chroma's documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs) is complete, accurate, and easy to understand. Each function in the library is fully documented and code examples are sprinkled liberally throughout.
+
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm5.png?raw=true)
 
 ## Dedication to Our Craft
 
-Lixie Labs is a homegrown business dedicated to furthering **open source hardware and software** in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!
+Lixie Labs is a homegrown business **dedicated to furthering open source hardware and software** in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!
 
-We are OSHWA certified ([UID US002058](https://certification.oshwa.org/us002058.html)), we've created an [extensive datasheet](https://connornishijima.github.io/Pixie_Chroma/?section=datasheet), and every function within the library comes with [documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs).
+**We are OSHWA certified ([UID US002058](https://certification.oshwa.org/us002058.html))**, we've created an [extensive datasheet](https://connornishijima.github.io/Pixie_Chroma/?section=datasheet), and every function within the library comes with [documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs).
 
 ## Features & Specifications
 
@@ -105,69 +101,48 @@ We are OSHWA certified ([UID US002058](https://certification.oshwa.org/us002058.
 - 27.5 mm x 16.5 mm matrix size (10.16 PPI)
 - 30 mm x 24 mm package
 
-{pixie-chroma-front-back-01 | link}
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm6.jpg?raw=true)
 
-## Comparisons
+## Comparison Table
 
-|                                              | Pixie Chroma                        | [5x5 RGB Matrix Breakout][1]         | [Dot Star 8x8 Grid][2]               |
-| -------------------------------------------- | ----------------------------------- | ------------------------------------ | -------------------------------      |
-| **Manufacturer** ~active                     | Lixie Labs ~active                  | Pimoroni ~active                     | Adafruit ~active                     |
-| **Size**  ~active                            | 30 mm x 24 mm ~active               | 19 mm x 29 mm ~active                | 25 mm x 36 mm ~active                |
-| **LED Count** ~active                        | Dual 5x7 displays, 70 total ~active | Single 5x5 display, 25 total ~active | Single 8x8 display, 64 total ~active |
-| **Pixels Per Inch**                          | 10.16 PPI  ~success                 | 7.25 PPI ~warning                    | 8 PPI ~warning                       |
-| **Experience Level**                         | All Levels ~success                 | Intermediate ~danger                 | Beginner ~warning                    |
-| **Open Source**                              | HW + SW ~success                    | SW only ~warning                     | HW + SW ~success                     |
-| **Documented Code Functions**                | Yes ~success                        | No ~danger                           | Yes ~success                         |
-| **Datasheet**                                | Yes ~success                        | No ~danger                           | No ~danger                           |
-| **Quad Mode** **¹**                          | Yes ~success                        | No ~danger (no parallel output)      | No ~danger (no parallel output)      |
-| **Shortcodes** **²**                         | Yes ~success (239 included)         | N/A ~danger                          | N/A ~danger                          |
-| **Breadboard Compatible**                    | Yes ~success                        | No ~danger                           | No ~danger                           |
-| **Power Management Features**                | Yes ~success                        | No ~danger                           | No ~danger                           |
-| **Easy Text Rendering**                      | Yes ~success                        | No ~danger                           | No ~danger                           |
-| **Non Blocking Animation**                   | Yes ~success                        | No ~danger                           | No ~danger                           |
-| **Predefined Color Palettes and Animations** | Yes ~success                        | No ~danger                           | No ~danger                           |
-| **Price Per LED**                            | $0.32 ~success                      | $0.49 ~danger                        | $0.39 ~warning                       |
-
-[1]: https://shop.pimoroni.com/products/5x5-rgb-matrix-breakout
-[2]: https://www.adafruit.com/product/1430
+|                                              | Pixie Chroma                | 5x5 RGB Matrix Breakout      | Dot Star 8x8 Grid            |
+| -------------------------------------------- | --------------------------- | -----------------------------| ---------------------------- |
+| **Manufacturer**                             | Lixie Labs                  | Pimoroni                     | Adafruit                     |
+| **Size**                                     | 30 mm x 24 mm               | 19 mm x 29 mm                | 25 mm x 36 mm                |
+| **LED Count**                                | Dual 5x7 displays, 70 total | Single 5x5 display, 25 total | Single 8x8 display, 64 total |
+| **Pixels Per Inch**                          | 10.16 PPI                   | 7.25 PPI                     | 8 PPI                        |
+| **Experience Level**                         | All Levels                  | Intermediate                 | Beginner                     |
+| **Open Source**                              | HW + SW                     | SW only                      | HW + SW                      |
+| **Documented Code Functions**                | Yes                         | No                           | Yes                          |
+| **Datasheet**                                | Yes                         | No                           | No                           |
+| **Quad Mode** **¹**                          | Yes                         | No  (no parallel output)     | No  (no parallel output)     |
+| **Shortcodes** **²**                         | Yes  (239 included)         | N/A                          | N/A                          |
+| **Breadboard Compatible**                    | Yes                         | No                           | No                           |
+| **Power Management Features**                | Yes                         | No                           | No                           |
+| **Easy Text Rendering**                      | Yes                         | No                           | No                           |
+| **Non Blocking Animation**                   | Yes                         | No                           | No                           |
+| **Predefined Color Palettes and Animations** | Yes                         | No                           | No                           |
+| **Price Per LED**                            | $0.32                       | $0.49                        | $0.39                        |
 
 **¹** _Quad Mode allows you to update your displays faster by using four GPIO at once!_  
 **²** _Shortcodes like `[:HEART:]` let you use over 230 built-in icons by name and even create your own!_  
 
 ## Support & Documentation
 
-As you can see, Pixie Chroma is as easy or as advanced as you need. Luckily, you don't need to dive into documentation to get started - the included examples (`File -> Examples -> Pixie_Chroma`) provide a template you can easily modify for your own projects.
+**As you can see, Pixie Chroma is as easy or as advanced as you need.** Luckily, you don't need to dive into documentation to get started - the included examples (`File -> Examples -> Pixie_Chroma`) provide a template you can easily modify for your own projects.
 
-For further information, you can check out our:
+For further information, you can check out the:
 
-- [Short code library](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes)
-- [Data Sheet](https://connornishijima.github.io/Pixie_Chroma/?section=datasheet)
-- [Twitter](https://twitter.com/lixielabs) - We post almost daily with Pixie Chroma updates and tricks!
+- [Shortcode Library](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes)
+- [Datasheet](https://connornishijima.github.io/Pixie_Chroma/?section=datasheet)
+- [Twitter](https://twitter.com/lixielabs) - We post quite often with Pixie Chroma updates and tricks!
 
-Everything is open source and available. Our source code has been fully documented and all PCB designs and parts used will be open and available:
+Everything is open source and available. Our source code has been fully documented and all PCB designs and parts used are open and available:
 
 - [GitHub](https://github.com/connornishijima/Pixie_Chroma/#readme)
-- [Board schematics](https://github.com/connornishijima/Pixie_Chroma/tree/main/extras/OSHW/PCB)
-- [Software](https://github.com/connornishijima/Pixie_Chroma)
-- [Arduino-library documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs)
+- [OSHW](https://github.com/connornishijima/Pixie_Chroma/tree/main/extras/OSHW/#readme)
+- [Arduino Library Documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs)
 - [OHSWA certification](https://certification.oshwa.org/us002058.html)
-
-If you have a question, please reach out using [the *Ask a technical question* form](https://www.crowdsupply.com/lixie-labs/pixie-chroma/ask-question).
-
-## Manufacturing Plan
-
-Our manufacturing partner will be sourcing the LEDs and assembling the final product. The six header pins that come with each Pixie Chroma will be packaged separate from the boards themselves in order to reduce the chance of being damaged in transit.
-
-## Fulfillment & Logistics
-
-Upon completion of the campaign, we will immediately proceed transferring funds to our manufacturing partner. Once Pixie Chromas and their packaging arrive at Lixie Labs, we will fully test every single LED on every single PCB to ensure they get to you working and ready to go! All Pixies will be packaged with a pinout card inside an ESD-safe bag. After testing and packaging the first production batch of Pixie Chroma boards, we will send them on to Crowd Supply's fulfillment partner, Mouser Electronics, who will distribute them to backers worldwide with their professional fulfillment services. You can learn more about Crowd Supply's fulfillment service under [Ordering, Paying, and Shipping](https://www.crowdsupply.com/guide/ordering-paying-shipping-details) in their guide.
-
-## Risks & Challenges
-
-As this campaign is being ran through the holidays, we expect to encounter shipping delays and are planning accordingly. We will use DHL to ship the product to us quickly and the most insured shipping plan to get the final product to Crowd Supply.
-
-When placing 10,000+ LEDs, there are bound to be failures. That is why we are ordering 15% more than we need and testing every LED after it is placed on a board. Every board will undergo extensive testing with a custom-made jig that checks the correct operation of every LED and the electrical continuity of VCC, GND, and DAT_OUT pin.
-
 
 # Sponsors
 
