@@ -104,19 +104,25 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <h2>Table of Contents</h2>
 <ul>
 <li><a href="#the-coolest-character-display-for-arduino">Intro</a></li>
-<li><a href="#code-demo">Code Demo</a></li>
+<li><a href="#code-demo">Code Demo</a> <h2>Pixie Chroma Is the Display We Always Wanted</h2>
+</li>
 </ul>
-<h1>The Coolest Character Display for Arduino</h1>
-<ul>
-<li>Dual 5x7 RGB LED matrices</li>
-<li>3.7V to 5.5V supply</li>
-<li>Fast bitmap control</li>
-<li>8-bit global dimming</li>
-<li>27.5mm * 16.5mm matrix size (10.16 ppi)</li>
-<li>30mm * 24mm package</li>
-</ul>
-<h1>Code Demo</h1>
-<p>Here's a quick peek at how easy it is to use a Pixie display:</p>
+<p>Pixie Chroma is a project that we here at Lixie Labs are incredibly passionate about! In this third iteration, we have finally created the best RGB text display we've ever used. While we loved our original Pixie models, we felt that you couldn't get the same level of creativity that you <b>can</b> get with Pixie Chroma. With its ability to be dropped into any breadboard and coded with any experience level, these displays have a wide range of potential uses, meaning anybody in the maker community can find a use for them! Pixie Chroma is our gift to you.</p>
+<p><img src="https://www.crowdsupply.com/img/5103/pixie-chroma-hi-3.png" alt="PIXIE CHROMA" class="inline"/></p>
+<h2>Two Big New Features</h2>
+<p>Along with full RGB control, and an absolute <b>UNIT</b> of an Arduino Library, we are introducing two other <b>big</b> new features with this release: quad mode and shortcodes.</p>
+<h3>Introducing QUAD MODE</h3>
+<p>{pixie-chroma-quadmode-explanation-cropped-1 | link}</p>
+<p>Quad mode is made specifically for those wishing to drive their displays faster. By <em>optionally</em> sending the data in four parallel streams with Quad Mode, you can expect to see a ~3.75x increase in speed! For example, if you had 12 Pixie Chromas, you can wire four GPIO of your microcontroller to the 1st, 4th, 7th, and 10th Pixie. Each GPIO is now only responsible for the data of three Pixie Chromas compared to <em>only one GPIO feeding all 12</em>. With this, you can run animations, scrolling, and color palettes more smoothly or free up processor time!</p>
+<h2>Introducing SHORTCODES</h2>
+<p>{pixie-chroma-shortcode-explanation-cropped-1 | link}</p>
+<p>Our next big feature is <b>Shortcodes</b>, a super simple way to show icons beyond the alphanumeric ASCII set and easily create animations! We have an extensive library of 230+ built-in icons that are accessible by name within <em>other</em> strings. See the example above. Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And, if we don't, you can make your own with the magical Shortcode Editor.</p>
+<h3>Shortcode Editor</h3>
+<p>Our favorite part of these icons is how easy it is to make your own! With our online/offline editor, you can create any shape or image (so long as it fits in a 5x7 grid) and the editor will directly show the code that would print that shape!</p>
+<p>{pixie-chroma-shortcode-screenshot | link}</p>
+<p>This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it in an upcoming campaign update.</p>
+<h2>A New Standard for Arduino Libraries</h2>
+<p>We pride ourselves in how easy our products are to use. We have kept the wiring very simple, with only three wires connected to each breadboard-friendly display. Our code also has many examples that are explained line-by-line so that anybody can understand them. We include template Arduino Sketches to skip the parts newcomers find tedious, like <code>#include</code> directives and class definitions. Many advanced projects that even seasoned coders would find challenging are hassle-free with the Pixie Chroma library!</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_pixie___chroma_8h.html">Pixie_Chroma.h</a>&quot;</span> <span class="comment">// Include library</span></div>
 <div class="line"><a class="code" href="class_pixie_chroma.html">PixieChroma</a> pix;</div>
 <div class="line"><span class="preprocessor">#define PIXIES_X  6  </span><span class="comment">// Total amount and         x x x x x x</span></div>
@@ -141,73 +147,97 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="ttc" id="aclass_pixie_chroma_html_a7269edb518a10750f784738aa144c22c"><div class="ttname"><a href="class_pixie_chroma.html#a7269edb518a10750f784738aa144c22c">PixieChroma::println</a></div><div class="ttdeci">void println(uint8_t bitmap_col_1, uint8_t bitmap_col_2, uint8_t bitmap_col_3, uint8_t bitmap_col_4, uint8_t bitmap_col_5)</div><div class="ttdoc">Prints a bitmap to the displays at the current cursor position, (taking five uint8_t as input for the...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01228">pixie_chroma_internal.cpp:1228</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a75c1bab0aff30181ed7bc34273d881db"><div class="ttname"><a href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">PixieChroma::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears (blackens) the current mask buffer and resets the cursor to 0,0.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01466">pixie_chroma_internal.cpp:1466</a></div></div>
 <div class="ttc" id="aclass_pixie_chroma_html_a836b7172ea635c0d5cad04a71d7ad332"><div class="ttname"><a href="class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332">PixieChroma::show</a></div><div class="ttdeci">void show()</div><div class="ttdoc">Processes 1D image data into truncated versions, sending them to the Pixie Chroma displays.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l01502">pixie_chroma_internal.cpp:1502</a></div></div>
-</div><!-- fragment --><p>In just 16 lines, you're in control of over 800 LEDs to show any text you'd like!</p>
-<p>Pixie Chroma also makes it extremely easy to control advanced animation in the background while other code runs! For example:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_pixie___chroma_8h.html">Pixie_Chroma.h</a>&quot;</span> <span class="comment">// .... Include library</span></div>
-<div class="line"><a class="code" href="class_pixie_chroma.html">PixieChroma</a> pix; <span class="comment">// ............. Get class instance</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#define PIXIES_PER_PIN  3  </span><span class="comment">// ... Pixies per data line</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#define PIXIES_X  6  </span><span class="comment">// ......... Total amount and         x x x x x x</span></div>
-<div class="line"><span class="preprocessor">#define PIXIES_Y  2  </span><span class="comment">// ......... arrangement of Pixies =  x x x x x x</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">begin_quad</a>( PIXIES_PER_PIN, PIXIES_X, PIXIES_Y ); <span class="comment">// Initialize Pixies to use 4 GPIO in</span></div>
-<div class="line">                                                        <span class="comment">// parallel, with three Pixies on each line</span></div>
-<div class="line"> </div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">set_max_power</a>( 5, 500 ); <span class="comment">// ............................ Set power budget to 5V, 500mA</span></div>
-<div class="line"> </div>
-<div class="line">  <span class="comment">// Set the color palette to use for showing our text</span></div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117">set_palette</a>(</div>
-<div class="line">    <a class="code" href="pixie__animations_8cpp.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a>( <span class="comment">// ........... For our palette, we&#39;ll generate a gradient from:</span></div>
-<div class="line">      CRGB(255, 0,   0  ), <span class="comment">// ... RED,</span></div>
-<div class="line">      CRGB(0,   255, 0  ), <span class="comment">// ... GREEN,</span></div>
-<div class="line">      CRGB(255, 0,   0  )  <span class="comment">// ... and RED.</span></div>
-<div class="line">    )</div>
-<div class="line">  );</div>
-<div class="line"> </div>
-<div class="line">  <span class="comment">// Set the animation preset to &quot;PALETTE SHIFT RIGHT&quot;,</span></div>
-<div class="line">  <span class="comment">// which will cause our gradient to scroll left-to-right</span></div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#a737b1d3147fb2c27582ac57ee0220db1">set_animation</a>( <a class="code" href="pixie__animations_8cpp.html#a352d51515a8900b188cd376d02cfddde">ANIMATION_PALETTE_SHIFT_RIGHT</a> );</div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">// Run animation at half-speed</span></div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#aabf61038df573b7c6d9e09ee918ffbe2">set_animation_speed</a>( 0.5 );</div>
-<div class="line"> </div>
-<div class="line">  <span class="comment">// Sets the library into AUTOMATIC mode, which keeps </span></div>
-<div class="line">  <span class="comment">// the animation running smoothly in the background</span></div>
-<div class="line">  <span class="comment">// while the microcontroller runs other functions                                  </span></div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622">set_update_mode</a>( <a class="code" href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda">AUTOMATIC</a> ); </div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">uint32_t counter = 0; <span class="comment">// This is a number to show on the display</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db">clear</a>(); <span class="comment">// ............ Clears the display</span></div>
-<div class="line">  pix.<a class="code" href="class_pixie_chroma.html#a17f2ba5470b916904735a19afeb78055">print</a>( counter ); <span class="comment">// ... Prints the value of &quot;counter&quot; to the display</span></div>
-<div class="line"> </div>
-<div class="line">  delay(500); <span class="comment">// ............. Delay. During this time, animation will continue</span></div>
-<div class="line">          <span class="comment">//               smoothly scrolling our gradient defined in setup()</span></div>
-<div class="line"> </div>
-<div class="line">  counter++; <span class="comment">// .............. Increment counter</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aclass_pixie_chroma_html_a737b1d3147fb2c27582ac57ee0220db1"><div class="ttname"><a href="class_pixie_chroma.html#a737b1d3147fb2c27582ac57ee0220db1">PixieChroma::set_animation</a></div><div class="ttdeci">void set_animation(void(*action)(PixieChroma *, float))</div><div class="ttdoc">Accepts a preset or custom function to use for the animation ISR.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00282">pixie_chroma_internal.cpp:282</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_aabf61038df573b7c6d9e09ee918ffbe2"><div class="ttname"><a href="class_pixie_chroma.html#aabf61038df573b7c6d9e09ee918ffbe2">PixieChroma::set_animation_speed</a></div><div class="ttdeci">void set_animation_speed(float speed)</div><div class="ttdoc">Used to scale the animation speed of animation ISRs that can use pix.animation_speed() to scale their...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00302">pixie_chroma_internal.cpp:302</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_abaf733f35d310b1896989babf21d27b7"><div class="ttname"><a href="class_pixie_chroma.html#abaf733f35d310b1896989babf21d27b7">PixieChroma::set_max_power</a></div><div class="ttdeci">void set_max_power(float volts, uint16_t milliamps)</div><div class="ttdoc">Sets the maximum power budget in volts and milliamps.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00402">pixie_chroma_internal.cpp:402</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_add33ec96b6f6591790db5ed0d42cb117"><div class="ttname"><a href="class_pixie_chroma.html#add33ec96b6f6591790db5ed0d42cb117">PixieChroma::set_palette</a></div><div class="ttdeci">void set_palette(const uint8_t *pal)</div><div class="ttdoc">Accepts a const uint8_t (8-bit) array to generate a FastLED Gradient Palette at runtime:</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00427">pixie_chroma_internal.cpp:427</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_adf400f08ce7d2e3252aff91b8e5b8622"><div class="ttname"><a href="class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622">PixieChroma::set_update_mode</a></div><div class="ttdeci">void set_update_mode(t_update_mode mode, uint16_t FPS=60)</div><div class="ttdoc">Allows for automatic show() calls at a specified frames per second if AUTOMATIC is used....</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00504">pixie_chroma_internal.cpp:504</a></div></div>
-<div class="ttc" id="aclass_pixie_chroma_html_af4c7b1051ce21bf03cfd69d30869fa6c"><div class="ttname"><a href="class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">PixieChroma::begin_quad</a></div><div class="ttdeci">void begin_quad(uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y)</div><div class="ttdoc">Initializes the display buffer, populates the XY coordinate table, defaults the display colors to gre...</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8cpp_source.html#l00208">pixie_chroma_internal.cpp:208</a></div></div>
-<div class="ttc" id="apixie__animations_8cpp_html_a2b39ccf276d680bc3f1fb41eef9f53ea"><div class="ttname"><a href="pixie__animations_8cpp.html#a2b39ccf276d680bc3f1fb41eef9f53ea">make_gradient</a></div><div class="ttdeci">CRGBPalette16 make_gradient(CRGB col1, CRGB col2)</div><div class="ttdoc">Converts a set of CRGB colors to a gradient, and creates a color palette from that gradient.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00106">pixie_animations.cpp:106</a></div></div>
-<div class="ttc" id="apixie__animations_8cpp_html_a352d51515a8900b188cd376d02cfddde"><div class="ttname"><a href="pixie__animations_8cpp.html#a352d51515a8900b188cd376d02cfddde">ANIMATION_PALETTE_SHIFT_RIGHT</a></div><div class="ttdeci">void ANIMATION_PALETTE_SHIFT_RIGHT(PixieChroma *_p, float delta)</div><div class="ttdoc">Shows the current color palette, while constantly shifting it to the right.</div><div class="ttdef"><b>Definition:</b> <a href="pixie__animations_8cpp_source.html#l00051">pixie_animations.cpp:51</a></div></div>
-<div class="ttc" id="apixie__chroma__internal_8h_html_a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda"><div class="ttname"><a href="pixie__chroma__internal_8h.html#a8dbce326e7d153234a6fa2f171dfd19ca0a831c2bc18e8354fe3e30ec0f3cdcda">AUTOMATIC</a></div><div class="ttdeci">@ AUTOMATIC</div><div class="ttdef"><b>Definition:</b> <a href="pixie__chroma__internal_8h_source.html#l00018">pixie_chroma_internal.h:18</a></div></div>
-</div><!-- fragment --><p>As you can see, Pixie Chroma is <b>as easy or advanced as you need!</b> Luckily, you don't need to dive into documentation to get started - the included examples (<code>File -&gt; Examples -&gt; Pixie_Chroma</code>) are an easy template to modify for your own projects!</p>
-<p><img src="extras/img/PCB_SINGLE.png" alt="PIXIE CHROMA PCB" class="inline"/> </p>
+</div><!-- fragment --> <h2>Amazing Documentation</h2>
+<p>{pixie-chroma-library-screenshot-2 | link}</p>
+<p><a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs">Pixie Chroma's documentation</a> is complete, accurate, and easy to understand. Each function in the library is fully documented and code examples are sprinkled liberally throughout.</p>
+<h2>Dedication to Our Craft</h2>
+<p>Lixie Labs is a homegrown business dedicated to furthering <b>open source hardware and software</b> in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!</p>
+<p>We are OSHWA certified (<a href="https://certification.oshwa.org/us002058.html">UID US002058</a>), we've created an <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet">extensive datasheet</a>, and every function within the library comes with <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs">documentation</a>.</p>
+<h2>Features &amp; Specifications</h2>
+<ul>
+<li>Dual-5x7 RGB LED matrices</li>
+<li>3.7 to 5.5 VDC supply</li>
+<li>Fast bitmap control</li>
+<li>8-bit global dimming</li>
+<li>27.5 mm x 16.5 mm matrix size (10.16 PPI)</li>
+<li>30 mm x 24 mm package</li>
+</ul>
+<p>{pixie-chroma-front-back-01 | link}</p>
+<h2>Comparisons</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">Pixie Chroma   </th><th class="markdownTableHeadNone"><a href="https://shop.pimoroni.com/products/5x5-rgb-matrix-breakout">5x5 RGB Matrix Breakout</a>   </th><th class="markdownTableHeadNone"><a href="https://www.adafruit.com/product/1430">Dot Star 8x8 Grid</a>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Manufacturer</b> ~active   </td><td class="markdownTableBodyNone">Lixie Labs ~active   </td><td class="markdownTableBodyNone">Pimoroni ~active   </td><td class="markdownTableBodyNone">Adafruit ~active    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Size</b> ~active   </td><td class="markdownTableBodyNone">30 mm x 24 mm ~active   </td><td class="markdownTableBodyNone">19 mm x 29 mm ~active   </td><td class="markdownTableBodyNone">25 mm x 36 mm ~active    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>LED Count</b> ~active   </td><td class="markdownTableBodyNone">Dual 5x7 displays, 70 total ~active   </td><td class="markdownTableBodyNone">Single 5x5 display, 25 total ~active   </td><td class="markdownTableBodyNone">Single 8x8 display, 64 total ~active    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Pixels Per Inch</b>   </td><td class="markdownTableBodyNone">10.16 PPI ~success   </td><td class="markdownTableBodyNone">7.25 PPI ~warning   </td><td class="markdownTableBodyNone">8 PPI ~warning    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Experience Level</b>   </td><td class="markdownTableBodyNone">All Levels ~success   </td><td class="markdownTableBodyNone">Intermediate ~danger   </td><td class="markdownTableBodyNone">Beginner ~warning    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Open Source</b>   </td><td class="markdownTableBodyNone">HW + SW ~success   </td><td class="markdownTableBodyNone">SW only ~warning   </td><td class="markdownTableBodyNone">HW + SW ~success    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Documented Code Functions</b>   </td><td class="markdownTableBodyNone">Yes ~success   </td><td class="markdownTableBodyNone">No ~danger   </td><td class="markdownTableBodyNone">Yes ~success    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Datasheet</b>   </td><td class="markdownTableBodyNone">Yes ~success   </td><td class="markdownTableBodyNone">No ~danger   </td><td class="markdownTableBodyNone">No ~danger    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Quad Mode</b> <b>¹</b>   </td><td class="markdownTableBodyNone">Yes ~success   </td><td class="markdownTableBodyNone">No ~danger (no parallel output)   </td><td class="markdownTableBodyNone">No ~danger (no parallel output)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Shortcodes</b> <b>²</b>   </td><td class="markdownTableBodyNone">Yes ~success (239 included)   </td><td class="markdownTableBodyNone">N/A ~danger   </td><td class="markdownTableBodyNone">N/A ~danger    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Breadboard Compatible</b>   </td><td class="markdownTableBodyNone">Yes ~success   </td><td class="markdownTableBodyNone">No ~danger   </td><td class="markdownTableBodyNone">No ~danger    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Power Management Features</b>   </td><td class="markdownTableBodyNone">Yes ~success   </td><td class="markdownTableBodyNone">No ~danger   </td><td class="markdownTableBodyNone">No ~danger    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Easy Text Rendering</b>   </td><td class="markdownTableBodyNone">Yes ~success   </td><td class="markdownTableBodyNone">No ~danger   </td><td class="markdownTableBodyNone">No ~danger    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Non Blocking Animation</b>   </td><td class="markdownTableBodyNone">Yes ~success   </td><td class="markdownTableBodyNone">No ~danger   </td><td class="markdownTableBodyNone">No ~danger    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Predefined Color Palettes and Animations</b>   </td><td class="markdownTableBodyNone">Yes ~success   </td><td class="markdownTableBodyNone">No ~danger   </td><td class="markdownTableBodyNone">No ~danger    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Price Per LED</b>   </td><td class="markdownTableBodyNone">$0.32 ~success   </td><td class="markdownTableBodyNone">$0.49 ~danger   </td><td class="markdownTableBodyNone">$0.39 ~warning   </td></tr>
+</table>
+<p><b>¹</b> <em>Quad Mode allows you to update your displays faster by using four GPIO at once!</em> <br  />
+ <b>²</b> <em>Shortcodes like <code>[:HEART:]</code> let you use over 230 built-in icons by name and even create your own!</em> <br  />
+</p>
+<h2>Support &amp; Documentation</h2>
+<p>As you can see, Pixie Chroma is as easy or as advanced as you need. Luckily, you don't need to dive into documentation to get started - the included examples (<code>File -&gt; Examples -&gt; Pixie_Chroma</code>) provide a template you can easily modify for your own projects.</p>
+<p>For further information, you can check out our:</p>
+<ul>
+<li><a href="https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes">Short code library</a></li>
+<li><a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet">Data Sheet</a></li>
+<li><a href="https://twitter.com/lixielabs">Twitter</a> - We post almost daily with Pixie Chroma updates and tricks!</li>
+</ul>
+<p>Everything is open source and available. Our source code has been fully documented and all PCB designs and parts used will be open and available:</p>
+<ul>
+<li><a href="https://github.com/connornishijima/Pixie_Chroma/#readme">GitHub</a></li>
+<li><a href="https://github.com/connornishijima/Pixie_Chroma/tree/main/extras/OSHW/PCB">Board schematics</a></li>
+<li><a href="https://github.com/connornishijima/Pixie_Chroma">Software</a></li>
+<li><a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs">Arduino-library documentation</a></li>
+<li><a href="https://certification.oshwa.org/us002058.html">OHSWA certification</a></li>
+</ul>
+<p>If you have a question, please reach out using <a href="https://www.crowdsupply.com/lixie-labs/pixie-chroma/ask-question">the <em>Ask a technical question</em> form</a>.</p>
+<h2>Manufacturing Plan</h2>
+<p>Our manufacturing partner will be sourcing the LEDs and assembling the final product. The six header pins that come with each Pixie Chroma will be packaged separate from the boards themselves in order to reduce the chance of being damaged in transit.</p>
+<h2>Fulfillment &amp; Logistics</h2>
+<p>Upon completion of the campaign, we will immediately proceed transferring funds to our manufacturing partner. Once Pixie Chromas and their packaging arrive at Lixie Labs, we will fully test every single LED on every single PCB to ensure they get to you working and ready to go! All Pixies will be packaged with a pinout card inside an ESD-safe bag. After testing and packaging the first production batch of Pixie Chroma boards, we will send them on to Crowd Supply's fulfillment partner, Mouser Electronics, who will distribute them to backers worldwide with their professional fulfillment services. You can learn more about Crowd Supply's fulfillment service under <a href="https://www.crowdsupply.com/guide/ordering-paying-shipping-details">Ordering, Paying, and Shipping</a> in their guide.</p>
+<h2>Risks &amp; Challenges</h2>
+<p>As this campaign is being ran through the holidays, we expect to encounter shipping delays and are planning accordingly. We will use DHL to ship the product to us quickly and the most insured shipping plan to get the final product to Crowd Supply.</p>
+<p>When placing 10,000+ LEDs, there are bound to be failures. That is why we are ordering 15% more than we need and testing every LED after it is placed on a board. Every board will undergo extensive testing with a custom-made jig that checks the correct operation of every LED and the electrical continuity of VCC, GND, and DAT_OUT pin.</p>
+<h1>Sponsors</h1>
+<ul>
+<li><b><a href="https://github.com/nitz">Nitz</a></b> </li>
+</ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Dec 21 2021 06:36:24 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Dec 28 2021 13:27:11 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
