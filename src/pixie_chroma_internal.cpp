@@ -198,7 +198,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     always send the 4 lines of data in parallel, saving on time per frame.
 
     begin_quad() ideally **should not be used with less than 4 Pixie Chromas**,
-    and with at least one on each line. Even if only two lines are physically
+    and with at least one on each line. Even if only two pins are physically
     used, all 4 pins are still occupied by Quad Mode.
     
     @param  pixies_per_pin  Pixies per data pin
