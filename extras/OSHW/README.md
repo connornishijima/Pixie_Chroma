@@ -2,6 +2,8 @@
 
 ### In this directory, you'll find the PCB schematics and layout for Pixie Chroma.
 
+*(Also included is an EAGLE library for adding Chromas to your own PCB, and a demonstration PCB with 6 Chromas laid out for you.)*
+
 Lixie Labs (me) exists in a one-bedroom apartment developing cool Arduino stuff for food.
 
 **If you use these files for commerical purposes:**
