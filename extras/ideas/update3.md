@@ -125,13 +125,13 @@ One of the strangest looking things about this 1-D array is that it looks as if 
 ```
 However, some of these bytes are special. Bitmap column data is never greater that 127, and neither is ASCII text or terminators. The only bytes in this array that are greater than 127 are the MARK bytes. These are used as a shortcut for quicker lookups like so:
 
-1. Scan array until a MARK byte is found (>= 127)
+1. Scan array until a MARK byte is found (> 127)
 2. This MARK byte is 200, plus the number of steps in the array until the next one. (i.e. `213` for 13 steps)
 3. Once a MARK is found, the very next item is the first character of that Icon's name.
 4. If the character we're reading matches the first character of the name we're looking for, continue reading
 5. If it isn't, we know that we have moved 1 step since the MARK, so let's jump straight to the next MARK (`index += (213 - 200) - 1`)
 6. Repeat from step 2.
-7. Once a full match of the name is found, (we hit a terminator) we know that the 5 bytes preceding the last MARK are the bitmap column we need to return!
+7. Once a full match of the name is found, (we hit a terminator) we know that the 5 bytes preceding the last MARK are the bitmap column data we need to return!
 8. If we found a full match so far but didn't find a terminator afterwards, maybe this is a different Icon with a similar name ("CLOCK" vs "CLOCKWISE")
 
 With this system, we can return an Icon at the start of the array in just 96 microseconds, and the last Icon in just 192 microseconds!
@@ -142,7 +142,7 @@ While ArduinoJSON could likely work, this has the smallest memory and computatio
 
 ## RETURNING FOUND MATCHES
 
-Since we now have the bitmap data that matches `[:CLOCK:]`, we can return to rendering the original 'pix.print()' call until the string is done or another Shortcode is found!
+Since we now have the bitmap data that matches `[:CLOCK:]`, we can print it to the display buffer and return to rendering the original 'pix.print()' call until the string is done or another Shortcode is found!
 
 ## WHAT ABOUT CUSTOM ICONS?
 
@@ -158,7 +158,7 @@ This is very similar to preset Shortcodes with names, but has a `#` to denote th
 
 ## NEW THINGS POSSIBLE WITH SHORTCODES
 
-All of this *just* to sneak Icons into text? Yes! Since Icons are now represented just by text via Shortcodes, any thing that uses ASCII can use Icons! You can send Icon data over serial, WiFi, or pass Icons to any function that takes text, such as scrolling functions! It's much nicer to write:
+All of this *just* to sneak Icons into text? Yes! Since Icons are now represented just by text via Shortcodes, any thing that uses ASCII can use Icons! You can send Icon data over serial, WiFi, or pass Icons to any function that takes text, such as scrolling functions! It's also much nicer to write:
 
 	pix.print( "WE [:HEART:] YOU!" );
 
