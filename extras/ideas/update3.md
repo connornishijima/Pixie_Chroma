@@ -74,11 +74,13 @@ What's going on here? Let's take a step-by-step look into how Icons are found in
 
 ## INITIAL PARSING
 
-As an example, let's see how `pix.print( "Mode: [:CLOCK:]" );` is decoded.
-
+As an example, let's see how a Shortcode is parsed.
+```c++
+pix.print( "Mode: [:CLOCK:]" );
+```
 The first 6 characters are normal text, and are rendered as usual. ("Mode: ")
 
-At the 7th character though, the parser sees a '['. It skips ahead one character to see if it is followed by a colon `:`. Since the parser finds a colon, it knows that the data that follows is a Shortcode and begins collecting the Icon name! The parser is not currently rendering what it sees, it stopped at `"Mode: "`.
+At the 7th character though, the parser sees a '['. It skips ahead one character to see if it is followed by a colon `:`. Since the parser finds a colon, it knows that the data that follows is a Shortcode and begins collecting the Icon name! (The parser is not currently rendering what it sees, it stopped at `"Mode: "`.)
 
 (This combination of "[:" was chosen due to it's low likelihood of occurring "naturally".)
 
@@ -88,16 +90,16 @@ At 14th character, the parser sees a colon `:` and peeks ahead one character to 
 
 Alright, back to that weird 1-D array with all of the bitmap data and names. It has 4 types of data:
 
-- COLUMN DATA (The bitmap bytes)
-- MARK BYTE (Used for faster lookups)
-- NAME DATA (ASCII name of Icon)
-- TERMINATOR (Used to denote end of NAME DATA strings
+- **COLUMN DATA** (The bitmap bytes)
+- **MARK BYTE** (Used for faster lookups)
+- **NAME DATA** (ASCII name of Icon)
+- **TERMINATOR** (Used to denote end of NAME DATA strings
 
 This crazy array is used to find the corresponding bitmap data for an Icon name like `CLOCK`. With 240 preset Icons in here, lookups need to be fast. (There's currently 3,480 bytes in this lookup table.) What's the fastest way to find a match in here?
 
 ## SMARTER SEARCHING
 
-Since iterating over every single byte in this array could take a long time ("long" being slower than *"freakin' instantly"*), we need a cheat. While it's easy enough to skim the above array with your eyes to find a match, your microcontroller sees the data like this:
+Since iterating over every single byte in this array could take a long time ("long" being slower than *"freakin' instantly"*), we need a cheat. While it's easy enough to skim the above array with your eyes to find a match, your microcontroller doesn't get the luxury of formatting and sees the data like this:
 ```c++
 ...
 0x1C, 0x22, 0x22, 0x22, 0x1C,  213,  'C',  'I',  'R',  'C',  'L',  'E',    0, 0x7F, 0x41, 0x41, 0x41,
@@ -111,12 +113,20 @@ How long does it take you to find "CLOCK" in there? How could you find a matchin
 
 ## MARK BYTES TO THE RESCUE!
 
-One of the strangest looking things about this 1-D array is that it looks as if it's mixing data types. There's decimal numbers, for mark bytes, HEX for bitmap data, and even text for names. However, all of these are just stored as `uint8_t` bytes, which are numbers ranging from 0 to 255.
-
+One of the strangest looking things about this 1-D array is that it looks as if it's mixing data types. There's decimal numbers for mark bytes and terminators, HEX for bitmap data, and even text for names. However, all of these are just stored as `uint8_t` bytes, which are numbers ranging from 0 to 255. In fact, *this* is actually closer to how your microcontroller sees this array:
+```c++
+...
+28,  34,  34,  34,  28,  213, 67,  73,  82,  67,  76,  69, 0,   127, 65,  65, 65, 
+127, 216, 82,  69,  67,  84,  65,  78,  71,  76,  69,  0,  116, 66,  95,  66, 116, 
+213, 69,  88,  80,  79,  82,  84,  0,   62,  34,  46,  38, 60,  211, 83,  65, 86, 
+69,  0,   28,  34,  46,  50,  28,  212, 67,  76,  79,  67, 75,  0,   56,  77, 119, 
+69,  56,  216, 83,  84,  79,  80,  87,  65,  84,  67,  72, 0,   125, 70,  68, 70, 
+...
+```
 However, some of these bytes are special. Bitmap column data is never greater that 127, and neither is ASCII text or terminators. The only bytes in this array that are greater than 127 are the MARK bytes. These are used as a shortcut for quicker lookups like so:
 
 1. Scan array until a MARK byte is found (>= 127)
-2. This MARK byte is 200, plus the number of steps in the array until the next one. (i.e. `213` or 13 steps)
+2. This MARK byte is 200, plus the number of steps in the array until the next one. (i.e. `213` for 13 steps)
 3. Once a MARK is found, the very next item is the first character of that Icon's name.
 4. If the character we're reading matches the first character of the name we're looking for, continue reading
 5. If it isn't, we know that we have moved 1 step since the MARK, so let's jump straight to the next MARK (`index += (213 - 200) - 1`)
