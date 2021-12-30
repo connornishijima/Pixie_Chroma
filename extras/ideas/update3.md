@@ -91,7 +91,7 @@ pix.print( "Mode: [:CLOCK:]" );
 ```
 The first 6 characters are normal text, and are rendered as usual. `"Mode: "`
 
-At the 7th character though, the parser sees a `[`. It skips ahead one character to see if it is followed by a colon `:`. Since the parser finds a colon, it knows that the data that follows is a Shortcode and begins collecting the Icon name! (The parser is not currently rendering what it sees, it stopped at `"Mode: "`.)
+At the 7th character though, the parser sees a `[`. It peeks ahead one character to see if it is followed by a colon `:`. Since the parser finds a colon, it knows that the data that follows is a Shortcode and begins collecting the Icon name! (The parser is not currently rendering what it sees, it stopped at `"Mode: "`.)
 
 (This combination of `[:` was chosen due to it's low likelihood of occurring "naturally".)
 
