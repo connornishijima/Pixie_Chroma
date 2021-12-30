@@ -1,10 +1,21 @@
+# WELCOME BACK!
+
+This week, we're going to go over two topics, ***how to get started with your first Pixies*** and ***how "Shortcodes" are parsed!*** 
+
+## PIXIES ON DAY 1
+
+TBD
+
+----------------------------------------------------------------------------------
+## HOW SHORTCODES ARE PARSED
 
 
-## WHAT ARE SHORTCODES USED FOR?
+
+### WHAT ARE SHORTCODES USED FOR?
 
 "Shortcodes" are small snippets of text that allow you to sneak picture data into strings of text you're sending to your Pixie Chromas!
 
-## A BIT OF HISTORY
+### A BIT OF HISTORY
 
 The classic Pixie and its Arduino library used a similar system. These were hard-coded arrays that had 5 bytes in them, whose binary represented the 5 columns of image data that should be shown. For example, a line from `Pixie_Icon_Pack.h` in the original library:
 
@@ -25,7 +36,7 @@ pix.show();
 
 You may have noticed that there is no way to include ASCII text *and* the Icon in the same function call. This is okay for static text, but it made it impossible to use things like `pix.scroll();` with both data types at the same time.
 
-## ENTER "SHORTCODES"
+### ENTER "SHORTCODES"
 
 Shortcodes are my solution to this issue. By using special sequences of characters, the Pixie Chroma library can detect when an Icon is needed within a normal ASCII string. For example:
 
@@ -37,11 +48,11 @@ pix.show();
 
 Notice the strange `[:` and `:]` in there? Those are indicators of when a "Shortcode" begins and ends. The name "HEART" is picked out by a preprocessor as the string is being rendered to the displays!
 
-## WHAT THE...?
+### WHAT THE...?
 
 How is a string "evaluated" to return the data from `uint8_t PIX_HEART[5] = {0x0C,0x12,0x24,0x12,0x0C};`? C++ can't eval() strings for variable names! This is true. Instead, the file storing the Icons has been reformatted:
 
-### OLD:
+#### OLD:
 ```c++
 ...
 uint8_t PIX_CIRCLE[]           = {0x1C,0x22,0x22,0x22,0x1C};
@@ -54,7 +65,7 @@ uint8_t PIX_TV[]               = {0x7D,0x46,0x44,0x46,0x7D};
 uint8_t PIX_COPY[]             = {0x0F,0x39,0x29,0x2F,0x3C};
 ...
 ```
-### NEW:
+#### NEW:
 ```c++
 static const uint8_t PIXIE_SHORTCODE_LIBRARY[] = {
   // SHORTCODE                COLUMN DATA               MARK  NAME                    TERMINATOR                         
@@ -72,21 +83,21 @@ static const uint8_t PIXIE_SHORTCODE_LIBRARY[] = {
 ```
 What's going on here? Let's take a step-by-step look into how Icons are found inside this massive 1-dimensional array!
 
-## INITIAL PARSING
+### INITIAL PARSING
 
 As an example, let's see how a Shortcode is parsed.
 ```c++
 pix.print( "Mode: [:CLOCK:]" );
 ```
-The first 6 characters are normal text, and are rendered as usual. ("Mode: ")
+The first 6 characters are normal text, and are rendered as usual. `"Mode: "`
 
-At the 7th character though, the parser sees a '['. It skips ahead one character to see if it is followed by a colon `:`. Since the parser finds a colon, it knows that the data that follows is a Shortcode and begins collecting the Icon name! (The parser is not currently rendering what it sees, it stopped at `"Mode: "`.)
+At the 7th character though, the parser sees a `[`. It skips ahead one character to see if it is followed by a colon `:`. Since the parser finds a colon, it knows that the data that follows is a Shortcode and begins collecting the Icon name! (The parser is not currently rendering what it sees, it stopped at `"Mode: "`.)
 
-(This combination of "[:" was chosen due to it's low likelihood of occurring "naturally".)
+(This combination of `[:` was chosen due to it's low likelihood of occurring "naturally".)
 
 At 14th character, the parser sees a colon `:` and peeks ahead one character to verify that it is followed by a closing bracket `]`. Once the end of the Shortcode is found, the characters of the Icon name collected so far (`CLOCK`) are sent to a lookup function.
 
-## LOOKUP TABLE
+### LOOKUP TABLE
 
 Alright, back to that weird 1-D array with all of the bitmap data and names. It has 4 types of data:
 
@@ -97,9 +108,9 @@ Alright, back to that weird 1-D array with all of the bitmap data and names. It 
 
 This crazy array is used to find the corresponding bitmap data for an Icon name like `CLOCK`. With 240 preset Icons in here, lookups need to be fast. (There's currently 3,480 bytes in this lookup table.) What's the fastest way to find a match in here?
 
-## SMARTER SEARCHING
+### SMARTER SEARCHING
 
-Since iterating over every single byte in this array could take a long time ("long" being slower than *"freakin' instantly"*), we need a cheat. While it's easy enough to skim the above array with your eyes to find a match, your microcontroller doesn't get the luxury of formatting and sees the data like this:
+Since iterating over every single byte in this array could take a long time ( **long** being slower than **freakin' instantly**), we need a cheat. While it's easy enough to skim the above array with your eyes to find a match, your microcontroller doesn't get the luxury of formatting and sees the data like this:
 ```c++
 ...
 0x1C, 0x22, 0x22, 0x22, 0x1C,  213,  'C',  'I',  'R',  'C',  'L',  'E',    0, 0x7F, 0x41, 0x41, 0x41,
@@ -111,7 +122,7 @@ Since iterating over every single byte in this array could take a long time ("lo
 ```
 How long does it take you to find "CLOCK" in there? How could you find a matching Icon in an (average of) 130 microseconds? (That's 7,692 times a second!) Our cheat here is "MARK" bytes.
 
-## MARK BYTES TO THE RESCUE!
+### MARK BYTES TO THE RESCUE!
 
 One of the strangest looking things about this 1-D array is that it looks as if it's mixing data types. There's decimal numbers for mark bytes and terminators, HEX for bitmap data, and even text for names. However, all of these are just stored as `uint8_t` bytes, which are numbers ranging from 0 to 255. In fact, *this* is actually closer to how your microcontroller sees this array:
 ```c++
@@ -136,15 +147,15 @@ However, some of these bytes are special. Bitmap column data is never greater th
 
 With this system, we can return an Icon at the start of the array in just 96 microseconds, and the last Icon in just 192 microseconds!
 
-## Why not JSON?
+### Why not JSON?
 
 While ArduinoJSON could likely work, this has the smallest memory and computation footprint I could come up with.
 
-## RETURNING FOUND MATCHES
+### RETURNING FOUND MATCHES
 
 Since we now have the bitmap data that matches `[:CLOCK:]`, we can print it to the display buffer and return to rendering the original 'pix.print()' call until the string is done or another Shortcode is found!
 
-## WHAT ABOUT CUSTOM ICONS?
+### WHAT ABOUT CUSTOM ICONS?
 
 Similar to the
 ```c++
@@ -156,7 +167,7 @@ pix.print( "WE [:#0C1224120C:] YOU!" ); // Custom
 ```
 This is very similar to preset Shortcodes with names, but has a `#` to denote that the following 10 chars are 5 bytes of custom HEX data!
 
-## NEW THINGS POSSIBLE WITH SHORTCODES
+### NEW THINGS POSSIBLE WITH SHORTCODES
 
 All of this *just* to sneak Icons into text? Yes! Since Icons are now represented just by text via Shortcodes, any thing that uses ASCII can use Icons! You can send Icon data over serial, WiFi, or pass Icons to any function that takes text, such as scrolling functions! It's also much nicer to write:
 
@@ -167,4 +178,17 @@ All of this *just* to sneak Icons into text? Yes! Since Icons are now represente
     pix.print( "WE " );
     pix.print( PIX_HEART );
     pix.print( " YOU!" );
-	
+
+### I DON'T KNOW WHAT ANY OF THAT MEANT
+
+No worries! All you need to know is how Shortcodes (like `[:SNOW:]`) are used:
+
+```c++
+pix.print( "Here's a smile: [:SMILE:]" ); // Built-in preset Icon
+```
+
+```c++
+pix.print( "Here's a zig-zag: [:#00442A1100:]" ); // Custom "zig-zag" icon defined with hex data generated by the Shortcode Library tool.
+```
+
+To see all presets and make your own custom icons with no technical knowledge needed, try our [Shortcode Library](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes)! There's over 200 presets to choose from or you can draw your own!
