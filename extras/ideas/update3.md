@@ -110,7 +110,7 @@ This crazy array is used to find the corresponding bitmap data for an Icon name 
 
 ### SMARTER SEARCHING
 
-Since iterating over every single byte in this array could take a long time ( **long** being slower than **freakin' instantly**), we need a cheat. While it's easy enough to skim the above array with your eyes to find a match, your microcontroller doesn't get the luxury of formatting and sees the data like this:
+Since iterating over every single byte in this array could take a long time (***long*** being slower than ***freakin' instantly***), we need a cheat. While it's easy enough to skim the above array with your eyes to find a match, your microcontroller doesn't get the luxury of formatting and sees the data like this:
 ```c++
 ...
 0x1C, 0x22, 0x22, 0x22, 0x1C,  213,  'C',  'I',  'R',  'C',  'L',  'E',    0, 0x7F, 0x41, 0x41, 0x41,
@@ -120,7 +120,7 @@ Since iterating over every single byte in this array could take a long time ( **
 0x45, 0x38,  216,  'S',  'T',  'O',  'P',  'W',  'A',  'T',  'C',  'H',    0, 0x7D, 0x46, 0x44, 0x46,
 ...
 ```
-How long does it take you to find "CLOCK" in there? How could you find a matching Icon in an (average of) 130 microseconds? (That's 7,692 times a second!) Our cheat here is "MARK" bytes.
+How long does it take you to find "CLOCK" in there? How could you find a matching Icon in (an average of) 130 microseconds? (That's 7,692 times a second!) Our cheat here is "MARK" bytes.
 
 ### MARK BYTES TO THE RESCUE!
 
