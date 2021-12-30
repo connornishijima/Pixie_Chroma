@@ -16,7 +16,7 @@ This 5x7 Icon of a `HEART` could be used like so:
 ```c++
 pix.clear();
 pix.print( "WE " );
-  pix.print( PIX_HEART );
+pix.print( PIX_HEART );
 pix.print( " YOU!" );
 pix.show();
 
