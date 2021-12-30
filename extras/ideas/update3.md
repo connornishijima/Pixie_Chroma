@@ -123,7 +123,7 @@ One of the strangest looking things about this 1-D array is that it looks as if 
 69,  56,  216, 83,  84,  79,  80,  87,  65,  84,  67,  72, 0,   125, 70,  68, 70, 
 ...
 ```
-However, some of these bytes are special. Bitmap column data is never greater that 127, and neither is ASCII text or terminators. The only bytes in this array that are greater than 127 are the MARK bytes. These are used as a shortcut for quicker lookups like so:
+However, some of these bytes are special. Bitmap column data is never greater than 127, and neither is ASCII text or terminators. The only bytes in this array that are greater than 127 are the MARK bytes. These are used as a shortcut for quicker lookups like so:
 
 1. Scan array until a MARK byte is found (> 127)
 2. This MARK byte is 200, plus the number of steps in the array until the next one. (i.e. `213` for 13 steps)
