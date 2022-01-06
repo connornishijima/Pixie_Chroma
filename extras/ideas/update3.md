@@ -1,19 +1,12 @@
 # WELCOME BACK!
 
-This week, we're going to go over two topics, ***how to get started with your first Pixies*** and ***how "Shortcodes" are parsed!*** 
+**Real quick: WOW. Thank you. Our campaign concluded 678% above its funding goal.** You've given us an irreplaceable level of hope for our futures in electronics design and manufacturing, and all we can say is **thank you, everyone**. We're extremely excited to begin work on manufacturing and continue work on software for Pixie Chroma!
 
-## PIXIES ON DAY 1
-
-TBD
-
-----------------------------------------------------------------------------------
-## HOW SHORTCODES ARE PARSED
-
-
+As a treat for our more technical users this week, we're going to go over ***how our "Shortcodes" are parsed in C++!*** 
 
 ### WHAT ARE SHORTCODES USED FOR?
 
-"Shortcodes" are small snippets of text that allow you to sneak picture data into strings of text you're sending to your Pixie Chromas!
+"Shortcodes" are small snippets of text that allow you to sneak picture data into strings of text you're sending to your Pixie Chromas! The string `"WE LOVE [:CROWD_SUPPLY:]!"` in a print() call for your displays will replace that odd-looking section of text with the "D-arrow" Crowd Supply logo on your displays!
 
 ### A BIT OF HISTORY
 
@@ -192,3 +185,7 @@ pix.print( "Here's a zig-zag: [:#00442A1100:]" ); // Custom "zig-zag" Icon defin
 ```
 
 To see all presets and make your own custom icons with no technical knowledge needed, try our [Shortcode Library](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes)! There's over 200 presets to choose from or you can draw your own!
+
+## MOVING FORWARD
+
+Our next update will detail our moves on manufacturing and what your first days with Pixie Chroma will be like - such as setting up the hardware and software with your own microcontroller!
