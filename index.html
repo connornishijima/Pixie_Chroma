@@ -157,7 +157,12 @@
 				var _target = menu_links[x]["target"];
 				var _name = menu_links[x]["name"];
 				var _short = menu_links[x]["short"];
-				menu_string += '<a href="' + _link + '" target="' + _target + '" class="menu_link" id="' + _short + '" onclick="update_page(\'' + _short + '\');">' + _name + '</a>\n';
+				
+				var div_class = "menu_link";
+				if(_short == "purchase"){
+					div_class = "menu_link_highlight";
+				}
+				menu_string += '<a href="' + _link + '" target="' + _target + '" class="' + div_class + '" id="' + _short + '" onclick="update_page(\'' + _short + '\');">' + _name + '</a>\n';
 			}
 			
 			console.log(menu_string);
