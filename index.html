@@ -53,6 +53,10 @@
 				font-size: 14px;
 				margin-bottom: 5px;
 			}
+			
+			.menu_link_highlight {
+				background-color: #fbdb00;
+			}
 			.menu_link_select{
 				background-color: #ffb5ce;
 			}
@@ -160,7 +164,7 @@
 				
 				var div_class = "menu_link";
 				if(_short == "purchase"){
-					div_class = "menu_link_highlight";
+					div_class = "menu_link menu_link_highlight";
 				}
 				menu_string += '<a href="' + _link + '" target="' + _target + '" class="' + div_class + '" id="' + _short + '" onclick="update_page(\'' + _short + '\');">' + _name + '</a>\n';
 			}
