@@ -46,6 +46,8 @@ Along with full RGB control, and an absolute **UNIT** of an Arduino Library, we 
 
 **Quad mode is made specifically for those wishing to drive their displays faster.** By *optionally* sending the data in four parallel streams with Quad Mode, you can expect to see a ~3.75x increase in speed! For example, if you had 12 Pixie Chromas, you can wire four GPIO of your microcontroller to the 1st, 4th, 7th, and 10th Pixie. Each GPIO is now only responsible for the data of three Pixie Chromas compared to *only one GPIO feeding all 12*. With this, you can run animations, scrolling, and color palettes more smoothly or free up processor time!
 
+**NOTE:** Quad Mode currently uses hard-coded GPIO pins depending on your microcontroller. To see which pins are needed, visit [the documentation for begin_quad()](https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c).
+
 ----------------------------------------------------------
 
 ![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/shortcodes.png?raw=true)
