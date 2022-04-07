@@ -111,11 +111,13 @@ The Pixie Chroma library also uses FastLED as a dependency, so FastLED itself al
 
 If you have success running Pixie Chroma on a controller not currently in this list, let us know! We'd be happy to incorporate it. (You'll need to modify [Pixie_Chroma.h](https://github.com/connornishijima/Pixie_Chroma/blob/main/src/Pixie_Chroma.h) to accept the new compilation target first.)
 
+![PIXIE CHROMA GIF](https://github.com/connornishijima/Pixie_Chroma/raw/main/extras/img/DEMO_ANIMATION.gif?raw=true)
+
 ## Dedication to Our Craft
 
 Lixie Labs is a homegrown business **dedicated to furthering open source hardware and software** in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!
 
-**We are OSHWA certified ([UID US002058](https://certification.oshwa.org/us002058.html))**, we've created an [extensive datasheet](https://connornishijima.github.io/Pixie_Chroma/?section=datasheet), and every function within the library comes with [documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs).
+**Pixie Chroma is OSHWA certified ([UID US002058](https://certification.oshwa.org/us002058.html))**, we've created an [extensive datasheet](https://connornishijima.github.io/Pixie_Chroma/?section=datasheet), and every single function within the library comes with [documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs).
 
 ![OSHW INFO](https://raw.githubusercontent.com/connornishijima/Pixie_Chroma/main/extras/OSHW/oshw_facts.svg)
 
