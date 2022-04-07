@@ -105,7 +105,7 @@ The Pixie Chroma library also uses FastLED as a dependency, so FastLED itself al
 - ESP32-S3 (Needs testing)
 - SAMD21 (TODO, has been hard to get)
 
-If you have sucess running Pixie Chroma on a controller not currently in this list, let us know! We'd be happy to incorporate it. (You'll need to modify [Pixie_Chroma.h](https://github.com/connornishijima/Pixie_Chroma/blob/main/src/Pixie_Chroma.h) to accept the new compilation target first.)
+If you have success running Pixie Chroma on a controller not currently in this list, let us know! We'd be happy to incorporate it. (You'll need to modify [Pixie_Chroma.h](https://github.com/connornishijima/Pixie_Chroma/blob/main/src/Pixie_Chroma.h) to accept the new compilation target first.)
 
 ## Dedication to Our Craft
 
