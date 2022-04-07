@@ -145,6 +145,23 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!-- fragment --> <h2>Amazing Documentation</h2>
 <p><a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs">Pixie Chroma's documentation</a> is complete, accurate, and easy to understand. Each function in the library is fully documented and code examples are sprinkled liberally throughout.</p>
 <p><img src="https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm5.png?raw=true" alt="PIXIE CHROMA" class="inline"/></p>
+<h2>Supported Platforms</h2>
+<p>Pixie Chroma is a bit RAM heavy for its effects and color processing. 8 Pixie Chroma PCBs is 560 LEDs, so that's 1,680 bytes just for the color data! Add in the masking tricks, XY mapping and more, and you're unfortunately not going to get a set of Chromas working on an older microcontroller like the ATMega328p with only 2K of SRAM. <em><b>However</b></em>, more modern controllers like those from Espressif are perfectly fine! (ESP8266 has 80KiB of RAM!)</p>
+<p>The Pixie Chroma library also uses FastLED as a dependency, so FastLED itself also needs compatibility before we can support it here. <em>This is why the RP2040 is not yet supported. Soon!</em></p>
+<h3>Fully Supported Microcontrollers</h3>
+<ul>
+<li>ESP8266 (Adafruit HUZZAH, Wemos D1 Mini, etc.)</li>
+<li>ESP32 (TinyPico, HUZZAH32)</li>
+<li>Teensy 3.x (Possibly Teensy 4.x, not yet tested)</li>
+</ul>
+<h3>Currently Planned Support</h3>
+<ul>
+<li>RP2040 (Needs FastLED port)</li>
+<li>ESP32-S2 (Needs testing)</li>
+<li>ESP32-S3 (Needs testing)</li>
+<li>SAMD21 (TODO, has been hard to get)</li>
+</ul>
+<p>If you have sucess running Pixie Chroma on a controller not currently in this list, let us know! We'd be happy to incorporate it. (You'll need to modify <a href="https://github.com/connornishijima/Pixie_Chroma/blob/main/src/Pixie_Chroma.h">Pixie_Chroma.h</a> to accept the new compilation target first.)</p>
 <h2>Dedication to Our Craft</h2>
 <p>Lixie Labs is a homegrown business <b>dedicated to furthering open source hardware and software</b> in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!</p>
 <p><b>We are OSHWA certified (<a href="https://certification.oshwa.org/us002058.html">UID US002058</a>)</b>, we've created an <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet">extensive datasheet</a>, and every function within the library comes with <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs">documentation</a>.</p>
@@ -226,7 +243,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Mar 28 2022 17:15:09 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 7 2022 19:22:29 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
