@@ -11,6 +11,8 @@
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
   <a href="extras/OSHW"><b>OSHW</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=purchase"><b>PURCHASE</b></a>
+  &nbsp;&nbsp;· · ·&nbsp;&nbsp;
 </p>
 <br>
 <p align="center">
