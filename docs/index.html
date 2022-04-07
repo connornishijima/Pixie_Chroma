@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <hr  />
 <p><img src="https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/quad_mode.png?raw=true" alt="PIXIE CHROMA" class="inline"/></p>
 <p><b>Quad mode is made specifically for those wishing to drive their displays faster.</b> By <em>optionally</em> sending the data in four parallel streams with Quad Mode, you can expect to see a ~3.75x increase in speed! For example, if you had 12 Pixie Chromas, you can wire four GPIO of your microcontroller to the 1st, 4th, 7th, and 10th Pixie. Each GPIO is now only responsible for the data of three Pixie Chromas compared to <em>only one GPIO feeding all 12</em>. With this, you can run animations, scrolling, and color palettes more smoothly or free up processor time!</p>
+<p><b>NOTE:</b> Quad Mode currently uses hard-coded GPIO pins depending on your microcontroller. To see which pins are needed, visit <a href="https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c">the documentation for begin_quad()</a>.</p>
 <hr  />
 <p><img src="https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/shortcodes.png?raw=true" alt="PIXIE CHROMA" class="inline"/></p>
 <p>Our next big feature is <b>Shortcodes</b>, a <b>super simple way to show icons beyond the alphanumeric ASCII set and easily create animations!</b> We have an extensive library of 230+ built-in icons that are accessible by name within <em>other</em> strings. See the example above. Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And, if we don't, you can make your own with the magical Shortcode Editor.</p>
@@ -162,9 +163,10 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li>SAMD21 (TODO, has been hard to get)</li>
 </ul>
 <p>If you have success running Pixie Chroma on a controller not currently in this list, let us know! We'd be happy to incorporate it. (You'll need to modify <a href="https://github.com/connornishijima/Pixie_Chroma/blob/main/src/Pixie_Chroma.h">Pixie_Chroma.h</a> to accept the new compilation target first.)</p>
+<p><img src="https://github.com/connornishijima/Pixie_Chroma/raw/main/extras/img/DEMO_ANIMATION.gif?raw=true" alt="PIXIE CHROMA GIF" class="inline"/></p>
 <h2>Dedication to Our Craft</h2>
 <p>Lixie Labs is a homegrown business <b>dedicated to furthering open source hardware and software</b> in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!</p>
-<p><b>We are OSHWA certified (<a href="https://certification.oshwa.org/us002058.html">UID US002058</a>)</b>, we've created an <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet">extensive datasheet</a>, and every function within the library comes with <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs">documentation</a>.</p>
+<p><b>Pixie Chroma is OSHWA certified (<a href="https://certification.oshwa.org/us002058.html">UID US002058</a>)</b>, we've created an <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet">extensive datasheet</a>, and every single function within the library comes with <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs">documentation</a>.</p>
 <p><img src="https://raw.githubusercontent.com/connornishijima/Pixie_Chroma/main/extras/OSHW/oshw_facts.svg" alt="OSHW INFO" style="pointer-events: none;" class="inline"/></p>
 <h2>Features &amp; Specifications</h2>
 <ul>
@@ -243,7 +245,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Apr 7 2022 19:42:34 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Apr 7 2022 20:29:07 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
