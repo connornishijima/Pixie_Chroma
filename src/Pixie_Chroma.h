@@ -43,6 +43,12 @@
 
 #include "Arduino.h" // Needed for things like uint8_t typedefs
 
+/*
+	Below are the currently supported platforms for Pixie Chroma.
+	See https://github.com/connornishijima/Pixie_Chroma#supported-platforms
+	to learn more about these platforms and how to add your own support if you'd like.
+*/
+
 #if defined(__MK20DX128__) || defined(__MK20DX256__)
 	#define ARDUINO_ARCH_TEENSY_3_X	1
 #endif
@@ -53,7 +59,8 @@
 #elif defined(ARDUINO_ARCH_TEENSY_3_X)
 	#include <MsTimer2.h> // MsTimer2 for optional automated show() calls
 #else
-	#error "This library currently only supports ESP8266, ESP32, or TEENSY 3.X controllers."
+	// More coming soon!
+	#error "This library currently only supports ESP8266, ESP32, or TEENSY 3.X controllers. See https:\/\/github.com/connornishijima/Pixie_Chroma#supported-platforms for help."
 #endif
 
 #if defined(ARDUINO_ARCH_ESP32)
