@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Source+Sans+Pro:wght@200;400;900&display=swap" rel="stylesheet">
+		<style>
+			#content{
+				color:#ff5c93;
+				font-family: 'Source Sans Pro', sans-serif;
+			}
+			#cs{
+				filter: invert(1);
+			}
+			#header{
+				font-family: 'Raleway', sans-serif;
+				height: 20px;
+				padding-top: 5px;
+				padding-bottom: 10px;
+				padding-left: 8px;
+				padding-right: 8px;
+				color: #000;
+				background-color: #ff5c93;
+				text-transform: uppercase;
+				font-size: 22px;
+				margin-bottom: 40px;
+				max-width: 770px;
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 40px;
+			}
+			#vendor_box{
+				width: fit-content;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			#hero{
+				width:600px;
+				display:block;
+				margin-left:auto;
+				margin-right:auto;
+			    margin-bottom: -70px;
+			}
+			.vendor{
+				background-color:#cccccc;
+			    width: 400px;
+				display:inline-block;
+				padding:15px;
+				border-radius:10px;
+				margin-bottom:20px;
+			}
+			.vendor:hover{
+				background-color:#fbdb00;
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body> 
+		<div id="content">
+			<img src="img/PCB_tranparent.png" id="hero"></img>
+			<div id="header">
+				You can purchase your own Pixie Chromas from our vendors:
+			</div>
+			<br>
+			<div id="vendor_box">
+				<div class="vendor">
+					<div class="vendor_logo">
+						<a href="https://www.adafruit.com/product/5409" target="_blank">
+							<img src="img/ada_logo.svg" id="ada"></img>
+						</a>
+					</div>
+				</div>
+				<br>
+				<div class="vendor">
+					<div class="vendor_logo">
+						<a href="https://www.crowdsupply.com/lixie-labs/pixie-chroma" target="_blank">
+							<img src="img/cs_logo.svg" id="cs"></img>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
