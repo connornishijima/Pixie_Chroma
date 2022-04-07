@@ -86,6 +86,27 @@ void loop() {
 
 ![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm5.png?raw=true)
 
+## Supported Platforms
+
+Pixie Chroma is a bit RAM heavy for its effects and color processing. 8 Pixie Chroma PCBs is 560 LEDs, so that's 1,680 bytes just for the color data! Add in the masking tricks, XY mapping and more, and you're unfortunately not going to get a set of Chromas working on an older microcontroller like the ATMega328p with only 2K of SRAM. ***However***, more modern controllers like those from Espressif are perfectly fine! (ESP8266 has 80KiB of RAM!)
+
+The Pixie Chroma library also uses FastLED as a dependency, so FastLED itself also needs compatibility before we can support it here. *This is why the RP2040 is not yet supported. Soon!*
+
+### Fully Supported Microcontrollers
+
+- ESP8266 (Adafruit HUZZAH, Wemos D1 Mini, etc.)
+- ESP32 (TinyPico, HUZZAH32)
+- Teensy 3.x (Possibly Teensy 4.x, not yet tested)
+
+### Currently Planned Support
+
+- RP2040 (Needs FastLED port)
+- ESP32-S2 (Needs testing)
+- ESP32-S3 (Needs testing)
+- SAMD21 (TODO, has been hard to get)
+
+If you have sucess running Pixie Chroma on a controller not currently in this list, let us know! We'd be happy to incorporate it. (You'll need to modify [Pixie_Chroma.h](https://github.com/connornishijima/Pixie_Chroma/blob/main/src/Pixie_Chroma.h) to accept the new compilation target first.)
+
 ## Dedication to Our Craft
 
 Lixie Labs is a homegrown business **dedicated to furthering open source hardware and software** in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!
