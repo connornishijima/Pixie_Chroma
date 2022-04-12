@@ -1,4 +1,4 @@
-### HEY GUYS! *This file is currently being written, but public for now to help others that may need it (4/12/22)*
+### HEY GUYS! *This file is currently being written, but public for now to help others that may need it. Formatting is still whack and pictures are TODO. (4/12/22)*
 
 # GETTING STARTED with PIXIE CHROMA
 
