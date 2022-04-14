@@ -145,15 +145,50 @@ Did it work? If it did, *CONGRATULATIONS!* You should see "HI <3" on the display
 
 ## 6. Writing your own Pixie Chroma code 
 
-Once you've tried several Pixie Chroma examples provided with the library, and feel comfortable to write your own code, an easy time saver is to use the **Minimal Sketches**.
+While we have an extensive [Pixie Chroma Software Documentation site](https://connornishijima.github.io/Pixie_Chroma/?section=docs) which details every single bit of the library available for you to use, there are only a few basic functions to learn for most projects:
+
+--------------------------------------------------
+
+**pix.begin(** *DATA_PIN*, *PIXIES_X*, *PIXIES_Y* **);**
+
+`pix.begin()` is a necessary function you need in the `setup()` of your Arduino Sketch. This initializes the library and helps it to understand the size of display you have built.
+             
+Pixie Chroma allows for multi-row displays, which are wired in western reading order (left to right, top to bottom) and their shape is defined here. For example, a 16-Pixie display with two rows of eight:
+              
+    data_pin
+       |
+    +--+-+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+    |  1 |-->|  2 |-->|  3 |-->|  4 |-->|  5 |-->|  6 |-->|  7 |-->|  8 | 
+    +----+   +----+   +----+   +----+   +----+   +----+   +----+   +--+-+
+                                                                      |
+       +--------------------------------------------------------------+
+       |
+    +----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+    |  9 |-->| 10 |-->| 11 |-->| 12 |-->| 13 |-->| 14 |-->| 15 |-->| 16 | 
+    +----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+    
+The corresponding setup for this display layout would be:
+    
+    #include "Pixie_Chroma.h"
+    PixieChroma pix;
+
+    #define DATA_PIN 5
+    #define PIXIES_X 8
+    #define PIXIES_Y 2
+
+    void setup() {
+        pix.begin( DATA_PIN, PIXIES_X, PIXIES_Y );
+    }
+
+--------------------------------------------------
+
+Even better than writing some these functions out, an easy time saver is to use the **Minimal Sketches**.
 
 	PIC
 	
-These templates cover all of the basic setup necessities to write code for Pixie Chroma, leaving only the fun parts!
+These templates (included as library examples) cover all of the basic setup necessities to write code for Pixie Chroma, leaving only the fun parts!
 
 There are two templates, one for "Standard Mode" and one for "Quad Mode". Quad Mode is for power users with experience and requires more complex wiring, so most for most projects "Standard Mode" will do.
-
-For help knowing what functions are available to use (and how they work) visit the [Pixie Chroma Software Documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs), which details every single bit of the library available for you to use!
 
 ## 7. Diagnosing Issues
 
