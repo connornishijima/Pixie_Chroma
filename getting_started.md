@@ -2,35 +2,21 @@
 
 	BANNER
 
-# GETTING STARTED with PIXIE CHROMA
+# GETTING STARTED
 
-Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited as we are to begin, there's only a few steps ahead of you before they light up. You may already have some steps complete, feel free to skip ahead. First, a glossary for those who may need it:
-
-### GLOSSARY
-
-#### Microcontroller
-
-A small, simple processor capable of running custom code and physically interfacing with other electronics
-
-#### IDE
-
-Integrated Development Environment - the software used to write code, which (in this case) also handles uploading it to a microcontroller.
-
-#### Arduino
-
-An open-source ecosystem for designing electronic circuits based around microcontrollers. Annoyingly, this term is used interchangably to describe both the Arduino IDE and informally describe many microcontrollers that work with it.
-
-#### Sketch
-
-The even more annoying name Arduino chose to describe code written by users. You "Write a sketch" and upload the "sketch" to your microcontroller. (This term actually originates from Processing, a motion graphics software that Arduino IDE is forked from, as is the very old ".pde" file extension Arduino used to use a decade ago.)
-
-#### GPIO
-
-General-Purpose Input/Output - These are physical pins on the microcontroller that can be selectively given/denied power by users' code. They can also act as inputs, measuring the outside world for changes such as a button press.
+Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited as we are to begin, there's only a few steps ahead of you before they light up. You may even have some steps complete already, feel free to skip ahead!
 
 #### NOTE: Please see the [current list of supported microcontrollers](https://github.com/connornishijima/Pixie_Chroma#supported-platforms) in the README - ESP32 is currently the most powerful option for Pixie Chroma projects, and is quite cheap too!
 
-# A STEP BY STEP GUIDE to using Pixie Chromas:
+-------------------------------------------------------------
+
+### ***If you're new to coding for electronics, we have a small [Glossary](#glossary) at the bottom of this page you can refer to.***
+
+-------------------------------------------------------------
+
+	PIC
+
+# A STEP BY STEP GUIDE to using Pixie Chroma:
 
 1. [Download Arduino IDE](#1-download-arduino-ide)
 2. [Installing Board Definitions](#2-installing-board-definitions)
@@ -42,7 +28,11 @@ General-Purpose Input/Output - These are physical pins on the microcontroller th
 
 ## 1. Download Arduino IDE
 
-Visit [www.arduino.cc/downloads](https://www.arduino.cc/downloads) and download the latest version of the IDE for your operating system. Once downloaded and installed, proceed to Step 2.
+Visit [www.arduino.cc/downloads](https://www.arduino.cc/downloads) and download the latest version of the IDE for your operating system.
+
+	PIC
+
+Once downloaded and installed, proceed to Step 2.
 
 #### NOTE: This tutorial will center around the *1.X* version of Arduino IDE. A guide for the upcoming *2.X* version is planned for a future date when that version finishes its Release Candidate period.
 
@@ -54,15 +44,18 @@ You can add new board definitions under: `File > Preferences > Additional Boards
 
 	PIC
 
-This will open a window where you can paste the following URLs, depending on the micocontroller you are using:
+This will open a window where you can copy / paste in the following URLs, depending on the micocontroller you are using:
 
 **ESP8266:**
+
 https://arduino.esp8266.com/stable/package_esp8266com_index.json
 	
 **ESP32:**
+
 https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
 	
 **Teensy 3.X:**
+
 *Teensy controllers use a more custom set up, follow the instructions on this page to install Teensy support:*
 https://www.pjrc.com/teensy/td_download.html
 
@@ -175,3 +168,27 @@ Here are a few steps to take if your Pixie Chroma PCB isn't functioning as expec
 This may be nerve-wracking, but a few easy mistakes can cause this:
 
 1. Are your Pixie Chromas powered with the same voltage level your GPIO pins operate at?
+
+# GLOSSARY
+
+These are some terms you'll need to know for this guide:
+
+#### Microcontroller
+
+A small, simple processor capable of running custom code and physically interfacing with other electronics
+
+#### IDE
+
+Integrated Development Environment - the software used to write code, which (in this case) also handles uploading it to a microcontroller.
+
+#### Arduino
+
+An open-source ecosystem for designing electronic circuits based around microcontrollers. Annoyingly, this term is used interchangably to describe both the Arduino IDE and informally describe many microcontrollers that work with it.
+
+#### Sketch
+
+The even more annoying name Arduino chose to describe code written by users. You "Write a sketch" and upload the "sketch" to your microcontroller. (This term actually originates from Processing, a motion graphics software that Arduino IDE is forked from, as is the very old ".pde" file extension Arduino used to use a decade ago.)
+
+#### GPIO
+
+General-Purpose Input/Output - These are physical pins on the microcontroller that can be selectively given/denied power by users' code. They can also act as inputs, measuring the outside world for changes such as a button press.
