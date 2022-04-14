@@ -2,7 +2,7 @@
 
 | ![extras/img/banner.jpg](extras/img/banner.jpg) |
 |:--:|
-| <b>Image by @blenster</b>|
+| <b>Image by [@blenster](https://twitter.com/blenster)</b>|
 
 # GETTING STARTED
 
