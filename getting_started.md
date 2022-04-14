@@ -42,28 +42,25 @@ Arduino IDE is where you'll be writing code to control your Pixie Chromas, but i
 	
 You can add new board definitions under: `File > Preferences > Additional Boards Manager URLs`.
 
-	PIC
+![Arduino Download Page](extras/img/arduino_board_urls.jpg)
 
 This will open a window where you can copy / paste in the following URLs, depending on the micocontroller you are using:
 
-**ESP8266:**
-
-https://arduino.esp8266.com/stable/package_esp8266com_index.json
-	
-**ESP32:**
-
-https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
-	
-**Teensy 3.X:**
-
-*Teensy controllers use a more custom set up, follow the instructions on this page to install Teensy support:*
-https://www.pjrc.com/teensy/td_download.html
+    ESP8266:
+    	https://arduino.esp8266.com/stable/package_esp8266com_index.json
+    	
+    ESP32:
+    	https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
+    	
+    Teensy 3.X:
+    	Teensy controllers use a more custom set up, follow the instructions on this page to install Teensy support:
+    	https://www.pjrc.com/teensy/td_download.html
 
 Once a new Board Definition is pasted in, open `Tools > Board > Boards Manager`.
 
 Another window will pop up, and once the list loads you'll now see an entry that matches your microcontroller and you can click "Install" to enable support in Arduino IDE for your microcontroller type.
 
-	PIC
+![Arduino Board Manager](extras/img/arduino_board_install.jpg)
 
 ## 3. Installing the Pixie Chroma Arduino Library
 
