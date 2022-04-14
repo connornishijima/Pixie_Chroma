@@ -179,7 +179,7 @@ The corresponding setup for this display layout would be:
 
 Even better than writing some these functions out, an easy time saver is to use the **Minimal Sketches**.
 
-	PIC
+![Arduino Minimal](extras/img/arduino_minimal.png)
 	
 These templates (included as library examples) cover all of the basic setup necessities to write code for Pixie Chroma, leaving only the fun parts!
 
