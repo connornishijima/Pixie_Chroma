@@ -130,7 +130,7 @@ Now, plug the microcontroller back in and check the Ports menu again. Whatever n
 
 Select this port, and hit the "Upload" button in the top left of the IDE:
 
-	PIC
+![Arduino Upload](extras/img/arduino_upload.png)
 
 This first upload will likely take a few minutes to complete, as the IDE has to compile tons of new data that it will keep around for subsequent runs. After this, uploading will only take about 30-60 seconds.
 
