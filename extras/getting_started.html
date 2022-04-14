@@ -1,0 +1,22 @@
+<html>
+	<head>
+    <title>
+      Pixie Chroma | Getting Started Guide
+    </title>
+	</head>
+	<body>
+		<div id="content">
+			Loading...
+		</div>
+
+		<script src="scripts/marked.js"></script>
+		<script>
+		  fetch("https://github.com/connornishijima/Pixie_Chroma/blob/main/getting_started.md?raw=true")      // The path to the raw Markdown file
+			.then(response => response.blob())  // Unwrap to a blob...
+			.then(blob => blob.text())          // ...then to raw text...
+			.then(markdown => {                 // ...then pass the raw text into marked.parse
+			  document.getElementById("content").innerHTML = marked.parse(markdown);
+			});
+		</script>
+	</body>
+</html>
