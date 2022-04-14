@@ -1,6 +1,8 @@
 ### HEY GUYS! *This file is currently being written, but public for now to help others that may need it. Formatting is still whack and pictures are TODO. (4/12/22) Work continues, should be finished tonight (4/13/22)*
 
-	BANNER
+| ![extras/img/banner.jpg](extras/img/banner.jpg) |
+|:--:|
+| <b>Image by @blenster</b>|
 
 # GETTING STARTED
 
@@ -13,8 +15,6 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 ### ***If you're new to coding for electronics, we have a small [Glossary](#glossary) at the bottom of this page you can refer to.***
 
 -------------------------------------------------------------
-
-	PIC
 
 # A STEP BY STEP GUIDE to using Pixie Chroma:
 
@@ -30,7 +30,7 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 
 Visit [www.arduino.cc/downloads](https://www.arduino.cc/downloads) and download the latest version of the IDE for your operating system.
 
-	PIC
+![Arduino Download Page](extras/img/arduino_download.JPG)
 
 Once downloaded and installed, proceed to Step 2.
 
