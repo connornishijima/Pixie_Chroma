@@ -32,13 +32,13 @@ General-Purpose Input/Output - These are physical pins on the microcontroller th
 
 # A STEP BY STEP GUIDE to using Pixie Chromas:
 
-1. Download Arduino IDE
-2. Installing Board Definitions
-3. Installing the Pixie Chroma Arduino Library
-4. Wiring
-5. Uploading Example Code
-6. Writing your own Pixie Chroma code
-7. Extra: Reporting Issues
+1. [Download Arduino IDE](#1-download-arduino-ide)
+2. [Installing Board Definitions](#2-installing-board-definitions)
+3. [Installing the Pixie Chroma Arduino Library](#3-installing-the-pixie-chroma-arduino-library)
+4. [Wiring](#4-wiring)
+5. [Uploading Example Code](#5-uploading-example-code)
+6. [Writing your own Pixie Chroma code](#6-writing-your-own-pixie-chroma-code)
+7. [Extra: Diagnosing Issues](#7-diagnosing-issues)
 
 ## 1. Download Arduino IDE
 
