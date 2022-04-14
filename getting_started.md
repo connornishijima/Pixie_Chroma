@@ -108,7 +108,7 @@ Back in the Arduino IDE, open `File > Examples > Pixie_Chroma > 01_Basic > 01_Ge
 
 ![Example Location](extras/img/arduino_example_location.png)
 	
-![Getting Started Code](extras/img/getting_started_code.png)
+![Getting Started Code](extras/img/getting_started_code.jpg)
 
 Before uploading this code, we have three lines to change based on our set up process so far. 
 
