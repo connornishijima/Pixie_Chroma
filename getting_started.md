@@ -47,14 +47,14 @@ You can add new board definitions under: `File > Preferences > Additional Boards
 This will open a window where you can copy / paste in the following URLs, depending on the micocontroller you are using:
 
     ESP8266:
-    	https://arduino.esp8266.com/stable/package_esp8266com_index.json
+    https://arduino.esp8266.com/stable/package_esp8266com_index.json
     	
     ESP32:
-    	https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
+    https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_dev_index.json
     	
     Teensy 3.X:
-    	Teensy controllers use a more custom set up, follow the instructions on this page to install Teensy support:
-    	https://www.pjrc.com/teensy/td_download.html
+    Teensy controllers use a more custom set up, follow the instructions on this page to install Teensy support:
+    https://www.pjrc.com/teensy/td_download.html
 
 Once a new Board Definition is pasted in, open `Tools > Board > Boards Manager`.
 
