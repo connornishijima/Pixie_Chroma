@@ -26,7 +26,7 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 6. [Writing your own Pixie Chroma code](#6-writing-your-own-pixie-chroma-code)
 7. [Extra: Diagnosing Issues](#7-diagnosing-issues)
 
-## 1. Download Arduino IDE
+# 1. Download Arduino IDE
 
 Visit [www.arduino.cc/downloads](https://www.arduino.cc/downloads) and download the latest version of the IDE for your operating system.
 
@@ -36,7 +36,7 @@ Once downloaded and installed, proceed to Step 2.
 
 #### NOTE: This tutorial will center around the *1.X* version of Arduino IDE. A guide for the upcoming *2.X* version is planned for a future date when that version finishes its Release Candidate period.
 
-## 2. Installing Board Definitions
+# 2. Installing Board Definitions
 
 Arduino IDE is where you'll be writing code to control your Pixie Chromas, but it first has to know which type of microcontroller you're using! This is where **Board Definitions** come in. These allow Arduino IDE to translate your code into instructions that your specific controller can understand.
 	
@@ -62,7 +62,7 @@ Another window will pop up, and once the list loads you'll now see an entry that
 
 ![Arduino Board Manager](extras/img/arduino_board_install.jpg)
 
-## 3. Installing the Pixie Chroma Arduino Library
+# 3. Installing the Pixie Chroma Arduino Library
 
 Now that Arduino IDE supports your microcontroller, we need to install the Pixie Chroma "Library". Libraries are a way to package pre-made code in a simple way. There are *thousands of lines of code* inside the Pixie Chroma library, but because it is packaged as a library, the code *you* write only needs an `#include "Pixie_Chroma.h"` line at the top to use it all!
 
@@ -72,7 +72,7 @@ Open the menu again: `Sketch > Include Library > Manage Libraries...`
 
 When this window appears (it may take some time to unfreeze after opening) you can use the search box to find "pixie chroma", with Lixie Labs listed as the author. Install the latest version, then proceed to Step 4!
 
-## 4. Wiring
+# 4. Wiring
 
 Almost there! This part is quite important. **LEDs are happy to burn themselves out if wired incorrectly**, so follow along carefully!
 
@@ -102,7 +102,7 @@ Lastly, we'll connect it all to the microcontroller, in this case an ESP8266. Th
 
 After double checking that your set up is identical to this photo (**ESPECIALLY** power lines), you can now plug in the USB cable to the microcontroller. *If nothing went 'zap', you did it!!!* The hardest part is over and you're ready to proceed to Step 5, where we'll see them light up for the first time!
 
-## 5. Uploading Example Code
+# 5. Uploading Example Code
 
 Wipe the sweat from your forehead, you're almost done! Next we'll upload example code to the microcontroller to have it show a sort of "HELLO" as a first test.
 
@@ -140,7 +140,7 @@ This first upload will likely take a few minutes to complete, as the IDE has to 
 	
 Did it work? If it did, *CONGRATULATIONS!* You should see "HI <3" on the displays, written in pink! If not, skip ahead to Step 7 to begin diagnosing the issue.
 
-## 6. Writing your own Pixie Chroma code 
+# 6. Writing your own Pixie Chroma code 
 
 While we have an extensive [Pixie Chroma Software Documentation site](https://connornishijima.github.io/Pixie_Chroma/?section=docs) which details every single bit of the library available for you to use, there are only a few basic functions to learn for most projects:
 
@@ -187,7 +187,7 @@ These templates (included as library examples) cover all of the basic setup nece
 
 There are two templates, one for "Standard Mode" and one for "Quad Mode". Quad Mode is for power users with experience and requires more complex wiring, so most for most projects "Standard Mode" will do.
 
-## 7. Diagnosing Issues
+# 7. Diagnosing Issues
 
 Below are a few types of issues you may face if something wasn't configured / wired / soldered properly.
 
