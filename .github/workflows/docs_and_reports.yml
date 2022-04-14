@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Work around GitHub permission issue
-        run: sudo git config --global --add safe.directory *
+        run: "sudo git config --global --add safe.directory /github/workspace"
         
       - name: Checkout Repo
         uses: actions/checkout@v2
