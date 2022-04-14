@@ -68,7 +68,7 @@ Now that Arduino IDE supports your microcontroller, we need to install the Pixie
 
 Open the menu again: `Sketch > Include Library > Manage Libraries...`
 
-	PIC
+![Arduino Library Manager](extras/img/arduino_library_manager.jpg)
 
 When this window appears (it may take some time to unfreeze after opening) you can use the search box to find "pixie chroma", with Lixie Labs listed as the author. Install the latest version, then proceed to Step 4!
 
