@@ -43,9 +43,9 @@ PixieChroma::PixieChroma(){}
     FastLED, and sets the default power budget.
              
     @details
-    Pixie Chroma allows for multi-row displays, which are wired in reading
-    order (left to right, top to bottom) and their shape is defined here. For
-    example, a 16-Pixie display with two rows of eight:
+    Pixie Chroma allows for multi-row displays, which are wired in western
+    reading order (left to right, top to bottom) and their shape is defined
+    here. For example, a 16-Pixie display with two rows of eight:
               
         data_pin
            |
@@ -179,8 +179,8 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
             pix.begin_quad( PIXIES_PER_PIN, PIXIES_X, PIXIES_Y );
         }
     
-    Then, with the displays physically arranged in reading order ( left to right,
-    top to bottom ) you're ready to begin!
+    Then, with the displays physically arranged in western reading order
+    (left to right, top to bottom) you're ready to begin!
 
         DATA_OUT_1 --+                       DATA_OUT_2 ----+
                      |                                      |
