@@ -189,11 +189,11 @@ There are two templates, one for "Standard Mode" and one for "Quad Mode". Quad M
 
 Below are a few types of issues you may face if something wasn't configured / wired / soldered properly.
 
-### PCB DOES NOT LIGHT UP
+## PCB DOES NOT LIGHT UP
 
 Here are a few steps to take if your Pixie Chroma PCB isn't functioning as expected. There are two types of failure:
 
-#### PCB DOES NOT LIGHT UP AT ALL
+### PCB DOES NOT LIGHT UP AT ALL
 
 This may be nerve-wracking, but a few easy mistakes can cause this:
 
