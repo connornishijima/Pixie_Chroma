@@ -16,8 +16,6 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 
 -------------------------------------------------------------
 
-# A STEP BY STEP GUIDE to using Pixie Chroma:
-
 1. [Download Arduino IDE](#1-download-arduino-ide)
 2. [Installing Board Definitions](#2-installing-board-definitions)
 3. [Installing the Pixie Chroma Arduino Library](#3-installing-the-pixie-chroma-arduino-library)
