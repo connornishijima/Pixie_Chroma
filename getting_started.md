@@ -62,7 +62,7 @@ Another window will pop up, and once the list loads you'll now see an entry that
 
 # 3. Installing the Pixie Chroma Arduino Library
 
-Now that Arduino IDE supports your microcontroller, we need to install the Pixie Chroma "Library". Libraries are a way to package pre-made code in a simple way. There are *thousands of lines of code* inside the Pixie Chroma library, but because it is packaged as a library, the code *you* write only needs an `#include "Pixie_Chroma.h"` line at the top to use it all!
+Now that Arduino IDE supports your microcontroller, you need to install the Pixie Chroma "Library". Libraries are a way to package pre-made code in a simple way. There are *thousands of lines of code* inside the Pixie Chroma library, but because it is packaged as a library, the code *you* write only needs an `#include "Pixie_Chroma.h"` line at the top to use it all!
 
 Open the menu again: `Sketch > Include Library > Manage Libraries...`
 
@@ -88,13 +88,13 @@ Using the included Pinout Card as a reference, wire up your power lines like so:
 
 You can also use standard breadboard jumpers that aren't cut to size like these, but custom wires help to reduce the likelihood of accidentally snagging a loose one while improving appearances.
 
-Next, we'll connect the data lines from the bottom of each PCB to the top of the next like so ("OUT" of one board to the "IN" of the next):
+Next, you'll connect the data lines from the bottom of each PCB to the top of the next like so: ("OUT" of one board to the "IN" of the next)
 
 	PIC
 
 ### NOTE: Pixies are always arranged / wired in western reading order: Left to Right in each row, from Top to Bottom.
 
-Lastly, we'll connect it all to the microcontroller, in this case an ESP8266. The positive (red) rail of the breadboard should be connected to the 3.3V pin of the microcontroller, the negative (black or blue) rail of the breadboard should be connected to a GND pin, and the "IN" pin of your first Pixie Chroma in the chain should be connected to the GPIO of your choice. In this case, we'll use GPIO 5 (stupidly, confusingly marked "D1" on this microcontroller) like so:
+Lastly, you'll connect it all to the microcontroller, in this case an ESP8266. The positive (red) rail of the breadboard should be connected to the 3.3V pin of the microcontroller, the negative (black or blue) rail of the breadboard should be connected to a GND pin, and the "IN" pin of your first Pixie Chroma in the chain should be connected to the GPIO of your choice. In this case, you'll use GPIO 5 (stupidly, confusingly marked "D1" on this microcontroller) like so:
 
 	PIC
 
@@ -102,13 +102,13 @@ After double checking that your set up is identical to this photo (**ESPECIALLY*
 
 # 5. Uploading Example Code
 
-Wipe the sweat from your forehead, you're almost done! Next we'll upload example code to the microcontroller to have it show a sort of "HELLO" as a first test.
+Wipe the sweat from your forehead, you're almost done! Next you'll upload example code to the microcontroller to have it show a sort of "HELLO" as a first test.
 
 Back in the Arduino IDE, open `File > Examples > Pixie_Chroma > 01_Basic > 01_Getting_Started`.
 
-	PIC
+![Example Location](extras/img/arduino_example_location.png)
 	
-	PIC
+![Getting Started Code](extras/img/getting_started_code.jpg)
 
 Before uploading this code, we have three lines to change based on our set up process so far. 
 
@@ -118,7 +118,7 @@ Before uploading this code, we have three lines to change based on our set up pr
 
 DATA_PIN should be "5" in the case of this tutorial's wiring, and PIXIES_X should match how many Pixie PCBs wide our display is. (PIXIES_Y is for multi-row displays and will be left as "1" for now)
 
-Once this change is made, we need to select the "Serial Port" our microcontroller is on so that the computer knows where to send the code. To do this, first unplug your microcontroller again. Now, open the `Tools > Port` menu and look at the entries, if any. There is a chance that although your microcontroller is unplugged, you'll still see ports available such as "COM1" on Windows, and "/dev/TTY*****" on Mac/Linux.
+Once this change is made, you need to select the "Serial Port" our microcontroller is on so that the computer knows where to send the code. To do this, first unplug your microcontroller again. Now, open the `Tools > Port` menu and look at the entries, if any. There is a chance that although your microcontroller is unplugged, you'll still see ports available such as "COM1" on Windows, and "/dev/TTY*****" on Mac/Linux.
 
 	PIC
 
