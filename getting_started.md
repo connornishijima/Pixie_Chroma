@@ -197,7 +197,7 @@ Here are a few steps to take if your Pixie Chroma PCB isn't functioning as expec
 
 This may be nerve-wracking, but a few easy mistakes can cause this:
 
-1. Are your Pixie Chromas powered with the same voltage level your GPIO pins operate at?
+- Are your Pixie Chromas powered with the same voltage level your GPIO pins operate at?
 
 # GLOSSARY
 
