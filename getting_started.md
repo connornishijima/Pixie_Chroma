@@ -120,13 +120,13 @@ DATA_PIN should be "5" in the case of this tutorial's wiring, and PIXIES_X shoul
 
 Once this change is made, you need to select the "Serial Port" our microcontroller is on so that the computer knows where to send the code. To do this, first unplug your microcontroller again. Now, open the `Tools > Port` menu and look at the entries, if any. There is a chance that although your microcontroller is unplugged, you'll still see ports available such as "COM1" on Windows, and "/dev/TTY*****" on Mac/Linux.
 
-	PIC
+![Ports Empty](extras/img/ports_empty.png)
 
 These are likely virtual serial ports from your OS, or other devices attached to your computer. We don't want to work with these, so take note of their names.
 
-Now, plug the microcontroller back in and check the Ports menu again. Whatever new entry that wasn't there before is your microcontroller, such as "COM6".
+Now, plug the microcontroller back in and check the Ports menu again. Whatever new entry that wasn't there before is your microcontroller, such as "COM16".
 
-	PIC
+![Ports Connected](extras/img/ports_connected.png)
 
 Select this port, and hit the "Upload" button in the top left of the IDE:
 
