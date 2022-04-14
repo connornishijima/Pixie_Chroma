@@ -11,7 +11,7 @@
 
 		<script src="scripts/marked.js"></script>
 		<script>
-		  fetch("getting_started.md")      // The path to the raw Markdown file
+		  fetch("../getting_started.md")      // The path to the raw Markdown file
 			.then(response => response.blob())  // Unwrap to a blob...
 			.then(blob => blob.text())          // ...then to raw text...
 			.then(markdown => {                 // ...then pass the raw text into marked.parse
