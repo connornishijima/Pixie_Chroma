@@ -2,7 +2,7 @@
 
 | ![extras/img/banner.jpg](extras/img/banner.jpg) |
 |:--:|
-| <b>Image by @blenster</b>|
+| <b>Image by [@blenster](https://twitter.com/blenster)</b>|
 
 # GETTING STARTED
 
@@ -30,7 +30,7 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 
 Visit [www.arduino.cc/downloads](https://www.arduino.cc/downloads) and download the latest version of the IDE for your operating system.
 
-![Arduino Download Page](extras/img/arduino_download.JPG)
+![Arduino Download Page](extras/img/arduino_download_ide.jpg)
 
 Once downloaded and installed, proceed to Step 2.
 
