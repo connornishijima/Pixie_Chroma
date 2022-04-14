@@ -76,7 +76,7 @@ char* dtoa(double input, char* buffer, int precision) {
 		while( *end_of_string != '\0' ){
 			end_of_string++;
         }
-		*end_of_string++ = '.';
+		*end_of_string++ = '.'; 
 
 		// Now work on the fraction, being sure to turn any negative
 		// values positive.
