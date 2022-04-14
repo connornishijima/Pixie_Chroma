@@ -106,9 +106,9 @@ Wipe the sweat from your forehead, you're almost done! Next we'll upload example
 
 Back in the Arduino IDE, open `File > Examples > Pixie_Chroma > 01_Basic > 01_Getting_Started`.
 
-	PIC
+![Example Location](extras/img/arduino_example_location.png)
 	
-	PIC
+![Getting Started Code](extras/img/getting_started_code.png)
 
 Before uploading this code, we have three lines to change based on our set up process so far. 
 
