@@ -1545,6 +1545,17 @@ void PixieChroma::show(){
     interrupts();
 }
 
+/*! ############################################################################
+    @brief
+    Custom delay() function from FastLED that allows automatic refreshing of the
+	displays during a delay() call, allowing things like temporal dithering to
+	continue to function properly while the microcontroller waits.
+	
+	@param  milliseconds  Number of milliseconds to wait
+*///............................................................................
+void PixieChroma::delay(uint32_t milliseconds){
+	FastLED.delay( milliseconds );
+}
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // %% FUNCTIONS - COLOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
