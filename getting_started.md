@@ -1,5 +1,3 @@
-### HEY GUYS! *This file is currently being written, but public for now to help others that may need it. Formatting is still whack and pictures are TODO. (4/12/22) Work continues, should be finished tonight (4/13/22)*
-
 | ![extras/img/banner.jpg](extras/img/banner.jpg) |
 |:--:|
 | <b>Image by [@blenster](https://twitter.com/blenster)</b>|
@@ -75,6 +73,8 @@ When this window appears (it may take some time to unfreeze after opening) you c
 Almost there! This part is quite important. **LEDs are happy to burn themselves out if wired incorrectly**, so follow along carefully!
 
 Begin by inserting your displays into a breadboard like so:
+
+### NOTE: Pixie Chroma PCBs will only work when installed right-side-up! There is a *small gold arrow* on each PCB that should always point towards the top of your display!
 
 ![Wiring 1](extras/img/wiring1.jpg)
 	
