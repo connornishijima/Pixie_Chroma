@@ -123,7 +123,7 @@ class PixieChroma{
 		/*|*/ void free();
 		/*|*/ void hold();
 		/*|*/ void show();
-		/*|*/ void refreshed_delay();
+		/*|*/ void delay(uint32_t milliseconds);
 		/*+---------------------------------------------------------------------------------*/
 		
 		/*+-- Functions - Color ------------------------------------------------------------*/ 

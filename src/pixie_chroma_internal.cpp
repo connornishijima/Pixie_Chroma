@@ -1553,7 +1553,7 @@ void PixieChroma::show(){
 	
 	@param  milliseconds  Number of milliseconds to wait
 *///............................................................................
-void PixieChroma::refreshed_delay(uint32_t milliseconds){
+void PixieChroma::delay(uint32_t milliseconds){
 	FastLED.delay( milliseconds );
 }
 
