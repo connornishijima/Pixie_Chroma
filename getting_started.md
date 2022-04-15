@@ -203,6 +203,12 @@ This may be nerve-wracking, but a few easy mistakes can cause this:
 
 These are some terms you'll need to know for this guide:
 
+![Breadboard Diagram](extras/img/breadboard.jpg)
+
+#### Breadboard
+
+A prototyping tool that allows you to easily make connections between electronics without using solder. See the above diagram to understand how the holes are electrically connected. Basically: anything inserted in the same column of holes is connected. The top and bottom rows are for power, and are (*almost* always) connected through the entire length of the breadboard.
+
 #### Microcontroller
 
 A small, simple processor capable of running custom code and physically interfacing with other electronics
