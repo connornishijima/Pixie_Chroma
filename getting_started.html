@@ -57,6 +57,9 @@
 				margin-right: auto;
 				padding: 20px 20px;
 			}
+			.pink_highlight{
+				color: #ff5c93;
+			}
 		</style>
 	</head>
 	<body>
@@ -74,6 +77,7 @@
 			.then(blob => blob.text())          // ...then to raw text...
 			.then(markdown => {                 // ...then pass the raw text into marked.parse
 			  document.getElementById("content").innerHTML = marked.parse(markdown);
+			  document.getElementById("content").innerHTML.replaceAll("NOTE:", "<span class='pink_highlight'>NOTE:</span>");
 			});
 		</script>
 	</body>
