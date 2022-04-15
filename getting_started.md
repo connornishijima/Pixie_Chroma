@@ -8,11 +8,7 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 
 #### NOTE: Please see the [current list of supported microcontrollers](https://github.com/connornishijima/Pixie_Chroma#supported-platforms) in the README - ESP32 is currently the most powerful option for Pixie Chroma projects, and is quite cheap too!
 
--------------------------------------------------------------
-
-### ***If you're new to coding for electronics, we have a small [Glossary](#glossary) at the bottom of this page you can refer to.***
-
--------------------------------------------------------------
+### Table of Contents
 
 1. [Download Arduino IDE](#1-download-arduino-ide)
 2. [Installing Board Definitions](#2-installing-board-definitions)
@@ -21,6 +17,12 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 5. [Uploading Example Code](#5-uploading-example-code)
 6. [Writing your own Pixie Chroma code](#6-writing-your-own-pixie-chroma-code)
 7. [Extra: Diagnosing Issues](#7-diagnosing-issues)
+
+-------------------------------------------------------------
+
+### ***If you're new to coding for electronics, we have a small [Glossary](#glossary) at the bottom of this page you can refer to.***
+
+-------------------------------------------------------------
 
 # 1. Download Arduino IDE
 
