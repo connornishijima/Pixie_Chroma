@@ -76,7 +76,7 @@ Almost there! This part is quite important. **LEDs are happy to burn themselves 
 
 Begin by inserting your displays into a breadboard like so:
 
-	PIC
+![Wiring 1](extras/img/wiring1.jpg)
 	
 Take care to space them so that each LED matrix is equally spaced apart! Once the Pixies are laid out, we'll start with power wiring.
 
@@ -84,19 +84,19 @@ Take care to space them so that each LED matrix is equally spaced apart! Once th
 
 Using the included Pinout Card as a reference, wire up your power lines like so:
 
-	PIC
+![Wiring 2](extras/img/wiring2.jpg)
 
 You can also use standard breadboard jumpers that aren't cut to size like these, but custom wires help to reduce the likelihood of accidentally snagging a loose one while improving appearances.
 
 Next, you'll connect the data lines from the bottom of each PCB to the top of the next like so: ("OUT" of one board to the "IN" of the next)
 
-	PIC
+![Wiring 3](extras/img/wiring3.jpg)
 
 ### NOTE: Pixies are always arranged / wired in western reading order: Left to Right in each row, from Top to Bottom.
 
 Lastly, you'll connect it all to the microcontroller, in this case an ESP8266. The positive (red) rail of the breadboard should be connected to the 3.3V pin of the microcontroller, the negative (black or blue) rail of the breadboard should be connected to a GND pin, and the "IN" pin of your first Pixie Chroma in the chain should be connected to the GPIO of your choice. In this case, you'll use GPIO 5 (stupidly, confusingly marked "D1" on this microcontroller) like so:
 
-	PIC
+![Wiring 4](extras/img/wiring4.jpg)
 
 After double checking that your set up is identical to this photo (**ESPECIALLY** power lines), you can now plug in the USB cable to the microcontroller. *If nothing went 'zap', you did it!!!* The hardest part is over and you're ready to proceed to Step 5, where we'll see them light up for the first time!
 
@@ -134,7 +134,7 @@ Select this port, and hit the "Upload" button in the top left of the IDE:
 
 This first upload will likely take a few minutes to complete, as the IDE has to compile tons of new data that it will keep around for subsequent runs. After this, uploading will only take about 30-60 seconds.
 
-	PIC
+![Wiring 5](extras/img/wiring5.jpg)
 	
 Did it work? If it did, *CONGRATULATIONS!* You should see "HI <3" on the displays, written in pink! If not, skip ahead to Step 7 to begin diagnosing the issue.
 
