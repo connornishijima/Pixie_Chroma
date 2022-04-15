@@ -43,7 +43,7 @@ clear	KEYWORD2
 show	KEYWORD2
 hold	KEYWORD2
 free	KEYWORD2
-delay	KEYWORD2
+refreshed_delay	KEYWORD2
 
 print_color KEYWORD2
 color	KEYWORD2
