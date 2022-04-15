@@ -3,7 +3,7 @@
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
-  <a href="https://github.com/connornishijima/Pixie_Chroma/blob/main/getting_started.md"><b>GETTING STARTED</b></a>
+  <a href="https://connornishijima.github.io/Pixie_Chroma/?section=getting-started"><b>GETTING STARTED</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=docs"><b>LIBRARY DOCS</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
