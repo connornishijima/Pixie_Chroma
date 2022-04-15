@@ -76,6 +76,8 @@ Almost there! This part is quite important. **LEDs are happy to burn themselves 
 
 Begin by inserting your displays into a breadboard like so:
 
+### NOTE: Pixie Chroma PCBs will only work when installed right-side-up! There is a *small gold arrow* on each PCB that should always point towards the top of your display!
+
 ![Wiring 1](extras/img/wiring1.jpg)
 	
 Take care to space them so that each LED matrix is equally spaced apart! Once the Pixies are laid out, we'll start with power wiring.
