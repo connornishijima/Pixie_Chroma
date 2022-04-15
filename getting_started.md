@@ -179,7 +179,7 @@ The corresponding setup for this display layout would be:
 
 Even better than writing some these functions out, an easy time saver is to use the **Minimal Sketches**.
 
-	PIC
+![Arduino Minimal](extras/img/arduino_minimal.png)
 	
 These templates (included as library examples) cover all of the basic setup necessities to write code for Pixie Chroma, leaving only the fun parts!
 
@@ -189,15 +189,15 @@ There are two templates, one for "Standard Mode" and one for "Quad Mode". Quad M
 
 Below are a few types of issues you may face if something wasn't configured / wired / soldered properly.
 
-### PCB DOES NOT LIGHT UP
+## PCB DOES NOT LIGHT UP
 
 Here are a few steps to take if your Pixie Chroma PCB isn't functioning as expected. There are two types of failure:
 
-#### PCB DOES NOT LIGHT UP AT ALL
+### PCB DOES NOT LIGHT UP AT ALL
 
 This may be nerve-wracking, but a few easy mistakes can cause this:
 
-1. Are your Pixie Chromas powered with the same voltage level your GPIO pins operate at?
+- Are your Pixie Chromas powered with the same voltage level your GPIO pins operate at?
 
 # GLOSSARY
 
