@@ -1,5 +1,3 @@
-### HEY GUYS! *This file is currently being written, but public for now to help others that may need it. Formatting is still whack and pictures are TODO. (4/12/22) Work continues, should be finished tonight (4/13/22)*
-
 | ![extras/img/banner.jpg](extras/img/banner.jpg) |
 |:--:|
 | <b>Image by [@blenster](https://twitter.com/blenster)</b>|
