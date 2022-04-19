@@ -36,11 +36,11 @@ void setup() {
   pix.clear(); // ................ Clears the display buffer  
   pix.set_palette(RAINBOW); // ... Sets the color palette to a preset RAINBOW
 
-  pix.set_animation(ANIMATION_PENDULUM);
-  // Set the animation to a "PENDULUM" preset, which uses a sine function
+  pix.set_color_animation(ANIMATION_PENDULUM);
+  // Set the Color Animation to a "PENDULUM" preset, which uses a sine function
   // to swing the current palette left and right at 1Hz.
   //
-  // All animation presets available are in src/utility/pixie_animations.h
+  // All Color Animation presets available are in src/utility/pixie_animations.h
 }
 
 void loop() {

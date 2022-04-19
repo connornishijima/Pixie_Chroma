@@ -24,7 +24,8 @@ void setup() {
   // Initializes the displays, and sets things
   // like the default power budget for you. 
 
-  pix.set_animation(ANIMATION_STATIC);
+  pix.set_color_animation(ANIMATION_STATIC);
+  // Needed to use Color Palettes
 }
 
 void loop() {

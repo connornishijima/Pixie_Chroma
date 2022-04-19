@@ -26,7 +26,7 @@ void setup() {
   Serial.println(F("\n\n******** PIXIE CHROMA UNIT TEST REPORT ********\n"));
   result = pix.unit_tests(); // Run all unit tests
 
-  pix.set_animation(ANIMATION_NULL); // Allow manual coloring
+  pix.set_color_animation(ANIMATION_NULL); // Allow manual coloring
   pix.set_brightness(255);
   pix.clear();
 }

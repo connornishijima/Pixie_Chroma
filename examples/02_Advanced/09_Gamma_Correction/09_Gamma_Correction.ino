@@ -41,15 +41,15 @@ void setup() {
   // like the default power budget for you.
 
   pix.clear(); // ....... Clears the display buffer, and
-  pix.set_palette( // ... sets the palette
+  pix.set_palette( // ... sets the Color Palette
     make_gradient( // ... to a gradient made from
       CRGB::Green, // ... Green to
       CRGB::Black // .... Black.
     )
   );
 
-  pix.set_animation(ANIMATION_STATIC);
-  // An unmoving (static) Animation is required to show color palettes
+  pix.set_color_animation(ANIMATION_STATIC);
+  // An unmoving (static) Color Animation is required to show Color Palettes
 }
 
 void loop() {

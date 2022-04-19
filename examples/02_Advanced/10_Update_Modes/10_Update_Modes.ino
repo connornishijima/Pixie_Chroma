@@ -48,10 +48,10 @@ void setup() {
   pix.clear(); // ....... Clears the display buffer, and
   pix.set_palette(RAINBOW);
 
-  pix.set_animation_speed(2.0); // 200% Speed!
-  pix.set_animation(ANIMATION_PALETTE_SHIFT_LEFT); // ... Set animation and
-  pix.set_update_mode(AUTOMATIC, FPS); // ............... and set the frame
-                                       // ............... rate target to 30FPS
+  pix.set_color_animation_speed(2.0); // 200% Speed!
+  pix.set_color_animation(ANIMATION_PALETTE_SHIFT_LEFT); // ... Set animation and
+  pix.set_update_mode(AUTOMATIC, FPS); // ..................... and set the frame
+                                       // ..................... rate target to 30FPS
 }
 
 void loop() {
