@@ -142,11 +142,17 @@ Did it work? If it did, *CONGRATULATIONS!* You should see "HI <3" on the display
 
 # 6. Writing your own Pixie Chroma code 
 
-While we have an extensive [Pixie Chroma Software Documentation site](https://connornishijima.github.io/Pixie_Chroma/?section=docs) which details every single bit of the library available for you to use, there are only a few basic functions to learn for most projects:
+While we have an extensive [Pixie Chroma Software Documentation site](https://connornishijima.github.io/Pixie_Chroma/?section=docs) which details every single bit of the library available for you to use, there are ***only 4 basic functions to learn for 99% of projects***. (This list is also in the order they are likely to be used in.)
+
+- **pix.begin()**
+- **pix.clear()**
+- **pix.print()**
+- **pix.show()**
 
 --------------------------------------------------
+--------------------------------------------------
 
-**pix.begin(** *DATA_PIN*, *PIXIES_X*, *PIXIES_Y* **);**
+### **pix.begin(** *DATA_PIN*, *PIXIES_X*, *PIXIES_Y* **);** &nbsp;//&nbsp; [DOCS LINK](docs/class_pixie_chroma.html#a5570ee487fa0299cf6cf07a09dcc51e9)
 
 `pix.begin()` is a necessary function you need in the `setup()` of your Arduino Sketch. This initializes the library and helps it to understand the size of display you have built.
              
@@ -178,14 +184,62 @@ The corresponding setup for this display layout would be:
     }
 
 --------------------------------------------------
+--------------------------------------------------
 
-Even better than writing some these functions out, an easy time saver is to use the **Minimal Sketches**.
+### **pix.clear();** &nbsp;//&nbsp; [DOCS LINK](docs/class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db)
+
+Clears (blackens) the entire display and resets the cursor to 0,0.
+
+**NOTE:** This action does not immediately show the cleared display, you still need to call **[pix.show()](https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332)**
+
+--------------------------------------------------
+--------------------------------------------------
+
+### **pix.print(** *MESSAGE* **);** &nbsp;//&nbsp; [DOCS LINK](docs/class_pixie_chroma.html#ac25ecd1460617b86fae6c6a38b0e10ef)
+
+***MESSAGE*** can be any of the following data types:
+
+- **char** | Single char
+- **char\*** | char* string / array
+- **int16_t** | Signed 16-bit integer
+- **uint16_t** | Unsigned 16-bit integer
+- **int32_t** | Signed 32-bit integer
+- **uint32_t** | Unsigned 32-bit integer
+- **float** (extra parameter: *uint8_t places = 2*) | Single-precision floating point number 
+- **double** (extra parameter: *uint8_t places = 2*) | Double-precision floating point number
+
+Pixie Chroma's `print()` function allows easy writing to the displays. It automatically tracks cursor position (where text will print next) meaning you can chain print calls like this:
+
+```
+pix.print( "Sales to date: [:EURO:]" ); // Descriptor with currency symbol
+pix.print( sales_in_euros );            // Variable storing value
+
+// This will print:
+// "Sales to date: €X.YZ"
+
+```
+
+To reset your printing position to 0,0 (top left), use either **[pix.clear()](https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html#a75c1bab0aff30181ed7bc34273d881db)** or **[pix.set_cursor(0,0)](https://connornishijima.github.io/Pixie_Chroma/docs/class_pixie_chroma.html#ae250a6769121e2949f39d4f7d5369942)**.
+
+--------------------------------------------------
+--------------------------------------------------
+
+### **pix.show();** &nbsp;//&nbsp; [DOCS LINK](docs/class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332)
+
+Takes the display data gathered so far (clears, prints, animation, etc.) since the last call to `show()`, and immediately sends it out through the DATA_PIN to the physical displays to be shown.
+
+--------------------------------------------------
+--------------------------------------------------
 
 ![Arduino Minimal](extras/img/arduino_minimal.png)
+
+## Minimal Sketches
+
+Even better than writing some these functions out, an easy time saver is to use the **Minimal Sketches**.
 	
 These templates (included as library examples) cover all of the basic setup necessities to write code for Pixie Chroma, leaving only the fun parts!
 
-There are two templates, one for "Standard Mode" and one for "Quad Mode". Quad Mode is for power users with experience and requires more complex wiring, so most for most projects "Standard Mode" will do.
+There are two templates, one for "Standard Mode" and one for "Quad Mode". (**[QUAD MODE DOCS LINK](docs/class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c)**) Quad Mode is for power users with experience and requires more complex wiring, so most for most projects "Standard Mode" will do.
 
 # 7. Diagnosing Issues
 

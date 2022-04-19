@@ -136,6 +136,8 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     - DATA_OUT_2:  **GPIO 14**
     - DATA_OUT_3:  **GPIO 7**
     - DATA_OUT_4:  **GPIO 8**
+	
+	**(If your microcontroller is not listed here, it does not (yet) support Quad Mode.)**
     
     On each data line, you'll wire `pixies_per_pin` number of Pixie
     Chromas, with the final image being seamlessly spread across these
@@ -1175,7 +1177,7 @@ void PixieChroma::print( long unsigned int input ){
 
 /*! ############################################################################
     @brief
-    Prints a single-precision floating point integer to the displays at the
+    Prints a single-precision floating point value to the displays at the
     current cursor position, to a specified number of decimal places.
     
     @param  input   float to print
@@ -1192,7 +1194,7 @@ void PixieChroma::print( float input, uint8_t places ){
 
 /*! ############################################################################
     @brief
-    Prints a double-precision floating point integer to the displays at the
+    Prints a double-precision floating point value to the displays at the
     current cursor position, to a specified number of decimal places.
     
     @param  input   double to print
@@ -1326,7 +1328,7 @@ void PixieChroma::println( long unsigned int input ){
 
 /*! ############################################################################
     @brief
-    Prints a single-precision floating point integer to the displays at the
+    Prints a single-precision floating point value to the displays at the
     current cursor position (to a specified number of decimal places), then
     jumps to the next row in the Pixie display, similar to a newline '\\n'
     character.
@@ -1341,7 +1343,7 @@ void PixieChroma::println( float input, uint8_t places ){
 
 /*! ############################################################################
     @brief
-    Prints a double-precision floating point integer to the displays at the
+    Prints a double-precision floating point value to the displays at the
     current cursor position (to a specified number of decimal places), then
     jumps to the next row in the Pixie display, similar to a newline '\\n'
     character.
@@ -1497,7 +1499,7 @@ void PixieChroma::hold(){
     Chroma displays.
             
     @details
-    ***FastLED.show() is called here.***
+    FastLED.show() is called here!
 *///............................................................................
 void PixieChroma::show(){
     uint32_t t_now = micros();
