@@ -6,7 +6,7 @@
 
 Lixie Labs (me) exists in a one-bedroom apartment developing cool Arduino stuff for food.
 
-**If you use these files for commerical purposes:**
+**If you use these files or this exact concept for commerical purposes:**
 
 - Play fair, **attribute**
 - Don't clone, **innovate**
