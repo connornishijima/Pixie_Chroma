@@ -56,6 +56,7 @@ var class_pixie_chroma =
     [ "free", "class_pixie_chroma.html#a60c3dccd46e28dac50b008a540719543", null ],
     [ "hold", "class_pixie_chroma.html#affe6627f15ce6af997b761136dc8bd8b", null ],
     [ "show", "class_pixie_chroma.html#a836b7172ea635c0d5cad04a71d7ad332", null ],
+    [ "delay", "class_pixie_chroma.html#af0d9fb6d87af6d9aee240d8371c3cdbe", null ],
     [ "color", "class_pixie_chroma.html#a1d2f01d594a77c139365eb34053464b1", null ],
     [ "color", "class_pixie_chroma.html#a16dabdffbb39358645cd687a98c352b9", null ],
     [ "color", "class_pixie_chroma.html#aedc3197ddb1011f8bd111cc2b7544d46", null ],
