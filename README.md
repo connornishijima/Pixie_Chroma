@@ -162,7 +162,9 @@ Lixie Labs is a homegrown business **dedicated to furthering open source hardwar
 
 For further information, you can check out the:
 
+- [Getting Started Guide](https://connornishijima.github.io/Pixie_Chroma/?section=getting-started)
 - [Shortcode Library](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes)
+- [Arduino Library Documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs)
 - [Datasheet](https://connornishijima.github.io/Pixie_Chroma/?section=datasheet)
 - [Twitter](https://twitter.com/lixielabs) - We post quite often with Pixie Chroma updates and tricks!
 
@@ -170,7 +172,6 @@ Everything is open source and available. Our source code has been fully document
 
 - [GitHub](https://github.com/connornishijima/Pixie_Chroma/#readme)
 - [OSHW](https://github.com/connornishijima/Pixie_Chroma/tree/main/extras/OSHW/#readme)
-- [Arduino Library Documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs)
 - [OHSWA certification](https://certification.oshwa.org/us002058.html)
 
 # Sponsors
