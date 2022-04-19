@@ -114,9 +114,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a351cc115cbf219af5065460cc773225d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a351cc115cbf219af5065460cc773225d">set_color_animation</a> (void(*action)(<a class="el" href="class_pixie_chroma.html">PixieChroma</a> *, float))</td></tr>
 <tr class="memdesc:a351cc115cbf219af5065460cc773225d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts a preset Color Animation or custom function to use for the animation ISR.  <a href="class_pixie_chroma.html#a351cc115cbf219af5065460cc773225d">More...</a><br /></td></tr>
 <tr class="separator:a351cc115cbf219af5065460cc773225d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabf61038df573b7c6d9e09ee918ffbe2"><td class="memItemLeft" align="right" valign="top"><a id="aabf61038df573b7c6d9e09ee918ffbe2" name="aabf61038df573b7c6d9e09ee918ffbe2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_animation_speed</b> (float speed)</td></tr>
-<tr class="separator:aabf61038df573b7c6d9e09ee918ffbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a42a4d4ad7980966c500bb6c5411909"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a1a42a4d4ad7980966c500bb6c5411909">set_color_animation_speed</a> (float speed)</td></tr>
+<tr class="memdesc:a1a42a4d4ad7980966c500bb6c5411909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to scale the animation speed of animation ISRs that can use pix.animation_speed() to scale their speeds or for other effects.  <a href="class_pixie_chroma.html#a1a42a4d4ad7980966c500bb6c5411909">More...</a><br /></td></tr>
+<tr class="separator:a1a42a4d4ad7980966c500bb6c5411909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e3f715755758bc6dc82ada938165c44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44">set_brightness</a> (uint8_t level)</td></tr>
 <tr class="memdesc:a2e3f715755758bc6dc82ada938165c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes an 8-bit brightness value and passes it to FastLED internally, to provide global brightness control with temporal dithering.  <a href="class_pixie_chroma.html#a2e3f715755758bc6dc82ada938165c44">More...</a><br /></td></tr>
 <tr class="separator:a2e3f715755758bc6dc82ada938165c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -645,6 +645,35 @@ DATA_OUT_3 --+                       DATA_OUT_4 ----+
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00284">284</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1a42a4d4ad7980966c500bb6c5411909" name="a1a42a4d4ad7980966c500bb6c5411909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a42a4d4ad7980966c500bb6c5411909">&#9670;&nbsp;</a></span>set_color_animation_speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixieChroma::set_color_animation_speed </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used to scale the animation speed of animation ISRs that can use pix.animation_speed() to scale their speeds or for other effects. </p>
+<h6></h6>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">speed</td><td>Floating point value: 1.0 = 100%, 3.2 = 320%, 0.5 = 50% </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pixie__chroma__internal_8cpp_source.html#l00304">304</a> of file <a class="el" href="pixie__chroma__internal_8cpp_source.html">pixie_chroma_internal.cpp</a>.</p>
 
 </div>
 </div>
@@ -4105,7 +4134,7 @@ print("World!"); // ..........Printed in green
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_pixie_chroma.html">PixieChroma</a></li>
-    <li class="footer">Generated on Tue Apr 19 2022 20:27:38 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
+    <li class="footer">Generated on Tue Apr 19 2022 20:35:02 for Pixie Chroma by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2 </li>
   </ul>
 </div>
 </body>
