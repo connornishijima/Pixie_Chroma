@@ -105,7 +105,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     current_palette.loadDynamicGradientPalette( GREEN_SOLID );
 
     build_controller( pixie_pin ); // ----- Initialize FastLED
-    set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
+    set_color_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
     clear(); // --------------------------- Clear anything in mask (should be empty anyways), reset cursor
     set_max_power( 5.0, 500 ); // --------- Set default power budget in volts and milliamps (5.0V, 500mA)
 }
@@ -266,7 +266,7 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
 		FastLED.addLeds<WS2811_PORTD,4>( color_map_out, pixies_per_pin * leds_per_pixie ).setCorrection( TypicalLEDStrip ); // Initialize FastLED
     #endif
     
-    set_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
+    set_color_animation( ANIMATION_NULL ); // --- Set animation function to an empty one
     clear(); // --------------------------- Clear anything in mask ( should be empty anyways ), reset cursor
     set_max_power( 5, 500 ); // ----------- Set default power budget in volts and milliamps
 }
@@ -274,14 +274,14 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
 
 /*! ############################################################################
     @brief
-    Accepts a preset or custom function to use for the animation ISR.
+    Accepts a preset Color Animation or custom function to use for the animation ISR.
     
     @details
-    For a list of predefined animations, see pixie_animations.h.
+    For a list of predefined Color Animations, see pixie_animations.h.
     
     @param  action  Function to set as an animation ISR
 *///............................................................................
-void PixieChroma::set_animation( void ( *action )(PixieChroma*, float) ) {
+void PixieChroma::set_color_animation( void ( *action )(PixieChroma*, float) ) {
     anim_func = action;
 	if(anim_func == ANIMATION_NULL){
 		custom_animation = false;
@@ -301,7 +301,7 @@ void PixieChroma::set_animation( void ( *action )(PixieChroma*, float) ) {
                 
     @param  speed  Floating point value: 1.0 = 100%, 3.2 = 320%, 0.5 = 50%
 *///............................................................................
-void PixieChroma::set_animation_speed( float speed ){
+void PixieChroma::set_color_animation_speed( float speed ){
     animation_speed = speed;
 }
 
@@ -428,7 +428,7 @@ void PixieChroma::set_max_power( float volts, uint16_t milliamps ){
 *///............................................................................
 void PixieChroma::set_palette( const uint8_t* pal ){ 
 	if(custom_animation == false){
-		set_animation(ANIMATION_STATIC);
+		set_color_animation(ANIMATION_STATIC);
 	}
     current_palette.loadDynamicGradientPalette( pal ); // GRADIENT PALETTE
 	clear();
@@ -445,7 +445,7 @@ void PixieChroma::set_palette( const uint8_t* pal ){
 *///............................................................................
 void PixieChroma::set_palette( CRGBPalette16 pal ){ // STANDARD PALETTE
 	if(custom_animation == false){
-		set_animation(ANIMATION_STATIC);
+		set_color_animation(ANIMATION_STATIC);
 	}
     current_palette = pal;
 	clear();
@@ -3148,7 +3148,7 @@ bool PixieChroma::unit_tests(){
 	// @@@@@ set_palette ---------------------------------------------------------------------------- @@@@@
 	// ----------------------------------------------------------------------------------------------------
 	
-	set_animation(ANIMATION_STATIC);
+	set_color_animation(ANIMATION_STATIC);
 	
 	Serial.println( border );
 	Serial.print  ( testing );

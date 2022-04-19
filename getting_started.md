@@ -8,7 +8,9 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 
 #### NOTE: Please see the [current list of supported microcontrollers](https://github.com/connornishijima/Pixie_Chroma#supported-platforms) in the README - ESP32 is currently the most powerful option for Pixie Chroma projects, and is quite cheap too!
 
-### Table of Contents
+-------------------------------------------------------------
+
+## Table of Contents
 
 1. [Download Arduino IDE](#1-download-arduino-ide)
 2. [Installing Board Definitions](#2-installing-board-definitions)
@@ -17,8 +19,8 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 5. [Uploading Example Code](#5-uploading-example-code)
 6. [Writing your own Pixie Chroma code](#6-writing-your-own-pixie-chroma-code)
 7. [Shortcodes](#7-shortcodes)
-8. [Palettes / Animations]
-9. [Extra: Diagnosing Issues](#8-diagnosing-issues)
+8. [Palettes / Animations](#8-palettes--animations)
+9. [Extra: Diagnosing Issues](#9-diagnosing-issues)
 10. [Glossary](#glossary)
 
 -------------------------------------------------------------
@@ -117,9 +119,11 @@ Back in the Arduino IDE, open `File > Examples > Pixie_Chroma > 01_Basic > 01_Ge
 
 Before uploading this code, we have three lines to change based on our set up process so far. 
 
-	#define DATA_PIN  5  // GPIO to use for Pixie Chroma data line
-	#define PIXIES_X  2  // Total amount and arrangement
-	#define PIXIES_Y  1  // of Pixie PCBs = 2 x 1
+```cpp
+#define DATA_PIN  5  // GPIO to use for Pixie Chroma data line
+#define PIXIES_X  2  // Total amount and arrangement
+#define PIXIES_Y  1  // of Pixie PCBs = 2 x 1
+```
 
 DATA_PIN should be "5" in the case of this tutorial's wiring, and PIXIES_X should match how many Pixie PCBs wide our display is. (PIXIES_Y is for multi-row displays and will be left as "1" for now)
 
@@ -213,7 +217,7 @@ Clears (blackens) the entire display and resets the cursor to 0,0.
 
 Pixie Chroma's `print()` function allows easy writing to the displays. It automatically tracks cursor position (where text will print next) meaning you can chain print calls like this:
 
-```
+```cpp
 pix.print( "Sales to date: [:EURO:]" ); // Descriptor with currency symbol
 pix.print( sales_in_euros );            // Variable storing value
 
@@ -258,9 +262,67 @@ Our favorite part of these icons is how easy it is to make your own! With [our o
 
 This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it when it is complete.
 
-# 8. Palettes / Animations
+# 8. Color Palettes / Animations
 
+If you want a super easy cheat to get a unique color animation running on your displays is to use **Color Palettes** and **Animations**.
 
+## Color Palettes
+
+When used, Color Palettes take over the color data of the Chromas and replace it with a solid color or pre-defined gradients. For example:
+
+```cpp
+pix.set_palette(RAINBOW); // Forces rainbow color on the displays
+```
+
+We're looking to add more pre-defined palettes, but here are some we have so far:
+
+- RAINBOW
+- GRADIENT_RED_BLACK
+- GRADIENT_BLACK_RED_BLACK
+- GRADIENT_GREEN_BLACK
+- GRADIENT_BLACK_GREEN_BLACK
+- GRADIENT_BLUE_BLACK
+- GRADIENT_BLACK_BLUE_BLACK
+
+If you'd like to use your own colors, there is a function: `make_gradient(CRGB color_1, CRGB color_2, etc...)`.
+
+For example:
+
+```cpp
+pix.set_palette(      // Makes the palette a gradient from (255,255,0) to (0,0,255)
+	make_gradient(
+		CRGB::Yellow,
+		CRGB::Blue
+	)
+);
+```
+
+Once `pix.set_palette()` is called, any future calls to `show()` will use the color palette you defined.
+
+## Color Animations
+
+**Color Animations allow you to modify the usage of the Color Palette over time.** This means that you either need to call `pix.show()` *as often as possible*, or read up on `pix.set_update_mode( AUTOMATIC );` (**[DOCS LINK](docs/class_pixie_chroma.html#adf400f08ce7d2e3252aff91b8e5b8622)**) which will make `pix.show()` called automatically in the background at up to 60 FPS.
+
+For example:
+
+```cpp
+pix.set_palette( RAINBOW );                              // Set palette to RAINBOW
+pix.set_color_animation( ANIMATION_PALETTE_SHIFT_LEFT ); // Shift palette to the left every frame, wrapping it wround
+```
+
+This will show the `RAINBOW` palette slowly shifting to the left at constant rate if `show()` is called often enough.
+
+Other built-in Color Animations include:
+
+- **ANIMATION_NULL** | It does nothing, but it does nothing REALLY WELL! You can enable this empty function with pix.set_animation(ANIMATION_NULL) to fully manually control LEDs when you want using pix.show()
+- **ANIMATION_STATIC** | Shows the current color palette without animation
+- **ANIMATION_PALETTE_SHIFT_LEFT** | Shows the current color palette, while constantly shifting it to the left
+- **ANIMATION_PALETTE_SHIFT_RIGHT** | Shows the current color palette, while constantly shifting it to the right
+- **ANIMATION_GLITTER** | Shows the current color palette with a sparkling effect
+- **ANIMATION_PENDULUM** | Sways the current color palette left and right with a sine function at 1Hz intervals
+- **ANIMATION_PENDULUM_WIDE** | Sways the current color palette left and right with a sine function at 1Hz intervals. Wider travel than ANIMATION_PENDULUM
+
+You can also create your own function that manipulates color and give *that* function as a parameter to `pix.set_color_animation( your_function )`.
 
 # 9. Diagnosing Issues
 

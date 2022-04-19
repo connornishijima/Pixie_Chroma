@@ -47,7 +47,7 @@ class PixieChroma{
 		/*+-- Functions - Setup ------------------------------------------------------------*/ 
 		/*|*/ void begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixies_y );
 		/*|*/ void begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t pixies_y );
-		/*|*/ void set_animation( void ( *action )( PixieChroma*, float ) );
+		/*|*/ void set_color_animation( void ( *action )( PixieChroma*, float ) );
 		/*|*/ void set_animation_speed( float speed );
 		/*|*/ void set_brightness( uint8_t level );
 		/*|*/ void set_frame_rate_target( uint16_t target );
