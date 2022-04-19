@@ -16,7 +16,10 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 4. [Wiring](#4-wiring)
 5. [Uploading Example Code](#5-uploading-example-code)
 6. [Writing your own Pixie Chroma code](#6-writing-your-own-pixie-chroma-code)
-7. [Extra: Diagnosing Issues](#7-diagnosing-issues)
+7. [Shortcodes](#7-shortcodes)
+8. [Palettes / Animations]
+9. [Extra: Diagnosing Issues](#8-diagnosing-issues)
+10. [Glossary](#glossary)
 
 -------------------------------------------------------------
 
@@ -241,7 +244,25 @@ These templates (included as library examples) cover all of the basic setup nece
 
 There are two templates, one for "Standard Mode" and one for "Quad Mode". (**[QUAD MODE DOCS LINK](docs/class_pixie_chroma.html#af4c7b1051ce21bf03cfd69d30869fa6c)**) Quad Mode is for power users with experience and requires more complex wiring, so most for most projects "Standard Mode" will do.
 
-# 7. Diagnosing Issues
+# 7. Shortcodes
+
+![PIXIE CHROMA](extras/img/shortcodes.png)
+
+**Shortcodes** are a **super simple way to show icons beyond the alphanumeric ASCII set and easily create animations!** We have an extensive library of 230+ built-in icons that are accessible by name within *other* strings. (See the example above.) Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And if we don't, you can make your own with the magical Shortcode Editor:
+
+## Shortcode Editor
+
+Our favorite part of these icons is how easy it is to make your own! With [our online/offline editor](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes), you can create any shape or image (so long as it fits in a 5x7 grid) and the editor will directly show the code that would print that shape!
+
+![PIXIE CHROMA](extras/img/rm4.png)
+
+This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it when it is complete.
+
+# 8. Palettes / Animations
+
+
+
+# 9. Diagnosing Issues
 
 Below are a few types of issues you may face if something wasn't configured / wired / soldered properly.
 

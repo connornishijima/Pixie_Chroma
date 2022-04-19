@@ -60,7 +60,7 @@ Our favorite part of these icons is how easy it is to make your own! With [our o
 
 ![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm4.png?raw=true)
 
-This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it in an upcoming campaign update.
+This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it when it is complete.
 
 ## A New Standard for Arduino Libraries
 

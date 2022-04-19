@@ -121,23 +121,23 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     the LEDs in 4 parallel streams to increase speed.
     
     Unfortunately, this currently requires hard-coded pins to function *due to
-	FastLED limitations*:
+    FastLED limitations*:
     
-	**ESP32 / ESP8266:**
+    **ESP32 / ESP8266:**
 	
     - DATA_OUT_1:  **GPIO 12 / D6**
     - DATA_OUT_2:  **GPIO 13 / D7**
     - DATA_OUT_3:  **GPIO 14 / D5**
     - DATA_OUT_4:  **GPIO 15 / D8**
-	
-	**TEENSY 3.X:**
-	
+    
+    **TEENSY 3.X:**
+    
     - DATA_OUT_1:  **GPIO 2**
     - DATA_OUT_2:  **GPIO 14**
     - DATA_OUT_3:  **GPIO 7**
     - DATA_OUT_4:  **GPIO 8**
-	
-	**(If your microcontroller is not listed here, it does not (yet) support Quad Mode.)**
+    
+    **(If your microcontroller is not listed here, it does not (yet) support Quad Mode.)**
     
     On each data line, you'll wire `pixies_per_pin` number of Pixie
     Chromas, with the final image being seamlessly spread across these
@@ -183,13 +183,13 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     
     Then, with the displays physically arranged in western reading order
     (left to right, top to bottom) you're ready to begin!
-
+    
         DATA_OUT_1 --+                       DATA_OUT_2 ----+
                      |                                      |
                   +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
                   |  1 |-->|  2 |-->|  3 |-->|  4 |  ||  |  5 |-->|  6 |-->|  7 |-->|  8 | 
                   +----+   +----+   +----+   +----+  ||  +----+   +----+   +----+   +----+ 
-
+    
         DATA_OUT_3 --+                       DATA_OUT_4 ----+
                      |                                      |
                   +--+-+   +----+   +----+   +----+  ||  +--+-+   +----+   +----+   +----+
@@ -198,7 +198,7 @@ void PixieChroma::begin( const uint8_t data_pin, uint8_t pixies_x, uint8_t pixie
     
     Using begin_quad() to enable the Quad Mode driver will
     always send the 4 lines of data in parallel, saving on time per frame.
-
+    
     begin_quad() ideally **should not be used with less than 4 Pixie Chromas**,
     and with at least one on each line. Even if only two pins are physically
     used, all 4 pins are still occupied by Quad Mode.
