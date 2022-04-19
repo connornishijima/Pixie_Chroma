@@ -67,8 +67,8 @@ void setup() {
   // like the default power budget for you.
 
   pix.set_palette(RAINBOW);
-  //pix.set_animation_speed(0.25);
-  pix.set_animation(ANIMATION_PALETTE_SHIFT_LEFT);
+  //pix.set_color_animation_speed(0.25);
+  pix.set_color_animation(ANIMATION_PALETTE_SHIFT_LEFT);
   
   //pix.set_gamma_correction(true); // ... Enable gamma correction
   pix.set_max_power(5,2000);
