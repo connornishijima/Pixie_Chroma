@@ -1,7 +1,10 @@
 <br>
 <img src="extras/img/logo.jpg">
+
+**PIXIE CHROMA** is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO! (***Make sure to [follow our Twitter](https://twitter.com/lixielabs) for official news!***)
+
+---------------------------------------------------------------------------------
 <p align="center">
-  <b>Modular RGB displays for Arduino</b><br>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=getting-started"><b>GETTING STARTED</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
@@ -23,13 +26,9 @@
 
 ---------------------------------------------------------------------------------
 
-**PIXIE CHROMA** is a dual-5x7 character display for Arduino, that can be easily chained to create easy-to-use displays as long or tall as you'd like! Featuring 70 addressable RGB LEDs, Pixie Chroma can be controlled with as little as a single GPIO! (***Make sure to [follow our Twitter](https://twitter.com/lixielabs) for official news!***)
-
----------------------------------------------------------------------------------
+# Pixie Chroma Is the Display We Always Wanted
 
 ![HELLO WORLD](extras/img/hello_world.png)
-
-# Pixie Chroma Is the Display We Always Wanted
 
 **Pixie Chroma is a project that we here at Lixie Labs are incredibly passionate about!** In this third iteration, we have finally created the best RGB text display we've ever used. While we loved our original Pixie models, we felt that you couldn't get the same level of creativity that you **can** get with Pixie Chroma. With its ability to be dropped into any breadboard and coded with any experience level, these displays have a wide range of potential uses, meaning anybody in the maker community can find a use for them! Pixie Chroma is our gift to you.
 
