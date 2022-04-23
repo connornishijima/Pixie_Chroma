@@ -108,10 +108,16 @@
 			<span id="menu_links" class="noselect"></span>
 			<span id="view_directly" onclick="load_frame_source();">View Page Directly</span>
 		</div>
-		<iframe id="content_frame" name="content_frame" src="getting_started.html"></iframe>
+		<iframe id="content_frame" name="content_frame" src="about.html"></iframe>
 
 		<script>
 			var menu_links = [
+				{
+					"name":"About",
+					"short":"about",
+					"link":"about.html",
+					"target":"content_frame"
+				},
 				{
 					"name":"Getting Started",
 					"short":"getting-started",
