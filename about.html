@@ -81,6 +81,7 @@
 			.then(blob => blob.text())          // ...then to raw text...
 			.then(markdown => {                 // ...then pass the raw text into marked.parse
 			  document.getElementById("content").innerHTML = marked.parse(markdown);
+			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace("<br>", "");
 			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replaceAll("NOTE:", "<span class='pink_highlight'>NOTE:</span>");
 			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replaceAll("<a ", "<a target='_parent'");
 			});
