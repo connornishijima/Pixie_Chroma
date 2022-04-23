@@ -1,4 +1,3 @@
-<br>
 <img src="extras/img/logo.png">
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
