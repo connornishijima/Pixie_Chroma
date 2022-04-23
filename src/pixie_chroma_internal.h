@@ -329,6 +329,6 @@ class PixieChroma{
         uint8_t pixie_pin;
 		uint8_t chars_x;
 		uint8_t chars_y;
-};
+}; 
 
 #endif
