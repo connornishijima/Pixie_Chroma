@@ -1,5 +1,5 @@
 <br>
-<img src="extras/img/logo_final.jpg">
+<img src="extras/img/logo.jpg">
 <p align="center">
   <b>Modular RGB displays for Arduino</b><br>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
