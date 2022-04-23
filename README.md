@@ -30,7 +30,7 @@
 
 ![HELLO WORLD](extras/img/hello_world.png)
 
-## Pixie Chroma Is the Display We Always Wanted
+# Pixie Chroma Is the Display We Always Wanted
 
 **Pixie Chroma is a project that we here at Lixie Labs are incredibly passionate about!** In this third iteration, we have finally created the best RGB text display we've ever used. While we loved our original Pixie models, we felt that you couldn't get the same level of creativity that you **can** get with Pixie Chroma. With its ability to be dropped into any breadboard and coded with any experience level, these displays have a wide range of potential uses, meaning anybody in the maker community can find a use for them! Pixie Chroma is our gift to you.
 
@@ -38,7 +38,7 @@
 
 ![CHROMA_DEMO](extras/img/instructions_model.png)
 
-## Two Big New Features
+# Two Big New Features
 
 Along with full RGB control, and an absolute **UNIT** of an Arduino Library, we are introducing two other **big** new features with this release: **Quad Mode** and **Shortcodes**.
 
@@ -56,7 +56,7 @@ Along with full RGB control, and an absolute **UNIT** of an Arduino Library, we 
 
 Our next big feature is **Shortcodes**, a **super simple way to show icons beyond the alphanumeric ASCII set and easily create animations!** We have an extensive library of 230+ built-in icons that are accessible by name within *other* strings. See the example above. Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And, if we don't, you can make your own with the magical Shortcode Editor.
 
-### Shortcode Editor
+## Shortcode Editor
 
 Our favorite part of these icons is how easy it is to make your own! With [our online/offline editor](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes), you can create any shape or image (so long as it fits in a 5x7 grid) and the editor will directly show the code that would print that shape!
 
@@ -64,7 +64,7 @@ Our favorite part of these icons is how easy it is to make your own! With [our o
 
 This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it when it is complete.
 
-## A New Standard for Arduino Libraries
+# A New Standard for Arduino Libraries
 
 **We pride ourselves in how easy our products are to use.** We have kept the wiring very simple, with only three wires connected to each breadboard-friendly display. Our code also has many examples that are explained line-by-line so that anybody can understand them. We even include [template Arduino Sketches](https://github.com/connornishijima/Pixie_Chroma/blob/main/examples/04_Minimal_Sketches/01_Standard/01_Standard.ino) to skip the parts newcomers find tedious, like `#include` directives and class definitions. Many advanced projects that even seasoned coders would find challenging are hassle-free with the Pixie Chroma library!
 
@@ -86,25 +86,25 @@ void loop() {
   pix.show(); // ...................... Show changes
 }
 ```
-## Amazing Documentation  
+# Amazing Documentation  
 
 [Pixie Chroma's documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs) is complete, accurate, and easy to understand. Each function in the library is fully documented and code examples are sprinkled liberally throughout.
 
 ![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm5.png?raw=true)
 
-## Supported Platforms
+# Supported Platforms
 
 Pixie Chroma is a bit RAM heavy for its effects and color processing. 8 Pixie Chroma PCBs is 560 LEDs, so that's 1,680 bytes just for the color data! Add in the masking tricks, XY mapping and more, and you're unfortunately not going to get a set of Chromas working on an older microcontroller like the ATMega328p with only 2K of SRAM. ***However***, more modern controllers like those from Espressif are perfectly fine! (ESP8266 has 80KiB of RAM!)
 
 The Pixie Chroma library also uses FastLED as a dependency, so FastLED itself also needs compatibility before we can support it here. *This is why the RP2040 is not yet supported. Soon!*
 
-### Fully Supported Microcontrollers
+## Fully Supported Microcontrollers
 
 - ESP8266 (Adafruit HUZZAH, Wemos D1 Mini, etc.)
 - ESP32 (TinyPico, HUZZAH32)
 - Teensy 3.x (Possibly Teensy 4.x, not yet tested)
 
-### Currently Planned Support
+## Currently Planned Support
 
 - RP2040 (Needs FastLED port)
 - ESP32-S2 (Needs testing)
@@ -115,7 +115,7 @@ If you have success running Pixie Chroma on a controller not currently in this l
 
 ![PIXIE CHROMA GIF](https://github.com/connornishijima/Pixie_Chroma/raw/main/extras/img/DEMO_ANIMATION.gif?raw=true)
 
-## Dedication to Our Craft
+# Dedication to Our Craft
 
 Lixie Labs is a homegrown business **dedicated to furthering open source hardware and software** in both the hobbyist and professional electronics industry. To this day, we still receive emails from customers asking us how to get their hands on products we no longer produce. Luckily, anybody can still create their own Lixies or even earlier versions of Pixies without us because we've left the entire process open for others. We hope to see all of our projects outlive us!
 
@@ -123,7 +123,7 @@ Lixie Labs is a homegrown business **dedicated to furthering open source hardwar
 
 ![OSHW INFO](https://raw.githubusercontent.com/connornishijima/Pixie_Chroma/main/extras/OSHW/oshw_facts.svg)
 
-## Features & Specifications
+# Features & Specifications
 
 - Dual-5x7 RGB LED matrices
 - 3.7 to 5.5 VDC supply
@@ -134,7 +134,7 @@ Lixie Labs is a homegrown business **dedicated to furthering open source hardwar
 
 ![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm6.jpg?raw=true)
 
-## Comparison Table
+# Comparison Table
 
 |                                              | Pixie Chroma                | 5x5 RGB Matrix Breakout      | Dot Star 8x8 Grid            |
 | -------------------------------------------- | --------------------------- | -----------------------------| ---------------------------- |
@@ -158,7 +158,7 @@ Lixie Labs is a homegrown business **dedicated to furthering open source hardwar
 **¹** _Quad Mode allows you to update your displays faster by using four GPIO at once!_  
 **²** _Shortcodes like `[:HEART:]` let you use over 230 built-in icons by name and even create your own!_  
 
-## Support & Documentation
+# Support & Documentation
 
 **As you can see, Pixie Chroma is as easy or as advanced as you need.** Luckily, you don't need to dive into documentation to get started - the included examples (`File -> Examples -> Pixie_Chroma`) provide a template you can easily modify for your own projects.
 
