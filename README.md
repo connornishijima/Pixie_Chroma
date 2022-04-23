@@ -9,7 +9,7 @@
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=datasheet"><b>DATASHEET</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
-  <a href="extras/OSHW"><b>OSHW</b></a>
+  <a href="https://github.com/connornishijima/Pixie_Chroma/tree/main/extras/OSHW"><b>OSHW</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=purchase"><b>PURCHASE</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
