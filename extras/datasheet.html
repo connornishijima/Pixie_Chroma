@@ -312,7 +312,7 @@
 						<div class="section_title">General Description</div>
 						<div class="section_number">S.1</div>
 						<p>
-							PIXIE CHROMA is a compact, chainable, <figurelink>(Figure 1)</figurelink> dual 5x7 LED dot-matrix display platform (compatible with Arduino) that offers full RGB control with 8-bit global brightness control and high refresh rates.<br>
+							PIXIE CHROMA is a compact, chainable, dual 5x7 LED dot-matrix display platform (compatible with Arduino) that offers full RGB control with 8-bit global brightness control and high refresh rates.<br>
 							<br>
 							Using only 1 GPIO for image transmission in Default Mode, or 4 GPIO in Quad Mode, very high refresh rates are possible with low processing overhead.*<br>
 							<br>
@@ -354,9 +354,9 @@
 								</tr>
 							</table>
 							<br>
-							The 24-bit data of each LED is transmitted with unipolar RZ from the controller to <pinlink>DATA_IN</pinlink> of the first Pixie Chroma in the chain, and is forwarded from pixel to pixel. Any extra data is forwarded through <pinlink>DATA_OUT</pinlink> to the next Pixie in the chain. <figurelink>(Figure 1)</figurelink> <br>
+							The 24-bit data of each LED is transmitted with unipolar RZ from the controller to <pinlink>DATA_IN</pinlink> of the first Pixie Chroma in the chain, and is forwarded from pixel to pixel. Any extra data is forwarded through <pinlink>DATA_OUT</pinlink> to the next Pixie in the chain. After an 80&mu;s timeout, the new color data received thus far is latched and displayed.<br>
 							<br>
-							After an 80&mu;s timeout, the new color data received thus far is latched and displayed.<br>
+							For more information about the data protocol and timings of these LEDs, see the <a href="https://cdn-shop.adafruit.com/product-files/4492/Datasheet.pdf">SK6805-EC15 datasheet.</a> <br>
 							<br>
 							<strong><em><sub>* The frame rates listed here are theoretical maximums, not including overhead in the PixieChroma Arduino library for rendering and animation, which is subject to change.</sub></em></strong>
 						</p>
@@ -365,7 +365,7 @@
 						<div class="section_title">Features</div>
 						<div class="section_number">S.2</div>
 						<ul>
-							<li>Dual 5x7 RGB LED matrices <figurelink>(Figure 4)</figurelink></li>
+							<li>Dual 5x7 RGB LED matrices</li>
 							<li>3.7V to 5.5V supply</li>
 							<li>Fast bitmap control</li>
 							<li>8-bit global dimming</li>
