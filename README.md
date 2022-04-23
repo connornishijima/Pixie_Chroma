@@ -1,7 +1,7 @@
 <br>
 <img src="extras/img/logo_final.jpg">
 <p align="center">
-  <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
+  <b>Modular RGB displays for Arduino</b><br>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=getting-started"><b>GETTING STARTED</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
@@ -32,8 +32,6 @@
 # Pixie Chroma Is the Display We Always Wanted
 
 **Pixie Chroma is a project that we here at Lixie Labs are incredibly passionate about!** In this third iteration, we have finally created the best RGB text display we've ever used. While we loved our original Pixie models, we felt that you couldn't get the same level of creativity that you **can** get with Pixie Chroma. With its ability to be dropped into any breadboard and coded with any experience level, these displays have a wide range of potential uses, meaning anybody in the maker community can find a use for them! Pixie Chroma is our gift to you.
-
-<br>
 
 ![CHROMA_DEMO](extras/img/instructions_model.png)
 

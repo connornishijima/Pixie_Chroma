@@ -54,11 +54,31 @@
 				margin-bottom: 5px;
 			}
 			#content{
-				background-color: #242424;
+				width: 1024px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			#content_outer{
+				padding: 20px;
 				max-width: 1024px;
 				margin-left: auto;
 				margin-right: auto;
-				padding: 20px 20px;
+				background-color: #242424;
+				padding-top: 5px;
+			    font-size: 18px;
+			}
+			#banner{
+				display: block;
+				margin: 20px auto;
+			}
+			#slogan{
+				width: 1024px;
+				font-size: 30px;
+				text-align: center;
+				margin: 5px auto;
+				margin-bottom: 29px;
+				font-weight: 100;
+				letter-spacing: 8px;
 			}
 			.pink_highlight{
 				color: #ff5c93;
@@ -66,8 +86,12 @@
 		</style>
 	</head>
 	<body>
-		<div id="content">
-			<h1>Loading...</h1>
+		<img id="banner" src="extras/img/logo_final.jpg"></img>
+		<div id="slogan">Modular RGB Displays for Arduino</div>
+		<div id="content_outer">
+			<div id="content">
+				<h1>Loading...</h1>
+			</div>
 		</div>
 		<br>
 		<br>
@@ -80,6 +104,8 @@
 			.then(blob => blob.text())          // ...then to raw text...
 			.then(markdown => {                 // ...then pass the raw text into marked.parse
 			  document.getElementById("content").innerHTML = marked.parse(markdown);
+			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace('<img src="extras/img/logo_final.jpg">', '');
+			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace("<b>Modular RGB displays for Arduino</b><br>", "");
 			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace("<br>", "");
 			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replaceAll("NOTE:", "<span class='pink_highlight'>NOTE:</span>");
 			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replaceAll("<a ", "<a target='_parent'");
