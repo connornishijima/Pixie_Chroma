@@ -34,7 +34,9 @@
 
 **Pixie Chroma is a project that we here at Lixie Labs are incredibly passionate about!** In this third iteration, we have finally created the best RGB text display we've ever used. While we loved our original Pixie models, we felt that you couldn't get the same level of creativity that you **can** get with Pixie Chroma. With its ability to be dropped into any breadboard and coded with any experience level, these displays have a wide range of potential uses, meaning anybody in the maker community can find a use for them! Pixie Chroma is our gift to you.
 
-![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm1.png?raw=true)
+<br>
+
+![CHROMA_DEMO](extras/img/instructions_model.png)
 
 ## Two Big New Features
 
