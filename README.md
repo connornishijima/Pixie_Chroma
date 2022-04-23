@@ -1,5 +1,5 @@
 <br>
-<img src="extras/img/logo.png">
+<img src="extras/img/logo_final.jpg">
 <p align="center">
   <b>Arduino library and documentation for Pixie Chroma displays!</b><br>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
