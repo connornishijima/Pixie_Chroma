@@ -41,7 +41,7 @@ Along with full RGB control, and an absolute **UNIT** of an Arduino Library, we 
 
 ----------------------------------------------------------
 
-![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/quad_mode.png?raw=true)
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/quad_mode.jpg?raw=true)
 
 **Quad mode is made specifically for those wishing to drive their displays faster.** By *optionally* sending the data in four parallel streams with Quad Mode, you can expect to see a ~3.75x increase in speed! For example, if you had 12 Pixie Chromas, you can wire four GPIO of your microcontroller to the 1st, 4th, 7th, and 10th Pixie. Each GPIO is now only responsible for the data of three Pixie Chromas compared to *only one GPIO feeding all 12*. With this, you can run animations, scrolling, and color palettes more smoothly or free up processor time!
 
@@ -49,7 +49,7 @@ Along with full RGB control, and an absolute **UNIT** of an Arduino Library, we 
 
 ----------------------------------------------------------
 
-![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/shortcodes.png?raw=true)
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/shortcodes.jpg?raw=true)
 
 Our next big feature is **Shortcodes**, a **super simple way to show icons beyond the alphanumeric ASCII set and easily create animations!** We have an extensive library of 230+ built-in icons that are accessible by name within *other* strings. See the example above. Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And, if we don't, you can make your own with the magical Shortcode Editor.
 
@@ -57,7 +57,7 @@ Our next big feature is **Shortcodes**, a **super simple way to show icons beyon
 
 Our favorite part of these icons is how easy it is to make your own! With [our online/offline editor](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes), you can create any shape or image (so long as it fits in a 5x7 grid) and the editor will directly show the code that would print that shape!
 
-![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm4.png?raw=true)
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm4.jpg?raw=true)
 
 This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it when it is complete.
 
@@ -87,7 +87,7 @@ void loop() {
 
 [Pixie Chroma's documentation](https://connornishijima.github.io/Pixie_Chroma/?section=docs) is complete, accurate, and easy to understand. Each function in the library is fully documented and code examples are sprinkled liberally throughout.
 
-![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm5.png?raw=true)
+![PIXIE CHROMA](https://github.com/connornishijima/Pixie_Chroma/blob/main/extras/img/rm5.jpg?raw=true)
 
 # Supported Platforms
 

@@ -113,7 +113,7 @@ Wipe the sweat from your forehead, you're almost done! Next you'll upload exampl
 
 Back in the Arduino IDE, open `File > Examples > Pixie_Chroma > 01_Basic > 01_Getting_Started`.
 
-![Example Location](extras/img/arduino_example_location.png)
+![Example Location](extras/img/arduino_example_location.jpg)
 	
 ![Getting Started Code](extras/img/getting_started_code.jpg)
 
@@ -129,17 +129,17 @@ DATA_PIN should be "5" in the case of this tutorial's wiring, and PIXIES_X shoul
 
 Once this change is made, you need to select the "Serial Port" our microcontroller is on so that the computer knows where to send the code. To do this, first unplug your microcontroller again. Now, open the `Tools > Port` menu and look at the entries, if any. There is a chance that although your microcontroller is unplugged, you'll still see ports available such as "COM1" on Windows, and "/dev/TTY*****" on Mac/Linux.
 
-![Ports Empty](extras/img/ports_empty.png)
+![Ports Empty](extras/img/ports_empty.jpg)
 
 These are likely virtual serial ports from your OS, or other devices attached to your computer. We don't want to work with these, so take note of their names.
 
 Now, plug the microcontroller back in and check the Ports menu again. Whatever new entry that wasn't there before is your microcontroller, such as "COM16".
 
-![Ports Connected](extras/img/ports_connected.png)
+![Ports Connected](extras/img/ports_connected.jpg)
 
 Select this port, and hit the "Upload" button in the top left of the IDE:
 
-![Arduino Upload](extras/img/arduino_upload.png)
+![Arduino Upload](extras/img/arduino_upload.jpg)
 
 This first upload will likely take a few minutes to complete, as the IDE has to compile tons of new data that it will keep around for subsequent runs. After this, uploading will only take about 30-60 seconds.
 
@@ -238,7 +238,7 @@ Takes the display data gathered so far (clears, prints, animation, etc.) since t
 --------------------------------------------------
 --------------------------------------------------
 
-![Arduino Minimal](extras/img/arduino_minimal.png)
+![Arduino Minimal](extras/img/arduino_minimal.jpg)
 
 ## Minimal Sketches
 
@@ -250,7 +250,7 @@ There are two templates, one for "Standard Mode" and one for "Quad Mode". (**[QU
 
 # 7. Shortcodes
 
-![PIXIE CHROMA](extras/img/shortcodes.png)
+![PIXIE CHROMA](extras/img/shortcodes.jpg)
 
 **Shortcodes** are a **super simple way to show icons beyond the alphanumeric ASCII set and easily create animations!** We have an extensive library of 230+ built-in icons that are accessible by name within *other* strings. (See the example above.) Whether you want global currency symbols, weather states, schematic symbols, diacritics (àãåâä), or various mathematical typography such as pi, we probably have you covered. And if we don't, you can make your own with the magical Shortcode Editor:
 
@@ -258,7 +258,7 @@ There are two templates, one for "Standard Mode" and one for "Quad Mode". (**[QU
 
 Our favorite part of these icons is how easy it is to make your own! With [our online/offline editor](https://connornishijima.github.io/Pixie_Chroma/?section=shortcodes), you can create any shape or image (so long as it fits in a 5x7 grid) and the editor will directly show the code that would print that shape!
 
-![PIXIE CHROMA](extras/img/rm4.png)
+![PIXIE CHROMA](extras/img/rm4.jpg)
 
 This is one of the most creative outlets for cool display enthusiasts, since you can easily make custom frame-by-frame animations of your own! We are currently working on a way to create looping animations directly within the editor, and are excited to show it when it is complete.
 
