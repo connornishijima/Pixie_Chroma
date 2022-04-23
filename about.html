@@ -7,7 +7,7 @@
 		<style>
 			body{
 				color:#ccc;
-				background-color:#080808;
+				background-color:#000;
 				font-family: 'Source Sans Pro', sans-serif;
 			}
 			a{
@@ -70,6 +70,7 @@
 			#banner{
 				display: block;
 				margin: 20px auto;
+				margin-top: 30px;
 			}
 			#slogan{
 				width: 1024px;
@@ -91,9 +92,15 @@
 			    border-bottom: 1px solid #666666;
 				padding: 5px;
 			}
+			#video_trailer{
+				margin: 0px auto;
+				display: block;
+			}
 		</style>
 	</head>
 	<body>
+		<iframe id="video_trailer" width="1120" height="630" src="https://www.youtube.com/embed/don7XKYEpeE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
 		<img id="banner" src="extras/img/logo.jpg"></img>
 		<div id="slogan">Modular RGB Displays for Arduino</div>
 		<div id="content_outer">
