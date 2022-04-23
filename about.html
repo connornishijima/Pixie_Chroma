@@ -112,7 +112,7 @@
 			.then(blob => blob.text())          // ...then to raw text...
 			.then(markdown => {                 // ...then pass the raw text into marked.parse
 			  document.getElementById("content").innerHTML = marked.parse(markdown);
-			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace('<img src="extras/img/logo_final.jpg">', '');
+			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace('<img src="extras/img/logo.jpg">', '');
 			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace("<b>Modular RGB displays for Arduino</b><br>", "");
 			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace("<br>", "");
 			  document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replaceAll("NOTE:", "<span class='pink_highlight'>NOTE:</span>");
