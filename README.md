@@ -14,7 +14,6 @@
   <a href="https://connornishijima.github.io/Pixie_Chroma/?section=purchase"><b>PURCHASE</b></a>
   &nbsp;&nbsp;· · ·&nbsp;&nbsp;
 </p>
-<br>
 <p align="center">
   <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_lint.yml/badge.svg">
   <img src="https://github.com/connornishijima/Pixie_Chroma/actions/workflows/arduino_build.yml/badge.svg">
