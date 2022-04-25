@@ -8,6 +8,7 @@ on:
     - 'library.properties'
     - 'library.json'
     - 'keywords.txt'
+    - 'arduino_build.yml'
   pull_request:
     paths:
     - '**.ino'
@@ -16,13 +17,14 @@ on:
     - 'library.properties'
     - 'library.json'
     - 'keywords.txt'
+    - 'arduino_build.yml'
 jobs:
   build:
     name: "Arduino_Build"
     runs-on: ubuntu-latest
     
     env:
-      REQUIRED_LIBRARIES: FastLED, WiFiManager, ArduinoJson
+      REQUIRED_LIBRARIES: FastLED,WiFiManager,ArduinoJson
       GITHUB_TOKEN: ${{ github.token }}
 
     steps:
