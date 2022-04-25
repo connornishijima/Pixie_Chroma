@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      REQUIRED_LIBRARIES: FastLED
+      REQUIRED_LIBRARIES: FastLED, WiFiManager, ArduinoJson
       GITHUB_TOKEN: ${{ github.token }}
 
     steps:
