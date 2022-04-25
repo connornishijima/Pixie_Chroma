@@ -2,7 +2,7 @@
  * @file pixie_chroma_internal.cpp
  *
  * Designed specifically to work with Pixie Chroma:
- * ----> https://connornishijima.github.io/PixieChroma
+ * ----> https://lixielabs.com/chroma
  *
  * Last Updated by Connor Nishijima on 12/3/21
  */
