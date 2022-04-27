@@ -7,6 +7,9 @@
  * Last Updated by Connor Nishijima on 12/3/21
  */
 
+// TODO: Make print() and write() calls allocate proper char array size
+// ...for each variable type, instead of just 32 chars no matter the type.
+
 #include "Pixie_Chroma.h" 
 #include "utility/pixie_utility.h"
 
