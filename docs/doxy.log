@@ -14,6 +14,6 @@ warning: source 'docs/img' is not a readable file or directory... skipping.
 /github/workspace/src/utility/pixie_palettes.h:90: warning: Member GRADIENT_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/utility/pixie_palettes.h:95: warning: Member GRADIENT_BLACK_BLUE_BLACK[] (variable) of file pixie_palettes.h is not documented.
 /github/workspace/src/pixie_chroma_internal.h:58: warning: parameters of member PixieChroma::set_palette are not (all) documented
-/github/workspace/src/pixie_chroma_internal.cpp:456: warning: argument 'scroll_type' of command @param is not found in the argument list of PixieChroma::set_scroll_type(t_scroll_type type)
+/github/workspace/src/pixie_chroma_internal.cpp:459: warning: argument 'scroll_type' of command @param is not found in the argument list of PixieChroma::set_scroll_type(t_scroll_type type)
 /github/workspace/src/pixie_chroma_internal.h:60: warning: The following parameter of PixieChroma::set_scroll_type(t_scroll_type type) is not documented:
   parameter 'type'
