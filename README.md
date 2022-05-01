@@ -97,13 +97,13 @@ The Pixie Chroma library also uses FastLED as a dependency, so FastLED itself al
 ## Fully Supported Microcontrollers
 
 - ESP8266 (Adafruit HUZZAH, Wemos D1 Mini, etc.)
-- ESP32 (TinyPico, HUZZAH32)
+- ESP32 / ESP32-S2 (TinyPico, HUZZAH32, TinyS2)
 - Teensy 3.x (Possibly Teensy 4.x, not yet tested)
 
 ## Currently Planned Support
 
 - RP2040 (Needs FastLED port)
-- ESP32-S2 (Needs testing)
+- ~ESP32-S2 (Needs testing)~ *Confirmed working*
 - ESP32-S3 (Needs testing)
 - SAMD21 (TODO, has been hard to get)
 
