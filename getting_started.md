@@ -33,6 +33,8 @@ Hello! You've just recieved Pixie Chromas in the mail, and if you're as excited 
 
 Visit [www.arduino.cc/downloads](https://www.arduino.cc/downloads) and download the latest version of the IDE for your operating system.
 
+#### NOTE: Only Arduino IDE versions >= 1.8.10 will correctly install the Pixie Chroma library in one click. Earlier versions will need to manually search for and install FastLED, ArduinoJSON, and WiFiManager libraries in a later step for full support.
+
 ![Arduino Download Page](extras/img/arduino_download_ide.jpg)
 
 Once downloaded and installed, proceed to Step 2.
@@ -74,6 +76,8 @@ Open the menu again: `Sketch > Include Library > Manage Libraries...`
 ![Arduino Library Manager](extras/img/arduino_library_manager.jpg)
 
 When this window appears (it may take some time to unfreeze after opening) you can use the search box to find "pixie chroma", with Lixie Labs listed as the author. Install the latest version, then proceed to Step 4!
+
+#### NOTE: If using an Arduino IDE version older than 1.8.10, you'll need to manually search for and install FastLED, ArduinoJSON, and WiFiManager libraries in the Library Manager window at this step while you're at it.
 
 # 4. Wiring
 
