@@ -3007,7 +3007,7 @@ int16_t PixieChroma::calc_justification( t_justification justification, uint8_t 
 	x_disp_end = x_pos;
 	
 	uint8_t length = x_disp_end - x_disp_start;
-	int16_t x_offset_chars;
+	int16_t x_offset_chars = 0;
 	
 	if(length > (chars_x-2)){
 		return 0;
