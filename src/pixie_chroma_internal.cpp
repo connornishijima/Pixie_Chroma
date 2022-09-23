@@ -258,7 +258,11 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
 			( pixies_per_pin*leds_per_pixie )
 		).setCorrection( TypicalLEDStrip );
 		
+            #if defined( CONFIG_IDF_TARGET_ESP32S2 ) || defined( CONFIG_IDF_TARGET_ESP32S3 )
+		FastLED.addLeds<NEOPIXEL, 26>( // Initialize FastLED Data Out 4
+            #else
 		FastLED.addLeds<NEOPIXEL, 27>( // Initialize FastLED Data Out 4
+            #endif
 			color_map_out,
 			( pixies_per_pin*leds_per_pixie ) * 3,
 			( pixies_per_pin*leds_per_pixie )
@@ -2600,7 +2604,42 @@ void PixieChroma::build_controller( const uint8_t pin ){
         if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
     #endif
     
-    #ifdef ARDUINO_ARCH_ESP32
+    #if defined( CONFIG_IDF_TARGET_ESP32S2 ) || defined( CONFIG_IDF_TARGET_ESP32S3 )
+        if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 3 ){FastLED.addLeds<WS2812B, 3, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 4 ){FastLED.addLeds<WS2812B, 4, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 5 ){FastLED.addLeds<WS2812B, 5, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 12 ){FastLED.addLeds<WS2812B, 12, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 13 ){FastLED.addLeds<WS2812B, 13, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 14 ){FastLED.addLeds<WS2812B, 14, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 15 ){FastLED.addLeds<WS2812B, 15, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 17 ){FastLED.addLeds<WS2812B, 17, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 18 ){FastLED.addLeds<WS2812B, 18, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 19 ){FastLED.addLeds<WS2812B, 19, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 21 ){FastLED.addLeds<WS2812B, 21, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 26 ){FastLED.addLeds<WS2812B, 26, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 33 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 33 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 34 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 35 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 36 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 37 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 38 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 39 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 40 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 41 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 42 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 43 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 44 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 45 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+      #if defined( CONFIG_IDF_TARGET_ESP32S3 )
+        if ( pin == 46 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 47 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+      #endif
+    #elif ARDUINO_ARCH_ESP32
         if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
         if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
         if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
