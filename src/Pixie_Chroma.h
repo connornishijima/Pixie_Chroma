@@ -63,7 +63,7 @@
 	#error "This library currently only supports ESP8266, ESP32, or TEENSY 3.X controllers. See https:\/\/github.com/connornishijima/Pixie_Chroma#supported-platforms for help."
 #endif
 
-#if defined(CONFIG_IDF_TARGET_ESP32S2)
+#if defined(CONFIG_IDF_TARGET_ESP32S2) || defined(CONFIG_IDF_TARGET_ESP32S3)
 	#define FASTLED_ESP32_FLASH_LOCK 1
 #elif defined(ARDUINO_ARCH_ESP32)
 	#define FASTLED_ESP32_I2S true
