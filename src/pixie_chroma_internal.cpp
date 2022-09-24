@@ -1938,7 +1938,7 @@ void PixieChroma::color_dim( uint8_t amount ){
 *///............................................................................
 void PixieChroma::draw_line_color( int16_t x1, int16_t y1, int16_t x2, int16_t y2, CRGB color ){
     //Bresenham's line algorithm
-    uint16_t index;
+    
     
     int16_t x,y,dx,dy,dx1,dy1,px,py,xe,ye,i;
     dx=x2-x1;
@@ -2020,7 +2020,7 @@ void PixieChroma::draw_line_color( int16_t x1, int16_t y1, int16_t x2, int16_t y
 *///............................................................................
 void PixieChroma::draw_line_mask( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint8_t value ){
     //Bresenham's line algorithm
-    uint16_t index;
+    
     
     int16_t x,y,dx,dy,dx1,dy1,px,py,xe,ye,i;
     dx=x2-x1;
@@ -2779,7 +2779,7 @@ void PixieChroma::calc_xy(){
     for( uint16_t y = 0; y < matrix_height; y++ ){
         for( uint16_t x = 0; x < matrix_width; x++ ){
             uint16_t i = ( y * matrix_width ) + x;
-            uint16_t j = xy_table[i];
+            
 
             if( xy_table[i] == -2 ){
                 xy_table[i] = index;
@@ -3007,7 +3007,7 @@ int16_t PixieChroma::calc_justification( t_justification justification, uint8_t 
 	x_disp_end = x_pos;
 	
 	uint8_t length = x_disp_end - x_disp_start;
-	int16_t x_offset_chars;
+	int16_t x_offset_chars = 0;
 	
 	if(length > (chars_x-2)){
 		return 0;
