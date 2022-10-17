@@ -258,7 +258,11 @@ void PixieChroma::begin_quad( uint8_t pixies_per_pin, uint8_t pixies_x, uint8_t 
 			( pixies_per_pin*leds_per_pixie )
 		).setCorrection( TypicalLEDStrip );
 		
+            #if defined( CONFIG_IDF_TARGET_ESP32S2 ) || defined( CONFIG_IDF_TARGET_ESP32S3 )
+		FastLED.addLeds<NEOPIXEL, 26>( // Initialize FastLED Data Out 4
+            #else
 		FastLED.addLeds<NEOPIXEL, 27>( // Initialize FastLED Data Out 4
+            #endif
 			color_map_out,
 			( pixies_per_pin*leds_per_pixie ) * 3,
 			( pixies_per_pin*leds_per_pixie )
@@ -1934,7 +1938,7 @@ void PixieChroma::color_dim( uint8_t amount ){
 *///............................................................................
 void PixieChroma::draw_line_color( int16_t x1, int16_t y1, int16_t x2, int16_t y2, CRGB color ){
     //Bresenham's line algorithm
-    uint16_t index;
+    
     
     int16_t x,y,dx,dy,dx1,dy1,px,py,xe,ye,i;
     dx=x2-x1;
@@ -2016,7 +2020,7 @@ void PixieChroma::draw_line_color( int16_t x1, int16_t y1, int16_t x2, int16_t y
 *///............................................................................
 void PixieChroma::draw_line_mask( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint8_t value ){
     //Bresenham's line algorithm
-    uint16_t index;
+    
     
     int16_t x,y,dx,dy,dx1,dy1,px,py,xe,ye,i;
     dx=x2-x1;
@@ -2600,7 +2604,42 @@ void PixieChroma::build_controller( const uint8_t pin ){
         if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
     #endif
     
-    #ifdef ARDUINO_ARCH_ESP32
+    #if defined( CONFIG_IDF_TARGET_ESP32S2 ) || defined( CONFIG_IDF_TARGET_ESP32S3 )
+        if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 3 ){FastLED.addLeds<WS2812B, 3, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 4 ){FastLED.addLeds<WS2812B, 4, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 5 ){FastLED.addLeds<WS2812B, 5, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 12 ){FastLED.addLeds<WS2812B, 12, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 13 ){FastLED.addLeds<WS2812B, 13, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 14 ){FastLED.addLeds<WS2812B, 14, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 15 ){FastLED.addLeds<WS2812B, 15, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 16 ){FastLED.addLeds<WS2812B, 16, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 17 ){FastLED.addLeds<WS2812B, 17, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 18 ){FastLED.addLeds<WS2812B, 18, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 19 ){FastLED.addLeds<WS2812B, 19, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 21 ){FastLED.addLeds<WS2812B, 21, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 26 ){FastLED.addLeds<WS2812B, 26, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 33 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 33 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 34 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 35 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 36 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 37 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 38 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 39 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 40 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 41 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 42 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 43 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 44 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 45 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+      #if defined( CONFIG_IDF_TARGET_ESP32S3 )
+        if ( pin == 46 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+        if ( pin == 47 ){FastLED.addLeds<WS2812B, 33, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
+      #endif
+    #elif ARDUINO_ARCH_ESP32
         if ( pin == 0 ){FastLED.addLeds<WS2812B, 0, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
         if ( pin == 1 ){FastLED.addLeds<WS2812B, 1, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
         if ( pin == 2 ){FastLED.addLeds<WS2812B, 2, GRB>( color_map_out, led_count ).setCorrection( TypicalLEDStrip );}
@@ -2740,7 +2779,7 @@ void PixieChroma::calc_xy(){
     for( uint16_t y = 0; y < matrix_height; y++ ){
         for( uint16_t x = 0; x < matrix_width; x++ ){
             uint16_t i = ( y * matrix_width ) + x;
-            uint16_t j = xy_table[i];
+            
 
             if( xy_table[i] == -2 ){
                 xy_table[i] = index;
@@ -2968,7 +3007,7 @@ int16_t PixieChroma::calc_justification( t_justification justification, uint8_t 
 	x_disp_end = x_pos;
 	
 	uint8_t length = x_disp_end - x_disp_start;
-	int16_t x_offset_chars;
+	int16_t x_offset_chars = 0;
 	
 	if(length > (chars_x-2)){
 		return 0;
